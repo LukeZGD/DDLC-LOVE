@@ -18,15 +18,19 @@ function audioUpdate(audiox) --the audio update function yay
 		ddlct = love.audio.newSource('./audio/bgm/3.wav')
 		ddlct:setLooping(true)
 		ddlct:play()
+	elseif audiox == 's_kill_early' then
+		ddlct = love.audio.newSource('./audio/bgm/s_kill_early.wav')
+		ddlct:setLooping(true)
+		ddlct:play()
 	end
 end
 
 function audioCheck() --checks if audio needs changes.. runs at load game or script progress
 	if audio1 == 1 then
-		if ch0ln <= 80 then --audio updates
+		if ch0ln <= 82 then --audio updates
 			audioUpdate('2')
 			audio1 = 0
-		elseif ch0ln <= 83 then
+		elseif ch0ln <= 85 then
 			audioUpdate('0')
 			audio1 = 0
 		elseif ch0ln <= 200 then
@@ -36,11 +40,40 @@ function audioCheck() --checks if audio needs changes.. runs at load game or scr
 	end
 end
 
+function audioStop()
+	if ddlct == nil then else ddlct:stop() end
+	ddlct = nil
+end
+
 function sfx1play()
 	sfx = love.audio.newSource("./audio/sfx/select.wav", "static")
-	ddlct:setLooping(false)
+	sfx:setLooping(false)
 	sfx:play()
 	sfx = nil
+end
+
+function resetchr(x)
+	monikachr = io.open("./characters/monika.chr", "w")
+	sayorichr = io.open("./characters/sayori.chr", "w")
+	yurichr = io.open("./characters/yuri.chr", "w")
+	natsukichr = io.open("./characters/natsuki.chr", "w")
+	if x==1 then
+		yurichr:write()
+		natsukichr:write()
+	elseif x==2 then
+		monikachr:write()
+		yurichr:write()
+		natsukichr:write()
+	else
+		monikachr:write()
+		sayorichr:write()
+		yurichr:write()
+		natsukichr:write()
+	end
+	monikachr:close()
+	sayorichr:close()
+	yurichr:close()
+	natsukichr:close()
 end
 
 function charCheck() --checks if character draw needs changes.. runs at load game or script progress
@@ -77,11 +110,6 @@ function charCheck() --checks if character draw needs changes.. runs at load gam
 	end
 end
 
-function audioStop()
-	ddlct:stop()
-	ddlct = nil
-end
-
 function loadSayori()
 	s1l = love.graphics.newImage('./images/sayori/1l.png')
 	s1r = love.graphics.newImage('./images/sayori/1r.png')
@@ -110,6 +138,8 @@ function loadSayori()
 	s_q = love.graphics.newImage('./images/sayori/q.png')
 	s_r = love.graphics.newImage('./images/sayori/r.png')
 	--s_s = love.graphics.newImage('./images/sayori/s.png')
+	s_u = love.graphics.newImage('./images/sayori/u.png')
+	s_w = love.graphics.newImage('./images/sayori/w.png')
 	s_x = love.graphics.newImage('./images/sayori/x.png')
 	s_y = love.graphics.newImage('./images/sayori/y.png')
 end
@@ -142,6 +172,8 @@ function unloadSayori()
 	s_q = nil
 	s_r = nil
 	s_s = nil
+	s_u = nil
+	s_w = nil
 	s_x = nil
 	s_y = nil
 end
@@ -229,11 +261,11 @@ function loadNatsuki()
 	--n_a = love.graphics.newImage('./images/natsuki/a.png')
 	n_b = love.graphics.newImage('./images/natsuki/b.png')
 	n_c = love.graphics.newImage('./images/natsuki/c.png')
-	--n_d = love.graphics.newImage('./images/natsuki/d.png')
+	n_d = love.graphics.newImage('./images/natsuki/d.png')
 	--n_e = love.graphics.newImage('./images/natsuki/e.png')
 	--n_f = love.graphics.newImage('./images/natsuki/f.png')
 	--n_g = love.graphics.newImage('./images/natsuki/g.png')
-	--n_h = love.graphics.newImage('./images/natsuki/h.png')
+	n_h = love.graphics.newImage('./images/natsuki/h.png')
 	--n_i = love.graphics.newImage('./images/natsuki/i.png')
 	--n_j = love.graphics.newImage('./images/natsuki/j.png')
 	--n_k = love.graphics.newImage('./images/natsuki/k.png')
