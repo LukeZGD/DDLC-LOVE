@@ -6,19 +6,26 @@ function drawBottomScreen()
 	love.graphics.setScreen("bottom")
 end
 
-function bgcheck() --background changes (update with audio)
-	if ch0ln <= 44 then
+function bgCheck() --background changes
+	if ch0ln <= 46 then
 		unloadbg()
 		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 80 then
+	elseif ch0ln <= 82 then
 		unloadbg()
 		bgch = love.graphics.newImage('./images/bg/class.png')
-	elseif ch0ln <= 83 then
+	elseif ch0ln <= 85 then
 		unloadbg()
 		bgch = love.graphics.newImage('./images/bg/corridor.png')
 	elseif ch0ln <= 200 then
 		unloadbg()
 		bgch = love.graphics.newImage('./images/bg/club.png')
+	elseif ch0ln <= 10015 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/residential.png')
+	elseif ch0ln <= 10019 then
+		bgch = love.graphics.newImage('./images/bg/warning.png')
+	elseif ch0ln == 10020 then
+		bgch = love.graphics.newImage('./images/bg/warning2.png')
 	end
 end
 
@@ -26,6 +33,15 @@ function unloadbg()
 	splash = nil
 	titlebg = nil
 	bgch = nil
+end
+
+function loadingf()
+	if sload == 1 or yload == 1 or nload == 1 or mload == 1 then
+	--if love.keypressed('a') then
+	drawTopScreen()
+	love.graphics.print("Load", 175, 0, 0, 1, 1)
+	--end
+	end
 end
 
 function drawGame()
@@ -42,21 +58,26 @@ function drawGame()
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255)
 	love.graphics.draw(bgch, 0, 0) --background changes over time check bgcheck!
-	--love.graphics.draw(audiox, 0, 16)
+	loadingf()
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
 	drawMonika(ma,mb,mc)
 		
 	drawBottomScreen()
-	love.graphics.draw(bottombg, 0, 0)
+	love.graphics.draw(background_Image, posX, posY)
+	if ch0t == '' then else love.graphics.draw(namebox, 0, 40) end
+	love.graphics.draw(textbox, 0, 60)
+	
 	love.graphics.setColor(0,0,0)
-	love.graphics.print(ch0ln,0,0,0,1,1) --script numbet
-	love.graphics.print(ch0t,8,38,0,1,1) --t name
+	love.graphics.print(ch0ln,0,0,0,1,1) --script number
+	love.graphics.print(ch0t,8,40,0,1,1) --t name
 	love.graphics.print(ch0a,8,64,0,1,1) --line 1
 	love.graphics.print(ch0b,8,80,0,1,1) --line 2
 	love.graphics.print(ch0c,8,96,0,1,1) --line 3
 	love.graphics.print(ch0d,8,112,0,1,1) --line 4
+
+	if state == 'newgame' then else
 	love.graphics.print("Y - Save Game",16,220,0,1,1)
 	if autotimer == 0 then
 		love.graphics.print("B - Auto On",120,220,0,1,1)
@@ -64,6 +85,7 @@ function drawGame()
 		love.graphics.print("B - Auto Off",120,220,0,1,1)
 	end
 	love.graphics.print("X - Skip",220,220,0,1,1)
+	end
 end
 
 ch0t = "" --name text
@@ -118,7 +140,8 @@ end
 
 function drawSayori(a,b,c)
 
-	if sload == 0 then else
+	if sload == 0 then --elseif sload == 2 then 
+	else
 
 	if a=="" then
 	elseif a=="1l" then
@@ -181,6 +204,10 @@ function drawSayori(a,b,c)
 		love.graphics.draw(s_r, sx)
 	elseif c=="s" then
 		love.graphics.draw(s_s, sx)
+	elseif c=="u" then
+		love.graphics.draw(s_u, sx)
+	elseif c=="w" then
+		love.graphics.draw(s_w, sx)
 	elseif c=="x" then
 		love.graphics.draw(s_x, sx)
 	elseif c=="y" then
@@ -193,7 +220,8 @@ end
 
 function drawYuri(a,b,c)
 
-	if yload == 0 then else
+	if yload == 0 then --elseif yload == 2 then 
+	else
 
 	if a=="" then
 	elseif a=="1l" then
@@ -256,7 +284,8 @@ end
 
 function drawNatsuki(a,b,c)
 
-	if nload == 0 then else
+	if nload == 0 then --elseif nload == 2 then 
+	else
 	
 	if a=="" then
 	elseif a=="1l" then
@@ -281,18 +310,32 @@ function drawNatsuki(a,b,c)
 		love.graphics.draw(n_b, nx)
 	elseif c=="c" then
 		love.graphics.draw(n_c, nx)
+	elseif c=="d" then
+		love.graphics.draw(n_d, nx)
+	elseif c=="e" then
+		love.graphics.draw(n_e, nx)
+	elseif c=="f" then
+		love.graphics.draw(n_f, nx)
 	elseif c=="g" then
 		love.graphics.draw(n_g, nx)
 	elseif c=="h" then
-		love.graphics.draw(n_h, nx)
+		love.graphics.draw(n_h, nxh, ny)
+	elseif c=="i" then
+		love.graphics.draw(n_i, nx)
 	elseif c=="j" then
-		love.graphics.draw(s_j, yx)
-	elseif c=="p" then
-		love.graphics.draw(s_p, yx)
+		love.graphics.draw(n_j, yx)
+	elseif c=="k" then
+		love.graphics.draw(n_k, nx)
+	elseif c=="l" then
+		love.graphics.draw(n_l, nx)
+	elseif c=="m" then
+		love.graphics.draw(n_m, nx)
+	elseif c=="n" then
+		love.graphics.draw(n_n, nx)
 	elseif c=="q" then
-		love.graphics.draw(s_q, yx)
+		love.graphics.draw(n_q, nx)
 	elseif c=="r" then
-		love.graphics.draw(s_r, sx)
+		love.graphics.draw(n_r, nx)
 	elseif c=="s" then
 		love.graphics.draw(n_s, nxh, ny)
 	elseif c=="z" then
@@ -305,7 +348,8 @@ end
 
 function drawMonika(a,b,c)
 
-	if mload == 0 then else
+	if mload == 0 then --elseif mload == 2 then 
+	else
 
 	if a=="" then
 	elseif a=="1l" then
@@ -334,20 +378,34 @@ function drawMonika(a,b,c)
 		love.graphics.draw(m_c, mx)
 	elseif c=="d" then
 		love.graphics.draw(m_d, mx)
+	elseif c=="e" then
+		love.graphics.draw(m_e, mx)
+	elseif c=="f" then
+		love.graphics.draw(m_f, mx)
 	elseif c=="g" then
-		love.graphics.draw(s_g, yx)
+		love.graphics.draw(m_g, mx)
 	elseif c=="h" then
-		love.graphics.draw(s_h, yx)
+		love.graphics.draw(m_h, mx)
+	elseif c=="i" then
+		love.graphics.draw(m_i, mx)
 	elseif c=="j" then
-		love.graphics.draw(s_j, yx)
+		love.graphics.draw(m_j, mx)
 	elseif c=="k" then
 		love.graphics.draw(m_k, mx)
+	elseif c=="l" then
+		love.graphics.draw(m_l, mx)
+	elseif c=="m" then
+		love.graphics.draw(m_m, mx)
+	elseif c=="n" then
+		love.graphics.draw(m_n, mx)
+	elseif c=="o" then
+		love.graphics.draw(m_o, mx)
 	elseif c=="p" then
-		love.graphics.draw(s_p, yx)
+		love.graphics.draw(m_p, mx)
 	elseif c=="q" then
-		love.graphics.draw(s_q, yx)
+		love.graphics.draw(m_q, mx)
 	elseif c=="r" then
-		love.graphics.draw(s_r, sx)
+		love.graphics.draw(m_r, mx)
 	end
 	
 	end
