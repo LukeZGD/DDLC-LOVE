@@ -29,11 +29,13 @@ end
 
 function keyboard_close()
 	-- set your close actions here
-	player = key_typed_text
-	audioUpdate('2')
-	bgCheck()
-	charCheck()
-	state = "game"
+	if key_typed_text == '' then else
+		player = key_typed_text
+		audioUpdate('2')
+		bgCheck()
+		charCheck()
+		state = "game"
+	end
 end
 
 function keyboard_update(dt)

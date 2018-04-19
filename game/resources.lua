@@ -33,7 +33,7 @@ function audioCheck() --checks if audio needs changes.. runs at load game or scr
 		elseif ch0ln <= 85 then
 			audioUpdate('0')
 			audio1 = 0
-		elseif ch0ln <= 200 then
+		elseif ch0ln <= 300 then
 			audioUpdate('3')
 			audio1 = 0
 		end
@@ -52,26 +52,29 @@ function sfx1play()
 	sfx = nil
 end
 
-function resetchr(x)
+function resetchr()
 	monikachr = io.open("./characters/monika.chr", "w")
 	sayorichr = io.open("./characters/sayori.chr", "w")
 	yurichr = io.open("./characters/yuri.chr", "w")
 	natsukichr = io.open("./characters/natsuki.chr", "w")
-	if x==1 then
-		yurichr:write()
-		natsukichr:write()
-	elseif x==2 then
-		monikachr:write()
-		yurichr:write()
-		natsukichr:write()
-	else
-		monikachr:write()
-		sayorichr:write()
-		yurichr:write()
-		natsukichr:write()
-	end
+	
+	monikachr:write()
+	sayorichr:write()
+	yurichr:write()
+	natsukichr:write()
+	
 	monikachr:close()
 	sayorichr:close()
+	yurichr:close()
+	natsukichr:close()
+end
+
+function resetchr2()
+	yurichr = io.open("./characters/yuri.chr", "w")
+	natsukichr = io.open("./characters/natsuki.chr", "w")
+	yurichr:write()
+	natsukichr:write()
+	
 	yurichr:close()
 	natsukichr:close()
 end
@@ -107,6 +110,26 @@ function charCheck() --checks if character draw needs changes.. runs at load gam
 	elseif mload == 2 then
 		unloadMonika()
 		mload = 99
+	end
+	
+	if xaload == 1 then
+		unloadMonika()
+		unloadNatsuki()
+		unloadSayori()
+		unloadYuri()
+		loadAll()
+		xaload = 0
+	end
+end
+
+function loadAll(x)
+	if x == 1 then
+		
+	else
+		loadSayori()
+		loadYuri()
+		loadNatsuki()
+		loadMonika()
 	end
 end
 
@@ -181,7 +204,7 @@ end
 function loadYuri()	
 	y1l = love.graphics.newImage('./images/yuri/1l.png')
 	y1r = love.graphics.newImage('./images/yuri/1r.png')
-	y2r = love.graphics.newImage('./images/yuri/2l.png')
+	y2l = love.graphics.newImage('./images/yuri/2l.png')
 	y2r = love.graphics.newImage('./images/yuri/2r.png')
 	y3_ = love.graphics.newImage('./images/yuri/3.png')
 	y_a = love.graphics.newImage('./images/yuri/a.png')
@@ -202,14 +225,14 @@ function loadYuri()
 	--y_k = love.graphics.newImage('./images/yuri/k.png')
 	y_l = love.graphics.newImage('./images/yuri/l.png')
 	--y_m = love.graphics.newImage('./images/yuri/m.png')
-	--y_n = love.graphics.newImage('./images/yuri/n.png')
+	y_n = love.graphics.newImage('./images/yuri/n.png')
 	--y_o = love.graphics.newImage('./images/yuri/o.png')
 	--y_p = love.graphics.newImage('./images/yuri/p.png')
 	--y_q = love.graphics.newImage('./images/yuri/q.png')
 	--y_r = love.graphics.newImage('./images/yuri/r.png')
 	--y_s = love.graphics.newImage('./images/yuri/s.png')
 	--y_t = love.graphics.newImage('./images/yuri/t.png')
-	--y_u = love.graphics.newImage('./images/yuri/u.png')
+	y_u = love.graphics.newImage('./images/yuri/u.png')
 	--y_v = love.graphics.newImage('./images/yuri/v.png')
 	--y_w = love.graphics.newImage('./images/yuri/w.png')
 	--yy6 = love.graphics.newImage('./images/yuri/y6.png')
@@ -282,6 +305,26 @@ function loadNatsuki()
 	--n_x = love.graphics.newImage('./images/natsuki/x.png')
 	--n_y = love.graphics.newImage('./images/natsuki/y.png')
 	n_z = love.graphics.newImage('./images/natsuki/z.png')
+	--n2bt = love.graphics.newImage('./images/natsuki/2bt.png')
+	--n2bta = love.graphics.newImage('./images/natsuki/2bta.png')
+	--n2btb = love.graphics.newImage('./images/natsuki/2btb.png')
+	n2btc = love.graphics.newImage('./images/natsuki/2btc.png')
+	--n2btd = love.graphics.newImage('./images/natsuki/2btd.png')
+	--n2bte = love.graphics.newImage('./images/natsuki/2bte.png')
+	--n2btf = love.graphics.newImage('./images/natsuki/2btf.png')
+	--n2btg = love.graphics.newImage('./images/natsuki/2btg.png')
+	--n2bth = love.graphics.newImage('./images/natsuki/2bth.png')
+	--n2bti = love.graphics.newImage('./images/natsuki/2bti.png')
+	--n2t = love.graphics.newImage('./images/natsuki/2t.png')
+	--n2ta = love.graphics.newImage('./images/natsuki/2ta.png')
+	--n2tb = love.graphics.newImage('./images/natsuki/2tb.png')
+	--n2tc = love.graphics.newImage('./images/natsuki/2tc.png')
+	--n2td = love.graphics.newImage('./images/natsuki/2td.png')
+	--n2te = love.graphics.newImage('./images/natsuki/2te.png')
+	--n2tf = love.graphics.newImage('./images/natsuki/2tf.png')
+	--n2tg = love.graphics.newImage('./images/natsuki/2tg.png')
+	--n2th = love.graphics.newImage('./images/natsuki/2th.png')
+	--n2ti = love.graphics.newImage('./images/natsuki/2ti.png')
 end
 
 function unloadNatsuki()
@@ -332,7 +375,7 @@ function loadMonika()
 	--m_g = love.graphics.newImage('./images/monika/g.png')
 	--m_h = love.graphics.newImage('./images/monika/h.png')
 	--m_i = love.graphics.newImage('./images/monika/i.png')
-	--m_j = love.graphics.newImage('./images/monika/j.png')
+	m_j = love.graphics.newImage('./images/monika/j.png')
 	m_k = love.graphics.newImage('./images/monika/k.png')
 	--m_l = love.graphics.newImage('./images/monika/l.png')
 	--m_m = love.graphics.newImage('./images/monika/m.png')
