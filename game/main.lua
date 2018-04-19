@@ -3,7 +3,7 @@ require "script"
 require "resources"
 require "keyboard"
 
---load save file
+--open save file
 file = io.open("save.txt", "r")
 
 function love.load() 
@@ -16,24 +16,17 @@ function love.load()
 	--set up more stuff (splash, backgrounds, gui elements)
 	splash = love.graphics.newImage('./images/bg/splash.png')
 	titlebg = love.graphics.newImage('./images/bg/bg.png')
-	--bottombg = love.graphics.newImage('./images/bg/bottombg.png')
 	textbox = love.graphics.newImage('./images/gui/textbox.png')
 	namebox = love.graphics.newImage('./images/gui/namebox.png')
 
 	--scrolling background
 	background_Image = love.graphics.newImage('./images/bg/menu_bg.png')
-	posX = 0 -- initializing posX
+	posX = 0
 	posY = 0
 	
 	--set up some other stuff)
 	timer = 0
 	autotimer = 0
-	
-	--check character files
-	sayorichr = io.open("./characters/sayori.chr", "r")
-	if sayorichr == nil then state = "s_kill_early" else sayorichr:close() end
-	monikachr = io.open("./characters/monika.chr", "r")
-	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
 	
 	--save file read (if it doesnt exist, set new game)
 	if file == nil then
@@ -42,12 +35,19 @@ function love.load()
 		state = "newgame"
 	else
 		fileContent = file:read "*l"
+		fileContent = fileContent+1-1
 		player = file:read "*l"
 		file:close()
 	end
-
+	
+	--check character files
+	sayorichr = io.open("./characters/sayori.chr", "r")
+	if sayorichr == nil or fileContent == 10000 then state = "s_kill_early" else sayorichr:close() end
+	monikachr = io.open("./characters/monika.chr", "r")
+	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
+	
 	--new game check
-	if fileContent == '0' then
+	if fileContent == 0 then
 		ch0ln = 10016
 		bgCheck()
 		state = "newgame"
@@ -61,7 +61,7 @@ function love.load()
 	elseif state == "newgame" then
 		timer = 502
 	else
-		resetchr(1)
+		resetchr2()
 		state = "splash1" --splash screen
 		audioUpdate('1') --play titlescreen music
 	end 
@@ -71,35 +71,37 @@ function love.load()
 	yload = 0
 	nload = 0
 	mload = 0
+	xaload = 0
+	alpha = 0
 end
 
 function love.draw() 
 
-	drawTopScreen()
-	--love.graphics.setColor(0,0,0)
-	--love.graphics.print(timer, 0, 0, 0, 1, 1)
-	
-	posX = posX - 0.15
-	posY = posY - 0.15
+	posX = posX - 0.125
+	posY = posY - 0.125
 	
     if posX <= -80 then posX = 0 end
 	if posY <= -80 then posY = 0 end
 	
 	if timer <= 200 then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
-		love.graphics.setColor(255, 255, 255)
-		love.graphics.draw(splash, 0, 0, 0, 400, 240)
+		splashalpha(1)
+		love.graphics.setColor(255, 255, 255, alpha)
+		love.graphics.draw(splash, 0, 0, 0)
 		
 	elseif state == "splash2" then --splash2 (Disclaimer)
 		drawTopScreen()
-		love.graphics.setColor(0,0,0)
+		splashalpha(2)
+		love.graphics.setColor(0,0,0, alpha)
 		love.graphics.print("This game is not suitable for children", 90, 100, 0, 1, 1)
 		love.graphics.print("  or those who are easily disturbed.", 90, 116, 0, 1, 1)
 		love.graphics.print("Unofficial port by LukeeGD", 5, 220, 0, 1, 1)
 		
 	elseif state == "title" then --title (Title Screen)
 		drawTopScreen()
-		love.graphics.setColor(255, 255, 255)
+		splashalpha(3)
+		love.graphics.setColor(255, 255, 255, alpha)
+		love.graphics.draw(background_Image, posX, posY)
 		love.graphics.draw(titlebg, 0, 0)
 		
 		drawBottomScreen()
@@ -114,9 +116,9 @@ function love.draw()
 		love.graphics.print("X - Skip",16, 112, 0, 1, 1)
 		love.graphics.print("START+A - Quit",16, 144, 0, 1, 1)
 		love.graphics.print("SELECT+A - Erase Save Data",16, 160, 0, 1, 1)
-		--love.graphics.print(timer, 0, 0, 0, 1, 1)
+		--love.graphics.print(player, 0, 0, 0, 1, 1)
 		
-	elseif state == "game" or state == "newgame"then --game (Ingame)
+	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
 		
 	elseif state == "s_kill_early" then --early act 1 end
@@ -164,7 +166,7 @@ function love.update(dt)
 	if state == "splash1" or state == "splash2" then --splash screen (change state)
 		if timer == 200 then
 			state = "splash2"
-		elseif timer >= 500 then
+		elseif timer >= 480 then
 			state = "title"
 		end
 	end
@@ -194,12 +196,15 @@ function love.keypressed(key)
 	if key == 'start' then --new game
 		if state == "title" then
 			sfx1play()
-			keyboard_load()
-			state = 'keyboard'
-			--audioUpdate('2')
-			--bgCheck()
-			--charCheck()
-			--state = "game"		
+			if player == nil then
+				keyboard_load()
+				state = 'keyboard'
+			else
+				audioUpdate('2')
+				bgCheck()
+				charCheck()
+				state = "game"
+			end
 		elseif state == "splash1" then --skip splash screens
 			timer = 500
 			state = "title"
@@ -208,8 +213,8 @@ function love.keypressed(key)
 	elseif key == 'select' then --load game
 		if state == "title" then
 			sfx1play()
-			if fileContent == nil then else
-				ch0ln = fileContent+1-1
+			if fileContent == nil or fileContent == '1' then else
+				ch0ln = fileContent
 				audio1 = 1
 				audioCheck() --check for audio update
 				charCheck()
