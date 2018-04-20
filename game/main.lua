@@ -8,7 +8,7 @@ file = io.open("save.txt", "r")
 function love.load() 
 	--set up stuff
 	love.graphics.setBackgroundColor ( 0,0,0 )
-	font = love.graphics.newFont('aller_regular_10')
+	font = love.graphics.newFont('Aller_Rg')
 	love.graphics.setFont(font)
 	
 	
@@ -46,10 +46,12 @@ function love.load()
 	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
 	
 	if state == "s_kill_early" then --set up early act 1 end
+		timer = 501
 		endbg = love.graphics.newImage('./images/gui/end.png')
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
 		audioUpdate('s_kill_early')
 	elseif fileContent == 0 then
+		timer = 501
 		ch0ln = 10016
 		bgCheck()
 		state = "newgame"
