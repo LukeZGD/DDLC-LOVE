@@ -35,7 +35,6 @@ function ch0script()
 	elseif ch0ln == 7 then
     ch0a = 'However, I just sigh and idle in front of the'
 	ch0b = 'crosswalk and let Sayori catch up to me.'
-	sload = 1
 	elseif ch0ln == 8 then
 	sa = '2l' sb = '2r' sc = 'p'
 	ch0t = 'Sayori'
@@ -69,7 +68,7 @@ function ch0script()
 	ch0t = player
 	ch0a = '"Whatever you say, Sayori..."'
 	elseif ch0ln == 19 then
-	sc = 'q' sload = 2
+	sc = 'q' 
 	ch0t = 'Sayori'
 	ch0a = '"Ehehe~"'
 	elseif ch0ln == 20 then
@@ -80,7 +79,6 @@ function ch0script()
 	elseif ch0ln == 21 then
 	ch0a = 'As we draw near, the streets speckled with '
 	ch0b = 'other students making their daily commute.'
-	sload = 1
 	elseif ch0ln == 22 then
 	sa = '2l' sb = '1r' sc = "a"
 	ch0t = 'Sayori'
@@ -164,7 +162,6 @@ function ch0script()
 	ch0b = 'makes me want to ease her mind at least a'
 	ch0c = 'little bit - even if she does exaggerate'
 	ch0d = 'everything inside of her head.'
-	--sload = 2
 	fade = 1
 	elseif ch0ln == 47 then
 	hideSayori()
@@ -186,7 +183,6 @@ function ch0script()
 	elseif ch0ln == 52 then
 	ch0t = 'Sayori'
 	ch0a = '"Hellooo?"'
-	sload = 1
 	elseif ch0ln == 53 then
 	sa = '1l' sb = '1r' sc = 'b'
 	ch0t = player
@@ -292,25 +288,20 @@ function ch0script()
 	ch0t = 'Sayori'
 	ch0a = '"Yes! Let\'s go~!"'
 	audio1 = 1
-	sload = 2
 	elseif ch0ln == 83 then
 	hideSayori()
-	timer = 502
 	ch0t = ''
 	ch0a = 'And thus, today marks the day I sold'
 	ch0b = 'my soul for a cupcake.'
     elseif ch0ln == 84 then
-	timer = 502
 	ch0a = 'I dejectedly follow Sayori across the school'
 	ch0b = 'and upstairs - a section of the school I'
 	ch0c = 'rarely visit,being generally used for'
 	ch0d = 'third-year classes and activities.'
 	elseif ch0ln == 85 then 
-	timer = 502
 	ch0a = 'Sayori, full of energy, swings open the'
 	ch0b = 'classroom door.'
 	audio1 = 1
-	sload = 1
 	end
 	if ch0ln == 86 then
 	sa = '1l' sb = '1r' sc = 'a' sx = 0 - 50
@@ -319,12 +310,10 @@ function ch0script()
 	elseif ch0ln == 87 then
 	ch0t = player
 	ch0a = '"I told you, don\'t call me a \'new member--\'"'
-	sload = 2
 	elseif ch0ln == 88 then
 	hideSayori()
 	ch0t = ''
 	ch0a = 'Eh? I glance around the room.'
-	yload = 1
 	elseif ch0ln == 89 then
 	ya = '1l' yb = '1r' yc = 'a'
 	ch0t = 'Girl 1'
@@ -332,7 +321,6 @@ function ch0script()
 	ch0b = 'meeting you."'
     elseif ch0ln == 90 then 
 	ch0a = '"Sayori always says nice things about you."'
-	nload = 1
 	elseif ch0ln == 91 then
 	yx = 140
 	na = '2l' nb = '2r' nc = 'c' nx = 20
@@ -340,7 +328,6 @@ function ch0script()
 	ch0a = '"Seriously? You brought a boy?"'
 	elseif ch0ln == 92 then 
 	ch0a = '"Way to kill the atmosphere."'
-	mload = 1
 	elseif ch0ln == 93 then
 	nx = 80
 	yx = 200
@@ -352,12 +339,10 @@ function ch0script()
 	mc = 'a'
 	ch0t = player
 	ch0a = "'...'"
-	elseif ch0ln == 96 then ch0a = '"All words escape me in this situation."'
-    elseif ch0ln == 97 then ch0a = '"This club..."'
+	elseif ch0ln == 96 then ch0a = 'All words escape me in this situation.'
+    elseif ch0ln == 97 then ch0a = 'This club...'
     elseif ch0ln == 98 then
-	ch0a = '"...is full of incredibly cute girls!!"'
-	mload = 2
-	yload = 2
+	ch0a = '...is full of incredibly cute girls!!'
 	elseif ch0ln == 99 then
 	hideMonika()
 	hideYuri()
@@ -368,7 +353,6 @@ function ch0script()
 	elseif ch0ln == 101 then
 	ch0t = player
 	ch0a = '"S-Sorry..."'
-	yload = 1
 	elseif ch0ln == 102 then
 	ya = '1l' yb = '1r' yc = 'l' yx = 200
 	ch0t = 'Girl 1'
@@ -387,15 +371,14 @@ function ch0script()
     elseif ch0ln == 106 then
 	ch0a = 'She is also the one who made cupcakes,'
 	ch0b = 'according to Sayori.'
-	sload = 1
 	elseif ch0ln == 107 then
 	sa = '1l' sb = '2r' sc = 'q' sx = 0 - 40
 	ch0t = 'Sayori'
 	ch0a = '"You can just ignore her when she gets moody~"'
 	elseif ch0ln == 108 then
 	ch0t = ''
-    ch0a = '"Sayori says that quietly into my ear, then turns'
-	ch0b = 'back toward the other girls."'
+    ch0a = 'Sayori says that quietly into my ear, then turns'
+	ch0b = 'back toward the other girls.'
 	elseif ch0ln == 109 then
 	sa = '1l' sb = '1r' sc = 'x'
 	ch0t = 'Sayori'
@@ -413,23 +396,19 @@ function ch0script()
 	elseif ch0ln == 113 then
 	ch0t = player
 	ch0a = '"Ah... Well, it\'s nice to meet both of you."'
-	nload = 2
-	yload = 2
 	elseif ch0ln == 114 then
 	hideYuri()
 	hideNatsuki()
 	ch0t = 'Sayori'
 	ch0a = '"And it sounds like you already know Monika, is '
 	ch0b = 'that right?"'
-	mload = 1
 	elseif ch0ln == 115 then
 	ma = '1l' mb = '2r' mc = 'a' mx = 80
 	ch0t = 'Monika'
 	ch0a = '"That\'s right."'
 	elseif ch0ln == 116 then ch0a = '"It\'s great to see you again, ' .. player .. '."'
 	elseif ch0ln == 117 then
-	hideMonika()
-	ma = '3a'
+	ma = '3a' mb = '' mc = ''
 	ch0t = ''
 	ch0a = 'Monika smiles sweetly.'
 	elseif ch0ln == 118 then
@@ -444,7 +423,6 @@ function ch0script()
     elseif ch0ln == 121 then
 	ch0t = player
 	ch0a = '"Y-You too, Monika."'
-	mload = 2
 	elseif ch0ln == 122 then
 	hideMonika()
 	sa = '2l' sb = '2r' sc = 'x'
@@ -453,7 +431,6 @@ function ch0script()
 	ch0b = 'the table, so you can sit next to me or Monika."'
     elseif ch0ln == 123 then 
 	ch0a = '"I\'ll get the cupcakes~"'
-	nload = 1
     elseif ch0ln == 124 then
 	na = '1l' nb = '1r' nc = 'b' nx = 80 nxh = nx
 	ch0t = 'Natsuki'
@@ -462,14 +439,10 @@ function ch0script()
 	sa = '3a' sb = '' sc = ''
     ch0t = 'Sayori'
 	ch0a = '"Sorry, I got a little too excited~"'
-	yload = 1
     elseif ch0ln == 126 then
 	ya = '1l' yb = '1r' yc = 'a' yx = 200
 	ch0t = 'Yuri'
 	ch0a = '"Then, how about I make some tea as well?"'
-	sload = 2
-	nload = 2
-	yload = 2
 	elseif ch0ln == 127 then
 	hideSayori()
 	hideYuri()
@@ -498,8 +471,6 @@ function ch0script()
 	ch0a = '"Okaaay, are you ready?"'
 	elseif ch0ln == 133 then
 	ch0a = '"...Ta-daaa!"'
-	mload = 1
-	sload = 1
 	elseif ch0ln == 134 then
 	sa = '2l' sb = '2r' sc = 'n' sx = 0-40
 	ma = '1l' mb = '2r' mc = 'd' mx = 200
@@ -541,9 +512,6 @@ function ch0script()
 	elseif ch0ln == 144 then
 	ch0a = 'I turn the cupcake around in my fingers, looking'
 	ch0b = 'for the best angle to take a bite.'
-	sload = 2
-	mload = 2
-	nload = 1
 	elseif ch0ln == 145 then
 	hideSayori()
 	hideMonika()
@@ -584,7 +552,6 @@ function ch0script()
 	elseif ch0ln == 158 then
 	ch0t = player
 	ch0a = '"Alright, alright..."'
-	nload = 2
 	elseif ch0ln == 159 then
 	hideNatsuki()
 	ch0t = ''
@@ -595,7 +562,6 @@ function ch0script()
 	ch0a = 'She carefully places a teacup in front of each'
 	ch0b = 'of us before setting down the teapot next to the'
 	ch0c = 'cupcake tray.'
-	yload = 1
 	elseif ch0ln == 162 then
 	ya = '1l' yb ='1r' yc = 'a' yx = 10
 	ch0t = player
@@ -609,7 +575,6 @@ function ch0script()
 	elseif ch0ln == 165 then
 	ch0t = player
 	ch0a = '"Ah... I-I guess..."'
-	mload = 1
 	elseif ch0ln == 166 then
 	ma = '2l' mb = '2r' mc = 'a' mx = 150
 	ch0t = 'Monika'
@@ -633,7 +598,6 @@ function ch0script()
     elseif ch0ln == 172 then ch0t = '' ch0a = 'Yuri faintly smiles to herself in relief.'
 	elseif ch0ln == 173 then
 	ch0a = "Monika raises an eyebrow, then smiles at me."
-	yload = 2
 	elseif ch0ln == 174 then
 	hideYuri()
 	ma = '1l' mb = '1r' mc = 'a' mx = 80
@@ -681,18 +645,15 @@ function ch0script()
 	ma = '1l' mb = '1r' mc = 'b'
     ch0a = '"And if it encourages others to get into literature,'
 	ch0b = 'then I\'m fulfilling that dream!"'
-	sload = 1
 	elseif ch0ln == 191 then
 	mc = 'a'
 	sa = '2l' sb = '1r' sc= 'q' sx = 0-40
 	ch0t = 'Sayori'
 	ch0a = '"Monika really is a great leader!"'
-	yload = 1
 	elseif ch0ln == 192 then
 	ya = '1l' yb = '1r' yc = 'a' yx = 200
 	ch0t = ''
 	ch0a = 'Yuri also nods in agreement.'
-	sload = 2 yload = 2
 	elseif ch0ln == 193 then
 	hideSayori()
 	hideYuri()
@@ -723,7 +684,6 @@ function ch0script()
 	elseif ch0ln == 202 then
 	sa = '2l' sb = '2r' sc = 'r' sx = 10
 	mx = 150
-	yload = 1
 	ch0t = 'Sayori'
 	ch0a = '"Yeah!"'
 	elseif ch0ln == 203 then
@@ -753,9 +713,6 @@ function ch0script()
 	elseif ch0ln == 209 then
     ch0a = "Though I still don't really know if I can keep up with"
 	ch0b = "their level of enthusiasm about literature..."
-	sload = 2
-	nload = 2
-	mload = 2
 	elseif ch0ln == 210 then
 	--refln'"Sayori is vice president of the Literature Club."'
 	end
@@ -803,6 +760,7 @@ function ch0script()
 	timer = 1000
 	elseif ch0ln == 10020 then
 	timer = timer + 1
+	ch0ln = 10020
 	if timer == 1001 then sfx1play()
 	elseif timer == 1150 then
 		file = io.open("save.txt", "w")
@@ -811,6 +769,7 @@ function ch0script()
 		resetchr()
 		love.graphics.setBackgroundColor(255,255,255)
 		ch0ln = 1
+		fileContent = 1
 		audioUpdate('1')
 		timer = 0
 		state = 'splash1'
@@ -819,3 +778,44 @@ function ch0script()
 	end
 	
 end	
+
+--script dependent functions are also added here
+
+function bgCheck() --background changes
+	if ch0ln <= 46 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/residential.png')
+	elseif ch0ln <= 82 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/class.png')
+	elseif ch0ln <= 85 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/corridor.png')
+	elseif ch0ln <= 300 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/club.png')
+	elseif ch0ln <= 10015 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/residential.png')
+	elseif ch0ln <= 10019 then
+		bgch = love.graphics.newImage('./images/bg/warning.png')
+	elseif ch0ln == 10020 then
+		bgch = love.graphics.newImage('./images/bg/warning2.png')
+	end
+	
+end
+
+function audioCheck() --audio changes
+	if audio1 == 1 then
+		if ch0ln <= 82 then 
+			audioUpdate('2')
+			audio1 = 0
+		elseif ch0ln <= 85 then
+			audioUpdate('0')
+			audio1 = 0
+		elseif ch0ln <= 300 then
+			audioUpdate('3')
+			audio1 = 0
+		end
+	end
+end
