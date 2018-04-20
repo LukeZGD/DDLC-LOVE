@@ -54,14 +54,6 @@ function drawGame()
 	ch0script()
 	charCheck()
 	
-	if timer == 501 then
-		if sa=='' and sb == '' and sc == '' then else sload = 99 loadSayori() end
-		if ya=='' and yb == '' and yc == '' then else yload = 99 loadYuri() end
-		if na=='' and nb == '' and nc == '' then else nload = 99 loadNatsuki() end
-		if ma=='' and mb == '' and mc == '' then else mload = 99 loadMonika() end
-		timer = 502
-	end
-	
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255)
 	love.graphics.draw(bgch, 0, 0) --background changes 

@@ -290,18 +290,15 @@ function ch0script()
 	audio1 = 1
 	elseif ch0ln == 83 then
 	hideSayori()
-	timer = 502
 	ch0t = ''
 	ch0a = 'And thus, today marks the day I sold'
 	ch0b = 'my soul for a cupcake.'
     elseif ch0ln == 84 then
-	timer = 502
 	ch0a = 'I dejectedly follow Sayori across the school'
 	ch0b = 'and upstairs - a section of the school I'
 	ch0c = 'rarely visit,being generally used for'
 	ch0d = 'third-year classes and activities.'
 	elseif ch0ln == 85 then 
-	timer = 502
 	ch0a = 'Sayori, full of energy, swings open the'
 	ch0b = 'classroom door.'
 	audio1 = 1
@@ -411,8 +408,7 @@ function ch0script()
 	ch0a = '"That\'s right."'
 	elseif ch0ln == 116 then ch0a = '"It\'s great to see you again, ' .. player .. '."'
 	elseif ch0ln == 117 then
-	hideMonika()
-	ma = '3a'
+	ma = '3a' mb = '' mc = ''
 	ch0t = ''
 	ch0a = 'Monika smiles sweetly.'
 	elseif ch0ln == 118 then

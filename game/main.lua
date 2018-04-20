@@ -54,12 +54,9 @@ function love.load()
 	end
 	
 	if state == "s_kill_early" then --set up early act 1 end
-		timer = 502 
 		endbg = love.graphics.newImage('./images/gui/end.png')
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
 		audioUpdate('s_kill_early')
-	elseif state == "newgame" then
-		timer = 502
 	else
 		resetchr2()
 		state = "splash1" --splash screen
@@ -134,10 +131,6 @@ function love.update(dt)
 	--splash screen timers
 	if timer <= 500 then
 		timer = timer + 1
-	elseif timer == 501 then 
-		timer = 501
-	elseif timer == 502 then
-		timer = 502
 	end
 	
 	--auto next script
@@ -149,6 +142,7 @@ function love.update(dt)
 		ch0ln = ch0ln + 1
 		audioCheck()
 		bgCheck()
+		xaload = 0
 		autotimer = 1
 	end
 	
@@ -168,8 +162,9 @@ function love.update(dt)
 	end
 	
 	if love.keyboard.isDown('start') then --quit the game
-		if love.keyboard.isDown('a') then love.event.quit() end
-		
+		if love.keyboard.isDown('a') then 
+			love.event.quit() 
+		end
 	elseif love.keyboard.isDown('select') then --erase save data
 		if love.keyboard.isDown('a') then
 			resetchr()
