@@ -1,7 +1,6 @@
 require "draw"
 require "script"
 require "resources"
-require "aller_regular_12"
 
 --open save file
 file = io.open("save.txt", "r")
@@ -9,7 +8,7 @@ file = io.open("save.txt", "r")
 function love.load() 
 	--set up stuff
 	love.graphics.setBackgroundColor ( 0,0,0 )
-	font = love.graphics.newFont(aller_regular_12)
+	font = love.graphics.newFont('aller_regular_10')
 	love.graphics.setFont(font)
 	
 	
@@ -46,17 +45,14 @@ function love.load()
 	monikachr = io.open("./characters/monika.chr", "r")
 	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
 	
-	--new game check
-	if fileContent == 0 then
-		ch0ln = 10016
-		bgCheck()
-		state = "newgame"
-	end
-	
 	if state == "s_kill_early" then --set up early act 1 end
 		endbg = love.graphics.newImage('./images/gui/end.png')
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
 		audioUpdate('s_kill_early')
+	elseif fileContent == 0 then
+		ch0ln = 10016
+		bgCheck()
+		state = "newgame"
 	else
 		resetchr2()
 		state = "splash1" --splash screen
@@ -171,7 +167,7 @@ function love.update(dt)
 			file = io.open("save.txt", "w")
 			file:write('0')
 			file:close()
-			love.event.quit() 
+			love.event.quit()  
 		end
 	end
 end
