@@ -1,15 +1,17 @@
 require "draw"
 require "script"
 require "resources"
+require "aller_regular_12"
 
 --open save file
 file = io.open("save.txt", "r")
 
 function love.load() 
 	--set up stuff
-	font = love.graphics.newFont()
+	love.graphics.setBackgroundColor ( 0,0,0 )
+	font = love.graphics.newFont(aller_regular_12)
 	love.graphics.setFont(font)
-	love.graphics.setBackgroundColor ( 255, 255, 255 )
+	
 	
 	--set up more stuff (splash, backgrounds, gui elements)
 	splash = love.graphics.newImage('./images/bg/splash.png')
@@ -67,7 +69,6 @@ function love.load()
 	audio1 = 0
 	xaload = 0
 	alpha = 0
-	player = 'MC'
 end
 
 function love.draw() 
@@ -81,6 +82,7 @@ function love.draw()
 	if timer <= 200 then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
 		splashalpha(1)
+		love.graphics.setBackgroundColor ( 255,255,255 )
 		love.graphics.setColor(255, 255, 255, alpha)
 		love.graphics.draw(splash, 0, 0, 0)
 		
@@ -185,10 +187,15 @@ function love.keypressed(key)
 			sfx1play()
 			if player == nil then
 				love.keyboard.setTextInput(enable)
+				audioUpdate('2')
+				bgCheck()
+				player = 'MC'
+				state = "game"
 			else
 				audioUpdate('2')
 				bgCheck()
 				state = "game"
+
 			end
 		elseif state == "splash1" then --skip splash screens
 			timer = 500
