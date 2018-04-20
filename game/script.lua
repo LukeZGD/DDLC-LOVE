@@ -769,6 +769,7 @@ function ch0script()
 		resetchr()
 		love.graphics.setBackgroundColor(255,255,255)
 		ch0ln = 1
+		fileContent = 1
 		audioUpdate('1')
 		timer = 0
 		state = 'splash1'

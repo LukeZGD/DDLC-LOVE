@@ -28,11 +28,7 @@ function love.load()
 	autotimer = 0
 	
 	--save file read (if it doesnt exist, set new game)
-	if file == nil then
-		ch0ln = 10016
-		bgCheck()
-		state = "newgame"
-	else
+	if file ~= nil then
 		fileContent = file:read "*l"
 		fileContent = fileContent+1-1
 		player = file:read "*l"
@@ -50,7 +46,7 @@ function love.load()
 		endbg = love.graphics.newImage('./images/gui/end.png')
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
 		audioUpdate('s_kill_early')
-	elseif fileContent == 0 then
+	elseif fileContent == 0 or fileContent == nil then
 		timer = 501
 		ch0ln = 10016
 		bgCheck()
@@ -115,6 +111,7 @@ function love.draw()
 		
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
+		love.graphics.setBackgroundColor ( 200,200,200 )
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(endbg,0,0)
 		drawBottomScreen()
@@ -179,11 +176,7 @@ function love.keypressed(key)
 		if state == "title" then
 			sfx1play()
 			if player == nil then
-				love.keyboard.setTextInput(enable)
-				audioUpdate('2')
-				bgCheck()
-				player = 'MC'
-				state = "game"
+				love.keyboard.setTextInput(true)
 			else
 				audioUpdate('2')
 				bgCheck()
@@ -213,7 +206,7 @@ function love.keypressed(key)
 	elseif key == 'a' then 
 		if state == "game" or state == "newgame" then
 			ch0ln = ch0ln + 1 --next script
-			audioCheck() --check for audio update
+			audioCheck()
 			bgCheck()
 			xaload = 0
 		end
@@ -226,12 +219,10 @@ function love.keypressed(key)
 			sfx1play()
 		end
 		
-	elseif key == 'b' then --auto function
+	elseif key == 'b' then --auto
 		sfx1play()
-		if autotimer == 0 then
-			autotimer = 1
-		else
-			autotimer = 0
+		if state == "game" then 
+			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
 	end
 end
