@@ -67,7 +67,7 @@ function drawGame()
 	
 	drawBottomScreen()
 	love.graphics.draw(background_Image, posX, posY)
-	if ch0t == '' then else love.graphics.draw(namebox, 12, 40) end
+	if ch0t ~= '' then love.graphics.draw(namebox, 12, 40) end
 	love.graphics.draw(textbox, 0, 60)
 	
 	love.graphics.setColor(0,0,0)
@@ -78,7 +78,7 @@ function drawGame()
 	love.graphics.print(ch0c,8,96,0,1,1) --line 3
 	love.graphics.print(ch0d,8,112,0,1,1) --line 4
 
-	if state == 'newgame' then else
+	if state ~= 'newgame' then
 	
 	love.graphics.print("Y - Save Game",16,220,0,1,1)
 	if autotimer == 0 then

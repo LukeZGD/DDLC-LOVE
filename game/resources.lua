@@ -26,7 +26,7 @@ function audioUpdate(audiox) --the audio update function yay
 end
 
 function audioStop()
-	if ddlct == nil then else ddlct:stop() end
+	if ddlct ~= nil then ddlct:stop() end
 	ddlct = nil
 end
 

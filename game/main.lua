@@ -2,17 +2,13 @@ require "draw"
 require "script"
 require "resources"
 
---open save file
-file = io.open("save.txt", "r")
-
 function love.load() 
 	--set up stuff
 	love.graphics.setBackgroundColor ( 0,0,0 )
 	font = love.graphics.newFont('Aller_Rg')
 	love.graphics.setFont(font)
 	
-	
-	--set up more stuff (splash, backgrounds, gui elements)
+	--set up more stuff (splash, title screen, gui elements)
 	splash = love.graphics.newImage('./images/bg/splash.png')
 	titlebg = love.graphics.newImage('./images/bg/bg.png')
 	textbox = love.graphics.newImage('./images/gui/textbox.png')
@@ -23,11 +19,17 @@ function love.load()
 	posX = 0
 	posY = 0
 	
-	--set up some other stuff)
+	--set up some other stuff
 	timer = 0
 	autotimer = 0
+	audio1 = 0
+	xaload = 0
+	alpha = 0
 	
-	--save file read (if it doesnt exist, set new game)
+	--open save file
+	file = io.open("save.txt", "r")
+	
+	--save file read
 	if file ~= nil then
 		fileContent = file:read "*l"
 		fileContent = fileContent+1-1
@@ -57,9 +59,6 @@ function love.load()
 		audioUpdate('1') --play titlescreen music
 	end 
 	
-	audio1 = 0
-	xaload = 0
-	alpha = 0
 end
 
 function love.draw() 
