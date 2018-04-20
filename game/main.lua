@@ -1,15 +1,13 @@
 require "draw"
 require "script"
 require "resources"
-require "keyboard"
 
 --open save file
 file = io.open("save.txt", "r")
 
 function love.load() 
 	--set up stuff
-	font = love.graphics.newFont('Aller_Rg.ttf')
-	--font = love.graphics.newFont('Aller_Rg.ttf', 10) --smaller version!
+	font = love.graphics.newFont()
 	love.graphics.setFont(font)
 	love.graphics.setBackgroundColor ( 255, 255, 255 )
 	
@@ -67,12 +65,9 @@ function love.load()
 	end 
 	
 	audio1 = 0
-	sload = 0 
-	yload = 0
-	nload = 0
-	mload = 0
 	xaload = 0
 	alpha = 0
+	player = 'MC'
 end
 
 function love.draw() 
@@ -129,17 +124,10 @@ function love.draw()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(s_killearly,32,0)
 		
-	elseif state == "keyboard" then
-		keyboard_draw()
 	end
 end
 
 function love.update(dt)
-
-	--keyboard
-	if state == 'keyboard' then
-		keyboard_update(dt)
-	end
 
 	--splash screen timers
 	if timer <= 500 then
@@ -159,7 +147,6 @@ function love.update(dt)
 		ch0ln = ch0ln + 1
 		audioCheck()
 		bgCheck()
-		charCheck()
 		autotimer = 1
 	end
 	
@@ -174,7 +161,7 @@ function love.update(dt)
 	if state == 'game' then
 		if love.keyboard.isDown('x') then  --skip enable
 			ch0ln = ch0ln + 1
-			charCheck()
+			xaload = 0
 		end
 	end
 	
@@ -187,7 +174,7 @@ function love.update(dt)
 			file = io.open("save.txt", "w")
 			file:write('0')
 			file:close()
-			love.event.quit()
+			love.event.quit() 
 		end
 	end
 end
@@ -197,12 +184,10 @@ function love.keypressed(key)
 		if state == "title" then
 			sfx1play()
 			if player == nil then
-				keyboard_load()
-				state = 'keyboard'
+				love.keyboard.setTextInput(enable)
 			else
 				audioUpdate('2')
 				bgCheck()
-				charCheck()
 				state = "game"
 			end
 		elseif state == "splash1" then --skip splash screens
@@ -213,11 +198,10 @@ function love.keypressed(key)
 	elseif key == 'select' then --load game
 		if state == "title" then
 			sfx1play()
-			if fileContent == nil or fileContent == '1' then else
+			if fileContent == nil or fileContent == 1 then else
 				ch0ln = fileContent
 				audio1 = 1
 				audioCheck() --check for audio update
-				charCheck()
 				bgCheck()
 				state = "game"
 			end
@@ -231,7 +215,7 @@ function love.keypressed(key)
 			ch0ln = ch0ln + 1 --next script
 			audioCheck() --check for audio update
 			bgCheck()
-			charCheck()
+			xaload = 0
 		end
 		
 	elseif key == 'y' then --save game
@@ -260,6 +244,13 @@ function love.keyreleased(key)
 	end
 end
 
-function love.quit() 
-	audioUpdate('0')
+function love.textinput(text)
+	if text ~= '' then 
+		player = text
+		audioUpdate('2')
+		bgCheck()
+		state = "game"
+	else
+		state = "title"
+	end
 end
