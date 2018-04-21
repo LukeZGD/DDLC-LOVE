@@ -1,3 +1,4 @@
+
 function audioUpdate(audiox) --the audio update function yay
 	if audiox == '0' then
 		audioStop()
@@ -28,13 +29,13 @@ end
 function audioStop()
 	if ddlct ~= nil then ddlct:stop() end
 	ddlct = nil
+	collectgarbage()
 end
 
 function sfx1play()
 	sfx = love.audio.newSource("./audio/sfx/select.ogg", "static")
 	sfx:setLooping(false)
 	sfx:play()
-	sfx = nil
 end
 
 function resetchr()
@@ -79,8 +80,32 @@ function charCheck()
 	
 end
 
-function loadSayori()
+function updateSayori(a,b,c)
+	sa = a
+	sb = b
+	sc = c
+end
 
+function updateYuri(a,b,c)
+	ya = a
+	yb = b
+	yc = c
+end
+
+function updateNatsuki(a,b,c)
+	na = a
+	nb = b
+	nc = c
+end
+
+function updateMonika(a,b,c)
+	ma = a
+	mb = b
+	mc = c
+end
+
+function loadSayori()
+	unloadSayori()
 	if sa=="" then
 	elseif sa=="1l" then
 		if s1l == nil then s1l = love.graphics.newImage('./images/sayori/1l.png') end
@@ -187,10 +212,11 @@ function unloadSayori()
 	s_w = nil
 	s_x = nil
 	s_y = nil
+	collectgarbage()
 end
 
 function loadYuri()	
-
+	unloadYuri()
 	if ya=="" then
 	elseif ya=="1l" then
 		if yl1 == nil then y1l = love.graphics.newImage('./images/yuri/1l.png') end
@@ -313,10 +339,11 @@ function unloadYuri()
 	y_v = nil
 	y_w = nil
 	yy6 = nil
+	collectgarbage()
 end
 
 function loadNatsuki()
-	
+	unloadNatsuki()
 	if nc=="" then
 	elseif nc=="a" then
 		if n_a == nil then n_a = love.graphics.newImage('./images/natsuki/a.png') end
@@ -457,10 +484,11 @@ function unloadNatsuki()
 	n_x = nil
 	n_y = nil
 	n_z = nil
+	collectgarbage()
 end
 	
 function loadMonika()
-
+	unloadMonika()
 	if ma=="" then
 	elseif ma=="1l" then
 		if m1l == nil then m1l = love.graphics.newImage('./images/monika/1l.png') end
@@ -544,4 +572,12 @@ function unloadMonika()
 	m_p = nil
 	m_q = nil
 	m_r = nil
+	collectgarbage()
+end
+
+function unloadAll()
+	unloadSayori()
+	unloadYuri()
+	unloadNatsuki()
+	unloadMonika()
 end

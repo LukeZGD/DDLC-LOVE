@@ -48,6 +48,7 @@ function unloadbg()
 	splash = nil
 	titlebg = nil
 	bgch = nil
+	collectgarbage()
 end
 
 function drawGame()
@@ -58,7 +59,7 @@ function drawGame()
 	love.graphics.setColor(255, 255, 255)
 	love.graphics.draw(bgch, 0, 0) --background changes 
 	
-	if xaload >= 1	then
+	if xaload >= 1 then
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
@@ -123,30 +124,24 @@ function hideSayori()
 	sa = ''
 	sb = ''
 	sc = ''
-	unloadSayori()
 end
 
 function hideYuri()
 	ya = ''
 	yb = ''
 	yc = ''
-	unloadYuri()
 end
 
 function hideNatsuki()
 	na = ''
 	nb = ''
 	nc = ''
-	nxh = nx
-	ny = 0
-	unloadNatsuki()
 end
 
 function hideMonika()
 	ma = ''
 	mb = ''
 	mc = ''
-	unloadMonika()
 end
 
 function drawSayori(sa,sb,sc)
