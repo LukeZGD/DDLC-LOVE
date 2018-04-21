@@ -148,8 +148,8 @@ function love.update(dt)
 		end
 	end
 	
-	if state == 'game' then
-		if love.keyboard.isDown('x') then  --skip enable
+	if love.keyboard.isDown('x') then  --skip enable
+		if state == 'game' then
 			ch0ln = ch0ln + 1
 			xaload = 0
 		end
@@ -159,6 +159,7 @@ function love.update(dt)
 		if love.keyboard.isDown('a') then 
 			love.event.quit() 
 		end
+		
 	elseif love.keyboard.isDown('select') then --erase save data
 		if love.keyboard.isDown('a') then
 			resetchr()
@@ -171,8 +172,8 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-	if key == 'start' then --new game
-		if state == "title" then
+	if key == 'start' then 
+		if state == "title" then --new game
 			sfx1play()
 			if player == nil then
 				love.keyboard.setTextInput(true)
@@ -200,7 +201,7 @@ function love.keypressed(key)
 		end
 		
 	elseif key == 'x' then --play sfx for skip
-		sfx1play()
+		if state == "game" then sfx1play() end
 		
 	elseif key == 'a' then 
 		if state == "game" or state == "newgame" then
@@ -219,8 +220,8 @@ function love.keypressed(key)
 		end
 		
 	elseif key == 'b' then --auto
-		sfx1play()
 		if state == "game" then 
+			sfx1play()
 			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
 	end
@@ -228,9 +229,11 @@ end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
-		autotimer = 0
-		audioCheck()
-		bgCheck()
+		if state == 'game' then
+			autotimer = 0
+			audioCheck()
+			bgCheck()
+		end
 	end
 end
 

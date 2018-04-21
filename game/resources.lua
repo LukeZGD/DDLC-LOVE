@@ -57,6 +57,7 @@ end
 function resetchr2()
 	yurichr = io.open("./characters/yuri.chr", "w")
 	natsukichr = io.open("./characters/natsuki.chr", "w")
+	
 	yurichr:write()
 	natsukichr:write()
 	
