@@ -105,7 +105,7 @@ function updateMonika(a,b,c)
 end
 
 function loadSayori()
-	unloadSayori()
+
 	if sa=="" then
 	elseif sa=="1l" then
 		if s1l == nil then s1l = love.graphics.newImage('./images/sayori/1l.png') end
@@ -177,7 +177,6 @@ function loadSayori()
 		if s_y == nil then s_y = love.graphics.newImage('./images/sayori/y.png') end
 	end
 	
-	
 end
 
 function unloadSayori()
@@ -212,11 +211,10 @@ function unloadSayori()
 	s_w = nil
 	s_x = nil
 	s_y = nil
-	collectgarbage()
 end
 
 function loadYuri()	
-	unloadYuri()
+
 	if ya=="" then
 	elseif ya=="1l" then
 		if yl1 == nil then y1l = love.graphics.newImage('./images/yuri/1l.png') end
@@ -343,7 +341,7 @@ function unloadYuri()
 end
 
 function loadNatsuki()
-	unloadNatsuki()
+
 	if nc=="" then
 	elseif nc=="a" then
 		if n_a == nil then n_a = love.graphics.newImage('./images/natsuki/a.png') end
@@ -488,7 +486,7 @@ function unloadNatsuki()
 end
 	
 function loadMonika()
-	unloadMonika()
+
 	if ma=="" then
 	elseif ma=="1l" then
 		if m1l == nil then m1l = love.graphics.newImage('./images/monika/1l.png') end
@@ -545,6 +543,7 @@ function loadMonika()
 	elseif mc=="r" then
 		if m_r == nil then m_r = love.graphics.newImage('./images/monika/r.png') end
 	end
+	
 end
 
 function unloadMonika()
