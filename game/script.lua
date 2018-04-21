@@ -36,9 +36,7 @@ function ch0script()
 		ch0a = 'However, I just sigh and idle in front of the'
 		ch0b = 'crosswalk and let Sayori catch up to me.'
 	elseif ch0ln == 8 then
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'p'
+		updateSayori('2l','2r','p')
 		ch0t = 'Sayori'
 		ch0a = '"Haaahhh...haaahhh..."'
 	elseif ch0ln == 9 then 
@@ -50,9 +48,7 @@ function ch0script()
 		ch0a = '"Maybe, but only because I decided to stop and '
 		ch0b = 'wait for you."'
 	elseif ch0ln == 12 then
-		sa = '3c' 
-		sb = '' 
-		sc = ''
+		updateSayori('3c','','')
 		ch0t = 'Sayori'
 		ch0a = '"Eeehhhhh, you say that like you were thinking '
 		ch0b = 'about ignoring me!"'
@@ -64,9 +60,7 @@ function ch0script()
 		ch0b = 'then I don\'t want them to think we\'re a'
 		ch0c = 'couple or something."'
 	elseif ch0ln == 15 then
-		sa = '1l'
-		sb = '1r' 
-		sc = 'a'
+		updateSayori('1l','1r','a')
 		ch0t = 'Sayori'
 		ch0a = '"Fine, fine."'
 	elseif ch0ln == 16 then 
@@ -78,7 +72,7 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Whatever you say, Sayori..."'
 	elseif ch0ln == 19 then
-		sc = 'q' 
+		sc = 'q'
 		ch0t = 'Sayori'
 		ch0a = '"Ehehe~"'
 	elseif ch0ln == 20 then
@@ -90,9 +84,7 @@ function ch0script()
 		ch0a = 'As we draw near, the streets speckled with '
 		ch0b = 'other students making their daily commute.'
 	elseif ch0ln == 22 then
-		sa = '2l' 
-		sb = '1r' 
-		sc = "a"
+		updateSayori('2l','1r','a')
 		ch0t = 'Sayori'
 		ch0a = '"By the way, ' .. player .. '..."'
 	elseif ch0ln == 23 then ch0a = '"Have you decided on a club to join yet?"'
@@ -104,9 +96,7 @@ function ch0script()
 		ch0b = 'in joining any clubs."'
 	elseif ch0ln == 26 then ch0a = '"I haven\'t been looking, either."'
 	elseif ch0ln == 27 then
-		sa = "2l" 
-		sb = "2r" 
-		sc = "h"
+		sc = 'h'
 		ch0t = 'Sayori'
 		ch0a = '"Eh? That\'s not true!"'
 	elseif ch0ln == 28 then
@@ -125,7 +115,7 @@ function ch0script()
 		ch0c = 'by on the average while spending my free'
 		ch0d = 'time on games and anime.'
 	elseif ch0ln == 32 then
-		sc = "j"
+		sc = 'j'
 		ch0t = 'Sayori'
 		ch0a = '"Uh-huh!"'
 	elseif ch0ln == 33 then
@@ -141,7 +131,7 @@ function ch0script()
 		ch0c = 'few years because you\'re not used to the'
 		ch0d = 'real world!"'
 	elseif ch0ln == 36 then
-		sc = 'g'
+		updateSayori('2l','2r','g')
 		ch0a = '"You trust me, right?"'
 	elseif ch0ln == 37 then
 		ch0a = '"Don\'t make me keep worrying about you..."'
@@ -153,8 +143,7 @@ function ch0script()
 		ch0b = 'happy."'
 	elseif ch0ln == 40 then ch0a = '"No promises, though."'
 	elseif ch0ln == 41 then
-		sa = '1l' 
-		sb = '1r'
+		updateSayori('1l','1r','g')
 		ch0t = 'Sayori'
 		ch0a = '"Will you at least promise me you\'ll try '
 		ch0b = 'a little?"'
@@ -162,9 +151,7 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Yeah, I guess I\'ll promise you that."'
 	elseif ch0ln == 43 then
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'r'
+		updateSayori('2l','2r','r')
 		ch0t = 'Sayori'
 		ch0a = '"Yaay~!"'
 	elseif ch0ln == 44 then
@@ -200,9 +187,7 @@ function ch0script()
 		ch0t = 'Sayori'
 		ch0a = '"Hellooo?"'
 	elseif ch0ln == 53 then
-		sa = '1l' 
-		sb = '1r' 
-		sc = 'b'
+		updateSayori('1l','1r','b')
 		ch0t = player
 		ch0a = '"Sayori...?"'
 	elseif ch0ln == 54 then
@@ -241,18 +226,14 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Sayori..."'
 	elseif ch0ln == 63 then
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'r'
+		updateSayori('2l','2r','r')
 		ch0t = 'Sayori'
 		ch0a = '"Yeah??"'
 	elseif ch0ln == 64 then
 		ch0t = player
 		ch0a = '"...There is no way I\'m going to your club."'
 	elseif ch0ln == 65 then
-		sa = '3d' 
-		sb = '' 
-		sc = ''
+		updateSayori('3d','','')
 		ch0t = 'Sayori'
 		ch0a = '"Eeeehhhhh?! Meanie!"'
 	elseif ch0ln == 66 then
@@ -276,18 +257,14 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Yeah. I\'m going to the anime club."'
 	elseif ch0ln == 72 then
-		sa = '1l' 
-		sb = '1r' 
-		sc = 'g'
+		updateSayori('1l','1r','g')
 		ch0t = 'Sayori'
 		ch0a = '"C\'mon, please?"'
 	elseif ch0ln == 73 then
 		ch0t = player
 		ch0a = '"Why do you care so much, anyway?"'
 	elseif ch0ln == 74 then
-		sa = '3b' 
-		sb = '' 
-		sc = ''
+		updateSayori('3b','','')
 		ch0t = 'Sayori'
 		ch0a = '"Well..."'
 	elseif ch0ln == 75 then
@@ -312,9 +289,7 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Fine... I\'ll stop by for a cupcake, okay?"'
     elseif ch0ln == 82 then
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'r'
+		updateSayori('2l','2r','r')
 		ch0t = 'Sayori'
 		ch0a = '"Yes! Let\'s go~!"'
 		audio1 = 1
@@ -334,9 +309,7 @@ function ch0script()
 		audio1 = 1
 	end
 	if ch0ln == 86 then
-		sa = '1l' 
-		sb = '1r' 
-		sc = 'a' 
+		updateSayori('1l','1r','a')
 		sx = 0 - 50
 		ch0t = 'Sayori'
 		ch0a = '"Everyone! The new member is here~!"'
@@ -348,30 +321,24 @@ function ch0script()
 		ch0t = ''
 		ch0a = 'Eh? I glance around the room.'
 	elseif ch0ln == 89 then
-		ya = '1l' 
-		yb = '1r' 
-		yc = 'a'
+		updateYuri('1l','1r','a')
 		ch0t = 'Girl 1'
 		ch0a = '"Welcome to the Literature Club. It\'s a pleasure'
 		ch0b = 'meeting you."'
     elseif ch0ln == 90 then 
 		ch0a = '"Sayori always says nice things about you."'
 	elseif ch0ln == 91 then
+		updateNatsuki('2l','2r','c')
 		yx = 140
-		na = '2l' 
-		nb = '2r' 
-		nc = 'c' 
 		nx = 20
 		ch0t = 'Girl 2'
 		ch0a = '"Seriously? You brought a boy?"'
 	elseif ch0ln == 92 then 
 		ch0a = '"Way to kill the atmosphere."'
 	elseif ch0ln == 93 then
+		updateMonika('1l','1r','k')
 		nx = 80
 		yx = 200
-		ma = '1l' 
-		mb = '1r' 
-		mc = 'k' 
 		mx = 0 - 40
 		ch0t = 'Girl 3'
 		ch0a = '"Ah, MC! What a nice surprise!"'
@@ -382,6 +349,7 @@ function ch0script()
 		ch0t = player
 		ch0a = "'...'"
 	elseif ch0ln == 96 then 
+		ch0t = ''
 		ch0a = 'All words escape me in this situation.'
     elseif ch0ln == 97 then 
 		ch0a = 'This club...'
@@ -390,7 +358,7 @@ function ch0script()
 	elseif ch0ln == 99 then
 		hideMonika()
 		hideYuri()
-		na = '1l'
+		updateNatsuki('1l','2r','c')
 		ch0t = 'Girl 2'
 		ch0a = '"What are you looking at?"'
 	elseif ch0ln == 100 then 
@@ -399,16 +367,12 @@ function ch0script()
 		ch0t = player
 		ch0a = '"S-Sorry..."'
 	elseif ch0ln == 102 then
-		ya = '1l' 
-		yb = '1r' 
-		yc = 'l' 
+		updateYuri('1l','1r','l')
 		yx = 200
 		ch0t = 'Girl 1'
 		ch0a = '"Natsuki..."'
 	elseif ch0ln == 103 then
-		na='3' 
-		nb='' 
-		nc='s' 
+		updateNatsuki('3','','s')
 		nxh=nx+4 
 		nyh=ny+6
 		ch0t = 'Girl 2'
@@ -424,9 +388,7 @@ function ch0script()
 		ch0a = 'She is also the one who made cupcakes,'
 		ch0b = 'according to Sayori.'
 	elseif ch0ln == 107 then
-		sa = '1l' 
-		sb = '2r' 
-		sc = 'q' 
+		updateSayori('1l','2r','q')
 		sx = 0 - 40
 		ch0t = 'Sayori'
 		ch0a = '"You can just ignore her when she gets moody~"'
@@ -435,17 +397,13 @@ function ch0script()
 		ch0a = 'Sayori says that quietly into my ear, then turns'
 		ch0b = 'back toward the other girls.'
 	elseif ch0ln == 109 then
-		sa = '1l' 
-		sb = '1r' 
-		sc = 'x'
+		updateSayori('1l','1r','x')
 		ch0t = 'Sayori'
 		ch0a = '"Anyway! This is Natsuki, always full of energy."'
     elseif ch0ln == 110 then 
 		ch0a = '"And this is Yuri, the smartest in the club!"'
 	elseif ch0ln == 111 then
-		ya = '3' 
-		yb = '' 
-		yc = 'b2'
+		updateYuri('3','','b2')
 		ch0t = 'Yuri'
 		ch0a = '"D-don\'t say things like that..."'
 	elseif ch0ln == 112 then
@@ -463,18 +421,14 @@ function ch0script()
 		ch0a = '"And it sounds like you already know Monika, is '
 		ch0b = 'that right?"'
 	elseif ch0ln == 115 then
-		ma = '1l' 
-		mb = '2r' 
-		mc = 'a' 
+		updateMonika('1l','2r','a')
 		mx = 80
 		ch0t = 'Monika'
 		ch0a = '"That\'s right."'
 	elseif ch0ln == 116 then 
 		ch0a = '"It\'s great to see you again, ' .. player .. '."'
 	elseif ch0ln == 117 then
-		ma = '3a' 
-		mb = '' 
-		mc = ''
+		updateMonika('3a','','')
 		ch0t = ''
 		ch0a = 'Monika smiles sweetly.'
 	elseif ch0ln == 118 then
@@ -492,32 +446,24 @@ function ch0script()
 		ch0a = '"Y-You too, Monika."'
 	elseif ch0ln == 122 then
 		hideMonika()
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'x'
+		updateSayori('2l','2r','x')
 		ch0t = 'Sayori'
 		ch0a = '"Come sit down, ' .. player .. '! We made room for you at'
 		ch0b = 'the table, so you can sit next to me or Monika."'
     elseif ch0ln == 123 then 
 		ch0a = '"I\'ll get the cupcakes~"'
 	elseif ch0ln == 124 then
-		na = '1l' 
-		nb = '1r' 
-		nc = 'b' 
+		updateNatsuki('1l','1r','b')
 		nx = 80 
 		nxh = nx
 		ch0t = 'Natsuki'
 		ch0a = '"Hey! I made them, I\'ll get them!"'
     elseif ch0ln == 125 then
-		sa = '3a' 
-		sb = '' 
-		sc = ''
+		updateSayori('3a','','')
 		ch0t = 'Sayori'
 		ch0a = '"Sorry, I got a little too excited~"'
     elseif ch0ln == 126 then
-		ya = '1l' 
-		yb = '1r' 
-		yc = 'a' 
+		updateYuri('1l','1r','a')
 		yx = 200
 		ch0t = 'Yuri'
 		ch0a = '"Then, how about I make some tea as well?"'
@@ -542,24 +488,17 @@ function ch0script()
     elseif ch0ln == 131 then
 		ch0a = 'Natsuki proudly marches back to the table, tray'
 		ch0b = 'in hand.'
-		nload = 1
 	elseif ch0ln == 132 then
-		na = '1l' 
-		nb = '2r' 
-		nc = 'z' 
+		updateNatsuki('1l','2r','r')
 		nx = 80
 		ch0t = 'Natsuki'
 		ch0a = '"Okaaay, are you ready?"'
 	elseif ch0ln == 133 then
 		ch0a = '"...Ta-daaa!"'
 	elseif ch0ln == 134 then
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'n' 
+		updateSayori('2l','2r','n')
+		updateMonika('1l','2r','d')
 		sx = 0-40
-		ma = '1l' 
-		mb = '2r' 
-		mc = 'd' 
 		mx = 200
 		ch0t = 'Sayori'
 		ch0a = '"Uwooooah!"'
@@ -572,7 +511,7 @@ function ch0script()
 		ch0a = 'The whiskers are drawn with icing, and little'
 		ch0b = 'pieces of chocolate were used to make ears.'
 	elseif ch0ln == 137 then
-		sc = 'r'
+		sc = 'n'
 		ch0t = 'Sayori'
 		ch0a = '"So cuuuute~!"'
 	elseif ch0ln == 138 then
@@ -603,9 +542,7 @@ function ch0script()
 	elseif ch0ln == 145 then
 		hideSayori()
 		hideMonika()
-		na = '1l' 
-		nb = '1r' 
-		nc = 'c'
+		updateNatsuki('1l','1r','c')
 		ch0t = ''
 		ch0a = 'Natsuki is quiet.'
 	elseif ch0ln == 146 then
@@ -624,9 +561,7 @@ function ch0script()
     elseif ch0ln == 151 then 
 		ch0a = '"Thank you, Natsuki."'
 	elseif ch0ln == 152 then
-		na = '3' 
-		nb = '' 
-		nc = 'h' 
+		updateNatsuki('3','','h')
 		nxh=nx+4 
 		nyh=ny+6
 		ch0t = 'Natsuki'
@@ -644,9 +579,7 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Eh? I thought you technically did. Sayori said--"'
 	elseif ch0ln == 156 then
-		na = '1l' 
-		nb = '1r' 
-		nc='2btc' 
+		updateNatsuki('1l','1r','2btc')
 		nxh=nx 
 		nyh=ny
 		ch0t = 'Natsuki'
@@ -668,9 +601,7 @@ function ch0script()
 		ch0b = 'of us before setting down the teapot next to the'
 		ch0c = 'cupcake tray.'
 	elseif ch0ln == 162 then
-		ya = '1l' 
-		yb ='1r' 
-		yc = 'a' 
+		updateYuri('1l','1r','a')
 		yx = 10
 		ch0t = player
 		ch0a = '"You keep a whole tea set in this classroom?"'
@@ -684,26 +615,20 @@ function ch0script()
 		ch0t = player
 		ch0a = '"Ah... I-I guess..."'
 	elseif ch0ln == 166 then
-		ma = '2l' 
-		mb = '2r' 
-		mc = 'a' 
+		updateMonika('2l','2r','a')
 		mx = 150
 		ch0t = 'Monika'
 		ch0a = '"Ehehe, don\'t let yourself get intimidated,'
 		ch0b = 'Yuri\'s just trying to impress you."'
 	elseif ch0ln == 167 then
-		ya = '2l' 
-		yb = '2r' 
-		yc = 'n'
+		updateYuri('2l','2r','n')
 		ch0t = 'Yuri'
 		ch0a = '"Eh?! T-That\'s not..."'
 	elseif ch0ln == 168 then
 		ch0t = '' 
 		ch0a = "Insulted, Yuri looks away."
 	elseif ch0ln == 169 then
-		ya = '3' 
-		yb = '' 
-		yc = 'b2'
+		updateYuri('3','','b2')
 		ch0t = 'Yuri' 
 		ch0a ='"I meant that, you know..."'
     elseif ch0ln == 170 then 
@@ -712,9 +637,7 @@ function ch0script()
 		ch0a = '"Well, tea and reading might not be a pastime for'
 		ch0b = 'me, but I at least enjoy tea."'
 	elseif ch0ln == 171 then
-		ya = '1l' 
-		yb = '2r' 
-		yc = 'u'
+		updateYuri('1l','2r','u')
 		ch0t = 'Yuri' 
 		ch0a = '"I\'m glad..."'
     elseif ch0ln == 172 then 
@@ -724,9 +647,7 @@ function ch0script()
 		ch0a = "Monika raises an eyebrow, then smiles at me."
 	elseif ch0ln == 174 then
 		hideYuri()
-		ma = '1l' 
-		mb = '1r' 
-		mc = 'a' 
+		updateMonika('1l','1r','a')
 		mx = 80
 		ch0t = 'Monika'
 		ch0a = '"So, what made you consider the Literature Club?"'
@@ -767,9 +688,7 @@ function ch0script()
 		ch0a = '"Weren\'t you a leader of the debate club last' 
 		ch0b = 'year?"'
     elseif ch0ln == 186 then 
-		ma = '3a' 
-		mb = '' 
-		mc = ''
+		updateMonika('3a','','')
 		ch0t = 'Monika' 
 		ch0a = '"Ahaha, well, you know..."'
 	elseif ch0ln == 187 then
@@ -782,23 +701,17 @@ function ch0script()
 		ch0a = '"I\'d much rather take something I personally enjoy'
 		ch0b = 'and make something special out of it."'
 	elseif ch0ln == 190 then
-		ma = '1l' 
-		mb = '1r' 
-		mc = 'b'
+		updateMonika('1l','1r','b')
 		ch0a = '"And if it encourages others to get into literature,'
 		ch0b = 'then I\'m fulfilling that dream!"'
 	elseif ch0ln == 191 then
 		mc = 'a'
-		sa = '2l' 
-		sb = '1r' 
-		sc= 'q' 
+		updateSayori('2l','1r','q')
 		sx = 0-40
 		ch0t = 'Sayori'
 		ch0a = '"Monika really is a great leader!"'
 	elseif ch0ln == 192 then
-		ya = '1l' 
-		yb = '1r' 
-		yc = 'a' 
+		updateYuri('1l','1r','a')
 		yx = 200
 		ch0t = ''
 		ch0a = 'Yuri also nods in agreement.'
@@ -811,8 +724,6 @@ function ch0script()
     elseif ch0ln == 194 then 
 		ch0a = "It must be hard to start a new club."
     elseif ch0ln == 195 then
-		ma = '1l' 
-		mb = '1r' 
 		mc = 'b'
 		ch0t = 'Monika' 
 		ch0a = '"You could put it that way."'
@@ -829,36 +740,28 @@ function ch0script()
 		ch0a = '"But it makes school events, like the festival,'
 		ch0b = 'that much more important."'
 	elseif ch0ln == 200 then
-		ma = '1l' 
-		mb = '2r' 
-		mc = 'k'
+		updateMonika('1l','2r','k')
 		ch0a = '"I\'m confident that we can all really grow this'
 		ch0b = 'club before we graduate!"'
 	elseif ch0ln == 201 then 
 		ch0a = '"Right, everyone?"' 
 		sload = 1
 	elseif ch0ln == 202 then
-		sa = '2l' 
-		sb = '2r' 
-		sc = 'r' 
+		updateSayori('2l','2r','r')
 		sx = 10
 		mx = 150
 		ch0t = 'Sayori'
 		ch0a = '"Yeah!"'
 	elseif ch0ln == 203 then
-		ya = '1l' 
-		yb = '1r' 
-		yc = 'a' 
+		updateYuri('1l','1r','a')
 		yx = 0-40
 		sx = 80
 		mx = 200
 		nload = 1
 		ch0t = 'Yuri'
-		ch0b = '"We\'ll do our best."'
+		ch0a = '"We\'ll do our best."'
 	elseif ch0ln == 204 then
-		na = '2l' 
-		nb = '2r' 
-		nc = 'd' 
+		updateNatsuki('2l','2r','d')
 		nx = 0 - 60
 		yx = 30
 		sx = 120
