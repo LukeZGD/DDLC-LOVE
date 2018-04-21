@@ -58,7 +58,7 @@ function drawGame()
 	love.graphics.setColor(255, 255, 255)
 	love.graphics.draw(bgch, 0, 0) --background changes 
 	
-	if xaload >= 3	then
+	if xaload >= 1	then
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
