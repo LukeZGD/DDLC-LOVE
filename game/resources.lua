@@ -67,7 +67,7 @@ end
 
 function charCheck()
 
-	if xaload <= 1 then
+	if xaload <= 3 then
 		loadSayori()
 		loadYuri()
 		loadNatsuki()
