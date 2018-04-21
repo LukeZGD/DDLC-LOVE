@@ -110,7 +110,7 @@ function love.draw()
 		
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
-		love.graphics.setBackgroundColor ( 200,200,200 )
+		love.graphics.setBackgroundColor ( 225,225,225 )
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(endbg,0,0)
 		drawBottomScreen()
