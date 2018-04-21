@@ -772,17 +772,119 @@ function ch0script()
 		ch0t = ''
 		ch0a = "Everyone enthusiastically agrees."
     elseif ch0ln == 206 then 
-		ch0a = "Such different girls, all interested in the same goal..."
+		ch0a = "Such different girls, all interested in the same"
+		ch0b = "goal..."
     elseif ch0ln == 207 then
-		ch0a = "Monika must have worked really hard just to find these "
-		ch0b = "three."
+		ch0a = "Monika must have worked really hard just to find"
+		ch0b = "these three."
     elseif ch0ln == 208 then
-		ch0a = "Maybe that's why they were all so delighted by the idea"
-	ch0b = "of a new member joining."
+		ch0a = "Maybe that's why they were all so delighted by"
+		ch0b = "the idea of a new member joining."
 	elseif ch0ln == 209 then
-		ch0a = "Though I still don't really know if I can keep up with"
-		ch0b = "their level of enthusiasm about literature..."
+		ch0a = "Though I still don't really know if I can keep up"
+		ch0b = "with their level of enthusiasm about literature..."
 	elseif ch0ln == 210 then
+		hideMonika()
+		hideNatsuki()
+		hideSayori()
+		updateYuri('1l','1r','a')
+		yx = 80
+		ch0t = 'Yuri'
+		ch0a = '"So, ' .. player .. ', what kinds of things do you like to '
+		ch0b = 'read?"'
+	elseif ch0ln == 211 then
+		ch0t = player
+		ch0a = '"Well... Ah..."'
+	elseif ch0ln == 212 then
+		ch0t = ''
+		ch0a = "Considering how little I\'ve read these past few"
+		ch0b = "years, I don\'t really have a good way of answering "
+		ch0c = "that."
+	elseif ch0ln == 213 then
+		ch0t = player
+		ch0a = '"...Manga..."'
+	elseif ch0ln == 214 then
+		ch0t = ''
+		ch0a = "I mutter quietly to myself, half-joking."
+	elseif ch0ln == 215 then
+		updateNatsuki('1l','1r','c')
+		nx = 0 - 50		
+		ch0a = "Natsuki's head suddenly perks up."
+	elseif ch0ln == 216 then
+		ch0a = "It looks like she wants to say something, "
+		ch0b = "but she keeps quiet"
+	elseif ch0ln == 217 then
+		hideNatsuki()
+		updateYuri('2l','2r','u')
+		ch0t = "Yuri"
+		ch0a = '"N-Not much of a reader, I guess..."'
+	elseif ch0ln == 218 then
+		ch0t = player
+		ch0a = '"...Well, that can change..."'
+	elseif ch0ln == 219 then
+		ch0t = ''
+		ch0a = "What am I saying?"
+	elseif ch0ln == 220 then
+		ch0a = "I spoke without thinking after seeing Yuri's sad "
+		ch0b = "smile."
+	elseif ch0ln == 221 then
+		ch0t = player
+		ch0a = '"Anyway, what about you, Yuri?"'
+	elseif ch0ln == 222 then
+		updateYuri('1l','1r','l')
+		ch0t = "Yuri"
+		ch0a = '"Well, let\'s see..."'
+	elseif ch0ln == 223 then
+		ch0t = ''
+		ch0a = "Yuri traces the rim of her teacup with her finger."
+	elseif ch0ln == 224 then
+		updateYuri('1l','1r','a')
+		ch0t = "Yuri"
+		ch0a = '"My favorites are usually novels that build deep '
+		ch0b = 'and complex fantasy worlds."'
+	elseif ch0ln == 225 then
+		ch0a = '"The level of creativity and craftsmanship behind '
+		ch0b = 'them is amazing to me."'
+	elseif ch0ln == 226 then
+		ch0a = '"And telling a good story in such a foreign'
+		ch0b = 'world is equally impressive."'
+	elseif ch0ln == 227 then
+		ch0t = ''
+		ch0a = "Yuri goes on, clearly passionate about her reading."
+	elseif ch0ln == 228 then
+		ch0a = "She seemed so reserved and timid since the "
+		ch0b = "moment I walked in, but it\'s obvious by the way "
+		ch0c = "her eyes light up that she finds her comfort in the "
+		ch0d = "world of books, not people."
+	elseif ch0ln == 229 then
+		updateYuri('1l','2r','m')
+		ch0t = "Yuri"
+		ch0a = '"But you know, I like a lot of things."'
+	elseif ch0ln == 230 then
+		ch0a = '"Stories with deep psychological elements '
+		ch0b = 'usually immerse me as well."'
+	elseif ch0ln == 231 then
+		updateYuri('1l','2r','a')
+		ch0a = '"Isn\'t it amazing how a writer can so '
+		ch0b = 'deliberately take advantage of your own lack of '
+		ch0c = 'imagination to completely throw you for a loop?"'
+	elseif ch0ln == 232 then
+		ch0a = '"Anyway, I\'ve been reading a lot of horror lately..."'
+	elseif ch0ln == 233 then
+		ch0t = player
+		ch0a = '"Ah, I read a horror book once..."'
+	elseif ch0ln == 234 then
+		ch0t = ''
+		ch0a = "I desperately grasp something I can relate to at "
+		ch0b = "the minimal level."
+	elseif ch0ln == 235 then
+		ch0a = "At this rate, Yuri might as well be having a "
+		ch0b = "conversation with a rock."
+	elseif ch0ln == 236 then
+		updateMonika('1l','1r','d')
+		mx = 200
+		ch0t = "Monika"
+		ch0a = '"Really?  I wouldn\'t have expected that, Yuri."'	
 		--refln'"Sayori is vice president of the Literature Club."'
 	end
 
