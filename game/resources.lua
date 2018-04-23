@@ -19,6 +19,11 @@ function audioUpdate(audiox) --the audio update function yay
 		ddlct = love.audio.newSource('./audio/bgm/3.ogg', "stream")
 		ddlct:setLooping(true)
 		ddlct:play()
+	elseif audiox == '4' then
+		audioStop()
+		ddlct = love.audio.newSource('./audio/bgm/4.ogg', "stream")
+		ddlct:setLooping(true)
+		ddlct:play()
 	elseif audiox == 's_kill_early' then
 		ddlct = love.audio.newSource('./audio/bgm/s_kill_early.ogg', "stream")
 		ddlct:setLooping(true)
@@ -105,7 +110,7 @@ function updateMonika(a,b,c)
 end
 
 function loadSayori()
-
+	--unloadSayori()
 	if sa=="" then
 	elseif sa=="1l" then
 		if s1l == nil then s1l = love.graphics.newImage('./images/sayori/1l.png') end
@@ -122,7 +127,7 @@ function loadSayori()
 	elseif sa=="1bl" then
 		if s1bl == nil then s1bl = love.graphics.newImage('./images/sayori/1bl.png') end
 	elseif sa=="2bl" then
-		if s2bl == nil then s2bl = love.graphics.newImage('./images/sayori/2bl.png') end
+		if s2bl == nil then s2bl = love.graphics.newImage('./images/sayori/2bl.png') end 
 	end
 	
 	if sb=="" then
@@ -131,9 +136,9 @@ function loadSayori()
 	elseif sb=="2r" then
 		if s2r == nil then s2r = love.graphics.newImage('./images/sayori/2r.png') end 
 	elseif sb=="1br" then
-		if s1br == nil then s1br = love.graphics.newImage('./images/sayori/1br.png') end
+		if s1r == nil then s1r = love.graphics.newImage('./images/sayori/1br.png') end 
 	elseif sb=="2br" then
-		if s2br == nil then s1br = love.graphics.newImage('./images/sayori/2br.png') end
+		if s2r == nil then s2r = love.graphics.newImage('./images/sayori/2br.png') end 
 	end
 	
 	if sc=="" then
@@ -175,12 +180,8 @@ function loadSayori()
 		if s_r == nil then s_r = love.graphics.newImage('./images/sayori/r.png') end
 	elseif sc=="s" then
 		if s_s == nil then s_s = love.graphics.newImage('./images/sayori/s.png') end
-	elseif sc=="t" then
-		if s_t == nil then s_t = love.graphics.newImage('./images/sayori/t.png') end
 	elseif sc=="u" then
 		if s_u == nil then s_u = love.graphics.newImage('./images/sayori/u.png') end
-	elseif sc=="v" then
-		if s_v == nil then s_v = love.graphics.newImage('./images/sayori/v.png') end
 	elseif sc=="w" then
 		if s_w == nil then s_w = love.graphics.newImage('./images/sayori/w.png') end
 	elseif sc=="x" then
@@ -188,6 +189,7 @@ function loadSayori()
 	elseif sc=="y" then
 		if s_y == nil then s_y = love.graphics.newImage('./images/sayori/y.png') end
 	end
+	
 	
 end
 
@@ -223,10 +225,11 @@ function unloadSayori()
 	s_w = nil
 	s_x = nil
 	s_y = nil
+	collectgarbage()
 end
 
 function loadYuri()	
-
+	--unloadYuri()
 	if ya=="" then
 	elseif ya=="1l" then
 		if yl1 == nil then y1l = love.graphics.newImage('./images/yuri/1l.png') end
@@ -363,7 +366,7 @@ function unloadYuri()
 end
 
 function loadNatsuki()
-
+	--unloadNatsuki()
 	if nc=="" then
 	elseif nc=="a" then
 		if n_a == nil then n_a = love.graphics.newImage('./images/natsuki/a.png') end
@@ -393,6 +396,10 @@ function loadNatsuki()
 		if n_m == nil then n_m = love.graphics.newImage('./images/natsuki/m.png') end
 	elseif nc=="n" then
 		if n_n == nil then n_n = love.graphics.newImage('./images/natsuki/n.png') end
+	elseif nc=="o" then
+		if n_o == nil then n_o = love.graphics.newImage('./images/natsuki/o.png') end
+	elseif nc=="p" then
+		if n_p == nil then n_p = love.graphics.newImage('./images/natsuki/p.png') end
 	elseif nc=="q" then
 		if n_q == nil then n_q = love.graphics.newImage('./images/natsuki/q.png') end
 	elseif nc=="r" then
@@ -414,6 +421,8 @@ function loadNatsuki()
 	elseif nc=="z" then
 		if n_z == nil then n_z = love.graphics.newImage('./images/natsuki/z.png') end
 
+	elseif nc=="1t" then
+		if n1t == nil then n1t = love.graphics.newImage('./images/natsuki/1t.png') end
 	elseif nc=="2bt" then
 		if n2bt == nil then n2bt = love.graphics.newImage('./images/natsuki/2bt.png') end
 	elseif nc=="2bta" then
@@ -468,6 +477,7 @@ function loadNatsuki()
 	elseif na=="2bl" then
 		if n2bl == nil then n2bl = love.graphics.newImage('./images/natsuki/2bl.png') end
 	elseif na=="3" then
+		if n3b == nil then n3b = love.graphics.newImage('./images/natsuki/3.png') end
 	end
 	
 	if nb=="" then
@@ -517,7 +527,7 @@ function unloadNatsuki()
 end
 	
 function loadMonika()
-
+	--unloadMonika()
 	if ma=="" then
 	elseif ma=="1l" then
 		if m1l == nil then m1l = love.graphics.newImage('./images/monika/1l.png') end
@@ -574,7 +584,6 @@ function loadMonika()
 	elseif mc=="r" then
 		if m_r == nil then m_r = love.graphics.newImage('./images/monika/r.png') end
 	end
-	
 end
 
 function unloadMonika()
