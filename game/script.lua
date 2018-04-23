@@ -8,8 +8,6 @@ function ch0script()
 	love.graphics.setBackgroundColor ( 0, 0, 0 )
 	
 	if ch0ln == 1 then
-		nxh = nx -- Don't remove this line, or the line below it.  Trust me.   They are important.
-		nxh = ny
 		ch0t = '???'
 		ch0a = '"Heeeeeeeyyy!!"'
 	elseif ch0ln == 2 then  
@@ -312,6 +310,7 @@ function ch0script()
 		ch0b = 'classroom door.'
 		audio1 = 1
 	end
+	
 	if ch0ln == 86 then
 		updateSayori('2l','2r','a')
 		sx = 0 - 50
@@ -778,7 +777,7 @@ function ch0script()
 		ch0b = "these three."
     elseif ch0ln == 210 then
 		ch0a = "Maybe that's why they were all so delighted by "
-	ch0b = "the idea of a new member joining."
+		ch0b = "the idea of a new member joining."
 	elseif ch0ln == 211 then
 		ch0a = "Though I still don't really know if I can keep up "
 		ch0b = "with their level of enthusiasm about literature..."
@@ -973,8 +972,6 @@ function ch0script()
 		ch0a = '"I\'m not cute!!"'
 	elseif ch0ln == 260 then
 		hideSayori()
-		nxh = nx
-		nyh = ny
 		nx = 80
 		ch0t = player
 		ch0a = '"Natsuki, you write your own poems?"'
@@ -1190,7 +1187,7 @@ function ch0script()
 	elseif ch0ln == 316 then
 		updateNatsuki('3','','q')
 		ch0t = "Natsuki"
-		ch0a = '"If you really just came for the cupcakes, '
+		ch0a = '"If you really just came for the cupcakes,'
 		ch0b = 'I would be super pissed."'
 	elseif ch0ln == 317 then
 		updateMonika('3a','','')
@@ -1308,6 +1305,11 @@ function ch0script()
 	elseif ch0ln == 346 then
 		ch0ln = 346
 		splashalpha(4)
+		
+		--1: x=80
+		--2: x=20 x=140 ..or.. x=10 x=150
+		--3: x=0-40 x=80 x=200
+		--4: x=0-60 x=30 x=120 x=220
 	end 
 	
 	if ch0ln == 10001 then
