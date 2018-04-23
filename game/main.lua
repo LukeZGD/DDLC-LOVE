@@ -39,7 +39,7 @@ function love.load()
 	
 	--check character files
 	sayorichr = io.open("./characters/sayori.chr", "r")
-	if sayorichr == nil or fileContent == 10000 then state = "s_kill_early" else sayorichr:close() end
+	if sayorichr == nil then state = "s_kill_early" else sayorichr:close() end
 	monikachr = io.open("./characters/monika.chr", "r")
 	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
 	
@@ -49,6 +49,7 @@ function love.load()
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
 		audioUpdate('s_kill_early')
 	elseif fileContent == 0 or fileContent == nil then
+		alpha = 255
 		timer = 501
 		ch0ln = 10016
 		bgCheck()
@@ -107,6 +108,12 @@ function love.draw()
 		
 	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
+		
+	elseif state == "poemgame" then
+		drawTopScreen()
+		love.graphics.setColor(255, 255, 255)
+		love.graphics.print("End of Demo",16, 16, 0, 1, 1)
+		love.graphics.print("Poem Game Placeholder",16, 32, 0, 1, 1)
 		
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
