@@ -180,8 +180,12 @@ function loadSayori()
 		if s_r == nil then s_r = love.graphics.newImage('./images/sayori/r.png') end
 	elseif sc=="s" then
 		if s_s == nil then s_s = love.graphics.newImage('./images/sayori/s.png') end
+	elseif sc=="t" then
+		if s_t == nil then s_s = love.graphics.newImage('./images/sayori/t.png') end
 	elseif sc=="u" then
 		if s_u == nil then s_u = love.graphics.newImage('./images/sayori/u.png') end
+	elseif sc=="v" then
+		if s_s == nil then s_s = love.graphics.newImage('./images/sayori/v.png') end
 	elseif sc=="w" then
 		if s_w == nil then s_w = love.graphics.newImage('./images/sayori/w.png') end
 	elseif sc=="x" then
@@ -476,7 +480,7 @@ function loadNatsuki()
 		if n1bl == nil then n1bl = love.graphics.newImage('./images/natsuki/1bl.png') end
 	elseif na=="2bl" then
 		if n2bl == nil then n2bl = love.graphics.newImage('./images/natsuki/2bl.png') end
-	elseif na=="3" then
+	elseif na=="3b" then
 		if n3b == nil then n3b = love.graphics.newImage('./images/natsuki/3.png') end
 	end
 	
