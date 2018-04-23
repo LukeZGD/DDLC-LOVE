@@ -1,6 +1,8 @@
 require "draw"
 require "script"
 require "resources"
+require "poemgame"
+require "poemwords"
 
 function love.load() 
 	--set up stuff
@@ -96,24 +98,23 @@ function love.draw()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(background_Image, posX, posY)
 		love.graphics.setColor(0,0,0)
-		love.graphics.print("START - New Game",16, 16, 0, 1, 1)
-		love.graphics.print("SELECT - Load Game",16, 32, 0, 1, 1)
+		love.graphics.print("Start - New Game",16, 16, 0, 1, 1)
+		love.graphics.print("Select - Load Game",16, 32, 0, 1, 1)
 		love.graphics.print("Controls:",16, 64, 0, 1, 1)
 		love.graphics.print("Y - Save Game",16, 80, 0, 1, 1)
 		love.graphics.print("B - Auto On/Off",16, 96, 0, 1, 1)
 		love.graphics.print("X - Skip",16, 112, 0, 1, 1)
-		love.graphics.print("START+A - Quit",16, 144, 0, 1, 1)
-		love.graphics.print("SELECT+A - Erase Save Data",16, 160, 0, 1, 1)
+		love.graphics.print("L+R+Start - Reset Game",16, 144, 0, 1, 1)
+		love.graphics.print("L+R+Select - Quit",16, 160, 0, 1, 1)
+		love.graphics.print("Up+X+B - Erase Save Data",16, 176, 0, 1, 1)
+		love.graphics.print("L+R+Up - Poem Game Test",16, 192, 0, 1, 1)
 		--love.graphics.print(player, 0, 0, 0, 1, 1)
 		
 	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
 		
 	elseif state == "poemgame" then
-		drawTopScreen()
-		love.graphics.setColor(255, 255, 255)
-		love.graphics.print("End of Demo",16, 16, 0, 1, 1)
-		love.graphics.print("Poem Game Placeholder",16, 32, 0, 1, 1)
+		drawpoemgame()
 		
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
@@ -162,25 +163,38 @@ function love.update(dt)
 		end
 	end
 	
-	if love.keyboard.isDown('start') then --quit the game
-		if love.keyboard.isDown('a') then 
-			love.event.quit() 
-		end
-		
-	elseif love.keyboard.isDown('select') then --erase save data
-		if love.keyboard.isDown('a') then
-			resetchr()
-			file = io.open("save.txt", "w")
-			file:write('0')
-			file:close()
-			sfx1play()
-			love.event.quit()  
+	if love.keyboard.isDown('up') then 
+		if love.keyboard.isDown('x') then
+			if love.keyboard.isDown('b') then --Up+X+B erase save data
+				resetchr()
+				file = io.open("save.txt", "w")
+				file:write('0')
+				file:close()
+				sfx1play()
+				love.event.quit()  
+			end
 		end
 	end
+	
+	if love.keyboard.isDown('lbutton') then
+		if love.keyboard.isDown('rbutton') then
+			if love.keyboard.isDown('start') then --L+R+Start reset the game
+				timer = 0
+				state = 'splash1'
+				audioupdate('1')
+			elseif love.keyboard.isDown('select') then --L+R+Select quit the game
+				love.event.quit()
+			end
+		elseif love.keyboard.isDown('up') then --L+R+Up poem game test
+			poemgame()
+		end
+	end
+	
 end
 
 function love.keypressed(key)
 	if key == 'start' then 
+	
 		if state == "title" then --new game
 			sfx1play()
 			if player == nil then
@@ -232,6 +246,10 @@ function love.keypressed(key)
 			sfx1play()
 			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
+	end
+	
+	if state == 'poemgame' then
+		poemgamekeypressed(key)
 	end
 end
 
