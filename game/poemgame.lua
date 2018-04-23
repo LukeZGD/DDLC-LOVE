@@ -1,34 +1,12 @@
-require 'poemwords'
-
 function addpoints()
-
-	if menuselected == 1 then
-		wordpick = word1r
-	elseif menuselected == 2 then
-		wordpick = word2r
-	elseif menuselected == 3 then
-		wordpick = word3r
-	elseif menuselected == 4 then
-		wordpick = word4r
-	elseif menuselected == 5 then
-		wordpick = word5r
-	elseif menuselected == 6 then
-		wordpick = word6r
-	elseif menuselected == 7 then
-		wordpick = word7r
-	elseif menuselected == 8 then
-		wordpick = word8r
-	elseif menuselected == 9 then
-		wordpick = word9r
-	elseif menuselected == 10 then
-		wordpick = word10r
-	end
-	
 	spoint = spoint + wordlist[wordpick][2]
 	npoint = npoint + wordlist[wordpick][3]
 	ypoint = ypoint + wordlist[wordpick][4]
 	
-	table.remove(wordlist, wordpick)
+	wordlist[wordpick][1] = nil
+	wordlist[wordpick][2] = nil
+	wordlist[wordpick][3] = nil
+	wordlist[wordpick][4] = nil
 	sfx1play()
 	poemword = poemword + 1
 end
@@ -82,16 +60,20 @@ function drawpoemgame()
 	
 	love.graphics.print('>',cursorX,cursorY,0,0,1,1)
 	
-	love.graphics.print(word1,20,0,0,1,1)
-	love.graphics.print(word2,20,16,0,1,1)
-	love.graphics.print(word3,20,32,0,1,1)
-	love.graphics.print(word4,20,48,0,1,1)
-	love.graphics.print(word5,20,64,0,1,1)
-	love.graphics.print(word6,110,0,0,1,1)
-	love.graphics.print(word7,110,16,0,1,1)
-	love.graphics.print(word8,110,32,0,1,1)
-	love.graphics.print(word9,110,48,0,1,1)
-	love.graphics.print(word10,110,64,0,1,1)
+	if word1 == nil or word2 == nil or word3 == nil or word4 == nil or word5 == nil or word6 == nil or word7 == nil or word8 == nil or word9 == nil or word10 == nil then
+		updatewordlist()
+	else
+		love.graphics.print(word1,20,0,0,1,1)
+		love.graphics.print(word2,20,16,0,1,1)
+		love.graphics.print(word3,20,32,0,1,1)
+		love.graphics.print(word4,20,48,0,1,1)
+		love.graphics.print(word5,20,64,0,1,1)
+		love.graphics.print(word6,110,0,0,1,1)
+		love.graphics.print(word7,110,16,0,1,1)
+		love.graphics.print(word8,110,32,0,1,1)
+		love.graphics.print(word9,110,48,0,1,1)
+		love.graphics.print(word10,110,64,0,1,1)
+	end
 	
 	drawBottomScreen()
 	love.graphics.print(poemword .. "/20",128,0,0,1,1)
@@ -104,33 +86,43 @@ function menuselect()
 	if menuselected == 1 then
 		cursorX = 0
 		cursorY = 0
+		wordpick = word1r
 	elseif menuselected == 2 then
 		cursorX = 0
 		cursorY = 16
+		wordpick = word2r
 	elseif menuselected == 3 then
 		cursorX = 0
 		cursorY = 32
+		wordpick = word3r
 	elseif menuselected == 4 then
 		cursorX = 0
 		cursorY = 48
+		wordpick = word4r
 	elseif menuselected == 5 then
 		cursorX = 0
 		cursorY = 64
+		wordpick = word5r
 	elseif menuselected == 6 then
 		cursorX = 90
 		cursorY = 0
+		wordpick = word6r
 	elseif menuselected == 7 then
 		cursorX = 90
 		cursorY = 16
+		wordpick = word7r
 	elseif menuselected == 8 then
 		cursorX = 90
 		cursorY = 32
+		wordpick = word8r
 	elseif menuselected == 9 then
 		cursorX = 90
 		cursorY = 48
+		wordpick = word9r
 	elseif menuselected == 10 then
 		cursorX = 90
 		cursorY = 64
+		wordpick = word10r
 	end
 end
 
