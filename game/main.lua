@@ -248,6 +248,9 @@ end
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
+		file = io.open("save.txt", "w")
+		file:write('1', "\n", player)
+		file:close()
 		audioUpdate('2')
 		bgCheck()
 		state = "game"
