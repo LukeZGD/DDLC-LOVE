@@ -47,7 +47,7 @@ function splashalpha(x)
 			audioUpdate('4')
 			state = "poemgame"
 		else	
-			alpha = alpha - 1
+			alpha = alpha - 1.5
 		end
 	end
 end

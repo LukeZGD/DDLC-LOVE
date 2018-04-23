@@ -1344,7 +1344,9 @@ function ch0script()
 	elseif ch0ln == 10014 then 
 		ch0a = '"PLEASE MAKE IT STOP!"'
 	elseif ch0ln == 10015 then 
-		love.filesystem.remove('./characters/sayori.chr')
+		file = io.open("save.txt", "w")
+		file:write('10000')
+		file:close()
 		love.event.quit()
 	end
 	
