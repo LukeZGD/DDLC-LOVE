@@ -39,7 +39,7 @@ function love.load()
 	
 	--check character files
 	sayorichr = io.open("./characters/sayori.chr", "r")
-	if sayorichr == nil then state = "s_kill_early" else sayorichr:close() end
+	if sayorichr == nil or fileContent == 10000 then state = "s_kill_early" else sayorichr:close() end
 	monikachr = io.open("./characters/monika.chr", "r")
 	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
 	
@@ -48,7 +48,7 @@ function love.load()
 		endbg = love.graphics.newImage('./images/gui/end.png')
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
 		audioUpdate('s_kill_early')
-	elseif fileContent == 0 or fileContent == nil then
+	elseif fileContent == nil or fileContent == 0 then
 		alpha = 255
 		timer = 501
 		ch0ln = 10016
@@ -173,6 +173,7 @@ function love.update(dt)
 			file = io.open("save.txt", "w")
 			file:write('0')
 			file:close()
+			sfx1play()
 			love.event.quit()  
 		end
 	end
@@ -201,7 +202,7 @@ function love.keypressed(key)
 			if fileContent == nil or fileContent == 1 then else
 				ch0ln = fileContent
 				audio1 = 1
-				audioCheck() --check for audio update
+				audioCheck() 
 				bgCheck()
 				state = "game"
 			end
