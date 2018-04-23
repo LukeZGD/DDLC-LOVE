@@ -44,8 +44,7 @@ function splashalpha(x)
 	elseif x == 4 then
 		if alpha <= 0 then
 			alpha = 255
-			audioUpdate('4')
-			state = "poemgame"
+			poemgame()
 		else	
 			alpha = alpha - 1.5
 		end
