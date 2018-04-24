@@ -51,13 +51,6 @@ function splashalpha(x)
 	end
 end
 
-function unloadbg()
-	splash = nil
-	titlebg = nil
-	bgch = nil
-	collectgarbage()
-end
-
 function drawGame()
 	ch0script()
 	charCheck()
