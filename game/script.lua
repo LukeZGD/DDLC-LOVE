@@ -1346,10 +1346,9 @@ function ch0script()
 	elseif ch0ln == 10014 then 
 		ch0a = '"PLEASE MAKE IT STOP!"'
 	elseif ch0ln == 10015 then 
-		file = io.open("save.txt", "w")
-		file:write('10000')
-		file:close()
-		love.event.quit()
+		ch0ln = 10000
+		savegame()
+		love.quit()
 	end
 	
 	if ch0ln == 10016 then --NEW GAME
@@ -1376,14 +1375,12 @@ function ch0script()
 		ch0ln = 10020
 		if timer == 1001 then sfx1play()
 		elseif timer == 1150 then
-			file = io.open("save.txt", "w")
-			file:write('1')
-			file:close()
+			ch0ln = 1
+			player = ""
+			savegame()
 			resetchr()
 			love.graphics.setBackgroundColor(255,255,255)
 			alpha = 0
-			ch0ln = 1
-			fileContent = 1
 			audioUpdate('1')
 			timer = 0
 			state = 'splash1'

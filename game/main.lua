@@ -3,6 +3,7 @@ require "script"
 require "resources"
 require "poemgame"
 require "poemwords"
+require "saveload"
 
 function love.load() 
 	--set up stuff
@@ -28,40 +29,7 @@ function love.load()
 	xaload = 0
 	alpha = 0
 	
-	--open save file
-	file = io.open("save.txt", "r")
-	
-	--save file read
-	if file ~= nil then
-		fileContent = file:read "*l"
-		fileContent = fileContent+1-1
-		player = file:read "*l"
-		file:close()
-	end
-	
-	--check character files
-	sayorichr = io.open("./characters/sayori.chr", "r")
-	if sayorichr == nil or fileContent == 10000 then state = "s_kill_early" else sayorichr:close() end
-	monikachr = io.open("./characters/monika.chr", "r")
-	if monikachr == nil then ch0ln = 10001 else ch0ln = 1 monikachr:close() end
-	
-	if state == "s_kill_early" then --set up early act 1 end
-		timer = 501
-		endbg = love.graphics.newImage('./images/gui/end.png')
-		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
-		audioUpdate('s_kill_early')
-	elseif fileContent == nil or fileContent == 0 then
-		alpha = 255
-		timer = 501
-		ch0ln = 10016
-		bgCheck()
-		state = "newgame"
-	else
-		resetchr2()
-		state = "splash1" --splash screen
-		audioUpdate('1') --play titlescreen music
-	end 
-	
+	filecheck()
 end
 
 function love.draw() 
@@ -93,6 +61,8 @@ function love.draw()
 		love.graphics.setColor(255, 255, 255, alpha)
 		love.graphics.draw(background_Image, posX, posY)
 		love.graphics.draw(titlebg, 0, 0)
+		love.graphics.print(ch0ln,16, 16, 0, 1, 1)
+		love.graphics.print(player,16, 32, 0, 1, 1)
 		
 		drawBottomScreen()
 		love.graphics.setColor(255, 255, 255)
@@ -108,7 +78,6 @@ function love.draw()
 		love.graphics.print("L+R+Select - Quit",16, 160, 0, 1, 1)
 		love.graphics.print("Up+X+B - Erase Save Data",16, 176, 0, 1, 1)
 		love.graphics.print("L+R+Up - Poem Game Test",16, 192, 0, 1, 1)
-		--love.graphics.print(player, 0, 0, 0, 1, 1)
 		
 	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
@@ -166,12 +135,10 @@ function love.update(dt)
 	if love.keyboard.isDown('up') then 
 		if love.keyboard.isDown('x') then
 			if love.keyboard.isDown('b') then --Up+X+B erase save data
-				resetchr()
-				file = io.open("save.txt", "w")
-				file:write('0')
-				file:close()
+				ch0ln = 0
+				savegame()
 				sfx1play()
-				love.event.quit()  
+				love.quit()  
 			end
 		end
 	end
@@ -179,14 +146,15 @@ function love.update(dt)
 	if love.keyboard.isDown('lbutton') then
 		if love.keyboard.isDown('rbutton') then
 			if love.keyboard.isDown('start') then --L+R+Start reset the game
-				timer = 0
-				state = 'splash1'
-				audioupdate('1')
+				unloadAll()
+				unloadbg()
+				audioUpdate('0')
+				love.load()
 			elseif love.keyboard.isDown('select') then --L+R+Select quit the game
-				love.event.quit()
+				love.quit()
+			elseif love.keyboard.isDown('up') then --L+R+Up poem game test
+				poemgame()
 			end
-		elseif love.keyboard.isDown('up') then --L+R+Up poem game test
-			poemgame()
 		end
 	end
 	
@@ -197,24 +165,23 @@ function love.keypressed(key)
 	
 		if state == "title" then --new game
 			sfx1play()
-			if player == nil then
+			if player == "" then
 				love.keyboard.setTextInput(true)
-			else
+			elseif ch0ln == 10001 or player ~= "" then
 				audioUpdate('2')
 				bgCheck()
 				state = "game"
-
 			end
-		elseif state == "splash1" then --skip splash screens
+		elseif state == "splash1" or state == "splash2" then --skip splash screens
 			timer = 500
 			state = "title"
 		end
 	
 	elseif key == 'select' then --load game
+	
 		if state == "title" then
 			sfx1play()
-			if fileContent == nil or fileContent == 1 then else
-				ch0ln = fileContent
+			if player ~= "" and ch0ln ~= 0 then
 				audio1 = 1
 				audioCheck() 
 				bgCheck()
@@ -235,9 +202,7 @@ function love.keypressed(key)
 		
 	elseif key == 'y' then --save game
 		if state == "game" then
-			file = io.open("save.txt", "w")
-			file:write(ch0ln, "\n", player)
-			file:close()
+			savegame()
 			sfx1play()
 		end
 		
@@ -266,9 +231,7 @@ end
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
-		file = io.open("save.txt", "w")
-		file:write('1', "\n", player)
-		file:close()
+		savegame()
 		audioUpdate('2')
 		bgCheck()
 		state = "game"
