@@ -148,6 +148,7 @@ function love.update(dt)
 			if love.keyboard.isDown('start') then --L+R+Start reset the game
 				unloadAll()
 				unloadbg()
+				audioUpdate('0')
 				love.load()
 			elseif love.keyboard.isDown('select') then --L+R+Select quit the game
 				love.quit()

@@ -41,6 +41,7 @@ function checkchr()
 	loadgame()
 	
 	if sayorichr == false or ch0ln == 10000 then --set up very early act 1 end
+		player = "..."
 		timer = 501
 		endbg = love.graphics.newImage('./images/gui/end.png')
 		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
