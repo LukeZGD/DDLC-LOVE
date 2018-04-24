@@ -37,9 +37,14 @@ function updatewordlist()
 end
 
 function poemgame()
+	unloadAll()
+	unloadbg()
+	bgch = love.graphics.newImage('./images/bg/notebook.png')
+
 	state = 'poemgame'
 	audioUpdate('4')
 	
+	math.randomseed(os.time())
 	poemwords()
 	updatewordlist()
 	
@@ -57,10 +62,13 @@ function drawpoemgame()
 	drawTopScreen()
 	love.graphics.setBackgroundColor ( 0,0,0 )
 	love.graphics.setColor(255,255,255)
+	--love.graphics.draw(bgch, 0, 0)
 	
-	love.graphics.print('>',cursorX,cursorY,0,0,1,1)
+	--love.graphics.setColor(0,0,0)
+	love.graphics.print('>',cursorX,cursorY,0,1,1)
 	
-	if word1 == nil or word2 == nil or word3 == nil or word4 == nil or word5 == nil or word6 == nil or word7 == nil or word8 == nil or word9 == nil or word10 == nil then
+	if word1 == nil or word2 == nil or word3 == nil or word4 == nil or word5 == nil
+	or word6 == nil or word7 == nil or word8 == nil or word9 == nil or word10 == nil then
 		updatewordlist()
 	else
 		love.graphics.print(word1,20,0,0,1,1)

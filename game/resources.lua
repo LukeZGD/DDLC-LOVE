@@ -43,32 +43,11 @@ function sfx1play()
 	sfx:play()
 end
 
-function resetchr()
-	monikachr = io.open("./characters/monika.chr", "w")
-	sayorichr = io.open("./characters/sayori.chr", "w")
-	yurichr = io.open("./characters/yuri.chr", "w")
-	natsukichr = io.open("./characters/natsuki.chr", "w")
-	
-	monikachr:write()
-	sayorichr:write()
-	yurichr:write()
-	natsukichr:write()
-	
-	monikachr:close()
-	sayorichr:close()
-	yurichr:close()
-	natsukichr:close()
-end
-
-function resetchr2()
-	yurichr = io.open("./characters/yuri.chr", "w")
-	natsukichr = io.open("./characters/natsuki.chr", "w")
-	
-	yurichr:write()
-	natsukichr:write()
-	
-	yurichr:close()
-	natsukichr:close()
+function unloadbg()
+	splash = nil
+	titlebg = nil
+	bgch = nil
+	collectgarbage()
 end
 
 function charCheck()
