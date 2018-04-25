@@ -1,12 +1,62 @@
+--script dependent functions are here
+
+function bgCheck() --background changes
+	if ch0ln <= 46 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/residential.png')
+	elseif ch0ln <= 82 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/class.png')
+	elseif ch0ln <= 85 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/corridor.png')
+	elseif ch0ln <= 334 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/club.png')
+	elseif ch0ln <= 346 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/residential.png')
+	elseif ch0ln <= 10015 then
+		unloadbg()
+		bgch = love.graphics.newImage('./images/bg/residential.png')
+	elseif ch0ln <= 10019 then
+		bgch = love.graphics.newImage('./images/bg/warning.png')
+	elseif ch0ln == 10020 then
+		bgch = love.graphics.newImage('./images/bg/warning2.png')
+	end
+	
+end
+
+function audioCheck() --audio changes
+	if audio1 == 1 then
+		if ch0ln <= 82 then 
+			audioUpdate('2')
+			audio1 = 0
+		elseif ch0ln <= 85 then
+			audioUpdate('0')
+			audio1 = 0
+		elseif ch0ln <= 346 then
+			audioUpdate('3')
+			audio1 = 0
+		end
+	end
+end
+
 function ch0script()
 
+	love.graphics.setBackgroundColor ( 0, 0, 0 )
 	ch0a = ""
 	ch0b = ""
 	ch0c = ""
 	ch0d = ""
+
+	--ch0a = 'Sayori is vice president of the Literature Club.' (for reference..?)
+	--1: x=80
+	--2: x=20 x=140 ..or.. x=10 x=150
+	--3: x=0-40 x=80 x=200
+	--4: x=0-60 x=30 x=120 x=220
 	
-	love.graphics.setBackgroundColor ( 0, 0, 0 )
-	
+	--start of script-ch0 (day 1)
 	if ch0ln == 1 then
 		ch0t = '???'
 		ch0a = '"Heeeeeeeyyy!!"'
@@ -1305,11 +1355,6 @@ function ch0script()
 	elseif ch0ln == 346 then
 		ch0ln = 346
 		splashalpha(4)
-		
-		--1: x=80
-		--2: x=20 x=140 ..or.. x=10 x=150
-		--3: x=0-40 x=80 x=200
-		--4: x=0-60 x=30 x=120 x=220
 	end 
 	
 	if ch0ln == 10001 then
@@ -1354,8 +1399,7 @@ function ch0script()
 	if ch0ln == 10016 then --NEW GAME
 		ch0a = 'This is an unofficial port of Doki Doki Literature'
 		ch0b = 'Club. If you are using a New 3DS/2DS and have'
-		ch0c = 'CFW, turn off L2 Cache. If you don\'t have CFW,'
-		ch0d = 'then you\'re kinda out of luck until a fix is found.'
+		ch0c = 'CFW, turn off L2 Cache.'
 	elseif ch0ln == 10017 then
 		ch0a = 'This port, nor the original game is not suitable'
 		ch0b = 'for children or those who are easily disturbed.'
@@ -1373,7 +1417,7 @@ function ch0script()
 	elseif ch0ln == 10020 then
 		timer = timer + 1
 		ch0ln = 10020
-		if timer == 1001 then sfx1play()
+		if timer == 1001 then sfx1:play()
 		elseif timer == 1150 then
 			ch0ln = 1
 			player = ""
@@ -1389,47 +1433,3 @@ function ch0script()
 	end
 	
 end	
-
---script dependent functions are also added here
-
-function bgCheck() --background changes
-	if ch0ln <= 46 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 82 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/class.png')
-	elseif ch0ln <= 85 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/corridor.png')
-	elseif ch0ln <= 334 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/club.png')
-	elseif ch0ln <= 346 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 10015 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 10019 then
-		bgch = love.graphics.newImage('./images/bg/warning.png')
-	elseif ch0ln == 10020 then
-		bgch = love.graphics.newImage('./images/bg/warning2.png')
-	end
-	
-end
-
-function audioCheck() --audio changes
-	if audio1 == 1 then
-		if ch0ln <= 82 then 
-			audioUpdate('2')
-			audio1 = 0
-		elseif ch0ln <= 85 then
-			audioUpdate('0')
-			audio1 = 0
-		elseif ch0ln <= 346 then
-			audioUpdate('3')
-			audio1 = 0
-		end
-	end
-end

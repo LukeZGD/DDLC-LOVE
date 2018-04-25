@@ -18,9 +18,7 @@ function love.load()
 	namebox = love.graphics.newImage('./images/gui/namebox.png')
 	sfx1 = love.audio.newSource("./audio/sfx/select.ogg", "static")
 	sfx2 = love.audio.newSource("./audio/sfx/hover.ogg", "static")
-	sfx1:setLooping(false)
-	sfx2:setLooping(false)
-	
+
 	--scrolling background
 	background_Image = love.graphics.newImage('./images/bg/menu_bg.png')
 	posX = 0
@@ -141,7 +139,7 @@ function love.update(dt)
 			if love.keyboard.isDown('b') then --Up+X+B erase save data
 				ch0ln = 0
 				savegame()
-				sfx1play()
+				sfx1:play()
 				love.quit()  
 			end
 		end
@@ -168,7 +166,7 @@ function love.keypressed(key)
 	if key == 'start' then 
 	
 		if state == "title" then --new game
-			sfx1play()
+			sfx1:play()
 			if player == "" then
 				love.keyboard.setTextInput(true)
 			elseif ch0ln == 10001 then
@@ -189,7 +187,7 @@ function love.keypressed(key)
 	elseif key == 'select' then --load game
 	
 		if state == "title" then
-			sfx1play()
+			sfx1:play()
 			if player ~= "" and ch0ln ~= 0 then
 				audio1 = 1
 				audioCheck() 
@@ -199,7 +197,7 @@ function love.keypressed(key)
 		end
 		
 	elseif key == 'x' then --play sfx for skip
-		if state == "game" then sfx1play() end
+		if state == "game" then sfx1:play() end
 		
 	elseif key == 'a' then 
 		if state == "game" or state == "newgame" then
@@ -212,12 +210,12 @@ function love.keypressed(key)
 	elseif key == 'y' then --save game
 		if state == "game" then
 			savegame()
-			sfx1play()
+			sfx1:play()
 		end
 		
 	elseif key == 'b' then --auto
 		if state == "game" then 
-			sfx1play()
+			sfx1:play()
 			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
 	end
