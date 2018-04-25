@@ -38,9 +38,11 @@ function audioStop()
 end
 
 function sfx1play()
-	sfx = love.audio.newSource("./audio/sfx/select.ogg", "static")
-	sfx:setLooping(false)
-	sfx:play()
+	sfx1:play()
+end
+
+function sfx2play()
+	sfx2:play()
 end
 
 function unloadbg()
