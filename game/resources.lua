@@ -37,14 +37,6 @@ function audioStop()
 	collectgarbage()
 end
 
-function sfx1play()
-	sfx1:play()
-end
-
-function sfx2play()
-	sfx2:play()
-end
-
 function unloadbg()
 	splash = nil
 	titlebg = nil
@@ -166,7 +158,7 @@ function loadSayori()
 	elseif sc=="u" then
 		if s_u == nil then s_u = love.graphics.newImage('./images/sayori/u.png') end
 	elseif sc=="v" then
-		if s_s == nil then s_s = love.graphics.newImage('./images/sayori/v.png') end
+		if s_v == nil then s_v = love.graphics.newImage('./images/sayori/v.png') end
 	elseif sc=="w" then
 		if s_w == nil then s_w = love.graphics.newImage('./images/sayori/w.png') end
 	elseif sc=="x" then
@@ -174,7 +166,6 @@ function loadSayori()
 	elseif sc=="y" then
 		if s_y == nil then s_y = love.graphics.newImage('./images/sayori/y.png') end
 	end
-	
 	
 end
 
