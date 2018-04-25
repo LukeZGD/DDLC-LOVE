@@ -3,10 +3,11 @@ function addpoints()
 	npoint = npoint + wordlist[wordpick][3]
 	ypoint = ypoint + wordlist[wordpick][4]
 	
-	wordlist[wordpick][1] = nil
-	wordlist[wordpick][2] = nil
-	wordlist[wordpick][3] = nil
-	wordlist[wordpick][4] = nil
+	--wordlist[wordpick][1] = nil
+	--wordlist[wordpick][2] = nil
+	--wordlist[wordpick][3] = nil
+	--wordlist[wordpick][4] = nil
+	sfx1play()
 	poemword = poemword + 1
 end
 
@@ -58,6 +59,8 @@ end
 
 function drawpoemgame()
 
+	xaload = xaload + 1
+
 	drawTopScreen()
 	love.graphics.setBackgroundColor ( 0,0,0 )
 	love.graphics.setColor(255,255,255)
@@ -66,10 +69,10 @@ function drawpoemgame()
 	--love.graphics.setColor(0,0,0)
 	love.graphics.print('>',cursorX,cursorY,0,1,1)
 	
-	if word1 == nil or word2 == nil or word3 == nil or word4 == nil or word5 == nil
+	--[[if word1 == nil or word2 == nil or word3 == nil or word4 == nil or word5 == nil
 	or word6 == nil or word7 == nil or word8 == nil or word9 == nil or word10 == nil then
 		updatewordlist()
-	else
+	else]]
 		love.graphics.print(word1,20,0,0,1,1)
 		love.graphics.print(word2,20,16,0,1,1)
 		love.graphics.print(word3,20,32,0,1,1)
@@ -80,7 +83,7 @@ function drawpoemgame()
 		love.graphics.print(word8,110,32,0,1,1)
 		love.graphics.print(word9,110,48,0,1,1)
 		love.graphics.print(word10,110,64,0,1,1)
-	end
+	--end
 	
 	drawBottomScreen()
 	love.graphics.print(poemword .. "/20",128,0,0,1,1)
@@ -188,11 +191,14 @@ function poemgamekeypressed(key)
 	end
 	
 	if key == 'a' then
-		addpoints()
-		if poemword == 20 then
-			splashalpha(5)
-		else
-			updatewordlist()
+		if xaload >= 100 then
+			addpoints()
+			if poemword == 20 then
+				splashalpha(5)
+			else	
+				updatewordlist()
+				xaload = 0
+			end
 		end
 	end
 end

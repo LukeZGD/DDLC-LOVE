@@ -171,7 +171,12 @@ function love.keypressed(key)
 			sfx1play()
 			if player == "" then
 				love.keyboard.setTextInput(true)
-			elseif ch0ln == 10001 or player ~= "" then
+			elseif ch0ln == 10001 then
+				audioUpdate('2')
+				bgCheck()
+				state = "game"
+			elseif ch0ln ~= 1 and ch0ln <= 9999 then
+				ch0ln = 1
 				audioUpdate('2')
 				bgCheck()
 				state = "game"
