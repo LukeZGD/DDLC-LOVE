@@ -16,7 +16,11 @@ function love.load()
 	titlebg = love.graphics.newImage('./images/bg/bg.png')
 	textbox = love.graphics.newImage('./images/gui/textbox.png')
 	namebox = love.graphics.newImage('./images/gui/namebox.png')
-
+	sfx1 = love.audio.newSource("./audio/sfx/select.ogg", "static")
+	sfx2 = love.audio.newSource("./audio/sfx/hover.ogg", "static")
+	sfx1:setLooping(false)
+	sfx2:setLooping(false)
+	
 	--scrolling background
 	background_Image = love.graphics.newImage('./images/bg/menu_bg.png')
 	posX = 0

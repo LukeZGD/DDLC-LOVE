@@ -7,7 +7,6 @@ function addpoints()
 	wordlist[wordpick][2] = nil
 	wordlist[wordpick][3] = nil
 	wordlist[wordpick][4] = nil
-	sfx1play()
 	poemword = poemword + 1
 end
 
