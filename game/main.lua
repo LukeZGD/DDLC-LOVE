@@ -1,9 +1,11 @@
 require "draw"
-require "script"
 require "resources"
 require "poemgame"
 require "poemwords"
 require "saveload"
+
+require "scripts.script"
+require "scripts.script-ch1"
 
 function love.load() 
 	--set up stuff

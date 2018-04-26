@@ -55,6 +55,7 @@ function splashalpha(x)
 			audio1 = 1
 			audioCheck() 
 			bgCheck()
+			xaload = 0
 			state = "game"
 		else	
 			alpha = alpha - 1.5
