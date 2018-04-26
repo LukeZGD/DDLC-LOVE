@@ -8,7 +8,7 @@ require "saveload"
 function love.load() 
 	--set up stuff
 	love.graphics.setBackgroundColor ( 0,0,0 )
-	font = love.graphics.newFont('Aller_Rg')
+	font = love.graphics.newFont('./images/gui/fonts/Aller_Rg')
 	love.graphics.setFont(font)
 	
 	--set up more stuff (splash, title screen, gui elements)
@@ -155,9 +155,14 @@ function love.update(dt)
 			elseif love.keyboard.isDown('select') then --L+R+Select quit the game
 				love.quit()
 			elseif love.keyboard.isDown('up') then --L+R+Up poem game test
+				poemstate = 0
 				poemgame()
 			end
 		end
+	end
+	
+	if state == 'poemgame' then
+		updatepoemgame(dt)
 	end
 	
 end

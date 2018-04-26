@@ -48,6 +48,17 @@ function splashalpha(x)
 		else	
 			alpha = alpha - 1.5
 		end
+	elseif x == 5 then
+		if alpha <= 0 then
+			alpha = 255
+			ch0ln = ch0ln + 2
+			audio1 = 1
+			audioCheck() 
+			bgCheck()
+			state = "game"
+		else	
+			alpha = alpha - 1.5
+		end
 	end
 end
 

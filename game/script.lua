@@ -1353,8 +1353,10 @@ function ch0script()
 		ch0a = "And I guess that starts with writing a "
 		ch0b = "poem tonight..."
 	elseif ch0ln == 346 then
-		ch0ln = 346
+		poemstate = 0
 		splashalpha(4)
+	elseif ch0ln == 347 then
+		ch0ln = 346
 	end 
 	
 	if ch0ln == 10001 then
@@ -1414,7 +1416,7 @@ function ch0script()
 		ch0c = 'consent to your exposure of highly disturbing'
 		ch0d = 'content.'
 		timer = 1000
-	elseif ch0ln == 10020 then
+	elseif ch0ln >= 10020 then
 		timer = timer + 1
 		ch0ln = 10020
 		if timer == 1001 then sfx1:play()
@@ -1429,7 +1431,6 @@ function ch0script()
 			timer = 0
 			state = 'splash1'
 		 end
-	
 	end
 	
 end	

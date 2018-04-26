@@ -1,10 +1,10 @@
 function addpoints()
-	spoint = spoint + wordlist[wordpick][2]
-	npoint = npoint + wordlist[wordpick][3]
-	ypoint = ypoint + wordlist[wordpick][4]
+	spoint = spoint + spadd
+	npoint = npoint + npadd
+	ypoint = ypoint + ypadd
 
 	sfx1:play()
-	poemword = poemword + 1
+	if poemword ~= 21 then poemword = poemword + 1 end
 end
 
 function updatewordlist()
@@ -33,16 +33,23 @@ function updatewordlist()
 end
 
 function poemgame()
-	unloadAll()
-	unloadbg()
 	bgch = love.graphics.newImage('./images/bg/notebook.png')
-	poemfont = love.graphics.newFont('Halogen')
+	poemfont = love.graphics.newFont('./images/gui/fonts/Halogen')
 	sayoristicker1 = love.graphics.newImage('./images/gui/poemgame/s_sticker_1.png')
 	sayoristicker2 = love.graphics.newImage('./images/gui/poemgame/s_sticker_2.png')
 	yuristicker1 = love.graphics.newImage('./images/gui/poemgame/y_sticker_1.png')
 	yuristicker2 = love.graphics.newImage('./images/gui/poemgame/y_sticker_2.png')
 	natsukisticker1 = love.graphics.newImage('./images/gui/poemgame/n_sticker_1.png')
 	natsukisticker2 = love.graphics.newImage('./images/gui/poemgame/n_sticker_2.png')
+	if poemstate == 0 then 
+		poemtime = love.graphics.newImage('./images/gui/poemgame/poemtime.png')
+	end
+	
+	p_y = 100
+	ground = 100    
+	y_velocity = 0       
+	jump_height = -300  
+	gravity = -2250  
 	
 	state = 'poemgame'
 	audioUpdate('4')
@@ -63,18 +70,25 @@ end
 function drawpoemgame()
 
 	xaload = xaload + 1
-
+	if poemword >= 21 then
+		splashalpha(5)
+	end
+	
 	drawTopScreen()
 	love.graphics.setBackgroundColor ( 0,0,0 )
-	love.graphics.setColor(255,255,255)
+	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.draw(bgch, 0, 0)
 	
 	love.graphics.setColor(0,0,0)
+	love.graphics.setFont(font)
 	love.graphics.print('>',cursorX,cursorY,0,1,1)
 	
 	love.graphics.setFont(poemfont)
-	
-	love.graphics.print(poemword .. "/20",245,25,0,1,1)
+	if poemword <= 20 then
+		love.graphics.print(poemword .. "/20",245,25,0,1,1)
+	else
+		love.graphics.print("20/20",245,25,0,1,1)
+	end
 	love.graphics.print(word1,117,45,0,1,1)
 	love.graphics.print(word2,117,80,0,1,1)
 	love.graphics.print(word3,117,118,0,1,1)
@@ -86,13 +100,43 @@ function drawpoemgame()
 	love.graphics.print(word9,200,153,0,1,1)
 	love.graphics.print(word10,200,188,0,1,1)
 	
+	love.graphics.setColor(255,255,255,alpha)
+	if poemstate == 0 then love.graphics.draw(poemtime,0,0) end
 	
 	drawBottomScreen()
-	love.graphics.setColor(255,255,255)
 	love.graphics.draw(background_Image, posX, posY)
-	love.graphics.draw(sayoristicker1,50,100)
-	love.graphics.draw(natsukisticker1,110,100)
-	love.graphics.draw(yuristicker1,190,100)
+	
+	if xaload <= 75 then
+		if y_velocity == 0 then
+			y_velocity = jump_height
+		end
+		if spadd == 3 then
+			love.graphics.draw(sayoristicker2,50,p_y)
+			love.graphics.draw(natsukisticker1,110,100)
+			love.graphics.draw(yuristicker1,190,100)
+		elseif npadd == 3 then
+			love.graphics.draw(sayoristicker1,50,100)
+			love.graphics.draw(natsukisticker2,110,p_y)
+			love.graphics.draw(yuristicker1,190,100)
+		elseif ypadd == 3 then
+			love.graphics.draw(sayoristicker1,50,100)
+			love.graphics.draw(natsukisticker1,110,100)
+			love.graphics.draw(yuristicker2,190,p_y)
+		else
+			love.graphics.draw(sayoristicker1,50,100)
+			love.graphics.draw(natsukisticker1,110,100)
+			love.graphics.draw(yuristicker1,190,100)
+		end
+	else
+		love.graphics.draw(sayoristicker1,50,100)
+		love.graphics.draw(natsukisticker1,110,100)
+		love.graphics.draw(yuristicker1,190,100)
+		spadd = wordlist[wordpick][2]
+		npadd = wordlist[wordpick][3]
+		ypadd = wordlist[wordpick][4]
+		p_y = 100
+	end
+	
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
 	love.graphics.print('Sayori Points: ' .. spoint,0,32,0,1,1)
@@ -100,7 +144,20 @@ function drawpoemgame()
 	love.graphics.print('Yuri Points: ' .. ypoint,0,64,0,1,1)
 end
 
+function updatepoemgame(dt)
+	if y_velocity ~= 0 then                                  
+		p_y = p_y + y_velocity * dt               
+		y_velocity = y_velocity - gravity * dt 
+	end
+ 
+    if p_y > ground then  
+		y_velocity = 0     
+    	p_y = ground  
+	end
+end
+
 function menuselect()
+
 	if menuselected == 1 then
 		cursorX = 110
 		cursorY = 43
@@ -142,20 +199,19 @@ function menuselect()
 		cursorY = 186
 		wordpick = word10r
 	end
+
 end
 
 function poemgamekeypressed(key)
 
-	if poemword <= 19 then
-
 	if key == 'down' then
-		if menuselected <= 10 then
+		if menuselected <= 9 then
 			menuselected = menuselected + 1
 			menuselect()
 		end
 		
 	elseif key == 'up' then
-		if menuselected >= 1 then
+		if menuselected >= 2 then
 			menuselected = menuselected - 1
 			menuselect()
 		end
@@ -196,15 +252,19 @@ function poemgamekeypressed(key)
 			menuselect()
 		end
 	end
-	end
 	
 	if key == 'a' then
-		if xaload >= 100 then
-			addpoints()
-			if poemword == 20 then
-				splashalpha(5)
-			else	
+		if xaload >= 75 then
+			if poemstate == 0 then
+				poemstate = 1
+				sfx1:play()
+			elseif poemword <= 19 then
+				addpoints()
 				updatewordlist()
+				menuselect()
+				xaload = 0
+			elseif poemword == 20 then
+				addpoints()
 				xaload = 0
 			end
 		end
