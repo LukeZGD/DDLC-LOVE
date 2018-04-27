@@ -1,5 +1,5 @@
 function bgUpdate(bgx) --background changes
-	if xaload <= 1 then
+	if xaload <= 0 then
 		if bgx == 'residential' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/bg/residential.png')
@@ -14,16 +14,16 @@ function bgUpdate(bgx) --background changes
 			bgch = love.graphics.newImage('./images/bg/club.png')
 		elseif bgx == 'warning' then
 			bgch = love.graphics.newImage('./images/bg/warning.png')
+			bgch2 = love.graphics.newImage('./images/bg/warning2.png')
 		elseif bgx == 'warning2' then
-			--unloadbg()
-			bgch = love.graphics.newImage('./images/bg/warning2.png')
+			bgch = bgch2
 		end
 	end	
 	bg1 = bgx
 end
 
 function audioUpdate(audiox) --the audio update function yay
-	if xaload <= 1 then
+	if xaload <= 0 then
 		if audiox == '0' then
 			audioStop()
 			ddlct = love.audio.newSource("./audio/bgm/0.ogg", "stream")
@@ -67,12 +67,13 @@ function unloadbg()
 	splash = nil
 	titlebg = nil
 	bgch = nil
+	bgch2 = nil
 	collectgarbage()
 end
 
 function charCheck()
 
-	if xaload <= 1 then
+	if xaload <= 0 then
 		loadSayori()
 		loadYuri()
 		loadNatsuki()

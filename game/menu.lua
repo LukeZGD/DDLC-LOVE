@@ -9,8 +9,14 @@ end
 function menu_draw()
 	love.graphics.setColor(255, 255, 255, alpha)
 	love.graphics.draw(background_Image, posX, posY)
+	love.graphics.setColor(255, 189, 225, alpha)
+	love.graphics.rectangle("fill", 50, 10, 220, 220 )
+	love.graphics.setColor(254, 230, 244, alpha)
+	love.graphics.rectangle("fill", 60, 20, 200, 200 )
+	
 	love.graphics.setColor(0,0,0)
 	love.graphics.print('>',cX,cY,0,1,1)
+	
 	if menu_type == 'title' then
 		love.graphics.print("New Game",16, 20, 0, 1, 1)
 		love.graphics.print("Load Game",16, 36, 0, 1, 1)

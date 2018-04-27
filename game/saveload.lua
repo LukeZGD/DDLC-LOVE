@@ -104,7 +104,6 @@ end
 function checkchr()
 	local sayorichr = love.filesystem.isFile("sayori.chr")
 	local monikachr = love.filesystem.isFile("monika.chr")
-	loadgame()
 	
 	if sayorichr and monikachr then --load title screen
 		resetchr2()

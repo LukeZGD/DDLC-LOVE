@@ -140,10 +140,7 @@ function love.update(dt)
 	
 	if love.keyboard.isDown('lbutton') then
 		if love.keyboard.isDown('rbutton') then
-			if love.keyboard.isDown('start') then --L+R+Start reset the game
-				audioUpdate('0')
-				love.load()
-			elseif love.keyboard.isDown('select') then --L+R+Select quit the game
+			if love.keyboard.isDown('select') then --L+R+Select quit the game
 				love.quit()
 			elseif love.keyboard.isDown('up') then --L+R+Up poem game test
 				poemstate = 0
@@ -170,13 +167,15 @@ function love.keypressed(key)
 				love.keyboard.setTextInput(true)
 			elseif ch0ln == 10001 then
 				audioUpdate('2')
+				xaload = 0
 				state = "game"
-			elseif ch0ln ~= 1 and ch0ln <= 9999 then
+			elseif ch0ln <= 9999 then
 				hideSayori()
 				hideYuri()
 				hideNatsuki()
 				hideMonika()
 				ch0ln = 1
+				xaload = 0
 				state = "game"
 			end
 		elseif state == "splash1" or state == "splash2" then --skip splash screens
@@ -234,8 +233,12 @@ end
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
+		hideSayori()
+		hideYuri()
+		hideNatsuki()
+		hideMonika()
 		savegame()
-		audioUpdate('2')
+		xaload = 0
 		state = "game"
 	else
 		state = "title"

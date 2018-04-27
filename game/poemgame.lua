@@ -18,11 +18,11 @@ function poemfinish()
 		end
 	end
 	
-	if spoint < 28 then s_poemappeal = s_poemappeal-1
+	if spoint < 29 then s_poemappeal = s_poemappeal-1
     elseif spoint > 45 then s_poemappeal = s_poemappeal+1 end
-    if npoint < 28 then n_poemappeal = n_poemappeal-1
+    if npoint < 29 then n_poemappeal = n_poemappeal-1
     elseif npoint > 45 then n_poemappeal = n_poemappeal+1 end
-    if yPoint < 28 then y_poemappeal = y_poemappeal-1
+	if ypoint < 29 then y_poemappeal = y_poemappeal-1
     elseif ypoint > 45 then y_poemappeal = y_poemappeal+1 end
 end
 
@@ -62,7 +62,6 @@ function poemgame()
 	natsukisticker2 = love.graphics.newImage('./images/gui/poemgame/n_sticker_2.png')
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('./images/gui/poemgame/poemtime.png')
-		
 	end
 	
 	p_y = 100
@@ -72,6 +71,7 @@ function poemgame()
 	gravity = -2250  
 	
 	state = 'poemgame'
+	xaload = 0
 	audioUpdate('4')
 	
 	math.randomseed(os.time())
@@ -110,7 +110,7 @@ function drawpoemgame()
 	else
 		love.graphics.print("20/20",245,25,0,1,1)
 	end
-	love.graphics.print(poemwinner,0,0,0,1,1)
+	--love.graphics.print(poemwinner,0,0,0,1,1)
 	love.graphics.print(word1,117,45,0,1,1)
 	love.graphics.print(word2,117,80,0,1,1)
 	love.graphics.print(word3,117,118,0,1,1)
@@ -150,20 +150,20 @@ function drawpoemgame()
 			love.graphics.draw(yuristicker1,190,100)
 		end
 	else
+		p_y = 100
 		love.graphics.draw(sayoristicker1,50,100)
 		love.graphics.draw(natsukisticker1,110,100)
 		love.graphics.draw(yuristicker1,190,100)
 		spadd = wordlist[wordpick][2]
 		npadd = wordlist[wordpick][3]
 		ypadd = wordlist[wordpick][4]
-		p_y = 100
 	end
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	love.graphics.print('Sayori Points: ' .. spoint,0,32,0,1,1)
+	--[[love.graphics.print('Sayori Points: ' .. spoint,0,32,0,1,1)
 	love.graphics.print('Natsuki Points: ' .. npoint,0,48,0,1,1)
-	love.graphics.print('Yuri Points: ' .. ypoint,0,64,0,1,1)
+	love.graphics.print('Yuri Points: ' .. ypoint,0,64,0,1,1)]]
 end
 
 function updatepoemgame(dt)
@@ -287,7 +287,7 @@ function poemgamekeypressed(key)
 				xaload = 0
 			elseif poemword == 20 then
 				addpoints()
-				--poemfinish()
+				poemfinish()
 				xaload = 0
 			end
 		end

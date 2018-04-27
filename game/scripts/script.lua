@@ -1391,6 +1391,7 @@ function ch0script()
 			resetchr()
 			love.graphics.setBackgroundColor(255,255,255)
 			alpha = 0
+			xaload = 0
 			audioUpdate('1')
 			timer = 0
 			state = 'splash1'

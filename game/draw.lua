@@ -107,24 +107,28 @@ function hideSayori()
 	sa = ''
 	sb = ''
 	sc = ''
+	sx = 80
 end
 
 function hideYuri()
 	ya = ''
 	yb = ''
 	yc = ''
+	yx = 80
 end
 
 function hideNatsuki()
 	na = ''
 	nb = ''
 	nc = ''
+	nc = 80
 end
 
 function hideMonika()
 	ma = ''
 	mb = ''
 	mc = ''
+	mx = -40
 end
 
 function drawSayori(sa,sb,sc)
