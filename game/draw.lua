@@ -52,9 +52,6 @@ function splashalpha(x)
 		if alpha <= 0 then
 			alpha = 255
 			ch0ln = ch0ln + 2
-			audio1 = 1
-			audioCheck() 
-			bgCheck()
 			xaload = 0
 			state = "game"
 		else	
@@ -69,9 +66,9 @@ function drawGame()
 	
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
-	love.graphics.draw(bgch, 0, 0) --background changes 
 	
 	if xaload >= 1 then
+	love.graphics.draw(bgch, 0, 0)
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
@@ -105,32 +102,6 @@ function drawGame()
 end
 
 ch0t = "" --name text
-
-sa = "" --sayori
-sb = ""
-sc = ""
-sx = 80
-sy = 0
-
-ya = "" --yuri
-yb = ""
-yc = ""
-yx = 80
-yy = 0
-
-na = "" --natsuki
-nb = ""
-nc = ""
-nx = 80
-nxh = nx
-ny = 0
-nyh = ny
-
-ma = "" --just monika
-mb = ""
-mc = ""
-mx = 0 - 40
-my = 0
 
 function hideSayori()
 	sa = ''

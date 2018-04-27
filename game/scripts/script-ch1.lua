@@ -1,7 +1,6 @@
 function ch1script()
 	
 	if ch0ln == 348 then
-		--ch0a = 'Sayori is vice president of the Literature Club.' (for reference..?)
 		updateMonika('3a','','')
 		mx = 80
 		ch0t = 'Monika'
@@ -33,7 +32,7 @@ function ch1script()
 		ch0a = '"Making you dive headfirst into literature when'
 		ch0b = 'you\'re not accustomed to it..."'
 	elseif ch0ln == 357 then
-		nx = 220
+		nx = 200
 		updateNatsuki('2l','2r','b')
 		ch0t = 'Natsuki'
 		ch0a = '"Oh, come on! Like he deserves any slack."'
@@ -51,7 +50,7 @@ function ch1script()
 		ch0b = 'you won\'t see the end of it."'
 	elseif ch0ln == 362 then
 		updateMonika('1l','2r','b')
-		mx = 0-60
+		mx = 0-40
 		ch0t = 'Monika'
 		ch0a = '"Natsuki, you certainly have a big mouth for'
 		ch0b = 'someone who keeps her manga collection in the'
@@ -66,7 +65,7 @@ function ch1script()
 		ch0a = '"Natsuki finds herself stuck between saying'
 		ch0b = '\"Monika\" and \"Manga\"."'
 	elseif ch0ln == 365 then
-		updateNatsuki('1l','1r','r')
+		updateNatsuki('1l','1r','v')
 		ch0t = 'Natsuki'
 		ch0a = '"Manga is literature!!"'
 		

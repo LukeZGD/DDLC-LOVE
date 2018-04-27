@@ -7,6 +7,25 @@ function addpoints()
 	if poemword ~= 21 then poemword = poemword + 1 end
 end
 
+function poemfinish()
+	if spoint > ypoint then
+		if spoint > npoint then poemwinner = 'sayori' 
+		elseif npoint > spoint then poemwinner = 'natsuki'
+		end
+	elseif ypoint > spoint then
+		if ypoint > npoint then poemwinner = 'yuri'
+		elseif npoint > ypoint then poemwinner = 'natsuki'
+		end
+	end
+	
+	if spoint < 28 then s_poemappeal = s_poemappeal-1
+    elseif spoint > 45 then s_poemappeal = s_poemappeal+1 end
+    if npoint < 28 then n_poemappeal = n_poemappeal-1
+    elseif npoint > 45 then n_poemappeal = n_poemappeal+1 end
+    if yPoint < 28 then y_poemappeal = y_poemappeal-1
+    elseif ypoint > 45 then y_poemappeal = y_poemappeal+1 end
+end
+
 function updatewordlist()
 
 	word1r = math.random(1,#wordlist)
@@ -43,6 +62,7 @@ function poemgame()
 	natsukisticker2 = love.graphics.newImage('./images/gui/poemgame/n_sticker_2.png')
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('./images/gui/poemgame/poemtime.png')
+		
 	end
 	
 	p_y = 100
@@ -65,6 +85,7 @@ function poemgame()
 	npoint = 0
 	ypoint = 0
 	poemword = 1
+	poemwinner = ''
 end
 
 function drawpoemgame()
@@ -89,6 +110,7 @@ function drawpoemgame()
 	else
 		love.graphics.print("20/20",245,25,0,1,1)
 	end
+	love.graphics.print(poemwinner,0,0,0,1,1)
 	love.graphics.print(word1,117,45,0,1,1)
 	love.graphics.print(word2,117,80,0,1,1)
 	love.graphics.print(word3,117,118,0,1,1)
@@ -265,6 +287,7 @@ function poemgamekeypressed(key)
 				xaload = 0
 			elseif poemword == 20 then
 				addpoints()
+				--poemfinish()
 				xaload = 0
 			end
 		end
