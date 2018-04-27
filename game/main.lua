@@ -233,10 +233,6 @@ end
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
-		hideSayori()
-		hideYuri()
-		hideNatsuki()
-		hideMonika()
 		savegame()
 		xaload = 0
 		state = "game"
