@@ -1,14 +1,17 @@
 require "draw"
-require "script"
 require "resources"
 require "poemgame"
 require "poemwords"
 require "saveload"
 
+require "menu"
+require "scripts.script"
+require "scripts.script-ch1"
+
 function love.load() 
 	--set up stuff
 	love.graphics.setBackgroundColor ( 0,0,0 )
-	font = love.graphics.newFont('Aller_Rg')
+	font = love.graphics.newFont('./images/gui/fonts/Aller_Rg')
 	love.graphics.setFont(font)
 	
 	--set up more stuff (splash, title screen, gui elements)
@@ -27,9 +30,9 @@ function love.load()
 	--set up some other stuff
 	timer = 0
 	autotimer = 0
-	audio1 = 0
 	xaload = 0
 	alpha = 0
+	menu_enabled = false
 	
 	filecheck()
 end
@@ -63,23 +66,9 @@ function love.draw()
 		love.graphics.setColor(255, 255, 255, alpha)
 		love.graphics.draw(background_Image, posX, posY)
 		love.graphics.draw(titlebg, 0, 0)
-		love.graphics.print(ch0ln,16, 16, 0, 1, 1)
-		love.graphics.print(player,16, 32, 0, 1, 1)
 		
 		drawBottomScreen()
-		love.graphics.setColor(255, 255, 255)
-		love.graphics.draw(background_Image, posX, posY)
-		love.graphics.setColor(0,0,0)
-		love.graphics.print("Start - New Game",16, 16, 0, 1, 1)
-		love.graphics.print("Select - Load Game",16, 32, 0, 1, 1)
-		love.graphics.print("Controls:",16, 64, 0, 1, 1)
-		love.graphics.print("Y - Save Game",16, 80, 0, 1, 1)
-		love.graphics.print("B - Auto On/Off",16, 96, 0, 1, 1)
-		love.graphics.print("X - Skip",16, 112, 0, 1, 1)
-		love.graphics.print("L+R+Start - Reset Game",16, 144, 0, 1, 1)
-		love.graphics.print("L+R+Select - Quit",16, 160, 0, 1, 1)
-		love.graphics.print("Up+X+B - Erase Save Data",16, 176, 0, 1, 1)
-		love.graphics.print("L+R+Up - Poem Game Test",16, 192, 0, 1, 1)
+		menu_draw()
 		
 	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
@@ -113,8 +102,6 @@ function love.update(dt)
 		autotimer = autotimer + 1
 	elseif autotimer == 151 then
 		ch0ln = ch0ln + 1
-		audioCheck()
-		bgCheck()
 		xaload = 0
 		autotimer = 1
 	end
@@ -128,7 +115,7 @@ function love.update(dt)
 	end
 	
 	if love.keyboard.isDown('x') then  --skip enable
-		if state == 'game' then
+		if state == 'game' and menu_enabled == false then
 			ch0ln = ch0ln + 1
 			xaload = 0
 		end
@@ -137,79 +124,57 @@ function love.update(dt)
 	if love.keyboard.isDown('up') then 
 		if love.keyboard.isDown('x') then
 			if love.keyboard.isDown('b') then --Up+X+B erase save data
-				ch0ln = 0
-				savegame()
-				sfx1:play()
-				love.quit()  
+				if state == 'title' then
+					ch0ln = 0
+					hideSayori()
+					hideYuri()
+					hideNatsuki()
+					hideMonika()
+					savegame()
+					sfx1:play()
+					love.quit()
+				end
 			end
 		end
 	end
 	
 	if love.keyboard.isDown('lbutton') then
 		if love.keyboard.isDown('rbutton') then
-			if love.keyboard.isDown('start') then --L+R+Start reset the game
-				unloadAll()
-				unloadbg()
-				audioUpdate('0')
-				love.load()
-			elseif love.keyboard.isDown('select') then --L+R+Select quit the game
+			if love.keyboard.isDown('select') then --L+R+Select quit the game
 				love.quit()
 			elseif love.keyboard.isDown('up') then --L+R+Up poem game test
+				poemstate = 0
 				poemgame()
 			end
 		end
 	end
 	
+	if state == 'poemgame' then
+		updatepoemgame(dt)
+	end
+	
 end
 
 function love.keypressed(key)
-	if key == 'start' then 
-	
-		if state == "title" then --new game
-			sfx1:play()
-			if player == "" then
-				love.keyboard.setTextInput(true)
-			elseif ch0ln == 10001 then
-				audioUpdate('2')
-				bgCheck()
-				state = "game"
-			elseif ch0ln ~= 1 and ch0ln <= 9999 then
-				ch0ln = 1
-				audioUpdate('2')
-				bgCheck()
-				state = "game"
-			end
-		elseif state == "splash1" or state == "splash2" then --skip splash screens
-			timer = 500
-			state = "title"
-		end
-	
-	elseif key == 'select' then --load game
-	
-		if state == "title" then
-			sfx1:play()
-			if player ~= "" and ch0ln ~= 0 then
-				audio1 = 1
-				audioCheck() 
-				bgCheck()
-				state = "game"
-			end
-		end
-		
-	elseif key == 'x' then --play sfx for skip
+	if key == 'x' then --play sfx for skip
 		if state == "game" then sfx1:play() end
-		
+	
+	elseif key == 'start' then
+		if state == 'game' then
+			sfx1:play()
+			menu_enable('pause',8)
+		end
 	elseif key == 'a' then 
-		if state == "game" or state == "newgame" then
+		if state == "game" and menu_enabled == false or state == "newgame" then
 			ch0ln = ch0ln + 1 --next script
-			audioCheck()
-			bgCheck()
 			xaload = 0
 		end
 		
 	elseif key == 'y' then --save game
-		if state == "game" then
-			savegame()
+		if state == "game" and menu_enabled == false then
+			menu_previous = 'pause'
+			menu_previousitems = 8
+			menu_enable('savegame',4)
 			sfx1:play()
 		end
 		
@@ -222,6 +187,8 @@ function love.keypressed(key)
 	
 	if state == 'poemgame' then
 		poemgamekeypressed(key)
+	elseif menu_enabled then
+		menu_keypressed(key)
 	end
 end
 
@@ -229,8 +196,6 @@ function love.keyreleased(key)
 	if key == 'x' then --skip disable
 		if state == 'game' then
 			autotimer = 0
-			audioCheck()
-			bgCheck()
 		end
 	end
 end
@@ -239,8 +204,8 @@ function love.textinput(text)
 	if text ~= '' then 
 		player = text
 		savegame()
-		audioUpdate('2')
-		bgCheck()
+		menu_enabled = false
+		xaload = 0
 		state = "game"
 	else
 		state = "title"

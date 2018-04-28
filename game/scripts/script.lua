@@ -1,47 +1,3 @@
---script dependent functions are here
-
-function bgCheck() --background changes
-	if ch0ln <= 46 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 82 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/class.png')
-	elseif ch0ln <= 85 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/corridor.png')
-	elseif ch0ln <= 334 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/club.png')
-	elseif ch0ln <= 346 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 10015 then
-		unloadbg()
-		bgch = love.graphics.newImage('./images/bg/residential.png')
-	elseif ch0ln <= 10019 then
-		bgch = love.graphics.newImage('./images/bg/warning.png')
-	elseif ch0ln == 10020 then
-		bgch = love.graphics.newImage('./images/bg/warning2.png')
-	end
-	
-end
-
-function audioCheck() --audio changes
-	if audio1 == 1 then
-		if ch0ln <= 82 then 
-			audioUpdate('2')
-			audio1 = 0
-		elseif ch0ln <= 85 then
-			audioUpdate('0')
-			audio1 = 0
-		elseif ch0ln <= 346 then
-			audioUpdate('3')
-			audio1 = 0
-		end
-	end
-end
-
 function ch0script()
 
 	love.graphics.setBackgroundColor ( 0, 0, 0 )
@@ -49,15 +5,16 @@ function ch0script()
 	ch0b = ""
 	ch0c = ""
 	ch0d = ""
-
-	--ch0a = 'Sayori is vice president of the Literature Club.' (for reference..?)
-	--1: x=80
-	--2: x=20 x=140 ..or.. x=10 x=150
-	--3: x=0-40 x=80 x=200
-	--4: x=0-60 x=30 x=120 x=220
+	
+	if ch0ln >= 348 then
+		ch1script() --go to script-ch1 (day 2)
+	end
 	
 	--start of script-ch0 (day 1)
 	if ch0ln == 1 then
+		chapter = 0
+		bgUpdate('residential')
+		audioUpdate('2')
 		ch0t = '???'
 		ch0a = '"Heeeeeeeyyy!!"'
 	elseif ch0ln == 2 then  
@@ -86,6 +43,7 @@ function ch0script()
 		ch0a = 'However, I just sigh and idle in front of the'
 		ch0b = 'crosswalk and let Sayori catch up to me.'
 	elseif ch0ln == 8 then
+		sx = 80
 		updateSayori('2l','2r','p')
 		ch0t = 'Sayori'
 		ch0a = '"Haaahhh...haaahhh..."'
@@ -220,6 +178,7 @@ function ch0script()
 		ch0d = 'everything inside of her head.'
 	elseif ch0ln == 47 then
 		hideSayori()
+		bgUpdate('class')
 		ch0a = 'The school day is as ordinary as ever,'
 		ch0b = 'and it\'s over before I know it.'
 	elseif ch0ln == 48 then
@@ -344,9 +303,10 @@ function ch0script()
 		updateSayori('2l','2r','r')
 		ch0t = 'Sayori'
 		ch0a = '"Yes! Let\'s go~!"'
-		audio1 = 1
 	elseif ch0ln == 83 then
 		hideSayori()
+		bgUpdate('corridor')
+		audioUpdate('0')
 		ch0t = ''
 		ch0a = 'And thus, today marks the day I sold'
 		ch0b = 'my soul for a cupcake.'
@@ -358,10 +318,11 @@ function ch0script()
 	elseif ch0ln == 85 then 
 		ch0a = 'Sayori, full of energy, swings open the'
 		ch0b = 'classroom door.'
-		audio1 = 1
 	end
 	
 	if ch0ln == 86 then
+		bgUpdate('club')
+		audioUpdate('3')
 		updateSayori('2l','2r','a')
 		sx = 0 - 50
 		ch0t = 'Sayori'
@@ -400,7 +361,7 @@ function ch0script()
 	elseif ch0ln == 95 then
 		mc = 'a'
 		ch0t = player
-		ch0a = "'...'"
+		ch0a = '"..."'
 	elseif ch0ln == 96 then 
 		ch0t = ''
 		ch0a = 'All words escape me in this situation.'
@@ -1309,6 +1270,7 @@ function ch0script()
 		ch0a = '"Yaay~"'
 	elseif ch0ln == 335 then
 		hideSayori()
+		bgUpdate('residential')
 		ch0t = ''
 		ch0a = "With that, the two of us depart the "
 		ch0b = "clubroom and make our way home."
@@ -1353,8 +1315,10 @@ function ch0script()
 		ch0a = "And I guess that starts with writing a "
 		ch0b = "poem tonight..."
 	elseif ch0ln == 346 then
-		ch0ln = 346
+		poemstate = 0
 		splashalpha(4)
+	elseif ch0ln == 347 then
+		ch0ln = 346
 	end 
 	
 	if ch0ln == 10001 then
@@ -1397,6 +1361,7 @@ function ch0script()
 	end
 	
 	if ch0ln == 10016 then --NEW GAME
+		bgUpdate('warning')
 		ch0a = 'This is an unofficial port of Doki Doki Literature'
 		ch0b = 'Club. If you are using a New 3DS/2DS and have'
 		ch0c = 'CFW, turn off L2 Cache.'
@@ -1414,10 +1379,12 @@ function ch0script()
 		ch0c = 'consent to your exposure of highly disturbing'
 		ch0d = 'content.'
 		timer = 1000
-	elseif ch0ln == 10020 then
+	elseif ch0ln >= 10020 then
 		timer = timer + 1
 		ch0ln = 10020
-		if timer == 1001 then sfx1:play()
+		bgUpdate('warning2')
+		if timer == 1001 then 
+			sfx1:play()
 		elseif timer == 1150 then
 			ch0ln = 1
 			player = ""
@@ -1425,11 +1392,11 @@ function ch0script()
 			resetchr()
 			love.graphics.setBackgroundColor(255,255,255)
 			alpha = 0
+			xaload = 0
 			audioUpdate('1')
 			timer = 0
 			state = 'splash1'
 		 end
-	
 	end
 	
 end	

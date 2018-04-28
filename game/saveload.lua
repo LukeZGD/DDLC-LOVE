@@ -1,19 +1,87 @@
+s_poemappeal = 0
+n_poemappeal = 0
+y_poemappeal = 0
+
+sx = 80
+yx = 80
+nx = 80
+mx = -40
+
+sa = "" --sayori
+sb = ""
+sc = ""
+sy = 0
+
+ya = "" --yuri
+yb = ""
+yc = ""
+yy = 0
+
+na = "" --natsuki
+nb = ""
+nc = ""
+ny = 0
+
+ma = "" --just monika
+mb = ""
+mc = ""
+my = 0
+
+chapter = 0
+poemwinner = ""
+bg1 = ""
+audio1 = 2
+savenumber = 1
+
 function savegame()
-	--love.filesystem.write("save.sav", "savefile={"..ch0ln..",'"..player.."'}")
-	love.filesystem.write("save.sav", tostring(ch0ln))
-	love.filesystem.write("player.sav", player)
+	love.filesystem.write("save"..savenumber..".sav", "savefile={"..ch0ln..",'"..player..[[
+',]]..s_poemappeal..","..n_poemappeal..","..y_poemappeal..",'"..poemwinner..[[
+',]]..sx..","..yx..","..nx..","..mx..[[
+,']]..sa.."','"..sb.."','"..sc.."','"..ya.."','"..yb.."','"..yc..[[
+',']]..na.."','"..nb.."','"..nc.."','"..ma.."','"..mb.."','"..mc..[[
+',]]..chapter..",'"..bg1.."','"..audio1.."'}") --other settings might be added here!
 end
 
 function loadgame()
-	ch0ln = love.filesystem.read("save.sav")
-	player = love.filesystem.read("player.sav")
-	ch0ln = tonumber(ch0ln)
-	--love.filesystem.load("save.sav")()
+	loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
+	loadsavefile()
+	ch0ln = savefile[1]
+	player = savefile[2]
+	
+	s_poemappeal = savefile[3]
+	n_poemappeal = savefile[4]
+	y_poemappeal = savefile[5]
+	poemwinner = savefile[6]
+	
+	sx = savefile[7]
+	yx = savefile[8]
+	nx = savefile[9]
+	mx = savefile[10]
+	
+	sa = savefile[11]
+	sb = savefile[12]
+	sc = savefile[13]
+	ya = savefile[14]
+	yb = savefile[15]
+	yc = savefile[16]
+	na = savefile[17]
+	nb = savefile[18]
+	nc = savefile[19]
+	ma = savefile[20]
+	mb = savefile[21]
+	mc = savefile[22]
+	
+	chapter = savefile[23]
+end
+
+function loadupdate()
+	bgUpdate(savefile[24])
+	audioUpdate(savefile[25])
 end
 
 function filecheck()
 
-	local file = love.filesystem.isFile("save.sav")
+	local file = love.filesystem.isFile("save1.sav")
 
 	if file then
 		loadgame()
@@ -21,7 +89,6 @@ function filecheck()
 			alpha = 255
 			timer = 501
 			ch0ln = 10016
-			bgCheck()
 			state = "newgame"
 		else
 			checkchr()
@@ -30,7 +97,6 @@ function filecheck()
 		alpha = 255
 		timer = 501
 		ch0ln = 10016
-		bgCheck()
 		state = "newgame"
 	end
 	
@@ -39,7 +105,6 @@ end
 function checkchr()
 	local sayorichr = love.filesystem.isFile("sayori.chr")
 	local monikachr = love.filesystem.isFile("monika.chr")
-	loadgame()
 	
 	if sayorichr and monikachr then --load title screen
 		resetchr2()
