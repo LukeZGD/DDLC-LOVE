@@ -23,6 +23,7 @@ function ch1script()
 		ch0a = "I was the last to come in, so everyone else is"
 		ch0b = "already hanging out."
     elseif ch0ln == 354 then
+		yx = 80
 		updateYuri('1l','1r','a')
 		ch0t = 'Yuri'
 		ch0a = '"Thanks for keeping your promise, '..player..'."'

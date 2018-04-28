@@ -39,6 +39,7 @@ function splashalpha(x)
 		if alpha >= 255 then
 			alpha = 255
 		else
+			menu_enable('title', 5)
 			alpha = alpha + 2.5
 		end
 	elseif x == 4 then
@@ -74,6 +75,9 @@ function drawGame()
 	drawNatsuki(na,nb,nc) 
 	drawMonika(ma,mb,mc)
 	end
+	if menu_enabled then 
+	love.graphics.draw(background_Image, posX, posY)
+	end
 	
 	drawBottomScreen()
 	love.graphics.draw(background_Image, posX, posY)
@@ -89,15 +93,15 @@ function drawGame()
 	love.graphics.print(ch0d,8,112,0,1,1) --line 4
 
 	if state ~= 'newgame' then
-	
-	love.graphics.print("Y - Save Game",16,220,0,1,1)
-	if autotimer == 0 then
-		love.graphics.print("B - Auto On",120,220,0,1,1)
-	else
-		love.graphics.print("B - Auto Off",120,220,0,1,1)
+		love.graphics.print("Y - Save Game",16,220,0,1,1)
+		if autotimer == 0 then
+			love.graphics.print("B - Auto On",120,220,0,1,1)
+		else
+			love.graphics.print("B - Auto Off",120,220,0,1,1)
+		end
+		love.graphics.print("X - Skip",220,220,0,1,1)
 	end
-	love.graphics.print("X - Skip",220,220,0,1,1)
-	
+	if menu_enabled then menu_draw()
 	end
 end
 

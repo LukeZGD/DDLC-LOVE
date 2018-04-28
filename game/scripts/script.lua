@@ -43,6 +43,7 @@ function ch0script()
 		ch0a = 'However, I just sigh and idle in front of the'
 		ch0b = 'crosswalk and let Sayori catch up to me.'
 	elseif ch0ln == 8 then
+		sx = 80
 		updateSayori('2l','2r','p')
 		ch0t = 'Sayori'
 		ch0a = '"Haaahhh...haaahhh..."'
@@ -360,7 +361,7 @@ function ch0script()
 	elseif ch0ln == 95 then
 		mc = 'a'
 		ch0t = player
-		ch0a = "'...'"
+		ch0a = '"..."'
 	elseif ch0ln == 96 then 
 		ch0t = ''
 		ch0a = 'All words escape me in this situation.'

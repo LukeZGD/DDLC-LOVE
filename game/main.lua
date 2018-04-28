@@ -32,7 +32,7 @@ function love.load()
 	autotimer = 0
 	xaload = 0
 	alpha = 0
-	menu_enable('title', 4)
+	menu_enabled = false
 	
 	filecheck()
 end
@@ -68,7 +68,7 @@ function love.draw()
 		love.graphics.draw(titlebg, 0, 0)
 		
 		drawBottomScreen()
-		if menu_enabled then menu_draw() end
+		menu_draw()
 		
 	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
@@ -114,12 +114,12 @@ function love.update(dt)
 		end
 	end
 	
-	--[[if love.keyboard.isDown('x') then  --skip enable
-		if state == 'game' then
+	if love.keyboard.isDown('x') then  --skip enable
+		if state == 'game' and menu_enabled == false then
 			ch0ln = ch0ln + 1
 			xaload = 0
 		end
-	end]]
+	end
 	
 	if love.keyboard.isDown('up') then 
 		if love.keyboard.isDown('x') then
@@ -145,9 +145,6 @@ function love.update(dt)
 			elseif love.keyboard.isDown('up') then --L+R+Up poem game test
 				poemstate = 0
 				poemgame()
-			elseif love.keyboard.isDown('down') then
-				timer = 500
-				state = "title"
 			end
 		end
 	end
@@ -159,52 +156,25 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-	if key == 'start' then 
-	
-		if state == "title" then --new game
-			sfx1:play()
-			if player == "" then
-				love.keyboard.setTextInput(true)
-			elseif ch0ln == 10001 then
-				audioUpdate('2')
-				xaload = 0
-				state = "game"
-			elseif ch0ln <= 9999 then
-				hideSayori()
-				hideYuri()
-				hideNatsuki()
-				hideMonika()
-				ch0ln = 1
-				xaload = 0
-				state = "game"
-			end
-		elseif state == "splash1" or state == "splash2" then --skip splash screens
-			timer = 500
-			state = "title"
-		end
-	
-	elseif key == 'select' then --load game
-	
-		if state == "title" then
-			sfx1:play()
-			if player ~= "" and ch0ln ~= 0 then
-				loadupdate()
-				state = "game"
-			end
-		end
-		
-	elseif key == 'x' then --play sfx for skip
+	if key == 'x' then --play sfx for skip
 		if state == "game" then sfx1:play() end
-		
+	
+	elseif key == 'start' then
+		if state == 'game' then
+			sfx1:play()
+			menu_enable('pause',8)
+		end
 	elseif key == 'a' then 
-		if state == "game" or state == "newgame" then
+		if state == "game" and menu_enabled == false or state == "newgame" then
 			ch0ln = ch0ln + 1 --next script
 			xaload = 0
 		end
 		
 	elseif key == 'y' then --save game
-		if state == "game" then
-			savegame()
+		if state == "game" and menu_enabled == false then
+			menu_previous = 'pause'
+			menu_previousitems = 8
+			menu_enable('savegame',4)
 			sfx1:play()
 		end
 		
@@ -234,6 +204,7 @@ function love.textinput(text)
 	if text ~= '' then 
 		player = text
 		savegame()
+		menu_enabled = false
 		xaload = 0
 		state = "game"
 	else

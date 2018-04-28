@@ -31,9 +31,10 @@ chapter = 0
 poemwinner = ""
 bg1 = ""
 audio1 = 2
+savenumber = 1
 
 function savegame()
-	love.filesystem.write("save.sav", "savefile={"..ch0ln..",'"..player..[[
+	love.filesystem.write("save"..savenumber..".sav", "savefile={"..ch0ln..",'"..player..[[
 ',]]..s_poemappeal..","..n_poemappeal..","..y_poemappeal..",'"..poemwinner..[[
 ',]]..sx..","..yx..","..nx..","..mx..[[
 ,']]..sa.."','"..sb.."','"..sc.."','"..ya.."','"..yb.."','"..yc..[[
@@ -42,7 +43,7 @@ function savegame()
 end
 
 function loadgame()
-	loadsavefile = loadstring(love.filesystem.read("save.sav"))
+	loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
 	loadsavefile()
 	ch0ln = savefile[1]
 	player = savefile[2]
@@ -80,7 +81,7 @@ end
 
 function filecheck()
 
-	local file = love.filesystem.isFile("save.sav")
+	local file = love.filesystem.isFile("save1.sav")
 
 	if file then
 		loadgame()
