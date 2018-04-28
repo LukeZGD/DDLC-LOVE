@@ -1,5 +1,5 @@
 function bgUpdate(bgx) --background changes
-	if xaload <= 0 then
+	if xaload == 0 then
 		if bgx == 'residential' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/bg/residential.png')
@@ -23,7 +23,7 @@ function bgUpdate(bgx) --background changes
 end
 
 function audioUpdate(audiox) --the audio update function yay
-	if xaload <= 0 then
+	if xaload == 0 then
 		if audiox == '0' then
 			audioStop()
 			ddlct = love.audio.newSource("./audio/bgm/0.ogg", "stream")
@@ -73,7 +73,7 @@ end
 
 function charCheck()
 
-	if xaload <= 0 then
+	if xaload == 0 then
 		loadSayori()
 		loadYuri()
 		loadNatsuki()
