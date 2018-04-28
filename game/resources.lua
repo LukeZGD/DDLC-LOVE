@@ -1,34 +1,60 @@
+function bgUpdate(bgx) --background changes
+	if xaload <= 0 then
+		if bgx == 'residential' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/residential.png')
+		elseif bgx == 'class' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/class.png')
+		elseif bgx == 'corridor' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/corridor.png')
+		elseif bgx == 'club' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/club.png')
+		elseif bgx == 'warning' then
+			bgch = love.graphics.newImage('./images/bg/warning.png')
+			bgch2 = love.graphics.newImage('./images/bg/warning2.png')
+		elseif bgx == 'warning2' then
+			bgch = bgch2
+		end
+	end	
+	bg1 = bgx
+end
 
 function audioUpdate(audiox) --the audio update function yay
-	if audiox == '0' then
-		audioStop()
-		ddlct = love.audio.newSource("./audio/bgm/0.ogg", "stream")
-		ddlct:setLooping(false)
-		ddlct:play()
-	elseif audiox == '1' then
-		ddlct = love.audio.newSource("./audio/bgm/1.ogg", "stream")
-		ddlct:setLooping(true)
-		ddlct:play()
-	elseif audiox == '2' then
-		audioStop()
-		ddlct = love.audio.newSource('./audio/bgm/2.ogg', "stream")
-		ddlct:setLooping(true)
-		ddlct:play()
-	elseif audiox == '3' then
-		audioStop()
-		ddlct = love.audio.newSource('./audio/bgm/3.ogg', "stream")
-		ddlct:setLooping(true)
-		ddlct:play()
-	elseif audiox == '4' then
-		audioStop()
-		ddlct = love.audio.newSource('./audio/bgm/4.ogg', "stream")
-		ddlct:setLooping(true)
-		ddlct:play()
-	elseif audiox == 's_kill_early' then
-		ddlct = love.audio.newSource('./audio/bgm/s_kill_early.ogg', "stream")
-		ddlct:setLooping(true)
-		ddlct:play()
+	if xaload <= 0 then
+		if audiox == '0' then
+			audioStop()
+			ddlct = love.audio.newSource("./audio/bgm/0.ogg", "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == '1' then
+			ddlct = love.audio.newSource("./audio/bgm/1.ogg", "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '2' then
+			audioStop()
+			ddlct = love.audio.newSource('./audio/bgm/2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '3' then
+			audioStop()
+			ddlct = love.audio.newSource('./audio/bgm/3.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '4' then
+			audioStop()
+			ddlct = love.audio.newSource('./audio/bgm/4.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 's_kill_early' then
+			ddlct = love.audio.newSource('./audio/bgm/s_kill_early.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		end
 	end
+	audio1 = audiox
 end
 
 function audioStop()
@@ -41,12 +67,13 @@ function unloadbg()
 	splash = nil
 	titlebg = nil
 	bgch = nil
+	bgch2 = nil
 	collectgarbage()
 end
 
 function charCheck()
 
-	if xaload <= 1 then
+	if xaload <= 0 then
 		loadSayori()
 		loadYuri()
 		loadNatsuki()

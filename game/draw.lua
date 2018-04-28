@@ -39,12 +39,22 @@ function splashalpha(x)
 		if alpha >= 255 then
 			alpha = 255
 		else
+			menu_enable('title', 5)
 			alpha = alpha + 2.5
 		end
 	elseif x == 4 then
 		if alpha <= 0 then
 			alpha = 255
 			poemgame()
+		else	
+			alpha = alpha - 1.5
+		end
+	elseif x == 5 then
+		if alpha <= 0 then
+			alpha = 255
+			ch0ln = ch0ln + 2
+			xaload = 0
+			state = "game"
 		else	
 			alpha = alpha - 1.5
 		end
@@ -57,13 +67,16 @@ function drawGame()
 	
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
-	love.graphics.draw(bgch, 0, 0) --background changes 
 	
 	if xaload >= 1 then
+	love.graphics.draw(bgch, 0, 0)
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
 	drawMonika(ma,mb,mc)
+	end
+	if menu_enabled then 
+	love.graphics.draw(background_Image, posX, posY)
 	end
 	
 	drawBottomScreen()
@@ -80,45 +93,19 @@ function drawGame()
 	love.graphics.print(ch0d,8,112,0,1,1) --line 4
 
 	if state ~= 'newgame' then
-	
-	love.graphics.print("Y - Save Game",16,220,0,1,1)
-	if autotimer == 0 then
-		love.graphics.print("B - Auto On",120,220,0,1,1)
-	else
-		love.graphics.print("B - Auto Off",120,220,0,1,1)
+		love.graphics.print("Y - Save Game",16,220,0,1,1)
+		if autotimer == 0 then
+			love.graphics.print("B - Auto On",120,220,0,1,1)
+		else
+			love.graphics.print("B - Auto Off",120,220,0,1,1)
+		end
+		love.graphics.print("X - Skip",220,220,0,1,1)
 	end
-	love.graphics.print("X - Skip",220,220,0,1,1)
-	
+	if menu_enabled then menu_draw()
 	end
 end
 
 ch0t = "" --name text
-
-sa = "" --sayori
-sb = ""
-sc = ""
-sx = 80
-sy = 0
-
-ya = "" --yuri
-yb = ""
-yc = ""
-yx = 80
-yy = 0
-
-na = "" --natsuki
-nb = ""
-nc = ""
-nx = 80
-nxh = nx
-ny = 0
-nyh = ny
-
-ma = "" --just monika
-mb = ""
-mc = ""
-mx = 0 - 40
-my = 0
 
 function hideSayori()
 	sa = ''
