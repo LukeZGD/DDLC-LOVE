@@ -99,7 +99,7 @@ function drawGame()
 		else
 			love.graphics.print("B - Auto Off",120,220,0,1,1)
 		end
-		love.graphics.print("X - Skip",220,220,0,1,1)
+		love.graphics.print("Start - Pause",220,220,0,1,1)
 	end
 	if menu_enabled then menu_draw()
 	end

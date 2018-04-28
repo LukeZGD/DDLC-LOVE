@@ -117,7 +117,7 @@ function love.update(dt)
 	if love.keyboard.isDown('x') then  --skip enable
 		if state == 'game' and menu_enabled == false then
 			ch0ln = ch0ln + 1
-			xaload = 0
+			xaload = -2
 		end
 	end
 	
@@ -196,6 +196,7 @@ function love.keyreleased(key)
 	if key == 'x' then --skip disable
 		if state == 'game' then
 			autotimer = 0
+			xaload = 0
 		end
 	end
 end
