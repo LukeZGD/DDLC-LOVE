@@ -52,7 +52,7 @@ function updatewordlist()
 end
 
 function poemgame()
-	bgch = love.graphics.newImage('./images/bg/notebook.png')
+	bgch2 = love.graphics.newImage('./images/bg/notebook.png')
 	poemfont = love.graphics.newFont('./images/gui/fonts/Halogen')
 	sayoristicker1 = love.graphics.newImage('./images/gui/poemgame/s_sticker_1.png')
 	sayoristicker2 = love.graphics.newImage('./images/gui/poemgame/s_sticker_2.png')
@@ -98,7 +98,7 @@ function drawpoemgame()
 	drawTopScreen()
 	love.graphics.setBackgroundColor ( 0,0,0 )
 	love.graphics.setColor(255,255,255,alpha)
-	love.graphics.draw(bgch, 0, 0)
+	love.graphics.draw(bgch2, 0, 0)
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
