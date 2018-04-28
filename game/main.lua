@@ -197,6 +197,8 @@ function love.keyreleased(key)
 		if state == 'game' then
 			autotimer = 0
 			xaload = 0
+			audioUpdate(audio1)
+			bgUpdate(bg1)
 		end
 	end
 end

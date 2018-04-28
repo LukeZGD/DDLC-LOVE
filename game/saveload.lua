@@ -75,7 +75,9 @@ function loadgame()
 end
 
 function loadupdate()
+	xaload = 0
 	bgUpdate(savefile[24])
+	xaload = 0
 	audioUpdate(savefile[25])
 end
 

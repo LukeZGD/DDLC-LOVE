@@ -106,7 +106,7 @@ function menu_confirm()
 			menu_previous = 'title'
 			menu_previousitems = 5
 			menu_enable('help', 4)
-			m_selected = 0
+			m_selected = -99
 			m_select()
 		end
 		
@@ -117,6 +117,7 @@ function menu_confirm()
 			if love.filesystem.isFile("save"..savenumber..".sav") then
 				loadgame()
 				loadupdate()
+				xaload = 0
 				state = "game"
 				menu_enabled = false
 			end
@@ -142,7 +143,7 @@ function menu_confirm()
 			menu_previous = 'pause'
 			menu_previousitems = 8
 			menu_enable('help',4)
-			m_selected = 0
+			m_selected = -99
 		elseif m_selected == 8 then
 			menu_enabled = false
 		end
