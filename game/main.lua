@@ -84,7 +84,7 @@ function love.draw()
 		drawBottomScreen()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(s_killearly,32,0)
-		
+		--if menu_enabled then menu_draw() end
 	end
 end
 
@@ -121,22 +121,17 @@ function love.update(dt)
 		end
 	end
 	
-	if love.keyboard.isDown('up') then 
+	--[[if love.keyboard.isDown('up') then 
 		if love.keyboard.isDown('x') then
 			if love.keyboard.isDown('b') then --Up+X+B erase save data
-				if state == 'title' then
-					ch0ln = 0
-					hideSayori()
-					hideYuri()
-					hideNatsuki()
-					hideMonika()
-					savegame()
-					sfx1:play()
-					love.quit()
+				if state == 'title' or state == 's_kill_early' then
+					xaload = 0
+					audioUpdate('0')
+					menu_enable('erasesave',3)
 				end
 			end
 		end
-	end
+	end]]
 	
 	if love.keyboard.isDown('lbutton') then
 		if love.keyboard.isDown('rbutton') then
@@ -156,30 +151,19 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-	if key == 'x' then --play sfx for skip
-		if state == "game" then sfx1:play() end
-	
-	elseif key == 'start' then
-		if state == 'game' then
-			sfx1:play()
-			menu_enable('pause',8)
-		end
-	elseif key == 'a' then 
+	if key == 'a' then 
 		if state == "game" and menu_enabled == false or state == "newgame" then
 			ch0ln = ch0ln + 1 --next script
 			xaload = 0
 		end
-		
-	elseif key == 'y' then --save game
-		if state == "game" and menu_enabled == false then
-			menu_previous = 'pause'
-			menu_previousitems = 8
-			menu_enable('savegame',4)
-			sfx1:play()
-		end
-		
-	elseif key == 'b' then --auto
-		if state == "game" then 
+	end
+
+	if state == "game" and menu_enabled == false then
+		if key == 'x' then sfx1:play()
+		elseif key == 'y' then 
+			menu_enable('pause',7)
+			sfx1:play()	
+		elseif key == 'b' then --auto
 			sfx1:play()
 			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
@@ -194,7 +178,7 @@ end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
-		if state == 'game' then
+		if state == 'game' and menu_enabled == false then
 			autotimer = 0
 			xaload = 0
 			audioUpdate(audio1)
