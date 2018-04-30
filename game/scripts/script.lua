@@ -1356,6 +1356,7 @@ function ch0script()
 		ch0a = '"PLEASE MAKE IT STOP!"'
 	elseif ch0ln == 10015 then 
 		ch0ln = 10000
+		savenumber = 1
 		savegame()
 		love.quit()
 	end

@@ -39,7 +39,7 @@ function splashalpha(x)
 		if alpha >= 255 then
 			alpha = 255
 		else
-			menu_enable('title', 5)
+			menu_enable('title', 6)
 			alpha = alpha + 2.5
 		end
 	elseif x == 4 then
@@ -68,14 +68,14 @@ function drawGame()
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
 	
-	if xaload >= 1 then
+	if xaload >= 1 and menu_enabled == false then
 	love.graphics.draw(bgch, 0, 0)
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
 	drawMonika(ma,mb,mc)
-	end
-	if menu_enabled then 
+	drawcg(cg1,cg2)
+	elseif menu_enabled then 
 	love.graphics.draw(background_Image, posX, posY)
 	end
 	
@@ -93,20 +93,43 @@ function drawGame()
 	love.graphics.print(ch0d,8,112,0,1,1) --line 4
 
 	if state ~= 'newgame' then
-		love.graphics.print("Y - Save Game",16,220,0,1,1)
+		love.graphics.print("Y - Pause",35,220,0,1,1)
 		if autotimer == 0 then
 			love.graphics.print("B - Auto On",120,220,0,1,1)
 		else
 			love.graphics.print("B - Auto Off",120,220,0,1,1)
 		end
-		love.graphics.print("Start - Pause",220,220,0,1,1)
+		love.graphics.print("X - Skip",220,220,0,1,1)
 	end
-	if menu_enabled then menu_draw()
-	end
+	if menu_enabled then menu_draw() end
 end
 
 ch0t = "" --name text
 
+function drawcg(cg1,cg2)
+	if cg1 == 'n_cg1_base' then
+		love.graphics.draw(n_cg1_base, 0, 0)
+	elseif cg1 == 'y_cg1_exp1' then
+		love.graphics.draw(y_cg1_exp1, 0, 0)
+	elseif cg1 == 'y_cg1_exp2' then
+		love.graphics.draw(y_cg1_exp2, 0, 0)
+	elseif cg1 == 'y_cg1_exp3' then
+		love.graphics.draw(y_cg1_exp3, 0, 0)
+	end
+
+	if cg2 == 'n_cg1_exp1' then
+		love.graphics.draw(n_cg1_exp1, 0, 0)
+	elseif cg2 == 'n_cg1_exp2' then
+		love.graphics.draw(n_cg1_exp2, 0, 0)
+	elseif cg2 == 'n_cg1_exp3' then
+		love.graphics.draw(n_cg1_exp3, 0, 0)
+	elseif cg2 == 'n_cg1_exp4' then
+		love.graphics.draw(n_cg1_exp4, 0, 0)
+	elseif cg2 == 'n_cg1_exp5' then
+		love.graphics.draw(n_cg1_exp5, 0, 0)
+	end
+end
+	
 function hideSayori()
 	sa = ''
 	sb = ''

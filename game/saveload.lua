@@ -31,6 +31,8 @@ chapter = 0
 poemwinner = ""
 bg1 = ""
 audio1 = 2
+cg1 = ""
+cg2 = ""
 savenumber = 1
 
 function savegame()
@@ -39,7 +41,7 @@ function savegame()
 ',]]..sx..","..yx..","..nx..","..mx..[[
 ,']]..sa.."','"..sb.."','"..sc.."','"..ya.."','"..yb.."','"..yc..[[
 ',']]..na.."','"..nb.."','"..nc.."','"..ma.."','"..mb.."','"..mc..[[
-',]]..chapter..",'"..bg1.."','"..audio1.."'}") --other settings might be added here!
+',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..cg2.."'}") --other settings might be added here!
 end
 
 function loadgame()
@@ -75,10 +77,14 @@ function loadgame()
 end
 
 function loadupdate()
+	bg1 = savefile[24]
+	audio1 = savefile[25]
+	cg1s = savefile[26]
+	cg2s = savefile[27]
 	xaload = 0
-	bgUpdate(savefile[24])
-	xaload = 0
-	audioUpdate(savefile[25])
+	bgUpdate(bg1)
+	audioUpdate(audio1)
+	cgUpdate (cg1s, cg2s)
 end
 
 function filecheck()
