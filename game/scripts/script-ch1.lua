@@ -1,6 +1,7 @@
 function ch1script()
 	
 	if ch0ln == 348 then
+		chapter = 1
 		bgUpdate('club')
 		audioUpdate('2')
 		updateMonika('3a','','')
@@ -45,10 +46,10 @@ function ch1script()
 	elseif ch0ln == 359 then
 		ch0a = '"And last year, too!"'
 	elseif ch0ln == 360 then
+		nc = 'c'
 		ch0a = '"I don\'t know if you plan to just come here'
 		ch0b = 'and hang out, or what..."'
 	elseif ch0ln == 361 then
-		nc = 'c'
 		ch0a = '"But if you don\'t take us seriously, then'
 		ch0b = 'you won\'t see the end of it."'
 	elseif ch0ln == 362 then
