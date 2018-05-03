@@ -70,11 +70,11 @@ function drawGame()
 	
 	if xaload >= 1 and menu_enabled == false then
 	love.graphics.draw(bgch, 0, 0)
+	if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
 	drawSayori(sa,sb,sc) 
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
 	drawMonika(ma,mb,mc)
-	drawcg(cg1,cg2)
 	elseif menu_enabled then 
 	love.graphics.draw(background_Image, posX, posY)
 	end
@@ -106,30 +106,10 @@ end
 
 ch0t = "" --name text
 
-function drawcg(cg1,cg2)
-	if cg1 == 'n_cg1_base' then
-		love.graphics.draw(n_cg1_base, 0, 0)
-	elseif cg1 == 'y_cg1_exp1' then
-		love.graphics.draw(y_cg1_exp1, 0, 0)
-	elseif cg1 == 'y_cg1_exp2' then
-		love.graphics.draw(y_cg1_exp2, 0, 0)
-	elseif cg1 == 'y_cg1_exp3' then
-		love.graphics.draw(y_cg1_exp3, 0, 0)
-	end
-
-	if cg2 == 'n_cg1_exp1' then
-		love.graphics.draw(n_cg1_exp1, 0, 0)
-	elseif cg2 == 'n_cg1_exp2' then
-		love.graphics.draw(n_cg1_exp2, 0, 0)
-	elseif cg2 == 'n_cg1_exp3' then
-		love.graphics.draw(n_cg1_exp3, 0, 0)
-	elseif cg2 == 'n_cg1_exp4' then
-		love.graphics.draw(n_cg1_exp4, 0, 0)
-	elseif cg2 == 'n_cg1_exp5' then
-		love.graphics.draw(n_cg1_exp5, 0, 0)
-	end
+function cgHide()
+	cg1 = ''
 end
-	
+
 function hideSayori()
 	sa = ''
 	sb = ''

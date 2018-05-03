@@ -28,14 +28,14 @@ function bgUpdate(bgx) --background changes
 		elseif bgx == 'sayori_bedroom' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/bg/sayori_bedroom.png')
-		--cg base/backgrounds are added here
+		--cg bases/backgrounds are added here
 		elseif bgx == 's_cg1' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/cg/s_cg1.png')
-		elseif bgx == 'n_cg1_bg' then
+		elseif bgx == 'n_cg1_base' then
 			unloadbg()
-			bgch = love.graphics.newImage('./images/cg/n_cg1_bg.png')
-		elseif bgx == 'y_cg1_ase' then
+			bgch = love.graphics.newImage('./images/cg/n_cg1_base.png')
+		elseif bgx == 'y_cg1_base' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/cg/y_cg1_base.png')
 		--warning screens
@@ -49,8 +49,31 @@ function bgUpdate(bgx) --background changes
 	bg1 = bgx
 end
 
+function cgUpdate(cgx) --cg changes
+	if xaload == 0 then
+		if cgx == 'y_cg1_exp1' then
+			cgch = love.graphics.newImage('./images/cg/y_cg1_exp1.png')
+		elseif cgx == 'y_cg1_exp2' then
+			cgch = love.graphics.newImage('./images/cg/y_cg1_exp2.png')
+		elseif cgx == 'y_cg1_exp3' then
+			cgch = love.graphics.newImage('./images/cg/y_cg1_exp3.png')
+		elseif cgx == 'n_cg1_exp1' then
+			cgch = love.graphics.newImage('./images/cg/n_cg1_exp1.png')
+		elseif cgx == 'n_cg1_exp2' then
+			cgch = love.graphics.newImage('./images/cg/n_cg1_exp2.png')
+		elseif cgx == 'n_cg1_exp3' then
+			cgch = love.graphics.newImage('./images/cg/n_cg1_exp3.png')
+		elseif cgx == 'n_cg1_exp4' then
+			cgch = love.graphics.newImage('./images/cg/n_cg1_exp4.png')
+		elseif cgx == 'n_cg1_exp5' then
+			cgch = love.graphics.newImage('./images/cg/n_cg1_exp5.png')
+		end
+	end	
+	cg1 = cgx
+end
+
 function audioUpdate(audiox) --the audio update function yay
-		if xaload == 0 then
+	if xaload == 0 then
 		if audiox == '0' then
 			audioStop()
 			ddlct = love.audio.newSource("./audio/bgm/0.ogg", "stream")
@@ -114,51 +137,18 @@ function audioUpdate(audiox) --the audio update function yay
 	audio1 = audiox
 end
 
-function audioStop()
-	if ddlct ~= nil then ddlct:stop() end
-	ddlct = nil
-	collectgarbage()
-end
-
 function unloadbg()
 	splash = nil
 	bgch = nil
 	bgch2 = nil
+	cgch = nil
 	collectgarbage()
 end
 
-function unloadcg()
-	cg1 = nil
-	cg2 = nil
+function audioStop()
+	if ddlct ~= nil then ddlct:stop() end
+	ddlct = nil
 	collectgarbage()
-end
-
-
-function cgUpdate(cg1x, cg2x) --background changes
-	if xaload == 0 then
-		if cg1x == 'n_cg1_base' then
-			cg1 = love.graphics.newImage('./images/cg/n_cg1_base.png')
-		elseif cg1x == 'y_cg1_exp1' then
-			cg1 = love.graphics.newImage('./images/cg/y_cg1_exp1.png')
-		elseif cg1x == 'y_cg1_exp2' then
-			cg1 = love.graphics.newImage('./images/cg/y_cg1_exp2.png')
-		elseif cg1x == 'y_cg1_exp3' then
-			cg1 = love.graphics.newImage('./images/cg/y_cg1_exp3.png')
-		end
-		if cg2x == 'n_cg1_exp1' then
-			cg2 = love.graphics.newImage('./images/cg/n_cg1_exp1.png')
-		elseif cg2x == 'n_cg1_exp2' then
-			cg2 = love.graphics.newImage('./images/cg/n_cg1_exp2.png')
-		elseif cg2x == 'n_cg1_exp3' then
-			cg2 = love.graphics.newImage('./images/cg/n_cg1_exp3.png')
-		elseif cg2x == 'n_cg1_exp4' then
-			cg2 = love.graphics.newImage('./images/cg/n_cg1_exp4.png')
-		elseif cg2x == 'n_cg1_exp5' then
-			cg2 = love.graphics.newImage('./images/cg/n_cg1_exp5.png')
-		end
-	end	
-	cg1s = cg1x
-	cg2s = cg2x
 end
 
 function charCheck()
