@@ -42,12 +42,18 @@ function menu_draw()
 		love.graphics.print("Save File 1",16, 45, 0, 1, 1)
 		love.graphics.print("Save File 2",16, 70, 0, 1, 1)
 		love.graphics.print("Save File 3",16, 95, 68, 1, 1)
+		love.graphics.print("Save File 4",16, 120, 0, 1, 1)
+		love.graphics.print("Save File 5",16, 145, 0, 1, 1)
+		love.graphics.print("Save File 6",16, 170, 68, 1, 1)
 		
 	elseif menu_type == 'savegame' then
 		love.graphics.print("Save Game:",16, 20, 0, 1, 1)
 		love.graphics.print("Save File 1",16, 45, 0, 1, 1)
 		love.graphics.print("Save File 2",16, 70, 0, 1, 1)
 		love.graphics.print("Save File 3",16, 95, 68, 1, 1)
+		love.graphics.print("Save File 4",16, 120, 0, 1, 1)
+		love.graphics.print("Save File 5",16, 145, 0, 1, 1)
+		love.graphics.print("Save File 6",16, 170, 68, 1, 1)
 		
 	elseif menu_type == 'pause' then
 		love.graphics.print("Pause Menu:",16, 20, 0, 1, 1)
@@ -97,7 +103,7 @@ function menu_confirm()
 		elseif m_selected == 3 then --load game
 			menu_previous = 'title'
 			menu_previousitems = 6
-			menu_enable('loadgame', 4)
+			menu_enable('loadgame', 7)
 			m_selected = 2
 			
 		elseif m_selected == 4 then --settings
@@ -137,12 +143,14 @@ function menu_confirm()
 		if m_selected == 2 then
 			menu_previous = 'pause'
 			menu_previousitems = 7
-			menu_enable('savegame',4)
+			menu_enable('savegame',7)
 		elseif m_selected == 3 then
 			menu_previous = 'pause'
 			menu_previousitems = 7
-			menu_enable('loadgame',4)
+			menu_enable('loadgame',7)
 		elseif m_selected == 4 then
+			menu_previous = 'pause'
+			menu_previousitems = 7
 			menu_enable('mainyesno',3)
 		elseif m_selected == 6 then
 			menu_previous = 'pause'
@@ -237,7 +245,7 @@ function menu_keypressed(key)
 	elseif key == 'a' then
 		menu_confirm()
 	elseif key == 'b' then
-		if menu_type == 'savegame' or menu_type == 'loadgame' or menu_type == 'help' then
+		if menu_type ~= 'title' then
 			sfx1:play()
 			menu_enable(menu_previous, menu_previousitems)
 		elseif menu_type == 'pause' then
