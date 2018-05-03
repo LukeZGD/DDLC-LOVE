@@ -186,6 +186,7 @@ function love.keyreleased(key)
 			xaload = 0
 			audioUpdate(audio1)
 			bgUpdate(bg1)
+			cgUpdate(cg1)
 		end
 	end
 end
