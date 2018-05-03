@@ -13,6 +13,21 @@ function bgUpdate(bgx) --background changes
 		elseif bgx == 'club' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/bg/club.png')
+		elseif bgx == 'closet' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/closet.png')
+		elseif bgx == 'house' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/house.png')
+		elseif bgx == 'kitchen' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/kitchen.png')
+		elseif bgx == 'bedroom' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/bedroom.png')
+		elseif bgx == 'sayori_bedroom' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/sayori_bedroom.png')
 		--cg base/backgrounds are added here
 		elseif bgx == 's_cg1' then
 			unloadbg()
@@ -102,7 +117,6 @@ end
 function audioStop()
 	if ddlct ~= nil then ddlct:stop() end
 	ddlct = nil
-	duration = nil
 	collectgarbage()
 end
 
