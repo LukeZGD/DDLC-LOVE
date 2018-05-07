@@ -28,6 +28,9 @@ function bgUpdate(bgx) --background changes
 		elseif bgx == 'sayori_bedroom' then
 			unloadbg()
 			bgch = love.graphics.newImage('./images/bg/sayori_bedroom.png')
+		elseif bgx == 'black' then
+			unloadbg()
+			bgch = love.graphics.newImage('./images/bg/black.png')
 		--cg bases/backgrounds are added here
 		elseif bgx == 's_cg1' then
 			unloadbg()
@@ -208,6 +211,8 @@ function loadSayori()
 		if s1bl == nil then s1bl = love.graphics.newImage('./images/sayori/1bl.png') end
 	elseif sa=="2bl" then
 		if s2bl == nil then s2bl = love.graphics.newImage('./images/sayori/2bl.png') end 
+	elseif sa=="sayori" then
+		if saf == nil then saf = love.graphics.newImage('./images/sayori/sayori.png') end 
 	end
 	
 	if sb=="" then
@@ -308,6 +313,7 @@ function unloadSayori()
 	s_w = nil
 	s_x = nil
 	s_y = nil
+	saf = nil
 	collectgarbage()
 end
 
@@ -326,6 +332,8 @@ function loadYuri()
 		if y2bl == nil then y2bl = love.graphics.newImage('./images/yuri/2bl.png') end
 	elseif ya=="3b" then
 		if y3b == nil then y3b = love.graphics.newImage('./images/yuri/3b.png') end
+	elseif ya=="yuri" then
+		if yaf == nil then yaf = love.graphics.newImage('./images/yuri/yuri.png') end 
 	end
 	
 	if yb=="" then
@@ -445,6 +453,7 @@ function unloadYuri()
 	y_v = nil
 	y_w = nil
 	yy6 = nil
+	yaf = nil
 	collectgarbage()
 end
 
@@ -560,7 +569,9 @@ function loadNatsuki()
 	elseif na=="2bl" then
 		if n2bl == nil then n2bl = love.graphics.newImage('./images/natsuki/2bl.png') end
 	elseif na=="3b" then
-		if n3b == nil then n3b = love.graphics.newImage('./images/natsuki/3.png') end
+		if n3b == nil then n3b = love.graphics.newImage('./images/natsuki/3b.png') end
+	elseif na=="natsuki" then
+		if naf == nil then naf = love.graphics.newImage('./images/natsuki/natsuki.png') end 
 	end
 	
 	if nb=="" then
@@ -606,6 +617,7 @@ function unloadNatsuki()
 	n_x = nil
 	n_y = nil
 	n_z = nil
+	naf = nil
 	collectgarbage()
 end
 	
