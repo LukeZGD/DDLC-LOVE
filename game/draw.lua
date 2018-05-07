@@ -153,6 +153,8 @@ function drawSayori(sa,sb,sc)
 		love.graphics.draw(s1bl, sx, sy)
 	elseif sa=="2bl" then
 		love.graphics.draw(s2bl, sx, sy) 
+	elseif sa=="sayori" then
+		love.graphics.draw(saf, sx, sy)
 	end
 	
 	if sb=="" then
@@ -231,11 +233,13 @@ function drawYuri(ya,yb,yc)
 	elseif ya=="3" then
 		love.graphics.draw(y3_, yx, yy)
 	elseif ya=="1bl" then
-		love.graphics.draw(y1bl, sx, sy)
+		love.graphics.draw(y1bl, yx, yy)
 	elseif ya=="2bl" then
-		love.graphics.draw(y2bl, sx, sy) 
+		love.graphics.draw(y2bl, yx, yy) 
 	elseif ya=="3b" then
-		love.graphics.draw(y3b, sx, sy)
+		love.graphics.draw(y3b, yx, yy)
+	elseif ya=="yuri" then
+		love.graphics.draw(yaf, yx, sy)
 	end
 	
 	if yb=="" then
@@ -244,9 +248,9 @@ function drawYuri(ya,yb,yc)
 	elseif yb=="2r" then
 		love.graphics.draw(y2r, yx, yy)
 	elseif yb=="1br" then
-		love.graphics.draw(y1br, sx, sy)
+		love.graphics.draw(y1br, yx, yy)
 	elseif yb=="2br" then
-		love.graphics.draw(y2br, sx, sy) 
+		love.graphics.draw(y2br, yx, yy) 
 	end
 	
 	if yc=="" then
@@ -427,6 +431,8 @@ function drawNatsuki(na,nb,nc)
 		love.graphics.draw(n2bl, nx, ny)
 	elseif na=="3b" then
 		love.graphics.draw(n3b, nx, ny)
+	elseif na=="natsuki" then
+		love.graphics.draw(naf, nx, ny)
 	end
 	
 	if nb=="" then

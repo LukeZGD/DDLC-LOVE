@@ -433,6 +433,269 @@ function ch1natsuki()
 		ch0a = '"That\'s not..."'
 	elseif ch0ln == 562 then
 		ch0a = '"Well, I wouldn\'t really know."'
+	elseif ch0ln == 563 then
+		ch0t = player
+		ch0a = '"...What do you mean?"'
+	elseif ch0ln == 564 then
+		ch0a = '"Don\'t you share your manga with your friends?"'
+	elseif ch0ln == 565 then
+		cgUpdate('n_cg1_exp3')
+		ch0t = 'Natsuki'
+		ch0a = '"Could you not rub it in?"'
+	elseif ch0ln == 566 then
+		ch0a = '"Jeez..."'
+	elseif ch0ln == 567 then
+		ch0t = player
+		ch0a = '"Ah... Sorry..."'
+	elseif ch0ln == 568 then
+		ch0t = 'Natsuki'
+		ch0a = '"Hmph."'
+	elseif ch0ln == 569 then
+		ch0a = '"Like I could ever get my friends to read '
+		ch0b = 'this..."'
+	elseif ch0ln == 570 then
+		ch0a = '"They just think manga is for kids."'
+	elseif ch0ln == 571 then	
+		ch0a = '"I can\'t even bring it up without them being '
+		ch0b = 'all like..."'
+	elseif ch0ln == 572 then
+		ch0a = '"\'Eh? You still haven\'t grown out of that'
+		ch0b = 'yet?\'"'
+	elseif ch0ln == 573 then
+		ch0a = '"Makes me want to punch them in the face..."'
+	elseif ch0ln == 574 then
+		ch0t = player
+		ch0a = '"Urgh, I know those kinds of people..."'
+	elseif ch0ln == 575 then
+		ch0a = '"Honestly, it takes a lot of effort to find'
+		ch0b = 'friends who don\'t judge, much less friends who'
+		ch0c = 'are also into it..."'
+	elseif ch0ln == 576 then
+		ch0a = '"I\'m already kind of a loser, so I guess I '
+		ch0b = 'gravitated toward the other losers over time."'
+	elseif ch0ln == 577 then
+		ch0a = '"But it\'s probably harder for someone like '
+		ch0b = 'you..."'
+	elseif ch0ln == 578 then
+		cgHide()
+		ch0t = 'Natsuki'
+		ch0a = '"Hm."'
+	elseif ch0ln == 579 then
+		ch0a = '"Yeah, that\'s pretty accurate."'
+	elseif ch0ln == 580 then
+		ch0t = ''
+		ch0a = "...Wait, which part??"
+	elseif ch0ln == 581 then
+		ch0t = 'Natsuki'
+		ch0a = '"I mean, I feel like I can\'t even keep it'
+		ch0b = 'in my own room..."'
+	elseif ch0ln == 582 then
+		ch0a = '"I don\'t even know what my dad would do if'
+		ch0b = 'he found this."'
+	elseif ch0ln == 583 then
+		ch0a = '"At least it\'s safe here in the clubroom."'
+	elseif ch0ln == 584 then
+		cgUpdate('n_cg1_exp3')
+		ch0a = '"\'Cept Monika was kind of a jerk about it..."'
+	elseif ch0ln == 585 then
+		ch0a = '"Ugh! I just can\'t win, can I?"'
+	elseif ch0ln == 586 then
+		ch0t = player
+		ch0a = '"Well, it paid off in the end, didn\'t it?"'
+	elseif ch0ln == 587 then
+		ch0a = '"I mean, here I am, reading it."'
+	elseif ch0ln == 588 then
+		ch0t = 'Natsuki'
+		ch0a = '"Well, it\'s not like that solves any of my'
+		ch0b = 'problems."'
+	elseif ch0ln == 589 then
+		ch0t = player
+		ch0a = '"Maybe..."'
+	elseif ch0ln == 590 then
+		ch0a = '"But at least you\'re enjoying yourself, right?"'
+	elseif ch0ln == 591 then
+		cgUpdate('n_cg1_exp2')
+		ch0t = 'Natsuki'
+		ch0a = '"--"'
+	elseif ch0ln == 592 then
+		ch0a = '"..."'
+	elseif ch0ln == 593 then
+		ch0a = '"...So?"'
+	elseif ch0ln == 594 then
+		ch0t = player
+		ch0a = '"Ahaha."'
+	elseif ch0ln == 595 then
+		cgUpdate('n_cg1_exp3')
+		ch0t = 'Natsuki'
+		ch0a = '"Jeez, that\'s enough!"'
+	elseif ch0ln == 596 then
+		ch0a = '"Are you gonna keep reading, or what?"'
+	elseif ch0ln == 597 then
+		ch0t = player
+		ch0a = '"Yeah, yeah..."'
+	elseif ch0ln == 598 then
+		ch0t = ''
+		ch0a = '"I flip the page."'
+	elseif ch0ln == 599 then
+		ch0a = '"Suddenly, Natsuki starts laughing."'
+	elseif ch0ln == 600 then
+		cgUpdate('n_cg1_exp1')
+		ch0t = 'Natsuki'
+		ch0a = '"Ahahaha!"'
+	elseif ch0ln == 601 then
+		ch0a = '"I totally forgot that happens!"'
+	elseif ch0ln == 602 then
+		ch0t = ''
+		ch0a = '"Natsuki puts her finger on one of the panels."'
+	elseif ch0ln == 603 then
+		ch0t = 'Natsuki'
+		ch0a = '"Minori is my favorite character."'
+	elseif ch0ln == 604 then
+		ch0a = '"You always feel a little bad for her, since'
+		ch0b = 'she\'s so unlucky."'
+	elseif ch0ln == 605 then
+		ch0a = '"But it gets especially bad when--"'
+	elseif ch0ln == 606 then
+		cgHide()
+		ch0a = '"Uu..."'
+	elseif ch0ln == 607 then
+		ch0a = '"I shouldn\'t be talking about that yet!"'
+	elseif ch0ln == 608 then
+		ch0a = '"Just finish this chapter!"'
+	elseif ch0ln == 609 then
+		bgUpdate('club')
+		ch0t = ''
+		ch0a = "Natsuki's voice sparkles with excitement."
+	elseif ch0ln == 610 then
+		ch0a = "It's a stark contrast to her usual bossy tone."
+	elseif ch0ln == 611 then
+		ch0a = "But if she's not used to sharing her favorite"
+		ch0b = "manga with her friends, I can understand why."
+	elseif ch0ln == 612 then
+		ch0a = "It's hard to express in words the feeling you get"
+		ch0b = "when connecting with someone like that."
+	elseif ch0ln == 613 then	
+		ch0a = "And being able to provide that to Natsuki,"
+		ch0b = "for whom it's a rare experience..."
+	elseif ch0ln == 614 then
+		ch0a = "The thought makes me smile a little to myself."
+	elseif ch0ln == 615 then
+		mx = 10
+		updateMonika('2l','1r','b')
+		ch0t = 'Monika'
+		ch0a = '"Okay everyone!"'
+	elseif ch0ln == 616 then
+		ch0t = player
+		ch0a = '"Eh?"'
+	elseif ch0ln == 617 then
+		ch0t = 'Monika'
+		ch0a = '"Are you all ready with today\'s poems?"'
+	elseif ch0ln == 618 then
+		ch0t = player
+		ch0a = '"..."'
+	elseif ch0ln == 619 then
+		nx = 150
+		updateNatsuki('2l','2r','w')
+		ch0t = 'Natsuki'
+		ch0a = '"Oh, come on!"'
+	elseif ch0ln == 620 then
+		ch0a = '"Could your timing be any worse?"'
+    elseif ch0ln == 621 then
+		updateMonika('3a','','')
+		ch0t = 'Monika'
+		ch0a = '"Sorry~!"'
+	elseif ch0ln == 622 then
+		ch0a = '"I just need to make sure we have enough time."'
+	elseif ch0ln == 623 then
+		ch0a = '"Though you do look pretty cozy over there.'
+		ch0b = 'Ahaha!"'
+	elseif ch0ln == 624 then
+		updateNatsuki('2l','2r','o')
+		ch0t = 'Natsuki'
+		ch0a = '"Eh...?"'
+	elseif ch0ln == 625 then
+		updateNatsuki('1l','1r','p')
+		ch0a = '"A-Ah!"'
+	elseif ch0ln == 626 then
+		ch0t = ''
+		ch0a = "Natsuki suddenly notices how close she's"
+		ch0b = 'gotten to me."'
+	elseif ch0ln == 627 then
+		ch0a = "She hastily slides herself a good twelve inches"
+		ch0b = "away from me."
+    elseif ch0ln == 628 then
+		hideMonika()
+		nx = 80
+		ch0t = player
+		ch0a = '"Alright..."'
+	elseif ch0ln == 629 then
+		ch0a = '"Guess I\'ll stop here for now."'
+	elseif ch0ln == 630 then
+		ch0t = ''
+		ch0a = "I close the book and hand it towards Natsuki."
+	elseif ch0ln == 631 then
+		updateNatsuki('1l','2r','m')
+		ch0t = 'Natsuki'
+		ch0a = '"You\'re just giving it back...?"'
+	elseif ch0ln == 632 then
+		ch0a = '"Don\'t you want to know what happens?"'
+	elseif ch0ln == 633 then
+		ch0t = player
+		ch0a = '"Ah... Yeah, but..."'
+	elseif ch0ln == 634 then
+		ch0a = '"Monika just said--"'
+	elseif ch0ln == 635 then
+		nc = 'u'
+		ch0t = 'Natsuki'
+		ch0a = '"Don\'t be dumb."'
+	elseif ch0ln == 636 then
+		ch0a = '"Just take it home with you."'
+	elseif ch0ln == 637 then
+		ch0t = player
+		ch0a = '"Eh?"'
+	elseif ch0ln == 638 then
+		ch0a = '"...Is that really alright?"'
+	elseif ch0ln == 639 then
+		ch0t = ''
+		ch0a = "I say that mostly because I really didn't plan "
+		ch0b = "on using my spare time to read this..."
+	elseif ch0ln == 640 then
+		updateNatsuki('2l','2r','h')
+		ch0t = 'Natsuki'
+		ch0a = '"Well, of course."'
+	elseif ch0ln == 641 then
+		ch0a = '"It would take forever to finish if you didn\'t"'
+		ch0b = 'take it home."'
+	elseif ch0ln == 642 then
+		ch0a = '"Just finish that one before tomorrow, so we can'
+		ch0b = 'start the next one."'
+	elseif ch0ln == 643 then
+		nc = 'g'
+		ch0a = '"And if it gets bent, I\'ll kill you."'
+	elseif ch0ln == 644 then
+		ch0t = player
+		ch0a = '"By tomorrow...?"'
+	elseif ch0ln == 645 then
+		ch0t = ''
+		ch0a = "I only got partway through the volume so far."
+	elseif ch0ln == 646 then
+		ch0a = "I might fall behind on some shows if I try to get"
+		ch0b = "through this..."
+    elseif ch0ln == 647 then 
+		ch0a = "But I suppose that's a necessary sacrifice in "
+		ch0b = "exchange for seeing Natsuki's enthusiastic face."
+	elseif ch0ln == 648 then
+		ch0a = "Or am I more scared of what will happen if I "
+		ch0b = "don't finish it...?"
+    elseif ch0ln == 649 then
+		ch0a = "Alright, then!"
+    elseif ch0ln == 650 then
+		ch0a = "I stand up."
+    elseif ch0ln == 651 then
+		ch0a = "I return to where I put my stuff and carefully"
+		ch0b = "slip the book into my bag."
+	elseif ch0ln == 652 then
+		ch0ln = 653
 		--ch0a = 'Sayori is vice president of the Literature Club.' (for reference on how long the lines should be)
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
