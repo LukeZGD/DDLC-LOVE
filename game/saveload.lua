@@ -40,7 +40,7 @@ function savegame()
 ',]]..sx..","..yx..","..nx..","..mx..[[
 ,']]..sa.."','"..sb.."','"..sc.."','"..ya.."','"..yb.."','"..yc..[[
 ',']]..na.."','"..nb.."','"..nc.."','"..ma.."','"..mb.."','"..mc..[[
-',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."'}") --other settings might be added here!
+',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ch0t.."'}") --other settings might be added here!
 end
 
 function loadgame()
@@ -79,6 +79,7 @@ function loadupdate()
 	bg1 = savefile[24]
 	audio1 = savefile[25]
 	cg1 = savefile[26]
+	ch0t = savefile[27]
 	xaload = 0
 	bgUpdate(bg1)
 	audioUpdate(audio1)
