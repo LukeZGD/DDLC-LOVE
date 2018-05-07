@@ -9,7 +9,7 @@ require "scripts.script"
 require "scripts.script-ch1"
 require "scripts.script-exclusives-sayori"
 require "scripts.script-exclusives-natsuki"
---require "scripts.script-exclusives-yuri"
+require "scripts.script-exclusives-yuri"
 
 function love.load() 
 	--set up stuff
