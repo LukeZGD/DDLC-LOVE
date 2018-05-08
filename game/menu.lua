@@ -84,18 +84,18 @@ function menu_confirm()
 		if m_selected == 2 then --new game
 			if player == "" then
 				love.keyboard.setTextInput(true)
-			elseif ch0ln == 10001 then
+			elseif cl == 10001 then
 				menu_enabled = false
 				audioUpdate('2')
 				xaload = 0
 				state = "game"
-			elseif ch0ln <= 9999 then
+			elseif cl <= 9999 then
 				hideSayori()
 				hideYuri()
 				hideNatsuki()
 				hideMonika()
 				menu_enabled = false
-				ch0ln = 1
+				cl = 1
 				xaload = 0
 				state = "game"
 			end
@@ -121,7 +121,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'loadgame' then --load game screen 
 		sfx1:play()
-		if player ~= "" and ch0ln ~= 0 then
+		if player ~= "" and cl ~= 0 then
 			savenumber = m_selected - 1
 			if love.filesystem.isFile("save"..savenumber..".sav") then
 				loadgame()
@@ -175,7 +175,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'erasesave' then
 		if m_selected == 2 then
-			ch0ln = 0
+			cl = 0
 			hideSayori()
 			hideYuri()
 			hideNatsuki()
@@ -246,6 +246,7 @@ function menu_keypressed(key)
 		menu_confirm()
 	elseif key == 'b' then
 		if menu_type == 'pause' then
+			sfx1:play()
 			menu_enabled = false
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' then
 			sfx1:play()

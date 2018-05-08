@@ -52,7 +52,7 @@ function splashalpha(x)
 	elseif x == 5 then
 		if alpha <= 0 then
 			alpha = 255
-			ch0ln = ch0ln + 2
+			cl = cl + 2
 			xaload = 0
 			state = "game"
 		else	
@@ -75,22 +75,22 @@ function drawGame()
 	drawYuri(ya,yb,yc) 
 	drawNatsuki(na,nb,nc) 
 	drawMonika(ma,mb,mc)
-	elseif menu_enabled then 
+	elseif menu_enabled and menu_type ~= 'choice' then 
 	love.graphics.draw(background_Image, posX, posY)
 	end
 	
 	drawBottomScreen()
 	love.graphics.draw(background_Image, posX, posY)
-	if ch0t ~= '' then love.graphics.draw(namebox, 12, 40) end
+	if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
 	love.graphics.draw(textbox, 0, 60)
 	
 	love.graphics.setColor(0,0,0)
-	love.graphics.print(ch0ln,0,0,0,1,1) --script number
-	love.graphics.print(ch0t,20,40,0,1,1) --t name
-	love.graphics.print(ch0a,8,64,0,1,1) --line 1
-	love.graphics.print(ch0b,8,80,0,1,1) --line 2
-	love.graphics.print(ch0c,8,96,0,1,1) --line 3
-	love.graphics.print(ch0d,8,112,0,1,1) --line 4
+	love.graphics.print(cl,0,0,0,1,1) --script number
+	love.graphics.print(ct,20,40,0,1,1) --t name
+	love.graphics.print(ca,8,64,0,1,1) --line 1
+	love.graphics.print(cb,8,80,0,1,1) --line 2
+	love.graphics.print(cc,8,96,0,1,1) --line 3
+	love.graphics.print(cd,8,112,0,1,1) --line 4
 
 	if state ~= 'newgame' then
 		love.graphics.print("Y - Pause",35,220,0,1,1)
@@ -104,7 +104,7 @@ function drawGame()
 	if menu_enabled then menu_draw() end
 end
 
-ch0t = "" --name text
+ct = "" --name text
 
 function cgHide()
 	cg1 = ''

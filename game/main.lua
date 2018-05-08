@@ -24,7 +24,7 @@ function love.load()
 	namebox = love.graphics.newImage('./images/gui/namebox.png')
 	sfx1 = love.audio.newSource("./audio/sfx/select.ogg", "static")
 	sfx2 = love.audio.newSource("./audio/sfx/hover.ogg", "static")
-
+	
 	--scrolling background
 	background_Image = love.graphics.newImage('./images/bg/menu_bg.png')
 	posX = 0
@@ -104,22 +104,31 @@ function love.update(dt)
 	elseif autotimer <= 150 then
 		autotimer = autotimer + 1
 	elseif autotimer == 151 then
-		ch0ln = ch0ln + 1
+		cl = cl + 1
 		xaload = 0
 		autotimer = 1
 	end
 	
 	if state == "splash1" or state == "splash2" then --splash screen (change state)
 		if timer == 200 then
-			state = "splash2"
+			--poemgame images and font
+			poemfont = love.graphics.newFont('./images/gui/fonts/Halogen')
+			sayoristicker1 = love.graphics.newImage('./images/gui/poemgame/s_sticker_1.png')
+			sayoristicker2 = love.graphics.newImage('./images/gui/poemgame/s_sticker_2.png')
+			yuristicker1 = love.graphics.newImage('./images/gui/poemgame/y_sticker_1.png')
+			state = "splash2" --set new state
 		elseif timer >= 480 then
-			state = "title"
+			--poemgame images and font
+			yuristicker2 = love.graphics.newImage('./images/gui/poemgame/y_sticker_2.png')
+			natsukisticker1 = love.graphics.newImage('./images/gui/poemgame/n_sticker_1.png')
+			natsukisticker2 = love.graphics.newImage('./images/gui/poemgame/n_sticker_2.png')
+			state = "title" --set new state
 		end
 	end
 	
 	if love.keyboard.isDown('x') then  --skip enable
 		if state == 'game' and menu_enabled == false then
-			ch0ln = ch0ln + 1
+			cl = cl + 1
 			xaload = -2
 		end
 	end
@@ -156,7 +165,7 @@ end
 function love.keypressed(key)
 	if key == 'a' then 
 		if state == "game" and menu_enabled == false or state == "newgame" then
-			ch0ln = ch0ln + 1 --next script
+			cl = cl + 1 --next script
 			xaload = 0
 		end
 	end
