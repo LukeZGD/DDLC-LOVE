@@ -1,269 +1,269 @@
 function ch1script()
 	
-	if ch0ln == 348 then
+	if cl == 348 then
 		chapter = 1
 		bgUpdate('club')
 		audioUpdate('2')
 		updateMonika('3a','','')
 		mx = 80
-		ch0t = 'Monika'
-		ch0a = '"Hi again, '..player..'!"'
-	elseif ch0ln == 349 then
-		ch0a = '"Glad to see you didn\'t run away on us. Hahaha!"'
-    elseif ch0ln == 350 then
-		ch0t = player
-		ch0a = '"Nah, don\'t worry."'
-	elseif ch0ln == 351 then
-		ch0a = '"This might be a little strange for me, but I at'
-		ch0b = 'least keep my word."'
-    elseif ch0ln == 352 then
+		ct = 'Monika'
+		ca = '"Hi again, '..player..'!"'
+	elseif cl == 349 then
+		ca = '"Glad to see you didn\'t run away on us. Hahaha!"'
+    elseif cl == 350 then
+		ct = player
+		ca = '"Nah, don\'t worry."'
+	elseif cl == 351 then
+		ca = '"This might be a little strange for me, but I at'
+		cb = 'least keep my word."'
+    elseif cl == 352 then
 		hideMonika()
-		ch0t = ''
-		ch0a = "Well, I'm back at the Literature Club."
-    elseif ch0ln == 353 then
-		ch0a = "I was the last to come in, so everyone else is"
-		ch0b = "already hanging out."
-    elseif ch0ln == 354 then
+		ct = ''
+		ca = "Well, I'm back at the Literature Club."
+    elseif cl == 353 then
+		ca = "I was the last to come in, so everyone else is"
+		cb = "already hanging out."
+    elseif cl == 354 then
 		yx = 80
 		updateYuri('1l','1r','a')
-		ch0t = 'Yuri'
-		ch0a = '"Thanks for keeping your promise, '..player..'."'
-	elseif ch0ln == 355 then
-		ch0a = '"I hope this isn\'t too overwhelming of a'
-		ch0b = 'commitment for you."'
-	elseif ch0ln == 356 then
+		ct = 'Yuri'
+		ca = '"Thanks for keeping your promise, '..player..'."'
+	elseif cl == 355 then
+		ca = '"I hope this isn\'t too overwhelming of a'
+		cb = 'commitment for you."'
+	elseif cl == 356 then
 		yc = 'u'
-		ch0a = '"Making you dive headfirst into literature when'
-		ch0b = 'you\'re not accustomed to it..."'
-	elseif ch0ln == 357 then
+		ca = '"Making you dive headfirst into literature when'
+		cb = 'you\'re not accustomed to it..."'
+	elseif cl == 357 then
 		nx = 200
 		updateNatsuki('2l','2r','b')
-		ch0t = 'Natsuki'
-		ch0a = '"Oh, come on! Like he deserves any slack."'
-	elseif ch0ln == 358 then
-		ch0a = '"Sayori told me you didn\'t even want to join'
-		ch0b = 'any clubs this year."'
-	elseif ch0ln == 359 then
-		ch0a = '"And last year, too!"'
-	elseif ch0ln == 360 then
+		ct = 'Natsuki'
+		ca = '"Oh, come on! Like he deserves any slack."'
+	elseif cl == 358 then
+		ca = '"Sayori told me you didn\'t even want to join'
+		cb = 'any clubs this year."'
+	elseif cl == 359 then
+		ca = '"And last year, too!"'
+	elseif cl == 360 then
 		nc = 'c'
-		ch0a = '"I don\'t know if you plan to just come here'
-		ch0b = 'and hang out, or what..."'
-	elseif ch0ln == 361 then
-		ch0a = '"But if you don\'t take us seriously, then'
-		ch0b = 'you won\'t see the end of it."'
-	elseif ch0ln == 362 then
+		ca = '"I don\'t know if you plan to just come here'
+		cb = 'and hang out, or what..."'
+	elseif cl == 361 then
+		ca = '"But if you don\'t take us seriously, then'
+		cb = 'you won\'t see the end of it."'
+	elseif cl == 362 then
 		updateMonika('1l','2r','b')
 		mx = 0-40
-		ch0t = 'Monika'
-		ch0a = '"Natsuki, you certainly have a big mouth for'
-		ch0b = 'someone who keeps her manga collection in the'
-		ch0c = 'clubroom."'
-	elseif ch0ln == 363 then
+		ct = 'Monika'
+		ca = '"Natsuki, you certainly have a big mouth for'
+		cb = 'someone who keeps her manga collection in the'
+		cc = 'clubroom."'
+	elseif cl == 363 then
 		nc = 'o'
-		ch0t = 'Natsuki'
-		ch0a = '"M-M-M...!!"'
-    elseif ch0ln == 364 then
+		ct = 'Natsuki'
+		ca = '"M-M-M...!!"'
+    elseif cl == 364 then
 		hideMonika()
-		ch0t = ''
-		ch0a = '"Natsuki finds herself stuck between saying'
-		ch0b = '\"Monika\" and \"Manga\"."'
-	elseif ch0ln == 365 then
+		ct = ''
+		ca = '"Natsuki finds herself stuck between saying'
+		cb = '\"Monika\" and \"Manga\"."'
+	elseif cl == 365 then
 		updateNatsuki('1l','1r','v')
-		ch0t = 'Natsuki'
-		ch0a = '"Manga is literature!!"'
-	elseif ch0ln == 366 then
+		ct = 'Natsuki'
+		ca = '"Manga is literature!!"'
+	elseif cl == 366 then
 		hideNatsuki()
-		ch0t = ''
-		ch0a = "Swiftly defeated, Natsuki plops back into her "
-		ch0b = "seat."
-	elseif ch0ln == 367 then
+		ct = ''
+		ca = "Swiftly defeated, Natsuki plops back into her "
+		cb = "seat."
+	elseif cl == 367 then
 		updateSayori('1l','2r','x')
 		sx = 10
 		yx = 150
-		ch0t = 'Sayori'
-		ch0a = '"Don\'t worry, guys~"'
-	elseif ch0ln == 368 then
-		ch0a = '"' .. player .. " always gives it his best as long as"
-		ch0b = '"he\'s having fun."'
-	elseif ch0ln == 369 then
-		ch0a = '"He helps me with busywork without me even'
-		ch0b = 'asking."'
-	elseif ch0ln == 370 then
-		ch0a = '"Like cooking, cleaning my room..."'
-	elseif ch0ln == 371 then
+		ct = 'Sayori'
+		ca = '"Don\'t worry, guys~"'
+	elseif cl == 368 then
+		ca = '"' .. player .. " always gives it his best as long as"
+		cb = '"he\'s having fun."'
+	elseif cl == 369 then
+		ca = '"He helps me with busywork without me even'
+		cb = 'asking."'
+	elseif cl == 370 then
+		ca = '"Like cooking, cleaning my room..."'
+	elseif cl == 371 then
 		sc = 'a'
 		updateYuri('1l','2r','m')
-		ch0t = 'Yuri'
-		ch0a = '"How dependable..."'
-	elseif ch0ln == 372 then
-		ch0t = player
-		ch0a = '"Sayori, that\'s because your room is so messy'
-		ch0b = 'it\'s distracting."'
-	elseif ch0ln == 373 then
-		ch0a = '"And you almost set your house on fire once."'
-	elseif ch0ln == 374 then
+		ct = 'Yuri'
+		ca = '"How dependable..."'
+	elseif cl == 372 then
+		ct = player
+		ca = '"Sayori, that\'s because your room is so messy'
+		cb = 'it\'s distracting."'
+	elseif cl == 373 then
+		ca = '"And you almost set your house on fire once."'
+	elseif cl == 374 then
 		updateSayori('3a','','')
-		ch0t = 'Sayori'
-		ch0a = '"Is that so... Ehehe..."'
-	elseif ch0ln == 375 then
+		ct = 'Sayori'
+		ca = '"Is that so... Ehehe..."'
+	elseif cl == 375 then
 		updateYuri('1l','1r','s')
-		ch0t = 'Yuri'
-		ch0a = '"You two are really good friends, aren\'t you?"'
-	elseif ch0ln == 376 then
-		ch0a = '"I might be a little jealous..."'
-	elseif ch0ln == 377 then
+		ct = 'Yuri'
+		ca = '"You two are really good friends, aren\'t you?"'
+	elseif cl == 376 then
+		ca = '"I might be a little jealous..."'
+	elseif cl == 377 then
 		updateSayori('1l','1r','a')
-		ch0t = 'Sayori'
-		ch0a = '"How come? You and '.. player .. 'can become'
-		ch0b = 'good friends too!"'
-	elseif ch0ln == 378 then
+		ct = 'Sayori'
+		ca = '"How come? You and '.. player .. 'can become'
+		cb = 'good friends too!"'
+	elseif cl == 378 then
 		updateYuri('3','','b2')
-		ch0t = 'Yuri'
-		ch0a = '"U-Um..."'
-	elseif ch0ln == 379 then
-		ch0t = player
-		ch0a = '"S-Sayori--"'
-	elseif ch0ln == 380 then
-		ch0t = 'Sayori'
-		ch0a = '"Hmm?"'
-	elseif ch0ln == 381 then
-		ch0t = player
-		ch0a = '"..."'
-	elseif ch0ln == 382 then
-		ch0t = ''
-		ch0a = 'As usual, Sayori seems oblivious to the weird'
-		ch0b = 'situation she just put me into.'
-	elseif ch0ln == 383 then
+		ct = 'Yuri'
+		ca = '"U-Um..."'
+	elseif cl == 379 then
+		ct = player
+		ca = '"S-Sayori--"'
+	elseif cl == 380 then
+		ct = 'Sayori'
+		ca = '"Hmm?"'
+	elseif cl == 381 then
+		ct = player
+		ca = '"..."'
+	elseif cl == 382 then
+		ct = ''
+		ca = 'As usual, Sayori seems oblivious to the weird'
+		cb = 'situation she just put me into.'
+	elseif cl == 383 then
 		updateSayori('2l','2r','x')
-		ch0t = 'Sayori'
-		ch0a = '"Oh, oh! Yuri even brought you something today,'
-		ch0b = 'you know~"'
-	elseif ch0ln == 384 then
+		ct = 'Sayori'
+		ca = '"Oh, oh! Yuri even brought you something today,'
+		cb = 'you know~"'
+	elseif cl == 384 then
 		updateYuri('2l','2r','n')
-		ch0t = 'Yuri'
-		ch0a = '"W-Wait! Sayori..."'
-	elseif ch0ln == 385 then
-		ch0t = player
-		ch0a = '"Eh? Me?"'
-	elseif ch0ln == 386 then
+		ct = 'Yuri'
+		ca = '"W-Wait! Sayori..."'
+	elseif cl == 385 then
+		ct = player
+		ca = '"Eh? Me?"'
+	elseif cl == 386 then
 		yc = 'o'
-		ch0t = 'Yuri'
-		ch0a = '"Um... Not really..."'
-	elseif ch0ln == 387 then
+		ct = 'Yuri'
+		ca = '"Um... Not really..."'
+	elseif cl == 387 then
 		sc = 'r'
-		ch0t = 'Sayori'
-		ch0a = '"Don\'t be shy~"'
-	elseif ch0ln == 388 then
-		ch0t = 'Yuri'
-		ch0a = '"It\'s really nothing..."'
-	elseif ch0ln == 389 then
-		ch0t = player
-		ch0a = '"What is it?"'
-	elseif ch0ln == 390 then
+		ct = 'Sayori'
+		ca = '"Don\'t be shy~"'
+	elseif cl == 388 then
+		ct = 'Yuri'
+		ca = '"It\'s really nothing..."'
+	elseif cl == 389 then
+		ct = player
+		ca = '"What is it?"'
+	elseif cl == 390 then
 		updateYuri('3','','c2')
-		ch0t = 'Yuri'
-		ch0a = '"N-Never mind!"'
-	elseif ch0ln == 391 then
-		ch0a = '"Sayori made it sound like a big deal when it\'s'
-		ch0b = 'really not..."'
-	elseif ch0ln == 392 then
-		ch0a = '"Uuuuh, what do I do..."'
-	elseif ch0ln == 393 then
+		ct = 'Yuri'
+		ca = '"N-Never mind!"'
+	elseif cl == 391 then
+		ca = '"Sayori made it sound like a big deal when it\'s'
+		cb = 'really not..."'
+	elseif cl == 392 then
+		ca = '"Uuuuh, what do I do..."'
+	elseif cl == 393 then
 		updateSayori('1l','1r','g')
-		ch0t = 'Sayori'
-		ch0a = '"Eh? I\'m sorry, Yuri, I wasn\'t thinking..."'
-	elseif ch0ln == 394 then
+		ct = 'Sayori'
+		ca = '"Eh? I\'m sorry, Yuri, I wasn\'t thinking..."'
+	elseif cl == 394 then
 		hideSayori()
 		yx = 80
-		ch0t = ''
-		ch0a = "I guess that means it's up to me to rescue this"
-		ch0b = "situation..."
-	elseif ch0ln == 395 then
-		ch0t = player
-		ch0a = '"Hey, don\'t worry about it."'
-	elseif ch0ln == 396 then
-		ch0a = '"First of all, I wasn\'t expecting anything'
-		ch0b = 'in the first place."'
-	elseif ch0ln == 397 then
-		ch0a = '"So any nice gesture from you is a pleasant '
-		ch0b = 'surprise."'
-    elseif ch0ln == 398 then
-		ch0a = '"It\'ll make me happy no matter what."'
-	elseif ch0ln == 399 then
+		ct = ''
+		ca = "I guess that means it's up to me to rescue this"
+		cb = "situation..."
+	elseif cl == 395 then
+		ct = player
+		ca = '"Hey, don\'t worry about it."'
+	elseif cl == 396 then
+		ca = '"First of all, I wasn\'t expecting anything'
+		cb = 'in the first place."'
+	elseif cl == 397 then
+		ca = '"So any nice gesture from you is a pleasant '
+		cb = 'surprise."'
+    elseif cl == 398 then
+		ca = '"It\'ll make me happy no matter what."'
+	elseif cl == 399 then
 		updateYuri('2l','2r','v')
-		ch0t = 'Yuri'
-		ch0a = '"I-Is that so..."'
-	elseif ch0ln == 400 then
-		ch0t = player
-		ch0a = '"Yeah. I won\'t make it a big deal if you don\'t'
-		ch0b = 'want it to be."'
-	elseif ch0ln == 401 then
-		ch0t = 'Yuri'
-		ch0a = '"Alright..."'
-	elseif ch0ln == 402 then	
+		ct = 'Yuri'
+		ca = '"I-Is that so..."'
+	elseif cl == 400 then
+		ct = player
+		ca = '"Yeah. I won\'t make it a big deal if you don\'t'
+		cb = 'want it to be."'
+	elseif cl == 401 then
+		ct = 'Yuri'
+		ca = '"Alright..."'
+	elseif cl == 402 then	
 		updateYuri('1l','1r','a')
-		ch0a = '"Well, here."'
-	elseif ch0ln == 403 then
-		ch0t = ''
-		ch0a = '"Yuri reaches into her bag and pulls out a book."'
-	elseif ch0ln == 404 then
-		ch0t = 'Yuri'
-		ch0a = '"I didn\'t want you to feel left out..."'
-	elseif ch0ln == 405 then
-		ch0a = '"So I picked out a book that I thought you might'
-		ch0b = 'enjoy."'
-	elseif ch0ln == 406 then
-		ch0a = '"It\'s a short read, so it should keep your'
-		ch0b = 'attention, even if you don\'t usually read."'
-	elseif ch0ln == 407 then
-		ch0a = '"And we could, you know..."'
-	elseif ch0ln == 408 then
+		ca = '"Well, here."'
+	elseif cl == 403 then
+		ct = ''
+		ca = '"Yuri reaches into her bag and pulls out a book."'
+	elseif cl == 404 then
+		ct = 'Yuri'
+		ca = '"I didn\'t want you to feel left out..."'
+	elseif cl == 405 then
+		ca = '"So I picked out a book that I thought you might'
+		cb = 'enjoy."'
+	elseif cl == 406 then
+		ca = '"It\'s a short read, so it should keep your'
+		cb = 'attention, even if you don\'t usually read."'
+	elseif cl == 407 then
+		ca = '"And we could, you know..."'
+	elseif cl == 408 then
 		updateYuri('3','','b2')
-		ch0t = 'Yuri'
-		ch0a = '"Discuss it...if you wanted..."'
-	elseif ch0ln == 409 then
-		ch0t = ''
-		ch0a = "Th-This is..."
-    elseif ch0ln == 410 then
-		ch0a = "How is this girl accidentally being so cute?"
-	elseif ch0ln == 411 then
-		ch0a = "She even picked out a book she thinks I'll like, "
-		ch0b = "despite me not reading much..."
-	elseif ch0ln == 412 then
-		ch0t = player
-		ch0a = '"Yuri, thank you! I\'ll definitely read this!"'
-	elseif ch0ln == 413 then
-		ch0t = ''
-		ch0a = "I enthusiastically take the book."
-    elseif ch0ln == 414 then
+		ct = 'Yuri'
+		ca = '"Discuss it...if you wanted..."'
+	elseif cl == 409 then
+		ct = ''
+		ca = "Th-This is..."
+    elseif cl == 410 then
+		ca = "How is this girl accidentally being so cute?"
+	elseif cl == 411 then
+		ca = "She even picked out a book she thinks I'll like, "
+		cb = "despite me not reading much..."
+	elseif cl == 412 then
+		ct = player
+		ca = '"Yuri, thank you! I\'ll definitely read this!"'
+	elseif cl == 413 then
+		ct = ''
+		ca = "I enthusiastically take the book."
+    elseif cl == 414 then
 		updateYuri('1l','2r','m')
-		ch0t = 'Yuri'
-		ch0a = '"Phew..."'
-	elseif ch0ln == 415 then
+		ct = 'Yuri'
+		ca = '"Phew..."'
+	elseif cl == 415 then
 		yc = 'a'
-		ch0a = '"Well, you can read it at your own pace."'
-	elseif ch0ln == 416 then
-		ch0a = '"I look forward to hearing what you think."'
-	elseif ch0ln == 417 then
+		ca = '"Well, you can read it at your own pace."'
+	elseif cl == 416 then
+		ca = '"I look forward to hearing what you think."'
+	elseif cl == 417 then
 		hideYuri()
-		ch0t = ''
-		ch0a = "Now that everyone's settled in, I expected Monika"
-		ch0b = "to kick off some scheduled activities for the club."
-	elseif ch0ln == 418 then
-		ch0a = "But that doesn't seem to be the case."
-    elseif ch0ln == 419 then
-		ch0a = "Sayori and Monika are having a cheery"
-		ch0b = "conversation in the corner."
-	elseif ch0ln == 420 then
-		ch0a = "Yuri's face is already buried in a book."
-	elseif ch0ln == 421 then
-		ch0a = "I can't help but notice her intense expression,"
-		ch0b = "like she was waiting for this chance."
-	elseif ch0ln == 422 then
-		ch0a = "Meanwhile, Natsuki is rummaging around in the "
-		ch0b = "closet."
-	elseif ch0ln >= 423 then
+		ct = ''
+		ca = "Now that everyone's settled in, I expected Monika"
+		cb = "to kick off some scheduled activities for the club."
+	elseif cl == 418 then
+		ca = "But that doesn't seem to be the case."
+    elseif cl == 419 then
+		ca = "Sayori and Monika are having a cheery"
+		cb = "conversation in the corner."
+	elseif cl == 420 then
+		ca = "Yuri's face is already buried in a book."
+	elseif cl == 421 then
+		ca = "I can't help but notice her intense expression,"
+		cb = "like she was waiting for this chance."
+	elseif cl == 422 then
+		ca = "Meanwhile, Natsuki is rummaging around in the "
+		cb = "closet."
+	elseif cl >= 423 then
 		if poemwinner == 'sayori' then
 			ch1sayori()
 		elseif poemwinner == 'natsuki' then
@@ -271,11 +271,62 @@ function ch1script()
 		elseif poemwinner == 'yuri' then
 			ch1yuri()
 		end
-		--ch0a = 'Sayori is vice president of the Literature Club.' (for reference on how long the lines should be)
+	end
+	
+	if cl == 653 then
+		mx = 10
+		updateMonika('1l','1r','a')
+		ct = 'Monika'
+		ca = '"By the way, did you remember to write a poem'
+		cb = 'last night?"'
+	elseif cl == 654 then
+		ct = player
+		ca = '"Y-Yeah..."'
+	elseif cl == 655 then
+		ct = '' 
+		ca = "My relaxation ends."
+	elseif cl == 656 then
+		ca = "I can't believe I agreed to do something so"
+		cb = "embarrassing."
+	elseif cl == 657 then
+		ca = "I couldn't really find much inspiration, since I've"
+		cb = "never really done this before."
+	elseif cl == 658 then
+		ct = 'Monika'
+		ca = '"Well, now that everyone\'s ready, why don\'t you'
+		cb = 'find someone to share with?"'
+	elseif cl == 659 then
+		sx = 150
+		updateSayori('2l','2r','q')
+		ct = 'Sayori'
+		ca = '"I can\'t wait~!"'
+	elseif cl == 660 then
+		hideSayori()
+		hideMonika()
+		ct = ''
+		ca = "Sayori and Monika enthusiastically pull out their"
+		cb = "poems."
+	elseif cl == 661 then
+		ca = "Sayori's is on a wrinkled sheet of loose leaf torn"
+		cb = "from a spiral notebook."
+	elseif cl == 662 then
+		ca = "On the other hand, Monika wrote hers in a"
+		cb = "composition notebook."
+	elseif cl == 663 then
+		ca = "I can already see Monika's pristine handwriting"
+		cb = "from where I sit."
+	elseif cl == 664 then
+		ca = "Natsuki and Yuri reluctantly comply as well,"
+		cb = "reaching into their bags."
+	elseif cl == 665 then
+		ca = "I do the same, myself."
+	elseif cl == 666 then
+		audioUpdate('5')
+		
+		--ca = 'Sayori is vice president of theLiteratureClub.' (for reference on how long the lines should be)
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
-		--4: x=0-60 x=30 x=120 x=220
-		
+		--4: x=0-60 x=30 x=120 x=220	
 	end
 end
