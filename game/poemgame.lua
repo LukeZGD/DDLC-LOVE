@@ -53,13 +53,6 @@ end
 
 function poemgame()
 	bgch2 = love.graphics.newImage('./images/bg/notebook.png')
-	poemfont = love.graphics.newFont('./images/gui/fonts/Halogen')
-	sayoristicker1 = love.graphics.newImage('./images/gui/poemgame/s_sticker_1.png')
-	sayoristicker2 = love.graphics.newImage('./images/gui/poemgame/s_sticker_2.png')
-	yuristicker1 = love.graphics.newImage('./images/gui/poemgame/y_sticker_1.png')
-	yuristicker2 = love.graphics.newImage('./images/gui/poemgame/y_sticker_2.png')
-	natsukisticker1 = love.graphics.newImage('./images/gui/poemgame/n_sticker_1.png')
-	natsukisticker2 = love.graphics.newImage('./images/gui/poemgame/n_sticker_2.png')
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('./images/gui/poemgame/poemtime.png')
 	end

@@ -35,18 +35,18 @@ cg1 = ""
 savenumber = 1
 
 function savegame()
-	love.filesystem.write("save"..savenumber..".sav", "savefile={"..ch0ln..",'"..player..[[
+	love.filesystem.write("save"..savenumber..".sav", "savefile={"..cl..",'"..player..[[
 ',]]..s_poemappeal..","..n_poemappeal..","..y_poemappeal..",'"..poemwinner..[[
 ',]]..sx..","..yx..","..nx..","..mx..[[
 ,']]..sa.."','"..sb.."','"..sc.."','"..ya.."','"..yb.."','"..yc..[[
 ',']]..na.."','"..nb.."','"..nc.."','"..ma.."','"..mb.."','"..mc..[[
-',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ch0t.."'}") --other settings might be added here!
+',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ct.."'}") --other settings might be added here!
 end
 
 function loadgame()
 	loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
 	loadsavefile()
-	ch0ln = savefile[1]
+	cl = savefile[1]
 	player = savefile[2]
 	
 	s_poemappeal = savefile[3]
@@ -79,7 +79,7 @@ function loadupdate()
 	bg1 = savefile[24]
 	audio1 = savefile[25]
 	cg1 = savefile[26]
-	ch0t = savefile[27]
+	ct = savefile[27]
 	xaload = 0
 	bgUpdate(bg1)
 	audioUpdate(audio1)
@@ -92,10 +92,10 @@ function filecheck()
 
 	if file then
 		loadgame()
-		if ch0ln == 0 then
+		if cl == 0 then
 			alpha = 255
 			timer = 501
-			ch0ln = 10016
+			cl = 10016
 			state = "newgame"
 		else
 			checkchr()
@@ -103,7 +103,7 @@ function filecheck()
 	else
 		alpha = 255
 		timer = 501
-		ch0ln = 10016
+		cl = 10016
 		state = "newgame"
 	end
 	
@@ -117,7 +117,7 @@ function checkchr()
 		resetchr2()
 		state = "splash1"
 		audioUpdate('1') 
-	elseif sayorichr == false or ch0ln == 10000 then --set up very early act 1 end
+	elseif sayorichr == false or cl == 10000 then --set up very early act 1 end
 		player = "..."
 		timer = 501
 		endbg = love.graphics.newImage('./images/gui/end.png')
@@ -126,7 +126,7 @@ function checkchr()
 		audioUpdate('s_kill_early')
 	elseif monikachr == false then --set up early act 1 end
 		player = "..."
-		ch0ln = 10001
+		cl = 10001
 		resetchr2()
 		state = "splash1" 
 		audioUpdate('1') 
