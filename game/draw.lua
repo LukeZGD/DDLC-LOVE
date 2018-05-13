@@ -2,7 +2,7 @@ function drawTopScreen()
 	if drawbottom == 1 then
 		love.graphics.pop()
 		drawbottom = 0
-	elseif global_os ~= 'Windows' then
+	elseif global_os == 'Horizon' then
 		love.graphics.setScreen("top")
 	end
 end
