@@ -52,9 +52,9 @@ function updatewordlist()
 end
 
 function poemgame()
-	bgch2 = love.graphics.newImage('./images/bg/notebook.png')
+	bgch2 = love.graphics.newImage('images/bg/notebook.png')
 	if poemstate == 0 then 
-		poemtime = love.graphics.newImage('./images/gui/poemgame/poemtime.png')
+		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
 	end
 	
 	p_y = 100
@@ -103,7 +103,6 @@ function drawpoemgame()
 	else
 		love.graphics.print("20/20",245,25,0,1,1)
 	end
-	--love.graphics.print(poemwinner,0,0,0,1,1)
 	love.graphics.print(word1,117,45,0,1,1)
 	love.graphics.print(word2,117,80,0,1,1)
 	love.graphics.print(word3,117,118,0,1,1)
@@ -116,7 +115,10 @@ function drawpoemgame()
 	love.graphics.print(word10,200,188,0,1,1)
 	
 	love.graphics.setColor(255,255,255,alpha)
-	if poemstate == 0 then love.graphics.draw(poemtime,0,0) end
+	if poemstate == 0 then love.graphics.draw(poemtime,0,0)
+	elseif menu_enabled and menu_type ~= 'choice' then 
+		love.graphics.draw(background_Image, posX, posY)
+	end
 	
 	drawBottomScreen()
 	love.graphics.draw(background_Image, posX, posY)
@@ -154,9 +156,8 @@ function drawpoemgame()
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	--[[love.graphics.print('Sayori Points: ' .. spoint,0,32,0,1,1)
-	love.graphics.print('Natsuki Points: ' .. npoint,0,48,0,1,1)
-	love.graphics.print('Yuri Points: ' .. ypoint,0,64,0,1,1)]]
+	
+	if menu_enabled then menu_draw() end
 end
 
 function updatepoemgame(dt)
@@ -219,6 +220,8 @@ end
 
 function poemgamekeypressed(key)
 
+	if menu_enabled == false then
+	
 	if key == 'down' then
 		if menuselected <= 9 then
 			menuselected = menuselected + 1
@@ -284,6 +287,12 @@ function poemgamekeypressed(key)
 				xaload = 0
 			end
 		end
+	elseif key == 'y' then 
+		menu_enable('pause',7)
+		sfx1:play()	
 	end
+	
+	end
+	
 end
 		

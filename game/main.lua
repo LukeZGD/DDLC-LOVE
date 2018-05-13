@@ -6,27 +6,23 @@ require "saveload"
 
 require "menu"
 require "scripts.script"
-require "scripts.script-ch1"
-require "scripts.script-exclusives-sayori"
-require "scripts.script-exclusives-natsuki"
-require "scripts.script-exclusives-yuri"
 
 function love.load() 
 	--set up stuff
 	love.graphics.setBackgroundColor ( 0,0,0 )
-	font = love.graphics.newFont('./images/gui/fonts/Aller_Rg')
+	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
 	love.graphics.setFont(font)
 	
 	--set up more stuff (splash, title screen, gui elements)
-	splash = love.graphics.newImage('./images/bg/splash.png')
-	titlebg = love.graphics.newImage('./images/bg/bg.png')
-	textbox = love.graphics.newImage('./images/gui/textbox.png')
-	namebox = love.graphics.newImage('./images/gui/namebox.png')
-	sfx1 = love.audio.newSource("./audio/sfx/select.ogg", "static")
-	sfx2 = love.audio.newSource("./audio/sfx/hover.ogg", "static")
+	splash = love.graphics.newImage('images/bg/splash.png')
+	titlebg = love.graphics.newImage('images/bg/bg.png')
+	textbox = love.graphics.newImage('images/gui/textbox.png')
+	namebox = love.graphics.newImage('images/gui/namebox.png')
+	sfx1 = love.audio.newSource("audio/sfx/select.ogg", "static")
+	sfx2 = love.audio.newSource("audio/sfx/hover.ogg", "static")
 	
 	--scrolling background
-	background_Image = love.graphics.newImage('./images/bg/menu_bg.png')
+	background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 	posX = 0
 	posY = 0
 	
@@ -37,16 +33,27 @@ function love.load()
 	alpha = 0
 	menu_enabled = false
 	
+	global_os = love.system.getOS()
+	if global_os ~= 'Horizon' then 
+		love.window.setMode(400, 480) 
+		love.window.setTitle('DDLC-3DS')
+	end
+	
 	filecheck()
 end
 
 function love.draw() 
 
-	posX = posX - 0.125
-	posY = posY - 0.125
+	if global_os == 'Horizon' then
+		posX = posX - 0.125
+		posY = posY - 0.125
 	
-    if posX <= -80 then posX = 0 end
-	if posY <= -80 then posY = 0 end
+		if posX <= -80 then posX = 0 end
+		if posY <= -80 then posY = 0 end
+	else
+		posX = -75
+		posY = 0
+	end
 	
 	if timer <= 200 then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
@@ -87,7 +94,6 @@ function love.draw()
 		drawBottomScreen()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(s_killearly,32,0)
-		--if menu_enabled then menu_draw() end
 	end
 end
 
@@ -112,16 +118,16 @@ function love.update(dt)
 	if state == "splash1" or state == "splash2" then --splash screen (change state)
 		if timer == 200 then
 			--poemgame images and font
-			poemfont = love.graphics.newFont('./images/gui/fonts/Halogen')
-			sayoristicker1 = love.graphics.newImage('./images/gui/poemgame/s_sticker_1.png')
-			sayoristicker2 = love.graphics.newImage('./images/gui/poemgame/s_sticker_2.png')
-			yuristicker1 = love.graphics.newImage('./images/gui/poemgame/y_sticker_1.png')
+			poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
+			sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+			sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+			yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
 			state = "splash2" --set new state
 		elseif timer >= 480 then
 			--poemgame images and font
-			yuristicker2 = love.graphics.newImage('./images/gui/poemgame/y_sticker_2.png')
-			natsukisticker1 = love.graphics.newImage('./images/gui/poemgame/n_sticker_1.png')
-			natsukisticker2 = love.graphics.newImage('./images/gui/poemgame/n_sticker_2.png')
+			yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
+			natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
+			natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
 			state = "title" --set new state
 		end
 	end
@@ -132,30 +138,7 @@ function love.update(dt)
 			xaload = -2
 		end
 	end
-	
-	--[[if love.keyboard.isDown('up') then 
-		if love.keyboard.isDown('x') then
-			if love.keyboard.isDown('b') then --Up+X+B erase save data
-				if state == 'title' or state == 's_kill_early' then
-					xaload = 0
-					audioUpdate('0')
-					menu_enable('erasesave',3)
-				end
-			end
-		end
-	end]]
-	
-	if love.keyboard.isDown('lbutton') then
-		if love.keyboard.isDown('rbutton') then
-			if love.keyboard.isDown('select') then --L+R+Select quit the game
-				love.quit()
-			elseif love.keyboard.isDown('up') then --L+R+Up poem game test
-				poemstate = 0
-				poemgame()
-			end
-		end
-	end
-	
+
 	if state == 'poemgame' then
 		updatepoemgame(dt)
 	end
@@ -179,11 +162,11 @@ function love.keypressed(key)
 			sfx1:play()
 			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
+	elseif state == 'poemgame' then
+		poemgamekeypressed(key)
 	end
 	
-	if state == 'poemgame' then
-		poemgamekeypressed(key)
-	elseif menu_enabled then
+	if menu_enabled then
 		menu_keypressed(key)
 	end
 end
@@ -201,13 +184,15 @@ function love.keyreleased(key)
 end
 
 function love.textinput(text)
-	if text ~= '' then 
-		player = text
-		savegame()
-		menu_enabled = false
-		xaload = 0
-		state = "game"
-	else
-		state = "title"
+	if global_os == 'Horizon' then
+		if text ~= '' then 
+			player = text
+			savegame()
+			menu_enabled = false
+			xaload = 0
+			state = "game"
+		else
+			state = "title"
+		end
 	end
 end
