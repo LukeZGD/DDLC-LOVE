@@ -1,9 +1,20 @@
 function drawTopScreen()
-	love.graphics.setScreen("top")
+	if drawbottom == 1 then
+		love.graphics.pop()
+		drawbottom = 0
+	elseif global_os ~= 'Windows' then
+		love.graphics.setScreen("top")
+	end
 end
 
 function drawBottomScreen()
-	love.graphics.setScreen("bottom")
+	if global_os == 'Windows' then
+		love.graphics.push()
+		love.graphics.translate((400 - 320) / 2, 240)
+		drawbottom = 1
+	else
+		love.graphics.setScreen("bottom")
+	end
 end
 
 function splashalpha(x)

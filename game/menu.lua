@@ -23,6 +23,7 @@ function menu_draw()
 	love.graphics.print('>',cX,cY,0,1,1)
 	
 	if menu_type == 'title' then
+		love.graphics.print(global_os,0,0)
 		love.graphics.print("Main Menu:",16, 20, 0, 1, 1)
 		love.graphics.print("New Game",16, 45, 0, 1, 1)
 		love.graphics.print("Load Game",16, 70, 0, 1, 1)
@@ -34,43 +35,38 @@ function menu_draw()
 		love.graphics.print("Controls:",16, 20, 0, 1, 1)
 		love.graphics.print("A - Select",16, 45, 0, 1, 1)
 		love.graphics.print("B - Auto On/Off",16, 70, 0, 1, 1)
-		love.graphics.print("X - Skip",16, 95, 68, 1, 1)
+		love.graphics.print("X - Skip",16, 95, 0, 1, 1)
 		love.graphics.print("Y - Pause",16, 120, 0, 1, 1)
 		
 	elseif menu_type == 'loadgame' then
 		love.graphics.print("Load Game:",16, 20, 0, 1, 1)
 		love.graphics.print("Save File 1",16, 45, 0, 1, 1)
 		love.graphics.print("Save File 2",16, 70, 0, 1, 1)
-		love.graphics.print("Save File 3",16, 95, 68, 1, 1)
+		love.graphics.print("Save File 3",16, 95, 0, 1, 1)
 		love.graphics.print("Save File 4",16, 120, 0, 1, 1)
 		love.graphics.print("Save File 5",16, 145, 0, 1, 1)
-		love.graphics.print("Save File 6",16, 170, 68, 1, 1)
+		love.graphics.print("Save File 6",16, 170, 0, 1, 1)
 		
 	elseif menu_type == 'savegame' then
 		love.graphics.print("Save Game:",16, 20, 0, 1, 1)
 		love.graphics.print("Save File 1",16, 45, 0, 1, 1)
 		love.graphics.print("Save File 2",16, 70, 0, 1, 1)
-		love.graphics.print("Save File 3",16, 95, 68, 1, 1)
+		love.graphics.print("Save File 3",16, 95, 0, 1, 1)
 		love.graphics.print("Save File 4",16, 120, 0, 1, 1)
 		love.graphics.print("Save File 5",16, 145, 0, 1, 1)
-		love.graphics.print("Save File 6",16, 170, 68, 1, 1)
+		love.graphics.print("Save File 6",16, 170, 0, 1, 1)
 		
 	elseif menu_type == 'pause' then
 		love.graphics.print("Pause Menu:",16, 20, 0, 1, 1)
 		love.graphics.print("Save Game",16, 45, 0, 1, 1)
 		love.graphics.print("Load Game",16, 70, 0, 1, 1)
-		love.graphics.print("Main Menu",16, 95, 68, 1, 1)
-		love.graphics.print("Settings",16, 120, 68, 1, 1)
-		love.graphics.print("Help",16, 145, 68, 1, 1)
-		love.graphics.print("Return",16, 170, 68, 1, 1)
+		love.graphics.print("Main Menu",16, 95, 0, 1, 1)
+		love.graphics.print("Settings",16, 120, 0, 1, 1)
+		love.graphics.print("Help",16, 145, 0, 1, 1)
+		love.graphics.print("Return",16, 170, 0, 1, 1)
 		
 	elseif menu_type == 'mainyesno' then
 		love.graphics.print("Are you sure?",16, 20, 0, 1, 1)
-		love.graphics.print("Yes",16, 45, 0, 1, 1)
-		love.graphics.print("No",16, 70, 0, 1, 1)
-		
-	elseif menu_type == 'erasesave' then
-		love.graphics.print("This will erase your saved data.",16, 20, 0, 1, 1)
 		love.graphics.print("Yes",16, 45, 0, 1, 1)
 		love.graphics.print("No",16, 70, 0, 1, 1)
 	end
@@ -81,6 +77,10 @@ function menu_confirm()
 	if menu_type == 'title' then --title screen options
 		sfx1:play()
 		
+		if global_os ~= 'Horizon' then
+			player = 'MC'
+		end
+		
 		if m_selected == 2 then --new game
 			if player == "" then
 				love.keyboard.setTextInput(true)
@@ -89,7 +89,7 @@ function menu_confirm()
 				audioUpdate('2')
 				xaload = 0
 				state = "game"
-			elseif cl <= 9999 then
+			elseif cl <= 9999 or global_os ~= 'Horizon' then
 				hideSayori()
 				hideYuri()
 				hideNatsuki()
@@ -167,6 +167,7 @@ function menu_confirm()
 			state = 'title'
 			timer = 501
 			xaload = 0
+			audioStop()
 			audioUpdate('1')
 			menu_enable('title',6)
 		elseif m_selected == 3 then

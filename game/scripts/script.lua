@@ -1,3 +1,39 @@
+function cw(p1, stext)
+	if p1 == 's' then
+		ct = 'Sayori'
+	elseif p1 == 'n' then
+		ct = 'Natsuki'
+	elseif p1 == 'y' then
+		ct = 'Yuri'
+	elseif p1 == 'm' then
+		ct = 'Monika'
+	elseif p1 == 'mc' then
+		ct = player
+	elseif p1 == 'bl' then
+		ct = ''
+	end
+	
+	--this is some kind of word wrapping haha
+	slen = string.len(stext)
+	ca = string.sub(stext, 1, caa)
+	
+	if slen >= 45 then 
+		caa = string.find(stext, "%s", 45)
+		cb = string.sub(stext, caa+1, cba)
+	end 
+	
+	if slen >= 95 then 
+		cba = string.find(stext, "%s", 95) 
+		cc = string.sub(stext, cba+1, cca)
+	end
+	
+	if slen >= 145 then 
+		cca = string.find(stext, "%s", 145)
+		cd = string.sub(stext, cca+1)
+	end
+	
+end
+
 function ch0script()
 
 	love.graphics.setBackgroundColor ( 0, 0, 0 )
@@ -12,20 +48,14 @@ function ch0script()
 	
 	--start of script-ch0 (day 1)
 	if cl == 1 then
-		chapter = 0
 		bgUpdate('residential')
 		audioUpdate('2')
 		ct = '???'
 		ca = '"Heeeeeeeyyy!!"'
 	elseif cl == 2 then  
-		ct = ''
-		ca = 'I see an annoying girl running toward me from'
-		cb = 'the distance, waving her arms in the air like'
-		cc = 'she\'s totally oblivious to any attention she'
-		cd = 'might draw to herself.'
+		cw('bl', 'I see an annoying girl running toward me from the distance, waving her arms in the air like she\'s totally oblivious to any attention she might draw to herself.')
 	elseif cl == 3 then
-		ca = 'That girl is Sayori, my neighbor and good'
-		cb = 'friend since we were children.'
+		cw('bl', 'That girl is Sayori, my neighbor and good friend since we were children.')
 	elseif cl == 4 then
 		ca = 'You know, the kind of friend you\'d never see '
 		cb = 'yourself making today, but it just kind of works'
