@@ -1,3 +1,8 @@
+require "scripts.script-ch1"
+require "scripts.script-exclusives-sayori"
+require "scripts.script-exclusives-natsuki"
+require "scripts.script-exclusives-yuri"
+
 function cw(p1, stext)
 	if p1 == 's' then
 		ct = 'Sayori'
