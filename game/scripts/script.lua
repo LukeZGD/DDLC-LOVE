@@ -26,21 +26,20 @@ function cw(p1, stext)
 	
 	if slen >= 45 then 
 		caa = string.find(stext, "%s", 45)
-		if caa == nil then caa=string.find(stext, "%s%a", 35) end
-		if slen < 95 then cba = 100 end
+		if caa == nil then caa=50 end
+		if slen < 95 then cba=100 end
 		cb = string.sub(stext, caa+1, cba)
 	end 
 	
 	if slen >= 95 then 
 		cba = string.find(stext, "%s", 95) 
-		if cba == nil then cba=string.find(stext, "%s%a", 85) end
-		if slen < 145 then cca = 150 end
+		if cba == nil then cba=100 end
+		if slen < 145 then cca=150 end
 		cc = string.sub(stext, cba+1, cca)
 	end
 	
 	if slen >= 145 then 
 		cca = string.find(stext, "%s", 145)
-		if cca == nil then cca=string.find(stext, "%s%a", 135) end
 		cd = string.sub(stext, cca+1)
 	end
 	
@@ -634,7 +633,7 @@ function ch0script()
 		ct = player
 		ca = '"Eh? I thought you technically did. Sayori said--"'
 	elseif cl == 157 then
-		updateNatsuki('1l','1r','2btc')
+		updateNatsuki('1l','1r','2c')
 		ct = 'Natsuki'
 		ca = '"Well, maybe!"'
     elseif cl == 158 then 
