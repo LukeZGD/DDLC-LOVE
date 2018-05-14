@@ -188,6 +188,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'choice' then
 		sfx1:play()
+		xaload = 0
 		cl = cl + 1
 		menu_type = nil
 		menu_enabled = false

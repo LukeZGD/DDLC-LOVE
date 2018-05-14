@@ -83,6 +83,7 @@ function updateloading(dt)
 		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
 		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
 		y1 = love.graphics.newFont('images/gui/fonts/y1')
+		n1 = love.graphics.newFont('images/gui/fonts/n1')
 		
 	elseif l_timer == 55 then
 		--more poemgame stuff and fonts
@@ -301,13 +302,13 @@ function loadSayori()
 		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
 	elseif sa=="2l" then
 		if s2l == nil then s2l = love.graphics.newImage('images/sayori/2l.png') end 
-	elseif sa=="3a" then
+	elseif sa=="3a" or sa=="5a" then
 		if s3a == nil then s3a = love.graphics.newImage('images/sayori/3a.png') end
-	elseif sa=="3b" then
+	elseif sa=="3b" or sa=="5b" then
 		if s3b == nil then s3b = love.graphics.newImage('images/sayori/3b.png') end
-	elseif sa=="3c" then
+	elseif sa=="3c" or sa=="5c" then
 		if s3c == nil then s3c = love.graphics.newImage('images/sayori/3c.png') end 
-	elseif sa=="3d" then
+	elseif sa=="3d" or sa=="5d" then
 		if s3d == nil then s3d = love.graphics.newImage('images/sayori/3d.png') end
 	elseif sa=="1bl" then
 		if s1bl == nil then s1bl = love.graphics.newImage('images/sayori/1bl.png') end
@@ -315,6 +316,32 @@ function loadSayori()
 		if s2bl == nil then s2bl = love.graphics.newImage('images/sayori/2bl.png') end 
 	elseif sa=="sayori" then
 		if saf == nil then saf = love.graphics.newImage('images/sayori/sayori.png') end 
+		
+	elseif sa=="1s" then
+		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
+		if s1r == nil then s1r = love.graphics.newImage('images/sayori/1r.png') end
+	elseif sa=="2s" then
+		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
+		if s1r == nil then s2r = love.graphics.newImage('images/sayori/2r.png') end
+	elseif sa=="3s" then
+		if s1l == nil then s2r = love.graphics.newImage('images/sayori/2l.png') end
+		if s1r == nil then s1r = love.graphics.newImage('images/sayori/1r.png') end
+	elseif sa=="4s" then
+		if s1l == nil then s2l = love.graphics.newImage('images/sayori/2l.png') end
+		if s1r == nil then s2r = love.graphics.newImage('images/sayori/2r.png') end
+		
+	elseif sa=="1bs" then
+		if s1bl == nil then s1bl = love.graphics.newImage('images/sayori/1bl.png') end
+		if s1br == nil then s1br = love.graphics.newImage('images/sayori/1br.png') end
+	elseif sa=="2bs" then
+		if s1bl == nil then s1bl = love.graphics.newImage('images/sayori/1bl.png') end
+		if s1br == nil then s2br = love.graphics.newImage('images/sayori/2br.png') end
+	elseif sa=="3bs" then
+		if s1bl == nil then s2br = love.graphics.newImage('images/sayori/2bl.png') end
+		if s1br == nil then s1br = love.graphics.newImage('images/sayori/1br.png') end
+	elseif sa=="4bs" then
+		if s1bl == nil then s2bl = love.graphics.newImage('images/sayori/2bl.png') end
+		if s1br == nil then s2br = love.graphics.newImage('images/sayori/2br.png') end
 	end
 	
 	if sb=="" then
@@ -417,16 +444,36 @@ function loadYuri()
 		if yl1 == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
 	elseif ya=="2l" then
 		if y2l == nil then y2l = love.graphics.newImage('images/yuri/2l.png') end
-	elseif ya=="3" then
+	elseif ya=="3" or ya=="4" then
 		if y3_ == nil then y3_ = love.graphics.newImage('images/yuri/3.png') end
 	elseif ya=="1bl" then
 		if ylb1 == nil then y1bl = love.graphics.newImage('images/yuri/1bl.png') end
 	elseif ya=="2bl" then
 		if y2bl == nil then y2bl = love.graphics.newImage('images/yuri/2bl.png') end
-	elseif ya=="3b" then
+	elseif ya=="3b" or ya=="4b" then
 		if y3b == nil then y3b = love.graphics.newImage('images/yuri/3b.png') end
 	elseif ya=="yuri" then
 		if yaf == nil then yaf = love.graphics.newImage('images/yuri/yuri.png') end 
+	
+	elseif ya=="1s" then
+		if y1l == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
+		if y1r == nil then y1r = love.graphics.newImage('images/yuri/1r.png') end
+	elseif ya=="2s" then
+		if y1l == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
+		if y1r == nil then y2r = love.graphics.newImage('images/yuri/2r.png') end
+	elseif ya=="3s" then
+		if y1l == nil then y2l = love.graphics.newImage('images/yuri/2l.png') end
+		if y1r == nil then y2r = love.graphics.newImage('images/yuri/2r.png') end
+	
+	elseif ya=="1bs" then
+		if y1bl == nil then y1bl = love.graphics.newImage('images/yuri/1bl.png') end
+		if y1br == nil then y1br = love.graphics.newImage('images/yuri/1br.png') end
+	elseif ya=="2bs" then
+		if y1bl == nil then y1bl = love.graphics.newImage('images/yuri/1bl.png') end
+		if y1br == nil then y2br = love.graphics.newImage('images/yuri/2br.png') end
+	elseif ya=="3bs" then
+		if y1bl == nil then y2bl = love.graphics.newImage('images/yuri/2bl.png') end
+		if y1br == nil then y2br = love.graphics.newImage('images/yuri/2br.png') end
 	end
 	
 	if yb=="" then
@@ -438,7 +485,7 @@ function loadYuri()
 		if y1br == nil then y1br = love.graphics.newImage('images/yuri/1br.png') end
 	elseif yb=="2br" then
 		if y2br == nil then y2br = love.graphics.newImage('images/yuri/2br.png') end
-	end]]
+	end
 	
 	if yc=="" then
 	elseif yc=="a" then
@@ -605,23 +652,23 @@ function loadNatsuki()
 		if n1t == nil then n1t = love.graphics.newImage('images/natsuki/1t.png') end
 	elseif nc=="2bt" then
 		if n2bt == nil then n2bt = love.graphics.newImage('images/natsuki/2bt.png') end
-	elseif nc=="2bta" then
+	elseif nc=="2a" then
 		if n2bta == nil then n2bta = love.graphics.newImage('images/natsuki/2bta.png') end
-	elseif nc=="2btb" then
+	elseif nc=="2b" then
 		if n2btb == nil then n2btb = love.graphics.newImage('images/natsuki/2btb.png') end
-	elseif nc=="2btc" then
+	elseif nc=="2c" then
 		if n2btc == nil then n2btc = love.graphics.newImage('images/natsuki/2btc.png') end
-	elseif nc=="2btd" then
+	elseif nc=="2d" then
 		if n2btd == nil then n2btd = love.graphics.newImage('images/natsuki/2btd.png') end
-	elseif nc=="2bte" then
+	elseif nc=="2e" then
 		if n2bte == nil then n2bte = love.graphics.newImage('images/natsuki/2bte.png') end
-	elseif nc=="2btf" then
+	elseif nc=="2f" then
 		if n2btf == nil then n2btf = love.graphics.newImage('images/natsuki/2btf.png') end
-	elseif nc=="2btg" then
+	elseif nc=="2g" then
 		if n2btg == nil then n2btg = love.graphics.newImage('images/natsuki/2btg.png') end
-	elseif nc=="2bth" then
+	elseif nc=="2h" then
 		if n2bth == nil then n2bth = love.graphics.newImage('images/natsuki/2bth.png') end
-	elseif nc=="2bti" then
+	elseif nc=="2i" then
 		if n2bti == nil then n2bti = love.graphics.newImage('images/natsuki/2bti.png') end
 	elseif nc=="2t" then
 		if n2t == nil then n2t = love.graphics.newImage('images/natsuki/2t.png') end
@@ -650,16 +697,43 @@ function loadNatsuki()
 		if n1l == nil then n1l = love.graphics.newImage('images/natsuki/1l.png') end
 	elseif na=="2l" then
 		if n2l == nil then n2l = love.graphics.newImage('images/natsuki/2l.png') end
-	elseif na=="3" then
+	elseif na=="3" or na=="5" then
 		if n3_ == nil then n3_ = love.graphics.newImage('images/natsuki/3.png') end
 	elseif na=="1bl" then
 		if n1bl == nil then n1bl = love.graphics.newImage('images/natsuki/1bl.png') end
 	elseif na=="2bl" then
 		if n2bl == nil then n2bl = love.graphics.newImage('images/natsuki/2bl.png') end
-	elseif na=="3b" then
+	elseif na=="3b" or na=="5b" then
 		if n3b == nil then n3b = love.graphics.newImage('images/natsuki/3b.png') end
 	elseif na=="natsuki" then
 		if naf == nil then naf = love.graphics.newImage('images/natsuki/natsuki.png') end 
+	
+	elseif na=="1s" then
+		if n1l == nil then n1l = love.graphics.newImage('images/natsuki/1l.png') end
+		if n1r == nil then n1r = love.graphics.newImage('images/natsuki/1r.png') end
+	elseif na=="2s" then
+		if n1l == nil then n1l = love.graphics.newImage('images/natsuki/1l.png') end
+		if n2r == nil then n2r = love.graphics.newImage('images/natsuki/2r.png') end
+	elseif na=="3s" then
+		if n2l == nil then n2l = love.graphics.newImage('images/natsuki/2l.png') end
+		if n1r == nil then n1r = love.graphics.newImage('images/natsuki/1r.png') end
+	elseif na=="4s" then
+		if n2l == nil then n2l = love.graphics.newImage('images/natsuki/2l.png') end
+		if n2r == nil then n2r = love.graphics.newImage('images/natsuki/2r.png') end
+	
+	elseif na=="1bs" then
+		if n1bl == nil then n1bl = love.graphics.newImage('images/natsuki/1bl.png') end
+		if n1br == nil then n1br = love.graphics.newImage('images/natsuki/1br.png') end
+	elseif na=="2bs" then
+		if n1bl == nil then n1bl = love.graphics.newImage('images/natsuki/1bl.png') end
+		if n1br == nil then n2br = love.graphics.newImage('images/natsuki/2br.png') end
+	elseif na=="3bs" then
+		if n2bl == nil then n2bl = love.graphics.newImage('images/natsuki/2bl.png') end
+		if n1br == nil then n1br = love.graphics.newImage('images/natsuki/1br.png') end
+	elseif na=="4bs" then
+		if n1bl == nil then n2bl = love.graphics.newImage('images/natsuki/2bl.png') end
+		if n1br == nil then n2br = love.graphics.newImage('images/natsuki/2br.png') end
+	
 	end
 	
 	if nb=="" then
