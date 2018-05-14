@@ -18,12 +18,12 @@ function menu_draw()
 	if menu_items >= 6 then love.graphics.rectangle("fill", 16, 145, 100, 16 ) end
 	if menu_items >= 7 then love.graphics.rectangle("fill", 16, 170, 100, 16 ) end
 	if menu_items >= 8 then love.graphics.rectangle("fill", 16, 195, 100, 16 ) end
+	if menu_items >= 9 then love.graphics.rectangle("fill", 16, 220, 100, 16 ) end
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.print('>',cX,cY,0,1,1)
 	
 	if menu_type == 'title' then
-		love.graphics.print(global_os,0,0)
 		love.graphics.print("Main Menu:",16, 20, 0, 1, 1)
 		love.graphics.print("New Game",16, 45, 0, 1, 1)
 		love.graphics.print("Load Game",16, 70, 0, 1, 1)
@@ -69,6 +69,18 @@ function menu_draw()
 		love.graphics.print("Are you sure?",16, 20, 0, 1, 1)
 		love.graphics.print("Yes",16, 45, 0, 1, 1)
 		love.graphics.print("No",16, 70, 0, 1, 1)
+		
+	elseif menu_type == 'choice' then
+		xaload = xaload + 1
+		love.graphics.print(menutext,16, 20)
+		love.graphics.print(choice1,16, 45)
+		if menu_items >= 3 then love.graphics.print(choice2,16, 70) end
+		if menu_items >= 4 then love.graphics.print(choice3,16, 95) end
+		if menu_items >= 5 then love.graphics.print(choice4,16, 120) end
+		if menu_items >= 6 then love.graphics.print(choice5,16, 145) end
+		if menu_items >= 7 then love.graphics.print(choice6,16, 170) end
+		if menu_items >= 8 then love.graphics.print(choice7,16, 195) end
+		if menu_items >= 8 then love.graphics.print(choice8,16, 220) end
 	end
 end
 
@@ -112,7 +124,7 @@ function menu_confirm()
 			menu_previous = 'title'
 			menu_previousitems = 6
 			menu_enable('help', 5)
-			m_selected = -99
+			m_selected = -999
 			m_select()
 		elseif m_selected == 6 then --quit
 			unloadAll()
@@ -156,7 +168,7 @@ function menu_confirm()
 			menu_previous = 'pause'
 			menu_previousitems = 7
 			menu_enable('help',5)
-			m_selected = -99
+			m_selected = -999
 		elseif m_selected == 7 then
 			menu_enabled = false
 		end
@@ -174,25 +186,11 @@ function menu_confirm()
 			menu_enable('pause',7)
 		end
 		
-	elseif menu_type == 'erasesave' then
-		if m_selected == 2 then
-			cl = 0
-			hideSayori()
-			hideYuri()
-			hideNatsuki()
-			hideMonika()
-			savegame()
-			sfx1:play()
-			love.quit()
-		elseif m_selected == 3 then
-			if state == 'title' then
-				xaload = 0
-				audioUpdate('1')
-				menu_enable('title',6)
-			elseif state == 's_kill_early' then
-				menu_enabled = false
-			end
-		end
+	elseif menu_type == 'choice' then
+		sfx1:play()
+		cl = cl + 1
+		menu_type = nil
+		menu_enabled = false
 	end
 end
 
