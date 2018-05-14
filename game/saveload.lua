@@ -115,8 +115,7 @@ function checkchr()
 	
 	if sayorichr and monikachr then --load title screen
 		resetchr2()
-		state = "splash1"
-		audioUpdate('1') 
+		state = 'load'
 	elseif sayorichr == false or cl == 10000 then --set up very early act 1 end
 		player = "..."
 		timer = 501
@@ -128,8 +127,7 @@ function checkchr()
 		player = "..."
 		cl = 10001
 		resetchr2()
-		state = "splash1" 
-		audioUpdate('1') 
+		state = 'load'
 	end
 	
 end

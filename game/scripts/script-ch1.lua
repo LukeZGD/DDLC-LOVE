@@ -320,10 +320,10 @@ function ch1script()
 		cb = "reaching into their bags."
 	elseif cl == 665 then
 		ca = "I do the same, myself."
-	elseif cl == 666 then
-		audioUpdate('5')
-		
-		--ca = 'Sayori is vice president of theLiteratureClub.' (for reference on how long the lines should be)
+		poeminitialize()
+	elseif cl >= 666 then
+		poemresponses()
+
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200

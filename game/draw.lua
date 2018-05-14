@@ -23,11 +23,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 2.5
+				alpha = alpha + 4
 			end
 		elseif timer <=200 then
 			if alpha >= 1 then
-				alpha = alpha - 2.5
+				alpha = alpha - 4
 			else
 				alpha = 0
 			end
@@ -37,11 +37,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 2.5
+				alpha = alpha + 3
 			end
 		elseif timer <=480 then
 			if alpha >= 1 then
-				alpha = alpha - 2.5
+				alpha = alpha - 3
 			else
 				alpha = 0
 			end
@@ -51,7 +51,7 @@ function splashalpha(x)
 			alpha = 255
 		else
 			menu_enable('title', 6)
-			alpha = alpha + 2.5
+			alpha = alpha + 2.75
 		end
 	elseif x == 4 then
 		if alpha <= 0 then
@@ -79,31 +79,36 @@ function drawGame()
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
 	
-	if xaload >= 1 and menu_enabled == false then
-	love.graphics.draw(bgch, 0, 0)
+	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
+		love.graphics.draw(bgch, 0, 0)
 	if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
-	drawSayori(sa,sb,sc) 
-	drawYuri(ya,yb,yc) 
-	drawNatsuki(na,nb,nc) 
-	drawMonika(ma,mb,mc)
+		drawSayori(sa,sb,sc) 
+		drawYuri(ya,yb,yc) 
+		drawNatsuki(na,nb,nc) 
+		drawMonika(ma,mb,mc)
+		if poem_enabled and xaload >=1 then drawPoem() end
 	elseif menu_enabled and menu_type ~= 'choice' then 
-	love.graphics.draw(background_Image, posX, posY)
+		love.graphics.draw(background_Image, posX, posY)
 	end
 	
 	drawBottomScreen()
-	love.graphics.draw(background_Image, posX, posY)
-	if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
-	love.graphics.draw(textbox, 0, 60)
+	love.graphics.setColor(255,255,255,alpha)
 	
-	love.graphics.setColor(0,0,0)
-	love.graphics.print(cl,0,0,0,1,1) --script number
-	love.graphics.print(ct,20,40,0,1,1) --t name
-	love.graphics.print(ca,8,64,0,1,1) --line 1
-	love.graphics.print(cb,8,80,0,1,1) --line 2
-	love.graphics.print(cc,8,96,0,1,1) --line 3
-	love.graphics.print(cd,8,112,0,1,1) --line 4
-
-	if state ~= 'newgame' then
+	love.graphics.draw(background_Image, posX, posY)
+	if poem_enabled ~= true then
+		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
+		love.graphics.draw(textbox, 0, 60)
+	
+		love.graphics.setColor(0,0,0)
+		love.graphics.print(cl,0,0,0,1,1) --script number
+		love.graphics.print(ct,20,40,0,1,1) --t name
+		love.graphics.print(ca,8,64,0,1,1) --line 1
+		love.graphics.print(cb,8,80,0,1,1) --line 2
+		love.graphics.print(cc,8,96,0,1,1) --line 3
+		love.graphics.print(cd,8,112,0,1,1) --line 4
+	end
+		
+	if state ~= 'newgame' or poem_enabled == false then
 		love.graphics.print("Y - Pause",35,220,0,1,1)
 		if autotimer == 0 then
 			love.graphics.print("B - Auto On",120,220,0,1,1)
@@ -113,6 +118,12 @@ function drawGame()
 		love.graphics.print("X - Skip",220,220,0,1,1)
 	end
 	if menu_enabled then menu_draw() end
+end
+
+function drawPoem()
+	love.graphics.draw(poembg, 40, 0)
+	love.graphics.setColor(0,0,0)
+	love.graphics.print(poemtext, 45, 15)
 end
 
 ct = "" --name text
