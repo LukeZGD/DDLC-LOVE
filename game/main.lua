@@ -9,30 +9,21 @@ require "scripts.script"
 
 function love.load() 
 	--set up stuff
-	love.graphics.setBackgroundColor ( 0,0,0 )
 	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
 	love.graphics.setFont(font)
 	
-	--set up more stuff (splash, title screen, gui elements)
-	splash = love.graphics.newImage('images/bg/splash.png')
-	titlebg = love.graphics.newImage('images/bg/bg.png')
-	textbox = love.graphics.newImage('images/gui/textbox.png')
-	namebox = love.graphics.newImage('images/gui/namebox.png')
-	sfx1 = love.audio.newSource("audio/sfx/select.ogg", "static")
-	sfx2 = love.audio.newSource("audio/sfx/hover.ogg", "static")
-	
-	--scrolling background
-	background_Image = love.graphics.newImage('images/bg/menu_bg.png')
-	posX = 0
-	posY = 0
-	
-	--set up some other stuff
+	l_timer = 0
 	timer = 0
 	autotimer = 0
 	xaload = 0
 	alpha = 0
+	
+	posX = 0
+	posY = 0
+	
 	menu_enabled = false
 	
+	--os detection
 	global_os = love.system.getOS()
 	if global_os ~= 'Horizon' then 
 		love.window.setMode(400, 480) 
@@ -94,6 +85,11 @@ function love.draw()
 		drawBottomScreen()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(s_killearly,32,0)
+		
+	elseif state == "load" then
+		love.graphics.setBackgroundColor(0,0,0)
+		love.graphics.setColor(255,255,255)
+		love.graphics.print("Loading... ("..l_timer.."%)",0,0)
 	end
 end
 
@@ -102,6 +98,11 @@ function love.update(dt)
 	--splash screen timers
 	if timer <= 500 then
 		timer = timer + 1
+	end
+	
+	--loading timer
+	if state == "load" then
+		updateloading(dt)
 	end
 	
 	--auto next script
@@ -116,18 +117,9 @@ function love.update(dt)
 	end
 	
 	if state == "splash1" or state == "splash2" then --splash screen (change state)
-		if timer == 200 then
-			--poemgame images and font
-			poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
-			sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-			sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
-			yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
+		if timer == 180 then
 			state = "splash2" --set new state
-		elseif timer >= 480 then
-			--poemgame images and font
-			yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
-			natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
-			natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+		elseif timer >= 470 then
 			state = "title" --set new state
 		end
 	end
