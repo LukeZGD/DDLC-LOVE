@@ -1,3 +1,105 @@
+function updateloading(dt)
+	timer = 501
+	if l_timer <= 100 then
+		l_timer = l_timer + 1
+	end
+	
+	--loading assets
+	if l_timer == 5 then
+		--splash, title screen, gui elements, sfx
+		splash = love.graphics.newImage('images/bg/splash.png')
+		titlebg = love.graphics.newImage('images/bg/bg.png')
+		textbox = love.graphics.newImage('images/gui/textbox.png')
+		namebox = love.graphics.newImage('images/gui/namebox.png')
+		sfx1 = love.audio.newSource("audio/sfx/select.ogg", "static")
+		sfx2 = love.audio.newSource("audio/sfx/hover.ogg", "static")
+		
+		--scrolling background
+		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
+	
+	--This crashes the game, so it's commented out for now. It runs out of memory I guess?
+	--[[elseif l_timer == 10 then
+		s1l = love.graphics.newImage('images/sayori/1l.png') 
+		s2l = love.graphics.newImage('images/sayori/2l.png') 
+		s3a = love.graphics.newImage('images/sayori/3a.png') 
+		s3b = love.graphics.newImage('images/sayori/3b.png') 
+		s3c = love.graphics.newImage('images/sayori/3c.png') 
+		s3d = love.graphics.newImage('images/sayori/3d.png') 
+	
+	elseif l_timer == 15 then
+		s1bl = love.graphics.newImage('images/sayori/1bl.png') 
+		s2bl = love.graphics.newImage('images/sayori/2bl.png') 
+		saf = love.graphics.newImage('images/sayori/sayori.png')
+		s1r = love.graphics.newImage('images/sayori/1r.png') 
+		s2r = love.graphics.newImage('images/sayori/2r.png') 
+		s1br = love.graphics.newImage('images/sayori/1br.png') 
+		s2br = love.graphics.newImage('images/sayori/2br.png') 
+	
+	elseif l_timer == 20 then
+		y1l = love.graphics.newImage('images/yuri/1l.png') 
+		y2l = love.graphics.newImage('images/yuri/2l.png') 
+		y3_ = love.graphics.newImage('images/yuri/3.png') 
+		y1bl = love.graphics.newImage('images/yuri/1bl.png')
+		y2bl = love.graphics.newImage('images/yuri/2bl.png')
+		y3b = love.graphics.newImage('images/yuri/3b.png')
+	
+	elseif l_timer == 25 then
+		--yaf = love.graphics.newImage('images/yuri/yuri.png') 
+		y1r = love.graphics.newImage('images/yuri/1r.png')
+		y2r = love.graphics.newImage('images/yuri/2r.png')
+		y1br = love.graphics.newImage('images/yuri/1br.png')
+		y2br = love.graphics.newImage('images/yuri/2br.png')
+	
+	elseif l_timer == 30 then
+		 n1l = love.graphics.newImage('images/natsuki/1l.png')
+		n2l = love.graphics.newImage('images/natsuki/2l.png')
+		n3_ = love.graphics.newImage('images/natsuki/3.png')
+		n1bl = love.graphics.newImage('images/natsuki/1bl.png')
+		--naf = love.graphics.newImage('images/natsuki/natsuki.png') 
+
+	elseif l_timer == 35 then
+		n2bl = love.graphics.newImage('images/natsuki/2bl.png')
+		n3b = love.graphics.newImage('images/natsuki/3b.png')
+		n1r = love.graphics.newImage('images/natsuki/1r.png')
+		n2r = love.graphics.newImage('images/natsuki/2r.png')
+		n1br = love.graphics.newImage('images/natsuki/1br.png')
+		n2br = love.graphics.newImage('images/natsuki/2br.png')
+	
+	elseif l_timer == 40 then
+		m1l = love.graphics.newImage('images/monika/1l.png')
+		m2l = love.graphics.newImage('images/monika/2l.png')
+		m1r = love.graphics.newImage('images/monika/1r.png')
+		m2r = love.graphics.newImage('images/monika/2r.png') 
+	
+	elseif l_timer == 45 then
+		m3a = love.graphics.newImage('images/monika/3a.png') 
+		m3b = love.graphics.newImage('images/monika/3b.png') 
+	]]
+	
+	elseif l_timer == 50 then
+		--poemgame stuff and fonts
+		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
+		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
+		y1 = love.graphics.newFont('images/gui/fonts/y1')
+		
+	elseif l_timer == 55 then
+		--more poemgame stuff and fonts
+		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
+		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
+		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+		s1 = love.graphics.newFont('images/gui/fonts/s1')
+		m1 = love.graphics.newFont('images/gui/fonts/m1')
+	
+	elseif l_timer == 100 then
+		--go to splash screens and title screen
+		timer = 0
+		state = "splash1"
+		audioUpdate('1') 
+	end
+end
+	
 function bgUpdate(bgx) --background changes
 	if xaload == 0 then
 		--backgrounds
@@ -193,7 +295,7 @@ function updateMonika(a,b,c)
 end
 
 function loadSayori()
-	--unloadSayori()
+
 	if sa=="" then
 	elseif sa=="1l" then
 		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
@@ -282,14 +384,6 @@ function loadSayori()
 end
 
 function unloadSayori()
-	s1l = nil
-	s1r = nil
-	s2l = nil
-	s2r = nil
-	s3a = nil
-	s3b = nil
-	s3c = nil
-	s3d = nil
 	s_a = nil
 	s_b = nil
 	s_c = nil
@@ -313,12 +407,11 @@ function unloadSayori()
 	s_w = nil
 	s_x = nil
 	s_y = nil
-	saf = nil
 	collectgarbage()
 end
 
 function loadYuri()	
-	--unloadYuri()
+	
 	if ya=="" then
 	elseif ya=="1l" then
 		if yl1 == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
@@ -345,7 +438,7 @@ function loadYuri()
 		if y1br == nil then y1br = love.graphics.newImage('images/yuri/1br.png') end
 	elseif yb=="2br" then
 		if y2br == nil then y2br = love.graphics.newImage('images/yuri/2br.png') end
-	end
+	end]]
 	
 	if yc=="" then
 	elseif yc=="a" then
@@ -419,11 +512,6 @@ function loadYuri()
 end
 
 function unloadYuri()	
-	y1l = nil
-	y1r = nil
-	y2r = nil
-	y2r = nil
-	y3_ = nil
 	y_a = nil
 	ya2 = nil
 	y_b = nil
@@ -458,7 +546,7 @@ function unloadYuri()
 end
 
 function loadNatsuki()
-	--unloadNatsuki()
+
 	if nc=="" then
 	elseif nc=="a" then
 		if n_a == nil then n_a = love.graphics.newImage('images/natsuki/a.png') end
@@ -588,11 +676,6 @@ function loadNatsuki()
 end
 
 function unloadNatsuki()
-	n1l = nil
-	n1r = nil
-	n2l = nil
-	n2r = nil
-	n3_ = nil
 	n_a = nil
 	n_b = nil
 	n_c = nil
@@ -622,7 +705,7 @@ function unloadNatsuki()
 end
 	
 function loadMonika()
-	--unloadMonika()
+
 	if ma=="" then
 	elseif ma=="1l" then
 		if m1l == nil then m1l = love.graphics.newImage('images/monika/1l.png') end
@@ -682,12 +765,6 @@ function loadMonika()
 end
 
 function unloadMonika()
-	m1l = nil
-	m1r = nil
-	m2l = nil
-	m2r = nil
-	m3a = nil
-	m3b = nil
 	m_a = nil
 	m_b = nil
 	m_c = nil

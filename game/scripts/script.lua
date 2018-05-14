@@ -2,6 +2,8 @@ require "scripts.script-ch1"
 require "scripts.script-exclusives-sayori"
 require "scripts.script-exclusives-natsuki"
 require "scripts.script-exclusives-yuri"
+require "scripts.script-poemresponses"
+require "scripts.poems"
 
 function cw(p1, stext)
 	if p1 == 's' then
@@ -24,16 +26,21 @@ function cw(p1, stext)
 	
 	if slen >= 45 then 
 		caa = string.find(stext, "%s", 45)
+		if caa == nil then caa=string.find(stext, "%s%a", 35) end
+		if slen < 95 then cba = 100 end
 		cb = string.sub(stext, caa+1, cba)
 	end 
 	
 	if slen >= 95 then 
 		cba = string.find(stext, "%s", 95) 
+		if cba == nil then cba=string.find(stext, "%s%a", 85) end
+		if slen < 145 then cca = 150 end
 		cc = string.sub(stext, cba+1, cca)
 	end
 	
 	if slen >= 145 then 
 		cca = string.find(stext, "%s", 145)
+		if cca == nil then cca=string.find(stext, "%s%a", 135) end
 		cd = string.sub(stext, cca+1)
 	end
 	
@@ -46,6 +53,10 @@ function ch0script()
 	cb = ""
 	cc = ""
 	cd = ""
+	
+	if poemsread ~= nil then
+		poemresponses()
+	end
 	
 	if cl >= 348 then
 		ch1script() --go to script-ch1 (day 2)
