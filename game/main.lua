@@ -129,14 +129,13 @@ function love.update(dt)
 	
 	if love.keyboard.isDown('x') then  --skip enable
 		if state == 'game' and menu_enabled == false then
-			if autotimer < 146 then autotimer = 146 end
+			if autotimer < 148 then autotimer = 148 end
 		end
 	end
 
 	if state == 'poemgame' then
 		updatepoemgame(dt)
 	end
-	
 end
 
 function love.keypressed(key)
