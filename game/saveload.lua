@@ -92,6 +92,7 @@ function filecheck()
 			alpha = 255
 			timer = 501
 			cl = 10016
+			loadstuff()
 			state = "newgame"
 		else
 			checkchr()
@@ -100,6 +101,7 @@ function filecheck()
 		alpha = 255
 		timer = 501
 		cl = 10016
+		loadstuff()
 		state = "newgame"
 	end
 	
@@ -115,8 +117,8 @@ function checkchr()
 	elseif sayorichr == false or cl == 10000 then --set up very early act 1 end
 		player = "..."
 		timer = 501
-		endbg = love.graphics.newImage('./images/gui/end.png')
-		s_killearly = love.graphics.newImage('./images/cg/s_kill_early.png')
+		endbg = love.graphics.newImage('images/gui/end.png')
+		s_killearly = love.graphics.newImage('images/cg/s_kill_early.png')
 		state = "s_kill_early"
 		audioUpdate('s_kill_early')
 	elseif monikachr == false then --set up early act 1 end

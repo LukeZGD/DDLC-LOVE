@@ -1232,7 +1232,7 @@ function ch0script()
 		ct = ''
 		ca = "One by one, the girls\' eyes light up."
 	elseif cl == 312 then
-		updateSayori('2l','2r','r')
+		updateSayori('4','r')
 		ct = "Sayori"
 		ca = '"Yesss! I\'m so happyyy~"'
 	elseif cl == 313 then
@@ -1442,8 +1442,6 @@ function ch0script()
 			player = ""
 			savegame()
 			resetchr()
-			alpha = 0
-			xaload = 0
 			state = 'load'
 		 end
 	end

@@ -115,7 +115,7 @@ function ch1script()
 	elseif cl == 377 then
 		updateSayori('1','a')
 		ct = 'Sayori'
-		ca = '"How come? You and '.. player .. 'can become'
+		ca = '"How come? You and '.. player .. ' can become'
 		cb = 'good friends too!"'
 	elseif cl == 378 then
 		updateYuri('4','b2')
