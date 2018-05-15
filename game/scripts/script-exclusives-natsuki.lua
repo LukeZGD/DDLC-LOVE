@@ -18,7 +18,7 @@ function ch1natsuki()
 		ct = player
 		ca = '"You looking for something in there?"'
 	elseif cl == 428 then
-		nc = 'x'
+		nb = 'x'
 		ct = 'Natsuki'
 		ca = '"Freaking Monika..."'
 	elseif cl == 429 then
@@ -52,7 +52,7 @@ function ch1natsuki()
 		ct = player
 		ca = '"...How did you know, anyway?"'
 	elseif cl == 438 then
-		nc = 'k'
+		nb = 'k'
 		ct = 'Natsuki'
 		ca = '"I heard you bring it up at some point."'
 	elseif cl == 439 then
@@ -114,7 +114,7 @@ function ch1natsuki()
 	elseif cl == 457 then
 		ca = '"I didn\'t even say anything."'
 	elseif cl == 458 then
-		nc = 'c'
+		nb = 'c'
 		ct = 'Natsuki'
 		ca = '"It was the tone of your voice."'
 	elseif cl == 459 then
@@ -148,7 +148,7 @@ function ch1natsuki()
 	elseif cl == 468 then
 		ca = "It's...exceedingly \"moe\"."
 	elseif cl == 469 then
-		nc = 'b'
+		nb = 'b'
 		ct = 'Natsuki'
 		ca = '"Don\'t just stand there!"'
 	elseif cl == 470 then
@@ -173,7 +173,7 @@ function ch1natsuki()
 		ct = ''
 		ca = "I take my seat."
 	elseif cl == 476 then
-		nc = 'k'
+		nb = 'k'
 		ct = 'Natsuki'
 		ca = '"Chairs wouldn\'t work."'
 	elseif cl == 477 then
@@ -185,7 +185,7 @@ function ch1natsuki()
 		ca = '"Ah...I guess it\'s easier to be close together'
 		cb = 'like this..."'
 	elseif cl == 480 then
-		nc = 'o'
+		nb = 'o'
 		ct = 'Natsuki'
 		ca = '"--!"'
 	elseif cl == 481 then
@@ -201,7 +201,7 @@ function ch1natsuki()
 		ct = player
 		ca = '"Sorry..."'
 	elseif cl == 485 then
-		nc = 'g'
+		nb = 'g'
 		ct = ''
 		ca = "I didn't exactly expect to be sitting this close"
 		cb = "to her, either..."
@@ -235,7 +235,7 @@ function ch1natsuki()
 		ca = '"Maybe sometimes after I\'ve already finished '
 		cb = 'the series."'
 	elseif cl == 495 then
-		nc = 'c'
+		nb = 'c'
 		ca = '"Hey, are you paying attention?"'
 	elseif cl == 496 then
 		ct = player
@@ -268,25 +268,25 @@ function ch1natsuki()
 		ca = '"You think I would enjoy something that didn\'t'
 		cb = 'have a plot?"'
 	elseif cl == 506 then
-		nc = 'c'
+		nb = 'c'
 		ca = '"I mean..."'
 	elseif cl == 507 then 
 		updateNatsuki('2','c')
 		ca = '"Well, I guess I know what you\'re saying..."'
 	elseif cl == 508 then
-		nc = 'k'
+		nb = 'k'
 		ca = '"A lot of the beginning is about simple things..."'
 	elseif cl == 509 then
 		ca = '"Like there\'s a really funny chapter where they\'re'
 		cb = 'obsessed with a guy at the ice cream shop..."'
 	elseif cl == 510 then
-		nc = 'c'
+		nb = 'c'
 		ca = '"But that just helps you get to know the '
 		cb = 'characters!"'
 	elseif cl == 511 then
 		ca = '"And besides, it\'s still entertaining."'
 	elseif cl == 512 then
-		nc = 'd'
+		nb = 'd'
 		ca = '"But later on, there\'s all kinds of drama..."'
 	elseif cl == 513 then
 		ca = '"Like when they get into all their backstories,'
@@ -294,7 +294,7 @@ function ch1natsuki()
 	elseif cl == 514 then
 		ca = '"That\'s really what makes it so good."'
 	elseif cl == 515 then
-		nc = 'a'
+		nb = 'a'
 		ca = '"There are so many touching parts."'
 	elseif cl == 516 then
 		ct = player
@@ -305,7 +305,7 @@ function ch1natsuki()
 	elseif cl == 518 then
 		ca = '"Maybe I underestimated you."'
 	elseif cl == 519 then
-		nc = 'z'
+		nb = 'z'
 		ct = 'Natsuki'
 		ca = '"Ehehe."'
 	elseif cl == 520  then
@@ -335,7 +335,7 @@ function ch1natsuki()
 		ca = '"This is just a guess, but is there a lot of '
 		cb = 'baking in this manga?"'
 	elseif cl == 528 then
-		nc = 'b'
+		nb = 'b'
 		ct = 'Natsuki'
 		ca = '"Well--"'
 	elseif cl == 529 then
@@ -360,7 +360,7 @@ function ch1natsuki()
 	elseif cl == 535 then
 		ca = '"Just a coincidence!"'
 	elseif cl == 536 then
-		nc = 't'
+		nb = 't'
 		ca = '"I just happened to get into baking around the '
 		cb = 'same time I got this manga."'
 	elseif cl == 537 then
@@ -645,7 +645,7 @@ function ch1natsuki()
 	elseif cl == 634 then
 		ca = '"Monika just said--"'
 	elseif cl == 635 then
-		nc = 'u'
+		nb = 'u'
 		ct = 'Natsuki'
 		ca = '"Don\'t be dumb."'
 	elseif cl == 636 then
@@ -670,12 +670,13 @@ function ch1natsuki()
 		ca = '"Just finish that one before tomorrow, so we can'
 		cb = 'start the next one."'
 	elseif cl == 643 then
-		nc = 'g'
+		nb = 'g'
 		ca = '"And if it gets bent, I\'ll kill you."'
 	elseif cl == 644 then
 		ct = player
 		ca = '"By tomorrow...?"'
 	elseif cl == 645 then
+		hideNatsuki()
 		ct = ''
 		ca = "I only got partway through the volume so far."
 	elseif cl == 646 then
@@ -696,7 +697,6 @@ function ch1natsuki()
 		cb = "slip the book into my bag."
 	elseif cl == 652 then
 		cl = 653
-		--ca = 'Sayori is vice president of the Literature Club.' (for reference on how long the lines should be)
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200

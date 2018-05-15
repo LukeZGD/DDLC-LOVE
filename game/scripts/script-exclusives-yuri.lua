@@ -29,7 +29,7 @@ function ch1yuri()
 		ca = "She sneaks another glance at me, and our eyes"
 		cb = "meet for a split second."
 	elseif cl == 432 then
-		yc = 'b2'
+		yb = 'b2'
 		ct = 'Yuri'
 		ca = '"..."'
 	elseif cl == 433 then
@@ -51,7 +51,7 @@ function ch1yuri()
 	elseif cl == 438 then
 		ca = '"It\'s fine..."'
 	elseif cl == 439 then
-		yc = 'a'
+		yb = 'a'
 		ca = '"If I was focused, then I probably wouldn\'t '
 		cb = 'have noticed in the first place."'
 	elseif cl == 440 then
@@ -105,7 +105,7 @@ function ch1yuri()
 		ca = '"Once it starts to pick up, you might have a '
 		cb = 'hard time putting it down."'
 	elseif cl == 456 then
-		yc = 'c'
+		yb = 'c'
 		ca = '"It\'s a very engaging and relatable story."'
 	elseif cl == 457 then
 		ct = player
@@ -141,14 +141,14 @@ function ch1yuri()
 		ca = '"But as soon as she does so, her life gets really'
 		cb = 'strange."'
 	elseif cl == 468 then
-		yc = 'm'
+		yb = 'm'
 		ca = '"She gets targeted by these people who escaped'
 		cb = 'from a human experiment prison..."'
 	elseif cl == 469 then
 		ca = '"And while her life is in danger, she needs to'
 		cb = 'desperately choose who to trust."'
 	elseif cl == 470 then
-		yc = 'i'
+		yb = 'i'
 		ca = '"No matter what she does, she ends up destroying'
 		cb = 'most of her relationships and her life starts to'
 		ch0x = 'fall apart..."'
@@ -162,7 +162,7 @@ function ch1yuri()
 		ca = "Yuri made it sound like it was going to be a nice"
 		cb = "story, so that dark turn came from nowhere."
 	elseif cl == 474 then
-		yc = 'c'
+		yb = 'c'
 		ct = 'Yuri'
 		ca = '"Ahaha."'
 	elseif cl == 475 then
@@ -193,14 +193,14 @@ function ch1yuri()
 		ct = 'Yuri'
 		ca = '"It\'s just that those kinds of stories..."'
 	elseif cl == 483 then
-		yc = 'a'
+		yb = 'a'
 		ca = '"They challenge you to look at life from a'
 		cb = 'strange new perspective."'
 	elseif cl == 484 then
 		ca = '"When horrible things happen not just because '
 		cb = 'someone wants to be evil..."'
 	elseif cl == 485 then
-		yc = 'm'
+		yb = 'm'
 		ca = '"But because they have their own goals, or their'
 		ca = 'own philosophy that they believe in."'
 	elseif cl == 486 then
@@ -229,7 +229,7 @@ function ch1yuri()
 	elseif cl == 494 then
 		ca = '"I guess it\'s alright, then..."'
 	elseif cl == 495 then
-		yc = 'a2'
+		yb = 'a2'
 		ca = '"But I feel like I should let you know that I have '
 		cb = 'this problem..."'
 	elseif cl == 496 then
@@ -270,7 +270,7 @@ function ch1yuri()
 	elseif cl == 509 then
 		ca = '"I might as well get started reading it, right?"'
 	elseif cl == 510 then
-		yc = 'n'
+		yb = 'n'
 		ct = 'Yuri'
 		ca = '"Y-You don\'t have to!"'
 	elseif cl == 511 then
@@ -280,7 +280,7 @@ function ch1yuri()
 		ca = '"Just a moment ago, you said you were looking'
 		cb = 'forward to it."'
 	elseif cl == 513 then
-		yc = 'o'
+		yb = 'o'
 		ct = 'Yuri'
 		ca = '"..."'
 	elseif cl == 514 then
@@ -297,7 +297,7 @@ function ch1yuri()
 		ct = ''
 		ca = "I slip into the seat next to Yuri's."
 	elseif cl == 518 then
-		yc = 'n'
+		yb = 'n'
 		ct = 'Yuri'
 		ca = '"Ah...!"'
 	elseif cl == 519 then
@@ -371,7 +371,7 @@ function ch1yuri()
 	elseif cl == 544 then
 		ca = '"Sorry..."'
 	elseif cl == 545 then
-		yc = 'c2'
+		yb = 'c2'
 		ca = '"I mean--!"'
 	elseif cl == 546 then
 		ct = player
@@ -576,7 +576,7 @@ function ch1yuri()
 		ca = '"We might not have enough time if we wait too'
 		cb = 'long."'
 	elseif cl == 613 then
-		yc = 'w'
+		yb = 'w'
 		ct = 'Yuri'
 		ca = '"Ah..."'
 	elseif cl == 614 then
@@ -592,7 +592,7 @@ function ch1yuri()
 		ca = '"I\'m sorry if you haven\'t been looking forward to'
 		cb = 'this..."'
 	elseif cl == 618 then
-		yc = 'v'
+		yb = 'v'
 		ct = 'Yuri'
 		ca = '"Ah, it\'s not..."'
 	elseif cl == 619 then
@@ -625,7 +625,7 @@ function ch1yuri()
 		ca = '"It\'ll be more fun to read with you after it picks'
 		cb = 'up a bit, you know?"'
 	elseif cl == 629 then
-		yc = 'a'
+		yb = 'a'
 		ct = 'Yuri'
 		ca = '"That\'s good reasoning."'
 	elseif cl == 630 then
