@@ -22,13 +22,13 @@ function ch1sayori()
 		cb = "Sayori's conversation with Monika."
 	elseif cl == 431 then
 		sx = 10	
-		updateSayori('1l','1r','g')
+		updateSayori('1','g')
 		ct = 'Sayori'
 		ca = '"We\'re probably gonna seem really lame '
 		cb = 'compared to all the other clubs, though..."'
 	elseif cl == 432 then
 		mx = 150
-		updateMonika('1l','2r','r')
+		updateMonika('2','r')
 		ct = 'Monika'
 		ca = '"Hmm..."'
 	elseif cl == 433 then
@@ -105,10 +105,10 @@ function ch1sayori()
 		ct = 'Monika'
 		ca = '"Ahaha. Good thinking."'
 	elseif cl == 455 then
-		updateMonika('1l','1r','a')
+		updateMonika('1','a')
 		ca = '"Natsuki would love to do that."'
 	elseif cl == 456 then
-		updateSayori('2l','2r','x')
+		updateSayori('4','x')
 		ct = 'Sayori'
 		ca = '"Ah! You\'re right!"'
 	elseif cl == 457 then
@@ -164,7 +164,7 @@ function ch1sayori()
 	elseif cl == 472 then
 		bgUpdate('club')
 		sx = 80
-		updateSayori('sayori','','')
+		updateSayori('sayori','')
 		ct = player
 		ca = '"Uwaa--!"'
 	elseif cl == 473 then
@@ -174,7 +174,7 @@ function ch1sayori()
 	elseif cl == 474 then
 		ca = "I nearly fall out of my chair."
     elseif cl == 475 then
-		updateSayori('2l','2r','q')
+		updateSayori('4','q')
 		ct = 'Sayori'
 		ca = '"Ehehe, sorry~"'
 	elseif cl == 476 then
@@ -191,7 +191,7 @@ function ch1sayori()
 		ct = player
 		ca = '"Does our school have a napping club...?"'
 	elseif cl == 481 then
-		updateSayori('1l','1r','h')
+		updateSayori('1','h')
 		ca = '"You\'re staying up late again, aren\'t you?"'
 	elseif cl == 482 then
 		ca = '"Now that you\'re in a club, you\'re gonna have'
@@ -216,7 +216,7 @@ function ch1sayori()
 	elseif cl == 489 then
 		ca = '"You\'re always looking out for me, Sayori."'
 	elseif cl == 490 then
-		updateSayori('2l','2r','q')
+		updateSayori('4','q')
 		ct = 'Sayori'
 		ca = '"Ehehe~"'
 	elseif cl == 491 then
@@ -255,7 +255,7 @@ function ch1sayori()
 		ct = player
 		ca = '"I knew it..."'
 	elseif cl == 503 then
-		updateSayori('3a','','')
+		updateSayori('5a','')
 		ct = 'Sayori'
 		ca = '"C\'monnnn!"'
 	elseif cl == 504 then
@@ -266,7 +266,7 @@ function ch1sayori()
 	elseif cl == 506 then
 		ca = '"Look, Sayori, it\'s written all over you."'
 	elseif cl == 507 then
-		updateSayori('1l','1r','b')
+		updateSayori('1','b')
 		ct = 'Sayori'
 		ca = '"Eh...?"'
 	elseif cl == 508 then
@@ -321,7 +321,7 @@ function ch1sayori()
 	elseif cl == 524 then
 		ca = '"Fortunately, I really don\'t care about that."'
 	elseif cl == 525 then
-		updateSayori('3c','','')
+		updateSayori('5c','')
 		ct = 'Sayori'
 		ca = '"Hey, you meanie..."'
 	elseif cl == 526 then
@@ -334,7 +334,7 @@ function ch1sayori()
 		ca = '"Why do you think you don\'t have a boyfriend'
 		cb = 'yet?"'
 	elseif cl == 529 then
-		updateSayori('1l','1r','h')
+		updateSayori('1','h')
 		ct = 'Sayori'
 		ca = '"Eh??"'
 	elseif cl == 530 then
@@ -443,7 +443,7 @@ function ch1sayori()
 		ca = "Sayori hastily unbuttons her blazer once more."
 	elseif cl == 568 then
 		bgUpdate('club')
-		updateSayori('1l','1r','q')
+		updateSayori('1','q')
 		ct = 'Sayori'
 		ca = '"Phew!"'
 	elseif cl == 569 then
@@ -466,7 +466,7 @@ function ch1sayori()
 		ct = 'Sayori'
 		ca = '"Because..."'
 	elseif cl == 575 then
-		updateSayori('2l','2r','h')
+		updateSayori('4','h')
 		ca = '"...If I had a boyfriend, then he wouldn\'t even'
 		cb = 'let you do things like this!"'
 	elseif cl == 576 then
@@ -500,7 +500,7 @@ function ch1sayori()
 	elseif cl == 585 then
 		ca = '"It\'s a deal."'
 	elseif cl == 586 then
-		updateSayori('2l','2r','q')
+		updateSayori('4','q')
 		ct = 'Sayori'
 		ca = '"Ehehe~"'
 	elseif cl == 587 then
@@ -528,7 +528,7 @@ function ch1sayori()
 		cb = 'sometimes."'
 	elseif cl == 593 then
 		mx = -50
-		updateMonika('2l','1r','b')
+		updateMonika('3','b')
 		ct = 'Monika'
 		ca = '"Okay, everyone!"'
 	elseif cl == 594 then
@@ -541,7 +541,7 @@ function ch1sayori()
 		ct = 'Monika'
 		ca = '"Why don\'t we share the poems we wrote now?"'
 	elseif cl == 597 then
-		updateSayori('2l','2r','r')
+		updateSayori('4','r')
 		ct = 'Sayori'
 		ca = '"Yay~!"'
 	elseif cl == 598 then

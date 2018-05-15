@@ -38,8 +38,8 @@ function savegame()
 	love.filesystem.write("save"..savenumber..".sav", "savefile={"..cl..",'"..player..[[
 ',]]..s_poemappeal..","..n_poemappeal..","..y_poemappeal..",'"..poemwinner..[[
 ',]]..sx..","..yx..","..nx..","..mx..[[
-,']]..sa.."','"..sb.."','"..sc.."','"..ya.."','"..yb.."','"..yc..[[
-',']]..na.."','"..nb.."','"..nc.."','"..ma.."','"..mb.."','"..mc..[[
+,']]..sa.."','"..sb.."','"..ya.."','"..yb..[[
+',']]..na.."','"..nb.."','"..ma.."','"..mb..[[
 ',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ct.."'}") --other settings might be added here!
 end
 
@@ -61,25 +61,21 @@ function loadgame()
 	
 	sa = savefile[11]
 	sb = savefile[12]
-	sc = savefile[13]
-	ya = savefile[14]
-	yb = savefile[15]
-	yc = savefile[16]
-	na = savefile[17]
-	nb = savefile[18]
-	nc = savefile[19]
-	ma = savefile[20]
-	mb = savefile[21]
-	mc = savefile[22]
+	ya = savefile[13]
+	yb = savefile[14]
+	na = savefile[15]
+	nb = savefile[16]
+	ma = savefile[17]
+	mb = savefile[18]
 	
-	chapter = savefile[23]
+	chapter = savefile[19]
 end
 
 function loadupdate()
-	bg1 = savefile[24]
-	audio1 = savefile[25]
-	cg1 = savefile[26]
-	ct = savefile[27]
+	bg1 = savefile[20]
+	audio1 = savefile[21]
+	cg1 = savefile[22]
+	ct = savefile[23]
 	xaload = 0
 	bgUpdate(bg1)
 	audioUpdate(audio1)
