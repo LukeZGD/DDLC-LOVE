@@ -555,6 +555,7 @@ function ch1sayori()
 		ca = "I fail to sound enthusiastic, but Sayori still"
 		cb = "trots away to retrieve her poem."
 	elseif cl == 601 then
+		hideSayori()
 		cl = 653
 		--ca = 'Sayori is vice president of theLiteratureClub.' (for reference on how long the lines should be)
 		--1: x=80
