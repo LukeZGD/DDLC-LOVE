@@ -90,6 +90,10 @@ function updateloading(dt)
 	elseif l_timer == 60 then
 		s1 = love.graphics.newFont('images/gui/fonts/s1')
 		m1 = love.graphics.newFont('images/gui/fonts/m1')
+		
+	elseif l_timer == 65 then
+		poembg = love.graphics.newImage('images/bg/poem.png')
+		sfxpageflip = love.audio.newSource('audio/sfx/pageflip.ogg')
 	
 	elseif l_timer == 100 then
 		--go to splash screens and title screen
@@ -215,26 +219,6 @@ function audioUpdate(audiox) --the audio update function yay
 			ddlct = love.audio.newSource('audio/bgm/5.ogg', "stream")
 			ddlct:setLooping(true)
 			ddlct:play()
-		elseif audiox == '5_monika' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_monika.ogg', "stream")
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_natsuki' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_natsuki.ogg', "stream")
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_sayori' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_sayori.ogg', "stream")
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_yuri' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_yuri.ogg', "stream")
-			ddlct:setLooping(true)
-			ddlct:play()
 		elseif audiox == '6' then
 			audioStop()
 			ddlct = love.audio.newSource('audio/bgm/6.ogg', "stream")
@@ -264,6 +248,26 @@ function audioUpdate(audiox) --the audio update function yay
 			ddlct = love.audio.newSource('audio/bgm/s_kill_early.ogg', "stream")
 			ddlct:setLooping(true)
 			ddlct:play()
+		elseif audiox == '5_monika' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_monika.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_natsuki' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_natsuki.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_sayori' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_sayori.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_yuri' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_yuri.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
 		end
 	end
 	audio1 = audiox
@@ -284,7 +288,6 @@ function audioStop()
 end
 
 function charCheck()
-
 	if xaload == 0 then
 		loadSayori()
 		loadYuri()
@@ -296,7 +299,7 @@ function charCheck()
 	end
 	
 end
-
+	
 function updateSayori(a,b)
 	sa = a
 	sb = b
@@ -353,6 +356,8 @@ function loadSayori()
 		if s3c == nil then s3c = love.graphics.newImage('images/sayori/3c.png') end 
 	elseif sa=="5d" then
 		if s3d == nil then s3d = love.graphics.newImage('images/sayori/3d.png') end
+	elseif sa=="sayori" then
+		if saf == nil then saf = love.graphics.newImage('images/sayori/sayori.png') end
 	end
 
 	if sb=="" then
