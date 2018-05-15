@@ -86,7 +86,7 @@ function updateloading(dt)
 		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
 		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
 		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
-		
+
 	elseif l_timer == 60 then
 		s1 = love.graphics.newFont('images/gui/fonts/s1')
 		m1 = love.graphics.newFont('images/gui/fonts/m1')

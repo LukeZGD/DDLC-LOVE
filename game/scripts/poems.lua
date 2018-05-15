@@ -81,6 +81,7 @@ And he, on the other side, was looking in.]]
 	--update audio
 	if xaload == 0 and continue ~= 1 then
 		poembg = love.graphics.newImage('images/bg/poem.png')
+		
 		if author == 'yuri' then
 			if yuri_2 then
 				poembg = love.graphics.newImage('images/bg/poem_y1.png')
