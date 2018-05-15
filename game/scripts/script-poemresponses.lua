@@ -42,16 +42,16 @@ function poemresponses()
 		--set up choice 2
 		if n_readpoem == false and poemsread <= 2 then
 			choice2 = "Natsuki"
-		elseif n_readpoem and poemsread <= 2 then
+		elseif y_readpoem == false and n_readpoem or s_readpoem and y_readpoem == false then
 			choice2 = "Yuri"
-		elseif n_readpoem and y_readpoem and poemsread <= 2 then
+		elseif m_readpoem == false and s_readpoem and n_readpoem and poemsread <=2 or n_readpoem and y_readpoem and poemsread <= 2 then
 			choice2 = "Monika"
         end
 		
 		--set up choice 3
-		if y_readpoem == false and poemsread <= 1 and y_ranaway == false then
+		if y_readpoem == false and n_readpoem == false and y_ranaway == false then
 			choice3 = "Yuri"
-		elseif y_readpoem and poemsread <= 1 or y_ranaway and poemsread == 0 then
+		elseif m_readpoem == false and y_readpoem and y_ranaway and n_readpoem and s_readpoem or m_readpoem == false then
 			choice3 = "Monika"
         end
 		
@@ -96,6 +96,7 @@ function poemresponses()
 		end
 		
 	elseif cl >= 669 then
+		if cl < 670 then xaload = -1 end
 		--choice 1
 		if m_selected == 2 and choice1 == 'Sayori' then
 			poemresponse_sayori()
@@ -128,7 +129,7 @@ end
 
 function poemresponse_sayori()
 	sx = 80
-	updateSayori('1','a')
+	if cl <= 670 then updateSayori('1','a') end
 	s_readpoem = true
 	poemopinion = "med"
 	if s_poemappeal < 0 and chapter == 1 then
@@ -165,7 +166,7 @@ end
 
 function poemresponse_natsuki()
 	nx = 80
-    updateNatsuki('1','c')
+    if cl <= 670 then updateNatsuki('1','c') end
 	n_readpoem = true
     poemopinion = "med"
 	if n_poemappeal < 0 and chapter == 1 then
@@ -202,7 +203,7 @@ end
 
 function poemresponse_yuri()
 	yx = 80
-	updateYuri('1','a')
+	if cl <= 670 then updateYuri('1','a') end
 	y_readpoem = true
     poemopinion = "med"
 	if y_poemappeal < 0 and chapter == 1 then
@@ -241,7 +242,7 @@ end
 
 function poemresponse_monika()
 	mx = 80
-	updateMonika('1','a')
+	if cl <= 670 then updateMonika('1','a') end
 	m_readpoem = true
     if chapter == 1 then ch1_m_start()
 	elseif chapter == 2 then ch2_m_start()
@@ -251,7 +252,6 @@ end
 
 function ch1_y_bad()
 	if cl == 670 then
-		updateYuri('1','a')
 		cw('y',"...")
 	elseif cl == 671 then
 		cw('y',"Mm...")
@@ -325,6 +325,7 @@ end
 
 function ch1_y_shared()
 	if cl < 704 then
+		xaload = -1
 		cl = 704
 	elseif cl == 704 then
 		updateYuri('1','a')
@@ -437,13 +438,13 @@ function ch1_y_shared()
 		cw('y',"Since it\'s our first time sharing, I wanted to write something a little more mild.")
 	elseif cl == 750 then
 		cw('y',"Something easy to digest, I suppose.")
-	elseif cl == 741 then
+	elseif cl == 751 then
 		cw('y',"Are you into ghosts, Yuri?")
-	elseif cl == 742 then
+	elseif cl == 752 then
 		yb = 'm'
 		cw('y',"Huhu.")
 	elseif cl == 753 then
-		cw('y',"Actually, the story isn\'t about a ghost at all, '..player..'.")
+		cw('y',"Actually, the story isn\'t about a ghost at all, "..player..".")
 	elseif cl == 754 then
 		cw('mc',"Really?")
 	elseif cl == 755 then
@@ -526,6 +527,7 @@ function ch1_y_shared()
 				poemsread = poemsread + 1
 				hideYuri()
 				cl = 666
+				poemresponses()
 			end
 		end
 	end
@@ -619,7 +621,7 @@ end
 function ch1_n_end()
 	if cl < 705 then
 		cl = 705
-		xaload = 0
+		xaload = -1
 	elseif cl == 705 then
 		poem('poem_n1','natsuki')
 	elseif cl == 706 then
@@ -690,12 +692,13 @@ function ch1_n_end()
 		cw('mc',"Yeah...guess not.")
 	elseif cl == 734 then
 		cw('bl',"I decide to humor her with that last comment.")
-	elseif cl == 734 then
-		cw('bl',"I don\'t really care how old everyone is, but if Natsuki is feeling proud then I won\'t take that away from her.")
 	elseif cl == 735 then
+		cw('bl',"I don\'t really care how old everyone is, but if Natsuki is feeling proud then I won\'t take that away from her.")
+	elseif cl == 736 then
 		poemsread = poemsread + 1
 		hideNatsuki()
 		cl = 666
+		poemresponses()
 	end
 end
 
