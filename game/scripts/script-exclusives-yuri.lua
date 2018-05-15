@@ -17,7 +17,7 @@ function ch1yuri()
     elseif cl == 428 then
 		audioUpdate('6')
 		yx = 80
-		updateYuri('3','','a2')
+		updateYuri('4','a2')
 		ct = 'Yuri'
 		ca = '"Ah..."'
 	elseif cl == 429 then
@@ -45,7 +45,7 @@ function ch1yuri()
 		ct = ''
 		ca = 'I mutter this, sensing I made her uncomfortable.'
 	elseif cl == 437 then
-		updateYuri('1l','1r','i')
+		updateYuri('1','i')
 		ct = 'Yuri'
 		ca = '"Oh..."'
 	elseif cl == 438 then
@@ -66,7 +66,7 @@ function ch1yuri()
 	elseif cl == 443 then
 		ca = '"I wanted to re-read some of it."'
 	elseif cl == 444 then
-		updateYuri('1l','2r','q')
+		updateYuri('2','q')
 		ca = '"Not for any particular reason...!"'
 	elseif cl == 445 then
 		ct = player
@@ -79,12 +79,12 @@ function ch1yuri()
 		ca = '"Well, when I stopped at the bookstore '
 		cb = 'yesterday--"'
 	elseif cl == 448 then
-		updateYuri('2l','2r','o')
+		updateYuri('3','o')
 		ca = '"Ah, that\'s not what I meant..."'
 	elseif cl == 449 then
 		ca = '"I mean--"'
 	elseif cl == 450 then
-		updateYuri('1l','1r','w')
+		updateYuri('1','w')
 		ca = '"I...just happened to buy two of them."'
 	elseif cl == 451 then
 		ct = player
@@ -98,7 +98,7 @@ function ch1yuri()
 		ct = player
 		ca = '"I\'ll definitely start reading it soon!"'
 	elseif cl == 454 then
-		updateYuri('1l','2r','u')
+		updateYuri('2','u')
 		ct = 'Yuri'
 		ca = '"I\'m glad to hear..."'
 	elseif cl == 455 then
@@ -113,7 +113,7 @@ function ch1yuri()
 	elseif cl == 458 then
 		ca = '"What\'s it about, anyway?"'
 	elseif cl == 459 then
-		updateYuri('1l','1r','f')
+		updateYuri('1','f')
 		ct = 'Yuri'
 		ca = '"Well..."'
 	elseif cl == 460 then
@@ -128,7 +128,7 @@ function ch1yuri()
 		ca = "There's an ominous-looking eye symbol on the "
 		cb = "front cover."
 	elseif cl == 464 then
-		updateYuri('1l','1r','a')
+		updateYuri('1','a')
 		ct = 'Yuri'
 		ca = '"Alright..."'
 	elseif cl == 465 then
@@ -179,7 +179,7 @@ function ch1yuri()
 		ca = '"I mean, I can definitely enjoy those kinds of'
 		cb = 'stories, so don\'t worry."'
 	elseif cl == 479 then
-		updateYuri('1l','2r','u')
+		updateYuri('2','u')
 		ct = 'Yuri'
 		ca = '"I hope so..."'
 	elseif cl == 480 then
@@ -211,12 +211,12 @@ function ch1yuri()
 		cb = 'letting their one-sided morals interfere with '
 		cc = 'the villain\'s plans."'
 	elseif cl == 488 then
-		updateYuri('2l','2r','v')
+		updateYuri('3','v')
 		ca = '"I\'m...I\'m rambling, aren\'t I...?"'
 	elseif cl == 489 then
 		ca = '"Not again..."'
 	elseif cl == 490 then
-		updateYuri('3','','b2')
+		updateYuri('4','b2')
 		ca = '"I\'m sorry..."'
 	elseif cl == 491 then
 		ct = player
@@ -239,7 +239,7 @@ function ch1yuri()
 		ca = '"I kind of forget to pay attention to other'
 		cb = 'people..."'
 	elseif cl == 498 then
-		updateYuri('2l','2r','t')
+		updateYuri('3','t')
 		ca = '"So I\'m sorry if I end up saying something '
 		cb = 'strange!"'
 	elseif cl == 499 then
@@ -257,7 +257,7 @@ function ch1yuri()
 	elseif cl == 504 then
 		ca = '"It\'s a literature club, after all..."'
 	elseif cl == 505 then
-		updateYuri('2l','2r','a')
+		updateYuri('3','a')
 		ct = 'Yuri'
 		ca = '"Ah--"'
 	elseif cl == 506 then
@@ -270,7 +270,7 @@ function ch1yuri()
 	elseif cl == 509 then
 		ca = '"I might as well get started reading it, right?"'
 	elseif cl == 510 then
-		updateYuri('2l','2r','n')
+		yc = 'n'
 		ct = 'Yuri'
 		ca = '"Y-You don\'t have to!"'
 	elseif cl == 511 then
@@ -354,7 +354,7 @@ function ch1yuri()
 		ca = "It looks like she's reading from my book"
 		cb = "instead--"
 	elseif cl == 539 then
-		updateYuri('2l','2r','n')
+		updateYuri('3','n')
 		ct = 'Yuri'
 		ca = '"S-Sorry!"'
 	elseif cl == 540 then
@@ -366,7 +366,7 @@ function ch1yuri()
 		ct = 'Yuri'
 		ca = '"I...I do?"'
 	elseif cl == 543 then
-		updateYuri('3','','a2')
+		updateYuri('4','a2')
 		ca = '"I don\'t really mean to..."'
 	elseif cl == 544 then
 		ca = '"Sorry..."'
@@ -382,7 +382,7 @@ function ch1yuri()
 		ca = "I slide my desk until it's up against Yuri's, then"
 		cb = "hold my book more between the two of them."
 	elseif cl == 549 then
-		updateYuri('1l','2r','v')
+		updateYuri('2','v')
 		ct = 'Yuri'
 		ca = '"Ah..."'
 	elseif cl == 550 then
@@ -524,7 +524,7 @@ function ch1yuri()
 	elseif cl == 596 then
 		cgHide()
 		bgUpdate('club')
-		updateYuri('1l','2r','t')
+		updateYuri('2','t')
 		ct = ''
 		ca = "Yuri remains silent for a moment."
 	elseif cl == 597 then
@@ -535,7 +535,7 @@ function ch1yuri()
 	elseif cl == 599 then
 		ca = '"...a terrible thing to have in common with her!"'
 	elseif cl == 600 then
-		updateYuri('3','','b2')
+		updateYuri('4','b2')
 		ca = '"Uuuh, that\'s so embarrassing that you think'
 		cb = 'that..."'
 	elseif cl == 601 then
@@ -553,7 +553,7 @@ function ch1yuri()
 		ct = player
 		ca = '"I guess I more meant that it\'s kind of cute..."'
 	elseif cl == 606 then
-		updateYuri('2l','2r','q')
+		updateYuri('3','q')
 		ct = 'Yuri'
 		ca = '"A-Ah--"'
 	elseif cl == 607 then
@@ -562,7 +562,7 @@ function ch1yuri()
 		ca = '"I...!"'
 	elseif cl == 609 then
 		mx = -50
-		updateMonika('2l','2r','a')
+		updateMonika('4','a')
 		ct = 'Monika'
 		ca = '"Okay, everyone!"'
 	elseif cl == 610 then
@@ -583,7 +583,7 @@ function ch1yuri()
 		ct = ''
 		ca = "Yuri exhales, spared from finishing her thought."
 	elseif cl == 615 then
-		updateMonika('1l','1r','a')
+		updateMonika('1','a')
 		ct = 'Monika'
 		ca = '"Is that alright, Yuri?"'
 	elseif cl == 616 then
@@ -610,7 +610,7 @@ function ch1yuri()
 	elseif cl == 623 then
 		ca = '"Or would you prefer I only read it with you?"'
 	elseif cl == 624 then
-		updateYuri('1l','2r','f')
+		updateYuri('2','f')
 		ct = 'Yuri'
 		ca = '"Um...!"'
 	elseif cl == 625 then

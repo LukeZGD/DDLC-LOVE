@@ -9,8 +9,14 @@ require "scripts.script"
 
 function love.load() 
 	--set up stuff
+	love.graphics.setBackgroundColor(0,0,0)
+	logo = love.graphics.newImage('images/gui/logo.png')
 	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
 	love.graphics.setFont(font)
+	
+	textbox = love.graphics.newImage('images/gui/textbox.png')
+	background_Image = love.graphics.newImage('images/bg/menu_bg.png')
+	sfx1 = love.audio.newSource("audio/sfx/select.ogg", "static")
 	
 	l_timer = 0
 	timer = 0
@@ -87,9 +93,12 @@ function love.draw()
 		love.graphics.draw(s_killearly,32,0)
 		
 	elseif state == "load" then
+		drawTopScreen()
 		love.graphics.setBackgroundColor(0,0,0)
 		love.graphics.setColor(255,255,255)
 		love.graphics.print("Loading... ("..l_timer.."%)",0,0)
+		drawBottomScreen()
+		love.graphics.draw(logo,50,10)
 	end
 end
 
@@ -126,8 +135,7 @@ function love.update(dt)
 	
 	if love.keyboard.isDown('x') then  --skip enable
 		if state == 'game' and menu_enabled == false then
-			cl = cl + 1
-			xaload = -2
+			if autotimer < 142 then autotimer = 142 end
 		end
 	end
 
@@ -165,13 +173,7 @@ end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
-		if state == 'game' and menu_enabled == false then
-			autotimer = 0
-			xaload = 0
-			audioUpdate(audio1)
-			bgUpdate(bg1)
-			cgUpdate(cg1)
-		end
+		autotimer = 0
 	end
 end
 
