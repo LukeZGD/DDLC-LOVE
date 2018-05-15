@@ -4,7 +4,7 @@ function ch1script()
 		chapter = 1
 		bgUpdate('club')
 		audioUpdate('2')
-		updateMonika('3a','','')
+		updateMonika('5a','')
 		mx = 80
 		ct = 'Monika'
 		ca = '"Hi again, '..player..'!"'
@@ -25,19 +25,19 @@ function ch1script()
 		cb = "already hanging out."
     elseif cl == 354 then
 		yx = 80
-		updateYuri('1l','1r','a')
+		updateYuri('1','a')
 		ct = 'Yuri'
 		ca = '"Thanks for keeping your promise, '..player..'."'
 	elseif cl == 355 then
 		ca = '"I hope this isn\'t too overwhelming of a'
 		cb = 'commitment for you."'
 	elseif cl == 356 then
-		yc = 'u'
+		yb = 'u'
 		ca = '"Making you dive headfirst into literature when'
 		cb = 'you\'re not accustomed to it..."'
 	elseif cl == 357 then
 		nx = 200
-		updateNatsuki('2l','2r','b')
+		updateNatsuki('4','b')
 		ct = 'Natsuki'
 		ca = '"Oh, come on! Like he deserves any slack."'
 	elseif cl == 358 then
@@ -53,7 +53,7 @@ function ch1script()
 		ca = '"But if you don\'t take us seriously, then'
 		cb = 'you won\'t see the end of it."'
 	elseif cl == 362 then
-		updateMonika('1l','2r','b')
+		updateMonika('2','b')
 		mx = 0-40
 		ct = 'Monika'
 		ca = '"Natsuki, you certainly have a big mouth for'
@@ -69,7 +69,7 @@ function ch1script()
 		ca = '"Natsuki finds herself stuck between saying'
 		cb = '\"Monika\" and \"Manga\"."'
 	elseif cl == 365 then
-		updateNatsuki('1l','1r','v')
+		updateNatsuki('1','v')
 		ct = 'Natsuki'
 		ca = '"Manga is literature!!"'
 	elseif cl == 366 then
@@ -78,7 +78,7 @@ function ch1script()
 		ca = "Swiftly defeated, Natsuki plops back into her "
 		cb = "seat."
 	elseif cl == 367 then
-		updateSayori('1l','2r','x')
+		updateSayori('2','x')
 		sx = 10
 		yx = 150
 		ct = 'Sayori'
@@ -92,8 +92,8 @@ function ch1script()
 	elseif cl == 370 then
 		ca = '"Like cooking, cleaning my room..."'
 	elseif cl == 371 then
-		sc = 'a'
-		updateYuri('1l','2r','m')
+		sb = 'a'
+		updateYuri('2','m')
 		ct = 'Yuri'
 		ca = '"How dependable..."'
 	elseif cl == 372 then
@@ -103,22 +103,22 @@ function ch1script()
 	elseif cl == 373 then
 		ca = '"And you almost set your house on fire once."'
 	elseif cl == 374 then
-		updateSayori('3a','','')
+		updateSayori('5a','')
 		ct = 'Sayori'
 		ca = '"Is that so... Ehehe..."'
 	elseif cl == 375 then
-		updateYuri('1l','1r','s')
+		updateYuri('1','s')
 		ct = 'Yuri'
 		ca = '"You two are really good friends, aren\'t you?"'
 	elseif cl == 376 then
 		ca = '"I might be a little jealous..."'
 	elseif cl == 377 then
-		updateSayori('1l','1r','a')
+		updateSayori('1','a')
 		ct = 'Sayori'
 		ca = '"How come? You and '.. player .. 'can become'
 		cb = 'good friends too!"'
 	elseif cl == 378 then
-		updateYuri('3','','b2')
+		updateYuri('4','b2')
 		ct = 'Yuri'
 		ca = '"U-Um..."'
 	elseif cl == 379 then
@@ -135,23 +135,23 @@ function ch1script()
 		ca = 'As usual, Sayori seems oblivious to the weird'
 		cb = 'situation she just put me into.'
 	elseif cl == 383 then
-		updateSayori('2l','2r','x')
+		updateSayori('4','x')
 		ct = 'Sayori'
 		ca = '"Oh, oh! Yuri even brought you something today,'
 		cb = 'you know~"'
 	elseif cl == 384 then
-		updateYuri('2l','2r','n')
+		updateYuri('3','n')
 		ct = 'Yuri'
 		ca = '"W-Wait! Sayori..."'
 	elseif cl == 385 then
 		ct = player
 		ca = '"Eh? Me?"'
 	elseif cl == 386 then
-		yc = 'o'
+		yb = 'o'
 		ct = 'Yuri'
 		ca = '"Um... Not really..."'
 	elseif cl == 387 then
-		sc = 'r'
+		sb = 'r'
 		ct = 'Sayori'
 		ca = '"Don\'t be shy~"'
 	elseif cl == 388 then
@@ -161,7 +161,7 @@ function ch1script()
 		ct = player
 		ca = '"What is it?"'
 	elseif cl == 390 then
-		updateYuri('3','','c2')
+		updateYuri('4','c2')
 		ct = 'Yuri'
 		ca = '"N-Never mind!"'
 	elseif cl == 391 then
@@ -170,7 +170,7 @@ function ch1script()
 	elseif cl == 392 then
 		ca = '"Uuuuh, what do I do..."'
 	elseif cl == 393 then
-		updateSayori('1l','1r','g')
+		updateSayori('1','g')
 		ct = 'Sayori'
 		ca = '"Eh? I\'m sorry, Yuri, I wasn\'t thinking..."'
 	elseif cl == 394 then
@@ -191,7 +191,7 @@ function ch1script()
     elseif cl == 398 then
 		ca = '"It\'ll make me happy no matter what."'
 	elseif cl == 399 then
-		updateYuri('2l','2r','v')
+		updateYuri('3','v')
 		ct = 'Yuri'
 		ca = '"I-Is that so..."'
 	elseif cl == 400 then
@@ -202,7 +202,7 @@ function ch1script()
 		ct = 'Yuri'
 		ca = '"Alright..."'
 	elseif cl == 402 then	
-		updateYuri('1l','1r','a')
+		updateYuri('1','a')
 		ca = '"Well, here."'
 	elseif cl == 403 then
 		ct = ''
@@ -219,7 +219,7 @@ function ch1script()
 	elseif cl == 407 then
 		ca = '"And we could, you know..."'
 	elseif cl == 408 then
-		updateYuri('3','','b2')
+		updateYuri('4','b2')
 		ct = 'Yuri'
 		ca = '"Discuss it...if you wanted..."'
 	elseif cl == 409 then
@@ -237,11 +237,11 @@ function ch1script()
 		ct = ''
 		ca = "I enthusiastically take the book."
     elseif cl == 414 then
-		updateYuri('1l','2r','m')
+		updateYuri('2','m')
 		ct = 'Yuri'
 		ca = '"Phew..."'
 	elseif cl == 415 then
-		yc = 'a'
+		yb = 'a'
 		ca = '"Well, you can read it at your own pace."'
 	elseif cl == 416 then
 		ca = '"I look forward to hearing what you think."'
@@ -275,7 +275,7 @@ function ch1script()
 	
 	if cl == 653 then
 		mx = 10
-		updateMonika('1l','1r','a')
+		updateMonika('1','a')
 		ct = 'Monika'
 		ca = '"By the way, did you remember to write a poem'
 		cb = 'last night?"'
@@ -297,7 +297,7 @@ function ch1script()
 		cb = 'find someone to share with?"'
 	elseif cl == 659 then
 		sx = 150
-		updateSayori('2l','2r','q')
+		updateSayori('4','q')
 		ct = 'Sayori'
 		ca = '"I can\'t wait~!"'
 	elseif cl == 660 then
@@ -321,9 +321,11 @@ function ch1script()
 	elseif cl == 665 then
 		ca = "I do the same, myself."
 		poeminitialize()
-	elseif cl >= 666 then
-		poemresponses()
+	end
 
+	if cl == 800 then
+	
+	elseif cl == 801 then
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
