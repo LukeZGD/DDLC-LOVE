@@ -3,7 +3,7 @@ function drawTopScreen()
 		love.graphics.pop()
 		drawbottom = 0
 	elseif global_os == 'Horizon' then
-		love.graphics.setscreen("top")
+		love.graphics.setScreen("top")
 	end
 end
 
@@ -13,7 +13,7 @@ function drawBottomScreen()
 		love.graphics.translate((400 - 320) / 2, 240)
 		drawbottom = 1
 	else
-		love.graphics.setscreen("bottom")
+		love.graphics.setScreen("bottom")
 	end
 end
 
