@@ -3,7 +3,7 @@ function drawTopScreen()
 		love.graphics.pop()
 		drawbottom = 0
 	elseif global_os == 'Horizon' then
-		love.graphics.setScreen("top")
+		love.graphics.setscreen("top")
 	end
 end
 
@@ -13,7 +13,7 @@ function drawBottomScreen()
 		love.graphics.translate((400 - 320) / 2, 240)
 		drawbottom = 1
 	else
-		love.graphics.setScreen("bottom")
+		love.graphics.setscreen("bottom")
 	end
 end
 
@@ -23,11 +23,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 4
+				alpha = alpha + 4.25
 			end
 		elseif timer <=200 then
 			if alpha >= 1 then
-				alpha = alpha - 4
+				alpha = alpha - 4.25
 			else
 				alpha = 0
 			end
@@ -37,11 +37,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 3
+				alpha = alpha + 4.25
 			end
 		elseif timer <=480 then
 			if alpha >= 1 then
-				alpha = alpha - 3
+				alpha = alpha - 4.25
 			else
 				alpha = 0
 			end
@@ -51,7 +51,7 @@ function splashalpha(x)
 			alpha = 255
 		else
 			menu_enable('title', 6)
-			alpha = alpha + 2.75
+			alpha = alpha + 3
 		end
 	elseif x == 4 then
 		if alpha <= 0 then
@@ -82,10 +82,10 @@ function drawGame()
 	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
 		love.graphics.draw(bgch, 0, 0)
 	if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
-		drawSayori(sa,sb,sc) 
-		drawYuri(ya,yb,yc) 
-		drawNatsuki(na,nb,nc) 
-		drawMonika(ma,mb,mc)
+		drawSayori(sa,sb) 
+		drawYuri(ya,yb) 
+		drawNatsuki(na,nb) 
+		drawMonika(ma,mb)
 		if poem_enabled then drawPoem() end
 	elseif menu_enabled and menu_type ~= 'choice' then 
 		love.graphics.draw(background_Image, posX, posY)
@@ -102,6 +102,7 @@ function drawGame()
 	
 		love.graphics.setColor(0,0,0)
 		love.graphics.print(cl,0,0,0,1,1) --script number
+		if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
 		love.graphics.print(ct,20,40,0,1,1) --t name
 		love.graphics.print(ca,8,64,0,1,1) --line 1
 		love.graphics.print(cb,8,80,0,1,1) --line 2
@@ -111,11 +112,7 @@ function drawGame()
 		
 	if state ~= 'newgame' or poem_enabled == false then
 		love.graphics.print("Y - Pause",35,220,0,1,1)
-		if autotimer == 0 then
-			love.graphics.print("B - Auto On",120,220,0,1,1)
-		else
-			love.graphics.print("B - Auto Off",120,220,0,1,1)
-		end
+		love.graphics.print("B - Auto On/Off",110,220,0,1,1)
 		love.graphics.print("X - Skip",220,220,0,1,1)
 	end
 	if menu_enabled then menu_draw() end
@@ -136,477 +133,376 @@ end
 function hideSayori()
 	sa = ''
 	sb = ''
-	sc = ''
 end
 
 function hideYuri()
 	ya = ''
 	yb = ''
-	yc = ''
 end
 
 function hideNatsuki()
 	na = ''
 	nb = ''
-	nc = ''
 end
 
 function hideMonika()
 	ma = ''
 	mb = ''
-	mc = ''
 end
 
-function drawSayori(sa,sb,sc)
+function drawSayori(sa,sb)
+	if sa=="1" then
+		love.graphics.draw(s1l, sx, sy)
+		love.graphics.draw(s1r, sx, sy)
+	elseif sa=="2" then
+		love.graphics.draw(s1l, sx, sy)
+		love.graphics.draw(s2r, sx, sy)
+	elseif sa=="3" then
+		love.graphics.draw(s2l, sx, sy)
+		love.graphics.draw(s1r, sx, sy)
+	elseif sa=="4" then
+		love.graphics.draw(s2l, sx, sy)
+		love.graphics.draw(s2r, sx, sy)
+		
+	elseif sa=="1b" then
+		love.graphics.draw(s1bl, sx, sy)
+		love.graphics.draw(s1br, sx, sy)
+	elseif sa=="2b" then
+		love.graphics.draw(s1bl, sx, sy)
+		love.graphics.draw(s2br, sx, sy)
+	elseif sa=="3b" then
+		love.graphics.draw(s2bl, sx, sy)
+		love.graphics.draw(s1br, sx, sy)
+	elseif sa=="4b" then
+		love.graphics.draw(s2bl, sx, sy)
+		love.graphics.draw(s2br, sx, sy)
 
-	if sa=="" then
-	elseif sa=="1l" then
-		love.graphics.draw(s1l, sx, sy)
-	elseif sa=="2l" then
-		love.graphics.draw(s2l, sx, sy) 
-	elseif sa=="3a" or sa=="5a" then
+	elseif sa=="5a" then
 		love.graphics.draw(s3a, sx, sy)
-	elseif sa=="3b" or sa=="5b" then
+	elseif sa=="5b" then
 		love.graphics.draw(s3b, sx, sy)
-	elseif sa=="3c" or sa=="5c" then
+	elseif sa=="5c" then
 		love.graphics.draw(s3c, sx, sy)
-	elseif sa=="3d" or sa=="5d" then
+	elseif sa=="5d" then
 		love.graphics.draw(s3d, sx, sy)
-	elseif sa=="1bl" then
-		love.graphics.draw(s1bl, sx, sy)
-	elseif sa=="2bl" then
-		love.graphics.draw(s2bl, sx, sy) 
-	elseif sa=="sayori" then
-		love.graphics.draw(saf, sx, sy)
-		
-	elseif sa=="1s" then
-		love.graphics.draw(s1l, sx, sy)
-		love.graphics.draw(s1r, sx, sy)
-	elseif sa=="2s" then
-		love.graphics.draw(s1l, sx, sy)
-		love.graphics.draw(s2r, sx, sy)
-	elseif sa=="3s" then
-		love.graphics.draw(s2l, sx, sy)
-		love.graphics.draw(s1r, sx, sy)
-	elseif sa=="4s" then
-		love.graphics.draw(s2l, sx, sy)
-		love.graphics.draw(s2r, sx, sy)
-		
-	elseif sa=="1bs" then
-		love.graphics.draw(s1bl, sx, sy)
-		love.graphics.draw(s1br, sx, sy)
-	elseif sa=="2bs" then
-		love.graphics.draw(s1bl, sx, sy)
-		love.graphics.draw(s2br, sx, sy)
-	elseif sa=="3bs" then
-		love.graphics.draw(s2bl, sx, sy)
-		love.graphics.draw(s1br, sx, sy)
-	elseif sa=="4bs" then
-		love.graphics.draw(s2bl, sx, sy)
-		love.graphics.draw(s2br, sx, sy)
 	end
 	
-	if sb=="" then
-	elseif sb=="1r" then
-		love.graphics.draw(s1r, sx, sy)
-	elseif sb=="2r" then
-		love.graphics.draw(s2r, sx, sy)
-	elseif sb=="1br" then
-		love.graphics.draw(s1br, sx, sy)
-	elseif sb=="2br" then
-		love.graphics.draw(s2br, sx, sy) 
-	end
-	
-	if sc=="" then
-	elseif sc=="a" then
+	if sb=="a" then
 		love.graphics.draw(s_a, sx, sy)
-	elseif sc=="b" then
+	elseif sb=="b" then
 		love.graphics.draw(s_b, sx, sy)
-	elseif sc=="c" then
+	elseif sb=="c" then
 		love.graphics.draw(s_c, sx, sy)
-	elseif sc=="d" then
+	elseif sb=="d" then
 		love.graphics.draw(s_d, sx, sy)
-	elseif sc=="e" then
+	elseif sb=="e" then
 		love.graphics.draw(s_e, sx, sy)
-	elseif sc=="f" then
+	elseif sb=="f" then
 		love.graphics.draw(s_f, sx, sy)
-	elseif sc=="g" then
+	elseif sb=="g" then
 		love.graphics.draw(s_g, sx, sy)
-	elseif sc=="h" then
+	elseif sb=="h" then
 		love.graphics.draw(s_h, sx, sy)
-	elseif sc=="i" then
+	elseif sb=="i" then
 		love.graphics.draw(s_i, sx, sy)
-	elseif sc=="j" then
+	elseif sb=="j" then
 		love.graphics.draw(s_j, sx, sy)
-	elseif sc=="k" then
+	elseif sb=="k" then
 		love.graphics.draw(s_k, sx, sy)
-	elseif sc=="l" then
+	elseif sb=="l" then
 		love.graphics.draw(s_l, sx, sy)
-	elseif sc=="m" then
+	elseif sb=="m" then
 		love.graphics.draw(s_m, sx, sy)
-	elseif sc=="n" then
+	elseif sb=="n" then
 		love.graphics.draw(s_n, sx, sy)
-	elseif sc=="o" then
+	elseif sb=="o" then
 		love.graphics.draw(s_o, sx, sy)
-	elseif sc=="p" then
+	elseif sb=="p" then
 		love.graphics.draw(s_p, sx, sy)
-	elseif sc=="q" then
+	elseif sb=="q" then
 		love.graphics.draw(s_q, sx, sy)
-	elseif sc=="r" then
+	elseif sb=="r" then
 		love.graphics.draw(s_r, sx, sy)
-	elseif sc=="s" then
+	elseif sb=="s" then
 		love.graphics.draw(s_s, sx, sy)
-	elseif sc=="t" then
+	elseif sb=="t" then
 		love.graphics.draw(s_t, sx, sy)
-	elseif sc=="u" then
+	elseif sb=="u" then
 		love.graphics.draw(s_u, sx, sy)
-	elseif sc=="v" then
+	elseif sb=="v" then
 		love.graphics.draw(s_v, sx, sy)
-	elseif sc=="w" then
+	elseif sb=="w" then
 		love.graphics.draw(s_w, sx, sy)
-	elseif sc=="x" then
+	elseif sb=="x" then
 		love.graphics.draw(s_x, sx, sy)
-	elseif sc=="y" then
+	elseif sb=="y" then
 		love.graphics.draw(s_y, sx, sy)
 	end
 	
 end
 
-function drawYuri(ya,yb,yc)
-
-	if ya=="" then
-	elseif ya=="1l" then
+function drawYuri(ya,yb)
+	if ya=="1" then
 		love.graphics.draw(y1l, yx, yy)
-	elseif ya=="2l" then
+		love.graphics.draw(y1r, yx, yy)
+	elseif ya=="2" then
+		love.graphics.draw(y1l, yx, yy)
+		love.graphics.draw(y2r, yx, yy)
+	elseif ya=="3" then
 		love.graphics.draw(y2l, yx, yy)
-	elseif ya=="3" or ya=="4" then
-		love.graphics.draw(y3_, yx, yy)
-	elseif ya=="1bl" then
+		love.graphics.draw(y2r, yx, yy)
+
+	elseif ya=="1b" then
 		love.graphics.draw(y1bl, yx, yy)
-	elseif ya=="2bl" then
-		love.graphics.draw(y2bl, yx, yy) 
-	elseif ya=="3b" or ya=="4b" then
+		love.graphics.draw(y1br, yx, yy)
+	elseif ya=="2b" then
+		love.graphics.draw(y1bl, yx, yy)
+		love.graphics.draw(y2br, yx, yy)
+	elseif ya=="3b" then
+		love.graphics.draw(y2bl, yx, yy)
+		love.graphics.draw(y2br, yx, yy)
+		
+	elseif ya=="4" then
+		love.graphics.draw(y3_, yx, yy)
+	elseif ya=="4b" then
 		love.graphics.draw(y3b, yx, yy)
 	elseif ya=="yuri" then
 		love.graphics.draw(yaf, yx, sy)
-		
-	elseif ya=="1s" then
-		love.graphics.draw(y1l, yx, yy)
-		love.graphics.draw(y1r, yx, yy)
-	elseif ya=="2s" then
-		love.graphics.draw(y1l, yx, yy)
-		love.graphics.draw(y2r, yx, yy)
-	elseif ya=="3s" then
-		love.graphics.draw(y2l, yx, yy)
-		love.graphics.draw(y2r, yx, yy)
+	end
 
-	elseif ya=="1bs" then
-		love.graphics.draw(y1bl, yx, yy)
-		love.graphics.draw(y1br, yx, yy)
-	elseif ya=="2bs" then
-		love.graphics.draw(y1bl, yx, yy)
-		love.graphics.draw(y2br, yx, yy)
-	elseif ya=="3bs" then
-		love.graphics.draw(y2bl, yx, yy)
-		love.graphics.draw(y2br, yx, yy)
-	end
-	
-	if yb=="" then
-	elseif yb=="1r" then
-		love.graphics.draw(y1r, yx, yy)
-	elseif yb=="2r" then
-		love.graphics.draw(y2r, yx, yy)
-	elseif yb=="1br" then
-		love.graphics.draw(y1br, yx, yy)
-	elseif yb=="2br" then
-		love.graphics.draw(y2br, yx, yy) 
-	end
-	
-	if yc=="" then
-	elseif yc=="a" then
+	if yb=="a" then
 		love.graphics.draw(y_a, yx, yy)
-	elseif yc=="a2" then
+	elseif yb=="a2" then
 		love.graphics.draw(ya2, yx, yy)
-	elseif yc=="b" then
+	elseif yb=="b" then
 		love.graphics.draw(y_b, yx, yy)
-	elseif yc=="b2" then
+	elseif yb=="b2" then
 		love.graphics.draw(yb2, yx, yy)
-	elseif yc=="c" then
+	elseif yb=="c" then
 		love.graphics.draw(y_c, yx, yy)
-	elseif yc=="c2" then
-		love.graphics.draw(yc2, yx, yy)
-	elseif yc=="d" then
+	elseif yb=="c2" then
+		love.graphics.draw(yb2, yx, yy)
+	elseif yb=="d" then
 		love.graphics.draw(y_d, yx, yy)
-	elseif yc=="d2" then
+	elseif yb=="d2" then
 		love.graphics.draw(yd2, yx, yy)
-	elseif yc=="e" then
+	elseif yb=="e" then
 		love.graphics.draw(y_e, yx, yy)
-	elseif yc=="e2" then
+	elseif yb=="e2" then
 		love.graphics.draw(ye2, yx, yy)
-	elseif yc=="f" then
+	elseif yb=="f" then
 		love.graphics.draw(y_f, yx, yy)
-	elseif yc=="g" then
+	elseif yb=="g" then
 		love.graphics.draw(y_g, yx, yy)
-	elseif yc=="h" then
+	elseif yb=="h" then
 		love.graphics.draw(y_h, yx, yy)
-	elseif yc=="i" then
+	elseif yb=="i" then
 		love.graphics.draw(y_i, yx, yy)
-	elseif yc=="j" then
+	elseif yb=="j" then
 		love.graphics.draw(y_j, yx, yy)
-	elseif yc=="k" then
+	elseif yb=="k" then
 		love.graphics.draw(y_k, yx, yy)
-	elseif yc=="l" then
+	elseif yb=="l" then
 		love.graphics.draw(y_l, yx, yy)
-	elseif yc=="m" then
+	elseif yb=="m" then
 		love.graphics.draw(y_m, yx, yy)
-	elseif yc=="n" then
+	elseif yb=="n" then
 		love.graphics.draw(y_n, yx, yy)
-	elseif yc=="o" then
+	elseif yb=="o" then
 		love.graphics.draw(y_o, yx, yy)
-	elseif yc=="p" then
+	elseif yb=="p" then
 		love.graphics.draw(y_p, yx, yy)
-	elseif yc=="q" then
+	elseif yb=="q" then
 		love.graphics.draw(y_q, yx, yy)
-	elseif yc=="r" then
+	elseif yb=="r" then
 		love.graphics.draw(y_r, yx, yy)
-	elseif yc=="s" then
+	elseif yb=="s" then
 		love.graphics.draw(y_s, yx, yy)
-	elseif yc=="t" then
+	elseif yb=="t" then
 		love.graphics.draw(y_t, yx, yy)
-	elseif yc=="u" then
+	elseif yb=="u" then
 		love.graphics.draw(y_u, yx, yy)
-	elseif yc=="v" then
+	elseif yb=="v" then
 		love.graphics.draw(y_v, yx, yy)
-	elseif yc=="w" then
+	elseif yb=="w" then
 		love.graphics.draw(y_w, yx, yy)
-	elseif yc=="y6" then
+	elseif yb=="y6" then
 		love.graphics.draw(yy6, yx, yy)
 	end
-
 end
 
-function drawNatsuki(na,nb,nc)
-
-
-	if nc=="" then
-	elseif nc=="a" then
+function drawNatsuki(na,nb)
+	if nb=="a" then
 		love.graphics.draw(n_a, nxh, nyh)
-	elseif nc=="b" then
+	elseif nb=="b" then
 		love.graphics.draw(n_b, nxh, nyh)
-	elseif nc=="c" then
+	elseif nb=="c" then
 		love.graphics.draw(n_c, nxh, nyh)
-	elseif nc=="d" then
+	elseif nb=="d" then
 		love.graphics.draw(n_d, nxh, nyh)
-	elseif nc=="e" then
+	elseif nb=="e" then
 		love.graphics.draw(n_e, nxh, nyh)
-	elseif nc=="f" then
+	elseif nb=="f" then
 		love.graphics.draw(n_f, nxh, nyh)
-	elseif nc=="g" then
+	elseif nb=="g" then
 		love.graphics.draw(n_g, nxh, nyh)
-	elseif nc=="h" then
+	elseif nb=="h" then
 		love.graphics.draw(n_h, nxh, nyh)
-	elseif nc=="i" then
+	elseif nb=="i" then
 		love.graphics.draw(n_i, nxh, nyh)
-	elseif nc=="j" then
+	elseif nb=="j" then
 		love.graphics.draw(n_j, nxh, nyh)
-	elseif nc=="k" then
+	elseif nb=="k" then
 		love.graphics.draw(n_k, nxh, nyh)
-	elseif nc=="l" then
+	elseif nb=="l" then
 		love.graphics.draw(n_l, nxh, nyh)
-	elseif nc=="m" then
+	elseif nb=="m" then
 		love.graphics.draw(n_m, nxh, nyh)
-	elseif nc=="n" then
+	elseif nb=="n" then
 		love.graphics.draw(n_n, nxh, nyh)
-	elseif nc=="o" then
+	elseif nb=="o" then
 		love.graphics.draw(n_o, nxh, nyh)
-	elseif nc=="p" then
+	elseif nb=="p" then
 		love.graphics.draw(n_p, nxh, nyh)
-	elseif nc=="q" then
+	elseif nb=="q" then
 		love.graphics.draw(n_q, nxh, nyh)
-	elseif nc=="r" then
+	elseif nb=="r" then
 		love.graphics.draw(n_r, nxh, nyh)
-	elseif nc=="s" then
+	elseif nb=="s" then
 		love.graphics.draw(n_s, nxh, nyh)
-	elseif nc=="t" then
+	elseif nb=="t" then
 		love.graphics.draw(n_t, nxh, nyh)
-	elseif nc=="u" then
+	elseif nb=="u" then
 		love.graphics.draw(n_u, nxh, nyh)
-	elseif nc=="v" then
+	elseif nb=="v" then
 		love.graphics.draw(n_v, nxh, nyh)
-	elseif nc=="w" then
+	elseif nb=="w" then
 		love.graphics.draw(n_w, nxh, nyh)
-	elseif nc=="x" then
+	elseif nb=="x" then
 		love.graphics.draw(n_x, nxh, nyh)
-	elseif nc=="y" then
+	elseif nb=="y" then
 		love.graphics.draw(n_y, nxh, nyh)
-	elseif nc=="z" then
+	elseif nb=="z" then
 		love.graphics.draw(n_z, nxh, nyh)
 	
-	elseif nc=="1t" then
+	elseif nb=="1t" then
 		love.graphics.draw(n1t, nxh, nyh)
-	elseif nc=="2a" then
+	elseif nb=="2a" then
 		love.graphics.draw(n2bta, nxh, nyh)
-	elseif nc=="2b" then
+	elseif nb=="2b" then
 		love.graphics.draw(n2btb, nxh, nyh)
-	elseif nc=="2c" then
+	elseif nb=="2c" then
 		love.graphics.draw(n2btc, nxh, nyh)
-	elseif nc=="2d" then
+	elseif nb=="2d" then
 		love.graphics.draw(n2btd, nxh, nyh)
-	elseif nc=="2e" then
+	elseif nb=="2e" then
 		love.graphics.draw(n2bte, nxh, nyh)
-	elseif nc=="2f" then
+	elseif nb=="2f" then
 		love.graphics.draw(n2btf, nxh, nyh)
-	elseif nc=="2g" then
+	elseif nb=="2g" then
 		love.graphics.draw(n2btg, nxh, nyh)
-	elseif nc=="2h" then
+	elseif nb=="2h" then
 		love.graphics.draw(n2bth, nxh, nyh)
-	elseif nc=="2i" then
-		love.graphics.draw(n2bti, nxh, nyh)
-	elseif nc=="2t" then
-		love.graphics.draw(n2t, nxh, nyh)
-	elseif nc=="2ta" then
-		love.graphics.draw(n2ta, nxh, nyh)	
-	elseif nc=="2tb" then
-		love.graphics.draw(n2tb, nxh, nyh)	
-	elseif nc=="2tc" then
-		love.graphics.draw(n2tc, nxh, nyh)	
-	elseif nc=="2td" then
-		love.graphics.draw(n2td, nxh, nyh)	
-	elseif nc=="2te" then
-		love.graphics.draw(n2te, nxh, nyh)	
-	elseif nc=="2tf" then
-		love.graphics.draw(n2tf, nxh, nyh)	
-	elseif nc=="2tg" then
-		love.graphics.draw(n2tg, nxh, nyh)	
-	elseif nc=="2th" then
-		love.graphics.draw(n2th, nxh, nyh)	
-	elseif nc=="2ti" then
-		love.graphics.draw(n2ti, nxh, nyh)		
+	elseif nb=="2i" then
+		love.graphics.draw(n2bti, nxh, nyh)	
 	end
 	
-	
-	if na=="" then
-	elseif na=="1l" then
+	if na=="1" then
 		love.graphics.draw(n1l, nx, ny)
-	elseif na=="2l" then
+		love.graphics.draw(n1r, nx, ny)
+	elseif na=="2" then
+		love.graphics.draw(n1l, nx, ny)
+		love.graphics.draw(n2r, nx, ny)
+	elseif na=="3" then
 		love.graphics.draw(n2l, nx, ny)
-	elseif na=="3" or na=="5" then
+		love.graphics.draw(n1r, nx, ny)
+	elseif na=="4" then
+		love.graphics.draw(n2l, nx, ny)
+		love.graphics.draw(n2r, nx, ny)
+		
+	elseif na=="1b" then
+		love.graphics.draw(n1bl, nx, ny)
+		love.graphics.draw(n1br, nx, ny)
+	elseif na=="2b" then
+		love.graphics.draw(n1bl, nx, ny)
+		love.graphics.draw(n2br, nx, ny)
+	elseif na=="3b" then
+		love.graphics.draw(n2bl, nx, ny)
+		love.graphics.draw(n1br, nx, ny)
+	elseif na=="4b" then
+		love.graphics.draw(n2bl, nx, ny)
+		love.graphics.draw(n2br, nx, ny)
+	
+	elseif na=="5" then
 		love.graphics.draw(n3_, nx, ny)
-	elseif na=="1bl" then
-		love.graphics.draw(n1bl, nx, ny)
-	elseif na=="2bl" then
-		love.graphics.draw(n2bl, nx, ny)
-	elseif na=="3b" or na=="5b" then
+	elseif na=="5b" then
 		love.graphics.draw(n3b, nx, ny)
-	elseif na=="natsuki" then
-		love.graphics.draw(naf, nx, ny)
-		
-	elseif na=="1s" then
-		love.graphics.draw(n1l, nx, ny)
-		love.graphics.draw(n1r, nx, ny)
-	elseif na=="2s" then
-		love.graphics.draw(n1l, nx, ny)
-		love.graphics.draw(n2r, nx, ny)
-	elseif na=="3s" then
-		love.graphics.draw(n2l, nx, ny)
-		love.graphics.draw(n1r, nx, ny)
-	elseif na=="4s" then
-		love.graphics.draw(n2l, nx, ny)
-		love.graphics.draw(n2r, nx, ny)
-		
-	elseif na=="1bs" then
-		love.graphics.draw(n1bl, nx, ny)
-		love.graphics.draw(n1br, nx, ny)
-	elseif na=="2bs" then
-		love.graphics.draw(n1bl, nx, ny)
-		love.graphics.draw(n2br, nx, ny)
-	elseif na=="3bs" then
-		love.graphics.draw(n2bl, nx, ny)
-		love.graphics.draw(n1br, nx, ny)
-	elseif na=="4bs" then
-		love.graphics.draw(n2bl, nx, ny)
-		love.graphics.draw(n2br, nx, ny)
 	end
 	
-	if nb=="" then
-	elseif nb=="1r" then
-		love.graphics.draw(n1r, nx, ny)
-	elseif nb=="2r" then
-		love.graphics.draw(n2r, nx, ny)
-	elseif na=="1br" then
-		love.graphics.draw(n1br, nx, ny)
-	elseif na=="2br" then
-		love.graphics.draw(n2br, nx, ny)
-	end
-	
-	if na=="3" or na=="3b" or na=="5" or na=="5b" then --set natsuki's head x and y
+	if na=="5" or na=="5b" then --set natsuki's head x and y
 		nxh = nx+4
 		nyh = ny+6
 	else
 		nxh = nx
 		nyh = ny
 	end
-	
 end
 
-function drawMonika(ma,mb,mc)
-
-	if ma=="" then
-	elseif ma=="1l" then
-		love.graphics.draw(m1l, mx)
-	elseif ma=="2l" then
-		love.graphics.draw(m2l, mx)
-	elseif ma=="3a" then
-		love.graphics.draw(m3a, mx)
-	elseif ma=="3b" then
-		love.graphics.draw(m3b, mx)
+function drawMonika(ma,mb)
+	if ma=="1" then
+		love.graphics.draw(m1l, mx, my)
+		love.graphics.draw(m1r, mx, my)
+	elseif ma=="2" then
+		love.graphics.draw(m1l, mx, my)
+		love.graphics.draw(m2r, mx, my)
+	elseif ma=="3" then
+		love.graphics.draw(m2l, mx, my)
+		love.graphics.draw(m1r, mx, my)
+	elseif ma=="4" then
+		love.graphics.draw(m2l, mx, my)
+		love.graphics.draw(m2r, mx, my)
+	elseif ma=="5a" then
+		love.graphics.draw(m3a, mx, my)
+	elseif ma=="5b" then
+		love.graphics.draw(m3b, mx, my)
 	end
 	
-	if mb=="" then
-	elseif mb=="1r" then
-		love.graphics.draw(m1r, mx)
-	elseif mb=="2r" then
-		love.graphics.draw(m2r, mx)
-	end
-	
-	if mc=="" then
-	elseif mc=="a" then
+	if mb=="a" then
 		love.graphics.draw(m_a, mx)
-	elseif mc=="b" then
+	elseif mb=="b" then
 		love.graphics.draw(m_b, mx)
-	elseif mc=="c" then
+	elseif mb=="c" then
 		love.graphics.draw(m_c, mx)
-	elseif mc=="d" then
+	elseif mb=="d" then
 		love.graphics.draw(m_d, mx)
-	elseif mc=="e" then
+	elseif mb=="e" then
 		love.graphics.draw(m_e, mx)
-	elseif mc=="f" then
+	elseif mb=="f" then
 		love.graphics.draw(m_f, mx)
-	elseif mc=="g" then
+	elseif mb=="g" then
 		love.graphics.draw(m_g, mx)
-	elseif mc=="h" then
+	elseif mb=="h" then
 		love.graphics.draw(m_h, mx)
-	elseif mc=="i" then
+	elseif mb=="i" then
 		love.graphics.draw(m_i, mx)
-	elseif mc=="j" then
+	elseif mb=="j" then
 		love.graphics.draw(m_j, mx)
-	elseif mc=="k" then
+	elseif mb=="k" then
 		love.graphics.draw(m_k, mx)
-	elseif mc=="l" then
+	elseif mb=="l" then
 		love.graphics.draw(m_l, mx)
-	elseif mc=="m" then
+	elseif mb=="m" then
 		love.graphics.draw(m_m, mx)
-	elseif mc=="n" then
+	elseif mb=="n" then
 		love.graphics.draw(m_n, mx)
-	elseif mc=="o" then
+	elseif mb=="o" then
 		love.graphics.draw(m_o, mx)
-	elseif mc=="p" then
+	elseif mb=="p" then
 		love.graphics.draw(m_p, mx)
-	elseif mc=="q" then
+	elseif mb=="q" then
 		love.graphics.draw(m_q, mx)
-	elseif mc=="r" then
+	elseif mb=="r" then
 		love.graphics.draw(m_r, mx)
 	end
-
 end
 
