@@ -32,36 +32,36 @@ function ch1sayori()
 		ct = 'Monika'
 		ca = '"Hmm..."'
 	elseif cl == 433 then
-		mc = 'b'
+		mb = 'b'
 		ca = '"Well, we can\'t give up."'
 	elseif cl == 434 then
 		ca = '"The festival is our chance to show everyone'
 		cb = 'what literature is all about!"'
 	elseif cl == 435 then
-		mc = 'd'
+		mb = 'd'
 		ca = '"The problem is that the idea of a literature '
 		cb = 'club sounds too dense and intellectual..."'
 	elseif cl == 436 then
 		ca = '"But it\'s not like that at all, you know?"'
 	elseif cl == 437 then
-		mc = 'a'
+		mb = 'a'
 		ca = '"We just need a way of showing that to '
 		cb = 'everyone..."'
 	elseif cl == 438 then
 		ca = '"Something that speaks to their creative'
 		cb = 'minds."'
     elseif cl == 439 then
-		sc = 'i'
+		sb = 'i'
 		ct = 'Sayori'
 		ca = '"Mmmmmmmmmmm....."'
 	elseif cl == 440 then
 		ca = '"That doesn\'t solve the problem, though!"'
 	elseif cl == 441 then
-		mc = 'd'
+		mb = 'd'
 		ct = 'Monika'
 		ca = '"Eh? What do you mean?"'
 	elseif cl == 442 then
-		sc = 'c'
+		sb = 'c'
 		ct = 'Sayori'
 		ca = '"Even if we come up with the most fun thing'
 		cb = 'ever..."'
@@ -73,7 +73,7 @@ function ch1sayori()
 		cb = 'to get people to show up in the first place,'
 		cc = 'you know?"'
 	elseif cl == 445 then
-		sc = 'a'
+		sb = 'a'
 		ca = '"And after they come, we can do the thing to'
 		cb = 'speak to their creative minds."'
 	elseif cl == 446 then
@@ -84,18 +84,18 @@ function ch1sayori()
 	elseif cl == 448 then
 		ca = "It's rare to hear her deliberating like this."
 	elseif cl == 449 then
-		mc = 'a'
+		mb = 'a'
 		ct = 'Monika'
 		ca = '"Huh, that\'s a good point..."'
 	elseif cl == 450 then
 		ca = '"In that case, do you think food will do the'
 		cb = 'trick?"'
 	elseif cl == 451 then
-		sc = 'n'
+		sb = 'n'
 		ct = 'Sayori'
 		ca = '"W-What kind?!"'
 	elseif cl == 452 then
-		mc = 'b'
+		mb = 'b'
 		ct = 'Monika'
 		ca = '"Ah... Well, I guess we could--"'
 	elseif cl == 453 then
@@ -116,25 +116,25 @@ function ch1sayori()
     elseif cl == 458 then
 		ca = '"That works out perfectly~"'
 	elseif cl == 459 then
-		mc = 'd'
+		mb = 'd'
 		ct = 'Monika'
 		ca = '"That wasn\'t why you suggested it...?"'
 	elseif cl == 460 then
-		sc = 'q'
+		sb = 'q'
 		ct = 'Sayori'
 		ca = '"Cupcakes speak to my creative tummy~"'
 	elseif cl == 461 then
-		mc = 'l'
+		mb = 'l'
 		ct = 'Monika'
 		ca = '"..."'
 	elseif cl == 462 then
 		ca = '"Cupcakes it is, then."'
 	elseif cl == 463 then
-		sc = 'g'
+		sb = 'g'
 		ct = 'Sayori'
 		ca = '"I\'m hungry..."'
 	elseif cl == 464 then
-		mc = 'a'
+		mb = 'a'
 		ct = 'Monika'
 		ca = '"Anyway, we still need to work out the details'
 		cb = 'of the event itself..."'
@@ -178,10 +178,10 @@ function ch1sayori()
 		ct = 'Sayori'
 		ca = '"Ehehe, sorry~"'
 	elseif cl == 476 then
-		sc = 'i'
+		sb = 'i'
 		ca = '"Wait!"'
     elseif cl == 477 then
-		sc = 'j'
+		sb = 'j'
 		ca = '"Actually, I\'m not sorry at all!"'
 	elseif cl == 478 then
 		ca = '"It\'s your fault for sleeping like that!"'
@@ -206,7 +206,7 @@ function ch1sayori()
 		ca = "I glance over my shoulder to see if Monika"
 		cb = "overheard."
 	elseif cl == 486 then
-		sc = 'g'
+		sb = 'g'
 		ca = '"It\'s true, though..."'
 	elseif cl == 487 then
 		ct = player
@@ -233,7 +233,7 @@ function ch1sayori()
 		ca = '"You\'re still oversleeping every day, aren\'t'
 		cb = 'you?"'
 	elseif cl == 496 then
-		sc = 'l'
+		sb = 'l'
 		ct = 'Sayori'
 		ca = '"Eh?"'
 	elseif cl == 497 then
@@ -245,11 +245,11 @@ function ch1sayori()
 		ca = '"How many days this past week have you gotten '
 		cb = 'up on time?"'
 	elseif cl == 500 then
-		sc = 'm'
+		sb = 'm'
 		ct = 'Sayori'
 		ca = '"That\'s..."'
 	elseif cl == 501 then
-		sc = 'o'
+		sb = 'o'
 		ca = '"...It\'s a secret!"'
 	elseif cl == 502 then
 		ct = player
@@ -282,7 +282,7 @@ function ch1sayori()
 		ca = '"Look, your hair is sticking out all around'
 		cb = 'here."'
 	elseif cl == 512 then
-		sc = 'e'
+		sb = 'e'
 		ct = 'Sayori'
 		ca = '"Ah--"'
 	elseif cl == 513 then
@@ -293,7 +293,7 @@ function ch1sayori()
 		ct = player
 		ca = '"Man, you really need a brush for this..."'
 	elseif cl == 515 then
-		sc = 'y'
+		sb = 'y'
 		ct = 'Sayori'
 		ca = '"My hair is just really hard to get right..."'
 	elseif cl == 516 then
@@ -452,7 +452,7 @@ function ch1sayori()
 		ct = ''
 		ca = '"Sayori puts her arms out and twirls around."'
 	elseif cl == 571 then
-		sc = 'a'
+		sb = 'a'
 		ct = 'Sayori'
 		ca = '"So if I keep it unbuttoned then I won\'t get a'
 		cb = 'boyfriend, right?"'
@@ -470,7 +470,7 @@ function ch1sayori()
 		ca = '"...If I had a boyfriend, then he wouldn\'t even'
 		cb = 'let you do things like this!"'
 	elseif cl == 576 then
-		sc = 'y'
+		sb = 'y'
 		ca = '"And you take care of me better than anyone else'
 		cb = 'would, anyway..."'
 	elseif cl == 577 then
@@ -479,7 +479,7 @@ function ch1sayori()
 		ct = player
 		ca = '"Stop saying all these embarrassing things!"'
 	elseif cl == 579 then
-		sc = 'b'
+		sb = 'b'
 		ct = 'Sayori'
 		ca = '"Eh?"'
 	elseif cl == 580 then
@@ -491,7 +491,7 @@ function ch1sayori()
 		ca = '"Well anyway, just focus on trying to wake up'
 		cb = 'a little earlier..."'
 	elseif cl == 583 then
-		sc = 'j'
+		sb = 'j'
 		ct = 'Sayori'
 		ca = '"Only if you focus on going to bed earlier!"'
 	elseif cl == 584 then
@@ -504,7 +504,7 @@ function ch1sayori()
 		ct = 'Sayori'
 		ca = '"Ehehe~"'
 	elseif cl == 587 then
-		sc = 'x'
+		sb = 'x'
 		ca = '"I guess we really are better at taking care'
 		cb = 'of each other than we are at taking care of'
 		cc = 'ourselves."'
@@ -512,14 +512,14 @@ function ch1sayori()
 		ct = player
 		ca = '"Yeah, I guess so, huh..."'
 	elseif cl == 589 then
-		sc = 'y'
+		sb = 'y'
 		ca = '"So maybe you should come wake me up in the'
 		cb = 'morning!"'
 	elseif cl == 590 then
 		ct = player
 		ca = '"You\'re doing it again, Sayori..."'
 	elseif cl == 591 then
-		sc = 'h'
+		sb = 'h'
 		ct = 'Sayori'
 		ca = '"Aw, but I was joking that time!"'
 	elseif cl == 592 then
@@ -545,7 +545,7 @@ function ch1sayori()
 		ct = 'Sayori'
 		ca = '"Yay~!"'
 	elseif cl == 598 then
-		sc = 'x'
+		sb = 'x'
 		ca = '"'..player..', I can\'t wait to read yours!"'
     elseif cl == 599 then
 		ct = player
