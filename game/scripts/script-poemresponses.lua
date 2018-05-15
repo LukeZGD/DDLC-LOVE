@@ -395,134 +395,134 @@ function ch1_y_shared()
 		audioUpdate('5')
 		updateYuri('3','t')
 		cw('y',"...")
-	elseif cl == 732 then
-		cw('y',"I...I\'m sorry I have such terrible handwriting!")
-	elseif cl == 732 then
-		cw('mc',"What??")
-	elseif cl == 732 then
-		cw('mc',"I wasn\'t thinking that at all...")
 	elseif cl == 733 then
+		cw('y',"I...I\'m sorry I have such terrible handwriting!")
+	elseif cl == 734 then
+		cw('mc',"What??")
+	elseif cl == 735 then
+		cw('mc',"I wasn\'t thinking that at all...")
+	elseif cl == 736 then
 		updateYuri('2','v')
 		cw('y',"But it took you a long time to read...")
-	elseif cl == 734 then
-		cw('mc',"Ah--")
-	elseif cl == 735 then
-		cw('mc',"Well, I just don\'t read script very often...")
-	elseif cl == 736 then
-		cw('mc',"I actually think your handwriting is pretty.")
 	elseif cl == 737 then
+		cw('mc',"Ah--")
+	elseif cl == 738 then
+		cw('mc',"Well, I just don\'t read script very often...")
+	elseif cl == 739 then
+		cw('mc',"I actually think your handwriting is pretty.")
+	elseif cl == 740 then
 		yb = 't'
 		cw('y',"Eh?")
-	elseif cl == 738 then
+	elseif cl == 741 then
 		yb = 'u'
 		cw('y',"That\'s...a relief...")
-	elseif cl == 739 then
+	elseif cl == 742 then
 		cw('mc',"Also, I liked the poem.")
-	elseif cl == 740 then
+	elseif cl == 743 then
 		cw('mc',"Even though it\'s short, it was really descriptive.")
-	elseif cl == 741 then
+	elseif cl == 744 then
 		yb = 't'
 		cw('y',"It wasn\'t too short?")
-	elseif cl == 742 then
+	elseif cl == 745 then
 		cw('y',"I usually write longer poems...")
-	elseif cl == 743 then
+	elseif cl == 746 then
 		cw('mc',"Not at all.")
-	elseif cl == 744 then
+	elseif cl == 747 then
 		updateYuri('1','m')
 		cw('y',"I\'m...really glad you like it.")
-	elseif cl == 745 then
+	elseif cl == 748 then
 		cw('y',"I\'ll be honest...")
-	elseif cl == 746 then
+	elseif cl == 749 then
 		yb = 'a'
 		cw('y',"Since it\'s our first time sharing, I wanted to write something a little more mild.")
-	elseif cl == 747 then
+	elseif cl == 750 then
 		cw('y',"Something easy to digest, I suppose.")
-	elseif cl == 748 then
+	elseif cl == 741 then
 		cw('y',"Are you into ghosts, Yuri?")
-	elseif cl == 749 then
+	elseif cl == 742 then
 		yb = 'm'
 		cw('y',"Huhu.")
-	elseif cl == 750 then
+	elseif cl == 753 then
 		cw('y',"Actually, the story isn\'t about a ghost at all, '..player..'.")
-	elseif cl == 750 then
+	elseif cl == 754 then
 		cw('mc',"Really?")
-	elseif cl == 750 then
+	elseif cl == 755 then
 		cw('mc',"I must have totally missed the point...")
-	elseif cl == 750 then
+	elseif cl == 756 then
 		yb = 'u'
 		cw('y',"Well, I suppose you did only glance over it, after all...")
-	elseif cl == 750 then
+	elseif cl == 757 then
 		cw('y',"But remember that poets often express their own thoughts, feelings, and experiences in their work.")
-	elseif cl == 751 then
+	elseif cl == 758 then
 		yb = 'a'
 		cw('y',"They usually do more than tell a simple story, or paint a picture.")
-	elseif cl == 752 then
+	elseif cl == 759 then
 		cw('y',"In this case, perhaps the subject of the poem is only being symbolically compared to a ghost.")
-	elseif cl == 753 then
+	elseif cl == 760 then
 		updateYuri('2','l')
 		cw('y',"Lingering in her last remaining place of comfort, unable to let go of the past.")
-	elseif cl == 754 then
+	elseif cl == 761 then
 		cw('y',"And soon to be left with nothing...")
-	elseif cl == 755 then
+	elseif cl == 762 then
 		cw('mc',"...That\'s a lot more solemn, putting it that way.")
-    elseif cl == 756 then
+    elseif cl == 763 then
 		cw('mc',"I hadn\'t even thought of that...")
-	elseif cl == 757 then
+	elseif cl == 764 then
 		cw('mc',"That\'s impressive.")
-	elseif cl >= 758 then
+	elseif cl >= 765 then
 		if poemopinion == "good" then
-			if cl == 758 then
+			if cl == 765 then
 				yb = 'f'
 				cw('y',"Eh?")
-			elseif cl == 759 then
+			elseif cl == 766 then
 				cw('y',"I-It\'s nothing, really!")
-			elseif cl == 760 then
+			elseif cl == 767 then
 				cw('y',"Yours was impressive too, so...")
-			elseif cl == 761 then
+			elseif cl == 768 then
 				cw('mc',"Nah...")
-			elseif cl == 762 then
+			elseif cl == 769 then
 				cw('mc',"If anything, I could probably learn a thing or two from you.")
-			elseif cl == 763 then
+			elseif cl == 770 then
 				updateYuri('3','a')
 				cw('y',"...You think so?")
-			elseif cl == 764 then
+			elseif cl == 771 then
 				cw('mc',"Yeah, of course.")
-			elseif cl == 765 then
+			elseif cl == 772 then
 				cw('y',"Ah...")
-			elseif cl == 766 then
+			elseif cl == 773 then
 				updateYuri('2','s')
 				cw('y',"You know...")
-			elseif cl == 767 then
+			elseif cl == 774 then
 				cw('y',"I was really nervous about doing all this.")
-			elseif cl == 768 then
+			elseif cl == 775 then
 				cw('y',"But in the end, I enjoyed it.")
-			elseif cl == 769 then
+			elseif cl == 776 then
 				cw('y',"I\'m going to keep doing my best for you, '..player..'.")
-			elseif cl == 770 then
+			elseif cl == 777 then
 				cw('mc',"Ah...")
-			elseif cl == 771 then
+			elseif cl == 778 then
 				cw('mc',"Me too.")
-			elseif cl == 772 then
+			elseif cl == 779 then
 				poemsread = poemsread + 1
 				hideYuri()
 				cl = 666
 			end
 		else
-			if cl == 758 then
+			if cl == 765 then
 				updateYuri('1','u')
 				cw('y',"It\'s nothing, really...")
-			elseif cl == 759 then
+			elseif cl == 766 then
 				cw('y',"Well...it makes me happy that you think that.")
-			elseif cl == 760 then
+			elseif cl == 767 then
 				yb = 'a'
 				cw('y',"Just remember that it won\'t be long before you pick up on these things, too.")
-			elseif cl == 761 then
+			elseif cl == 768 then
 				cw('mc',"Yeah, maybe you\'re right.")
-			elseif cl == 762 then
+			elseif cl == 769 then
 				cw('mc',"I guess I\'ll have to keep trying.")
-			elseif cl == 763 then
+			elseif cl == 770 then
 				cw('y',"I\'m counting on you.")
-			elseif cl == 764 then
+			elseif cl == 771 then
 				poemsread = poemsread + 1
 				hideYuri()
 				cl = 666
@@ -619,6 +619,7 @@ end
 function ch1_n_end()
 	if cl < 705 then
 		cl = 705
+		xaload = 0
 	elseif cl == 705 then
 		poem('poem_n1','natsuki')
 	elseif cl == 706 then
