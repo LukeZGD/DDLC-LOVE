@@ -11,7 +11,6 @@ function updateloading(dt)
 		splash = love.graphics.newImage('images/bg/splash.png')
 		titlebg = love.graphics.newImage('images/bg/bg.png')
 		namebox = love.graphics.newImage('images/gui/namebox.png')
-		sfx2 = love.audio.newSource("audio/sfx/hover.ogg", "static")
 		
 	--This crashes the game, so it's commented out for now. It runs out of memory I guess?
 	--[[elseif l_timer == 10 then
@@ -78,23 +77,13 @@ function updateloading(dt)
 		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
 		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
 		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
-		y1 = love.graphics.newFont('images/gui/fonts/y1')
-		n1 = love.graphics.newFont('images/gui/fonts/n1')
-		
+
 	elseif l_timer == 55 then
 		--more poemgame stuff and fonts
 		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
 		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
 		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
 
-	elseif l_timer == 60 then
-		s1 = love.graphics.newFont('images/gui/fonts/s1')
-		m1 = love.graphics.newFont('images/gui/fonts/m1')
-		
-	elseif l_timer == 65 then
-		poembg = love.graphics.newImage('images/bg/poem.png')
-		sfxpageflip = love.audio.newSource('audio/sfx/pageflip.ogg')
-	
 	elseif l_timer == 100 then
 		--go to splash screens and title screen
 		alpha = 0
@@ -108,7 +97,8 @@ end
 function loadstuff()
 	textbox = love.graphics.newImage('images/gui/textbox.png')
 	background_Image = love.graphics.newImage('images/bg/menu_bg.png')
-	sfx1 = love.audio.newSource("audio/sfx/select.ogg", "static")
+	sfx1 = love.audio.newSource('audio/sfx/select.ogg')
+	sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
 end
 	
 function bgUpdate(bgx) --background changes
@@ -144,6 +134,7 @@ function bgUpdate(bgx) --background changes
 		elseif bgx == 'black' then
 			unloadbg()
 			bgch = love.graphics.newImage('images/bg/black.png')
+			
 		--cg bases/backgrounds are added here
 		elseif bgx == 's_cg1' then
 			unloadbg()
@@ -154,6 +145,7 @@ function bgUpdate(bgx) --background changes
 		elseif bgx == 'y_cg1_base' then
 			unloadbg()
 			bgch = love.graphics.newImage('images/cg/y_cg1_base.png')
+			
 		--warning screens
 		elseif bgx == 'warning' then
 			bgch = love.graphics.newImage('images/bg/warning.png')
@@ -273,6 +265,13 @@ function audioUpdate(audiox) --the audio update function yay
 	audio1 = audiox
 end
 
+function sfxplay(sfx)
+	if sfx == 'pageflip' then
+		sfxp = love.audio.newSource('audio/sfx/pageflip.ogg')
+	end
+	sfxp:play()
+end
+
 function unloadbg()
 	splash = nil
 	bgch = nil
@@ -289,6 +288,13 @@ end
 
 function charCheck()
 	if xaload == 0 then
+		myTextStartTime = love.timer.getTime()
+		if settings_fmode == 0 then
+			unloadSayori()
+			unloadYuri()
+			unloadNatsuki()
+			unloadMonika()
+		end
 		loadSayori()
 		loadYuri()
 		loadNatsuki()
@@ -321,7 +327,6 @@ function updateMonika(a,b)
 end
 
 function loadSayori()
-	unloadSayori()
 	if sa=="1" then
 		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
 		if s1r == nil then s1r = love.graphics.newImage('images/sayori/1r.png') end
@@ -439,11 +444,9 @@ function unloadSayori()
 	s_x = nil
 	s_y = nil
 	saf = nil
-	collectgarbage()
 end
 
 function loadYuri()	
-	unloadYuri()
 	if ya=="1" then
 		if y1l == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
 		if y1r == nil then y1r = love.graphics.newImage('images/yuri/1r.png') end
@@ -573,11 +576,9 @@ function unloadYuri()
 	y_w = nil
 	yy6 = nil
 	yaf = nil
-	collectgarbage()
 end
 
 function loadNatsuki()
-	unloadNatsuki()
 	if nb=="a" then
 		if n_a == nil then n_a = love.graphics.newImage('images/natsuki/a.png') end
 	elseif nb=="b" then
@@ -717,11 +718,9 @@ function unloadNatsuki()
 	n_y = nil
 	n_z = nil
 	naf = nil
-	collectgarbage()
 end
 	
 function loadMonika()
-	unloadMonika()
 	if ma=="1" then
 		if m1l == nil then m1l = love.graphics.newImage('images/monika/1l.png') end
 		if m1r == nil then m1r = love.graphics.newImage('images/monika/1r.png') end

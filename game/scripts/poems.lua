@@ -39,8 +39,9 @@ Making me rub the sleepy from my eyes.
 Are you asking me to come out and play?
 Are you trusting me to wish away a rainy day?
 I look above. The sky is blue.
-It's a secret, but I trust you too.
-
+It's a secret, but I trust you too.]]
+	elseif poemname == 'poem_s1a' then
+		poemtext = [[
 If it wasn't for you, I could sleep forever.
 But I'm not mad.
 
@@ -57,7 +58,9 @@ I peer inside for a clue.
 No! I can't see. I reel, blind, like a film left out in the sun.
 But it's too late. My retinas.
 Already scorched with a permanent copy of the meaningless image.
-It's just a little hole. It wasn't too bright.
+It's just a little hole. It wasn't too bright.]]
+	elseif poemname == 'poem_m1a' then
+		poemtext = [[
 It was too deep.
 Stretching forever into everything.
 A hole of infinite choices.
@@ -66,24 +69,13 @@ I was looking out.
 And he, on the other side, was looking in.]]
 	
 	end
-	
-	--update font
-	if author == 'yuri' and yuri_3 ~= true then
-		love.graphics.setFont(y1)
-	elseif author == 'sayori' then
-		love.graphics.setFont(s1)
-	elseif author == 'natsuki' then
-		love.graphics.setFont(n1)
-	elseif author == 'monika' then
-		love.graphics.setFont(m1)
-	end
-	
-	--update audio
+
 	if xaload == 0 and continue ~= 1 then
 		poembg = love.graphics.newImage('images/bg/poem.png')
-		sfxpageflip:play()
+		sfxplay('pageflip')
 		
 		if author == 'yuri' then
+			y1 = love.graphics.newFont('images/gui/fonts/y1')
 			if yuri_2 then
 				poembg = love.graphics.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
@@ -94,15 +86,28 @@ And he, on the other side, was looking in.]]
 				audioUpdate('5_yuri')
 			end
 		elseif author == 'sayori' then
+			s1 = love.graphics.newFont('images/gui/fonts/s1')
 			if chapter == 5 then
 				audioUpdate('0')
 			else
 				audioUpdate('5_sayori')
 			end
 		elseif author == 'natsuki' then
+			n1 = love.graphics.newFont('images/gui/fonts/n1')
 			audioUpdate('5_natsuki')
 		elseif author == 'monika' then
+			m1 = love.graphics.newFont('images/gui/fonts/m1')
 			audioUpdate('5_monika')
+		end
+	elseif xaload > 0 then
+		if author == 'yuri' and yuri_3 ~= true then
+			love.graphics.setFont(y1)
+		elseif author == 'sayori' then
+			love.graphics.setFont(s1)
+		elseif author == 'natsuki' then
+			love.graphics.setFont(n1)
+		elseif author == 'monika' then
+			love.graphics.setFont(m1)
 		end
 	end
 end

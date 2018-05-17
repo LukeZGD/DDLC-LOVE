@@ -34,13 +34,17 @@ audio1 = 2
 cg1 = ""
 savenumber = 1
 
+setting_textspd = 100
+setting_textloc = 'Bottom'
+setting_fmode = 0
+
 function savegame()
 	love.filesystem.write("save"..savenumber..".sav", "savefile={"..cl..",'"..player..[[
 ',]]..s_poemappeal..","..n_poemappeal..","..y_poemappeal..",'"..poemwinner..[[
 ',]]..sx..","..yx..","..nx..","..mx..[[
-,']]..sa.."','"..sb.."','"..ya.."','"..yb..[[
-',']]..na.."','"..nb.."','"..ma.."','"..mb..[[
-',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ct.."'}") --other settings might be added here!
+,']]..sa.."','"..sb.."','"..ya.."','"..yb.."','"..na.."','"..nb.."','"..ma.."','"..mb..[[
+',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ct..[[
+',]]..setting_textspd..",'"..setting_textloc.."',"..setting_fmode.."}") --other settings might be added here!
 end
 
 function loadgame()
@@ -48,17 +52,14 @@ function loadgame()
 	loadsavefile()
 	cl = savefile[1]
 	player = savefile[2]
-	
 	s_poemappeal = savefile[3]
 	n_poemappeal = savefile[4]
 	y_poemappeal = savefile[5]
 	poemwinner = savefile[6]
-	
 	sx = savefile[7]
 	yx = savefile[8]
 	nx = savefile[9]
 	mx = savefile[10]
-	
 	sa = savefile[11]
 	sb = savefile[12]
 	ya = savefile[13]
@@ -67,8 +68,10 @@ function loadgame()
 	nb = savefile[16]
 	ma = savefile[17]
 	mb = savefile[18]
-	
 	chapter = savefile[19]
+	setting_textspd = savefile[24]
+	setting_textloc = savefile[25]
+	setting_fmode = savefile[26]
 end
 
 function loadupdate()
