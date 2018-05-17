@@ -14,6 +14,7 @@ function love.load()
 	
 	love.graphics.setBackgroundColor(0,0,0)
 	
+	myTextStartTime = love.timer.getTime()
 	l_timer = 0
 	timer = 0
 	autotimer = 0
@@ -59,9 +60,9 @@ function love.draw()
 		drawTopScreen()
 		splashalpha(2)
 		love.graphics.setColor(0,0,0, alpha)
-		love.graphics.print("This game is not suitable for children", 97, 100, 0, 1, 1)
-		love.graphics.print("  or those who are easily disturbed.", 97, 116, 0, 1, 1)
-		love.graphics.print("Unofficial port by LukeeGD", 5, 220, 0, 1, 1)
+		love.graphics.print("This game is not suitable for children", 95, 100)
+		love.graphics.print("  or those who are easily disturbed.", 95, 116)
+		love.graphics.print("Unofficial port by LukeeGD", 5, 220)
 		
 	elseif state == "title" then --title (Title Screen)
 		drawTopScreen()
@@ -98,14 +99,16 @@ end
 
 function love.update(dt)
 
-	--splash screen timers
+	--splash screen timer
 	if timer <= 500 then
 		timer = timer + 1
 	end
 	
-	--loading timer
+	--update depending on state
 	if state == "load" then
 		updateloading(dt)
+	elseif state == 'poemgame' then
+		updatepoemgame(dt)
 	end
 	
 	--auto next script
@@ -119,42 +122,43 @@ function love.update(dt)
 		autotimer = 1
 	end
 	
-	if state == "splash1" or state == "splash2" then --splash screen (change state)
+	--splash screen (change states)
+	if state == "splash1" or state == "splash2" then 
 		if timer == 180 then
-			state = "splash2" --set new state
+			state = "splash2"
 		elseif timer >= 470 then
-			state = "title" --set new state
+			state = "title" 
 		end
 	end
 	
-	if love.keyboard.isDown('x') then  --skip enable
+	if love.keyboard.isDown('x') then --skip enable
 		if state == 'game' and menu_enabled == false then
+			if tspd == nil then tspd = setting_textspd end
+			setting_textspd = 10000
 			if autotimer < 148 then autotimer = 148 end
 		end
-	end
-
-	if state == 'poemgame' then
-		updatepoemgame(dt)
 	end
 end
 
 function love.keypressed(key)
 	if key == 'a' then 
 		if state == "game" and menu_enabled == false or state == "newgame" then
+			autotimer = 0
 			cl = cl + 1 --next script
 			xaload = 0
 		end
 	end
 
 	if state == "game" and menu_enabled == false then
-		if key == 'x' then sfx1:play()
-		elseif key == 'y' then 
+		if key ~= 'a' then sfx1:play() end
+		if key == 'y' then --pause menu
+			autotimer = 0
 			menu_enable('pause',7)
-			sfx1:play()	
-		elseif key == 'b' then --auto
-			sfx1:play()
+			
+		elseif key == 'b' then --auto on/off
 			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
 		end
+		
 	elseif state == 'poemgame' then
 		poemgamekeypressed(key)
 	end
@@ -162,10 +166,16 @@ function love.keypressed(key)
 	if menu_enabled then
 		menu_keypressed(key)
 	end
+	
+	if key == 'backspace' then
+		devtext = ''
+	end
 end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
+		setting_textspd = tspd
+		tspd = nil
 		autotimer = 0
 	end
 end

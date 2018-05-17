@@ -17,6 +17,13 @@ function drawBottomScreen()
 	end
 end
 
+function dripText(text,charactersPerSecond,startTime)
+	currentTime = love.timer.getTime()
+	if (currentTime <= startTime) or startTime == 0 then return "" end
+	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
+	return text:sub(1,math.min(math.floor((currentTime-startTime)*charactersPerSecond),text:len()))
+end
+
 function splashalpha(x)
 	if x == 1 then
 		if timer <=150 then
@@ -74,7 +81,7 @@ end
 
 function drawGame()
 	ch0script()
-	charCheck()
+	charCheck()	
 	
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
@@ -86,34 +93,48 @@ function drawGame()
 	drawYuri(ya,yb) 
 	drawNatsuki(na,nb)  
 	drawMonika(ma,mb)
-	if poem_enabled then drawPoem() end
 	elseif menu_enabled and menu_type ~= 'choice' then 
 		love.graphics.draw(background_Image, posX, posY)
 	end
 	
+	if menu_enabled ~= true and poem_enabled ~= true and setting_textloc == 'Top' then
+		if ct ~= '' then love.graphics.draw(namebox, 52, 142) end
+		love.graphics.draw(textbox, 40, 162)
+		love.graphics.setColor(0,0,0)
+		love.graphics.print(ct,60,142) --t name
+		love.graphics.print(ca,48,166) --line 1
+		love.graphics.print(cb,48,182) --line 2
+		love.graphics.print(cc,48,198) --line 3
+		love.graphics.print(cd,48,214) --line 4
+		c_x = 0
+	elseif poem_enabled then drawPoem() end
+	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.setFont(font)
-	
 	love.graphics.draw(background_Image, posX, posY)
-	if poem_enabled ~= true then
+	
+	love.graphics.setColor(0,0,0)
+	love.graphics.print(cl,0,0,0) --script number
+	if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
+		
+	if poem_enabled ~= true and setting_textloc == 'Bottom' then
+		love.graphics.setColor(255,255,255,alpha)
 		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
 		love.graphics.draw(textbox, 0, 60)
-	
 		love.graphics.setColor(0,0,0)
-		love.graphics.print(cl,0,0,0,1,1) --script number
-		if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
-		love.graphics.print(ct,20,40,0,1,1) --t name
-		love.graphics.print(ca,8,64,0,1,1) --line 1
-		love.graphics.print(cb,8,80,0,1,1) --line 2
-		love.graphics.print(cc,8,96,0,1,1) --line 3
-		love.graphics.print(cd,8,112,0,1,1) --line 4
+		love.graphics.print(ct,20,40) --t name
+		love.graphics.print(ca,8,64) --line 1
+		love.graphics.print(cb,8,80) --line 2
+		love.graphics.print(cc,8,96) --line 3
+		love.graphics.print(cd,8,112) --line 4
+		c_x = 220
 	end
-		
+	
 	if state ~= 'newgame' or poem_enabled == false then
-		love.graphics.print("Y - Pause",35,220,0,1,1)
-		love.graphics.print("B - Auto On/Off",110,220,0,1,1)
-		love.graphics.print("X - Skip",220,220,0,1,1)
+		love.graphics.print("Y - Pause",40,c_x,0,1,1)
+		love.graphics.print("B - Auto",135,c_x,0,1,1)
+		love.graphics.print("X - Skip",225,c_x,0,1,1)
 	end
 	if menu_enabled then menu_draw() end
 end
