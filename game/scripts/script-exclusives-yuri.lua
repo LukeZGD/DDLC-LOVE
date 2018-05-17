@@ -1,649 +1,481 @@
 function ch1yuri()
 	if cl == 423 then
-		 ct = ''
-		 ca = "I\'m really curious to talk to Yuri a little"
-		 cb = "bit more..."
+		cw('bl',"I'm really curious to talk to Yuri a little bit more...")
 	elseif cl == 424 then
-		ca = "But at the same time, I would feel bad for "
-		cb = "distracting her from reading."
+		cw('bl',"But at the same time, I would feel bad for distracting her from reading.")
 	elseif cl == 425 then
-		ca = "I catch a glimpse of the cover of her book."
+		cw('bl',"I catch a glimpse of the cover of her book.")
 	elseif cl == 426 then
-		ca = "It looks like the same book that she lent to"
-		cb = "me..."
+		cw('bl',"It looks like the same book that she lent to me...")
 	elseif cl == 427 then
-		ca = "More than that, she seems to be on the first"
-		cb = "few pages."
+		cw('bl',"More than that, she seems to be on the first few pages.")
     elseif cl == 428 then
 		audioUpdate('6')
 		yx = 80
 		updateYuri('4','a2')
-		ct = 'Yuri'
-		ca = '"Ah..."'
+		cw('y',"Ah...")
 	elseif cl == 429 then
-		ct = ''
-		ca = '"Crap--"'
+		cw('bl',"Crap--")
 	elseif cl == 430 then
-		ca = "I think she noticed me looking at her..."
+		cw('bl',"I think she noticed me looking at her...")
     elseif cl == 431 then
-		ca = "She sneaks another glance at me, and our eyes"
-		cb = "meet for a split second."
+		cw('bl',"She sneaks another glance at me, and our eyes meet for a split second.")
 	elseif cl == 432 then
 		yb = 'b2'
-		ct = 'Yuri'
-		ca = '"..."'
+		cw('y',"...")
 	elseif cl == 433 then
-		ct = ''
-		ca = "But that only makes her hide her face deeper"
-		cb = "in her book."
+		cw('bl',"But that only makes her hide her face deeper in her book.")
 	elseif cl == 434 then
-		ct = player
-		ca = '"Sorry..."'
+		cw('mc',"Sorry...")
 	elseif cl == 435 then
-		ca = '"I was just spacing out..."'
+		cw('mc',"I was just spacing out...")
 	elseif cl == 436 then
-		ct = ''
-		ca = 'I mutter this, sensing I made her uncomfortable.'
+		cw('bl','I mutter this, sensing I made her uncomfortable.')
 	elseif cl == 437 then
 		updateYuri('1','i')
-		ct = 'Yuri'
-		ca = '"Oh..."'
+		cw('y',"Oh...")
 	elseif cl == 438 then
-		ca = '"It\'s fine..."'
+		cw('y',"It's fine...")
 	elseif cl == 439 then
 		yb = 'a'
-		ca = '"If I was focused, then I probably wouldn\'t '
-		cb = 'have noticed in the first place."'
+		cw('y',"If I was focused, then I probably wouldn't have noticed in the first place.")
 	elseif cl == 440 then
-		ca = '"But I\'m just re-reading a bit of this,'
-		cb = 'so..."'
+		cw('y',"But I'm just re-reading a bit of this, so...")
 	elseif cl == 441 then
-		ct = player
-		ca = '"That\'s the book that you gave me, right?"'
+		cw('mc',"That's the book that you gave me, right?")
 	elseif cl == 442 then
-		ct = 'Yuri'
-		ca = '"Mhm."'
+		cw('y',"Mhm.")
 	elseif cl == 443 then
-		ca = '"I wanted to re-read some of it."'
+		cw('y',"I wanted to re-read some of it.")
 	elseif cl == 444 then
 		updateYuri('2','q')
-		ca = '"Not for any particular reason...!"'
+		cw('y',"Not for any particular reason...!")
 	elseif cl == 445 then
-		ct = player
-		ca = '"Just curious, how come you have two copies '
-		cb = 'of the same book?"'
+		cw('mc',"Just curious, how come you have two copies of the same book?")
 	elseif cl == 446 then
-		ct = 'Yuri'
-		ca = '"Ah..."'
+		cw('y',"Ah...")
 	elseif cl == 447 then
-		ca = '"Well, when I stopped at the bookstore '
-		cb = 'yesterday--"'
+		cw('y',"Well, when I stopped at the bookstore yesterday--")
 	elseif cl == 448 then
 		updateYuri('3','o')
-		ca = '"Ah, that\'s not what I meant..."'
+		cw('y',"Ah, that's not what I meant...")
 	elseif cl == 449 then
-		ca = '"I mean--"'
+		cw('y',"I mean--")
 	elseif cl == 450 then
 		updateYuri('1','w')
-		ca = '"I...just happened to buy two of them."'
+		cw('y',"I...just happened to buy two of them.")
 	elseif cl == 451 then
-		ct = player
-		ca = '"Ah, I see."'
+		cw('mc',"Ah, I see.")
 	elseif cl == 452 then
-		ct = ''
-		ca = "There's something fairly obvious here that"
-		cb = "Yuri isn't telling me, but I decide to let"
-		cc = "it go."
+		cw('bl',"There's something fairly obvious here that Yuri isn't telling me, but I decide to let it go.")
 	elseif cl == 453 then
-		ct = player
-		ca = '"I\'ll definitely start reading it soon!"'
+		cw('mc',"I'll definitely start reading it soon!")
 	elseif cl == 454 then
 		updateYuri('2','u')
-		ct = 'Yuri'
-		ca = '"I\'m glad to hear..."'
+		cw('y',"I'm glad to hear...")
 	elseif cl == 455 then
-		ca = '"Once it starts to pick up, you might have a '
-		cb = 'hard time putting it down."'
+		cw('y',"Once it starts to pick up, you might have a hard time putting it down.")
 	elseif cl == 456 then
 		yb = 'c'
-		ca = '"It\'s a very engaging and relatable story."'
+		cw('y',"It's a very engaging and relatable story.")
 	elseif cl == 457 then
-		ct = player
-		ca = '"Is that so...?"'
+		cw('mc',"Is that so...?")
 	elseif cl == 458 then
-		ca = '"What\'s it about, anyway?"'
+		cw('mc',"What's it about, anyway?")
 	elseif cl == 459 then
 		updateYuri('1','f')
-		ct = 'Yuri'
-		ca = '"Well..."'
+		cw('y',"Well...")
 	elseif cl == 460 then
-		ca = '"Mmm..."'
+		ca = "Mmm..."
 	elseif cl == 461 then
-		ct = ''
-		ca = "Yuri closes the book and scans her eyes over "
-		cb = "the back."
+		cw('bl',"Yuri closes the book and scans her eyes over the back.")
 	elseif cl == 462 then
-		ca = "The book is titled \"Portrait of Markov\"."
+		cw('bl',"The book is titled \"Portrait of Markov\".")
 	elseif cl == 463 then
-		ca = "There's an ominous-looking eye symbol on the "
-		cb = "front cover."
+		cw('bl',"There's an ominous-looking eye symbol on the front cover.")
 	elseif cl == 464 then
 		updateYuri('1','a')
-		ct = 'Yuri'
-		ca = '"Alright..."'
+		cw('y',"Alright...")
 	elseif cl == 465 then
-		ca = '"I just wanted to make sure I don\'t accidentally'
-		cb = 'give anything away."'
+		cw('y',"I just wanted to make sure I don't accidentally give anything away.")
 	elseif cl == 466 then
-		ca = '"Basically, it\'s about this girl in high school'
-		cb = 'who moves in with her long-lost younger sister..."'
+		cw('y',"Basically, it's about this girl in high school who moves in with her long-lost younger sister...")
 	elseif cl == 467 then
-		ca = '"But as soon as she does so, her life gets really'
-		cb = 'strange."'
+		cw('y',"But as soon as she does so, her life gets really strange.")
 	elseif cl == 468 then
 		yb = 'm'
-		ca = '"She gets targeted by these people who escaped'
-		cb = 'from a human experiment prison..."'
+		cw('y',"She gets targeted by these people who escaped from a human experiment prison...")
 	elseif cl == 469 then
-		ca = '"And while her life is in danger, she needs to'
-		cb = 'desperately choose who to trust."'
+		cw('y',"And while her life is in danger, she needs to desperately choose who to trust.")
 	elseif cl == 470 then
 		yb = 'i'
-		ca = '"No matter what she does, she ends up destroying'
-		cb = 'most of her relationships and her life starts to'
-		ch0x = 'fall apart..."'
+		cw('y', "No matter what she does, she ends up destroying most of her relationships and her life starts to fall apart...")
 	elseif cl == 471 then
-		ct = player
-		ca = '"That\'s kind of--!"'
+		cw('mc',"That's kind of--!")
 	elseif cl == 472 then
-		ct = ''
-		ca = "That's kind of dark, isn't it?"
+		cw('bl',"That's kind of dark, isn't it?")
 	elseif cl == 473 then
-		ca = "Yuri made it sound like it was going to be a nice"
-		cb = "story, so that dark turn came from nowhere."
+		cw('bl',"Yuri made it sound like it was going to be a nice story, so that dark turn came from nowhere.")
 	elseif cl == 474 then
 		yb = 'c'
-		ct = 'Yuri'
-		ca = '"Ahaha."'
+		cw('y',"Ahaha.")
 	elseif cl == 475 then
-		ct = ''
-		ca = "Yuri gently giggles, all of a sudden."
+		cw('bl',"Yuri gently giggles, all of a sudden.")
 	elseif cl == 476 then
-		ct = 'Yuri'
-		ca = '"Are you not a fan of that sort of thing, '
-		cb = player .. '?"'
+		cw('y',"Are you not a fan of that sort of thing, "..player.."?")
 	elseif cl == 477 then
-		ct = player
-		ca = '"No, it\'s not that..."'
+		cw('mc',"No, it's not that...")
 	elseif cl == 478 then
-		ca = '"I mean, I can definitely enjoy those kinds of'
-		cb = 'stories, so don\'t worry."'
+		cw('mc',"I mean, I can definitely enjoy those kinds of stories, so don't worry.")
 	elseif cl == 479 then
 		updateYuri('2','u')
-		ct = 'Yuri'
-		ca = '"I hope so..."'
+		cw('y',"I hope so...")
 	elseif cl == 480 then
-		ct = ''
-		ca = "Yeah... I totally forgot that Yuri is into "
-		cb = "those things."
+		cw('bl',"Yeah... I totally forgot that Yuri is into those things.")
 	elseif cl == 481 then
-		ca = "She's so shy and reclusive on the outside, but"
-		cb = "her mind seems to be completely different."
+		cw('bl', "She's so shy and reclusive on the outside, but her mind seems to be completely different.")
 	elseif cl == 482 then
-		ct = 'Yuri'
-		ca = '"It\'s just that those kinds of stories..."'
+		cw('y',"It's just that those kinds of stories...")
 	elseif cl == 483 then
 		yb = 'a'
-		ca = '"They challenge you to look at life from a'
-		cb = 'strange new perspective."'
+		cw('y',"They challenge you to look at life from a strange new perspective.")
 	elseif cl == 484 then
-		ca = '"When horrible things happen not just because '
-		cb = 'someone wants to be evil..."'
+		cw('y',"When horrible things happen not just because someone wants to be evil...")
 	elseif cl == 485 then
 		yb = 'm'
-		ca = '"But because they have their own goals, or their'
-		ca = 'own philosophy that they believe in."'
+		cw('y',"But because they have their own goals, or their own philosophy that they believe in.")
 	elseif cl == 486 then
-		ca = '"Then suddenly, when you thought you related to'
-		cb = 'the protagonist..."'
+		cw('y',"Then suddenly, when you thought you related to the protagonist...")
 	elseif cl == 487 then
-		ca = '"They\'re made out to be the naive one for '
-		cb = 'letting their one-sided morals interfere with '
-		cc = 'the villain\'s plans."'
+		cw('y', "They're made out to be the naive one for letting their one-sided morals interfere with the villain's plans.")
 	elseif cl == 488 then
 		updateYuri('3','v')
-		ca = '"I\'m...I\'m rambling, aren\'t I...?"'
+		cw('y',"I'm...I'm rambling, aren't I...?")
 	elseif cl == 489 then
-		ca = '"Not again..."'
+		cw('y',"Not again...")
 	elseif cl == 490 then
 		updateYuri('4','b2')
-		ca = '"I\'m sorry..."'
+		cw('y',"I'm sorry...")
 	elseif cl == 491 then
-		ct = player
-		ca = '"Hey, don\'t apologize...!"'
+		cw('mc',"Hey, don't apologize...!")
 	elseif cl == 492 then
-		ca = '"I haven\'t lost interest or anything."'
+		cw('mc',"I haven't lost interest or anything.")
 	elseif cl == 493 then
-		ct = 'Yuri'
-		ca = '"Well..."'
+		cw('y',"Well...")
 	elseif cl == 494 then
-		ca = '"I guess it\'s alright, then..."'
+		cw('y', "I guess it's alright, then...")
 	elseif cl == 495 then
 		yb = 'a2'
-		ca = '"But I feel like I should let you know that I have '
-		cb = 'this problem..."'
+		cw('y',"But I feel like I should let you know that I have this problem...")
 	elseif cl == 496 then
-		ca = '"When I let things like books and writing fill my '
-		cb = 'thoughts..."'
+		cw('y',"When I let things like books and writing fill my thoughts...")
 	elseif cl == 497 then	
-		ca = '"I kind of forget to pay attention to other'
-		cb = 'people..."'
+		cw('y', "I kind of forget to pay attention to other people...")
 	elseif cl == 498 then
 		updateYuri('3','t')
-		ca = '"So I\'m sorry if I end up saying something '
-		cb = 'strange!"'
+		cw('y', "So I'm sorry if I end up saying something strange!")
 	elseif cl == 499 then
-		ca = '"And please stop me if I start talking too much!"'
+		cw('y', "And please stop me if I start talking too much!")
 	elseif cl == 500 then
-		ct = player
-		ca = '"That\'s--"'
+		cw('mc',"That's--")
 	elseif cl == 501 then
-		ca = '"I really don\'t think you need to worry..."'
+		cw('mc', "I really don't think you need to worry...")
 	elseif cl == 502 then
-		ca = '"That just means you\'re passionate about '
-		cb = 'reading."'
+		cw('mc',"That just means you're passionate about reading.")
 	elseif cl == 503 then
-		ca = '"The least I can do is listen."'
+		cw('mc', "The least I can do is listen.")
 	elseif cl == 504 then
-		ca = '"It\'s a literature club, after all..."'
+		cw('mc', "It's a literature club, after all...")
 	elseif cl == 505 then
 		updateYuri('3','a')
-		ct = 'Yuri'
-		ca = '"Ah--"'
+		cw('y',"Ah--")
 	elseif cl == 506 then
-		ca = '"That\'s..."'
+		cw('y', "That's...")
 	elseif cl == 507 then
-		ca = '"Well, that\'s true..."'
+		cw('y', "Well, that's true...")
 	elseif cl == 508 then
-		ct = player
-		ca = '"In fact..."'
+		cw('mc',"In fact...")
 	elseif cl == 509 then
-		ca = '"I might as well get started reading it, right?"'
+		cw('mc', "I might as well get started reading it, right?")
 	elseif cl == 510 then
 		yb = 'n'
-		ct = 'Yuri'
-		ca = '"Y-You don\'t have to!"'
+		cw('y',"Y-You don't have to!")
 	elseif cl == 511 then
-		ct = player
-		ca = '"Ahaha, what are you saying?"'
+		cw('mc',"Ahaha, what are you saying?")
 	elseif cl == 512 then
-		ca = '"Just a moment ago, you said you were looking'
-		cb = 'forward to it."'
+		cw('mc',"Just a moment ago, you said you were looking forward to it.")
 	elseif cl == 513 then
 		yb = 'o'
-		ct = 'Yuri'
-		ca = '"..."'
+		cw('y',"...")
 	elseif cl == 514 then
-		ct = player
-		ca = '"Let me just get the book..."'
+		cw('mc',"Let me just get the book...")
 	elseif cl == 515 then
-		ct = ''
-		ca = 'I quickly retrieve the book that I had put '
-		cb = "into my bag."
+		cw('bl',"I quickly retrieve the book that I had put into my bag.")
 	elseif cl == 516 then
-		ct = player
-		ca = '"Alright...it\'s fine if I sit here, right?"'
+		cw('mc',"Alright...it's fine if I sit here, right?")
 	elseif cl == 517 then
-		ct = ''
-		ca = "I slip into the seat next to Yuri's."
+		cw('bl',"I slip into the seat next to Yuri's.")
 	elseif cl == 518 then
 		yb = 'n'
-		ct = 'Yuri'
-		ca = '"Ah...!"'
+		cw('y',"Ah...!")
 	elseif cl == 519 then
-		ca = '"Yeah..."'
+		cw('y',"Yeah...")
 	elseif cl == 520 then
-		ct = player
-		ca = '"Are you sure?"'
+		cw('mc',"Are you sure?")
 	elseif cl == 521 then
-		ca = '"You seem a little apprehensive..."'
+		cw('mc',"You seem a little apprehensive...")
 	elseif cl == 522 then
-		ct = 'Yuri'
-		ca = '"That\'s..."'
+		cw('y',"That's...")
 	elseif cl == 523 then
 		updateYuri('3','','b2')
-		ca = '"I\'m sorry..."'
+		cw('y',"I'm sorry...")
 	elseif cl == 524 then
-		ca = '"It\'s not that I don\'t want you to!"'
+		cw('y',"It's not that I don't want you to!")
 	elseif cl == 525 then
-		ca = '"It\'s just something I\'m not very used to..."'
+		cw('y',"It's just something I'm not very used to...")
 	elseif cl == 526 then
-		ca = '"That is, reading in company with someone."'
+		cw('y', "That is, reading in company with someone.")
 	elseif cl == 527 then
-		ct = player
-		ca = '"I see..."'
+		cw('mc',"I see...")
 	elseif cl == 528 then
-		ca = '"Well, just tell me if I end up distracting you'
-		cb = 'or anything."'
+		cw('mc', "Well, just tell me if I end up distracting you or anything.")
 	elseif cl == 529 then
-		ct = 'Yuri'
-		ca = '"A-Alright..."'
+		cw('y',"A-Alright...")
 	elseif cl == 530 then
 		hideYuri()
-		ct = ''
-		ca = "I open the book and start the prologue."
+		cw('bl',"I open the book and start the prologue.")
 	elseif cl == 531 then
-		ca = "I soon understand what Yuri means about reading"
-		cb = "in company."
+		cw('bl',"I soon understand what Yuri means about reading in company.")
 	elseif cl == 532 then
-		ca = "It's as if I can feel her presence over my "
-		cb = "shoulder as I read."
+		cw('bl',"It's as if I can feel her presence over my shoulder as I read.")
 	elseif cl == 533 then
-		ca = "It's not a particularly bad thing."
+		cw('bl',"It's not a particularly bad thing.")
 	elseif cl == 534 then
-		ca = "Maybe a little distracting, but the feeling is"
-		cb = "somewhat comforting."
+		cw('bl',"Maybe a little distracting, but the feeling is somewhat comforting.")
 	elseif cl == 535 then
-		ca = "Yuri is in the corner of my eye."
+		cw('bl',"Yuri is in the corner of my eye.")
 	elseif cl == 536 then
-		ca = "I realize that she's not actually looking at her"
-		cb = "own book."
+		cw('bl',"I realize that she's not actually looking at her own book.")
 	elseif cl == 537 then
-		ca = "I glance over."
+		cw('bl',"I glance over.")
 	elseif cl == 538 then
-		ca = "It looks like she's reading from my book"
-		cb = "instead--"
+		cw('bl',"It looks like she's reading from my book instead--")
 	elseif cl == 539 then
 		updateYuri('3','n')
-		ct = 'Yuri'
-		ca = '"S-Sorry!"'
+		cw('y',"S-Sorry!")
 	elseif cl == 540 then
-		ca = '"I was just--!"'
+		cw('y', "I was just--!")
 	elseif cl == 541 then
-		ct = player
-		ca = '"Yuri, you really apologize a lot, don\'t you?"'
+		cw('mc',"Yuri, you really apologize a lot, don't you?")
 	elseif cl == 542 then
-		ct = 'Yuri'
-		ca = '"I...I do?"'
+		cw('y',"I...I do?")
 	elseif cl == 543 then
 		updateYuri('4','a2')
-		ca = '"I don\'t really mean to..."'
+		cw('y', "I don't really mean to...")
 	elseif cl == 544 then
-		ca = '"Sorry..."'
+		cw('y', "Sorry...")
 	elseif cl == 545 then
 		yb = 'c2'
-		ca = '"I mean--!"'
+		cw('y',"I mean--!")
 	elseif cl == 546 then
-		ct = player
-		ca = '"Ahaha."'
+		cw('mc',"Ahaha.")
 	elseif cl == 547 then
-		ca = '"Here, this should work, right?"'
+		cw('mc',"Here, this should work, right?")
 	elseif cl == 548 then
-		ca = "I slide my desk until it's up against Yuri's, then"
-		cb = "hold my book more between the two of them."
+		cw('bl', "I slide my desk until it's up against Yuri's, then hold my book more between the two of them.")
 	elseif cl == 549 then
 		updateYuri('2','v')
-		ct = 'Yuri'
-		ca = '"Ah..."'
+		cw('y',"Ah...")
 	elseif cl == 550 then
-		ca = '"I suppose so..."'
+		cw('y', "I suppose so...")
 	elseif cl == 551 then
-		ct = ''
-		ca = '"Yuri timidly closes her own copy."'
+		cw('bl',"Yuri timidly closes her own copy.")
 	elseif cl == 552 then
-		ca = "Once we each lean in a little bit, our shoulders"
-		cb = "are almost touching."
+		cw('bl', "Once we each lean in a little bit, our shoulders are almost touching.")
 	elseif cl == 553 then
-		ca = "It feels like my left arm is in the way, so instead"
-		cb = "I use my right hand to hold the book open."
+		cw('bl',"It feels like my left arm is in the way, so instead I use my right hand to hold the book open.")
 	elseif cl == 554 then
-		ct = player
-		ca = '"Ah, I guess that makes it kind of difficult to '
-		cb = 'turn the page..."'
+		cw('mc',"Ah, I guess that makes it kind of difficult to turn the page...")
 	elseif cl == 555 then
-		ct = 'Yuri'
-		ca = '"Here..."'
+		cw('y',"Here...")
 	elseif cl == 556 then
 		hideYuri()
 		bgUpdate('y_cg1_base')
-		ct = ''
-		ca = "Yuri takes her left arm and holds the left side "
-		cb = "of the book between her thumb and forefinger."
+		cw('bl',"Yuri takes her left arm and holds the left side of the book between her thumb and forefinger.")
 	elseif cl == 557 then
-		ct = player
-		ca = '"Ah..."'
+		cw('mc',"Ah...")
 	elseif cl == 558 then
-		ct = ''
-		ca = "I do the same with my right arm, on the right "
-		cb = "side of the book."
+		cw('bl',"I do the same with my right arm, on the right side of the book.")
 	elseif cl == 559 then
-		ca = "That way, I turn a page, and Yuri slides it under"
-		cb = "her thumb after it flips to her side."
+		cw('bl', "That way, I turn a page, and Yuri slides it under her thumb after it flips to her side.")
 	elseif cl == 560 then
-		ca = "But in holding it like this..."
+		cw('bl', "But in holding it like this...")
 	elseif cl == 561 then
-		ca = "We're huddled even closer together than before."
+		cw('bl',"We're huddled even closer together than before.")
 	elseif cl == 562 then
-		ca = "It's actually kind of distracting me...!"
+		cw('bl', "It's actually kind of distracting me...!")
 	elseif cl == 563 then
-		ca = "It's as if I can feel the warmth of Yuri's face,"
-		cb = "and she's in the corner of my vision..."
+		cw('bl', "It's as if I can feel the warmth of Yuri's face, and she's in the corner of my vision...")
 	elseif cl == 564 then
 		cgUpdate('y_cg1_exp1')
-		ct = 'Yuri'
-		ca = '"...Are you ready?"'
+		cw('y',"...Are you ready?")
 	elseif cl == 565 then
-		ct = player
-		ca = '"Eh?"'
+		cw('mc',"Eh?")
 	elseif cl == 566 then
-		ct = 'Yuri'
-		ca = '"To turn the page..."'
+		cw('y',"To turn the page...")
 	elseif cl == 567 then
-		ct = player
-		ca = '"Ah...sorry!"'
+		cw('mc',"Ah...sorry!")
 	elseif cl == 568 then
-		ca = '"I think I got a bit distracted for a second..."'
+		cw('mc',"I think I got a bit distracted for a second...")
 	elseif cl == 569 then
-		ct = ''
-		ca = "I glance over at Yuri's face again, and our eyes "
-		cb = "meet."
+		cw('bl',"I glance over at Yuri's face again, and our eyes meet.")
 	elseif cl == 570 then
-		ca = "I don't know how I'll be able to keep up with"
-		cb = "her..."
+		cw('bl', "I don't know how I'll be able to keep up with her...")
 	elseif cl == 571 then
-		ct = 'Yuri'
-		ca = '"Ah..."'
+		cw('y',"Ah...")
 	elseif cl == 572 then
 		cgUpdate('y_cg1_exp2')
-		ca = '"That\'s okay."'
+		cw('y',"That's okay.")
 	elseif cl == 573 then
-		ca = '"You\'re not as used to reading, right?"'
+		cw('y', "You're not as used to reading, right?")
 	elseif cl == 574 then
-		ca = '"I don\'t mind being patient if it takes you a bit'
-		cb = 'longer..."'
+		cw('y', "I don't mind being patient if it takes you a bit longer...")
 	elseif cl == 575 then
-		ca = '"It\'s probably the least I can do..."'
+		cw('y',"It's probably the least I can do...")
 	elseif cl == 576 then
-		ca = '"Since you\'ve been so patient with me..."'
+		cw('y', "Since you've been so patient with me...")
 	elseif cl == 577 then
-		ct = player
-		ca = '"Y-Yeah..."'
+		cw('mc',"Y-Yeah...")
 	elseif cl == 578 then
-		ca = '"Thanks."'
+		cw('y', "Thanks.")
 	elseif cl == 579 then
 		cgHide()
-		ct = ''
-		ca = "We continue reading."
+		cw('bl',"We continue reading.")
 	elseif cl == 580 then
-		ca = "Yuri no longer asks me if I'm ready to turn the "
-		cb = "page."
+		cw('bl', "Yuri no longer asks me if I'm ready to turn the page.")
 	elseif cl == 581 then
-		ca = "Instead, I just assume that she finishes the page"
-		cb = "before me, so I turn it by my own volition."
+		cw('bl', "Instead, I just assume that she finishes the page before me, so I turn it by my own volition.")
 	elseif cl == 582 then
-		ca = "We continue the first chapter in silence."
+		cw('bl', "We continue the first chapter in silence.")
 	elseif cl == 583 then
-		ca = "Even so, turning each page almost feels like an"
-		cb = "intimate exchange..."
+		cw('bl', "Even so, turning each page almost feels like an intimate exchange...")
 	elseif cl == 584 then
-		ca = "My thumb gently letting go of the page, letting it"
-		cb = "flutter over to her side as she catches it under "
-		cc = "her own thumb."
+		cw('bl', "My thumb gently letting go of the page, letting it flutter over to her side as she catches it under her own thumb.")
 	elseif cl == 585 then
-		ct = player
-		ca = '"Hey, Yuri..."'
+		cw('mc',"Hey, Yuri...")
 	elseif cl == 586 then
-		ca = '"This might be a silly thought, but..."'
+		cw('mc',"This might be a silly thought, but...")
 	elseif cl == 587 then
-		ca = '"The main character kind of reminds me of you a '
-		cb = 'little bit."'
+		cw('mc', "The main character kind of reminds me of you a little bit.")
 	elseif cl == 588 then
 		cgUpdate('y_cg1_exp1')
-		ct = 'Yuri'
-		ca = '"You...think so?"'
+		cw('y',"You...think so?")
 	elseif cl == 589 then
-		ca = '"How does she?"'
+		cw('y', "How does she?")
 	elseif cl == 590 then
-		ct = player
-		ca = '"Well, I guess she\'s more blunt in a lot of '
-		cb = 'ways..."'
+		cw('mc',"Well, I guess she's more blunt in a lot of ways...")
 	elseif cl == 591 then
-		ca = '"But she also second-guesses all of the things that'
-		cb = 'she says and does."'
+		cw('mc', "But she also second-guesses all of the things that she says and does.")
 	elseif cl == 592 then
-		ca = '"Like she\'s afraid she\'ll do something wrong."'
-	elseif cl == 593 then
-		ca = '"It\'s not like I can see into your head or'
-		cb = 'anything..."'
+		cw('mc',"Like she's afraid she'll do something wrong.")
+	elseif cl == 593 then	
+		cw('mc', "It's not like I can see into your head or anything...")
 	elseif cl == 594 then
-		ca = '"But they\'re kind of reminiscent of some of your'
-		cb = 'mannerisms."'
+		cw('mc',"But they're kind of reminiscent of some of your mannerisms.")
 	elseif cl == 595 then
-		ct = 'Yuri'
-		ca = '"I-I see..."'
+		cw('y',"I-I see...")
 	elseif cl == 596 then
 		cgHide()
 		bgUpdate('club')
 		updateYuri('2','t')
-		ct = ''
-		ca = "Yuri remains silent for a moment."
+		cw('bl',"Yuri remains silent for a moment.")
 	elseif cl == 597 then
-		ct = 'Yuri'
-		ca = '"But '..player..'..."'
+		cw('y',"But "..player.."...")
     elseif cl == 598 then
-		ca = '"That\'s probably..."'
+		cw('y',"That's probably...")
 	elseif cl == 599 then
-		ca = '"...a terrible thing to have in common with her!"'
+		cw('y', "...a terrible thing to have in common with her!")
 	elseif cl == 600 then
 		updateYuri('4','b2')
-		ca = '"Uuuh, that\'s so embarrassing that you think'
-		cb = 'that..."'
+		cw('y', "Uuuh, that's so embarrassing that you think that...")
 	elseif cl == 601 then
-		ct = player
-		ca = '"W-Wait!"'
+		cw('mc',"W-Wait!")
 	elseif cl == 602 then
-		ca = '"I didn\'t mean it in a bad way or anything!"'
+		cw('mc', "I didn't mean it in a bad way or anything!")
 	elseif cl == 603 then
-		ca = '"Sorry, I really didn\'t know you were'
-		cb = 'self-conscious about that sort of thing..."'
+		cw('mc', "Sorry, I really didn't know you were self-conscious about that sort of thing...")
 	elseif cl == 604 then
-		ct = 'Yuri'
-		ca = '"..."'
+		cw('y',"...")
 	elseif cl == 605 then
-		ct = player
-		ca = '"I guess I more meant that it\'s kind of cute..."'
+		cw('mc',"I guess I more meant that it's kind of cute...")
 	elseif cl == 606 then
 		updateYuri('3','q')
-		ct = 'Yuri'
-		ca = '"A-Ah--"'
+		cw('y',"A-Ah--")
 	elseif cl == 607 then
-		ca = '"What are you saying all of a sudden...?"'
+		cw('y',"What are you saying all of a sudden...?")
 	elseif cl == 608 then
-		ca = '"I...!"'
+		cw('y',"I...!")
 	elseif cl == 609 then
 		mx = -50
 		updateMonika('4','a')
-		ct = 'Monika'
-		ca = '"Okay, everyone!"'
+		cw('m',"Okay, everyone!")
 	elseif cl == 610 then
-		ct = 'Yuri'
-		ca = '"...!"'
+		cw('y',"...!")
 	elseif cl == 611 then
-		ct = 'Monika'
-		ca = '"I think it\'s about time we share today\'s '
-		cb = 'poems with each other."'
+		cw('m',"I think it's about time we share today's poems with each other.")
 	elseif cl == 612 then
-		ca = '"We might not have enough time if we wait too'
-		cb = 'long."'
+		cw('m', "We might not have enough time if we wait too long.")
 	elseif cl == 613 then
 		yb = 'w'
-		ct = 'Yuri'
-		ca = '"Ah..."'
+		cw('y',"Ah...")
 	elseif cl == 614 then
-		ct = ''
-		ca = "Yuri exhales, spared from finishing her thought."
+		cw('bl',"Yuri exhales, spared from finishing her thought.")
 	elseif cl == 615 then
 		updateMonika('1','a')
-		ct = 'Monika'
-		ca = '"Is that alright, Yuri?"'
+		cw('m',"Is that alright, Yuri?")
 	elseif cl == 616 then
-		ca = '"You look kind of down..."'
+		cw('m', "You look kind of down...")
 	elseif cl == 617 then
-		ca = '"I\'m sorry if you haven\'t been looking forward to'
-		cb = 'this..."'
+		cw('m',"I'm sorry if you haven't been looking forward to this...")
 	elseif cl == 618 then
 		yb = 'v'
-		ct = 'Yuri'
-		ca = '"Ah, it\'s not..."'
+		cw('y',"Ah, it's not...")
 	elseif cl == 619 then
-		ca = '"...It\'s fine."'
+		cw('y', "...It's fine.")
 	elseif cl == 620 then
 		hideMonika()
-		ct = ''
-		ca = "Yuri releases her hand from the book, causing it to"
-		cb = "close on top of my thumb."
+		cw('bl',"Yuri releases her hand from the book, causing it to close on top of my thumb.")
 	elseif cl == 621 then
-		ct = player
-		ca = '"Alright..."'
+		cw('mc',"Alright...")
 	elseif cl == 622 then
-		ca = '"I guess I\'ll do some more reading tonight."'
+		cw('mc', "I guess I'll do some more reading tonight.")
 	elseif cl == 623 then
-		ca = '"Or would you prefer I only read it with you?"'
+		cw('mc', "Or would you prefer I only read it with you?")
 	elseif cl == 624 then
 		updateYuri('2','f')
-		ct = 'Yuri'
-		ca = '"Um...!"'
+		cw('y',"Um...!")
 	elseif cl == 625 then
-		ca = '"I...guess I don\'t have too much of a preference'
-		cb = 'either way..."'
+		cw('y', "I...guess I don't have too much of a preference either way...")
 	elseif cl == 626 then
-		ct = player
-		ca = '"Hmm..."'
+		cw('mc',"Hmm...")
 	elseif cl == 627 then
-		ca = '"In that case, I\'ll read a little more tonight."'
+		cw('mc', "In that case, I'll read a little more tonight.")
 	elseif cl == 628 then
-		ca = '"It\'ll be more fun to read with you after it picks'
-		cb = 'up a bit, you know?"'
+		cw('mc',"It'll be more fun to read with you after it picks up a bit, you know?")
 	elseif cl == 629 then
 		yb = 'a'
-		ct = 'Yuri'
-		ca = '"That\'s good reasoning."'
+		cw('y',"That's good reasoning.")
 	elseif cl == 630 then
-		ca = '"In that case, feel free to finish the first two'
-		cb = 'chapters in your own time."'
+		cw('y',"In that case, feel free to finish the first two chapters in your own time.")
 	elseif cl == 631 then
-		ct = player
-		ca = '"Alright!"'
+		cw('mc',"Alright!")
 	elseif cl == 632 then
 		hideYuri()
-		ct = ''
-		ca = "I stand up."
+		cw('bl',"I stand up.")
 	elseif cl == 633 then
-		ca = "I make a mental note of where I left off in the"
-		cb = "book, then slip it back into my bag."
+		cw('bl',"I make a mental note of where I left off in the book, then slip it back into my bag.")
 	elseif cl == 634 then
 		cl = 653
-		--ca = 'Sayori is vice president of theLiteratureClub.' (for reference on how long the lines should be)
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
