@@ -35,7 +35,7 @@ function cw(p1, stext)
 		stext = '"'..stext..'"'
 	end
 	
-	textx = dripText(stext,setting_textspd,myTextStartTime)
+	textx = dripText(stext,settings[1],myTextStartTime)
 		
 	--word wrapping haha
 	slen = string.len(textx)
@@ -1087,22 +1087,16 @@ function ch0script()
 		timer = timer + 1
 		cl = 10021
 		bgUpdate('warning2')
-		if timer == 1150 then
+			if timer == 1150 then
 			cl = 1
 			player = ""
 			savegame()
-			savenumber = 2
-			savegame()
-			savenumber = 3
-			savegame()
-			savenumber = 4
-			savegame()
-			savenumber = 5
-			savegame()
-			savenumber = 6
-			savegame()
 			resetchr()
-			state = 'load'
+			alpha = 0
+			xaload = 0
+			timer = 0
+			state = "splash1"
+			audioUpdate('1')
 		 end
 	end
 	

@@ -6,12 +6,17 @@ function updateloading(dt)
 	
 	--loading assets
 	if l_timer == 1 then
-		loadstuff()
+		font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
+		love.graphics.setFont(font)
 	elseif l_timer == 5 then
 		--splash, title screen, gui elements, sfx
 		splash = love.graphics.newImage('images/bg/splash.png')
 		titlebg = love.graphics.newImage('images/bg/bg.png')
 		namebox = love.graphics.newImage('images/gui/namebox.png')
+		textbox = love.graphics.newImage('images/gui/textbox.png')
+		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
+		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
+		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
 		
 	--This crashes the game, so it's commented out for now. It runs out of memory I guess?
 	--[[elseif l_timer == 10 then
@@ -87,19 +92,21 @@ function updateloading(dt)
 		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
 		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
 
+	elseif l_timer == 99 then
+		l_timer = 99
+		local file = love.filesystem.isFile("firstrun")
+		if file then
+			checkchr()
+		else
+			alpha = 255
+			timer = 501
+			cl = 10016
+			state = "newgame"
+		end
 	elseif l_timer >= 100 then
 		l_timer = 100
-		splashalpha(6)
+		splashalpha(6)		
 	end
-end
-	
-function loadstuff()
-	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
-	love.graphics.setFont(font)
-	textbox = love.graphics.newImage('images/gui/textbox.png')
-	background_Image = love.graphics.newImage('images/bg/menu_bg.png')
-	sfx1 = love.audio.newSource('audio/sfx/select.ogg')
-	sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
 end
 	
 function bgUpdate(bgx) --background changes
@@ -290,7 +297,7 @@ end
 function charCheck()
 	if xaload == 0 then
 		myTextStartTime = love.timer.getTime()
-		if setting_fmode == 0 then
+		if settings[3] == 0 then
 			unloadAll()
 		end
 		loadSayori()
