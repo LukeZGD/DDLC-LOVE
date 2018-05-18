@@ -8,6 +8,8 @@ require "menu"
 require "scripts.script"
 
 function love.load() 
+	dversion = "v0.0.2"
+
 	--set up stuff
 	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
 	love.graphics.setFont(font)
@@ -82,7 +84,7 @@ function love.draw()
 		
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
-		love.graphics.setBackgroundColor ( 225,225,225 )
+		love.graphics.setBackgroundColor ( 245,245,245 )
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(endbg,0,0)
 		drawBottomScreen()
@@ -132,7 +134,7 @@ function love.update(dt)
 	end
 	
 	if love.keyboard.isDown('x') then --skip enable
-		if state == 'game' and menu_enabled == false then
+		if state == 'game' and menu_enabled == false and cl ~= 666 then
 			if tspd == nil then tspd = setting_textspd end
 			setting_textspd = 10000
 			if autotimer < 148 then autotimer = 148 end
@@ -166,15 +168,11 @@ function love.keypressed(key)
 	if menu_enabled then
 		menu_keypressed(key)
 	end
-	
-	if key == 'backspace' then
-		devtext = ''
-	end
 end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
-		setting_textspd = tspd
+		if tspd ~= nil then setting_textspd = tspd end
 		tspd = nil
 		autotimer = 0
 	end
