@@ -3,7 +3,8 @@ function menu_enable(m, x)
 	menu_items = x
 	menu_enabled = true
 	m_selected = 2 
-	m_select()
+	if menu_type ~= 'choice' then m_select()
+	else m_selectchoice() end
 end
 
 function menu_draw()
@@ -75,7 +76,7 @@ function menu_draw()
 		love.graphics.print("Textbox Location",16, 45)
 		love.graphics.print("Text Speed",16, 70)
 		love.graphics.print("Fast Mode",16, 95)
-		love.graphics.print("v0.0.1",270, 220)
+		love.graphics.print(dversion,270, 220)
 		
 	elseif menu_type == 'textloc' then
 		love.graphics.print("Settings - Textbox Location:",16, 20)
@@ -131,13 +132,13 @@ function menu_confirm()
 		end
 		
 		if m_selected == 2 then --new game
-			if player == "" then
-				love.keyboard.setTextInput(true)
-			elseif cl == 10001 then
+			if monikachr == false and chapter < 5 then
 				menu_enabled = false
-				audioUpdate('2')
+				cl = 10001
 				xaload = 0
 				state = "game"
+			elseif player == "" and global_os == 'Horizon' then
+				love.keyboard.setTextInput(true)
 			elseif cl <= 9999 or global_os ~= 'Horizon' then
 				hideSayori()
 				hideYuri()
@@ -167,8 +168,9 @@ function menu_confirm()
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= "" and cl ~= 0 then
 			savenumber = m_selected - 1
-			if love.filesystem.isFile("save"..savenumber..".sav") then
-				loadgame()
+			if love.filesystem.isFile("save"..savenumber..".sav") then loadgame() end
+			if savefile[16] ~= 'warning2' then
+				poem_enabled = false
 				loadupdate()
 				xaload = 0
 				state = "game"
@@ -200,6 +202,7 @@ function menu_confirm()
 	
 	elseif menu_type == 'mainyesno' then
 		if m_selected == 2 then
+			poem_enabled = false
 			state = 'title'
 			timer = 501
 			xaload = 0
@@ -250,10 +253,12 @@ function menu_confirm()
 		menu_enable(menu_previous, menu_previousitems)
 	
 	elseif menu_type == 'choice' then
-		xaload = 0
-		cl = cl + 1
-		menu_type = nil
-		menu_enabled = false
+		if choicepick ~= '' then
+			xaload = 0
+			cl = cl + 1
+			menu_type = nil
+			menu_enabled = false
+		end
 	end
 end
 
@@ -282,33 +287,65 @@ function m_select()
 	end
 end
 
+function m_selectchoice()
+	if m_selected == 2 then
+		if choice1 ~= nil then choicepick = choice1 end
+		cX = 8
+		cY = 45
+	elseif m_selected == 3 then
+		if choice2 ~= nil then choicepick = choice2 end
+		cX = 8
+		cY = 70
+	elseif m_selected == 4 then
+		if choice3 ~= nil then choicepick = choice3 end
+		cX = 8
+		cY = 95
+	elseif m_selected == 5 then
+		if choice4 ~= nil then choicepick = choice4 end
+		cX = 8
+		cY = 120
+	elseif m_selected == 6 then
+		cX = 8
+		cY = 145
+	elseif m_selected == 7 then
+		cX = 8
+		cY = 170
+	elseif m_selected == 8 then
+		cX = 8
+		cY = 195
+	end
+end
+
 function menu_keypressed(key)
 	if key == 'down' then
 		sfx2:play()
 		if m_selected <= menu_items-1 then
 			m_selected = m_selected + 1
-			m_select()
 		else
 			m_selected = 2
-			m_select()
 		end
+		
+		if menu_type ~= 'choice' then m_select()
+		else m_selectchoice() end
+		
 	elseif key == 'up' then
 		sfx2:play()
 		if m_selected >= 3 then
 			m_selected = m_selected - 1
-			m_select()
 		else
 			m_selected = menu_items
-			m_select()
 		end
+		if menu_type ~= 'choice' then m_select()
+		else m_selectchoice() end
+		
 	elseif key == 'a' then
 		menu_confirm()
+		
 	elseif key == 'b' then
+		sfx1:play()
 		if menu_type == 'pause' then
-			sfx1:play()
 			menu_enabled = false
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' then
-			sfx1:play()
 			menu_enable(menu_previous, menu_previousitems)
 		end
 	end

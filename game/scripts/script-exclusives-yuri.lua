@@ -1,4 +1,4 @@
-function ch1yuri()
+function yuri_exclusive_1()
 	if cl == 423 then
 		cw('bl',"I'm really curious to talk to Yuri a little bit more...")
 	elseif cl == 424 then
@@ -475,7 +475,9 @@ function ch1yuri()
 	elseif cl == 633 then
 		cw('bl',"I make a mental note of where I left off in the book, then slip it back into my bag.")
 	elseif cl == 634 then
-		cl = 653
+		if chapter == 1 then
+			cl = 653
+		end
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
