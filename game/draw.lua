@@ -25,6 +25,7 @@ function dripText(text,charactersPerSecond,startTime)
 end
 
 function splashalpha(x)
+	--team salvato splash
 	if x == 1 then
 		if timer <=150 then
 			if alpha >= 255 then
@@ -39,6 +40,7 @@ function splashalpha(x)
 				alpha = 0
 			end
 		else alpha = 0 end
+	--warning splash
 	elseif x == 2 then
 		if timer <=400 then
 			if alpha >= 255 then
@@ -53,13 +55,15 @@ function splashalpha(x)
 				alpha = 0
 			end
 		else alpha = 0 end
+	--fade in title screen
 	elseif x == 3 then
 		if alpha >= 255 then
 			alpha = 255
 		else
-			menu_enable('title', 6)
+			if menu_enabled == false then menu_enable('title', 6) end
 			alpha = alpha + 3
 		end
+	--fade out to poemgame
 	elseif x == 4 then
 		if alpha <= 0 then
 			alpha = 255
@@ -67,6 +71,7 @@ function splashalpha(x)
 		else	
 			alpha = alpha - 1.5
 		end
+	--fade out from poemgame to game
 	elseif x == 5 then
 		if alpha <= 0 then
 			alpha = 255
@@ -76,9 +81,10 @@ function splashalpha(x)
 		else	
 			alpha = alpha - 1.5
 		end
+	--fade from load to splash screens
 	elseif x == 6 then
 		if alpha <= 0 then
-			--go to splash screens and title screen
+			resetchr(2)
 			xaload = 0
 			timer = 0
 			state = "splash1"
@@ -104,7 +110,7 @@ function drawGame()
 		drawMonika(ma,mb)
 	end
 	
-	if menu_enabled ~= true and poem_enabled ~= true and setting_textloc == 'Top' then
+	if menu_enabled ~= true and poem_enabled ~= true and settings[2] == 'Top' then
 		if ct ~= '' then love.graphics.draw(namebox, 52, 142) end
 		love.graphics.draw(textbox, 40, 162)
 		love.graphics.setColor(0,0,0)
@@ -130,7 +136,7 @@ function drawGame()
 	love.graphics.print(cl,0,0,0) --script number
 	if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
 		
-	if poem_enabled ~= true and setting_textloc == 'Bottom' then
+	if poem_enabled ~= true and settings[2] == 'Bottom' then
 		love.graphics.setColor(255,255,255,alpha)
 		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
 		love.graphics.draw(textbox, 0, 60)
