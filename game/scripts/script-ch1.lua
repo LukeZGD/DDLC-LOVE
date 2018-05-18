@@ -502,11 +502,14 @@ function ch1script()
 			autotimer = 0
 		end
 	elseif cl >= 996  and cl < 1092 then
-		if choicepick == 'Natsuki.' then
+		if choicepick == 'Natsuki.' or choicepick == 'n' then
+			choicepick = 'n'
 			ch1_end_natsuki()
-		elseif choicepick == "Yuri." then
+		elseif choicepick == "Yuri." or choicepick == 'y' then
+			choicepick = 'y'
 			ch1_end_yuri()
-		elseif choicepick == "Help me, Sayori!!" then
+		elseif choicepick == "Help me, Sayori!!" or choicepick == 's' then
+			choicepick = 's'
 			ch1_end_sayori()
 		end
 		
