@@ -1,4 +1,5 @@
 function menu_enable(m, x)
+	unloadAll()
 	menu_type = m
 	menu_items = x
 	menu_enabled = true
@@ -132,10 +133,10 @@ function menu_confirm()
 		end
 		
 		if m_selected == 2 then --new game
+			xaload = 0
 			if monikachr == false and chapter < 5 then
 				menu_enabled = false
 				cl = 10001
-				xaload = 0
 				state = "game"
 			elseif player == "" and global_os == 'Horizon' then
 				love.keyboard.setTextInput(true)
@@ -144,10 +145,9 @@ function menu_confirm()
 				hideYuri()
 				hideNatsuki()
 				hideMonika()
-				menu_enabled = false
 				cl = 1
-				xaload = 0
 				state = "game"
+				menu_enabled = false
 			end
 			
 		elseif m_selected == 3 then --load game
@@ -168,11 +168,18 @@ function menu_confirm()
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= "" and cl ~= 0 then
 			savenumber = m_selected - 1
+			xaload = 0
 			if love.filesystem.isFile("save"..savenumber..".sav") then loadgame() end
 			if savefile[16] ~= 'warning2' then
-				poem_enabled = false
 				loadupdate()
-				xaload = 0
+				state = "game"
+				menu_enabled = false
+			else
+				hideSayori()
+				hideYuri()
+				hideNatsuki()
+				hideMonika()
+				cl = 1
 				state = "game"
 				menu_enabled = false
 			end

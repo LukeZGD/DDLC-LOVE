@@ -10,18 +10,15 @@ require "scripts.script"
 function love.load() 
 	dversion = "v0.0.2"
 
-	--set up stuff
-	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
-	love.graphics.setFont(font)
-	
 	love.graphics.setBackgroundColor(0,0,0)
+	bgch = love.graphics.newImage('images/bg/black.png')
 	
 	myTextStartTime = love.timer.getTime()
 	l_timer = 0
 	timer = 0
 	autotimer = 0
 	xaload = 0
-	alpha = 0
+	alpha = 255
 	
 	posX = 0
 	posY = 0
@@ -84,7 +81,7 @@ function love.draw()
 		
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
-		love.graphics.setBackgroundColor ( 245,245,245 )
+		love.graphics.setBackgroundColor (245,245,245)
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(endbg,0,0)
 		drawBottomScreen()
@@ -93,9 +90,12 @@ function love.draw()
 		
 	elseif state == "load" then
 		drawTopScreen()
-		love.graphics.setBackgroundColor(0,0,0)
-		love.graphics.setColor(255,255,255)
+		love.graphics.setBackgroundColor(255,255,255)
+		love.graphics.setColor(255,255,255,alpha)
+		love.graphics.draw(bgch,0,0)
 		love.graphics.print("Loading... ("..l_timer.."%)",0,0)
+		drawBottomScreen()
+		love.graphics.draw(bgch,-40,0)
 	end
 end
 
@@ -183,9 +183,8 @@ function love.textinput(text)
 		if text ~= '' then 
 			player = text
 			savegame()
-			menu_enabled = false
-			xaload = 0
 			state = "game"
+			menu_enabled = false
 		else
 			state = "title"
 		end

@@ -5,9 +5,10 @@ function updateloading(dt)
 	end
 	
 	--loading assets
-	if l_timer == 5 then
-		--splash, title sbreen, gui elements, sfx
+	if l_timer == 1 then
 		loadstuff()
+	elseif l_timer == 5 then
+		--splash, title screen, gui elements, sfx
 		splash = love.graphics.newImage('images/bg/splash.png')
 		titlebg = love.graphics.newImage('images/bg/bg.png')
 		namebox = love.graphics.newImage('images/gui/namebox.png')
@@ -72,29 +73,29 @@ function updateloading(dt)
 	]]
 	
 	elseif l_timer == 50 then
-		--poemgame stuff and fonts
+		--poemgame font
 		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
-		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
-		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
 
 	elseif l_timer == 55 then
 		--more poemgame stuff and fonts
+		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
+		
+	elseif l_timer == 60 then
 		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
 		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
 		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
 
-	elseif l_timer == 100 then
-		--go to splash screens and title screen
-		alpha = 0
-		xaload = 0
-		timer = 0
-		state = "splash1"
-		audioUpdate('1')
+	elseif l_timer >= 100 then
+		l_timer = 100
+		splashalpha(6)
 	end
 end
 	
 function loadstuff()
+	font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
+	love.graphics.setFont(font)
 	textbox = love.graphics.newImage('images/gui/textbox.png')
 	background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 	sfx1 = love.audio.newSource('audio/sfx/select.ogg')
