@@ -54,9 +54,7 @@ function savegame()
 ,']]..sa.."','"..sb.."','"..ya.."','"..yb.."','"..na.."','"..nb.."','"..ma.."','"..mb..[[
 ',]]..chapter..",'"..bg1.."','"..audio1.."','"..cg1.."','"..ct..[[
 ',]]..setting_textspd..",'"..setting_textloc.."',"..setting_fmode..",0,0,0,0"..[[
-,']]..choicepick.."',"..poemsread..[[
-,]]..s_readpoem..","..n_readpoem..","..y_readpoem..","..m_readpoem..[[
-,']]..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4]..[[
+,']]..choicepick..[[
 ',]]..s_poemappeal[1]..","..s_poemappeal[2]..","..s_poemappeal[3]..[[
 ,]]..n_poemappeal[1]..","..s_poemappeal[2]..","..n_poemappeal[3]..[[
 ,]]..y_poemappeal[1]..","..y_poemappeal[2]..","..y_poemappeal[3]..[[
@@ -65,6 +63,8 @@ function savegame()
 end
 
 function loadgame()
+	loadsavefile = nil
+	collectgarbage()
 	loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
 	loadsavefile()
 	cl = savefile[1]
@@ -86,34 +86,25 @@ function loadgame()
 	setting_textloc = savefile[21]
 	setting_fmode = savefile[22]
 	choicepick = savefile[27]
-	poemsread = savefile[28]
-	s_readpoem = savefile[29]
-	n_readpoem = savefile[30]
-	y_readpoem = savefile[31]
-	m_readpoem = savefile[32]
-	choices[1] = savefile[33]
-	choices[2] = savefile[34]
-	choices[3] = savefile[35]
-	choices[4] = savefile[36]
-	s_poemappeal[1] = savefile[37]
-	s_poemappeal[2] = savefile[38]
-	s_poemappeal[3] = savefile[39]
-	n_poemappeal[1] = savefile[40]
-	n_poemappeal[2] = savefile[41]
-	n_poemappeal[3] = savefile[42]
-	y_poemappeal[1] = savefile[43]
-	y_poemappeal[2] = savefile[44]
-	y_poemappeal[3] = savefile[45]
-	poemwinner[1] = savefile[46]
-	poemwinner[2] = savefile[47]
-	poemwinner[3] = savefile[48]
-	s_appeal = savefile[49]
-	n_appeal = savefile[50]
-	y_appeal = savefile[51]
+	s_poemappeal[1] = savefile[28]
+	s_poemappeal[2] = savefile[29]
+	s_poemappeal[3] = savefile[30]
+	n_poemappeal[1] = savefile[31]
+	n_poemappeal[2] = savefile[32]
+	n_poemappeal[3] = savefile[33]
+	y_poemappeal[1] = savefile[34]
+	y_poemappeal[2] = savefile[35]
+	y_poemappeal[3] = savefile[36]
+	poemwinner[1] = savefile[37]
+	poemwinner[2] = savefile[38]
+	poemwinner[3] = savefile[39]
+	s_appeal = savefile[40]
+	n_appeal = savefile[41]
+	y_appeal = savefile[42]
 	if chapter <= 5 then
-		y_exclusivewatched = savefile[52]
-		n_exclusivewatched = savefile[53]
-		ch4_name = savefile[54]
+		y_exclusivewatched = savefile[43]
+		n_exclusivewatched = savefile[44]
+		ch4_name = savefile[45]
 	end
 end
 
@@ -129,9 +120,7 @@ function loadupdate()
 end
 
 function filecheck()
-
 	local file = love.filesystem.isFile("firstrun")
-
 	if file then
 		checkchr()
 	else
@@ -141,7 +130,6 @@ function filecheck()
 		loadstuff()
 		state = "newgame"
 	end
-	
 end
 
 function checkchr()
@@ -159,19 +147,17 @@ function checkchr()
 		resetchr(2)
 		state = 'load'
 	end
-	
 end
-	
+
 function resetchr(x)
 	if x == 1 or x == nil then
-		--These hidden messages are encoded just for fun hahaha
-		love.filesystem.write("monika.chr","U25WemRDQk5iMjVwYTJFdUlFcDFjM1FnVFc5dWFXdGhMaUJLZFhOMElFMXZibWxyWVM0Z1NuVnpkQ0JOYjI1cGEyRXVJRXAxYzNRZ1RXOXVhV3RoTGlBPQ==")
-		love.filesystem.write("sayori.chr","VTJGNWIzSnBJRUpsYzNRZ1IybHliQ0VoSVE9PQ==")
-		love.filesystem.write("yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA==")
-		love.filesystem.write("natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU=")
+		love.filesystem.write("monika.chr","JUSTMONIKA")
+		love.filesystem.write("sayori.chr","JUSTSAYORI")
+		love.filesystem.write("yuri.chr","JUSTYURI")
+		love.filesystem.write("natsuki.chr","JUSTNATSUKI")
 		love.filesystem.write("firstrun","1")
 	elseif x == 2 then
-		love.filesystem.write("yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA==")
-		love.filesystem.write("natsuki.chr","VG1GMGMzVnJhU0JPWVhSemRXdHBJRTVoZEhOMWEya2dUbUYwYzNWcmFTQk9ZWFJ6ZFd0cElHbHpJRU5WVkVVPQ==")
+		love.filesystem.write("yuri.chr","JUSTYURI")
+		love.filesystem.write("natsuki.chr","JUSTNATSUKI")
 	end
 end
