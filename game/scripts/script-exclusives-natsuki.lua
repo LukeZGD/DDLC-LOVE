@@ -1,4 +1,4 @@
-function ch1natsuki()
+function natsuki_exclusive_1()
 	if cl == 423 then
 		cw('n',"Ugh...!")
     elseif cl == 424 then
@@ -378,7 +378,7 @@ function ch1natsuki()
 	elseif cl == 589 then
 		cw('mc',"Maybe...")
 	elseif cl == 590 then
-		wc('mc',"But at least you're enjoying yourself, right?")
+		cw('mc',"But at least you're enjoying yourself, right?")
 	elseif cl == 591 then
 		cgUpdate('n_cg1_exp2')
 		cw('n',"--")
@@ -521,7 +521,9 @@ function ch1natsuki()
     elseif cl == 651 then
 		cw('bl',"I return to where I put my stuff and carefully slip the book into my bag.")
 	elseif cl == 652 then
-		cl = 653
+		if chapter == 1 then 
+			cl = 653
+		end
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200

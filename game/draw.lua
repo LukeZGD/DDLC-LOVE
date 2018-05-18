@@ -87,14 +87,11 @@ function drawGame()
 	love.graphics.setColor(255, 255, 255, alpha)
 	love.graphics.draw(bgch, 0, 0)
 	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
-		
-	if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
-	drawSayori(sa,sb)
-	drawYuri(ya,yb) 
-	drawNatsuki(na,nb)  
-	drawMonika(ma,mb)
-	elseif menu_enabled and menu_type ~= 'choice' then 
-		love.graphics.draw(background_Image, posX, posY)
+		if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
+		drawSayori(sa,sb)
+		drawYuri(ya,yb) 
+		drawNatsuki(na,nb)  
+		drawMonika(ma,mb)
 	end
 	
 	if menu_enabled ~= true and poem_enabled ~= true and setting_textloc == 'Top' then
@@ -107,7 +104,12 @@ function drawGame()
 		love.graphics.print(cc,48,198) --line 3
 		love.graphics.print(cd,48,214) --line 4
 		c_x = 0
-	elseif poem_enabled then drawPoem() end
+	end
+	
+	if menu_enabled and menu_type ~= 'choice' then
+		love.graphics.draw(background_Image, posX, posY)
+	elseif poem_enabled then drawPoem()
+	end
 	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
@@ -462,6 +464,8 @@ function drawNatsuki(na,nb)
 		love.graphics.draw(n3b, nx, ny)
 	elseif na=="natsuki" then
 		love.graphics.draw(naf, nx, ny)
+	elseif na=="natsuki2" then
+		love.graphics.draw(nbf, nx, ny)
 	end
 	
 	if na=="5" or na=="5b" then --set natsuki's head x and y
