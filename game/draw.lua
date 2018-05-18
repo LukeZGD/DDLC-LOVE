@@ -76,6 +76,16 @@ function splashalpha(x)
 		else	
 			alpha = alpha - 1.5
 		end
+	elseif x == 6 then
+		if alpha <= 0 then
+			--go to splash screens and title screen
+			xaload = 0
+			timer = 0
+			state = "splash1"
+			audioUpdate('1')
+		else
+			alpha = alpha - 5
+		end
 	end
 end
 
