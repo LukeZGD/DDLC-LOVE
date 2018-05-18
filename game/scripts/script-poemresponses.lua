@@ -812,9 +812,9 @@ function ch1_n_good()
 	elseif cl == 701 then
 		nb = 's'
 		cw('n',"Gr... Fine, I guess.")
-	elseif cl == 703 then
+	elseif cl == 702 then
 		cw('n',"Only because Monika will make me if I don\'t.")
-	elseif cl >= 704 then
+	elseif cl >= 703 then
 		ch1_n_end()
 	end
 end

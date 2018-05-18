@@ -11,7 +11,6 @@ function love.load()
 	dversion = "v0.0.2"
 
 	love.graphics.setBackgroundColor(0,0,0)
-	bgch = love.graphics.newImage('images/bg/black.png')
 	
 	myTextStartTime = love.timer.getTime()
 	l_timer = 0
@@ -32,7 +31,7 @@ function love.load()
 		love.window.setTitle('DDLC-3DS')
 	end
 	
-	filecheck()
+	state = 'load'
 end
 
 function love.draw() 
@@ -51,7 +50,7 @@ function love.draw()
 	if timer <= 200 then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
 		splashalpha(1)
-		love.graphics.setBackgroundColor ( 255,255,255 )
+		love.graphics.setBackgroundColor (255,255,255)
 		love.graphics.setColor(255, 255, 255, alpha)
 		love.graphics.draw(splash, 0, 0, 0)
 		
@@ -91,11 +90,13 @@ function love.draw()
 	elseif state == "load" then
 		drawTopScreen()
 		love.graphics.setBackgroundColor(255,255,255)
+		love.graphics.setColor(0,0,0,alpha)
+		love.graphics.rectangle("fill",0,0,400,240)
 		love.graphics.setColor(255,255,255,alpha)
-		love.graphics.draw(bgch,0,0)
 		love.graphics.print("Loading... ("..l_timer.."%)",0,0)
 		drawBottomScreen()
-		love.graphics.draw(bgch,-40,0)
+		love.graphics.setColor(0,0,0,alpha)
+		love.graphics.rectangle("fill",-40,0,400,240)
 	end
 end
 
@@ -135,8 +136,8 @@ function love.update(dt)
 	
 	if love.keyboard.isDown('x') then --skip enable
 		if state == 'game' and menu_enabled == false and cl ~= 666 then
-			if tspd == nil then tspd = setting_textspd end
-			setting_textspd = 10000
+			if tspd == nil then tspd = settings[1] end
+			settings[1] = 10000
 			if autotimer < 148 then autotimer = 148 end
 		end
 	end
@@ -172,7 +173,7 @@ end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
-		if tspd ~= nil then setting_textspd = tspd end
+		if tspd ~= nil then settings[1] = tspd end
 		tspd = nil
 		autotimer = 0
 	end
@@ -183,6 +184,7 @@ function love.textinput(text)
 		if text ~= '' then 
 			player = text
 			savegame()
+			xaload = 0
 			state = "game"
 			menu_enabled = false
 		else
