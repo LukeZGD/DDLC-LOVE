@@ -1,4 +1,4 @@
-function ch1sayori()
+function sayori_exclusive_1()
 	if cl == 423 then
 		cw('bl',"Man...")
     elseif cl == 424 then
@@ -415,8 +415,10 @@ function ch1sayori()
 	elseif cl == 600 then
 		cw('bl',"I fail to sound enthusiastic, but Sayori still trots away to retrieve her poem.")
 	elseif cl == 601 then
-		hideSayori()
-		cl = 653
+		if chapter == 1 then
+			hideSayori()
+			cl = 653
+		end
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=-40 x=80 x=200

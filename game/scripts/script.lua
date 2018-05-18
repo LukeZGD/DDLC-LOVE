@@ -37,7 +37,7 @@ function cw(p1, stext)
 	
 	textx = dripText(stext,setting_textspd,myTextStartTime)
 		
-	--this is some kind of word wrapping haha
+	--word wrapping haha
 	slen = string.len(textx)
 	ca = string.sub(textx, 1, caa)
 	
@@ -71,15 +71,15 @@ function ch0script()
 	cc = ""
 	cd = ""
 	
-	if poemsread ~= nil then
+	if poemsread ~= -1 then
 		poemresponses()
 	end
 	
-	if cl >= 348 then
+	if chapter == 1 then
 		ch1script() --go to script-ch1 (day 2)
 	end
 	
-	--start of script-ch0 (day 1)
+	--ch0-main
 	if cl == 1 then
 		bgUpdate('residential')
 		audioUpdate('2')
@@ -1026,7 +1026,10 @@ function ch0script()
 		cl = 346
 	end 
 	
+	--ch0-kill
 	if cl == 10001 then
+		bgUpdate('residential')
+		audioUpdate('2')
 		updateSayori('1','b')
 		cw('s',"...")
 	elseif cl == 10002 then 
@@ -1065,11 +1068,12 @@ function ch0script()
 		love.quit()
 	end
 	
-	if cl == 10016 then --NEW GAME
+	--NEW GAME
+	if cl == 10016 then 
 		bgUpdate('warning')
 		cw('bl','This is an unofficial port of Doki Doki Literature Club. If you are using a New 3DS/2DS and have CFW, turn off L2 Cache.')
 	elseif cl == 10017 then
-		cw('bl','This port, nor the original game is not suitable for children or those who are easily disturbed.')
+		cw('bl','This port, or the original game is not suitable for children or those who are easily disturbed.')
 	elseif cl == 10018 then
 		cw('bl','Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: http://ddlc.moe/warning.html')
 	elseif cl == 10019 then
@@ -1086,6 +1090,16 @@ function ch0script()
 		if timer == 1150 then
 			cl = 1
 			player = ""
+			savegame()
+			savenumber = 2
+			savegame()
+			savenumber = 3
+			savegame()
+			savenumber = 4
+			savegame()
+			savenumber = 5
+			savegame()
+			savenumber = 6
 			savegame()
 			resetchr()
 			state = 'load'

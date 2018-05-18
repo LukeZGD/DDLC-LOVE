@@ -7,23 +7,38 @@ function addpoints()
 	if poemword ~= 21 then poemword = poemword + 1 end
 end
 
-function poemfinish()
+function poemgamefinish()
+	if chapter < 5 then
+		chapter = chapter+1
+	end
+
 	if spoint > ypoint then
-		if spoint > npoint then poemwinner = 'sayori' 
-		elseif npoint > spoint then poemwinner = 'natsuki'
+		if spoint > npoint then poemwinner[chapter] = 'Sayori' 
+		elseif npoint > spoint then poemwinner[chapter] = 'Natsuki'
 		end
 	elseif ypoint > spoint then
-		if ypoint > npoint then poemwinner = 'yuri'
-		elseif npoint > ypoint then poemwinner = 'natsuki'
+		if ypoint > npoint then poemwinner[chapter] = 'Yuri'
+		elseif npoint > ypoint then poemwinner[chapter] = 'Natsuki'
 		end
 	end
 	
-	if spoint < 29 then s_poemappeal = s_poemappeal-1
-    elseif spoint > 45 then s_poemappeal = s_poemappeal+1 end
-    if npoint < 29 then n_poemappeal = n_poemappeal-1
-    elseif npoint > 45 then n_poemappeal = n_poemappeal+1 end
-	if ypoint < 29 then y_poemappeal = y_poemappeal-1
-    elseif ypoint > 45 then y_poemappeal = y_poemappeal+1 end
+	if spoint < 29 then s_poemappeal[chapter] = -1
+    elseif spoint > 45 then s_poemappeal[chapter] = 1 end
+    if npoint < 29 then n_poemappeal[chapter] = -1
+    elseif npoint > 45 then n_poemappeal[chapter] = 1 end
+	if ypoint < 29 then y_poemappeal[chapter] = -1
+    elseif ypoint > 45 then y_poemappeal[chapter] = 1 end
+	
+	if poemwinner[chapter] == 'Sayori' then
+		s_poemappeal[chapter] = 1
+		s_appeal = s_appeal+1
+	elseif poemwinner[chapter] == 'Natsuki' then
+		n_poemappeal[chapter] = 1
+		n_appeal = n_appeal+1
+	elseif poemwinner[chapter] == 'Yuri' then
+		y_poemappeal[chapter] = 1
+		y_appeal = y_appeal+1
+	end
 end
 
 function updatewordlist()
@@ -52,6 +67,7 @@ function updatewordlist()
 end
 
 function poemgame()
+	unloadAll()
 	bgch2 = love.graphics.newImage('images/bg/notebook.png')
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
@@ -78,7 +94,6 @@ function poemgame()
 	npoint = 0
 	ypoint = 0
 	poemword = 1
-	poemwinner = ''
 end
 
 function drawpoemgame()
@@ -96,7 +111,7 @@ function drawpoemgame()
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
 	love.graphics.print('>',cursorX,cursorY,0,1,1)
-	
+
 	love.graphics.setFont(poemfont)
 	if poemword <= 20 then
 		love.graphics.print(poemword .. "/20",245,25,0,1,1)
@@ -115,14 +130,14 @@ function drawpoemgame()
 	love.graphics.print(word10,200,188,0,1,1)
 	
 	love.graphics.setColor(255,255,255,alpha)
-	if poemstate == 0 then love.graphics.draw(poemtime,0,0)
-	elseif menu_enabled and menu_type ~= 'choice' then 
+	if poemstate == 0 then love.graphics.draw(poemtime,0,0) end
+	
+	if menu_enabled then 
 		love.graphics.draw(background_Image, posX, posY)
 	end
 	
 	drawBottomScreen()
 	love.graphics.draw(background_Image, posX, posY)
-	
 	if xaload <= 75 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
@@ -283,7 +298,7 @@ function poemgamekeypressed(key)
 				xaload = 0
 			elseif poemword == 20 then
 				addpoints()
-				poemfinish()
+				poemgamefinish()
 				xaload = 0
 			end
 		end

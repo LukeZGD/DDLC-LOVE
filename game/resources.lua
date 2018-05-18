@@ -289,11 +289,8 @@ end
 function charCheck()
 	if xaload == 0 then
 		myTextStartTime = love.timer.getTime()
-		if settings_fmode == 0 then
-			unloadSayori()
-			unloadYuri()
-			unloadNatsuki()
-			unloadMonika()
+		if setting_fmode == 0 then
+			unloadAll()
 		end
 		loadSayori()
 		loadYuri()
@@ -307,6 +304,7 @@ function charCheck()
 end
 	
 function updateSayori(a,b)
+	if b == nil then b = '' end
 	sa = a
 	sb = b
 end
@@ -322,6 +320,7 @@ function updateNatsuki(a,b)
 end
 
 function updateMonika(a,b)
+	if b == nil then b = '' end
 	ma = a
 	mb = b
 end
@@ -688,6 +687,8 @@ function loadNatsuki()
 		if n3b == nil then n3b = love.graphics.newImage('images/natsuki/3b.png') end
 	elseif na=="natsuki" then
 		if naf == nil then naf = love.graphics.newImage('images/natsuki/natsuki.png') end 
+	elseif na=="natsuki2" then
+		if nbf == nil then nbf = love.graphics.newImage('images/natsuki/natsuki2.png') end 
 	
 	end
 end
