@@ -18,7 +18,7 @@ function updateloading(dt)
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
 		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
 		
-	--This crashes the game, so it's commented out for now. It runs out of memory I guess?
+	--This is commented out for now. 
 	--[[elseif l_timer == 10 then
 		s1l = love.graphics.newImage('images/sayori/1l.png') 
 		s2l = love.graphics.newImage('images/sayori/2l.png') 
@@ -26,7 +26,6 @@ function updateloading(dt)
 		s3b = love.graphics.newImage('images/sayori/3b.png') 
 		s3c = love.graphics.newImage('images/sayori/3c.png') 
 		s3d = love.graphics.newImage('images/sayori/3d.png') 
-	
 	elseif l_timer == 15 then
 		s1bl = love.graphics.newImage('images/sayori/1bl.png') 
 		s2bl = love.graphics.newImage('images/sayori/2bl.png') 
@@ -35,7 +34,6 @@ function updateloading(dt)
 		s2r = love.graphics.newImage('images/sayori/2r.png') 
 		s1br = love.graphics.newImage('images/sayori/1br.png') 
 		s2br = love.graphics.newImage('images/sayori/2br.png') 
-	
 	elseif l_timer == 20 then
 		y1l = love.graphics.newImage('images/yuri/1l.png') 
 		y2l = love.graphics.newImage('images/yuri/2l.png') 
@@ -43,14 +41,12 @@ function updateloading(dt)
 		y1bl = love.graphics.newImage('images/yuri/1bl.png')
 		y2bl = love.graphics.newImage('images/yuri/2bl.png')
 		y3b = love.graphics.newImage('images/yuri/3b.png')
-	
 	elseif l_timer == 25 then
 		--yaf = love.graphics.newImage('images/yuri/yuri.png') 
 		y1r = love.graphics.newImage('images/yuri/1r.png')
 		y2r = love.graphics.newImage('images/yuri/2r.png')
 		y1br = love.graphics.newImage('images/yuri/1br.png')
 		y2br = love.graphics.newImage('images/yuri/2br.png')
-	
 	elseif l_timer == 30 then
 		 n1l = love.graphics.newImage('images/natsuki/1l.png')
 		n2l = love.graphics.newImage('images/natsuki/2l.png')
@@ -65,24 +61,23 @@ function updateloading(dt)
 		n2r = love.graphics.newImage('images/natsuki/2r.png')
 		n1br = love.graphics.newImage('images/natsuki/1br.png')
 		n2br = love.graphics.newImage('images/natsuki/2br.png')
-	
 	elseif l_timer == 40 then
 		m1l = love.graphics.newImage('images/monika/1l.png')
 		m2l = love.graphics.newImage('images/monika/2l.png')
 		m1r = love.graphics.newImage('images/monika/1r.png')
 		m2r = love.graphics.newImage('images/monika/2r.png') 
-	
 	elseif l_timer == 45 then
 		m3a = love.graphics.newImage('images/monika/3a.png') 
 		m3b = love.graphics.newImage('images/monika/3b.png') 
 	]]
 	
 	elseif l_timer == 50 then
-		--poemgame font
 		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
 
+	elseif l_timer == 52 then
+		sfxpageflip = love.audio.newSource('audio/sfx/pageflip.ogg')
+		
 	elseif l_timer == 55 then
-		--more poemgame stuff and fonts
 		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
 		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
 		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')

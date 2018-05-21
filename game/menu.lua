@@ -174,6 +174,7 @@ function menu_confirm()
 				loadupdate()
 				xaload = 0
 				state = "game"
+				poem_enabled = false
 				menu_enabled = false
 			end
 		end
