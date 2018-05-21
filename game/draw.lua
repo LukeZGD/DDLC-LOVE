@@ -96,7 +96,7 @@ function splashalpha(x)
 end
 
 function drawGame()
-	ch0script()
+	scriptCheck()
 	charCheck()	
 	
 	drawTopScreen()

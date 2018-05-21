@@ -346,7 +346,7 @@ function menu_keypressed(key)
 		sfx1:play()
 		if menu_type == 'pause' then
 			menu_enabled = false
-		elseif menu_type ~= 'title' and menu_type ~= 'pause' then
+		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' then
 			menu_enable(menu_previous, menu_previousitems)
 		end
 	end
