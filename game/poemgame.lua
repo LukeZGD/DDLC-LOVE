@@ -289,7 +289,7 @@ function poemgamekeypressed(key)
 	if key == 'a' then
 		if xaload >= 75 then
 			if poemstate == 0 then
-				poemstate = 1
+				poemstate = nil
 				sfx1:play()
 			elseif poemword <= 19 then
 				addpoints()
