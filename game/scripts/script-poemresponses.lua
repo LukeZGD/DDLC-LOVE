@@ -1,9 +1,6 @@
 function poeminitialize(y)
 	poemsread = 0
-	s_readpoem = 0
-	n_readpoem = 0
-	y_readpoem = 0
-	m_readpoem = 0
+	readpoem = {0,0,0,0}
 	
 	choices = {"Sayori","Natsuki","Yuri","Monika"}
 end
@@ -66,16 +63,16 @@ end
 
 function poemfinish(a)
 	if a == 's' then
-		s_readpoem = 1
+		readpoem[1] = 1
 		choices[1] = ''
 	elseif a == 'n' then
-		n_readpoem = 1
+		readpoem[2] = 1
 		choices[2] = ''
 	elseif a == 'y' then
-		y_readpoem = 1
+		readpoem[3] = 1
 		choices[3] = ''
 	elseif a == 'm' then
-		m_readpoem = 1
+		readpoem[4] = 1
 		choices[4] = ''
 	end
 	poemsread = poemsread + 1
@@ -86,10 +83,7 @@ function poemfinish(a)
 	if poemsread == 4 or poemsread == 3 and chapter > 5 then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
-		s_readpoem = 0
-		n_readpoem = 0
-		y_readpoem = 0
-		m_readpoem = 0
+		readpoem = {0,0,0,0}
 		if chapter == 1 then
 			cl = 900
 			ch1script()
@@ -1053,13 +1047,13 @@ function ch1_s_good()
 	elseif cl == 684 then
 		cw('mc',"Jeez...")
 	elseif cl == 685 then
-		if y_readpoem==1 then
+		if readpoem[3]==1 then
 			cw('bl',"Yuri's opinion was way more constructive than this...")
 		else
 			cw('bl',"I'm sure Yuri's opinion has to be a little more constructive than this.")
 		end
 	elseif cl == 686 then
-		if y_readpoem==1 then
+		if readpoem[3]==1 then
 			xaload = -1
 			cl = 687
 		else
