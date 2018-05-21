@@ -227,7 +227,7 @@ function yuri_exclusive_1()
 	elseif cl == 522 then
 		cw('y',"That's...")
 	elseif cl == 523 then
-		updateYuri('3','','b2')
+		updateYuri('4','b2')
 		cw('y',"I'm sorry...")
 	elseif cl == 524 then
 		cw('y',"It's not that I don't want you to!")
@@ -347,7 +347,7 @@ function yuri_exclusive_1()
 	elseif cl == 577 then
 		cw('mc',"Y-Yeah...")
 	elseif cl == 578 then
-		cw('y', "Thanks.")
+		cw('mc', "Thanks.")
 	elseif cl == 579 then
 		cgHide()
 		cw('bl',"We continue reading.")

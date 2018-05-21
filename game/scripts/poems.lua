@@ -184,7 +184,7 @@ And he, on the other side, was looking in.]]
 	if xaload == 0 and continue ~= 1 then
 		unloadAll()
 		poembg = love.graphics.newImage('images/bg/poem.png')
-		sfxplay('pageflip')
+		sfxpageflip:play()
 		
 		if author == 'yuri' then
 			y1 = love.graphics.newFont('images/gui/fonts/y1')
