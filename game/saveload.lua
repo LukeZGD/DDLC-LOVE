@@ -1,61 +1,73 @@
-sa = "" --sayori
-sb = ""
-sx = 80
-ya = "" --yuri
-yb = ""
-yx = 80
-yy = 0
-na = "" --natsuki
-nb = ""
-nx = 80
-ma = "" --just monika
-mb = ""
-mx = -40
-
-chapter = 0
 bg1 = ""
 audio1 = 2
 cg1 = ""
-savenumber = 1
-settings = {100,'Bottom',0}
-
+s = {a='',b='',x='80',y='0'}
+y = {a='',b='',x='80',y='0'}
+n = {a='',b='',x='80',y='0'}
+m = {a='',b='',x='-40',y='0'}
+poemwinner = {"","",""}
+chapter = 0
+settings = {textspd = 100,textloc = 'Bottom',fmode = 0}
+readpoem = {s=0,n=0,y=0,m=0}
+choices = {"","","",""}
 choicepick = ''
 poemsread = -1
-readpoem = {0,0,0,0}
-choices = {"","","",""}
 s_poemappeal = {0,0,0}
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
-poemwinner = {"","",""}
 s_appeal = 0
 n_appeal = 0
 y_appeal = 0
 y_exclusivewatched = ''
 n_exclusivewatched = ''
 ch4_name = ''
+savenumber = 1
 
 function savegame()
+	--this should prevent crashes on loading the save
+	if s.a ~= '' then
+		y.a = ''
+		y.b = ''
+		n.a = ''
+		n.b = ''
+		m.a = ''
+		m.b = ''
+	elseif y.a ~= '' then
+		s.a = ''
+		s.b = ''
+		n.a = ''
+		n.b = ''
+		m.a = ''
+		m.b = ''
+	elseif n.a ~= '' then
+		y.a = ''
+		y.b = ''
+		s.a = ''
+		s.b = ''
+		m.a = ''
+		m.b = ''
+	elseif m.a ~= '' then
+		y.a = ''
+		y.b = ''
+		n.a = ''
+		n.b = ''
+		s.a = ''
+		s.b = ''
+	end
+	
 	savedata = "cl = "..cl.."\
 player = '"..player.."'\
 bg1 = '"..bg1.."'\
 audio1 = '"..audio1.."'\
 cg1 = '"..cg1.."'\
 ct = '"..ct.."'\
-sx = "..sx.."\
-yx = "..yx.."\
-nx = "..nx.."\
-mx = "..mx.."\
-sa = '"..sa.."'\
-sb = '"..sb.."'\
-ya = '"..ya.."'\
-yb = '"..yb.."'\
-na = '"..na.."'\
-nb = '"..nb.."'\
-ma = '"..ma.."'\
-mb = '"..mb.."'\
+s = {a='"..s.a.."',b='"..s.b.."',x="..s.x..",y="..s.y.."}\
+y = {a='"..y.a.."',b='"..y.b.."',x="..y.x..",y="..y.y.."}\
+n = {a='"..n.a.."',b='"..n.b.."',x="..n.x..",y="..n.y.."}\
+m = {a='"..m.a.."',b='"..m.b.."',x="..m.x..",y="..m.y.."}\
 chapter = "..chapter.."\
-settings = {"..settings[1]..",'"..settings[2].."',"..settings[3].."}\
-readpoem = {"..readpoem[1]..","..readpoem[2]..","..readpoem[3]..","..readpoem[4].."}\
+settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',fmode="..settings.fmode.."}\
+readpoem = {s="..readpoem.s..",n="..readpoem.n..",y="..readpoem.y..",m="..readpoem.m.."}\
 choices = {'"..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4].."'}\
 choicepick = '"..choicepick.."'\
 poemsread = "..poemsread.."\
@@ -70,7 +82,7 @@ y_exclusivewatched = '"..y_exclusivewatched.."'\
 n_exclusivewatched = '"..n_exclusivewatched.."'\
 ch4_name = '"..ch4_name.."'"
 
-	love.filesystem.write("save"..savenumber..".sav", savedata)--other settings might be added!
+	love.filesystem.write("save"..savenumber..".sav", savedata)
 end
 
 function loadgame()
@@ -106,13 +118,12 @@ end
 
 function resetchr(x)
 	if x == 1 or x == nil then
-		love.filesystem.write("monika.chr","JUSTMONIKA")
-		love.filesystem.write("sayori.chr","JUSTSAYORI")
-		love.filesystem.write("yuri.chr","JUSTYURI")
-		love.filesystem.write("natsuki.chr","JUSTNATSUKI")
-		love.filesystem.write("firstrun","1")
+		love.filesystem.write("monika.chr","U25WemRDQk5iMjVwYTJFdUlFcDFjM1FnVFc5dWFXdGhMaUJLZFhOMElFMXZibWxyWVM0Z1NuVnpkQ0JOYjI1cGEyRXVJRXAxYzNRZ1RXOXVhV3RoTGlBPQ==")
+		love.filesystem.write("sayori.chr","VTJGNWIzSnBJRUpsYzNRZ1IybHliQ0VoSVE9PQ==")
+		love.filesystem.write("yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA==")
+		love.filesystem.write("natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU=")
 	elseif x == 2 then
-		love.filesystem.write("yuri.chr","JUSTYURI")
-		love.filesystem.write("natsuki.chr","JUSTNATSUKI")
+		love.filesystem.write("yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA==")
+		love.filesystem.write("natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU=")
 	end
 end
