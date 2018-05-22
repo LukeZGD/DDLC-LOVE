@@ -10,11 +10,11 @@ function natsuki_exclusive_1()
 	elseif cl == 427 then
 		bgUpdate('closet')
 		audioUpdate('6')
-		nx = 80
+		n.x = 80
 		updateNatsuki('4','r')
 		cw('mc',"You looking for something in there?")
 	elseif cl == 428 then
-		nb = 'x'
+		n.b = 'x'
 		cw('n',"Freaking Monika...")
 	elseif cl == 429 then
 		cw('n',"She never puts my stuff back in the right spot!")
@@ -36,7 +36,7 @@ function natsuki_exclusive_1()
 	elseif cl == 437 then
 		cw('mc',"...How did you know, anyway?")
 	elseif cl == 438 then
-		nb = 'k'
+		n.b = 'k'
 		cw('n',"I heard you bring it up at some point.")
 	elseif cl == 439 then
 		cw('n',"Besides, it's kind of written on your face.")
@@ -80,7 +80,7 @@ function natsuki_exclusive_1()
 	elseif cl == 457 then
 		cw('mc',"I didn't even say anything.")
 	elseif cl == 458 then
-		nb = 'c'
+		n.b = 'c'
 		cw('n',"It was the tone of your voice.")
 	elseif cl == 459 then
 		cw('n',"But I'll tell you one thing, "..player..".")
@@ -104,7 +104,7 @@ function natsuki_exclusive_1()
 	elseif cl == 468 then
 		cw('bl',"It's...exceedingly \"moe\".")
 	elseif cl == 469 then
-		nb = 'b'
+		n.b = 'b'
 		cw('n',"Don't just stand there!")
 	elseif cl == 470 then
 		cw('mc',"Uwa--")
@@ -122,7 +122,7 @@ function natsuki_exclusive_1()
 	elseif cl == 475 then
 		cw('bl',"I take my seat.")
 	elseif cl == 476 then
-		nb = 'k'
+		n.b = 'k'
 		cw('n',"Chairs wouldn't work.")
 	elseif cl == 477 then
 		cw('n',"We can't read at the same time like that.")
@@ -131,7 +131,7 @@ function natsuki_exclusive_1()
 	elseif cl == 479 then
 		cw('mc',"Ah...I guess it's easier to be close together like this...")
 	elseif cl == 480 then
-		nb = 'o'
+		n.b = 'o'
 		cw('n',"--!")
 	elseif cl == 481 then
 		updateNatsuki('5','r')
@@ -143,7 +143,7 @@ function natsuki_exclusive_1()
 	elseif cl == 484 then
 		cw('mc',"Sorry...")
 	elseif cl == 485 then
-		nb = 'g'
+		n.b = 'g'
 		cw('bl',"I didn't exactly expect to be sitting this close to her, either...")
 	elseif cl == 486 then
 		cw('bl',"Not that I can say it's a particularly bad thing.")
@@ -166,7 +166,7 @@ function natsuki_exclusive_1()
 	elseif cl == 494 then
 		cw('n',"Maybe sometimes after I've already finished the series.")
 	elseif cl == 495 then
-		nb = 'c'
+		n.b = 'c'
 		cw('n',"Hey, are you paying attention?")
 	elseif cl == 496 then
 		cw('mc',"Uh...")
@@ -190,30 +190,30 @@ function natsuki_exclusive_1()
 	elseif cl == 505 then
 		cw('n',"You think I would enjoy something that didn't have a plot?")
 	elseif cl == 506 then
-		nb = 'c'
+		n.b = 'c'
 		cw('n',"I mean...")
 	elseif cl == 507 then 
 		updateNatsuki('2','c')
 		cw('n',"Well, I guess I know what you're saying...")
 	elseif cl == 508 then
-		nb = 'k'
+		n.b = 'k'
 		cw('n',"A lot of the beginning is about simple things...")
 	elseif cl == 509 then
 		cw('n',"Like there's a really funny chapter where they're obsessed with a guy at the ice cream shop...")
 	elseif cl == 510 then
-		nb = 'c'
+		n.b = 'c'
 		cw('n',"But that just helps you get to know the characters!")
 	elseif cl == 511 then
 		cw('n',"And besides, it's still entertaining.")
 	elseif cl == 512 then
-		nb = 'd'
+		n.b = 'd'
 		cw('n',"But later on, there's all kinds of drama...")
 	elseif cl == 513 then
 		cw('n',"Like when they get into all their backstories, and when some of the romance starts to happen...")
 	elseif cl == 514 then
 		cw('n',"That's really what makes it so good.")
 	elseif cl == 515 then
-		nb = 'a'
+		n.b = 'a'
 		cw('n',"There are so many touching parts.")
 	elseif cl == 516 then
 		cw('mc',"Ah, is that so?")
@@ -222,7 +222,7 @@ function natsuki_exclusive_1()
 	elseif cl== 518 then
 		cw('mc',"Maybe I underestimated you.")
 	elseif cl == 519 then
-		nb = 'z'
+		n.b = 'z'
 		cw('n',"Ehehe.")
 	elseif cl == 520  then
 		updateNatsuki('1','f')
@@ -243,7 +243,7 @@ function natsuki_exclusive_1()
 	elseif cl == 527 then
 		cw('mc',"This is just a guess, but is there a lot of baking in this manga?")
 	elseif cl == 528 then
-		nb = 'b'
+		n.b = 'b'
 		cw('n',"Well--")
 	elseif cl == 529 then
 		cw('bl',"Natsuki pauses for a moment, as if she doesn't want to admit something.")
@@ -262,7 +262,7 @@ function natsuki_exclusive_1()
 	elseif cl == 535 then
 		cw('n',"Just a coincidence!")
 	elseif cl == 536 then
-		nb = 't'
+		n.b = 't'
 		cw('n',"I just happened to get into baking around the same time I got this manga.")
 	elseif cl == 537 then
 		cw('n',"Like I would ever get into anything because it's in a manga.")
@@ -433,7 +433,7 @@ function natsuki_exclusive_1()
 	elseif cl == 614 then
 		cw('bl',"The thought makes me smile a little to myself.")
 	elseif cl == 615 then
-		mx = 10
+		m.x = 10
 		updateMonika('3','b')
 		cw('m',"Okay everyone!")
 	elseif cl == 616 then
@@ -443,7 +443,7 @@ function natsuki_exclusive_1()
 	elseif cl == 618 then
 		cw('mc',"...")
 	elseif cl == 619 then
-		nx = 150
+		n.x = 150
 		updateNatsuki('4','w')
 		cw('n',"Oh, come on!")
 	elseif cl == 620 then
@@ -467,7 +467,7 @@ function natsuki_exclusive_1()
 		cw('bl',"She hastily slides herself a good twelve inches away from me.")
     elseif cl == 628 then
 		hideMonika()
-		nx = 80
+		n.x = 80
 		cw('mc',"Alright...")
 	elseif cl == 629 then
 		cw('mc',"Guess I'll stop here for now.")
@@ -483,7 +483,7 @@ function natsuki_exclusive_1()
 	elseif cl == 634 then
 		cw('mc',"Monika just said--")
 	elseif cl == 635 then
-		nb = 'u'
+		n.b = 'u'
 		cw('n',"Don't be dumb.")
 	elseif cl == 636 then
 		cw('n',"Just take it home with you.")
@@ -501,7 +501,7 @@ function natsuki_exclusive_1()
 	elseif cl == 642 then
 		cw('n',"Just finish that one before tomorrow, so we can start the next one.")
 	elseif cl == 643 then
-		nb = 'g'
+		n.b = 'g'
 		cw('n',"And if it gets bent, I'll kill you.")
 	elseif cl == 644 then
 		cw('mc',"By tomorrow...?")

@@ -136,8 +136,8 @@ function love.update(dt)
 	
 	if love.keyboard.isDown('x') then --skip enable
 		if state == 'game' and menu_enabled == false and cl ~= 666 then
-			if tspd == nil then tspd = settings[1] end
-			settings[1] = 10000
+			if tspd == nil then tspd = settings.textspd end
+			settings.textspd = 10000
 			if autotimer < 148 then autotimer = 148 end
 		end
 	end
@@ -173,7 +173,7 @@ end
 
 function love.keyreleased(key)
 	if key == 'x' then --skip disable
-		if tspd ~= nil then settings[1] = tspd end
+		if tspd ~= nil then settings.textspd = tspd end
 		tspd = nil
 		autotimer = 0
 	end
