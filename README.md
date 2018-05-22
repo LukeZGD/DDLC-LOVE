@@ -1,7 +1,7 @@
 # DDLC-3DS
 A Doki Doki Literature Club port for the 3DS! Programmed in Lua, running under the LÖVEPotion framework.
 
-On 3DS systems, save files and character files are located at /3ds/data/LovePotion/DDLC-3DS/ on the SD card. The character files are generated on the first run. You can reset the save data and start over by deleting the firstrun file on that folder.
+On 3DS systems, save files and character files are located at /3ds/data/LovePotion/DDLC-3DS/ on the SD card. The character files are generated on the first run. You can reset the save data and start over by all of the save*.sav files on that folder.
 
 Until a fix is found, New 3DS/2DS users should disable L2 Cache before playing this.
 
