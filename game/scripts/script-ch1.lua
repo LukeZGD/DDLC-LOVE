@@ -4,7 +4,7 @@ function ch1script()
 		bgUpdate('club')
 		audioUpdate('2')
 		updateMonika('5a','')
-		mx = 80
+		m.x = 80
 		cw('m',"Hi again, "..player.."!")
 	elseif cl == 349 then
 		cw('m',"Glad to see you didn't run away on us. Hahaha!")
@@ -18,7 +18,7 @@ function ch1script()
     elseif cl == 353 then
 		cw('bl',"I was the last to come in, so everyone else is already hanging out.")
     elseif cl == 354 then
-		yx = 80
+		y.x = 80
 		updateYuri('1','a')
 		cw('y',"Thanks for keeping your promise, "..player..".")
 	elseif cl == 355 then
@@ -27,7 +27,7 @@ function ch1script()
 		yb = 'u'
 		cw('y',"Making you dive headfirst into literature when you're not accustomed to it...")
 	elseif cl == 357 then
-		nx = 200
+		n.x = 200
 		updateNatsuki('4','b')
 		cw('n',"Oh, come on! Like he deserves any slack.")
 	elseif cl == 358 then
@@ -41,7 +41,7 @@ function ch1script()
 		cw('n',"But if you don't take us seriously, then you won't see the end of it.")
 	elseif cl == 362 then
 		updateMonika('2','b')
-		mx = 0-40
+		m.x = 0-40
 		cw('m',"Natsuki, you certainly have a big mouth for someone who keeps her manga collection in the       clubroom.")
 	elseif cl == 363 then
 		nc = 'o'
@@ -57,8 +57,8 @@ function ch1script()
 		cw('bl',"Swiftly defeated, Natsuki plops back into her seat.")
 	elseif cl == 367 then
 		updateSayori('2','x')
-		sx = 10
-		yx = 150
+		s.x = 10
+		y.x = 150
 		cw('s',"Don't worry, guys~")
 	elseif cl == 368 then
 		cw('s',player .. " always gives it his best as long as he's having fun.")
@@ -126,7 +126,7 @@ function ch1script()
 		cw('s',"Eh? I'm sorry, Yuri, I wasn't thinking...")
 	elseif cl == 394 then
 		hideSayori()
-		yx = 80
+		y.x = 80
 		cw('bl',"I guess that means it's up to me to rescue this situation...")
 	elseif cl == 395 then
 		cw('mc',"Hey, don't worry about it.")
@@ -207,7 +207,7 @@ function ch1script()
 	end
 	
 	if cl == 653 then
-		mx = 10
+		m.x = 10
 		updateMonika('1','a')
 		cw('m',"By the way, did you remember to write a poem last night?")
 	elseif cl == 654 then
@@ -221,7 +221,7 @@ function ch1script()
 	elseif cl == 658 then
 		cw('m',"Well, now that everyone's ready, why don't you find someone to share with?")
 	elseif cl == 659 then
-		sx = 150
+		s.x = 150
 		updateSayori('4','q')
 		cw('s',"I can't wait~!")
 	elseif cl == 660 then
@@ -266,8 +266,8 @@ function ch1script()
 	elseif cl == 910 then
 		cw('bl',"My eyes land on Yuri and Natsuki.")
 	elseif cl == 911 then
-		yx = 10
-		nx = 150
+		y.x = 10
+		n.x = 150
 		updateYuri('2','g')
 		updateNatsuki('2','g')
 		cw('bl',"They gingerly exchange sheets of paper, sharing their respective poems.")
@@ -407,9 +407,9 @@ function ch1script()
 		updateNatsuki('1','o')
 		cw('n',"Uuuuuu...!")
 	elseif cl == 966 then
-		sx = -40
-		yx = 80
-		nx = 200
+		s.x = -40
+		y.x = 80
+		n.x = 200
 		updateSayori('2','l')
 		cw('s',"U-Um!!")
 	elseif cl == 967 then	
@@ -424,7 +424,7 @@ function ch1script()
 		updateYuri('3','p')
 		cw('y',"N-Natsuki!!")
 	elseif cl == 971 then
-		mx = -40
+		m.x = -40
 		updateMonika('3','l')
 		cw('m',"Um, Natsuki, that's a little--")
 	elseif cl == 972 then
@@ -436,8 +436,8 @@ function ch1script()
 		updateSayori('4','p')
 		cw('s',"I-I don't like fighting, guys...!")
 	elseif cl == 974 then
-		yx = 10
-		nx = 150
+		y.x = 10
+		n.x = 150
 		hideSayori()
 		updateNatsuki('1','g')
 		cw('bl',"Suddenly, both girls turn towards me, as if they just noticed I was standing there.")
@@ -513,7 +513,7 @@ function ch1script()
 		end
 		
 	elseif cl == 1092 then
-		mx = 80
+		m.x = 80
 		updateMonika('4','b')
 		cw('m',"Okay, everyone!")
 	elseif cl == 1093 then
@@ -521,18 +521,18 @@ function ch1script()
 	elseif cl == 1094 then
 		cw('m',"How did you all feel about sharing poems?")
 	elseif cl == 1095 then
-		sx = -40
+		s.x = -40
 		updateMonika('4','a')
 		updateSayori('4','x')
 		cw('s',"It was a lot of fun!")
 	elseif cl == 1096 then
 		hideSayori()
-		yx = -40
+		y.x = -40
 		updateYuri('1','i')
 		cw('y',"Well, I'd say it was worth it.")
 	elseif cl == 1097 then
 		hideYuri()
-		nx = -40
+		n.x = -40
 		updateNatsuki('4','q')
 		cw('n',"It was alright. Well, mostly.")
 	elseif cl == 1098 then
@@ -566,7 +566,7 @@ function ch1script()
 	elseif cl == 1109 then
 		cw('bl',"I nod to myself with newfound determination.")
 	elseif cl == 1110 then
-		sx = 80
+		s.x = 80
 		updateSayori('1','x')
 		cw('s',player.."!")
 	elseif cl == 1111 then
@@ -803,7 +803,7 @@ function ch1_end_natsuki()
 	elseif cl == 1056 then
 		cw('bl',"Natsuki looks away, avoiding eye contact with anyone.")
 	elseif cl == 1057 then
-		sx = -60
+		s.x = -60
 		updateSayori('4','x')
 		cw('s',"Yeah! You're naturally beautiful, Yuri!!")
 	elseif cl == 1058 then
@@ -826,7 +826,7 @@ function ch1_end_natsuki()
 	elseif cl == 1065 then
 		hideSayori()
 		hideNatsuki()
-		mx = 80
+		m.x = 80
 		updateMonika('4','m')
 		cw('m',"Well, now that we're past that...")
 	elseif cl == 1066 then
@@ -861,7 +861,7 @@ function ch1_end_natsuki()
 		updateMonika('1','b')
 		cw('m',"After all, that's what the club is for!")
 	elseif cl == 1079 then
-		sx = -40
+		s.x = -40
 		updateSayori('2','j')
 		cw('s',"I disagree, Monika!")
 	elseif cl == 1080 then
@@ -959,7 +959,7 @@ function ch1_end_yuri()
 		cw('y',"Uuu...")
 	elseif cl == 1019 then
 		hideYuri()
-		nx = 80
+		n.x = 80
 		cw('mc',"But Natsuki, you took it way too far!")
 	elseif cl == 1020 then
 		cw('mc',"Yuri means well, and if you just told her how you felt...")
@@ -973,8 +973,8 @@ function ch1_end_yuri()
 	elseif cl == 1024 then
 		cw('n',"It was her that--")
 	elseif cl == 1025 then
-		nx = 10
-		mx = 150
+		n.x = 10
+		m.x = 150
 		updateMonika('2','i')
 		cw('m',"Natsuki, I think that's enough.")
 	elseif cl == 1026 then
@@ -993,9 +993,9 @@ function ch1_end_yuri()
 	elseif cl == 1032 then
 		cw('bl',"I end up even feeling bad for her.")
 	elseif cl == 1033 then
-		sx = -40
-		mx = 80
-		nx = 150
+		s.x = -40
+		m.x = 80
+		n.x = 150
 		updateSayori('2','h')
 		cw('s',"U-Um!")
 	elseif cl == 1034 then
@@ -1032,7 +1032,7 @@ function ch1_end_yuri()
 	elseif cl == 1046 then
 		cw('bl',"I gingerly approach her and sit in an adjacent chair.")
 	elseif cl == 1047 then
-		yx = 80
+		y.x = 80
 		updateYuri('4','b2')
 		cw('y',"Sigh...")
 	elseif cl == 1048 then
@@ -1123,9 +1123,9 @@ function ch1_end_sayori()
 	elseif cl == 1003 then
 		cw('mc',"...Sayori!")
 	elseif cl == 1004 then
-		sx = -40
-		yx = 80
-		nx = 200
+		s.x = -40
+		y.x = 80
+		n.x = 200
 		updateSayori('4','m')
 		cw('s',"Eh?!")
 	elseif cl == 1005 then
@@ -1239,7 +1239,7 @@ function ch1_end_sayori()
 		cw('bl',"Natsuki sits down with a blank expression on her face, staring at nothing.")
 	elseif cl == 1045 then
 		hideSayori()
-		mx = 80
+		m.x = 80
 		updateMonika('1','i')
 		cw('mc',"So, this is why Sayori is Vice President...")
 	elseif cl == 1046 then

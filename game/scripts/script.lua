@@ -40,7 +40,7 @@ function cw(p1, stext)
 		stext = '"'..stext..'"'
 	end
 	
-	textx = dripText(stext,settings[1],myTextStartTime)
+	textx = dripText(stext,settings.textspd,myTextStartTime)
 		
 	--word wrapping haha
 	slen = string.len(textx)
