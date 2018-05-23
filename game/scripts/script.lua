@@ -1,5 +1,6 @@
 require "scripts.script-ch0"
 require "scripts.script-ch1"
+require "scripts.script-ch2"
 require "scripts.script-exclusives-sayori"
 require "scripts.script-exclusives-natsuki"
 require "scripts.script-exclusives-yuri"

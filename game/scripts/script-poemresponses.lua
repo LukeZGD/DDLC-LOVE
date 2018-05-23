@@ -439,7 +439,7 @@ function ch1_y_shared()
 			elseif cl == 776 then
 				cw('y',"But in the end, I enjoyed it.")
 			elseif cl == 777 then
-				cw('y',"I\'m going to keep doing my best for you, '..player..'.")
+				cw('y',"I\'m going to keep doing my best for you, "..player..".")
 			elseif cl == 778 then
 				cw('mc',"Ah...")
 			elseif cl == 779 then
@@ -514,7 +514,7 @@ function ch1_y_good()
 		y.b = 'l'
 		cw('bl',"Yuri takes a breath.")
 	elseif cl == 688 then
-		cw('bl',"So...")
+		cw('y',"So...")
 	elseif cl == 689 then
 		updateYuri('1','a')
 		cw('y',"What kind of writing experience do you have?")
@@ -643,7 +643,7 @@ function ch1_n_bad()
 		cw('n',"...?")
 	elseif cl == 672 then
 		updateNatsuki('2','b')
-		cw('n',"..player..', if you\'re not going to take this club seriously then go home.")
+		cw('n',player..", if you\'re not going to take this club seriously then go home.")
 	elseif cl == 673 then
 		cw('mc',"W-What??")
 	elseif cl == 674 then
@@ -1805,7 +1805,7 @@ end
 function ch3_m_start()
 	if cl == 670 then
 		updateMonika('2','a')
-		cw('m',"Hi [player]~")
+		cw('m',"Hi "..player.."~")
 	elseif cl == 671 then
 		cw('m',"Have you thought about what you want to submit to perform at the festival?")
 	elseif cl == 672 then
