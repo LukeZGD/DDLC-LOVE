@@ -182,7 +182,6 @@ And he, on the other side, was looking in.]]
 	end
 
 	if xaload == 0 and continue ~= 1 then
-		unloadAll()
 		poembg = love.graphics.newImage('images/bg/poem.png')
 		sfxpageflip:play()
 		
