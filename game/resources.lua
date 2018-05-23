@@ -17,60 +17,6 @@ function updateloading(dt)
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
 		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
-		
-	--This is commented out for now. 
-	--[[
-	elseif l_timer == 10 then
-		s1l = love.graphics.newImage('images/sayori/1l.png') 
-		s2l = love.graphics.newImage('images/sayori/2l.png') 
-		s3a = love.graphics.newImage('images/sayori/3a.png') 
-		s3b = love.graphics.newImage('images/sayori/3b.png') 
-		s3c = love.graphics.newImage('images/sayori/3c.png') 
-		s3d = love.graphics.newImage('images/sayori/3d.png') 
-	elseif l_timer == 15 then
-		s1bl = love.graphics.newImage('images/sayori/1bl.png') 
-		s2bl = love.graphics.newImage('images/sayori/2bl.png') 
-		saf = love.graphics.newImage('images/sayori/sayori.png')
-		s1r = love.graphics.newImage('images/sayori/1r.png') 
-		s2r = love.graphics.newImage('images/sayori/2r.png') 
-		s1br = love.graphics.newImage('images/sayori/1br.png') 
-		s2br = love.graphics.newImage('images/sayori/2br.png') 
-	elseif l_timer == 20 then
-		y1l = love.graphics.newImage('images/yuri/1l.png') 
-		y2l = love.graphics.newImage('images/yuri/2l.png') 
-		y3_ = love.graphics.newImage('images/yuri/3.png') 
-		y1bl = love.graphics.newImage('images/yuri/1bl.png')
-		y2bl = love.graphics.newImage('images/yuri/2bl.png')
-		y3b = love.graphics.newImage('images/yuri/3b.png')
-	elseif l_timer == 25 then
-		--yaf = love.graphics.newImage('images/yuri/yuri.png') 
-		y1r = love.graphics.newImage('images/yuri/1r.png')
-		y2r = love.graphics.newImage('images/yuri/2r.png')
-		y1br = love.graphics.newImage('images/yuri/1br.png')
-		y2br = love.graphics.newImage('images/yuri/2br.png')
-	elseif l_timer == 30 then
-		 n1l = love.graphics.newImage('images/natsuki/1l.png')
-		n2l = love.graphics.newImage('images/natsuki/2l.png')
-		n3_ = love.graphics.newImage('images/natsuki/3.png')
-		n1bl = love.graphics.newImage('images/natsuki/1bl.png')
-		--naf = love.graphics.newImage('images/natsuki/natsuki.png') 
-
-	elseif l_timer == 35 then
-		n2bl = love.graphics.newImage('images/natsuki/2bl.png')
-		n3b = love.graphics.newImage('images/natsuki/3b.png')
-		n1r = love.graphics.newImage('images/natsuki/1r.png')
-		n2r = love.graphics.newImage('images/natsuki/2r.png')
-		n1br = love.graphics.newImage('images/natsuki/1br.png')
-		n2br = love.graphics.newImage('images/natsuki/2br.png')
-	elseif l_timer == 40 then
-		m1l = love.graphics.newImage('images/monika/1l.png')
-		m2l = love.graphics.newImage('images/monika/2l.png')
-		m1r = love.graphics.newImage('images/monika/1r.png')
-		m2r = love.graphics.newImage('images/monika/2r.png') 
-	elseif l_timer == 45 then
-		m3a = love.graphics.newImage('images/monika/3a.png') 
-		m3b = love.graphics.newImage('images/monika/3b.png') 
-	]]
 	
 	elseif l_timer == 50 then
 		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
@@ -295,13 +241,6 @@ end
 function charCheck()
 	if xaload == 0 then
 		myTextStartTime = love.timer.getTime()
-		if settings.fmode == 0 then
-			unloadAll()
-		end
-		loadSayori()
-		loadYuri()
-		loadNatsuki()
-		loadMonika()
 		xaload = xaload + 1
 	else
 		xaload = xaload + 1
@@ -313,510 +252,250 @@ function updateSayori(a,b,px,py)
 	if b == nil then b = '' end
 	s.a = a
 	s.b = b
-	if x ~= nil then s.x = px end
-	if y ~= nil then s.y = py end
+	if px ~= nil then s.x = px end
+	if py ~= nil then s.y = py end
+	if xaload == 0 then loadSayori() end
 end
 
 function updateYuri(a,b,px,py)
 	y.a = a 
 	y.b = b
-	if x ~= nil then y.x = px end
-	if y ~= nil then y.y = py end
+	if px ~= nil then y.x = px end
+	if py ~= nil then y.y = py end
+	if xaload == 0 then loadYuri() end
 end
 
 function updateNatsuki(a,b,px,py)
 	n.a = a
 	n.b = b
-	if x ~= nil then n.x = px end
-	if y ~= nil then n.y = py end
+	if px ~= nil then n.x = px end
+	if py ~= nil then n.y = py end
+	if xaload == 0 then loadNatsuki() end
 end
 
 function updateMonika(a,b,px,py)
 	if b == nil then b = '' end
 	m.a = a
 	m.b = b
-	if x ~= nil then m.x = px end
-	if y ~= nil then m.y = py end
+	if px ~= nil then m.x = px end
+	if py ~= nil then m.y = py end
+	if xaload == 0 then loadMonika() end
 end
 
 function loadSayori()
 	if s.a=="1" then
-		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
-		if s1r == nil then s1r = love.graphics.newImage('images/sayori/1r.png') end
+		sl = love.graphics.newImage('images/sayori/1l.png') 
+		sr = love.graphics.newImage('images/sayori/1r.png') 
 	elseif s.a=="2" then
-		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
-		if s2r == nil then s2r = love.graphics.newImage('images/sayori/2r.png') end
+		sl = love.graphics.newImage('images/sayori/1l.png') 
+		sr = love.graphics.newImage('images/sayori/2r.png') 
 	elseif s.a=="3" then
-		if s2l == nil then s2r = love.graphics.newImage('images/sayori/2l.png') end
-		if s1r == nil then s1r = love.graphics.newImage('images/sayori/1r.png') end
+		sl = love.graphics.newImage('images/sayori/2l.png') 
+		sr = love.graphics.newImage('images/sayori/1r.png') 
 	elseif s.a=="4" then
-		if s2l == nil then s2l = love.graphics.newImage('images/sayori/2l.png') end
-		if s2r == nil then s2r = love.graphics.newImage('images/sayori/2r.png') end
+		sl = love.graphics.newImage('images/sayori/2l.png') 
+		sr = love.graphics.newImage('images/sayori/2r.png') 
 	
 	elseif s.a=="1b" then
-		if s1bl == nil then s1bl = love.graphics.newImage('images/sayori/1bl.png') end
-		if s1br == nil then s1br = love.graphics.newImage('images/sayori/1br.png') end
+		sl = love.graphics.newImage('images/sayori/1bl.png')
+		sr = love.graphics.newImage('images/sayori/1br.png')
 	elseif s.a=="2b" then
-		if s1bl == nil then s1bl = love.graphics.newImage('images/sayori/1bl.png') end
-		if s2br == nil then s2br = love.graphics.newImage('images/sayori/2br.png') end
+		sl = love.graphics.newImage('images/sayori/1bl.png') 
+		sr = love.graphics.newImage('images/sayori/2br.png') 
 	elseif s.a=="3b" then
-		if s2bl == nil then s2br = love.graphics.newImage('images/sayori/2bl.png') end
-		if s1br == nil then s1br = love.graphics.newImage('images/sayori/1br.png') end
+		sr = love.graphics.newImage('images/sayori/2bl.png') 
+		sr = love.graphics.newImage('images/sayori/1br.png') 
 	elseif s.a=="4b" then
-		if s2bl == nil then s2bl = love.graphics.newImage('images/sayori/2bl.png') end
-		if s2br == nil then s2br = love.graphics.newImage('images/sayori/2br.png') end
+		sl = love.graphics.newImage('images/sayori/2bl.png') 
+		sr = love.graphics.newImage('images/sayori/2br.png') 
 	
 	elseif s.a=="5a" then
-		if s3a == nil then s3a = love.graphics.newImage('images/sayori/3a.png') end
+		sl = love.graphics.newImage('images/sayori/3a.png') 
 	elseif s.a=="5b" then
-		if s3b == nil then s3b = love.graphics.newImage('images/sayori/3b.png') end
+		sl = love.graphics.newImage('images/sayori/3b.png') 
 	elseif s.a=="5c" then
-		if s3c == nil then s3c = love.graphics.newImage('images/sayori/3c.png') end 
+		sl = love.graphics.newImage('images/sayori/3c.png')  
 	elseif s.a=="5d" then
-		if s3d == nil then s3d = love.graphics.newImage('images/sayori/3d.png') end
+		sl = love.graphics.newImage('images/sayori/3d.png') 
 	elseif s.a=="sayori" then
-		if saf == nil then saf = love.graphics.newImage('images/sayori/sayori.png') end
+		sl = love.graphics.newImage('images/sayori/sayori.png') 
 	end
-		
-	if s.b=="" then
-	elseif s.b=="a" then
-		if s_a == nil then s_a = love.graphics.newImage('images/sayori/a.png') end
-	elseif s.b=="b" then
-		if s_b == nil then s_b = love.graphics.newImage('images/sayori/b.png') end
-	elseif s.b=="c" then
-		if s_c == nil then s_c = love.graphics.newImage('images/sayori/c.png') end
-	elseif s.b=="d" then
-		if s_d == nil then s_d = love.graphics.newImage('images/sayori/d.png') end
-	elseif s.b=="e" then
-		if s_e == nil then s_e = love.graphics.newImage('images/sayori/e.png') end
-	elseif s.b=="f" then
-		if s_f == nil then s_f = love.graphics.newImage('images/sayori/f.png') end
-	elseif s.b=="g" then
-		if s_g == nil then s_g = love.graphics.newImage('images/sayori/g.png') end
-	elseif s.b=="h" then
-		if s_h == nil then s_h = love.graphics.newImage('images/sayori/h.png') end
-	elseif s.b=="i" then
-		if s_i == nil then s_i = love.graphics.newImage('images/sayori/i.png') end
-	elseif s.b=="j" then
-		if s_j == nil then s_j = love.graphics.newImage('images/sayori/j.png') end
-	elseif s.b=="k" then
-		if s_k == nil then s_k = love.graphics.newImage('images/sayori/k.png') end
-	elseif s.b=="l" then
-		if s_l == nil then s_l = love.graphics.newImage('images/sayori/l.png') end
-	elseif s.b=="m" then
-		if s_m == nil then s_m = love.graphics.newImage('images/sayori/m.png') end
-	elseif s.b=="n" then
-		if s_n == nil then s_n = love.graphics.newImage('images/sayori/n.png') end
-	elseif s.b=="o" then
-		if s_o == nil then s_o = love.graphics.newImage('images/sayori/o.png') end
-	elseif s.b=="p" then
-		if s_p == nil then s_p = love.graphics.newImage('images/sayori/p.png') end
-	elseif s.b=="q" then
-		if s_q == nil then s_q = love.graphics.newImage('images/sayori/q.png') end
-	elseif s.b=="r" then
-		if s_r == nil then s_r = love.graphics.newImage('images/sayori/r.png') end
-	elseif s.b=="s" then
-		if s_s == nil then s_s = love.graphics.newImage('images/sayori/s.png') end
-	elseif s.b=="t" then
-		if s_t == nil then s_s = love.graphics.newImage('images/sayori/t.png') end
-	elseif s.b=="u" then
-		if s_u == nil then s_u = love.graphics.newImage('images/sayori/u.png') end
-	elseif s.b=="v" then
-		if s_v == nil then s_v = love.graphics.newImage('images/sayori/v.png') end
-	elseif s.b=="w" then
-		if s_w == nil then s_w = love.graphics.newImage('images/sayori/w.png') end
-	elseif s.b=="x" then
-		if s_x == nil then s_x = love.graphics.newImage('images/sayori/x.png') end
-	elseif s.b=="y" then
-		if s_y == nil then s_y = love.graphics.newImage('images/sayori/y.png') end
-	end
+	if s.b~='' then s_a = love.graphics.newImage('images/sayori/'..s.b..'.png') end
 end
 
 function unloadSayori()
+	sl = nil
+	sr = nil
 	s_a = nil
-	s_b = nil
-	s_c = nil
-	s_d = nil
-	s_e = nil
-	s_f = nil
-	s_g = nil
-	s_h = nil
-	s_i = nil
-	s_j = nil
-	s_k = nil
-	s_l = nil
-	s_m = nil
-	s_n = nil
-	s_o = nil
-	s_p = nil
-	s_q = nil
-	s_r = nil
-	s_s = nil
-	s_u = nil
-	s_w = nil
-	s_x = nil
-	s_y = nil
-	saf = nil
+	collectgarbage()
+	collectgarbage()
 end
 
 function loadYuri()	
-	if y.a=="1" then
-		if y1l == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
-		if y1r == nil then y1r = love.graphics.newImage('images/yuri/1r.png') end
+	if y.a=='1' then
+		yl = love.graphics.newImage('images/yuri/1l.png') 
+		yr = love.graphics.newImage('images/yuri/1r.png') 
 	elseif y.a=="2" then
-		if y1l == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
-		if y2r == nil then y2r = love.graphics.newImage('images/yuri/2r.png') end
+		yl = love.graphics.newImage('images/yuri/1l.png') 
+		yr = love.graphics.newImage('images/yuri/2r.png') 
 	elseif y.a=="3" then
-		if y2l == nil then y2l = love.graphics.newImage('images/yuri/2l.png') end
-		if y2r == nil then y2r = love.graphics.newImage('images/yuri/2r.png') end
-	elseif y.a=="1b" then
-		if y1bl == nil then y1bl = love.graphics.newImage('images/yuri/1bl.png') end
-		if y1br == nil then y1br = love.graphics.newImage('images/yuri/1br.png') end
+		yl = love.graphics.newImage('images/yuri/2l.png') 
+		yr = love.graphics.newImage('images/yuri/2r.png') 
+		
+	elseif y.a=='1b' then
+		yl = love.graphics.newImage('images/yuri/1bl.png') 
+		yr = love.graphics.newImage('images/yuri/1br.png') 
 	elseif y.a=="2b" then
-		if y1bl == nil then y1bl = love.graphics.newImage('images/yuri/1bl.png') end
-		if y2br == nil then y2br = love.graphics.newImage('images/yuri/2br.png') end
+		yl = love.graphics.newImage('images/yuri/1bl.png')
+		yr = love.graphics.newImage('images/yuri/2br.png') 
 	elseif y.a=="3b" then
-		if y2bl == nil then y2bl = love.graphics.newImage('images/yuri/2bl.png') end
-		if y2br == nil then y2br = love.graphics.newImage('images/yuri/2br.png') end
+		yl = love.graphics.newImage('images/yuri/2bl.png') 
+		yr = love.graphics.newImage('images/yuri/2br.png') 
+	
 	elseif y.a=="4" then
-		if y3_ == nil then y3_ = love.graphics.newImage('images/yuri/3.png') end
+		yl = love.graphics.newImage('images/yuri/3.png') 
 	elseif y.a=="4b" then
-		if y3b == nil then y3b = love.graphics.newImage('images/yuri/3b.png') end
+		yl = love.graphics.newImage('images/yuri/3b.png') 
 	elseif y.a=="yuri" then
-		if yaf == nil then yaf = love.graphics.newImage('images/yuri/yuri.png') end 
+		yl = love.graphics.newImage('images/yuri/yuri.png') 
 	end
 	
-	if y.b=="a" then
-		if y_a == nil then y_a = love.graphics.newImage('images/yuri/a.png') end
-	elseif y.b=="a2" then
-		if ya2 == nil then ya2 = love.graphics.newImage('images/yuri/a2.png') end
-	elseif y.b=="b" then
-		if y_b == nil then y_b = love.graphics.newImage('images/yuri/b.png') end
-	elseif y.b=="b2" then
-		if yb2 == nil then yb2 = love.graphics.newImage('images/yuri/b2.png') end
-	elseif y.b=="c" then
-		if y_c == nil then y_c = love.graphics.newImage('images/yuri/c.png') end
-	elseif y.b=="c2" then
-		if yc2 == nil then yc2 = love.graphics.newImage('images/yuri/c2.png') end
-	elseif y.b=="d" then
-		if y_d == nil then y_d = love.graphics.newImage('images/yuri/d.png') end
-	elseif y.b=="d2" then
-		if yd2 == nil then yd2 = love.graphics.newImage('images/yuri/d2.png') end
-	elseif y.b=="e" then
-		if y_e == nil then y_e = love.graphics.newImage('images/yuri/e.png') end
-	elseif y.b=="f" then
-		if y_f == nil then y_f = love.graphics.newImage('images/yuri/f.png') end
-	elseif y.b=="g" then
-		if y_g == nil then y_g = love.graphics.newImage('images/yuri/g.png') end
-	elseif y.b=="h" then
-		if y_h == nil then y_h = love.graphics.newImage('images/yuri/h.png') end
-	elseif y.b=="i" then
-		if y_i == nil then y_i = love.graphics.newImage('images/yuri/i.png') end
-	elseif y.b=="j" then
-		if y_j == nil then y_j = love.graphics.newImage('images/yuri/j.png') end
-	elseif y.b=="k" then 
-		if y_k == nil then y_k = love.graphics.newImage('images/yuri/k.png') end
-	elseif y.b=="l" then
-		if y_l == nil then y_l = love.graphics.newImage('images/yuri/l.png') end
-	elseif y.b=="m" then
-		if y_m == nil then y_m = love.graphics.newImage('images/yuri/m.png') end
-	elseif y.b=="n" then
-		if y_n == nil then y_n = love.graphics.newImage('images/yuri/n.png') end
-	elseif y.b=="o" then
-		if y_o == nil then y_o = love.graphics.newImage('images/yuri/o.png') end
-	elseif y.b=="p" then
-		if y_p == nil then y_p = love.graphics.newImage('images/yuri/p.png') end
-	elseif y.b=="q" then
-		if y_q == nil then y_q = love.graphics.newImage('images/yuri/q.png') end
-	elseif y.b=="r" then
-		if y_r == nil then y_r = love.graphics.newImage('images/yuri/r.png') end
-	elseif y.b=="s" then
-		if y_s == nil then y_s = love.graphics.newImage('images/yuri/s.png') end
-	elseif y.b=="t" then
-		if y_t == nil then y_t = love.graphics.newImage('images/yuri/t.png') end
-	elseif y.b=="u" then
-		if y_u == nil then y_u = love.graphics.newImage('images/yuri/u.png') end
-	elseif y.b=="v" then
-		if y_v == nil then y_v = love.graphics.newImage('images/yuri/v.png') end
-	elseif y.b=="w" then
-		if y_w == nil then y_w = love.graphics.newImage('images/yuri/w.png') end
-	elseif y.b=="y1" then
-		if yy1 == nil then yy1 = love.graphics.newImage('images/yuri/y1.png') end
-	elseif y.b=="y2" then
-		if yy2 == nil then yy2 = love.graphics.newImage('images/yuri/y2.png') end
-	elseif y.b=="y3" then
-		if yy3 == nil then yy3 = love.graphics.newImage('images/yuri/y3.png') end
-	elseif y.b=="y4" then
-		if yy4 == nil then yy4 = love.graphics.newImage('images/yuri/y4.png') end
-	elseif y.b=="y5" then
-		if yy5 == nil then yy5 = love.graphics.newImage('images/yuri/y5.png') end
-	elseif y.b=="y6" then
-		if yy6 == nil then yy6 = love.graphics.newImage('images/yuri/y6.png') end
-	end
+	if y.b ~= '' then y_a = love.graphics.newImage('images/yuri/'..y.b..'.png') end
 end
 
-function unloadYuri()	
+function unloadYuri()
+	yl = nil
+	yr = nil
 	y_a = nil
-	ya2 = nil
-	y_b = nil
-	yb2 = nil
-	y_c = nil
-	yb2 = nil
-	y_d = nil
-	yd2 = nil
-	y_e = nil
-	ye2 = nil
-	y_f = nil
-	y_g = nil
-	y_h = nil
-	y_i = nil
-	y_j = nil
-	y_k = nil
-	y_l = nil
-	y_m = nil
-	y_n = nil
-	y_o = nil
-	y_p = nil
-	y_q = nil
-	y_r = nil
-	y_s = nil
-	y_t = nil
-	y_u = nil
-	y_v = nil
-	y_w = nil
-	yy6 = nil
-	yaf = nil
+	collectgarbage()
+	collectgarbage()
 end
 
 function loadNatsuki()
-	if n.b=="a" then
-		if n_a == nil then n_a = love.graphics.newImage('images/natsuki/a.png') end
-	elseif n.b=="b" then
-		if n_b == nil then n_b = love.graphics.newImage('images/natsuki/b.png') end
-	elseif n.b=="c" then
-		if n_c == nil then n_c = love.graphics.newImage('images/natsuki/c.png') end
-	elseif n.b=="d" then
-		if n_d == nil then n_d = love.graphics.newImage('images/natsuki/d.png') end
-	elseif n.b=="e" then
-		if n_e == nil then n_e = love.graphics.newImage('images/natsuki/e.png') end
-	elseif n.b=="f" then
-		if n_f == nil then n_f = love.graphics.newImage('images/natsuki/f.png') end
-	elseif n.b=="g" then
-		if n_g == nil then n_g = love.graphics.newImage('images/natsuki/g.png') end
-	elseif n.b=="h" then
-		if n_h == nil then n_h = love.graphics.newImage('images/natsuki/h.png') end
-	elseif n.b=="i" then
-		if n_i == nil then n_i = love.graphics.newImage('images/natsuki/i.png') end
-	elseif n.b=="j" then
-		if n_j == nil then n_j = love.graphics.newImage('images/natsuki/j.png') end
-	elseif n.b=="k" then
-		if n_k == nil then n_k = love.graphics.newImage('images/natsuki/k.png') end
-	elseif n.b=="l" then
-		if n_l == nil then n_l = love.graphics.newImage('images/natsuki/l.png') end
-	elseif n.b=="m" then
-		if n_m == nil then n_m = love.graphics.newImage('images/natsuki/m.png') end
-	elseif n.b=="n" then
-		if n_n == nil then n_n = love.graphics.newImage('images/natsuki/n.png') end
-	elseif n.b=="o" then
-		if n_o == nil then n_o = love.graphics.newImage('images/natsuki/o.png') end
-	elseif n.b=="p" then
-		if n_p == nil then n_p = love.graphics.newImage('images/natsuki/p.png') end
-	elseif n.b=="q" then
-		if n_q == nil then n_q = love.graphics.newImage('images/natsuki/q.png') end
-	elseif n.b=="r" then
-		if n_r == nil then n_r = love.graphics.newImage('images/natsuki/r.png') end
-	elseif n.b=="s" then
-		if n_s == nil then n_s = love.graphics.newImage('images/natsuki/s.png') end
-	elseif n.b=="t" then
-		if n_t == nil then n_t = love.graphics.newImage('images/natsuki/t.png') end
-	elseif n.b=="u" then
-		if n_u == nil then n_u = love.graphics.newImage('images/natsuki/u.png') end
-	elseif n.b=="v" then
-		if n_v == nil then n_v = love.graphics.newImage('images/natsuki/v.png') end
-	elseif n.b=="w" then
-		if n_w == nil then n_w = love.graphics.newImage('images/natsuki/w.png') end
-	elseif n.b=="x" then
-		if n_x == nil then n_x = love.graphics.newImage('images/natsuki/x.png') end
-	elseif n.b=="y" then
-		if n_y == nil then n_y = love.graphics.newImage('images/natsuki/y.png') end
-	elseif n.b=="z" then
-		if n_z == nil then n_z = love.graphics.newImage('images/natsuki/z.png') end
-
-	elseif n.b=="1t" then
-		if n1t == nil then n1t = love.graphics.newImage('images/natsuki/1t.png') end
+	if n.b=="1t" then
+		n_a = love.graphics.newImage('images/natsuki/1t.png') 
 	elseif n.b=="2bt" then
-		if n2bt == nil then n2bt = love.graphics.newImage('images/natsuki/2bt.png') end
+		n_a = love.graphics.newImage('images/natsuki/2bt.png') 
 	elseif n.b=="2a" then
-		if n2bta == nil then n2bta = love.graphics.newImage('images/natsuki/2bta.png') end
+		n_a = love.graphics.newImage('images/natsuki/2bta.png') 
 	elseif n.b=="2b" then
-		if n2btb == nil then n2btb = love.graphics.newImage('images/natsuki/2btb.png') end
+		n_a = love.graphics.newImage('images/natsuki/2btb.png') 
 	elseif n.b=="2c" then
-		if n2btc == nil then n2btc = love.graphics.newImage('images/natsuki/2btc.png') end
+		n_a = love.graphics.newImage('images/natsuki/2btc.png') 
 	elseif n.b=="2d" then
-		if n2btd == nil then n2btd = love.graphics.newImage('images/natsuki/2btd.png') end
+		n_a = love.graphics.newImage('images/natsuki/2btd.png') 
 	elseif n.b=="2e" then
-		if n2bte == nil then n2bte = love.graphics.newImage('images/natsuki/2bte.png') end
+		n_a = love.graphics.newImage('images/natsuki/2bte.png') 
 	elseif n.b=="2f" then
-		if n2btf == nil then n2btf = love.graphics.newImage('images/natsuki/2btf.png') end
+		n_a = love.graphics.newImage('images/natsuki/2btf.png') 
 	elseif n.b=="2g" then
-		if n2btg == nil then n2btg = love.graphics.newImage('images/natsuki/2btg.png') end
+		n_a = love.graphics.newImage('images/natsuki/2btg.png') 
 	elseif n.b=="2h" then
-		if n2bth == nil then n2bth = love.graphics.newImage('images/natsuki/2bth.png') end
+		n_a = love.graphics.newImage('images/natsuki/2bth.png') 
 	elseif n.b=="2i" then
-		if n2bti == nil then n2bti = love.graphics.newImage('images/natsuki/2bti.png') end
+		n_a = love.graphics.newImage('images/natsuki/2bti.png') 
+	elseif n.b~='' then
+		n_a = love.graphics.newImage('images/natsuki/'..n.b..'.png')
 	end
 	
 	if n.a=="1" then
-		if n1l == nil then n1l = love.graphics.newImage('images/natsuki/1l.png') end
-		if n1r == nil then n1r = love.graphics.newImage('images/natsuki/1r.png') end
+		nl = love.graphics.newImage('images/natsuki/1l.png') 
+		nr = love.graphics.newImage('images/natsuki/1r.png') 
 	elseif n.a=="2" then
-		if n1l == nil then n1l = love.graphics.newImage('images/natsuki/1l.png') end
-		if n2r == nil then n2r = love.graphics.newImage('images/natsuki/2r.png') end
+		nl = love.graphics.newImage('images/natsuki/1l.png') 
+		nr = love.graphics.newImage('images/natsuki/2r.png') 
 	elseif n.a=="3" then
-		if n2l == nil then n2l = love.graphics.newImage('images/natsuki/2l.png') end
-		if n1r == nil then n1r = love.graphics.newImage('images/natsuki/1r.png') end
+		nl = love.graphics.newImage('images/natsuki/2l.png') 
+		nr = love.graphics.newImage('images/natsuki/1r.png') 
 	elseif n.a=="4" then
-		if n2l == nil then n2l = love.graphics.newImage('images/natsuki/2l.png') end
-		if n2r == nil then n2r = love.graphics.newImage('images/natsuki/2r.png') end
-	
+		nl = love.graphics.newImage('images/natsuki/2l.png') 
+		nr = love.graphics.newImage('images/natsuki/2r.png') 
+		
 	elseif n.a=="1b" then
-		if n1bl == nil then n1bl = love.graphics.newImage('images/natsuki/1bl.png') end
-		if n1br == nil then n1br = love.graphics.newImage('images/natsuki/1br.png') end
+		nl = love.graphics.newImage('images/natsuki/1bl.png') 
+		nr = love.graphics.newImage('images/natsuki/1br.png') 
 	elseif n.a=="2b" then
-		if n1bl == nil then n1bl = love.graphics.newImage('images/natsuki/1bl.png') end
-		if n2br == nil then n2br = love.graphics.newImage('images/natsuki/2br.png') end
+		nl = love.graphics.newImage('images/natsuki/1bl.png') 
+		nr = love.graphics.newImage('images/natsuki/2br.png') 
 	elseif n.a=="3b" then
-		if n2bl == nil then n2bl = love.graphics.newImage('images/natsuki/2bl.png') end
-		if n1br == nil then n1br = love.graphics.newImage('images/natsuki/1br.png') end
+		nl = love.graphics.newImage('images/natsuki/2bl.png') 
+		nr = love.graphics.newImage('images/natsuki/1br.png') 
 	elseif n.a=="4b" then
-		if n2bl == nil then n2bl = love.graphics.newImage('images/natsuki/2bl.png') end
-		if n2br == nil then n2br = love.graphics.newImage('images/natsuki/2br.png') end
+		nl = love.graphics.newImage('images/natsuki/2bl.png') 
+		nr = love.graphics.newImage('images/natsuki/2br.png') 
 	elseif n.a=="5" then
-		if n3_ == nil then n3_ = love.graphics.newImage('images/natsuki/3.png') end
+		nl = love.graphics.newImage('images/natsuki/3.png') 
 	elseif n.a=="5b" then
-		if n3b == nil then n3b = love.graphics.newImage('images/natsuki/3b.png') end
+		nl = love.graphics.newImage('images/natsuki/3b.png') 
 	elseif n.a=="natsuki" then
-		if naf == nil then naf = love.graphics.newImage('images/natsuki/natsuki.png') end 
+		nl = love.graphics.newImage('images/natsuki/natsuki.png') 
 	elseif n.a=="natsuki2" then
-		if nbf == nil then nbf = love.graphics.newImage('images/natsuki/natsuki2.png') end 
+		nl = love.graphics.newImage('images/natsuki/natsuki2.png') 
+	elseif n.a=="natsuki3" then
+		nl = love.graphics.newImage('images/natsuki/natsuki3.png') 
 	end
 end
 
 function unloadNatsuki()
+	nl = nil
+	nr = nil
 	n_a = nil
-	n_b = nil
-	n_c = nil
-	n_d = nil
-	n_e = nil
-	n_f = nil
-	n_g = nil
-	n_h = nil
-	n_i = nil
-	n_j = nil
-	n_k = nil
-	n_l = nil
-	n_m = nil
-	n_n = nil
-	n_q = nil
-	n_r = nil
-	n_s = nil
-	n_t = nil
-	n_u = nil
-	n_v = nil
-	n_w = nil
-	n_x = nil
-	n_y = nil
-	n_z = nil
-	naf = nil
-	nbf = nil
-	ncf = nil
+	collectgarbage()
+	collectgarbage()
 end
-	
-function loadMonika()
-	if m.a=="1" then
-		if m1l == nil then m1l = love.graphics.newImage('images/monika/1l.png') end
-		if m1r == nil then m1r = love.graphics.newImage('images/monika/1r.png') end
-	elseif m.a=="2" then
-		if m1l == nil then m1l = love.graphics.newImage('images/monika/1l.png') end
-		if m2r == nil then m2r = love.graphics.newImage('images/monika/2r.png') end
-	elseif m.a=="3" then
-		if m2l == nil then m2l = love.graphics.newImage('images/monika/2l.png') end
-		if m1r == nil then m1r = love.graphics.newImage('images/monika/1r.png') end
-	elseif m.a=="4" then
-		if m2l == nil then m2l = love.graphics.newImage('images/monika/2l.png') end
-		if m2r == nil then m2r = love.graphics.newImage('images/monika/2r.png') end
 
-	elseif m.a=="5a" then
-		if m3a == nil then m3a = love.graphics.newImage('images/monika/3a.png') end
+function loadMonika()
+	if m.a=="5a" then
+		ml = love.graphics.newImage('images/monika/3a.png') 
 	elseif m.a=="5b" then
-		if m3b == nil then m3b = love.graphics.newImage('images/monika/3b.png') end
+		ml = love.graphics.newImage('images/monika/3b.png') 
+	elseif m.a=="1" then
+		if ml == nil then ml = love.graphics.newImage('images/monika/1l.png') end
+		if mr == nil then mr = love.graphics.newImage('images/monika/1r.png') end
+	elseif m.a=="2" then
+		if ml == nil then ml = love.graphics.newImage('images/monika/1l.png') end
+		if mr == nil then mr = love.graphics.newImage('images/monika/2r.png') end
+	elseif m.a=="3" then
+		if ml == nil then ml = love.graphics.newImage('images/monika/2l.png') end
+		if mr == nil then mr = love.graphics.newImage('images/monika/1r.png') end
+	elseif m.a=="4" then
+		if ml == nil then ml = love.graphics.newImage('images/monika/2l.png') end
+		if mr == nil then mr = love.graphics.newImage('images/monika/2r.png') end
 	end
 	
-	if m.b=="a" then
-		if m_a == nil then m_a = love.graphics.newImage('images/monika/a.png') end
-	elseif m.b=="b" then
-		if m_b == nil then m_b = love.graphics.newImage('images/monika/b.png') end
-	elseif m.b=="c" then
-		if m_c == nil then m_c = love.graphics.newImage('images/monika/c.png') end
-	elseif m.b=="d" then
-		if m_d == nil then m_d = love.graphics.newImage('images/monika/d.png') end
-	elseif m.b=="e" then
-		if m_e == nil then m_e = love.graphics.newImage('images/monika/e.png') end
-	elseif m.b=="f" then
-		if m_f == nil then m_f = love.graphics.newImage('images/monika/f.png') end
-	elseif m.b=="g" then
-		if m_g == nil then m_g = love.graphics.newImage('images/monika/g.png') end
-	elseif m.b=="h" then
-		if m_h == nil then m_h = love.graphics.newImage('images/monika/h.png') end
-	elseif m.b=="i" then
-		if m_i == nil then m_i = love.graphics.newImage('images/monika/i.png') end
-	elseif m.b=="j" then
-		if m_j == nil then m_j = love.graphics.newImage('images/monika/j.png') end
-	elseif m.b=="k" then
-		if m_k == nil then m_k = love.graphics.newImage('images/monika/k.png') end
-	elseif m.b=="l" then
-		if m_l == nil then m_l = love.graphics.newImage('images/monika/l.png') end
-	elseif m.b=="m" then
-		if m_m == nil then m_m = love.graphics.newImage('images/monika/m.png') end
-	elseif m.b=="n" then
-		if m_n == nil then m_n = love.graphics.newImage('images/monika/n.png') end
-	elseif m.b=="o" then
-		if m_o == nil then m_o = love.graphics.newImage('images/monika/o.png') end
-	elseif m.b=="p" then
-		if m_p == nil then m_p = love.graphics.newImage('images/monika/p.png') end
-	elseif m.b=="q" then
-		if m_q == nil then m_q = love.graphics.newImage('images/monika/q.png') end
-	elseif m.b=="r" then
-		if m_r == nil then m_r = love.graphics.newImage('images/monika/r.png') end
+	if m.b~='' then
+		m_a = love.graphics.newImage('images/monika/'..m.b..'.png') 
 	end
 end
 
 function unloadMonika()
+	ml = nil
+	mr = nil
 	m_a = nil
-	m_b = nil
-	m_c = nil
-	m_d = nil
-	m_e = nil
-	m_f = nil
-	m_g = nil
-	m_h = nil
-	m_i = nil
-	m_j = nil
-	m_k = nil
-	m_l = nil
-	m_m = nil
-	m_n = nil
-	m_o = nil
-	m_p = nil
-	m_q = nil
-	m_r = nil
 	collectgarbage()
 	collectgarbage()
 end
 
+function loadAll()
+	loadSayori()
+	loadNatsuki()
+	loadYuri()
+	loadMonika()
+end
+
 function unloadAll()
-	unloadSayori()
-	unloadYuri()
-	unloadNatsuki()
-	unloadMonika()
+	sl = nil
+	sr = nil
+	yl = nil
+	yr = nil
+	nl = nil
+	nr = nil
+	ml = nil
+	mr = nil
+	s_a = nil
+	y_a = nil
+	n_a = nil
+	m_a = nil
+	collectgarbage()
+	collectgarbage()
 end
