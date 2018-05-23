@@ -75,7 +75,6 @@ function menu_draw()
 		love.graphics.print("Settings:",16, 20)
 		love.graphics.print("Textbox Location",16, 45)
 		love.graphics.print("Text Speed",16, 70)
-		love.graphics.print("Fast Mode",16, 95)
 		love.graphics.print(dversion,270, 220)
 		
 	elseif menu_type == 'textloc' then
@@ -92,18 +91,7 @@ function menu_draw()
 		love.graphics.print("150",16, 120)
 		love.graphics.print("200 (Fastest)",16, 145)		
 		love.graphics.print("Current Setting: "..settings.textspd,16, 220)
-
-	elseif menu_type == 'fmode' then
-		love.graphics.print("Settings - Fast Mode:",16, 20)
-		love.graphics.print("0 - Off (Default)",16, 45)
-		love.graphics.print("1 - On",16, 70)
-		love.graphics.print("What is Fast Mode?",16, 120)
-		love.graphics.print("When this is set to off, most character sprites",16, 145)		
-		love.graphics.print("will be unloaded in reloaded in each dialog.",16, 165)	
-		love.graphics.print("This can prevent crashes from happening.",16, 185)	
-		love.graphics.print("Current Setting: "..settings.fmode,16, 220)
-
-		
+	
 	elseif menu_type == 'choice' then
 		xaload = xaload + 1
 		love.graphics.print(menutext,16, 20)
@@ -135,15 +123,12 @@ function menu_confirm()
 			if monikachr == false and chapter < 5 then --set up early act 1 end
 				menu_enabled = false
 				cl = 10001
-				xaload = 0
+				xaload = -1
 				state = "game"
 			elseif player == "" and global_os == 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
 			elseif cl <= 9999 or global_os ~= 'Horizon' then --go straight to new game
-				hideSayori()
-				hideYuri()
-				hideNatsuki()
-				hideMonika()
+				hideAll()
 				cl = 1
 				state = "game"
 				xaload = 0
@@ -155,7 +140,7 @@ function menu_confirm()
 			menu_enable('loadgame', 7)
 			
 		elseif m_selected == 4 then --settings
-			menu_enable('settings', 4)
+			menu_enable('settings', 3)
 		
 		elseif m_selected == 5 then --help
 			menu_enable('help', 5)
@@ -170,11 +155,9 @@ function menu_confirm()
 		if cl >= 1 then
 			savenumber = m_selected - 1
 			if love.filesystem.isFile("save"..savenumber..".sav") then
-				hideSayori()
-				hideYuri()
-				hideNatsuki()
-				hideMonika()
+				hideAll()
 				loadgame()
+				loadAll()
 				loadupdate()
 				xaload = 0
 				state = "game"
@@ -198,7 +181,7 @@ function menu_confirm()
 		elseif m_selected == 4 then
 			menu_enable('mainyesno',3)
 		elseif m_selected == 5 then
-			menu_enable('settings', 4)
+			menu_enable('settings', 3)
 		elseif m_selected == 6 then
 			menu_enable('help',5)
 		elseif m_selected == 7 then
@@ -223,8 +206,6 @@ function menu_confirm()
 			menu_enable('textloc', 3)
 		elseif m_selected == 3 then
 			menu_enable('textspd', 6)
-		elseif m_selected == 4 then
-			menu_enable('fmode', 3)
 		end
 		
 	elseif menu_type == 'textloc' then
@@ -249,17 +230,9 @@ function menu_confirm()
 		end
 		menu_enable(menu_previous, menu_previousitems)
 	
-	elseif menu_type == 'fmode' then
-		if m_selected == 2 then
-			settings.fmode = 0
-		elseif m_selected == 3 then
-			settings.fmode = 1
-		end
-		menu_enable(menu_previous, menu_previousitems)
-	
 	elseif menu_type == 'choice' then
 		if choicepick ~= '' then
-			xaload = 0
+			xaload = -1
 			cl = cl + 1
 			menu_type = nil
 			menu_enabled = false
