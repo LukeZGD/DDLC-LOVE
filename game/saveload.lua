@@ -7,7 +7,7 @@ n = {a='',b='',x='80',y='0'}
 m = {a='',b='',x='-40',y='0'}
 poemwinner = {"","",""}
 chapter = 0
-settings = {textspd = 100,textloc = 'Bottom',fmode = 0}
+settings = {textspd = 100,textloc = 'Bottom'}
 readpoem = {s=0,n=0,y=0,m=0}
 choices = {"","","",""}
 choicepick = ''
@@ -24,38 +24,7 @@ ch4_name = ''
 savenumber = 1
 
 function savegame()
-	--this should prevent crashes on loading the save
-	if s.a ~= '' then
-		y.a = ''
-		y.b = ''
-		n.a = ''
-		n.b = ''
-		m.a = ''
-		m.b = ''
-	elseif y.a ~= '' then
-		s.a = ''
-		s.b = ''
-		n.a = ''
-		n.b = ''
-		m.a = ''
-		m.b = ''
-	elseif n.a ~= '' then
-		y.a = ''
-		y.b = ''
-		s.a = ''
-		s.b = ''
-		m.a = ''
-		m.b = ''
-	elseif m.a ~= '' then
-		y.a = ''
-		y.b = ''
-		n.a = ''
-		n.b = ''
-		s.a = ''
-		s.b = ''
-	end
-	
-	savedata = "cl = "..cl.."\
+	local savedata = "cl = "..cl.."\
 player = '"..player.."'\
 bg1 = '"..bg1.."'\
 audio1 = '"..audio1.."'\
@@ -66,7 +35,7 @@ y = {a='"..y.a.."',b='"..y.b.."',x="..y.x..",y="..y.y.."}\
 n = {a='"..n.a.."',b='"..n.b.."',x="..n.x..",y="..n.y.."}\
 m = {a='"..m.a.."',b='"..m.b.."',x="..m.x..",y="..m.y.."}\
 chapter = "..chapter.."\
-settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',fmode="..settings.fmode.."}\
+settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."'}\
 readpoem = {s="..readpoem.s..",n="..readpoem.n..",y="..readpoem.y..",m="..readpoem.m.."}\
 choices = {'"..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4].."'}\
 choicepick = '"..choicepick.."'\
@@ -86,10 +55,8 @@ ch4_name = '"..ch4_name.."'"
 end
 
 function loadgame()
-	loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
+	local loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
 	loadsavefile()
-	loadsavefile = nil
-	collectgarbage()
 end
 
 function loadupdate()
@@ -101,7 +68,7 @@ function loadupdate()
 end
 
 function checkchr()
-	sayorichr = love.filesystem.isFile("sayori.chr")
+	local sayorichr = love.filesystem.isFile("sayori.chr")
 	monikachr = love.filesystem.isFile("monika.chr")
 	if love.filesystem.isFile("save1.sav") then loadgame() end
 	
