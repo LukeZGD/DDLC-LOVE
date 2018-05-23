@@ -450,17 +450,17 @@ function loadMonika()
 	elseif m.a=="5b" then
 		ml = love.graphics.newImage('images/monika/3b.png') 
 	elseif m.a=="1" then
-		if ml == nil then ml = love.graphics.newImage('images/monika/1l.png') end
-		if mr == nil then mr = love.graphics.newImage('images/monika/1r.png') end
+		ml = love.graphics.newImage('images/monika/1l.png')
+		mr = love.graphics.newImage('images/monika/1r.png')
 	elseif m.a=="2" then
-		if ml == nil then ml = love.graphics.newImage('images/monika/1l.png') end
-		if mr == nil then mr = love.graphics.newImage('images/monika/2r.png') end
+		ml = love.graphics.newImage('images/monika/1l.png')
+		mr = love.graphics.newImage('images/monika/2r.png')
 	elseif m.a=="3" then
-		if ml == nil then ml = love.graphics.newImage('images/monika/2l.png') end
-		if mr == nil then mr = love.graphics.newImage('images/monika/1r.png') end
+		ml = love.graphics.newImage('images/monika/2l.png')
+		mr = love.graphics.newImage('images/monika/1r.png')
 	elseif m.a=="4" then
-		if ml == nil then ml = love.graphics.newImage('images/monika/2l.png') end
-		if mr == nil then mr = love.graphics.newImage('images/monika/2r.png') end
+		ml = love.graphics.newImage('images/monika/2l.png')
+		mr = love.graphics.newImage('images/monika/2r.png')
 	end
 	
 	if m.b~='' then
