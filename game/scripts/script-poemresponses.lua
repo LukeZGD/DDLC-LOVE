@@ -45,8 +45,6 @@ function poemresponses()
 		end
 		
 	elseif cl >= 669 then
-		if cl < 670 then xaload = -1 end
-
 		if choicepick == 'Sayori' then
 			poemresponse_sayori()
 		elseif choicepick == 'Natsuki' then
@@ -2227,4 +2225,3 @@ function m_yuri_3()
 		m_end()
 	end
 end
-
