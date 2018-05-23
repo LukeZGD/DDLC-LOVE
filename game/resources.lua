@@ -309,32 +309,37 @@ function charCheck()
 	
 end
 	
-function updateSayori(a,b)
+function updateSayori(a,b,x,y)
 	if b == nil then b = '' end
-	sa = a
-	sb = b
+	s.a = a
+	s.b = b
+	if x ~= nil then s.x = x end
+	if y ~= nil then s.y = y end
 end
 
-function updateYuri(a,b)
-	ya = a
-	yb = b
+function updateYuri(a,b,x,y)
+	y.a = a
+	y.b = b
+	if x ~= nil then y.x = x end
+	if y ~= nil then y.y = y end
 end
 
-function updateNatsuki(a,b)
-	na = a
-	nb = b
+function updateNatsuki(a,b,x,y)
+	n.a = a
+	n.b = b
+	if x ~= nil then n.x = x end
+	if y ~= nil then n.y = y end
 end
 
-function updateMonika(a,b)
+function updateMonika(a,b,x,y)
 	if b == nil then b = '' end
-	ma = a
-	mb = b
+	m.a = a
+	m.b = b
+	if x ~= nil then m.x = x end
+	if y ~= nil then m.y = y end
 end
 
 function loadSayori()
-	if sa ~= nil then s.a = sa end
-	if sb ~= nil then s.b = sb end
-	
 	if s.a=="1" then
 		if s1l == nil then s1l = love.graphics.newImage('images/sayori/1l.png') end
 		if s1r == nil then s1r = love.graphics.newImage('images/sayori/1r.png') end
@@ -425,9 +430,6 @@ function loadSayori()
 	elseif s.b=="y" then
 		if s_y == nil then s_y = love.graphics.newImage('images/sayori/y.png') end
 	end
-	
-	sa = nil
-	sb = nil
 end
 
 function unloadSayori()
@@ -458,9 +460,6 @@ function unloadSayori()
 end
 
 function loadYuri()	
-	if ya ~= nil then y.a = ya end
-	if yb ~= nil then y.b = yb end
-	
 	if y.a=="1" then
 		if y1l == nil then y1l = love.graphics.newImage('images/yuri/1l.png') end
 		if y1r == nil then y1r = love.graphics.newImage('images/yuri/1r.png') end
@@ -498,7 +497,7 @@ function loadYuri()
 	elseif y.b=="c" then
 		if y_c == nil then y_c = love.graphics.newImage('images/yuri/c.png') end
 	elseif y.b=="c2" then
-		if yb2 == nil then yb2 = love.graphics.newImage('images/yuri/c2.png') end
+		if yc2 == nil then yc2 = love.graphics.newImage('images/yuri/c2.png') end
 	elseif y.b=="d" then
 		if y_d == nil then y_d = love.graphics.newImage('images/yuri/d.png') end
 	elseif y.b=="d2" then
@@ -554,9 +553,6 @@ function loadYuri()
 	elseif y.b=="y6" then
 		if yy6 == nil then yy6 = love.graphics.newImage('images/yuri/y6.png') end
 	end
-	
-	ya = nil
-	yb = nil
 end
 
 function unloadYuri()	
@@ -593,9 +589,6 @@ function unloadYuri()
 end
 
 function loadNatsuki()
-	if na ~= nil then n.a = na end
-	if nb ~= nil then n.b = nb end
-	
 	if n.b=="a" then
 		if n_a == nil then n_a = love.graphics.newImage('images/natsuki/a.png') end
 	elseif n.b=="b" then
@@ -707,9 +700,6 @@ function loadNatsuki()
 	elseif n.a=="natsuki2" then
 		if nbf == nil then nbf = love.graphics.newImage('images/natsuki/natsuki2.png') end 
 	end
-	
-	na = nil
-	nb = nil
 end
 
 function unloadNatsuki()
@@ -743,9 +733,6 @@ function unloadNatsuki()
 end
 	
 function loadMonika()
-	if ma ~= nil then m.a = ma end
-	if mb ~= nil then m.b = mb end
-	
 	if m.a=="1" then
 		if m1l == nil then m1l = love.graphics.newImage('images/monika/1l.png') end
 		if m1r == nil then m1r = love.graphics.newImage('images/monika/1r.png') end
@@ -802,9 +789,6 @@ function loadMonika()
 	elseif m.b=="r" then
 		if m_r == nil then m_r = love.graphics.newImage('images/monika/r.png') end
 	end
-	
-	ma = nil
-	mb = nil
 end
 
 function unloadMonika()

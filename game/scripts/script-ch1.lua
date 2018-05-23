@@ -653,7 +653,7 @@ function ch1script()
 		cw('bl',"Let's do this!")
 	elseif cl == 1147 then
 		splashalpha(4)
-	elseif cl == 1148 then
+	elseif cl >= 1148 then
 		cl = 1147
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
@@ -664,7 +664,6 @@ end
 
 function ch1_end_natsuki()
 	if cl == 996 then
-		ch1_choice = "Natsuki"
 		cw('mc',"Um...")
 	elseif cl == 997 then
 		cw('mc',"Yuri!")
@@ -902,7 +901,6 @@ end
 
 function ch1_end_yuri()
 	if cl == 996 then
-		ch1_choice = "Yuri"
 		audioUpdate('0')
 		cw('mc',"Natsuki.")
 	elseif cl == 997 then
@@ -995,7 +993,7 @@ function ch1_end_yuri()
 	elseif cl == 1033 then
 		s.x = -40
 		m.x = 80
-		n.x = 150
+		n.x = 200
 		updateSayori('2','h')
 		cw('s',"U-Um!")
 	elseif cl == 1034 then
@@ -1077,25 +1075,25 @@ function ch1_end_yuri()
 		cw('y',"So...")
 	elseif cl == 1066 then
 		cw('mc',"...Eh?")
-	elseif cl == 1066 then
+	elseif cl == 1067 then
 		cw('mc',"What thing did Natsuki say?")
-	elseif cl == 1066 then
+	elseif cl == 1068 then
 		updateYuri('3','n')
 		cw('y',"--!")
-	elseif cl == 1066 then
+	elseif cl == 1069 then
 		cw('y',"U-Um!")
-	elseif cl == 1066 then
+	elseif cl == 1070 then
 		updateYuri('3','q')
 		cw('y',"Well, never mind that...")
-	elseif cl == 1066 then
+	elseif cl == 1071 then
 		cw('y',"I-I'm going to go make some tea...")
-	elseif cl == 1066 then
+	elseif cl == 1072 then
 		cw('mc',"Ah, good idea.")
-	elseif cl == 1066 then
+	elseif cl == 1073 then
 		cw('mc',"Make enough for more than one person, okay?")
-	elseif cl == 1066 then
+	elseif cl == 1074 then
 		cw('y',"Y-Yeah.")
-	elseif cl == 1070 then
+	elseif cl == 1075 then
 		xaload = -1
 		cl = 1092
 	end
@@ -1103,7 +1101,6 @@ end
 
 function ch1_end_sayori()
 	if cl == 996 then
-		ch1_choice = "Sayori"
 		cw('mc',"N-Natsuki...")
 	elseif cl == 997 then
 		updateNatsuki('5','f')
