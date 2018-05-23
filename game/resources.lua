@@ -309,34 +309,34 @@ function charCheck()
 	
 end
 	
-function updateSayori(a,b,x,y)
+function updateSayori(a,b,px,py)
 	if b == nil then b = '' end
 	s.a = a
 	s.b = b
-	if x ~= nil then s.x = x end
-	if y ~= nil then s.y = y end
+	if x ~= nil then s.x = px end
+	if y ~= nil then s.y = py end
 end
 
-function updateYuri(a,b,x,y)
-	y.a = a
+function updateYuri(a,b,px,py)
+	y.a = a 
 	y.b = b
-	if x ~= nil then y.x = x end
-	if y ~= nil then y.y = y end
+	if x ~= nil then y.x = px end
+	if y ~= nil then y.y = py end
 end
 
-function updateNatsuki(a,b,x,y)
+function updateNatsuki(a,b,px,py)
 	n.a = a
 	n.b = b
-	if x ~= nil then n.x = x end
-	if y ~= nil then n.y = y end
+	if x ~= nil then n.x = px end
+	if y ~= nil then n.y = py end
 end
 
-function updateMonika(a,b,x,y)
+function updateMonika(a,b,px,py)
 	if b == nil then b = '' end
 	m.a = a
 	m.b = b
-	if x ~= nil then m.x = x end
-	if y ~= nil then m.y = y end
+	if x ~= nil then m.x = px end
+	if y ~= nil then m.y = py end
 end
 
 function loadSayori()
