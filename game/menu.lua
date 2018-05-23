@@ -167,7 +167,7 @@ function menu_confirm()
 		end
 		
 	elseif menu_type == 'loadgame' then --load game confirm 
-		if cl > 1 then
+		if cl >= 1 then
 			savenumber = m_selected - 1
 			if love.filesystem.isFile("save"..savenumber..".sav") then
 				hideSayori()
