@@ -15,46 +15,44 @@ function sayori_exclusive_1()
 		cw('bl',"I could probably fall asleep right now.")
 	elseif cl == 430 then
 		cw('bl',"I close my eyes and end up listening in on Sayori's conversation with Monika.")
-	elseif cl == 431 then
-		s.x = 10	
-		updateSayori('1','g')
+	elseif cl == 431 then	
+		updateSayori('1','g',10)
 		cw('s',"We're probably gonna seem really lame compared to all the other clubs, though...")
 	elseif cl == 432 then
-		m.x = 150
-		updateMonika('2','r')
+		updateMonika('2','r',150)
 		cw('m',"Hmm...")
 	elseif cl == 433 then
-		m.b = 'b'
+		updateMonika('2','b')
 		cw('m',"Well, we can't give up.")
 	elseif cl == 434 then
 		cw('m',"The festival is our chance to show everyone what literature is all about!")
 	elseif cl == 435 then
-		m.b = 'd'
+		updateMonika('2','d')
 		cw('m',"The problem is that the idea of a literature club sounds too dense and intellectual...")
 	elseif cl == 436 then
 		cw('m',"But it's not like that at all, you know?")
 	elseif cl == 437 then
-		m.b = 'a'
+		updateMonika('2','a')
 		cw('m',"We just need a way of showing that to everyone...")
 	elseif cl == 438 then
 		cw('m',"Something that speaks to their creative minds.")
     elseif cl == 439 then
-		s.b = 'i'
+		updateSayori('1','i')
 		cw('s',"Mmmmmmmmmmm.....")
 	elseif cl == 440 then
 		cw('s',"That doesn't solve the problem, though!")
 	elseif cl == 441 then
-		m.b = 'd'
+		updateMonika('1','d')
 		cw('s',"Eh? What do you mean?")
 	elseif cl == 442 then
-		s.b = 'c'
+		updateSayori('1','c')
 		cw('s',"Even if we come up with the most fun thing ever...")
 	elseif cl == 443 then
 		cw('s',"Nobody will come in the first place if it's a literature event.")
 	elseif cl == 444 then
 		cw('s',"So it's more important to figure out how to get people to show up in the first place, you know?")
 	elseif cl == 445 then
-		s.b = 'a'
+		updateSayori('1','a')
 		cw('s',"And after they come, we can do the thing to speak to their creative minds.")
 	elseif cl == 446 then
 		cw('bl',"...What's this?")
@@ -63,15 +61,15 @@ function sayori_exclusive_1()
 	elseif cl == 448 then
 		cw('bl',"It's rare to hear her deliberating like this.")
 	elseif cl == 449 then
-		m.b = 'a'
+		updateMonika('1','a')
 		cw('m',"Huh, that's a good point...")
 	elseif cl == 450 then
 		cw('m',"In that case, do you think food will do the trick?")
 	elseif cl == 451 then
-		s.b = 'n'
+		updateSayori('1','n')
 		cw('s',"W-What kind?!")
 	elseif cl == 452 then
-		m.b = 'b'
+		updateMonika('1','b')
 		cw('m',"Ah... Well, I guess we could--")
 	elseif cl == 453 then
 		cw('s',"Cupcakes!")
@@ -88,21 +86,21 @@ function sayori_exclusive_1()
     elseif cl == 458 then
 		cw('s',"That works out perfectly~")
 	elseif cl == 459 then
-		m.b = 'd'
+		updateMonika('1','d')
 		cw('s',"That wasn't why you suggested it...?")
 	elseif cl == 460 then
-		s.b = 'q'
+		updateSayori('4','q')
 		cw('s',"Cupcakes speak to my creative tummy~")
 	elseif cl == 461 then
-		m.b = 'l'
+		updateMonika('1','l')
 		cw('m',"...")
 	elseif cl == 462 then
 		cw('m',"Cupcakes it is, then.")
 	elseif cl == 463 then
-		s.b = 'g'
+		updateSayori('4','g')
 		cw('s',"I'm hungry...")
 	elseif cl == 464 then
-		m.b = 'a'
+		updateMonika('1','a')
 		cw('m',"Anyway, we still need to work out the details of the event itself...")
 	elseif cl == 465 then
 		hideSayori()
@@ -123,8 +121,7 @@ function sayori_exclusive_1()
 		cw('bl',"I can't help but wonder what it would be like to see the world through her eyes...")
 	elseif cl == 472 then
 		bgUpdate('club')
-		s.x = 80
-		updateSayori('sayori','')
+		updateSayori('sayori','',80)
 		cw('mc',"Uwaa--!")
 	elseif cl == 473 then
 		cw('bl','I open my eyes to find Sayori\'s face filling my vision.')
@@ -134,10 +131,10 @@ function sayori_exclusive_1()
 		updateSayori('4','q')
 		cw('s',"Ehehe, sorry~")
 	elseif cl == 476 then
-		s.b = 'i'
+		updateSayori('4','i')
 		cw('s',"Wait!")
     elseif cl == 477 then
-		s.b = 'j'
+		updateSayori('4','j')
 		cw('s',"Actually, I'm not sorry at all!")
 	elseif cl == 478 then
 		cw('s',"It's your fault for sleeping like that!")
@@ -157,7 +154,7 @@ function sayori_exclusive_1()
 	elseif cl == 485 then
 		cw('bl',"I glance over my shoulder to see if Monika overheard.")
 	elseif cl == 486 then
-		s.b = 'g'
+		updateSayori('1','g')
 		cw('s',"It's true, though...")
 	elseif cl == 487 then
 		cw('mc',"Yeah...")
@@ -179,7 +176,7 @@ function sayori_exclusive_1()
 	elseif cl == 495 then
 		cw('mc',"You're still oversleeping every day, aren't you?")
 	elseif cl == 496 then
-		s.b = 'l'
+		updateSayori('4','l')
 		cw('s',"Eh?")
 	elseif cl == 497 then
 		cw('s',"N-Not every day!")
@@ -188,10 +185,10 @@ function sayori_exclusive_1()
 	elseif cl == 499 then
 		cw('mc',"How many days this past week have you gotten up on time?")
 	elseif cl == 500 then
-		s.b = 'm'
+		updateSayori('4','m')
 		cw('s',"That's...")
 	elseif cl == 501 then
-		s.b = 'o'
+		updateSayori('4','o')
 		cw('s',"...It's a secret!")
 	elseif cl == 502 then
 		cw('mc',"I knew it...")
@@ -216,14 +213,14 @@ function sayori_exclusive_1()
 	elseif cl == 511 then
 		cw('mc',"Look, your hair is sticking out all around here.")
 	elseif cl == 512 then
-		s.b = 'e'
+		updateSayori('1','e')
 		cw('s',"Ah--")
 	elseif cl == 513 then
 		cw('bl',"I run my fingertips down the side of Sayori's hair, trying to straighten it out.")
 	elseif cl == 514 then
 		cw('mc',"Man, you really need a brush for this...")
 	elseif cl == 515 then
-		s.b = 'y'
+		updateSayori('1','y')
 		cw('s',"My hair is just really hard to get right...")
 	elseif cl == 516 then
 		cw('mc',"I won't fall for that.")
@@ -342,7 +339,7 @@ function sayori_exclusive_1()
 	elseif cl == 570 then
 		cw('bl',"Sayori puts her arms out and twirls around.")
 	elseif cl == 571 then
-		s.b = 'a'
+		updateSayori('1','a')
 		cw('s',"So if I keep it unbuttoned then I won't get a boyfriend, right?")
 	elseif cl == 572 then
 		cw('mc',"What kind of logic is that?")
@@ -354,14 +351,14 @@ function sayori_exclusive_1()
 		updateSayori('4','h')
 		cw('s',"...If I had a boyfriend, then he wouldn't even let you do things like this!")
 	elseif cl == 576 then
-		s.b = 'y'
+		updateSayori('4','y')
 		cw('s',"And you take care of me better than anyone else would, anyway...")
 	elseif cl == 577 then
 		cw('s',"So that's why I'm keeping it unbuttoned!")
 	elseif cl == 578 then
 		cw('mc',"Stop saying all these embarrassing things!")
 	elseif cl == 579 then
-		s.b = 'b'
+		updateSayori('4','b')
 		cw('s',"Eh?")
 	elseif cl == 580 then
 		cw('s',"I didn't say anything embarrassing...")
@@ -370,7 +367,7 @@ function sayori_exclusive_1()
 	elseif cl == 582 then
 		cw('mc',"Well anyway, just focus on trying to wake up a little earlier...")
 	elseif cl == 583 then
-		s.b = 'j'
+		updateSayori('4','j')
 		cw('s',"Only if you focus on going to bed earlier!")
 	elseif cl == 584 then
 		cw('mc',"Fine, fine...")
@@ -380,23 +377,22 @@ function sayori_exclusive_1()
 		updateSayori('4','q')
 		cw('s',"Ehehe~")
 	elseif cl == 587 then
-		s.b = 'x'
+		updateSayori('4','x')
 		cw('s',"I guess we really are better at taking care of each other than we are at taking care of ourselves.")
 	elseif cl == 588 then
 		cw('mc',"Yeah, I guess so, huh...")
 	elseif cl == 589 then
-		s.b = 'y'
+		updateSayori('4','y')
 		cw('s',"So maybe you should come wake me up in the morning!")
 	elseif cl == 590 then
 		cw('mc',"You're doing it again, Sayori...")
 	elseif cl == 591 then
-		s.b = 'h'
+		updateSayori('4','h')
 		cw('s',"Aw, but I was joking that time!")
 	elseif cl == 592 then
 		cw('mc',"Man, it's impossible to tell with you sometimes.")
 	elseif cl == 593 then
-		m.x = -50
-		updateMonika('3','b')
+		updateMonika('3','b',-50)
 		cw('m',"Okay, everyone!")
 	elseif cl == 594 then
 		cw('mc',"Eh?")
@@ -408,7 +404,7 @@ function sayori_exclusive_1()
 		updateSayori('4','r')
 		cw('s',"Yay~!")
 	elseif cl == 598 then
-		s.b = 'x'
+		updateSayori('4','x')
 		cw('s',player..", I can't wait to read yours!")
     elseif cl == 599 then
 		cw('mc',"Yeah, same...")

@@ -43,7 +43,7 @@ function ch0script()
 	elseif cl == 18 then
 		cw('mc',"Whatever you say, Sayori...")
 	elseif cl == 19 then
-		sb = 'q'
+		updateSayori('1','q')
 		cw('s',"Ehehe~")
 	elseif cl == 20 then
 		hideSayori()
@@ -73,7 +73,7 @@ function ch0script()
 	elseif cl == 31 then
 		cw('bl','Sayori likes to worry a little too much about me, when I\'m perfectly content just getting by on the average while spending my free time on games and anime.')
 	elseif cl == 32 then
-		sb = 'j'
+		updateSayori('4','j')
 		cw('s',"Uh-huh!")
 	elseif cl == 33 then
 		cw('s',"I was talking about how I\'m worried that you won\'t learn how to socialize or have any skills before college.")
@@ -129,7 +129,7 @@ function ch0script()
 	elseif cl == 55 then
 		cw('bl','I look around and realize that I\'m the only one left in the classroom.')
 	elseif cl == 56 then
-		sb = 'a'
+		updateSayori('1','a')
 		cw('s',"I thought I\'d catch you coming out of the classroom, but I saw you just sitting here and spacing out, so I came in.")
 	elseif cl == 57 then
 		cw('s',"Honestly, you\'re even worse than me sometimes... I\'m impressed!")
@@ -137,12 +137,12 @@ function ch0script()
 		ct = player
 		cw('mc',"You don\'t need to wait up for me if it's going to make you late to your own club.")
 	elseif cl == 59 then
-		sb = 'y'
+		updateSayori('1','y')
 		cw('s',"Well, I thought you might need some encouragement, so I thought, you know...")
 	elseif cl == 60 then
 		cw('mc',"Know what?")
 	elseif cl == 61 then
-		sb = 'a'
+		updateSayori('1','a')
 		cw('s',"Well, that you could come to my club!")
 	elseif cl == 62 then
 		cw('mc',"Sayori...")
@@ -204,8 +204,7 @@ function ch0script()
 	elseif cl == 86 then
 		bgUpdate('club')
 		audioUpdate('3')
-		updateSayori('4','a')
-		s.x = 0 - 50
+		updateSayori('4','a',-50)
 		cw('s',"Everyone! The new member is here~!")
 	elseif cl == 87 then
 		cw('mc',"I told you, don't call me a 'new member - '")
@@ -213,28 +212,25 @@ function ch0script()
 		hideSayori()
 		cw('bl','Eh? I glance around the room.')
 	elseif cl == 89 then
-		y.x = 80
-		updateYuri('1','a')
+		updateYuri('1','a',80)
 		cw('g1',"Welcome to the Literature Club. It's a pleasure meeting you.")
     elseif cl == 90 then 
 		cw('g1',"Sayori always says nice things about you.")
 	elseif cl == 91 then
-		updateNatsuki('4','c')
-		y.x = 140
-		n.x = 20
+		updateNatsuki('4','c',20)
+		updateYuri('1','a',140)
 		cw('g2',"Seriously? You brought a boy?")
 	elseif cl == 92 then 
 		cw('g2',"Way to kill the atmosphere.")
 	elseif cl == 93 then
-		updateMonika('1','k')
-		n.x = 80
-		y.x = 200
-		m.x = -40
+		updateMonika('1','k',-40)
+		updateNatsuki('4','c',80)
+		updateYuri('1','a',200)
 		cw('g3',"Ah, " .. player .. "! What a nice surprise!")
 	elseif cl == 94 then 
 		cw('g3',"Welcome to the club!")
 	elseif cl == 95 then
-		mb = 'a'
+		updateMonika('1','a')
 		cw('mc',"...")
 	elseif cl == 96 then 
 		cw('bl','All words escape me in this situation.')
@@ -252,8 +248,7 @@ function ch0script()
 	elseif cl == 101 then
 		cw('mc',"S-Sorry...")
 	elseif cl == 102 then
-		updateYuri('2','l')
-		y.x = 200
+		updateYuri('2','l',200)
 		cw('g1',"Natsuki...")
 	elseif cl == 103 then
 		updateNatsuki('5','s')
@@ -265,8 +260,7 @@ function ch0script()
     elseif cl == 106 then
 		cw('bl','She is also the one who made cupcakes, according to Sayori.')
 	elseif cl == 107 then
-		updateSayori('2','q')
-		s.x = -40
+		updateSayori('2','q',-40)
 		cw('s',"You can just ignore her when she gets moody~")
 	elseif cl == 108 then
 		cw('bl','Sayori says that quietly into my ear, then turns back toward the other girls.')
@@ -285,11 +279,10 @@ function ch0script()
 	elseif cl == 114 then
 		hideYuri()
 		hideNatsuki()
-		sb = 'a'
+		updateSayori('1','a')
 		cw('s',"And it sounds like you already know Monika, is that right?")
 	elseif cl == 115 then
-		updateMonika('2','a')
-		m.x = 80
+		updateMonika('2','a',80)
 		cw('m',"That's right.")
 	elseif cl == 116 then 
 		cw('m',"It's great to see you again, " .. player .. ".")
@@ -313,15 +306,13 @@ function ch0script()
     elseif cl == 124 then 
 		cw('s',"I'll get the cupcakes~")
 	elseif cl == 125 then
-		updateNatsuki('1','b')
-		n.x = 80 
+		updateNatsuki('1','b',80)
 		cw('n',"Hey! I made them, I'll get them!")
     elseif cl == 126 then
 		updateSayori('5a','')
 		cw('s',"Sorry, I got a little too excited~")
     elseif cl == 127 then
-		updateYuri('1','a')
-		y.x = 200
+		updateYuri('1','a',200)
 		cw('y',"Then, how about I make some tea as well?")
 	elseif cl == 128 then
 		hideSayori()
@@ -337,36 +328,33 @@ function ch0script()
     elseif cl == 132 then
 		cw('bl','Natsuki proudly marches back to the table, tray in hand.')
 	elseif cl == 133 then
-		updateNatsuki('2','z')
-		n.x = 80
+		updateNatsuki('2','z',80)
 		cw('n',"Okaaay, are you ready?")
 	elseif cl == 134 then
 		cw('n',"...Ta-daaa!")
 	elseif cl == 135 then
-		updateSayori('4','m')
-		updateMonika('2','d')
-		s.x = -40
-		m.x = 200
+		updateSayori('4','m',-40)
+		updateMonika('2','d',200)
 		cw('s',"Uwooooah!")
 	elseif cl == 136 then
 		cw('bl','Natsuki lifts the foil off the tray to reveal a dozen white, fluffy cupcakes decorated to look like little cats.')
 	elseif cl == 137 then
 		cw('bl','The whiskers are drawn with icing, and little pieces of chocolate were used to make ears.')
 	elseif cl == 138 then
-		sb = 'r'
+		updateSayori('4','r')
 		cw('s',"So cuuuute~!")
 	elseif cl == 139 then
-		mb = 'b'
+		updateMonika('2','b')
 		cw('m',"I had no idea you were so good at baking, Natsuki!")
 	elseif cl == 140 then
-		nc = 'd'
+		updateNatsuki('2','d')
 		cw('n',"Ehehe. Well, you know.")
 	elseif cl == 141 then 
 		cw('n',"Just hurry and take one!")
 	elseif cl == 142 then
 		cw('bl','Sayori grabs one first, then Monika. I follow.')
 	elseif cl == 143 then
-		sb = 'q'
+		updateSayori('4','q')
 		cw('s',"It's delicious!")
 	elseif cl == 144 then
 		cw('bl','Sayori talks with her mouth full and has already managed to get icing on her face.')
@@ -395,7 +383,7 @@ function ch0script()
 	elseif cl == 154 then 
 		cw('bl',"(Haven't I heard this somewhere before...?)")
 	elseif cl == 155 then
-		nc = 's' 
+		updateNatsuki('5','s')
 		cw('n',"...Made them for you or anything.")
 	elseif cl == 156 then
 		cw('mc',"Eh? I thought you technically did. Sayori said--")
@@ -414,8 +402,7 @@ function ch0script()
     elseif cl == 162 then
 		cw('bl','She carefully places a teacup in front of each of us before setting down the teapot next to the cupcake tray.')
 	elseif cl == 163 then
-		updateYuri('1','a')
-		y.x = 10
+		updateYuri('1','a',10)
 		cw('mc',"You keep a whole tea set in this classroom?")
 	elseif cl == 164 then
 		cw('y',"Don't worry, the teachers gave us permission.")
@@ -424,8 +411,7 @@ function ch0script()
 	elseif cl == 166 then
 		cw('mc',"Ah... I-I guess...")
 	elseif cl == 167 then
-		updateMonika('4','a')
-		m.x = 150
+		updateMonika('4','a',150)
 		cw('m',"Ehehe, don't let yourself get intimidated, Yuri's just trying to impress you.")
 	elseif cl == 168 then
 		updateYuri('3','n')
@@ -448,8 +434,7 @@ function ch0script()
 		cw('bl',"Monika raises an eyebrow, then smiles at me.")
 	elseif cl == 176 then
 		hideYuri()
-		updateMonika('1','a')
-		m.x = 80
+		updateMonika('1','a',80)
 		cw('m',"So, what made you consider the Literature Club?")
 	elseif cl == 177 then 
 		cw('mc',"Um...")
@@ -460,15 +445,15 @@ function ch0script()
 	elseif cl == 180 then
 		cw('mc',"Well, I haven't joined any clubs yet, and Sayori seemed really happy here, so...")
 	elseif cl == 181 then 
-		mb = 'j'
+		updateMonika('1','j')
 		cw('m',"That's okay! Don't be embarrassed!")
 	elseif cl == 182 then
-		mb = 'b'
+		updateMonika('1','b')
 		cw('m',"We\'ll make sure you feel right at home, okay?")
 	elseif cl == 183 then
 		cw('m',"As president of the Literature Club, it\'s my duty to make the club fun and exciting for everyone!")
 	elseif cl == 184 then 
-		mb = 'a' 
+		updateMonika('1','a')
 		cw('mc',"Monika, I\'m surprised.")
 	elseif cl == 185 then 
 		cw('mc',"How come you decided to start your own club?")
@@ -486,17 +471,14 @@ function ch0script()
 	elseif cl == 191 then
 		cw('m',"I\'d much rather take something I personally enjoy and make something special out of it.")
 	elseif cl == 192 then
-		updateMonika('1','b')
-		m.x = 80
+		updateMonika('1','b',80)
 		cw('m',"And if it encourages others to get into literature, then I\'m fulfilling that dream!")
 	elseif cl == 193 then
-		mb = 'a'
-		updateSayori('3','q')
-		s.x = -40
+		updateMonika('1','a')
+		updateSayori('3','q',-40)
 		cw('s',"Monika really is a great leader!")
 	elseif cl == 194 then
-		updateYuri('1','a')
-		y.x = 200
+		updateYuri('1','a',200)
 		cw('bl','Yuri also nods in agreement.')
 	elseif cl == 195 then
 		hideSayori()
@@ -522,23 +504,20 @@ function ch0script()
 	elseif cl == 203 then 
 		cw('m',"Right, everyone?")
 	elseif cl == 204 then
-		updateSayori('4','r')
-		mb = 'a'
+		updateSayori('4','r',10)
+		updateMonika('2','a',150)
 		s.x = 10
-		m.x = 150
 		cw('s',"Yeah!")
 	elseif cl == 205 then
-		updateYuri('1','a')
-		y.x = -40
-		s.x = 80
-		m.x = 200
+		updateYuri('1','a',-40)
+		updateSayori('4','r',80)
+		updateMonika('2','a',200)
 		cw('y',"We\'ll do our best.")
 	elseif cl == 206 then
-		updateNatsuki('4','d')
-		n.x = 0 - 60
-		y.x = 30
-		s.x = 120
-		m.x = 220
+		updateNatsuki('4','d',-60)
+		updateYuri('1','a',30)
+		updateSayori('4','r',120)
+		updateMonika('2','a',220)
 		cw('n',"You know it!")
 	elseif cl == 207 then
 		cw('bl',"Everyone enthusiastically agrees.")
@@ -554,8 +533,7 @@ function ch0script()
 		hideMonika()
 		hideNatsuki()
 		hideSayori()
-		updateYuri('1','a')
-		y.x = 80
+		updateYuri('1','a',80)
 		cw('y','So, ' .. player .. ', what kinds of things do you like to read?')
 	elseif cl == 213 then
 		ct = player
@@ -568,10 +546,7 @@ function ch0script()
 	elseif cl == 216 then
 		cw('bl',"I mutter quietly to myself, half-joking.")
 	elseif cl == 217 then
-		n.xh = n.x
-		nyh = ny
-		updateNatsuki('1','c')
-		n.x = 0 - 50	
+		updateNatsuki('1','c',-50)
 		cw('bl',"Natsuki's head suddenly perks up.")
 	elseif cl == 218 then
 		cw('bl',"It looks like she wants to say something, but she keeps quiet.")
@@ -598,7 +573,7 @@ function ch0script()
 	elseif cl == 227 then
 		cw('y',"The level of creativity and craftsmanship behind them is amazing to me.")
 	elseif cl == 228 then
-		yb = 'f'
+		updateYuri('1','f')
 		cw('y',"And telling a good story in such a foreign world is equally impressive.")
 	elseif cl == 229 then
 		cw('bl',"Yuri goes on, clearly passionate about her reading.")
@@ -621,8 +596,7 @@ function ch0script()
 	elseif cl == 237 then
 		cw('bl',"At this rate, Yuri might as well be having a conversation with a rock.")
 	elseif cl == 238 then
-		updateMonika('1','d')
-		m.x = 200
+		updateMonika('1','d',200)
 		cw('m',"Really?  I wouldn\'t have expected that, Yuri.")
 	elseif cl == 239 then
 		cw('m',"For someone as gentle as you...")
@@ -634,14 +608,13 @@ function ch0script()
 	elseif cl == 242 then
 		cw('y',"Surreal horror is often very successful at changing the way you look at the world, if only for a brief moment.")
 	elseif cl == 243 then
-		updateNatsuki('5','q')
-		n.x = 0 - 40
+		updateNatsuki('5','q',-40)
 		cw('n',"Ugh, I hate horror...")
 	elseif cl == 244 then
 		updateYuri('1','f')
 		cw('y',"Oh? Why\'s that?")
 	elseif cl == 245 then
-		nb = 'c'
+		updateNatsuki('5','c')
 		cw('n',"Well, I just...")
 	elseif cl == 246 then
 		cw('bl',"Natsuki\'s eyes dart over to me for a split second.")
@@ -672,25 +645,21 @@ function ch0script()
 	elseif cl == 256 then
 		hideMonika()
 		hideYuri()
-		n.x = 30
-		s.x = 0 - 60
-		updateNatsuki('1','r')
-		updateSayori('4','q')
+		updateNatsuki('1','r',30)
+		updateSayori('4','q',-60)
 		cw('s',"Ehehe, your cupcakes, your poems...")
 	elseif cl == 257 then
 		cw('s',"Everything you do is just as cute as you are~")
 	elseif cl == 258 then
-		s.x = 0
+		updateSayori('4','q',0)
 		updateNatsuki('1','r')
-		ct = ''
 		cw('bl',"Sayori sidles up behind Natsuki and puts her hands on her shoulders.")
 	elseif cl == 259 then
-		nb = 'v'
+		updateNatsuki('1','v')
 		cw('n',"I\'m not cute!!")
 	elseif cl == 260 then
 		hideSayori()
-		n.x = 80
-		ct = player
+		updateNatsuki('1','r',80)
 		cw('mc',"Natsuki, you write your own poems?")
 	elseif cl == 261 then
 		updateNatsuki('1','c')
@@ -711,20 +680,18 @@ function ch0script()
 	elseif cl == 268 then
 		cw('mc',"Ah...not a very confident writer yet?")
 	elseif cl == 269 then
-		updateYuri('2','f')
-		y.x = 0 - 40
+		updateYuri('2','f',-40)
 		cw('y',"I understand how Natsuki feels.")
 	elseif cl == 270 then
 		cw('y',"Sharing that level of writing takes more than just confidence.")
 	elseif cl == 271 then
-		yb = 'l'
+		updateYuri('2','l')
 		cw('y',"The truest form of writing is writing to oneself.")
 	elseif cl == 272 then
 		cw('y',"You must be willing to open up to your readers, exposing your vulnerabilities and showing even the deepest reaches of your heart.")
 	elseif cl == 273 then
 		hideNatsuki()
-		updateMonika('2','a')
-		m.x = 200
+		updateMonika('2','a',200)
 		cw('m',"Do you have writing experience too, Yuri?")
 	elseif cl == 274 then
 		cw('m',"Maybe if you share some of your work, you can set an example and help Natsuki feel comfortable enough to share hers.")
@@ -734,8 +701,7 @@ function ch0script()
 	elseif cl == 276 then
 		cw('mc',"I guess it\'s the same for Yuri...")
 	elseif cl == 277 then
-		updateSayori('2','g')
-		s.x = 80
+		updateSayori('2','g',80)
 		cw('s',"Aww... I wanted to read everyone\'s poems...")
 	elseif cl == 278 then
 		hideMonika()
@@ -743,17 +709,13 @@ function ch0script()
 		hideYuri()
 		cw('bl',"We all sit in silence for a moment.")
 	elseif cl == 279 then
-		updateMonika('5a','')
-		m.x = 80
+		updateMonika('5a','',80)
 		cw('m',"Okay!")
 	elseif cl == 280 then
 		cw('m',"I have an idea, everyone~")
 	elseif cl == 281 then
-		updateYuri('3','e')
-		updateNatsuki('2','c')
-		n.x = 200
-		y.x = 0 - 40
-		m.x = 80
+		updateYuri('3','e',-40)
+		updateNatsuki('2','c',200)
 		cw('ny',"...?")
 	elseif cl == 282 then
 		cw('bl',"Natsuki and Yuri look quizzically at Monika.")
@@ -771,11 +733,10 @@ function ch0script()
 		updateYuri('3','v')
 		cw('y',"...")
 	elseif cl == 288 then
-		m.x = 120
-		n.x = 220
-		y.x = 30
-		updateSayori('4','r')
-		s.x = 0 - 60
+		updateSayori('4','r',-60)
+		updateMonika('2','b',120)
+		updateYuri('3','v',30)
+		updateNatsuki('5','q',220)
 		cw('s',"Yeaaah! Let\'s do it!")
 	elseif cl == 289 then
 		updateMonika('1','a')
@@ -787,7 +748,7 @@ function ch0script()
 	elseif cl == 292 then
 		cw('mc',"Hold on...there\'s still one problem.")
 	elseif cl == 293 then
-		mb = 'd'
+		updateMonika('2','d')
 		cw('m',"Eh? What\'s that?")
 	elseif cl == 294 then
 		cw('bl',"Now that we\'re back to the original topic of me joining the club, I bluntly come forth with what\'s been on my mind the entire time.")
@@ -862,8 +823,7 @@ function ch0script()
 		hideNatsuki()
 		hideSayori()
 		hideYuri()
-		m.x = 80
-		updateMonika('3','b')
+		updateMonika('3','b',80)
 		cw('m',"Okay, everyone!")
 	elseif cl == 321 then
 		cw('m',"I think with that, we can officially end today\'s meeting on a good note.")
@@ -889,8 +849,7 @@ function ch0script()
 	elseif cl == 330 then
 		cw('bl',"Meanwhile, the girls continue to chit-chat as Yuri and Natsuki clean up their food.")
 	elseif cl == 331 then
-		updateSayori('1','a')
-		s.x = 80
+		updateSayori('1','a',80)
 		cw('s','Hey, ' .. player .. ', since we\'re already here, do you want to walk home together?')
 	elseif cl == 332 then
 		cw('bl',"That\'s right--Sayori and I never walk home together anymore because she always stayed after school for clubs.")
@@ -906,32 +865,23 @@ function ch0script()
 	elseif cl == 336 then
 		cw('bl', "The whole way, my mind wanders back and forth between the four girls:")
 	elseif cl == 337 then
-		updateSayori('1','a')
-		s.x = 0 - 60
+		updateSayori('1','a',-60)
 		cw('bl',"Sayori,")
 	elseif cl == 338 then
-		n.xh = n.x
-		nyh = ny
-		updateNatsuki('4','a')
-		n.x = 30
+		updateNatsuki('4','a',30)
 		cw('bl',"Natsuki,")
 	elseif cl == 339 then
-		updateYuri('1','a')
-		y.x = 120
+		updateYuri('1','a',120)
 		ca = "Yuri,"
 	elseif cl == 340 then
-		updateMonika('1','a')
-		m.x = 220
+		updateMonika('1','a',220)
 		cw('bl',"and, of course, Monika.")
 	elseif cl == 341 then
 		cw('bl',"Will I really be happy spending every day after school in a literature club?")
 	elseif cl == 342 then
 		cw('bl',"Perhaps I\'ll have the chance to grow closer to one of these girls...")
 	elseif cl == 343 then
-		hideMonika()
-		hideYuri()
-		hideNatsuki()
-		hideSayori()
+		hideAll()
 		cw('bl',"Alright!")
 	elseif cl == 344 then
 		cw('bl',"I\'ll just need to make the most of my circumstances, and I\'m sure good fortune will find me.")
@@ -955,7 +905,7 @@ function ch0script()
 	elseif cl == 10003 then 
 		cw('s',"W-What...")
 	elseif cl == 10004 then 
-		sb = 'g' 
+		updateSayori('1','g') 
 		cw('s',"...")
 	elseif cl == 10005 then 
 		cw('s',"This...")
@@ -964,7 +914,7 @@ function ch0script()
 	elseif cl == 10007 then 
 		cw('s',"Oh no...")
 	elseif cl == 10008 then 
-		sb = 'u' 
+		updateSayori('1','u') 
 		cw('s',"No...")
 	elseif cl == 10009 then 
 		cw('s',"This can\'t be it.")
