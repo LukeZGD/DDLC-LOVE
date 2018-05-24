@@ -11,8 +11,7 @@ function yuri_exclusive_1()
 		cw('bl',"More than that, she seems to be on the first few pages.")
     elseif cl == 428 then
 		audioUpdate('6')
-		y.x = 80
-		updateYuri('4','a2')
+		updateYuri('4','a2',80)
 		cw('y',"Ah...")
 	elseif cl == 429 then
 		cw('bl',"Crap--")
@@ -21,7 +20,7 @@ function yuri_exclusive_1()
     elseif cl == 431 then
 		cw('bl',"She sneaks another glance at me, and our eyes meet for a split second.")
 	elseif cl == 432 then
-		y.b = 'b2'
+		updateYuri('4','b2')
 		cw('y',"...")
 	elseif cl == 433 then
 		cw('bl',"But that only makes her hide her face deeper in her book.")
@@ -37,7 +36,7 @@ function yuri_exclusive_1()
 	elseif cl == 438 then
 		cw('y',"It's fine...")
 	elseif cl == 439 then
-		y.b = 'a'
+		updateYuri('1','a')
 		cw('y',"If I was focused, then I probably wouldn't have noticed in the first place.")
 	elseif cl == 440 then
 		cw('y',"But I'm just re-reading a bit of this, so...")
@@ -76,7 +75,7 @@ function yuri_exclusive_1()
 	elseif cl == 455 then
 		cw('y',"Once it starts to pick up, you might have a hard time putting it down.")
 	elseif cl == 456 then
-		y.b = 'c'
+		updateYuri('2','c')
 		cw('y',"It's a very engaging and relatable story.")
 	elseif cl == 457 then
 		cw('mc',"Is that so...?")
@@ -103,12 +102,12 @@ function yuri_exclusive_1()
 	elseif cl == 467 then
 		cw('y',"But as soon as she does so, her life gets really strange.")
 	elseif cl == 468 then
-		y.b = 'm'
+		updateYuri('1','m')
 		cw('y',"She gets targeted by these people who escaped from a human experiment prison...")
 	elseif cl == 469 then
 		cw('y',"And while her life is in danger, she needs to desperately choose who to trust.")
 	elseif cl == 470 then
-		y.b = 'i'
+		updateYuri('1','i')
 		cw('y', "No matter what she does, she ends up destroying most of her relationships and her life starts to fall apart...")
 	elseif cl == 471 then
 		cw('mc',"That's kind of--!")
@@ -117,7 +116,7 @@ function yuri_exclusive_1()
 	elseif cl == 473 then
 		cw('bl',"Yuri made it sound like it was going to be a nice story, so that dark turn came from nowhere.")
 	elseif cl == 474 then
-		y.b = 'c'
+		updateYuri('1','c')
 		cw('y',"Ahaha.")
 	elseif cl == 475 then
 		cw('bl',"Yuri gently giggles, all of a sudden.")
@@ -137,12 +136,12 @@ function yuri_exclusive_1()
 	elseif cl == 482 then
 		cw('y',"It's just that those kinds of stories...")
 	elseif cl == 483 then
-		y.b = 'a'
+		updateYuri('2','a')
 		cw('y',"They challenge you to look at life from a strange new perspective.")
 	elseif cl == 484 then
 		cw('y',"When horrible things happen not just because someone wants to be evil...")
 	elseif cl == 485 then
-		y.b = 'm'
+		updateYuri('2','m')
 		cw('y',"But because they have their own goals, or their own philosophy that they believe in.")
 	elseif cl == 486 then
 		cw('y',"Then suddenly, when you thought you related to the protagonist...")
@@ -165,7 +164,7 @@ function yuri_exclusive_1()
 	elseif cl == 494 then
 		cw('y', "I guess it's alright, then...")
 	elseif cl == 495 then
-		y.b = 'a2'
+		updateYuri('4','a2')
 		cw('y',"But I feel like I should let you know that I have this problem...")
 	elseif cl == 496 then
 		cw('y',"When I let things like books and writing fill my thoughts...")
@@ -198,14 +197,14 @@ function yuri_exclusive_1()
 	elseif cl == 509 then
 		cw('mc', "I might as well get started reading it, right?")
 	elseif cl == 510 then
-		y.b = 'n'
+		updateYuri('3','n')
 		cw('y',"Y-You don't have to!")
 	elseif cl == 511 then
 		cw('mc',"Ahaha, what are you saying?")
 	elseif cl == 512 then
 		cw('mc',"Just a moment ago, you said you were looking forward to it.")
 	elseif cl == 513 then
-		y.b = 'o'
+		updateYuri('3', 'o')
 		cw('y',"...")
 	elseif cl == 514 then
 		cw('mc',"Let me just get the book...")
@@ -216,7 +215,7 @@ function yuri_exclusive_1()
 	elseif cl == 517 then
 		cw('bl',"I slip into the seat next to Yuri's.")
 	elseif cl == 518 then
-		y.b = 'n'
+		updateYuri('3','n')
 		cw('y',"Ah...!")
 	elseif cl == 519 then
 		cw('y',"Yeah...")
@@ -275,7 +274,7 @@ function yuri_exclusive_1()
 	elseif cl == 544 then
 		cw('y', "Sorry...")
 	elseif cl == 545 then
-		y.b = 'c2'
+		updateYuri('4','c2')
 		cw('y',"I mean--!")
 	elseif cl == 546 then
 		cw('mc',"Ahaha.")
@@ -426,7 +425,7 @@ function yuri_exclusive_1()
 	elseif cl == 612 then
 		cw('m', "We might not have enough time if we wait too long.")
 	elseif cl == 613 then
-		y.b = 'w'
+		updateYuri('3','w')
 		cw('y',"Ah...")
 	elseif cl == 614 then
 		cw('bl',"Yuri exhales, spared from finishing her thought.")
@@ -438,7 +437,7 @@ function yuri_exclusive_1()
 	elseif cl == 617 then
 		cw('m',"I'm sorry if you haven't been looking forward to this...")
 	elseif cl == 618 then
-		y.b = 'v'
+		updateYuri('3','v')
 		cw('y',"Ah, it's not...")
 	elseif cl == 619 then
 		cw('y', "...It's fine.")
@@ -463,7 +462,7 @@ function yuri_exclusive_1()
 	elseif cl == 628 then
 		cw('mc',"It'll be more fun to read with you after it picks up a bit, you know?")
 	elseif cl == 629 then
-		y.b = 'a'
+		updateYuri('2','a')
 		cw('y',"That's good reasoning.")
 	elseif cl == 630 then
 		cw('y',"In that case, feel free to finish the first two chapters in your own time.")

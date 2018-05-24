@@ -222,3 +222,18 @@ And he, on the other side, was looking in.]]
 		end
 	end
 end
+
+function poem_disable(x)
+	poembg = nil
+	sfxp = nil
+	y1 = nil
+	s1 = nil
+	n1 = nil
+	m1 = nil
+	collectgarbage()
+	collectgarbage()
+	poem_enabled = false
+	if x==nil or x==1 then
+		audioUpdate('5')
+	end
+end
