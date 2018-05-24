@@ -123,7 +123,7 @@ function menu_confirm()
 			if monikachr == false and chapter < 5 then --set up early act 1 end
 				menu_enabled = false
 				cl = 10001
-				xaload = -1
+				xaload = 0
 				state = "game"
 			elseif player == "" and global_os == 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
