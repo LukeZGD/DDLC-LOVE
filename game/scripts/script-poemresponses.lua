@@ -74,10 +74,7 @@ function poemfinish(a)
 		choices[4] = ''
 	end
 	poemsread = poemsread + 1
-	hideSayori()
-	hideYuri()
-	hideNatsuki()
-	hideMonika()
+	hideAll()
 	if poemsread == 4 or poemsread == 3 and chapter > 5 then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
@@ -94,8 +91,7 @@ function poemfinish(a)
 end
 	
 function poemresponse_sayori()
-	s.x = 80
-	if cl <= 669 then updateSayori('1','a') end
+	if cl <= 669 then updateSayori('1','a',80) end
 	
 	poemopinion = "med"
 	if s_poemappeal[chapter] < 0 then
@@ -123,8 +119,7 @@ function poemresponse_sayori()
 end
 
 function poemresponse_natsuki()
-	n.x = 80
-    if cl <= 669 then updateNatsuki('1','c') end
+    if cl <= 669 then updateNatsuki('1','c',80) end
 	
     poemopinion = "med"
 	if n_poemappeal[chapter] < 0 then
@@ -152,8 +147,7 @@ function poemresponse_natsuki()
 end
 
 function poemresponse_yuri()
-	y.x = 80
-	if cl <= 669 then updateYuri('1','a') end
+	if cl <= 669 then updateYuri('1','a',80) end
 	
     poemopinion = "med"
 	if y_poemappeal[chapter] < 0 then
@@ -182,8 +176,7 @@ function poemresponse_yuri()
 end
 
 function poemresponse_monika()
-	m.x = 80
-	if cl <= 669 then updateMonika('1','a') end
+	if cl <= 669 then updateMonika('1','a',80) end
     if chapter == 1 then ch1_m_start()
 	elseif chapter == 2 then ch2_m_start()
 	elseif chapter == 3 then ch3_m_start()
@@ -932,7 +925,7 @@ function ch1_s_shared()
 	elseif cl == 724 then
 		poem('poem_s1','sayori')
 	elseif cl == 725 then
-		poem('poem_s1a','sayori',1)
+		poem('poem_s1-a','sayori',1)
 	elseif cl == 726 then
 		poem_disable()
 		audioUpdate('5')
@@ -1228,11 +1221,11 @@ function ch2_s_end()
 	elseif cl == 754 then
 		poem('poem_s2','sayori')
 	elseif cl == 755 then
-		poem('poem_s2a','sayori',1)
+		poem('poem_s2-a','sayori',1)
 	elseif cl == 756 then
-		poem('poem_s2b','sayori',1)
+		poem('poem_s2-b','sayori',1)
 	elseif cl == 757 then
-		poem('poem_s2c','sayori',1)
+		poem('poem_s2-c','sayori',1)
 	elseif cl == 758 then
 		poem_disable()
 		audioUpdate('5')
@@ -1886,7 +1879,7 @@ function ch1_m_end()
 	elseif cl == 748 then
 		poem('poem_m1','monika')
 	elseif cl == 749 then
-		poem('poem_m1a','monika',1)
+		poem('poem_m1-a','monika',1)
 	elseif cl == 750 then
 		poem_disable()
 		audioUpdate('5')

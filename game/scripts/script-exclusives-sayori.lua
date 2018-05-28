@@ -103,8 +103,7 @@ function sayori_exclusive_1()
 		updateMonika('1','a')
 		cw('m',"Anyway, we still need to work out the details of the event itself...")
 	elseif cl == 465 then
-		hideSayori()
-		hideMonika()
+		hideAll()
 		bgUpdate('black')
 		cw('bl',"I find myself smiling.")
 	elseif cl == 466 then
@@ -261,7 +260,7 @@ function sayori_exclusive_1()
 	elseif cl == 533 then
 		cw('mc',"Once you see how much better it looks, you'll change your mind.")
 	elseif cl == 534 then
-		hideSayori()
+		hideAll()
 		bgUpdate('s_cg1')
 		cw('s',"Ehehe~")
 	elseif cl == 535 then

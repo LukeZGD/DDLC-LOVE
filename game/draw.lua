@@ -8,7 +8,7 @@ function drawTopScreen()
 end
 
 function drawBottomScreen()
-	if global_os == 'Windows' then
+	if global_os ~= 'Horizon' then
 		love.graphics.push()
 		love.graphics.translate((400 - 320) / 2, 240)
 		drawbottom = 1
@@ -31,11 +31,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 4.25
+				alpha = alpha + 4.5
 			end
 		elseif timer <=200 then
 			if alpha >= 1 then
-				alpha = alpha - 4.25
+				alpha = alpha - 4.5
 			else
 				alpha = 0
 			end
@@ -46,11 +46,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 4.25
+				alpha = alpha + 4.5
 			end
 		elseif timer <=480 then
 			if alpha >= 1 then
-				alpha = alpha - 4.25
+				alpha = alpha - 4.5
 			else
 				alpha = 0
 			end
@@ -61,7 +61,7 @@ function splashalpha(x)
 			alpha = 255
 		else
 			if menu_enabled == false then menu_enable('title', 6) end
-			alpha = alpha + 3
+			alpha = alpha + 3.5
 		end
 	--fade out to poemgame
 	elseif x == 4 then
@@ -95,75 +95,6 @@ function splashalpha(x)
 	end
 end
 
-function drawGame()
-	scriptCheck()
-	charCheck()
-
-	drawTopScreen()
-	love.graphics.setColor(255, 255, 255, alpha)
-	love.graphics.draw(bgch, 0, 0)
-	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
-		
-		if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
-		drawSayori(s.a,s.b)
-		drawYuri(y.a,y.b) 
-		drawNatsuki(n.a,n.b)  
-		drawMonika(m.a,m.b)
-	end
-	
-	if menu_enabled ~= true and poem_enabled ~= true and settings.textloc == 'Top' then
-		if ct ~= '' then love.graphics.draw(namebox, 52, 142) end
-		love.graphics.draw(textbox, 40, 162)
-		love.graphics.setColor(0,0,0)
-		love.graphics.print(ct,60,142) --t name
-		love.graphics.print(ca,48,166) --line 1
-		love.graphics.print(cb,48,182) --line 2
-		love.graphics.print(cc,48,198) --line 3
-		love.graphics.print(cd,48,214) --line 4
-		c_x = 0
-	end
-	
-	if menu_enabled and menu_type ~= 'choice' then
-		love.graphics.draw(background_Image, posX, posY)
-	elseif poem_enabled then drawPoem()
-	end
-	
-	drawBottomScreen()
-	love.graphics.setColor(255,255,255,alpha)
-	love.graphics.setFont(font)
-	love.graphics.draw(background_Image, posX, posY)
-	
-	love.graphics.setColor(0,0,0)
-	love.graphics.print(cl,0,0,0) --script number
-	if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
-		
-	if poem_enabled ~= true and settings.textloc == 'Bottom' then
-		love.graphics.setColor(255,255,255,alpha)
-		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
-		love.graphics.draw(textbox, 0, 60)
-		love.graphics.setColor(0,0,0)
-		love.graphics.print(ct,20,40) --t name
-		love.graphics.print(ca,8,64) --line 1
-		love.graphics.print(cb,8,80) --line 2
-		love.graphics.print(cc,8,96) --line 3
-		love.graphics.print(cd,8,112) --line 4
-		c_x = 220
-	end
-	
-	if state ~= 'newgame' or poem_enabled == false then
-		love.graphics.print("Y - Pause",40,c_x,0,1,1)
-		love.graphics.print("B - Auto",135,c_x,0,1,1)
-		love.graphics.print("X - Skip",225,c_x,0,1,1)
-	end
-	if menu_enabled then menu_draw() end
-end
-
-function drawPoem()
-	love.graphics.draw(poembg, 40, 0)
-	love.graphics.setColor(0,0,0)
-	love.graphics.print(poemtext, 45, 15)
-end
-
 ct = "" --name text
 
 function cgHide()
@@ -171,27 +102,55 @@ function cgHide()
 end
 
 function hideSayori()
-	s.a = ''
-	s.b = ''
-	unloadSayori()
+	if s.x > 200 then
+		s.x = s.x + 18
+	else
+		s.x = s.x - 22
+	end
+	if s.x == -200 or s.x == 200 or autotimer >= 147 then
+		s.a = ''
+		s.b = ''
+		unloadSayori()
+	end
 end
 
 function hideYuri()
-	y.a = ''
-	y.b = ''
-	unloadYuri()
+	if y.x > 200 then
+		y.x = y.x + 18
+	else
+		y.x = y.x - 22
+	end
+	if y.x == -200 or y.x == 200 or autotimer >= 147 then
+		y.a = ''
+		y.b = ''
+		unloadYuri()
+	end
 end
 
 function hideNatsuki()
-	n.a = ''
-	n.b = ''
-	unloadNatsuki()
+	if n.x > 200 then
+		n.x = n.x + 18
+	else
+		n.x = n.x - 22
+	end
+	if n.x == -200 or n.x == 200 or autotimer >= 147 then
+		n.a = ''
+		n.b = ''
+		unloadNatsuki()
+	end
 end
 
 function hideMonika()
-	m.a = ''
-	m.b = ''
-	unloadMonika()
+	if m.x > 200 then
+		m.x = m.x + 18
+	else
+		m.x = m.x - 22
+	end
+	if n.x == -200 or n.x == 200 or autotimer >= 147 then
+		m.a = ''
+		m.b = ''
+		unloadMonika()
+	end
 end
 
 function hideAll()

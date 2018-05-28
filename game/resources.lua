@@ -1,56 +1,3 @@
-function updateloading(dt)
-	timer = 501
-	if l_timer <= 100 then
-		l_timer = l_timer + 1
-	end
-	
-	--loading assets
-	if l_timer == 1 then
-		font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
-		love.graphics.setFont(font)
-	elseif l_timer == 5 then
-		--splash, title screen, gui elements, sfx
-		splash = love.graphics.newImage('images/bg/splash.png')
-		titlebg = love.graphics.newImage('images/bg/bg.png')
-		namebox = love.graphics.newImage('images/gui/namebox.png')
-		textbox = love.graphics.newImage('images/gui/textbox.png')
-		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
-		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
-		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
-	
-	elseif l_timer == 50 then
-		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
-
-	elseif l_timer == 52 then
-		sfxpageflip = love.audio.newSource('audio/sfx/pageflip.ogg')
-		
-	elseif l_timer == 55 then
-		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
-		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
-		
-	elseif l_timer == 60 then
-		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
-		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
-		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
-
-	elseif l_timer == 99 then
-		l_timer = 99
-		local file = love.filesystem.isFile("save1.sav")
-		if file then
-			checkchr()
-		else
-			alpha = 255
-			timer = 501
-			cl = 10016
-			state = "newgame"
-		end
-	elseif l_timer >= 100 then
-		l_timer = 100
-		splashalpha(6)
-	end
-end
-	
 function bgUpdate(bgx) --background changes
 	if xaload == 0 then
 		--backgrounds
@@ -205,6 +152,123 @@ function audioUpdate(audiox) --the audio update function yay
 			audioStop()
 			ddlct = love.audio.newSource('audio/bgm/10.ogg', "stream")
 			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'd' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/d.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		--ACT 2 MUSIC
+		elseif audiox == '2g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/2g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '3g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/3g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '3g2' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/3g2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '4g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/4g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_ghost' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_ghost.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_yuri2' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_yuri2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6o' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6o.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6r' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6r.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6s' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6s.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '7g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/7g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '9g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/9g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '10-yuri' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/10-yuri.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'yuri-kill' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/yuri-kill.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == 'heartbeat' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/heartbeat.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'g1' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/g1.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'g2' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/g2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		--ACT 3&4 MUSIC
+		elseif audiox == 'monika-start' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/monika-start.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == 'm1' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/m1.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'monika-end' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/monika-end.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'end-voice' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/end-voice.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == 'credits' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/credits.ogg', "stream")
+			ddlct:setLooping(false)
 			ddlct:play()
 		elseif audiox == 's_kill_early' then
 			ddlct = love.audio.newSource('audio/bgm/s_kill_early.ogg', "stream")

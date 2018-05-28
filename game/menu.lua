@@ -1,6 +1,7 @@
-function menu_enable(m, x)
+function menu_enable(m, x, ctype)
 	menu_type = m
 	menu_items = x
+	choicetype = ctype
 	menu_enabled = true
 	m_selected = 2 
 	if menu_type ~= 'choice' then m_select()
@@ -9,11 +10,19 @@ end
 
 function menu_draw()
 	love.graphics.setColor(255, 255, 255, alpha)
-	love.graphics.draw(background_Image, posX, posY)
+	if choicetype ~= 'spec' then love.graphics.draw(background_Image, posX, posY) end
 	
 	love.graphics.setColor(255, 189, 225, alpha)
-	if menu_items >= 2 then love.graphics.rectangle("fill", 16, 45, 100, 16 ) end
-	if menu_items >= 3 then love.graphics.rectangle("fill", 16, 70, 100, 16 ) end
+	if menu_items >= 2 and choicetype ~= 'spec' then 
+		love.graphics.rectangle("fill", 16, 45, 100, 16 ) 
+	elseif menu_items >= 2 and choicetype == 'spec' then
+		love.graphics.rectangle("fill", 16, 45, 160, 16 ) 
+	end
+	if menu_items >= 3 and choicetype ~= 'spec' then 
+		love.graphics.rectangle("fill", 16, 70, 100, 16 ) 
+	elseif menu_items >= 3 and choicetype == 'spec' then
+		love.graphics.rectangle("fill", 16, 70, 160, 32 ) 
+	end
 	if menu_items >= 4 then love.graphics.rectangle("fill", 16, 95, 100, 16 ) end
 	if menu_items >= 5 then love.graphics.rectangle("fill", 16, 120, 100, 16 ) end
 	if menu_items >= 6 then love.graphics.rectangle("fill", 16, 145, 100, 16 ) end
@@ -75,6 +84,7 @@ function menu_draw()
 		love.graphics.print("Settings:",16, 20)
 		love.graphics.print("Textbox Location",16, 45)
 		love.graphics.print("Text Speed",16, 70)
+		love.graphics.print("Erase Save Data",16, 95)
 		love.graphics.print(dversion,270, 220)
 		
 	elseif menu_type == 'textloc' then
@@ -94,9 +104,17 @@ function menu_draw()
 	
 	elseif menu_type == 'choice' then
 		xaload = xaload + 1
+		if choicetype == 'spec' then love.graphics.setColor(255,255,255) end
 		love.graphics.print(menutext,16, 20)
+		love.graphics.setColor(0,0,0)
 		love.graphics.print(choice1,16, 45)
-		if menu_items >= 3 then love.graphics.print(choice2,16, 70) end
+		if menu_items >= 3 and choicetype ~= 'spec' then 
+			love.graphics.setColor(255,255,255)
+			love.graphics.print(choice2,16, 70) 
+		elseif menu_items >= 3 and choicetype == 'spec' then
+			love.graphics.print(choice2,16, 70)
+			love.graphics.print(choice2a,16, 86) 
+		end
 		if menu_items >= 4 then love.graphics.print(choice3,16, 95) end
 		if menu_items >= 5 then love.graphics.print(choice4,16, 120) end
 		if menu_items >= 6 then love.graphics.print(choice5,16, 145) end

@@ -727,7 +727,6 @@ function ch1_end_natsuki()
 		cw('n',"...Thanks for noticing.")
 	elseif cl == 1032 then
 		cw('bl',"She finally mutters that, barely audible.")
-	
 	elseif cl == 1033 then
 		cw('mc',"Yuri...")
 	elseif cl == 1034 then

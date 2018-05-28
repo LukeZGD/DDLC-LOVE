@@ -279,7 +279,7 @@ function natsuki_exclusive_1()
 	elseif cl == 543 then
 		cw('bl',"Not to mention she's really good at it, so who am I to judge?")
 	elseif cl == 544 then
-		hideNatsuki()
+		hideAll()
 		bgUpdate('n_cg1_base')
 		cw('bl',"...")
 	elseif cl == 545 then
