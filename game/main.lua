@@ -81,17 +81,15 @@ function love.update(dt)
 	end
 end
 
-function love.keypressed(key)
-	if menu_enabled then
-		menu_keypressed(key)
-	end
-	
+function love.keypressed(key)	
 	if state == 'game' and menu_enabled == false then
 		game_keypressed(key)
 	elseif state == 'newgame' and menu_enabled == false then
 		newgame_keypressed(key)
 	elseif state == 'poemgame' and menu_enabled == false then
 		poemgamekeypressed(key)
+	elseif menu_enabled then
+		menu_keypressed(key)
 	end
 end
 

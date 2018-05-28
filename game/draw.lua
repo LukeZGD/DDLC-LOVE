@@ -107,7 +107,7 @@ function hideSayori()
 	else
 		s.x = s.x - 22
 	end
-	if s.x == -200 or s.x == 200 or autotimer >= 147 then
+	if s.x == -200 or s.x == 200 or autotimer >= 146 then
 		s.a = ''
 		s.b = ''
 		unloadSayori()
@@ -120,7 +120,7 @@ function hideYuri()
 	else
 		y.x = y.x - 22
 	end
-	if y.x == -200 or y.x == 200 or autotimer >= 147 then
+	if y.x == -200 or y.x == 200 or autotimer >= 146 then
 		y.a = ''
 		y.b = ''
 		unloadYuri()
@@ -133,7 +133,7 @@ function hideNatsuki()
 	else
 		n.x = n.x - 22
 	end
-	if n.x == -200 or n.x == 200 or autotimer >= 147 then
+	if n.x == -200 or n.x == 200 or autotimer >= 146 then
 		n.a = ''
 		n.b = ''
 		unloadNatsuki()
@@ -146,7 +146,7 @@ function hideMonika()
 	else
 		m.x = m.x - 22
 	end
-	if n.x == -200 or n.x == 200 or autotimer >= 147 then
+	if n.x == -200 or n.x == 200 or autotimer >= 146 then
 		m.a = ''
 		m.b = ''
 		unloadMonika()

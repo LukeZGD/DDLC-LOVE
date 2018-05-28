@@ -84,7 +84,6 @@ function menu_draw()
 		love.graphics.print("Settings:",16, 20)
 		love.graphics.print("Textbox Location",16, 45)
 		love.graphics.print("Text Speed",16, 70)
-		love.graphics.print("Erase Save Data",16, 95)
 		love.graphics.print(dversion,270, 220)
 		
 	elseif menu_type == 'textloc' then
