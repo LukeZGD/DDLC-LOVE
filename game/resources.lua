@@ -1,3 +1,69 @@
+function changeState(cstate,x)
+	if cstate == 'game' or cstate == 'newgame' then
+		require "states.game"
+		require "scripts.script"
+		if chapter == 0 then
+			require "scripts.script-ch0"
+		elseif chapter == 1 then
+			require "scripts.script-ch1"
+		elseif chapter == 2 then
+			require "scripts.script-ch2"
+		elseif chapter == 3 then
+			require "scripts.script-ch3"
+		elseif chapter == 4 then
+			require "scripts.script-ch4"
+		elseif chapter == 5 then
+			require "scripts.script-ch5"
+		end
+		if poemwinner[chapter] == 'Sayori' then
+			require "scripts.script-exclusives-sayori"
+		elseif poemwinner[chapter] == 'Natsuki' then
+			require "scripts.script-exclusives-natsuki"
+		elseif poemwinner[chapter] == 'Yuri' then
+			require "scripts.script-exclusives-yuri"
+		end
+	end
+
+	if cstate == 'load' then
+		require "states.load"
+		state = 'load'
+	elseif cstate == 'splash' then
+		require "states.splash"
+		alpha = 0
+		xaload = 0
+		timer = 0
+		state = "splash1"
+		audioUpdate('1')
+	elseif cstate == 'game' and x == 1 then --new game
+		xaload = 0
+		state = "game"
+		menu_enabled = false
+	elseif cstate == 'game' and x == 2 then --load game
+		hideAll()
+		loadgame()
+		loadAll()
+		loadupdate()
+		xaload = 0
+		state = "game"
+		poem_enabled = false
+		menu_enabled = false
+	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
+		alpha = 255
+		cl = cl + 2
+		xaload = 0
+		state = "game"
+	elseif cstate == 'newgame' then --first new game
+		alpha = 255
+		timer = 501
+		cl = 10016
+		state = "newgame"
+	elseif cstate == 'poemgame' then
+		require "states.poemgame"
+		alpha = 255
+		poemgame()
+	end
+end
+
 function bgUpdate(bgx) --background changes
 	if xaload == 0 then
 		--backgrounds
@@ -247,27 +313,27 @@ function audioUpdate(audiox) --the audio update function yay
 		--ACT 3&4 MUSIC
 		elseif audiox == 'monika-start' then
 			audioStop()
-			ddlct = love.audio.newSource('audio/sfx/monika-start.ogg', "stream")
+			ddlct = love.audio.newSource('audio/bgm/monika-start.ogg', "stream")
 			ddlct:setLooping(false)
 			ddlct:play()
 		elseif audiox == 'm1' then
 			audioStop()
-			ddlct = love.audio.newSource('audio/sfx/m1.ogg', "stream")
+			ddlct = love.audio.newSource('audio/bgm/m1.ogg', "stream")
 			ddlct:setLooping(true)
 			ddlct:play()
 		elseif audiox == 'monika-end' then
 			audioStop()
-			ddlct = love.audio.newSource('audio/sfx/monika-end.ogg', "stream")
+			ddlct = love.audio.newSource('audio/bgm/monika-end.ogg', "stream")
 			ddlct:setLooping(true)
 			ddlct:play()
 		elseif audiox == 'end-voice' then
 			audioStop()
-			ddlct = love.audio.newSource('audio/sfx/end-voice.ogg', "stream")
+			ddlct = love.audio.newSource('audio/bgm/end-voice.ogg', "stream")
 			ddlct:setLooping(false)
 			ddlct:play()
 		elseif audiox == 'credits' then
 			audioStop()
-			ddlct = love.audio.newSource('audio/sfx/credits.ogg', "stream")
+			ddlct = love.audio.newSource('audio/bgm/credits.ogg', "stream")
 			ddlct:setLooping(false)
 			ddlct:play()
 		elseif audiox == 's_kill_early' then
@@ -316,34 +382,58 @@ function updateSayori(a,b,px,py)
 	if b == nil then b = '' end
 	s.a = a
 	s.b = b
-	if px ~= nil then s.x = px end
-	if py ~= nil then s.y = py end
 	if xaload == 0 then loadSayori() end
+	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+		if s.x > px then
+			s.x = math.max(s.x - 21, px)
+		elseif s.x < px then
+			s.x = math.min(s.x + 21, px)
+		end
+	end
+	if py ~= nil then s.y = py end
 end
 
 function updateYuri(a,b,px,py)
 	y.a = a 
 	y.b = b
-	if px ~= nil then y.x = px end
-	if py ~= nil then y.y = py end
 	if xaload == 0 then loadYuri() end
+	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+		if y.x > px then
+			y.x = math.max(y.x - 21, px)
+		elseif y.x < px then
+			y.x = math.min(y.x + 21, px)
+		end
+	end
+	if py ~= nil then y.y = py end
 end
 
 function updateNatsuki(a,b,px,py)
 	n.a = a
 	n.b = b
-	if px ~= nil then n.x = px end
-	if py ~= nil then n.y = py end
 	if xaload == 0 then loadNatsuki() end
+	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+		if n.x > px then
+			n.x = math.max(n.x - 21, px)
+		elseif n.x < px then
+			n.x = math.min(n.x + 21, px)
+		end
+	end
+	if py ~= nil then n.y = py end
 end
 
 function updateMonika(a,b,px,py)
 	if b == nil then b = '' end
 	m.a = a
 	m.b = b
-	if px ~= nil then m.x = px end
-	if py ~= nil then m.y = py end
 	if xaload == 0 then loadMonika() end
+	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+		if m.x > px then
+			m.x = math.max(m.x - 21, px)
+		elseif m.x < px then
+			m.x = math.min(m.x + 21, px)
+		end
+	end
+	if py ~= nil then m.y = py end
 end
 
 function loadSayori()

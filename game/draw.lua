@@ -66,18 +66,14 @@ function splashalpha(x)
 	--fade out to poemgame
 	elseif x == 4 then
 		if alpha <= 0 then
-			alpha = 255
-			poemgame()
+			changeState('poemgame')
 		else	
 			alpha = alpha - 2
 		end
 	--fade out from poemgame to game
 	elseif x == 5 then
 		if alpha <= 0 then
-			alpha = 255
-			cl = cl + 2
-			xaload = 0
-			state = "game"
+			changeState('game',3)
 		else	
 			alpha = alpha - 2
 		end
@@ -85,12 +81,9 @@ function splashalpha(x)
 	elseif x == 6 then
 		if alpha <= 0 then
 			resetchr(2)
-			xaload = 0
-			timer = 0
-			state = "splash1"
-			audioUpdate('1')
+			changeState('splash')
 		else
-			alpha = alpha - 3.5
+			alpha = alpha - 5
 		end
 	end
 end
@@ -102,67 +95,93 @@ function cgHide()
 end
 
 function hideSayori()
-	if s.x > 200 then
-		s.x = s.x + 18
-	else
-		s.x = s.x - 22
-	end
-	if s.x == -200 or s.x == 200 or autotimer >= 146 then
+	if s.x <= -200 or s.x >= 200 or autotimer >= 146 or settings.animh == 0 then
 		s.a = ''
 		s.b = ''
 		unloadSayori()
+		if sx ~= nil then 
+			s.x = sx
+			sx = nil
+		end
+	else
+		if sx == nil then sx = s.x end
+		if s.x > 200 then
+			s.x = s.x + 18
+		else
+			s.x = s.x - 22
+		end
 	end
 end
 
 function hideYuri()
-	if y.x > 200 then
-		y.x = y.x + 18
-	else
-		y.x = y.x - 22
-	end
-	if y.x == -200 or y.x == 200 or autotimer >= 146 then
+	if y.x <= -200 or y.x >= 200 or autotimer >= 146 or settings.animh == 0 then
 		y.a = ''
 		y.b = ''
 		unloadYuri()
+		if yx ~= nil then 
+			y.x = yx
+			yx = nil
+		end
+	else
+		if yx == nil then yx = y.x end
+		if y.x > 200 then
+			y.x = y.x + 18
+		else
+			y.x = y.x - 22
+		end
 	end
 end
 
 function hideNatsuki()
-	if n.x > 200 then
-		n.x = n.x + 18
-	else
-		n.x = n.x - 22
-	end
-	if n.x == -200 or n.x == 200 or autotimer >= 146 then
+	if n.x == -200 or n.x == 200 or autotimer >= 146 or settings.animh == 0 then
 		n.a = ''
 		n.b = ''
 		unloadNatsuki()
+		if nx ~= nil then 
+			n.x = nx
+			nx = nil
+		end
+	else
+		if nx == nil then nx = n.x end
+		if n.x > 200 then
+			n.x = n.x + 18
+		else
+			n.x = n.x - 22
+		end
 	end
 end
 
 function hideMonika()
-	if m.x > 200 then
-		m.x = m.x + 18
-	else
-		m.x = m.x - 22
-	end
-	if n.x == -200 or n.x == 200 or autotimer >= 146 then
+	if m.x <= -200 or m.x >= 200 or autotimer >= 146 or settings.animh == 0 then
 		m.a = ''
 		m.b = ''
 		unloadMonika()
+		if mx ~= nil then 
+			m.x = mx
+			mx = nil
+		end
+	else
+		if mx == nil then mx = m.x end
+		if m.x > 200 then
+			m.x = m.x + 18
+		else
+			m.x = m.x - 22
+		end
 	end
 end
 
 function hideAll()
-	s.a = ''
-	s.b = ''
-	y.a = ''
-	y.b = ''
-	n.a = ''
-	n.b = ''
-	m.a = ''
-	m.b = ''
-	unloadAll()
+	if x == nil then
+		s.a = ''
+		s.b = ''
+		y.a = ''
+		y.b = ''
+		n.a = ''
+		n.b = ''
+		m.a = ''
+		m.b = ''
+		unloadAll()
+	end
 end
 
 function drawSayori(a,b)

@@ -72,7 +72,7 @@ function poemgame()
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
 	end
-	
+
 	require "scripts.poemwords"
 	
 	p_y = 100

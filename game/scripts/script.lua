@@ -1,9 +1,3 @@
-require "scripts.script-ch0"
-require "scripts.script-ch1"
-require "scripts.script-ch2"
-require "scripts.script-exclusives-sayori"
-require "scripts.script-exclusives-natsuki"
-require "scripts.script-exclusives-yuri"
 require "scripts.script-poemresponses"
 require "scripts.poems"
 
@@ -31,7 +25,7 @@ function cw(p1, stext)
 	elseif p1 == 'bl' then
 		ct = ''
 	else
-		ct = '...???'
+		ct = 'Error'
 	end
 	
 	if stext == nil then stext = '' end
@@ -43,7 +37,7 @@ function cw(p1, stext)
 	
 	textx = dripText(stext,settings.textspd,myTextStartTime)
 		
-	--word wrapping haha
+	--word wrapping (not perfect yet)
 	slen = string.len(textx)
 	ca = string.sub(textx, 1, caa)
 	

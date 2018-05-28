@@ -84,6 +84,7 @@ function menu_draw()
 		love.graphics.print("Settings:",16, 20)
 		love.graphics.print("Textbox Location",16, 45)
 		love.graphics.print("Text Speed",16, 70)
+		love.graphics.print("Char. Animations",16, 95)
 		love.graphics.print(dversion,270, 220)
 		
 	elseif menu_type == 'textloc' then
@@ -101,6 +102,12 @@ function menu_draw()
 		love.graphics.print("200 (Fastest)",16, 145)		
 		love.graphics.print("Current Setting: "..settings.textspd,16, 220)
 	
+	elseif menu_type == 'animh' then
+		love.graphics.print("Settings - Char. Animations:",16, 20)
+		love.graphics.print("0 - Off",16, 45)
+		love.graphics.print("1 - On (Default)",16, 70)
+		love.graphics.print("Current Setting: "..settings.animh,16, 220)
+	
 	elseif menu_type == 'choice' then
 		xaload = xaload + 1
 		if choicetype == 'spec' then love.graphics.setColor(255,255,255) end
@@ -108,7 +115,6 @@ function menu_draw()
 		love.graphics.setColor(0,0,0)
 		love.graphics.print(choice1,16, 45)
 		if menu_items >= 3 and choicetype ~= 'spec' then 
-			love.graphics.setColor(255,255,255)
 			love.graphics.print(choice2,16, 70) 
 		elseif menu_items >= 3 and choicetype == 'spec' then
 			love.graphics.print(choice2,16, 70)
@@ -140,16 +146,13 @@ function menu_confirm()
 			if monikachr == false and chapter < 5 then --set up early act 1 end
 				menu_enabled = false
 				cl = 10001
-				xaload = 0
-				state = "game"
+				changeState('game',1)
 			elseif player == "" and global_os == 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
 			elseif cl <= 9999 or global_os ~= 'Horizon' then --go straight to new game
 				hideAll()
 				cl = 1
-				state = "game"
-				xaload = 0
-				menu_enabled = false
+				changeState('game',1)
 			end
 		
 			
@@ -157,7 +160,7 @@ function menu_confirm()
 			menu_enable('loadgame', 7)
 			
 		elseif m_selected == 4 then --settings
-			menu_enable('settings', 3)
+			menu_enable('settings', 4)
 		
 		elseif m_selected == 5 then --help
 			menu_enable('help', 5)
@@ -172,14 +175,7 @@ function menu_confirm()
 		if cl >= 1 then
 			savenumber = m_selected - 1
 			if love.filesystem.isFile("save"..savenumber..".sav") then
-				hideAll()
-				loadgame()
-				loadAll()
-				loadupdate()
-				xaload = 0
-				state = "game"
-				poem_enabled = false
-				menu_enabled = false
+				changeState('game',2)
 			end
 		end
 		
@@ -198,7 +194,7 @@ function menu_confirm()
 		elseif m_selected == 4 then
 			menu_enable('mainyesno',3)
 		elseif m_selected == 5 then
-			menu_enable('settings', 3)
+			menu_enable('settings', 4)
 		elseif m_selected == 6 then
 			menu_enable('help',5)
 		elseif m_selected == 7 then
@@ -223,6 +219,8 @@ function menu_confirm()
 			menu_enable('textloc', 3)
 		elseif m_selected == 3 then
 			menu_enable('textspd', 6)
+		elseif m_selected == 4 then
+			menu_enable('animh', 3)
 		end
 		
 	elseif menu_type == 'textloc' then
@@ -244,6 +242,14 @@ function menu_confirm()
 			settings.textspd = 150
 		elseif m_selected == 6 then
 			settings.textspd = 200
+		end
+		menu_enable(menu_previous, menu_previousitems)
+	
+	elseif menu_type == 'animh' then
+		if m_selected == 2 then
+			settings.animh = 0
+		elseif m_selected == 3 then
+			settings.animh = 1
 		end
 		menu_enable(menu_previous, menu_previousitems)
 	

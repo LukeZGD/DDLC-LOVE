@@ -422,7 +422,7 @@ function ch1script()
 		cw('ny',"This doesn't involve you!")
 	elseif cl == 973 then
 		hideMonika()
-		updateSayori('4','p')
+		updateSayori('4','p',-40)
 		cw('s',"I-I don't like fighting, guys...!")
 	elseif cl == 974 then
 		hideSayori()
@@ -488,7 +488,7 @@ function ch1script()
 			menu_enable('choice', 4)
 			autotimer = 0
 		end
-	elseif cl >= 996  and cl < 1092 then
+	elseif cl >= 996 and cl < 1092 then
 		if choicepick == 'Natsuki.' or choicepick == 'n' then
 			choicepick = 'n'
 			ch1_end_natsuki()

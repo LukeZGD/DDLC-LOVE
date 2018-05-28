@@ -55,10 +55,7 @@ function updateLoad()
 		if file then
 			checkchr()
 		else
-			alpha = 255
-			timer = 501
-			cl = 10016
-			state = "newgame"
+			changeState('newgame')
 		end
 	elseif l_timer >= 100 then
 		l_timer = 100

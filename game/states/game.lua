@@ -57,6 +57,7 @@ function drawGame()
 		love.graphics.print("Y - Pause",40,c_x,0,1,1)
 		love.graphics.print("B - Auto",135,c_x,0,1,1)
 		love.graphics.print("X - Skip",225,c_x,0,1,1)
+		love.graphics.print(xaload,0,220) 
 	end
 	if menu_enabled then menu_draw() end
 end
@@ -81,7 +82,7 @@ function updateGame(dt)
 	end
 	
 	if love.keyboard.isDown('x') then --skip enable
-		if menu_enabled == false and cl ~= 666 then
+		if state ~= 'newgame' and menu_enabled == false and cl ~= 666 then
 			if tspd == nil then tspd = settings.textspd end
 			settings.textspd = 10000
 			if autotimer < 147 then autotimer = 147 end
@@ -98,12 +99,15 @@ function game_keypressed(key)
 	elseif key == 'b' then --auto on/off
 		sfx1:play()
 		if autotimer == 0 then autotimer = 1 else autotimer = 0 end
+		
+	elseif key == 'x' then
+		sfx1:play()
 	end
 	newgame_keypressed(key)
 end
 
 function newgame_keypressed(key)
-	if key == 'a' then 
+	if key == 'a' and xaload >= 25 then 
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0

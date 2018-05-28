@@ -1,14 +1,7 @@
 require "draw"
 require "resources"
 require "saveload"
-
-require "states.load"
-require "states.splash"
-require "states.game"
-require "states.poemgame"
-
 require "menu"
-require "scripts.script"
 
 function love.load() 
 	dversion = "v0.0.2"
@@ -21,7 +14,7 @@ function love.load()
 	xaload = 0
 	alpha = 255
 	
-	posX = 0
+	posX = -75
 	posY = 0
 	
 	menu_enabled = false
@@ -33,22 +26,10 @@ function love.load()
 		love.window.setTitle('DDLC-3DS')
 	end
 	
-	state = 'load'
+	changeState('load')
 end
 
 function love.draw() 
-
-	if global_os == 'Horizon' then
-		posX = posX - 0.125
-		posY = posY - 0.125
-	
-		if posX <= -80 then posX = 0 end
-		if posY <= -80 then posY = 0 end
-	else
-		posX = -75
-		posY = 0
-	end
-	
 	if state == 'load' then
 		drawLoad()
 	elseif state == 'splash1' or state == "splash2" or state == "title" then --title (Title Screen)
@@ -69,6 +50,13 @@ function love.draw()
 end
 
 function love.update(dt)
+	if global_os == 'Horizon' then
+		posX = posX - 0.25
+		posY = posY - 0.25
+		if posX <= -80 then posX = 0 end
+		if posY <= -80 then posY = 0 end
+	end
+
 	--update depending on state
 	if state == "load" then
 		updateLoad(dt)
@@ -106,9 +94,7 @@ function love.textinput(text)
 		if text ~= '' then 
 			player = text
 			savegame()
-			xaload = 0
-			state = "game"
-			menu_enabled = false
+			changeState('game',1)
 		else
 			state = "title"
 		end
