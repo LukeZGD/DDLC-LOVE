@@ -1,20 +1,19 @@
+require "draw"
+require "resources"
+require "saveload"
+
+require "states.load"
+require "states.splash"
+require "states.game"
+require "states.poemgame"
+
+require "menu"
+require "scripts.script"
+
 function love.load() 
 	dversion = "v0.0.2"
 
-	require "draw"
-	require "resources"
-	require "saveload"
-
-	require "states.load"
-	require "states.splash"
-	require "states.game"
-	require "states.poemgame"
-	
-	require "menu"
-	require "scripts.script"
-	
-	love.graphics.setBackgroundColor(0,0,0)
-	
+	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
 	l_timer = 0
 	timer = 0

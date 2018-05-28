@@ -138,7 +138,7 @@ function drawPoemGame()
 	
 	drawBottomScreen()
 	love.graphics.draw(background_Image, posX, posY)
-	if xaload <= 75 then
+	if xaload <= 35 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
@@ -279,7 +279,7 @@ function poemgamekeypressed(key)
 	end
 	
 	if key == 'a' then
-		if xaload >= 75 then
+		if xaload >= 35 then
 			if poemstate == 0 then
 				poemstate = nil
 				sfx1:play()

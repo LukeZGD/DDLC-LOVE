@@ -31,11 +31,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 4.5
+				alpha = alpha + 7.75
 			end
 		elseif timer <=200 then
 			if alpha >= 1 then
-				alpha = alpha - 4.5
+				alpha = alpha - 7.75
 			else
 				alpha = 0
 			end
@@ -46,11 +46,11 @@ function splashalpha(x)
 			if alpha >= 255 then
 				alpha = 255
 			else
-				alpha = alpha + 4.5
+				alpha = alpha + 7.75
 			end
 		elseif timer <=480 then
 			if alpha >= 1 then
-				alpha = alpha - 4.5
+				alpha = alpha - 7.75
 			else
 				alpha = 0
 			end
@@ -61,7 +61,7 @@ function splashalpha(x)
 			alpha = 255
 		else
 			if menu_enabled == false then menu_enable('title', 6) end
-			alpha = alpha + 3.5
+			alpha = alpha + 5
 		end
 	--fade out to poemgame
 	elseif x == 4 then
@@ -69,7 +69,7 @@ function splashalpha(x)
 			alpha = 255
 			poemgame()
 		else	
-			alpha = alpha - 1.5
+			alpha = alpha - 2
 		end
 	--fade out from poemgame to game
 	elseif x == 5 then
@@ -79,7 +79,7 @@ function splashalpha(x)
 			xaload = 0
 			state = "game"
 		else	
-			alpha = alpha - 1.5
+			alpha = alpha - 2
 		end
 	--fade from load to splash screens
 	elseif x == 6 then
@@ -90,7 +90,7 @@ function splashalpha(x)
 			state = "splash1"
 			audioUpdate('1')
 		else
-			alpha = alpha - 5
+			alpha = alpha - 3.5
 		end
 	end
 end

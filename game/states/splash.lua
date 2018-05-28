@@ -31,7 +31,7 @@ function updateSplash(dt)
 	
 	--splash screen (change states)
 	if state == "splash1" or state == "splash2" then 
-		if timer == 180 then
+		if timer == 190 then
 			state = "splash2"
 		elseif timer >= 470 then
 			state = "title" 
