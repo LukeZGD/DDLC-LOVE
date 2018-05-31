@@ -260,7 +260,7 @@ function yuri_exclusive_1()
 	elseif cl == 538 then
 		cw('bl',"It looks like she's reading from my book instead--")
 	elseif cl == 539 then
-		updateYuri('3','n')
+		updateYuri('3','n',80)
 		cw('y',"S-Sorry!")
 	elseif cl == 540 then
 		cw('y', "I was just--!")
@@ -386,7 +386,7 @@ function yuri_exclusive_1()
 	elseif cl == 596 then
 		cgHide()
 		bgUpdate('club')
-		updateYuri('2','t')
+		updateYuri('2','t',80)
 		cw('bl',"Yuri remains silent for a moment.")
 	elseif cl == 597 then
 		cw('y',"But "..player.."...")

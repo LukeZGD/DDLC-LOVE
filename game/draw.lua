@@ -59,6 +59,7 @@ function splashalpha(x)
 	elseif x == 3 then
 		if alpha >= 255 then
 			alpha = 255
+			love.graphics.setBackgroundColor(0,0,0)
 		else
 			if menu_enabled == false then menu_enable('title', 6) end
 			alpha = alpha + 5
@@ -95,16 +96,11 @@ function cgHide()
 end
 
 function hideSayori()
-	if s.x <= -200 or s.x >= 200 or autotimer >= 146 or settings.animh == 0 then
+	if s.x <= -200 or s.x >= 300 or autotimer >= 146 or settings.animh == 0 then
 		s.a = ''
 		s.b = ''
 		unloadSayori()
-		if sx ~= nil then 
-			s.x = sx
-			sx = nil
-		end
 	else
-		if sx == nil then sx = s.x end
 		if s.x > 200 then
 			s.x = s.x + 18
 		else
@@ -114,16 +110,11 @@ function hideSayori()
 end
 
 function hideYuri()
-	if y.x <= -200 or y.x >= 200 or autotimer >= 146 or settings.animh == 0 then
+	if y.x <= -200 or y.x >= 300 or autotimer >= 146 or settings.animh == 0 then
 		y.a = ''
 		y.b = ''
 		unloadYuri()
-		if yx ~= nil then 
-			y.x = yx
-			yx = nil
-		end
 	else
-		if yx == nil then yx = y.x end
 		if y.x > 200 then
 			y.x = y.x + 18
 		else
@@ -133,16 +124,11 @@ function hideYuri()
 end
 
 function hideNatsuki()
-	if n.x == -200 or n.x == 200 or autotimer >= 146 or settings.animh == 0 then
+	if n.x <= -200 or n.x >= 300 or autotimer >= 146 or settings.animh == 0 then
 		n.a = ''
 		n.b = ''
 		unloadNatsuki()
-		if nx ~= nil then 
-			n.x = nx
-			nx = nil
-		end
 	else
-		if nx == nil then nx = n.x end
 		if n.x > 200 then
 			n.x = n.x + 18
 		else
@@ -152,16 +138,11 @@ function hideNatsuki()
 end
 
 function hideMonika()
-	if m.x <= -200 or m.x >= 200 or autotimer >= 146 or settings.animh == 0 then
+	if m.x <= -200 or m.x >= 300 or autotimer >= 146 or settings.animh == 0 then
 		m.a = ''
 		m.b = ''
 		unloadMonika()
-		if mx ~= nil then 
-			m.x = mx
-			mx = nil
-		end
 	else
-		if mx == nil then mx = m.x end
 		if m.x > 200 then
 			m.x = m.x + 18
 		else

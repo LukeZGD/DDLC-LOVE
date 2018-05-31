@@ -91,7 +91,8 @@ function poemfinish(a)
 end
 	
 function poemresponse_sayori()
-	if cl <= 669 then updateSayori('1','a',80) end
+	s.x = 80
+	if cl <= 669 then updateSayori('1','a') end
 	
 	poemopinion = "med"
 	if s_poemappeal[chapter] < 0 then
@@ -119,7 +120,8 @@ function poemresponse_sayori()
 end
 
 function poemresponse_natsuki()
-    if cl <= 669 then updateNatsuki('1','c',80) end
+	n.x = 80
+    if cl <= 669 then updateNatsuki('1','c') end
 	
     poemopinion = "med"
 	if n_poemappeal[chapter] < 0 then
@@ -147,7 +149,8 @@ function poemresponse_natsuki()
 end
 
 function poemresponse_yuri()
-	if cl <= 669 then updateYuri('1','a',80) end
+	y.x = 80
+	if cl <= 669 then updateYuri('1','a') end
 	
     poemopinion = "med"
 	if y_poemappeal[chapter] < 0 then
@@ -176,7 +179,8 @@ function poemresponse_yuri()
 end
 
 function poemresponse_monika()
-	if cl <= 669 then updateMonika('1','a',80) end
+	m.x = 80
+	if cl <= 669 then updateMonika('1','a') end
     if chapter == 1 then ch1_m_start()
 	elseif chapter == 2 then ch2_m_start()
 	elseif chapter == 3 then ch3_m_start()

@@ -383,12 +383,14 @@ function updateSayori(a,b,px,py)
 	s.a = a
 	s.b = b
 	if xaload == 0 then loadSayori() end
-	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
 		if s.x > px then
 			s.x = math.max(s.x - 21, px)
 		elseif s.x < px then
 			s.x = math.min(s.x + 21, px)
 		end
+	elseif px and xaload > 0 then
+		s.x = px
 	end
 	if py ~= nil then s.y = py end
 end
@@ -397,12 +399,14 @@ function updateYuri(a,b,px,py)
 	y.a = a 
 	y.b = b
 	if xaload == 0 then loadYuri() end
-	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then
 		if y.x > px then
 			y.x = math.max(y.x - 21, px)
 		elseif y.x < px then
 			y.x = math.min(y.x + 21, px)
 		end
+	elseif px and xaload > 0 then
+		y.x = px
 	end
 	if py ~= nil then y.y = py end
 end
@@ -411,12 +415,14 @@ function updateNatsuki(a,b,px,py)
 	n.a = a
 	n.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
 		if n.x > px then
 			n.x = math.max(n.x - 21, px)
 		elseif n.x < px then
 			n.x = math.min(n.x + 21, px)
 		end
+	elseif px and xaload > 0 then
+		n.x = px
 	end
 	if py ~= nil then n.y = py end
 end
@@ -426,12 +432,14 @@ function updateMonika(a,b,px,py)
 	m.a = a
 	m.b = b
 	if xaload == 0 then loadMonika() end
-	if px ~= nil and autotimer < 147 and settings.animh == 1 then 
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
 		if m.x > px then
 			m.x = math.max(m.x - 21, px)
 		elseif m.x < px then
 			m.x = math.min(m.x + 21, px)
 		end
+	elseif px and xaload > 0 then
+		m.x = px		
 	end
 	if py ~= nil then m.y = py end
 end
@@ -481,8 +489,6 @@ function unloadSayori()
 	sl = nil
 	sr = nil
 	s_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadYuri()	
@@ -521,8 +527,6 @@ function unloadYuri()
 	yl = nil
 	yr = nil
 	y_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadNatsuki()
@@ -594,8 +598,6 @@ function unloadNatsuki()
 	nl = nil
 	nr = nil
 	n_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadMonika()
@@ -626,8 +628,6 @@ function unloadMonika()
 	ml = nil
 	mr = nil
 	m_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadAll()

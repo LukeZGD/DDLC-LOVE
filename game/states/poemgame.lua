@@ -67,7 +67,11 @@ function updatewordlist()
 end
 
 function poemgame()
-	unloadAll()
+	state = 'poemgame'
+	xaload = 0
+	audioUpdate('4')
+	
+	hideAll()
 	bgch2 = love.graphics.newImage('images/bg/notebook.png')
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
@@ -80,10 +84,6 @@ function poemgame()
 	y_velocity = 0       
 	jump_height = -300  
 	gravity = -2250  
-	
-	state = 'poemgame'
-	xaload = 0
-	audioUpdate('4')
 	
 	math.randomseed(os.time())
 	poemwords()

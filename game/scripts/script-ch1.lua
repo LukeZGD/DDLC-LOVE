@@ -187,16 +187,16 @@ function ch1script()
 		cw('bl',"Meanwhile, Natsuki is rummaging around in the closet.")
 	elseif cl >= 423 then
 		if poemwinner[1] == 'Sayori' then
-			if s_appeal == 1 then sayori_exclusive_1()
-			elseif s_appeal == 2 then sayori_exclusive_2()
+			if s_appeal == 1 and sayori_exclusive_1 then sayori_exclusive_1()
+			elseif s_appeal == 2 and sayori_exclusive_2 then sayori_exclusive_2()
 			end
 		elseif poemwinner[1] == 'Natsuki' then
-			if n_appeal == 1 then natsuki_exclusive_1()
-			elseif n_appeal == 2 then natsuki_exclusive_2()
+			if n_appeal == 1 and natsuki_exclusive_1 then natsuki_exclusive_1()
+			elseif n_appeal == 2 and natsuki_exclusive_2 then natsuki_exclusive_2()
 			end
 		elseif poemwinner[1] == 'Yuri' then
-			if y_appeal == 1 then yuri_exclusive_1()
-			elseif y_appeal == 2 then yuri_exclusive_2()
+			if y_appeal == 1 and yuri_exclusive_1 then yuri_exclusive_1()
+			elseif y_appeal == 2 and yuri_exclusive_2 then yuri_exclusive_2()
 			end
 		end
 	end

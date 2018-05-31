@@ -1,6 +1,5 @@
 function drawLoad()
 	drawTopScreen()
-	love.graphics.setBackgroundColor(255,255,255)
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle("fill",0,0,400,240)
 	love.graphics.setColor(255,255,255,alpha)
@@ -58,6 +57,7 @@ function updateLoad()
 			changeState('newgame')
 		end
 	elseif l_timer >= 100 then
+		love.graphics.setBackgroundColor(255,255,255)
 		l_timer = 100
 		splashalpha(6)
 	end

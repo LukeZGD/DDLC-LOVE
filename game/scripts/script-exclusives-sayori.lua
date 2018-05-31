@@ -331,7 +331,7 @@ function sayori_exclusive_1()
 		cw('bl',"Sayori hastily unbuttons her blazer once more.")
 	elseif cl == 568 then
 		bgUpdate('club')
-		updateSayori('1','q')
+		updateSayori('1','q',80)
 		cw('s',"Phew!")
 	elseif cl == 569 then
 		cw('s',"That's so much better~")

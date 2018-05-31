@@ -1,6 +1,3 @@
-require "scripts.script-poemresponses"
-require "scripts.poems"
-
 function cw(p1, stext)
 	if p1 == 's' then
 		ct = 'Sayori'
@@ -70,21 +67,26 @@ function scriptCheck()
 	cc = ""
 	cd = ""
 	
-	if poemsread ~= -1 then
+	if poemsread ~= -1 and poemresponses then
 		poemresponses()
+	else
+		require "scripts.script-poemresponses"
+		require "scripts.poems"
 	end
 	
-	if chapter == 0 then
+	if chapter == 0 and ch0script then
 		ch0script()
-	elseif chapter == 1 then
+	elseif chapter == 1 and ch1script then
 		ch1script()
-	elseif chapter == 2 then
+	elseif chapter == 2 and ch2script then
 		ch2script()
-	elseif chapter == 3 then
+	elseif chapter == 3 and ch3script then
 		ch3script()
-	elseif chapter == 4 then
+	elseif chapter == 4 and ch4script then
 		ch4script()
-	elseif chapter == 5 then
+	elseif chapter == 5 and ch5script then
 		ch5script()
+	else
+		changeState('game',1)
 	end
 end	
