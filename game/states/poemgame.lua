@@ -237,19 +237,19 @@ end
 function poemgamekeypressed(key)
 	if menu_enabled == false then
 	
-	if key == 'down' then
+	if key == 'down' or key == 'cpaddown' then
 		if menuselected <= 9 then
 			menuselected = menuselected + 1
 			menuselect()
 		end
 		
-	elseif key == 'up' then
+	elseif key == 'up' or key == 'cpadup' then
 		if menuselected >= 2 then
 			menuselected = menuselected - 1
 			menuselect()
 		end
 		
-	elseif key == 'left' then
+	elseif key == 'left' or key == 'cpadleft' then
 		if menuselected == 6 then
 			menuselected = 1
 		elseif menuselected == 7 then
@@ -263,7 +263,7 @@ function poemgamekeypressed(key)
 		end
 		menuselect()
 	
-	elseif key == 'right' then
+	elseif key == 'right' or key == 'cpadright' then
 		if menuselected == 1 then
 			menuselected = 6
 		elseif menuselected == 2 then

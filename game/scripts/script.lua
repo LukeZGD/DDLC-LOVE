@@ -69,7 +69,7 @@ function scriptCheck()
 	
 	if poemsread ~= -1 and poemresponses then
 		poemresponses()
-	else
+	elseif poemsread ~= -1 then
 		require "scripts.script-poemresponses"
 		require "scripts.poems"
 	end

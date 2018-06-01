@@ -489,6 +489,8 @@ function unloadSayori()
 	sl = nil
 	sr = nil
 	s_a = nil
+	collectgarbage()
+	collectgarbage()
 end
 
 function loadYuri()	
@@ -527,6 +529,8 @@ function unloadYuri()
 	yl = nil
 	yr = nil
 	y_a = nil
+	collectgarbage()
+	collectgarbage()
 end
 
 function loadNatsuki()
@@ -598,6 +602,8 @@ function unloadNatsuki()
 	nl = nil
 	nr = nil
 	n_a = nil
+	collectgarbage()
+	collectgarbage()
 end
 
 function loadMonika()
@@ -628,6 +634,8 @@ function unloadMonika()
 	ml = nil
 	mr = nil
 	m_a = nil
+	collectgarbage()
+	collectgarbage()
 end
 
 function loadAll()

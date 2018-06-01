@@ -318,7 +318,7 @@ function m_selectchoice()
 end
 
 function menu_keypressed(key)
-	if key == 'down' then
+	if key == 'down' or key == 'cpaddown' then
 		sfx2:play()
 		if m_selected <= menu_items-1 then
 			m_selected = m_selected + 1
@@ -329,7 +329,7 @@ function menu_keypressed(key)
 		if menu_type ~= 'choice' then m_select()
 		else m_selectchoice() end
 		
-	elseif key == 'up' then
+	elseif key == 'up' or key == 'cpadup' then
 		sfx2:play()
 		if m_selected >= 3 then
 			m_selected = m_selected - 1
