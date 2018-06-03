@@ -120,14 +120,14 @@ function sayori_exclusive_1()
 		cw('bl',"I can't help but wonder what it would be like to see the world through her eyes...")
 	elseif cl == 472 then
 		bgUpdate('club')
-		updateSayori('sayori','',80)
+		updateSayori('sayori','',80,0)
 		cw('mc',"Uwaa--!")
 	elseif cl == 473 then
 		cw('bl','I open my eyes to find Sayori\'s face filling my vision.')
 	elseif cl == 474 then
 		cw('bl',"I nearly fall out of my chair.")
     elseif cl == 475 then
-		updateSayori('4','q')
+		updateSayori('4','q',80,5)
 		cw('s',"Ehehe, sorry~")
 	elseif cl == 476 then
 		updateSayori('4','i')
