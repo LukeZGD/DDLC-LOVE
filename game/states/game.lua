@@ -7,7 +7,6 @@ function drawGame()
 	love.graphics.setColor(255, 255, 255, alpha)
 	love.graphics.draw(bgch, 0, 0)
 	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
-		
 		if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
 		drawSayori(s.a,s.b)
 		drawYuri(y.a,y.b) 
