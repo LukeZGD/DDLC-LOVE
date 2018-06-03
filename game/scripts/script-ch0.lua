@@ -17,8 +17,7 @@ function ch0script()
 	elseif cl == 7 then
 		cw('bl','However, I just sigh and idle in front of the crosswalk and let Sayori catch up to me.')
 	elseif cl == 8 then
-		s.x = 80
-		updateSayori('4','p')
+		updateSayori('4','p',80)
 		cw('s',"Haaahhh...haaahhh...")
 	elseif cl == 9 then 
 		cw('s',"I overslept again!")
@@ -27,7 +26,7 @@ function ch0script()
     elseif cl == 11 then
 		cw('mc',"Maybe, but only because I decided to stop and wait for you.")
 	elseif cl == 12 then
-		updateSayori('5c','')
+		updateSayori('5c')
 		cw('s',"Eeehhhhh, you say that like you were thinking about ignoring me!")
 	elseif cl == 13 then 
 		cw('s',"That\'s mean, " .. player .. "!")
@@ -51,7 +50,7 @@ function ch0script()
 	elseif cl == 21 then
 		cw('bl','As we draw near, the streets become increasingly speckled with other students making their daily commute.')
 	elseif cl == 22 then
-		updateSayori('3','a')
+		updateSayori('3','a',80)
 		cw('s','By the way, ' .. player .. '...')
 	elseif cl == 23 then 
 		cw('s',"Have you decided on a club to join yet?")
@@ -122,7 +121,7 @@ function ch0script()
 	elseif cl == 52 then
 		cw('s',"Hellooo?")
 	elseif cl == 53 then
-		updateSayori('1','b')
+		updateSayori('1','b',80)
 		cw('mc',"Sayori...?")
 	elseif cl == 54 then
 		cw('bl','Sayori must have come into the classroom while I was spacing out.')
@@ -506,7 +505,6 @@ function ch0script()
 	elseif cl == 204 then
 		updateSayori('4','r',10)
 		updateMonika('2','a',150)
-		s.x = 10
 		cw('s',"Yeah!")
 	elseif cl == 205 then
 		updateYuri('1','a',-40)
@@ -845,7 +843,7 @@ function ch0script()
 		hideMonika()
 		cw('bl',"Can I really impress the class star Monika with my mediocre writing skills?")
 	elseif cl == 329 then
-		cw('bl',"I already feel the an.xiety welling up inside me...")
+		cw('bl',"I already feel the anxiety welling up inside me...")
 	elseif cl == 330 then
 		cw('bl',"Meanwhile, the girls continue to chit-chat as Yuri and Natsuki clean up their food.")
 	elseif cl == 331 then
@@ -943,7 +941,7 @@ function ch0script()
 	elseif cl == 10017 then
 		cw('bl','This port, or the original game is not suitable for children or those who are easily disturbed.')
 	elseif cl == 10018 then
-		cw('bl','Individuals suffering from an.xiety or depression may not have a safe experience playing this game. For content warnings, please visit: http://ddlc.moe/warning.html')
+		cw('bl','Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: http://ddlc.moe/warning.html')
 	elseif cl == 10019 then
 		cw('bl','By playing Doki Doki Literature Club, you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.')
 		timer = 1000
@@ -960,11 +958,7 @@ function ch0script()
 			player = ""
 			savegame()
 			resetchr()
-			alpha = 0
-			xaload = 0
-			timer = 0
-			state = "splash1"
-			audioUpdate('1')
+			changeState('splash')
 		 end
 	end
 end
