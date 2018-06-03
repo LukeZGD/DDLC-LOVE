@@ -1,12 +1,3 @@
-require "scripts.script-ch0"
-require "scripts.script-ch1"
-require "scripts.script-ch2"
-require "scripts.script-exclusives-sayori"
-require "scripts.script-exclusives-natsuki"
-require "scripts.script-exclusives-yuri"
-require "scripts.script-poemresponses"
-require "scripts.poems"
-
 function cw(p1, stext)
 	if p1 == 's' then
 		ct = 'Sayori'
@@ -31,7 +22,7 @@ function cw(p1, stext)
 	elseif p1 == 'bl' then
 		ct = ''
 	else
-		ct = '...???'
+		ct = 'Error'
 	end
 	
 	if stext == nil then stext = '' end
@@ -43,7 +34,7 @@ function cw(p1, stext)
 	
 	textx = dripText(stext,settings.textspd,myTextStartTime)
 		
-	--word wrapping haha
+	--word wrapping (not perfect yet)
 	slen = string.len(textx)
 	ca = string.sub(textx, 1, caa)
 	
@@ -76,21 +67,33 @@ function scriptCheck()
 	cc = ""
 	cd = ""
 	
-	if poemsread ~= -1 then
+	if poemsread ~= -1 and poemresponses then
 		poemresponses()
+	elseif poemsread ~= -1 then
+		require "scripts.script-poemresponses"
+		require "scripts.poems"
 	end
 	
-	if chapter == 0 then
+	if chapter == 0 and ch0script then
 		ch0script()
-	elseif chapter == 1 then
+	elseif chapter == 1 and ch1script then
 		ch1script()
-	elseif chapter == 2 then
+	elseif chapter == 2 and ch2script then
 		ch2script()
-	elseif chapter == 3 then
+	elseif chapter == 3 and ch3script then
 		ch3script()
-	elseif chapter == 4 then
+	elseif chapter == 4 and ch4script then
 		ch4script()
-	elseif chapter == 5 then
+	elseif chapter == 5 and ch5script then
 		ch5script()
+	else
+		changeState('game',1)
 	end
 end	
+
+function poeminitialize(y)
+	poemsread = 0
+	readpoem = {s=0,n=0,y=0,m=0}
+	
+	choices = {"Sayori","Natsuki","Yuri","Monika"}
+end

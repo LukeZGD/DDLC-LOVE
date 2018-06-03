@@ -1,12 +1,4 @@
-function poeminitialize(y)
-	poemsread = 0
-	readpoem = {s=0,n=0,y=0,m=0}
-	
-	choices = {"Sayori","Natsuki","Yuri","Monika"}
-end
-
 function poemresponses()
-	
 	if cl == 666 then		
 		--set up menutext/poem finish
 		if poemsread == 0 then
@@ -74,10 +66,7 @@ function poemfinish(a)
 		choices[4] = ''
 	end
 	poemsread = poemsread + 1
-	hideSayori()
-	hideYuri()
-	hideNatsuki()
-	hideMonika()
+	hideAll()
 	if poemsread == 4 or poemsread == 3 and chapter > 5 then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
@@ -932,7 +921,7 @@ function ch1_s_shared()
 	elseif cl == 724 then
 		poem('poem_s1','sayori')
 	elseif cl == 725 then
-		poem('poem_s1a','sayori',1)
+		poem('poem_s1-a','sayori',1)
 	elseif cl == 726 then
 		poem_disable()
 		audioUpdate('5')
@@ -1228,11 +1217,11 @@ function ch2_s_end()
 	elseif cl == 754 then
 		poem('poem_s2','sayori')
 	elseif cl == 755 then
-		poem('poem_s2a','sayori',1)
+		poem('poem_s2-a','sayori',1)
 	elseif cl == 756 then
-		poem('poem_s2b','sayori',1)
+		poem('poem_s2-b','sayori',1)
 	elseif cl == 757 then
-		poem('poem_s2c','sayori',1)
+		poem('poem_s2-c','sayori',1)
 	elseif cl == 758 then
 		poem_disable()
 		audioUpdate('5')
@@ -1886,7 +1875,7 @@ function ch1_m_end()
 	elseif cl == 748 then
 		poem('poem_m1','monika')
 	elseif cl == 749 then
-		poem('poem_m1a','monika',1)
+		poem('poem_m1-a','monika',1)
 	elseif cl == 750 then
 		poem_disable()
 		audioUpdate('5')
