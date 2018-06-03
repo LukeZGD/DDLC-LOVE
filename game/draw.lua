@@ -103,9 +103,9 @@ function hideSayori()
 		if sl then unloadSayori() end
 	else
 		if s.x > 200 then
-			s.x = s.x + 18
+			s.x = s.x + 22
 		else
-			s.x = s.x - 22
+			s.x = s.x - 25
 		end
 	end
 end
@@ -117,9 +117,9 @@ function hideYuri()
 		if yl then unloadYuri() end
 	else
 		if y.x > 200 then
-			y.x = y.x + 18
+			y.x = y.x + 22
 		else
-			y.x = y.x - 22
+			y.x = y.x - 25
 		end
 	end
 end
@@ -131,9 +131,9 @@ function hideNatsuki()
 		if nl then unloadNatsuki() end
 	else
 		if n.x > 200 then
-			n.x = n.x + 18
+			n.x = n.x + 22
 		else
-			n.x = n.x - 22
+			n.x = n.x - 25
 		end
 	end
 end
@@ -145,9 +145,9 @@ function hideMonika()
 		if ml then unloadMonika() end
 	else
 		if m.x > 200 then
-			m.x = m.x + 18
+			m.x = m.x + 22
 		else
-			m.x = m.x - 22
+			m.x = m.x - 25
 		end
 	end
 end

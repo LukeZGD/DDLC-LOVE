@@ -76,13 +76,7 @@ function changeState(cstate,x)
 		elseif poemwinner[chapter] == 'Yuri' then
 			require "scripts.script-exclusives-yuri"
 		end
-		poemfont = nil
-		sayoristicker1 = nil
-		sayoristicker2 = nil
-		yuristicker1 = nil
-		yuristicker2 = nil
-		natsukisticker1 = nil
-		natsukisticker2 = nil
+		unloadAll('poemgame')
 	end
 end
 
@@ -118,7 +112,6 @@ function bgUpdate(bgx) --background changes
 			bgch = love.graphics.newImage('images/bg/sayori_bedroom.png')
 		elseif bgx == 'black' then
 			unloadbg()
-			bgch = love.graphics.newImage('images/bg/black.png')
 			
 		--cg bases/backgrounds are added here
 		elseif bgx == 's_cg1' then
@@ -410,9 +403,9 @@ function updateSayori(a,b,px,py)
 	if xaload == 0 then loadSayori() end
 	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
 		if s.x > px then
-			s.x = math.max(s.x - 21, px)
+			s.x = math.max(s.x - 24, px)
 		elseif s.x < px then
-			s.x = math.min(s.x + 21, px)
+			s.x = math.min(s.x + 24, px)
 		end
 	elseif px and xaload > 0 then
 		s.x = px
@@ -426,9 +419,9 @@ function updateYuri(a,b,px,py)
 	if xaload == 0 then loadYuri() end
 	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then
 		if y.x > px then
-			y.x = math.max(y.x - 21, px)
+			y.x = math.max(y.x - 24, px)
 		elseif y.x < px then
-			y.x = math.min(y.x + 21, px)
+			y.x = math.min(y.x + 24, px)
 		end
 	elseif px and xaload > 0 then
 		y.x = px
@@ -442,9 +435,9 @@ function updateNatsuki(a,b,px,py)
 	if xaload == 0 then loadNatsuki() end
 	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
 		if n.x > px then
-			n.x = math.max(n.x - 21, px)
+			n.x = math.max(n.x - 24, px)
 		elseif n.x < px then
-			n.x = math.min(n.x + 21, px)
+			n.x = math.min(n.x + 24, px)
 		end
 	elseif px and xaload > 0 then
 		n.x = px
@@ -459,9 +452,9 @@ function updateMonika(a,b,px,py)
 	if xaload == 0 then loadMonika() end
 	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
 		if m.x > px then
-			m.x = math.max(m.x - 21, px)
+			m.x = math.max(m.x - 24, px)
 		elseif m.x < px then
-			m.x = math.min(m.x + 21, px)
+			m.x = math.min(m.x + 24, px)
 		end
 	elseif px and xaload > 0 then
 		m.x = px		
@@ -507,6 +500,7 @@ function loadSayori()
 	elseif s.a=="sayori" then
 		sl = love.graphics.newImage('images/sayori/sayori.png') 
 	end
+	
 	if s.b~='' then s_a = love.graphics.newImage('images/sayori/'..s.b..'.png') end
 end
 
@@ -610,6 +604,7 @@ function loadNatsuki()
 	elseif n.a=="4b" then
 		nl = love.graphics.newImage('images/natsuki/2bl.png') 
 		nr = love.graphics.newImage('images/natsuki/2br.png') 
+		
 	elseif n.a=="5" then
 		nl = love.graphics.newImage('images/natsuki/3.png') 
 	elseif n.a=="5b" then
@@ -670,19 +665,29 @@ function loadAll()
 	loadMonika()
 end
 
-function unloadAll()
-	sl = nil
-	sr = nil
-	yl = nil
-	yr = nil
-	nl = nil
-	nr = nil
-	ml = nil
-	mr = nil
-	s_a = nil
-	y_a = nil
-	n_a = nil
-	m_a = nil
+function unloadAll(x)
+	if x == nil or x == 'characters' then
+		sl = nil
+		sr = nil
+		yl = nil
+		yr = nil
+		nl = nil
+		nr = nil
+		ml = nil
+		mr = nil
+		s_a = nil
+		y_a = nil
+		n_a = nil
+		m_a = nil
+	elseif x == 'poemgame' then
+		poemfont = nil
+		sayoristicker1 = nil
+		sayoristicker2 = nil
+		yuristicker1 = nil
+		yuristicker2 = nil
+		natsukisticker1 = nil
+		natsukisticker2 = nil
+	end
 	collectgarbage()
 	collectgarbage()
 end
