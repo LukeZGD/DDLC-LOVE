@@ -5,7 +5,7 @@ function drawGame()
 	end
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
-	love.graphics.draw(bgch, 0, 0)
+	if bgch then love.graphics.draw(bgch, 0, 0) end
 	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
 		if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
 		drawSayori(s.a,s.b)
@@ -56,8 +56,7 @@ function drawGame()
 	if state ~= 'newgame' or poem_enabled == false and c_x then
 		love.graphics.print("Y - Pause",40,c_x,0,1,1)
 		love.graphics.print("B - Auto",133,c_x,0,1,1)
-		love.graphics.print("X - Skip",225,c_x,0,1,1)
-		--love.graphics.print(xaload,0,220) 
+		love.graphics.print("X - Skip",225,c_x,0,1,1) 
 	end
 	if menu_enabled then menu_draw() end
 end
