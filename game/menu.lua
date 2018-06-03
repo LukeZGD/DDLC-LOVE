@@ -126,6 +126,7 @@ function menu_draw()
 		if menu_items >= 7 then love.graphics.print(choice6,16, 170) end
 		if menu_items >= 8 then love.graphics.print(choice7,16, 195) end
 		if menu_items >= 8 then love.graphics.print(choice8,16, 220) end
+		love.graphics.print(cl,0,220)
 	end
 end
 
