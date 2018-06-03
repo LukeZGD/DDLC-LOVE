@@ -57,7 +57,7 @@ function drawGame()
 		love.graphics.print("Y - Pause",40,c_x,0,1,1)
 		love.graphics.print("B - Auto",133,c_x,0,1,1)
 		love.graphics.print("X - Skip",225,c_x,0,1,1)
-		love.graphics.print(cl,0,220) 
+		--love.graphics.print(xaload,0,220) 
 	end
 	if menu_enabled then menu_draw() end
 end
