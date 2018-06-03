@@ -1964,7 +1964,7 @@ function m_eval()
 		end
 	end
 	
-	if cl < 692 then
+	if cl < 692 and cl ~= 666 then
 		xaload = -1
 		cl = 692
 	end
@@ -1976,7 +1976,7 @@ function m_end()
 	elseif chapter == 3 then ch3_m_end()
 	end
 	
-	if cl < 730 then
+	if cl < 730 and cl ~= 666 then
 		xaload = -1
 		cl = 730
 	end
