@@ -1,5 +1,59 @@
 function changeState(cstate,x)
-	if cstate == 'game' or cstate == 'newgame' then
+	if cstate == 'load' then
+		require "states.load"
+		state = 'load'
+	elseif cstate == 'splash' then
+		require "states.splash"
+		alpha = 0
+		xaload = 0
+		timer = 0
+		state = "splash1"
+		audioUpdate('1')
+	elseif cstate == 'title' then
+		poem_enabled = false
+		state = 'title'
+		timer = 501
+		xaload = 0
+		audioStop()
+		audioUpdate('1')
+		menu_enable('title',6)
+	elseif cstate == 'game' and x == 1 then --new game
+		xaload = 0
+		state = "game"
+		menu_enabled = false
+	elseif cstate == 'game' and x == 2 then --load game
+		hideAll()
+		loadgame()
+		loadAll()
+		loadupdate()
+		xaload = 0
+		state = "game"
+		poem_enabled = false
+		menu_enabled = false
+	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
+		cl = cl + 2
+		xaload = 0
+		state = "game"
+		alpha = 255
+	elseif cstate == 'newgame' then --first new game
+		timer = 501
+		cl = 10016
+		state = "newgame"
+		alpha = 255
+	elseif cstate == 'poemgame' then
+		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
+		s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+		s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+		y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
+		y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
+		n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
+		n_sticker_2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+		require "states.poemgame"
+		poemgame()
+		alpha = 255
+	end
+	
+	if cstate == 'game' or cstate == 'newgame' then	
 		require "states.game"
 		require "scripts.script"
 		if chapter == 0 then
@@ -22,45 +76,13 @@ function changeState(cstate,x)
 		elseif poemwinner[chapter] == 'Yuri' then
 			require "scripts.script-exclusives-yuri"
 		end
-	end
-
-	if cstate == 'load' then
-		require "states.load"
-		state = 'load'
-	elseif cstate == 'splash' then
-		require "states.splash"
-		alpha = 0
-		xaload = 0
-		timer = 0
-		state = "splash1"
-		audioUpdate('1')
-	elseif cstate == 'game' and x == 1 then --new game
-		xaload = 0
-		state = "game"
-		menu_enabled = false
-	elseif cstate == 'game' and x == 2 then --load game
-		hideAll()
-		loadgame()
-		loadAll()
-		loadupdate()
-		xaload = 0
-		state = "game"
-		poem_enabled = false
-		menu_enabled = false
-	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
-		alpha = 255
-		cl = cl + 2
-		xaload = 0
-		state = "game"
-	elseif cstate == 'newgame' then --first new game
-		alpha = 255
-		timer = 501
-		cl = 10016
-		state = "newgame"
-	elseif cstate == 'poemgame' then
-		require "states.poemgame"
-		alpha = 255
-		poemgame()
+		poemfont = nil
+		sayoristicker1 = nil
+		sayoristicker2 = nil
+		yuristicker1 = nil
+		yuristicker2 = nil
+		natsukisticker1 = nil
+		natsukisticker2 = nil
 	end
 end
 
@@ -346,6 +368,9 @@ function audioUpdate(audiox) --the audio update function yay
 end
 
 function sfxplay(sfx)
+	sfxp = nil
+	collectgarbage()
+	collectgarbage()
 	if sfx == 'pageflip' then
 		sfxp = love.audio.newSource('audio/sfx/pageflip.ogg')
 	end

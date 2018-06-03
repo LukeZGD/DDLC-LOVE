@@ -112,7 +112,7 @@ function drawPoemGame()
 	love.graphics.setFont(font)
 	love.graphics.print('>',cursorX,cursorY,0,1,1)
 
-	love.graphics.setFont(poemfont)
+	if poemfont then love.graphics.setFont(poemfont) end
 	if poemword <= 20 then
 		love.graphics.print(poemword .. "/20",245,25,0,1,1)
 	else
@@ -143,27 +143,27 @@ function drawPoemGame()
 			y_velocity = jump_height
 		end
 		if spadd == 3 then
-			love.graphics.draw(sayoristicker2,50,p_y)
-			love.graphics.draw(natsukisticker1,110,100)
-			love.graphics.draw(yuristicker1,190,100)
+			if s_sticker_2 then love.graphics.draw(s_sticker_2,50,p_y) end
+			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
+			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
 		elseif npadd == 3 then
-			love.graphics.draw(sayoristicker1,50,100)
-			love.graphics.draw(natsukisticker2,110,p_y)
-			love.graphics.draw(yuristicker1,190,100)
+			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
+			if n_sticker_2 then love.graphics.draw(n_sticker_2,110,p_y) end
+			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
 		elseif ypadd == 3 then
-			love.graphics.draw(sayoristicker1,50,100)
-			love.graphics.draw(natsukisticker1,110,100)
-			love.graphics.draw(yuristicker2,190,p_y)
+			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
+			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
+			if y_sticker_2 then love.graphics.draw(y_sticker_2,190,p_y) end
 		else
-			love.graphics.draw(sayoristicker1,50,100)
-			love.graphics.draw(natsukisticker1,110,100)
-			love.graphics.draw(yuristicker1,190,100)
+			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
+			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
+			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
 		end
 	else
 		p_y = 100
-		love.graphics.draw(sayoristicker1,50,100)
-		love.graphics.draw(natsukisticker1,110,100)
-		love.graphics.draw(yuristicker1,190,100)
+		if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
+		if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
+		if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
 		spadd = wordlist[wordpick][2]
 		npadd = wordlist[wordpick][3]
 		ypadd = wordlist[wordpick][4]

@@ -1,7 +1,8 @@
 function drawGame()
-	scriptCheck()
-	charCheck()
-
+	if autotimer > 0 and event_enabled ~= true then
+		scriptCheck()
+		charCheck()
+	end
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
 	love.graphics.draw(bgch, 0, 0)
@@ -18,11 +19,11 @@ function drawGame()
 		if ct ~= '' then love.graphics.draw(namebox, 52, 142) end
 		love.graphics.draw(textbox, 40, 162)
 		love.graphics.setColor(0,0,0)
-		love.graphics.print(ct,60,142) --t name
-		love.graphics.print(ca,48,166) --line 1
-		love.graphics.print(cb,48,182) --line 2
-		love.graphics.print(cc,48,198) --line 3
-		love.graphics.print(cd,48,214) --line 4
+		if ct then love.graphics.print(ct,20,142) end
+		if ca then love.graphics.print(ca,48,166) end
+		if cb then love.graphics.print(cb,48,182) end
+		if cc then love.graphics.print(cc,48,198) end
+		if cd then love.graphics.print(cd,48,214) end
 		c_x = 0
 	end
 	
@@ -37,7 +38,7 @@ function drawGame()
 	love.graphics.draw(background_Image, posX, posY)
 	
 	love.graphics.setColor(0,0,0)
-	love.graphics.print(cl,0,0,0) --script number
+	love.graphics.print(cl,0,0,0)
 	if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
 		
 	if poem_enabled ~= true and settings.textloc == 'Bottom' then
@@ -45,17 +46,17 @@ function drawGame()
 		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
 		love.graphics.draw(textbox, 0, 60)
 		love.graphics.setColor(0,0,0)
-		love.graphics.print(ct,20,40) --t name
-		love.graphics.print(ca,8,64) --line 1
-		love.graphics.print(cb,8,80) --line 2
-		love.graphics.print(cc,8,96) --line 3
-		love.graphics.print(cd,8,112) --line 4
+		if ct then love.graphics.print(ct,20,40) end
+		if ca then love.graphics.print(ca,8,64) end
+		if cb then love.graphics.print(cb,8,80) end
+		if cc then love.graphics.print(cc,8,96) end
+		if cd then love.graphics.print(cd,8,112) end
 		c_x = 220
 	end
 	
-	if state ~= 'newgame' or poem_enabled == false then
+	if state ~= 'newgame' or poem_enabled == false and c_x then
 		love.graphics.print("Y - Pause",40,c_x,0,1,1)
-		love.graphics.print("B - Auto",135,c_x,0,1,1)
+		love.graphics.print("B - Auto",133,c_x,0,1,1)
 		love.graphics.print("X - Skip",225,c_x,0,1,1)
 		--love.graphics.print(xaload,0,220) 
 	end
@@ -63,13 +64,21 @@ function drawGame()
 end
 
 function drawPoem()
-	love.graphics.setColor(243,243,243)
-	love.graphics.rectangle("fill",40,0,320,240)
+	if yuri_2 or yuri_3 then
+		love.graphics.draw(poembg, 40, 0)
+	else
+		love.graphics.setColor(243,243,243)
+		love.graphics.rectangle("fill",40,0,320,240)
+	end
 	love.graphics.setColor(0,0,0)
 	love.graphics.print(poemtext, 45, 15)
 end
 
 function updateGame(dt)
+	if autotimer == 0 then
+		scriptCheck()
+		charCheck()
+	end
 	--auto next script
 	if autotimer == 0 then
 		autotimer = 0

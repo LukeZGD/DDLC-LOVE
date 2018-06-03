@@ -8,7 +8,7 @@ function love.load()
 
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
-	l_timer = 0
+	l_timer = 96
 	timer = 0
 	autotimer = 0
 	xaload = 0

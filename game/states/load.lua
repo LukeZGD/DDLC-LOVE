@@ -1,11 +1,10 @@
 function drawLoad()
 	drawTopScreen()
-	love.graphics.setColor(0,0,0,alpha)
+	love.graphics.setColor(0,0,0,0)
 	love.graphics.rectangle("fill",0,0,400,240)
 	love.graphics.setColor(255,255,255,alpha)
-	love.graphics.print("Loading... ("..l_timer.."%)",0,0)
 	drawBottomScreen()
-	love.graphics.setColor(0,0,0,alpha)
+	love.graphics.setColor(0,0,0,0)
 	love.graphics.rectangle("fill",-40,0,400,240)
 end
 
@@ -16,10 +15,12 @@ function updateLoad()
 	end
 	
 	--loading assets
-	if l_timer == 1 then
+	if l_timer == 97 then
 		font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
 		love.graphics.setFont(font)
-	elseif l_timer == 5 then
+		m1 = love.graphics.newFont('images/gui/fonts/m1')
+		
+	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
 		splash = love.graphics.newImage('images/bg/splash.png')
 		titlebg = love.graphics.newImage('images/bg/bg.png')
@@ -28,25 +29,6 @@ function updateLoad()
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
 		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
-	
-	elseif l_timer == 50 then
-		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
-
-	elseif l_timer == 52 then
-		sfxpageflip = love.audio.newSource('audio/sfx/pageflip.ogg')
-		
-	elseif l_timer == 55 then
-		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
-		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
-		
-	elseif l_timer == 60 then
-		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
-		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
-		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
-
-	elseif l_timer == 65 then
-		m1 = love.graphics.newFont('images/gui/fonts/m1')
 		
 	elseif l_timer == 99 then
 		l_timer = 99

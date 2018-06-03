@@ -203,13 +203,7 @@ function menu_confirm()
 	
 	elseif menu_type == 'mainyesno' then
 		if m_selected == 2 then
-			poem_enabled = false
-			state = 'title'
-			timer = 501
-			xaload = 0
-			audioStop()
-			audioUpdate('1')
-			menu_enable('title',6)
+			changeState('title')
 		elseif m_selected == 3 then
 			menu_enable('pause',7)
 		end
@@ -340,7 +334,7 @@ function menu_keypressed(key)
 		else m_selectchoice() end
 		
 	elseif key == 'a' then
-		menu_confirm()
+		if alpha == 255 then menu_confirm() end
 		
 	elseif key == 'b' then
 		sfx1:play()

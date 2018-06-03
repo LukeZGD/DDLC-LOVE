@@ -182,11 +182,8 @@ And he, on the other side, was looking in.]]
 	end
 
 	if xaload == 0 and continue ~= 1 then
-		--poembg = love.graphics.newImage('images/bg/poem.png')
-		sfxpageflip:play()
-		
+		sfxplay('pageflip')
 		if author == 'yuri' then
-			--y1 = love.graphics.newFont('images/gui/fonts/y1')
 			if yuri_2 then
 				poembg = love.graphics.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
@@ -197,17 +194,12 @@ And he, on the other side, was looking in.]]
 				audioUpdate('5_yuri')
 			end
 		elseif author == 'sayori' then
-			--s1 = love.graphics.newFont('images/gui/fonts/s1')
-			if chapter == 5 then
-				audioUpdate('0')
-			else
+			if chapter ~= 5 then
 				audioUpdate('5_sayori')
 			end
 		elseif author == 'natsuki' then
-			--n1 = love.graphics.newFont('images/gui/fonts/n1')
 			audioUpdate('5_natsuki')
 		elseif author == 'monika' then
-			--m1 = love.graphics.newFont('images/gui/fonts/m1')
 			audioUpdate('5_monika')
 		end
 	elseif xaload > 0 then
@@ -227,6 +219,9 @@ And he, on the other side, was looking in.]]
 end
 
 function poem_disable(x)
+	poembg = nil
+	collectgarbage()
+	collectgarbage()
 	poem_enabled = false
 	if x==nil or x==1 then
 		audioUpdate('5')
