@@ -90,3 +90,10 @@ function scriptCheck()
 		changeState('game',1)
 	end
 end	
+
+function poeminitialize(y)
+	poemsread = 0
+	readpoem = {s=0,n=0,y=0,m=0}
+	
+	choices = {"Sayori","Natsuki","Yuri","Monika"}
+end
