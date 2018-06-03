@@ -187,16 +187,16 @@ function ch1script()
 		cw('bl',"Meanwhile, Natsuki is rummaging around in the closet.")
 	elseif cl >= 423 then
 		if poemwinner[1] == 'Sayori' then
-			if s_appeal == 1 then sayori_exclusive_1()
-			elseif s_appeal == 2 then sayori_exclusive_2()
+			if s_appeal == 1 and sayori_exclusive_1 then sayori_exclusive_1()
+			elseif s_appeal == 2 and sayori_exclusive_2 then sayori_exclusive_2()
 			end
 		elseif poemwinner[1] == 'Natsuki' then
-			if n_appeal == 1 then natsuki_exclusive_1()
-			elseif n_appeal == 2 then natsuki_exclusive_2()
+			if n_appeal == 1 and natsuki_exclusive_1 then natsuki_exclusive_1()
+			elseif n_appeal == 2 and natsuki_exclusive_2 then natsuki_exclusive_2()
 			end
 		elseif poemwinner[1] == 'Yuri' then
-			if y_appeal == 1 then yuri_exclusive_1()
-			elseif y_appeal == 2 then yuri_exclusive_2()
+			if y_appeal == 1 and yuri_exclusive_1 then yuri_exclusive_1()
+			elseif y_appeal == 2 and yuri_exclusive_2 then yuri_exclusive_2()
 			end
 		end
 	end
@@ -422,7 +422,7 @@ function ch1script()
 		cw('ny',"This doesn't involve you!")
 	elseif cl == 973 then
 		hideMonika()
-		updateSayori('4','p')
+		updateSayori('4','p',-40)
 		cw('s',"I-I don't like fighting, guys...!")
 	elseif cl == 974 then
 		hideSayori()
@@ -488,7 +488,7 @@ function ch1script()
 			menu_enable('choice', 4)
 			autotimer = 0
 		end
-	elseif cl >= 996  and cl < 1092 then
+	elseif cl >= 996 and cl < 1092 then
 		if choicepick == 'Natsuki.' or choicepick == 'n' then
 			choicepick = 'n'
 			ch1_end_natsuki()
@@ -727,7 +727,6 @@ function ch1_end_natsuki()
 		cw('n',"...Thanks for noticing.")
 	elseif cl == 1032 then
 		cw('bl',"She finally mutters that, barely audible.")
-	
 	elseif cl == 1033 then
 		cw('mc',"Yuri...")
 	elseif cl == 1034 then

@@ -116,7 +116,7 @@ function natsuki_exclusive_1()
 		cw('bl',"She pats on the ground next to her, signaling me to sit there.")
 	elseif cl == 474 then
 		bgUpdate('club')
-		updateNatsuki('2','a')
+		updateNatsuki('2','a',80)
 		cw('mc',"Wouldn't chairs be more comfortable...?")
 	elseif cl == 475 then
 		cw('bl',"I take my seat.")
@@ -279,7 +279,7 @@ function natsuki_exclusive_1()
 	elseif cl == 543 then
 		cw('bl',"Not to mention she's really good at it, so who am I to judge?")
 	elseif cl == 544 then
-		hideNatsuki()
+		hideAll()
 		bgUpdate('n_cg1_base')
 		cw('bl',"...")
 	elseif cl == 545 then
@@ -432,8 +432,7 @@ function natsuki_exclusive_1()
 	elseif cl == 614 then
 		cw('bl',"The thought makes me smile a little to myself.")
 	elseif cl == 615 then
-		m.x = 10
-		updateMonika('3','b')
+		updateMonika('3','b',10)
 		cw('m',"Okay everyone!")
 	elseif cl == 616 then
 		cw('mc',"Eh?")
@@ -442,8 +441,7 @@ function natsuki_exclusive_1()
 	elseif cl == 618 then
 		cw('mc',"...")
 	elseif cl == 619 then
-		n.x = 150
-		updateNatsuki('4','w')
+		updateNatsuki('4','w',150)
 		cw('n',"Oh, come on!")
 	elseif cl == 620 then
 		cw('n',"Could your timing be any worse?")
@@ -466,7 +464,7 @@ function natsuki_exclusive_1()
 		cw('bl',"She hastily slides herself a good twelve inches away from me.")
     elseif cl == 628 then
 		hideMonika()
-		n.x = 80
+		updateNatsuki('1','p',80)
 		cw('mc',"Alright...")
 	elseif cl == 629 then
 		cw('mc',"Guess I'll stop here for now.")

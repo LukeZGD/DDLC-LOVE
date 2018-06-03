@@ -260,7 +260,7 @@ function yuri_exclusive_1()
 	elseif cl == 538 then
 		cw('bl',"It looks like she's reading from my book instead--")
 	elseif cl == 539 then
-		updateYuri('3','n')
+		updateYuri('3','n',80)
 		cw('y',"S-Sorry!")
 	elseif cl == 540 then
 		cw('y', "I was just--!")
@@ -298,7 +298,7 @@ function yuri_exclusive_1()
 	elseif cl == 555 then
 		cw('y',"Here...")
 	elseif cl == 556 then
-		hideYuri()
+		hideAll()
 		bgUpdate('y_cg1_base')
 		cw('bl',"Yuri takes her left arm and holds the left side of the book between her thumb and forefinger.")
 	elseif cl == 557 then
@@ -386,7 +386,7 @@ function yuri_exclusive_1()
 	elseif cl == 596 then
 		cgHide()
 		bgUpdate('club')
-		updateYuri('2','t')
+		updateYuri('2','t',80)
 		cw('bl',"Yuri remains silent for a moment.")
 	elseif cl == 597 then
 		cw('y',"But "..player.."...")
@@ -415,8 +415,7 @@ function yuri_exclusive_1()
 	elseif cl == 608 then
 		cw('y',"I...!")
 	elseif cl == 609 then
-		m.x = -50
-		updateMonika('4','a')
+		updateMonika('4','a',-50)
 		cw('m',"Okay, everyone!")
 	elseif cl == 610 then
 		cw('y',"...!")
