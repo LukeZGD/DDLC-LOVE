@@ -1,25 +1,20 @@
 require "draw"
 require "resources"
-require "poemgame"
-require "poemwords"
 require "saveload"
-
 require "menu"
-require "scripts.script"
 
 function love.load() 
 	dversion = "v0.0.2"
 
-	love.graphics.setBackgroundColor(0,0,0)
-	
+	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
-	l_timer = 0
+	l_timer = 96
 	timer = 0
 	autotimer = 0
 	xaload = 0
 	alpha = 255
 	
-	posX = 0
+	posX = -75
 	posY = 0
 	
 	menu_enabled = false
@@ -31,53 +26,18 @@ function love.load()
 		love.window.setTitle('DDLC-3DS')
 	end
 	
-	state = 'load'
+	changeState('load')
 end
 
 function love.draw() 
-
-	if global_os == 'Horizon' then
-		posX = posX - 0.125
-		posY = posY - 0.125
-	
-		if posX <= -80 then posX = 0 end
-		if posY <= -80 then posY = 0 end
-	else
-		posX = -75
-		posY = 0
-	end
-	
-	if timer <= 200 then --splash1 (Team Salvato Splash Screen)
-		drawTopScreen()
-		splashalpha(1)
-		love.graphics.setBackgroundColor (255,255,255)
-		love.graphics.setColor(255, 255, 255, alpha)
-		love.graphics.draw(splash, 0, 0, 0)
-		
-	elseif state == "splash2" then --splash2 (Disclaimer)
-		drawTopScreen()
-		splashalpha(2)
-		love.graphics.setColor(0,0,0, alpha)
-		love.graphics.print("This game is not suitable for children", 95, 100)
-		love.graphics.print("  or those who are easily disturbed.", 95, 116)
-		love.graphics.print("Unofficial port by LukeeGD", 5, 220)
-		
-	elseif state == "title" then --title (Title Screen)
-		drawTopScreen()
-		splashalpha(3)
-		love.graphics.setColor(255, 255, 255, alpha)
-		love.graphics.draw(background_Image, posX, posY)
-		love.graphics.draw(titlebg, 0, 0)
-		
-		drawBottomScreen()
-		menu_draw()
-		
+	if state == 'load' then
+		drawLoad()
+	elseif state == 'splash1' or state == "splash2" or state == "title" then --title (Title Screen)
+		drawSplash()
 	elseif state == "game" or state == "newgame" then --game (Ingame)
 		drawGame()
-		
 	elseif state == "poemgame" then
-		drawpoemgame()
-		
+		drawPoemGame()
 	elseif state == "s_kill_early" then --early act 1 end
 		drawTopScreen()
 		love.graphics.setBackgroundColor (245,245,245)
@@ -86,87 +46,37 @@ function love.draw()
 		drawBottomScreen()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(s_killearly,32,0)
-		
-	elseif state == "load" then
-		drawTopScreen()
-		love.graphics.setBackgroundColor(255,255,255)
-		love.graphics.setColor(0,0,0,alpha)
-		love.graphics.rectangle("fill",0,0,400,240)
-		love.graphics.setColor(255,255,255,alpha)
-		love.graphics.print("Loading... ("..l_timer.."%)",0,0)
-		drawBottomScreen()
-		love.graphics.setColor(0,0,0,alpha)
-		love.graphics.rectangle("fill",-40,0,400,240)
 	end
 end
 
 function love.update(dt)
-
-	--splash screen timer
-	if timer <= 500 then
-		timer = timer + 1
+	if global_os == 'Horizon' then
+		posX = posX - 0.25
+		posY = posY - 0.25
+		if posX <= -80 then posX = 0 end
+		if posY <= -80 then posY = 0 end
 	end
-	
+
 	--update depending on state
 	if state == "load" then
-		updateloading(dt)
+		updateLoad(dt)
+	elseif state == 'splash1' or state == 'splash2' or state == 'title' then
+		updateSplash(dt)
+	elseif state == 'game' or state == 'newgame' then
+		updateGame(dt)
 	elseif state == 'poemgame' then
-		updatepoemgame(dt)
-	end
-	
-	--auto next script
-	if autotimer == 0 then
-		autotimer = 0
-	elseif autotimer <= 150 then
-		autotimer = autotimer + 1
-	elseif autotimer == 151 then
-		cl = cl + 1
-		xaload = 0
-		autotimer = 1
-	end
-	
-	--splash screen (change states)
-	if state == "splash1" or state == "splash2" then 
-		if timer == 180 then
-			state = "splash2"
-		elseif timer >= 470 then
-			state = "title" 
-		end
-	end
-	
-	if love.keyboard.isDown('x') then --skip enable
-		if state == 'game' and menu_enabled == false and cl ~= 666 then
-			if tspd == nil then tspd = settings.textspd end
-			settings.textspd = 10000
-			if autotimer < 148 then autotimer = 148 end
-		end
+		updatePoemGame(dt)
 	end
 end
 
-function love.keypressed(key)
-	if key == 'a' then 
-		if state == "game" and menu_enabled == false or state == "newgame" then
-			autotimer = 0
-			cl = cl + 1 --next script
-			xaload = 0
-		end
-	end
-
-	if state == "game" and menu_enabled == false then
-		if key ~= 'a' then sfx1:play() end
-		if key == 'y' then --pause menu
-			autotimer = 0
-			menu_enable('pause',7)
-			
-		elseif key == 'b' then --auto on/off
-			if autotimer == 0 then autotimer = 1 else autotimer = 0 end
-		end
-		
-	elseif state == 'poemgame' then
+function love.keypressed(key)	
+	if state == 'game' and menu_enabled == false then
+		game_keypressed(key)
+	elseif state == 'newgame' and menu_enabled == false then
+		newgame_keypressed(key)
+	elseif state == 'poemgame' and menu_enabled == false then
 		poemgamekeypressed(key)
-	end
-	
-	if menu_enabled then
+	elseif menu_enabled then
 		menu_keypressed(key)
 	end
 end
@@ -184,9 +94,7 @@ function love.textinput(text)
 		if text ~= '' then 
 			player = text
 			savegame()
-			xaload = 0
-			state = "game"
-			menu_enabled = false
+			changeState('game',1)
 		else
 			state = "title"
 		end

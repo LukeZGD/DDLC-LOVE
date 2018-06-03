@@ -1,56 +1,91 @@
-function updateloading(dt)
-	timer = 501
-	if l_timer <= 100 then
-		l_timer = l_timer + 1
+function changeState(cstate,x)
+	if cstate == 'load' then
+		require "states.load"
+		state = 'load'
+	elseif cstate == 'splash' then
+		require "states.splash"
+		alpha = 0
+		xaload = 0
+		timer = 0
+		state = "splash1"
+		audioUpdate('1')
+	elseif cstate == 'title' then
+		poem_enabled = false
+		state = 'title'
+		timer = 501
+		xaload = 0
+		audioStop()
+		audioUpdate('1')
+		menu_enable('title',6)
+	elseif cstate == 'game' and x == 1 then --new game
+		xaload = 0
+		state = "game"
+		menu_enabled = false
+	elseif cstate == 'game' and x == 2 then --load game
+		hideAll()
+		loadgame()
+		loadAll()
+		loadupdate()
+		xaload = 0
+		state = "game"
+		poem_enabled = false
+		menu_enabled = false
+	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
+		cl = cl + 2
+		xaload = 0
+		state = "game"
+		alpha = 255
+	elseif cstate == 'newgame' then --first new game
+		timer = 501
+		cl = 10016
+		state = "newgame"
+		alpha = 255
+	elseif cstate == 'poemgame' then
+		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
+		s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+		s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+		y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
+		y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
+		n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
+		n_sticker_2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+		require "states.poemgame"
+		poemgame()
+		alpha = 255
 	end
 	
-	--loading assets
-	if l_timer == 1 then
-		font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
-		love.graphics.setFont(font)
-	elseif l_timer == 5 then
-		--splash, title screen, gui elements, sfx
-		splash = love.graphics.newImage('images/bg/splash.png')
-		titlebg = love.graphics.newImage('images/bg/bg.png')
-		namebox = love.graphics.newImage('images/gui/namebox.png')
-		textbox = love.graphics.newImage('images/gui/textbox.png')
-		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
-		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
-		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
-	
-	elseif l_timer == 50 then
-		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
-
-	elseif l_timer == 52 then
-		sfxpageflip = love.audio.newSource('audio/sfx/pageflip.ogg')
-		
-	elseif l_timer == 55 then
-		sayoristicker1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-		sayoristicker2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
-		yuristicker1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
-		
-	elseif l_timer == 60 then
-		yuristicker2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
-		natsukisticker1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
-		natsukisticker2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
-
-	elseif l_timer == 99 then
-		l_timer = 99
-		local file = love.filesystem.isFile("save1.sav")
-		if file then
-			checkchr()
-		else
-			alpha = 255
-			timer = 501
-			cl = 10016
-			state = "newgame"
+	if cstate == 'game' or cstate == 'newgame' then	
+		require "states.game"
+		require "scripts.script"
+		if chapter == 0 then
+			require "scripts.script-ch0"
+		elseif chapter == 1 then
+			require "scripts.script-ch1"
+		elseif chapter == 2 then
+			require "scripts.script-ch2"
+		elseif chapter == 3 then
+			require "scripts.script-ch3"
+		elseif chapter == 4 then
+			require "scripts.script-ch4"
+		elseif chapter == 5 then
+			require "scripts.script-ch5"
 		end
-	elseif l_timer >= 100 then
-		l_timer = 100
-		splashalpha(6)
+		if poemwinner[chapter] == 'Sayori' then
+			require "scripts.script-exclusives-sayori"
+		elseif poemwinner[chapter] == 'Natsuki' then
+			require "scripts.script-exclusives-natsuki"
+		elseif poemwinner[chapter] == 'Yuri' then
+			require "scripts.script-exclusives-yuri"
+		end
+		poemfont = nil
+		sayoristicker1 = nil
+		sayoristicker2 = nil
+		yuristicker1 = nil
+		yuristicker2 = nil
+		natsukisticker1 = nil
+		natsukisticker2 = nil
 	end
 end
-	
+
 function bgUpdate(bgx) --background changes
 	if xaload == 0 then
 		--backgrounds
@@ -206,6 +241,123 @@ function audioUpdate(audiox) --the audio update function yay
 			ddlct = love.audio.newSource('audio/bgm/10.ogg', "stream")
 			ddlct:setLooping(true)
 			ddlct:play()
+		elseif audiox == 'd' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/d.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		--ACT 2 MUSIC
+		elseif audiox == '2g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/2g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '3g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/3g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '3g2' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/3g2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '4g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/4g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_ghost' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_ghost.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '5_yuri2' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/5_yuri2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6o' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6o.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6r' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6r.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '6s' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/6s.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '7g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/7g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '9g' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/9g.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == '10-yuri' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/10-yuri.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'yuri-kill' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/sfx/yuri-kill.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == 'heartbeat' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/heartbeat.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'g1' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/g1.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'g2' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/g2.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		--ACT 3&4 MUSIC
+		elseif audiox == 'monika-start' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/monika-start.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == 'm1' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/m1.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'monika-end' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/monika-end.ogg', "stream")
+			ddlct:setLooping(true)
+			ddlct:play()
+		elseif audiox == 'end-voice' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/end-voice.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
+		elseif audiox == 'credits' then
+			audioStop()
+			ddlct = love.audio.newSource('audio/bgm/credits.ogg', "stream")
+			ddlct:setLooping(false)
+			ddlct:play()
 		elseif audiox == 's_kill_early' then
 			ddlct = love.audio.newSource('audio/bgm/s_kill_early.ogg', "stream")
 			ddlct:setLooping(true)
@@ -216,6 +368,9 @@ function audioUpdate(audiox) --the audio update function yay
 end
 
 function sfxplay(sfx)
+	sfxp = nil
+	collectgarbage()
+	collectgarbage()
 	if sfx == 'pageflip' then
 		sfxp = love.audio.newSource('audio/sfx/pageflip.ogg')
 	end
@@ -252,34 +407,66 @@ function updateSayori(a,b,px,py)
 	if b == nil then b = '' end
 	s.a = a
 	s.b = b
-	if px ~= nil then s.x = px end
-	if py ~= nil then s.y = py end
 	if xaload == 0 then loadSayori() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+		if s.x > px then
+			s.x = math.max(s.x - 21, px)
+		elseif s.x < px then
+			s.x = math.min(s.x + 21, px)
+		end
+	elseif px and xaload > 0 then
+		s.x = px
+	end
+	if py ~= nil then s.y = py end
 end
 
 function updateYuri(a,b,px,py)
 	y.a = a 
 	y.b = b
-	if px ~= nil then y.x = px end
-	if py ~= nil then y.y = py end
 	if xaload == 0 then loadYuri() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then
+		if y.x > px then
+			y.x = math.max(y.x - 21, px)
+		elseif y.x < px then
+			y.x = math.min(y.x + 21, px)
+		end
+	elseif px and xaload > 0 then
+		y.x = px
+	end
+	if py ~= nil then y.y = py end
 end
 
 function updateNatsuki(a,b,px,py)
 	n.a = a
 	n.b = b
-	if px ~= nil then n.x = px end
-	if py ~= nil then n.y = py end
 	if xaload == 0 then loadNatsuki() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+		if n.x > px then
+			n.x = math.max(n.x - 21, px)
+		elseif n.x < px then
+			n.x = math.min(n.x + 21, px)
+		end
+	elseif px and xaload > 0 then
+		n.x = px
+	end
+	if py ~= nil then n.y = py end
 end
 
 function updateMonika(a,b,px,py)
 	if b == nil then b = '' end
 	m.a = a
 	m.b = b
-	if px ~= nil then m.x = px end
-	if py ~= nil then m.y = py end
 	if xaload == 0 then loadMonika() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+		if m.x > px then
+			m.x = math.max(m.x - 21, px)
+		elseif m.x < px then
+			m.x = math.min(m.x + 21, px)
+		end
+	elseif px and xaload > 0 then
+		m.x = px		
+	end
+	if py ~= nil then m.y = py end
 end
 
 function loadSayori()

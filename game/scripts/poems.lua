@@ -26,7 +26,7 @@ Well aware that a raccoon that is fed will always come back for more.
 The enticing beauty of my cutting knife was the symptom.
 The bread, my hungry curiosity.
 The raccoon, an urge.]]
-	elseif poemname == 'poem_y2a' then
+	elseif poemname == 'poem_y2-a' then
 		poemtext = [[
 The moon increments its phase and reflects that much more light off of my cutting knife.
 The very same light that glistens in the eyes of my raccoon friend.
@@ -67,7 +67,7 @@ I heard her singing my favorite love song.
 Every time she sang the chorus, my heart would pound to the rhythm of the words.
 But she likes spiders.
 That's why I'm not friends with her.]]
-	elseif poemname == 'poem_n2a' then
+	elseif poemname == 'poem_n2-a' then
 		poemtext = [[
 One time, I hurt my leg really bad.
 Amy helped me up and took me to the nurse.
@@ -80,7 +80,7 @@ I always see her talking to people.
 She probably talks about spiders.
 What if her friends start to like spiders too?
 That's why I'm not friends with her.]]
-	elseif poemname == 'poem_n2b' then
+	elseif poemname == 'poem_n2-b' then
 		poemtext = [[
 It doesn't matter if she has other hobbies.
 It doesn't matter if she keeps it private.
@@ -105,7 +105,7 @@ Are you asking me to come out and play?
 Are you trusting me to wish away a rainy day?
 I look above. The sky is blue.
 It's a secret, but I trust you too.]]
-	elseif poemname == 'poem_s1a' then
+	elseif poemname == 'poem_s1-a' then
 		poemtext = [[
 If it wasn't for you, I could sleep forever.
 But I'm not mad.
@@ -124,7 +124,7 @@ It's warm and tingly.
 But there's no time to waste! I put it in a bottle to keep it safe.
 And I put the bottle on the shelf with all of the other bottles.
 Happy thoughts, happy thoughts, happy thoughts in bottles, all in a row.]]
-	elseif poemname == 'poem_s2a' then
+	elseif poemname == 'poem_s2-a' then
 		poemtext = [[
 My collection makes me lots of friends.
 Each bottle a starlight to make amends.
@@ -137,7 +137,7 @@ Deeper and deeper my fingers go.
 Like exploring a dark cave, discovering the secrets hiding in the nooks and crannies.
 Digging and digging.
 Scraping and scraping.]]
-	elseif poemname == 'poem_s2b' then
+	elseif poemname == 'poem_s2-b' then
 		poemtext = [[
 I blow dust off my bottle caps.
 It doesn't feel like time elapsed.
@@ -151,7 +151,7 @@ Holding them out to each and every friend.
 Each and every bottle.
 But every time I let one go, it shatters against the tile between my feet.
 Happy thoughts, happy thoughts, happy thoughts in shards, all over the floor.]]
-	elseif poemname == 'poem_s2c' then
+	elseif poemname == 'poem_s2-c' then
 		poemtext = [[
 They were supposed to be for my friends, my friends who aren't smiling.
 They're all shouting, pleading. Something.
@@ -170,7 +170,7 @@ No! I can't see. I reel, blind, like a film left out in the sun.
 But it's too late. My retinas.
 Already scorched with a permanent copy of the meaningless image.
 It's just a little hole. It wasn't too bright.]]
-	elseif poemname == 'poem_m1a' then
+	elseif poemname == 'poem_m1-a' then
 		poemtext = [[
 It was too deep.
 Stretching forever into everything.
@@ -182,11 +182,8 @@ And he, on the other side, was looking in.]]
 	end
 
 	if xaload == 0 and continue ~= 1 then
-		poembg = love.graphics.newImage('images/bg/poem.png')
-		sfxpageflip:play()
-		
+		sfxplay('pageflip')
 		if author == 'yuri' then
-			y1 = love.graphics.newFont('images/gui/fonts/y1')
 			if yuri_2 then
 				poembg = love.graphics.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
@@ -197,20 +194,16 @@ And he, on the other side, was looking in.]]
 				audioUpdate('5_yuri')
 			end
 		elseif author == 'sayori' then
-			s1 = love.graphics.newFont('images/gui/fonts/s1')
-			if chapter == 5 then
-				audioUpdate('0')
-			else
+			if chapter ~= 5 then
 				audioUpdate('5_sayori')
 			end
 		elseif author == 'natsuki' then
-			n1 = love.graphics.newFont('images/gui/fonts/n1')
 			audioUpdate('5_natsuki')
 		elseif author == 'monika' then
-			m1 = love.graphics.newFont('images/gui/fonts/m1')
 			audioUpdate('5_monika')
 		end
 	elseif xaload > 0 then
+		--[[
 		if author == 'yuri' and yuri_3 ~= true then
 			love.graphics.setFont(y1)
 		elseif author == 'sayori' then
@@ -220,20 +213,19 @@ And he, on the other side, was looking in.]]
 		elseif author == 'monika' then
 			love.graphics.setFont(m1)
 		end
+		]]
+		love.graphics.setFont(m1)
 	end
 end
 
 function poem_disable(x)
 	poembg = nil
-	sfxp = nil
-	y1 = nil
-	s1 = nil
-	n1 = nil
-	m1 = nil
 	collectgarbage()
 	collectgarbage()
 	poem_enabled = false
 	if x==nil or x==1 then
 		audioUpdate('5')
+	elseif x==0 then
+		audioUpdate('0')
 	end
 end
