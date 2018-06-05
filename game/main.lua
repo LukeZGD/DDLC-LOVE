@@ -1,10 +1,10 @@
-require "draw"
-require "resources"
-require "saveload"
-require "menu"
+require 'draw'
+require 'resources'
+require 'saveload'
+require 'menu'
 
 function love.load() 
-	dversion = "v0.0.2"
+	dversion = 'v0.0.2'
 
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
@@ -32,13 +32,13 @@ end
 function love.draw() 
 	if state == 'load' then
 		drawLoad()
-	elseif state == 'splash1' or state == "splash2" or state == "title" then --title (Title Screen)
+	elseif state == 'splash1' or state == 'splash2' or state == 'title' then --title (Title Screen)
 		drawSplash()
-	elseif state == "game" or state == "newgame" then --game (Ingame)
+	elseif state == 'game' or state == 'newgame' then --game (Ingame)
 		drawGame()
-	elseif state == "poemgame" then
+	elseif state == 'poemgame' then
 		drawPoemGame()
-	elseif state == "s_kill_early" then --early act 1 end
+	elseif state == 's_kill_early' then --early act 1 end
 		drawTopScreen()
 		love.graphics.setBackgroundColor (245,245,245)
 		love.graphics.setColor(255, 255, 255)
@@ -80,7 +80,7 @@ function love.update(dt)
 	end
 	
 	--update depending on state
-	if state == "load" then
+	if state == 'load' then
 		updateLoad(dt)
 	elseif state == 'splash1' or state == 'splash2' or state == 'title' then
 		updateSplash(dt)
@@ -93,9 +93,7 @@ end
 
 function love.keypressed(key)	
 	if state == 'splash1' or state == 'splash2' then
-		if key == 'a' or key == 'start' then
-			changeState('title')
-		end
+		splash_keypressed(key)
 	elseif state == 'game' and menu_enabled == false then
 		game_keypressed(key)
 	elseif state == 'newgame' and menu_enabled == false then
@@ -108,10 +106,8 @@ function love.keypressed(key)
 end
 
 function love.keyreleased(key)
-	if key == 'x' then --skip disable
-		if tspd ~= nil then settings.textspd = tspd end
-		tspd = nil
-		autotimer = 0
+	if state == 'game' then
+		game_keyreleased(key)
 	end
 end
 
@@ -122,17 +118,7 @@ function love.textinput(text)
 			savegame()
 			changeState('game',1)
 		else
-			state = "title"
-		end
-	end
-end
-
-function love.mousereleased()
-	if state == 'game' and mouseX>=240 and mouseX<=270 then
-		if mouseY<=16 or mouseY>=220 then
-			if tspd ~= nil then settings.textspd = tspd end
-			tspd = nil
-			autotimer = 0
+			state = 'title'
 		end
 	end
 end

@@ -3,7 +3,7 @@ function drawTopScreen()
 		love.graphics.pop()
 		drawbottom = 0
 	elseif global_os == 'Horizon' then
-		love.graphics.setScreen("top")
+		love.graphics.setScreen('top')
 	end
 end
 
@@ -13,13 +13,13 @@ function drawBottomScreen()
 		love.graphics.translate((400 - 320) / 2, 240)
 		drawbottom = 1
 	else
-		love.graphics.setScreen("bottom")
+		love.graphics.setScreen('bottom')
 	end
 end
 
 function dripText(text,charactersPerSecond,startTime)
 	currentTime = love.timer.getTime()
-	if (currentTime <= startTime) or startTime == 0 then return "" end
+	if (currentTime <= startTime) or startTime == 0 then return '' end
 	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
 	return text:sub(1,math.min(math.floor((currentTime-startTime)*charactersPerSecond),text:len()))
 end
@@ -90,7 +90,7 @@ function splashalpha(x)
 	end
 end
 
-ct = "" --name text
+ct = '' --name text
 
 function cgHide()
 	cg1 = ''
@@ -167,7 +167,7 @@ function hideAll()
 end
 
 function drawSayori(a,b)
-	if a=="5a" or a=="5b" or a=="5c" or a=="5d" or a=="sayori" then
+	if a=='5a' or a=='5b' or a=='5c' or a=='5d' or a=='sayori' then
 		love.graphics.draw(sl, s.x, s.y)
 	elseif a~='' then
 		love.graphics.draw(sl, s.x, s.y)
@@ -180,20 +180,20 @@ function drawSayori(a,b)
 end
 
 function drawYuri(a,b)
-	if a=="4" or a=='4b' or a=='yuri' then
+	if a=='4' or a=='4b' or a=='yuri' then
 		love.graphics.draw(yl, y.x, y.y)
 	elseif a~='' then
 		love.graphics.draw(yl, y.x, y.y)
 		love.graphics.draw(yr, y.x, y.y)
 	end
 
-	if b~="" then
+	if b~='' then
 		love.graphics.draw(y_a, y.x, y.y)
 	end
 end
 
 function drawNatsuki(a,b)
-	if a=="5" or a=="5b" then --set natsuki's head x and y
+	if a=='5' or a=='5b' then --set natsuki's head x and y
 		nxh = n.x + 4
 		nyh = n.y + 6
 	else
@@ -221,7 +221,7 @@ function drawMonika(a,b)
 		love.graphics.draw(mr, m.x, m.y)
 	end
 	
-	if b~="" then
+	if b~='' then
 		love.graphics.draw(m_a, m.x, m.y)
 	end
 end

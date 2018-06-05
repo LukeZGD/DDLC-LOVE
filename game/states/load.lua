@@ -1,11 +1,11 @@
 function drawLoad()
 	drawTopScreen()
 	love.graphics.setColor(0,0,0,0)
-	love.graphics.rectangle("fill",0,0,400,240)
+	love.graphics.rectangle('fill',0,0,400,240)
 	love.graphics.setColor(255,255,255,alpha)
 	drawBottomScreen()
 	love.graphics.setColor(0,0,0,0)
-	love.graphics.rectangle("fill",-40,0,400,240)
+	love.graphics.rectangle('fill',-40,0,400,240)
 end
 
 function updateLoad()
@@ -32,7 +32,7 @@ function updateLoad()
 		
 	elseif l_timer == 99 then
 		l_timer = 99
-		local file = love.filesystem.isFile("save1.sav")
+		local file = love.filesystem.isFile('save1.sav')
 		if file then
 			checkchr()
 		else

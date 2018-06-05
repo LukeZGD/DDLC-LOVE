@@ -77,7 +77,7 @@ function poemgame()
 		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
 	end
 
-	require "scripts.poemwords"
+	require 'scripts.poemwords'
 	
 	p_y = 100
 	ground = 100    
@@ -114,9 +114,9 @@ function drawPoemGame()
 
 	if poemfont then love.graphics.setFont(poemfont) end
 	if poemword <= 20 then
-		love.graphics.print(poemword .. "/20",245,25,0,1,1)
+		love.graphics.print(poemword .. '/20',245,25,0,1,1)
 	else
-		love.graphics.print("20/20",245,25,0,1,1)
+		love.graphics.print('20/20',245,25,0,1,1)
 	end
 	love.graphics.print(word1,117,45,0,1,1)
 	love.graphics.print(word2,117,80,0,1,1)
@@ -170,10 +170,10 @@ function drawPoemGame()
 	end
 	
 	love.graphics.setColor(255,189,225,alpha)
-	love.graphics.rectangle("fill", 135,220,35,16) 
+	love.graphics.rectangle('fill', 135,220,40,16) 
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	love.graphics.print("Pause",135,220)
+	love.graphics.print('Pause',135,220)
 	
 	if menu_enabled then menu_draw() end
 end
