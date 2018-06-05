@@ -1,15 +1,15 @@
-bg1 = ""
+bg1 = ''
 audio1 = 2
-cg1 = ""
+cg1 = ''
 s = {a='',b='',x=-200,y=5}
 y = {a='',b='',x=-200,y=5}
 n = {a='',b='',x=-200,y=5}
 m = {a='',b='',x=-200,y=5}
-poemwinner = {"","",""}
+poemwinner = {'','',''}
 chapter = 0
 settings = {textspd=100,textloc='Bottom',animh=1}
 readpoem = {s=0,n=0,y=0,m=0}
-choices = {"","","",""}
+choices = {'','','',''}
 choicepick = ''
 poemsread = -1
 s_poemappeal = {0,0,0}
@@ -68,15 +68,15 @@ function loadupdate()
 end
 
 function checkchr()
-	local sayorichr = love.filesystem.isFile("sayori.chr")
-	monikachr = love.filesystem.isFile("monika.chr")
-	if love.filesystem.isFile("save1.sav") then loadgame() end
+	local sayorichr = love.filesystem.isFile('sayori.chr')
+	monikachr = love.filesystem.isFile('monika.chr')
+	if love.filesystem.isFile('save1.sav') then loadgame() end
 	
 	if sayorichr == false or cl == 10000 then --set up very early act 1 end
 		timer = 501
 		endbg = love.graphics.newImage('images/gui/end.png')
 		s_killearly = love.graphics.newImage('images/cg/s_kill_early.png')
-		state = "s_kill_early"
+		state = 's_kill_early'
 		audioUpdate('s_kill_early')
 	else --load title screen
 		l_timer = 100

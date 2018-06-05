@@ -7,7 +7,7 @@ function drawGame()
 	love.graphics.setColor(255, 255, 255, alpha)
 	if bgch then love.graphics.draw(bgch, 0, 0) end
 	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
-		if cg1 ~= "" then love.graphics.draw(cgch, 0, 0) end
+		if cg1 ~= '' then love.graphics.draw(cgch, 0, 0) end
 		drawSayori(s.a,s.b)
 		drawYuri(y.a,y.b) 
 		drawNatsuki(n.a,n.b)  
@@ -55,13 +55,13 @@ function drawGame()
 	
 	if state ~= 'newgame' or poem_enabled == false and c_y then
 		love.graphics.setColor(255,189,225,alpha)
-		love.graphics.rectangle("fill", 47, c_y, 40, 16 ) 
-		love.graphics.rectangle("fill", 139, c_y, 35, 16 ) 
-		love.graphics.rectangle("fill", 237, c_y, 32, 16 ) 
+		love.graphics.rectangle('fill', 47, c_y, 40, 16 ) 
+		love.graphics.rectangle('fill', 139, c_y, 32, 16 ) 
+		love.graphics.rectangle('fill', 237, c_y, 32, 16 ) 
 		love.graphics.setColor(0,0,0,alpha)
-		love.graphics.print("Pause",50,c_y,0,1,1)
-		love.graphics.print("Auto",142,c_y,0,1,1)
-		love.graphics.print("Skip",240,c_y,0,1,1) 
+		love.graphics.print('Pause',50,c_y,0,1,1)
+		love.graphics.print('Auto',142,c_y,0,1,1)
+		love.graphics.print('Skip',240,c_y,0,1,1) 
 	end
 	if menu_enabled then menu_draw() end
 end
@@ -71,7 +71,7 @@ function drawPoem()
 		love.graphics.draw(poembg, 40, 0)
 	else
 		love.graphics.setColor(243,243,243)
-		love.graphics.rectangle("fill",40,0,320,240)
+		love.graphics.rectangle('fill',40,0,320,240)
 	end
 	love.graphics.setColor(0,0,0)
 	love.graphics.print(poemtext, 45, 15)
@@ -98,6 +98,10 @@ function updateGame(dt)
 		if mouseY<=16 or mouseY>=220 then
 			game_skip()
 		end
+	elseif mouseDown == false and mouseX>=240 and mouseX<=270 then
+		if mouseY<=16 or mouseY>=220 then
+			game_keyreleased('x')
+		end
 	end
 end
 
@@ -120,6 +124,14 @@ function newgame_keypressed(key)
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
+	end
+end
+
+function game_keyreleased(key)
+	if key == 'x' then --skip disable
+		if tspd ~= nil then settings.textspd = tspd end
+		tspd = nil
+		autotimer = 0
 	end
 end
 
