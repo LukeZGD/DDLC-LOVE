@@ -14,100 +14,100 @@ function menu_draw()
 	
 	love.graphics.setColor(255, 189, 225, alpha)
 	if menu_items >= 2 and choicetype ~= 'spec' then 
-		love.graphics.rectangle("fill", 16, 45, 100, 16 ) 
+		love.graphics.rectangle('fill', 16, 45, 100, 16 ) 
 	elseif menu_items >= 2 and choicetype == 'spec' then
-		love.graphics.rectangle("fill", 16, 45, 160, 16 ) 
+		love.graphics.rectangle('fill', 16, 45, 160, 16 ) 
 	end
 	if menu_items >= 3 and choicetype ~= 'spec' then 
-		love.graphics.rectangle("fill", 16, 70, 100, 16 ) 
+		love.graphics.rectangle('fill', 16, 70, 100, 16 ) 
 	elseif menu_items >= 3 and choicetype == 'spec' then
-		love.graphics.rectangle("fill", 16, 70, 160, 32 ) 
+		love.graphics.rectangle('fill', 16, 70, 160, 32 ) 
 	end
-	if menu_items >= 4 then love.graphics.rectangle("fill", 16, 95, 100, 16 ) end
-	if menu_items >= 5 then love.graphics.rectangle("fill", 16, 120, 100, 16 ) end
-	if menu_items >= 6 then love.graphics.rectangle("fill", 16, 145, 100, 16 ) end
-	if menu_items >= 7 then love.graphics.rectangle("fill", 16, 170, 100, 16 ) end
-	if menu_items >= 8 then love.graphics.rectangle("fill", 16, 195, 100, 16 ) end
-	if menu_items >= 9 then love.graphics.rectangle("fill", 16, 220, 100, 16 ) end
-	if menu_previous then love.graphics.rectangle("fill", 16, 220, 50, 16 ) end
+	if menu_items >= 4 then love.graphics.rectangle('fill', 16, 95, 100, 16 ) end
+	if menu_items >= 5 then love.graphics.rectangle('fill', 16, 120, 100, 16 ) end
+	if menu_items >= 6 then love.graphics.rectangle('fill', 16, 145, 100, 16 ) end
+	if menu_items >= 7 then love.graphics.rectangle('fill', 16, 170, 100, 16 ) end
+	if menu_items >= 8 then love.graphics.rectangle('fill', 16, 195, 100, 16 ) end
+	if menu_items >= 9 then love.graphics.rectangle('fill', 16, 220, 100, 16 ) end
+	if menu_previous then love.graphics.rectangle('fill', 16, 220, 50, 16 ) end
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.print('>',cX,cY,0,1,1)
 	
 	if menu_type == 'title' then
-		love.graphics.print("Main Menu:",16, 20)
-		love.graphics.print("New Game",16, 45)
-		love.graphics.print("Load Game",16, 70)
-		love.graphics.print("Settings",16, 95)
-		love.graphics.print("Help",16, 120)
-		love.graphics.print("Quit",16, 145)
+		love.graphics.print('Main Menu:',16, 20)
+		love.graphics.print('New Game',16, 45)
+		love.graphics.print('Load Game',16, 70)
+		love.graphics.print('Settings',16, 95)
+		love.graphics.print('Help',16, 120)
+		love.graphics.print('Quit',16, 145)
 		
 	elseif menu_type == 'help' then
-		love.graphics.print("Controls:",16, 20)
-		love.graphics.print("A - Select",16, 45)
-		love.graphics.print("B - Auto On/Off",16, 70)
-		love.graphics.print("X - Skip",16, 95)
-		love.graphics.print("Y - Pause",16, 120)
+		love.graphics.print('Controls:',16, 20)
+		love.graphics.print('A - Select',16, 45)
+		love.graphics.print('B - Auto On/Off',16, 70)
+		love.graphics.print('X - Skip',16, 95)
+		love.graphics.print('Y - Pause',16, 120)
 		
 	elseif menu_type == 'loadgame' then
-		love.graphics.print("Load Game:",16, 20)
-		love.graphics.print("Save File 1",16, 45)
-		love.graphics.print("Save File 2",16, 70)
-		love.graphics.print("Save File 3",16, 95)
-		love.graphics.print("Save File 4",16, 120)
-		love.graphics.print("Save File 5",16, 145)
-		love.graphics.print("Save File 6",16, 170)
+		love.graphics.print('Load Game:',16, 20)
+		love.graphics.print('Save File 1',16, 45)
+		love.graphics.print('Save File 2',16, 70)
+		love.graphics.print('Save File 3',16, 95)
+		love.graphics.print('Save File 4',16, 120)
+		love.graphics.print('Save File 5',16, 145)
+		love.graphics.print('Save File 6',16, 170)
 		
 	elseif menu_type == 'savegame' then
-		love.graphics.print("Save Game:",16, 20)
-		love.graphics.print("Save File 1",16, 45)
-		love.graphics.print("Save File 2",16, 70)
-		love.graphics.print("Save File 3",16, 95)
-		love.graphics.print("Save File 4",16, 120)
-		love.graphics.print("Save File 5",16, 145)
-		love.graphics.print("Save File 6",16, 170)
+		love.graphics.print('Save Game:',16, 20)
+		love.graphics.print('Save File 1',16, 45)
+		love.graphics.print('Save File 2',16, 70)
+		love.graphics.print('Save File 3',16, 95)
+		love.graphics.print('Save File 4',16, 120)
+		love.graphics.print('Save File 5',16, 145)
+		love.graphics.print('Save File 6',16, 170)
 		
 	elseif menu_type == 'pause' then
-		love.graphics.print("Pause Menu:",16, 20)
-		love.graphics.print("Save Game",16, 45)
-		love.graphics.print("Load Game",16, 70)
-		love.graphics.print("Main Menu",16, 95)
-		love.graphics.print("Settings",16, 120)
-		love.graphics.print("Help",16, 145)
-		love.graphics.print("Return",16, 170)
+		love.graphics.print('Pause Menu:',16, 20)
+		love.graphics.print('Save Game',16, 45)
+		love.graphics.print('Load Game',16, 70)
+		love.graphics.print('Main Menu',16, 95)
+		love.graphics.print('Settings',16, 120)
+		love.graphics.print('Help',16, 145)
+		love.graphics.print('Return',16, 170)
 		
 	elseif menu_type == 'mainyesno' then
-		love.graphics.print("Are you sure?",16, 20)
-		love.graphics.print("Yes",16, 45)
-		love.graphics.print("No",16, 70)
+		love.graphics.print('Are you sure?',16, 20)
+		love.graphics.print('Yes',16, 45)
+		love.graphics.print('No',16, 70)
 		
 	elseif menu_type == 'settings' then
-		love.graphics.print("Settings:",16, 20)
-		love.graphics.print("Textbox Location",16, 45)
-		love.graphics.print("Text Speed",16, 70)
-		love.graphics.print("Char. Animations",16, 95)
+		love.graphics.print('Settings:',16, 20)
+		love.graphics.print('Textbox Location',16, 45)
+		love.graphics.print('Text Speed',16, 70)
+		love.graphics.print('Char. Animations',16, 95)
 		love.graphics.print(dversion,270, 220)
 		
 	elseif menu_type == 'textloc' then
-		love.graphics.print("Settings - Textbox Location:",16, 20)
-		love.graphics.print("Top",16, 45)
-		love.graphics.print("Bottom (Default)",16, 70)
-		love.graphics.print("Current Setting: "..settings.textloc,16, 200)
+		love.graphics.print('Settings - Textbox Location:',16, 20)
+		love.graphics.print('Top',16, 45)
+		love.graphics.print('Bottom (Default)',16, 70)
+		love.graphics.print('Current Setting: '..settings.textloc,16, 200)
 		
 	elseif menu_type == 'textspd' then
-		love.graphics.print("Settings - Text Speed:",16, 20)
-		love.graphics.print("50 (Slowest)",16, 45)
-		love.graphics.print("75",16, 70)
-		love.graphics.print("100 (Default)",16, 95)
-		love.graphics.print("150",16, 120)
-		love.graphics.print("200 (Fastest)",16, 145)		
-		love.graphics.print("Current Setting: "..settings.textspd,16, 200)
+		love.graphics.print('Settings - Text Speed:',16, 20)
+		love.graphics.print('50 (Slowest)',16, 45)
+		love.graphics.print('75',16, 70)
+		love.graphics.print('100 (Default)',16, 95)
+		love.graphics.print('150',16, 120)
+		love.graphics.print('200 (Fastest)',16, 145)		
+		love.graphics.print('Current Setting: '..settings.textspd,16, 200)
 	
 	elseif menu_type == 'animh' then
-		love.graphics.print("Settings - Char. Animations:",16, 20)
-		love.graphics.print("0 - Off",16, 45)
-		love.graphics.print("1 - On (Default)",16, 70)
-		love.graphics.print("Current Setting: "..settings.animh,16, 200)
+		love.graphics.print('Settings - Char. Animations:',16, 20)
+		love.graphics.print('0 - Off',16, 45)
+		love.graphics.print('1 - On (Default)',16, 70)
+		love.graphics.print('Current Setting: '..settings.animh,16, 200)
 	
 	elseif menu_type == 'choice' then
 		xaload = xaload + 1
@@ -130,7 +130,7 @@ function menu_draw()
 		if menu_items >= 8 then love.graphics.print(choice8,16, 220) end
 	end
 	
-	if menu_previous then love.graphics.print("Back",16, 220) end
+	if menu_previous then love.graphics.print('Back',16, 220) end
 end
 
 function menu_confirm()
@@ -151,7 +151,7 @@ function menu_confirm()
 				menu_enabled = false
 				cl = 10001
 				changeState('game',1)
-			elseif player == "" and global_os == 'Horizon' then --keyboard input for player name
+			elseif player == '' and global_os == 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
 			elseif cl <= 9999 or global_os ~= 'Horizon' then --go straight to new game
 				hideAll()
@@ -180,7 +180,7 @@ function menu_confirm()
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= '' then
 			savenumber = m_selected - 1
-			if love.filesystem.isFile("save"..savenumber..".sav") then
+			if love.filesystem.isFile('save'..savenumber..'.sav') then
 				changeState('game',2)
 			end
 		end
