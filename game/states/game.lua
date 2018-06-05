@@ -23,7 +23,7 @@ function drawGame()
 		if cb then love.graphics.print(cb,48,182) end
 		if cc then love.graphics.print(cc,48,198) end
 		if cd then love.graphics.print(cd,48,214) end
-		c_x = 0
+		c_y = 0
 	end
 	
 	if menu_enabled and menu_type ~= 'choice' then
@@ -50,13 +50,18 @@ function drawGame()
 		if cb then love.graphics.print(cb,8,80) end
 		if cc then love.graphics.print(cc,8,96) end
 		if cd then love.graphics.print(cd,8,112) end
-		c_x = 220
+		c_y = 220
 	end
 	
-	if state ~= 'newgame' or poem_enabled == false and c_x then
-		love.graphics.print("Y - Pause",40,c_x,0,1,1)
-		love.graphics.print("B - Auto",133,c_x,0,1,1)
-		love.graphics.print("X - Skip",225,c_x,0,1,1) 
+	if state ~= 'newgame' or poem_enabled == false and c_y then
+		love.graphics.setColor(255,189,225,alpha)
+		love.graphics.rectangle("fill", 47, c_y, 40, 16 ) 
+		love.graphics.rectangle("fill", 139, c_y, 35, 16 ) 
+		love.graphics.rectangle("fill", 237, c_y, 32, 16 ) 
+		love.graphics.setColor(0,0,0,alpha)
+		love.graphics.print("Pause",50,c_y,0,1,1)
+		love.graphics.print("Auto",142,c_y,0,1,1)
+		love.graphics.print("Skip",240,c_y,0,1,1) 
 	end
 	if menu_enabled then menu_draw() end
 end
@@ -87,12 +92,11 @@ function updateGame(dt)
 		xaload = 0
 		autotimer = 1
 	end
-	
-	if love.keyboard.isDown('x') then --skip enable
-		if state ~= 'newgame' and menu_enabled == false and cl ~= 666 then
-			if tspd == nil then tspd = settings.textspd end
-			settings.textspd = 10000
-			if autotimer < 147 then autotimer = 147 end
+	if love.keyboard.isDown('x') then
+		game_skip()
+	elseif mouseDown and mouseX>=240 and mouseX<=270 then
+		if mouseY<=16 or mouseY>=220 then
+			game_skip()
 		end
 	end
 end
@@ -102,11 +106,9 @@ function game_keypressed(key)
 		sfx1:play()
 		autotimer = 0
 		menu_enable('pause',7)
-		
 	elseif key == 'b' then --auto on/off
 		sfx1:play()
-		if autotimer == 0 then autotimer = 1 else autotimer = 0 end
-		
+		if autotimer == 0 then autotimer = 1 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
 	end
@@ -118,5 +120,25 @@ function newgame_keypressed(key)
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
+	end
+end
+
+function game_skip()
+	if state ~= 'newgame' and menu_enabled == false and cl ~= 666 then
+		if tspd == nil then tspd = settings.textspd end
+		settings.textspd = 10000
+		if autotimer < 147 then autotimer = 147 end
+	end
+end
+
+function game_mousepressed()
+	if mouseX>=50 and mouseX<=80 then
+		if mouseY<=16 or mouseY>=220 then game_keypressed('y') end
+	elseif mouseX>=142 and mouseX<=172 then 
+		if mouseY<=16 or mouseY>=220 then game_keypressed('b') end
+	elseif mouseX>=240 and mouseX<=270 then
+		if mouseY<=16 or mouseY>=220 then game_keypressed('x') end
+	else
+		game_keypressed('a')
 	end
 end

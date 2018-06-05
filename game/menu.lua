@@ -29,6 +29,7 @@ function menu_draw()
 	if menu_items >= 7 then love.graphics.rectangle("fill", 16, 170, 100, 16 ) end
 	if menu_items >= 8 then love.graphics.rectangle("fill", 16, 195, 100, 16 ) end
 	if menu_items >= 9 then love.graphics.rectangle("fill", 16, 220, 100, 16 ) end
+	if menu_previous then love.graphics.rectangle("fill", 16, 220, 50, 16 ) end
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.print('>',cX,cY,0,1,1)
@@ -91,7 +92,7 @@ function menu_draw()
 		love.graphics.print("Settings - Textbox Location:",16, 20)
 		love.graphics.print("Top",16, 45)
 		love.graphics.print("Bottom (Default)",16, 70)
-		love.graphics.print("Current Setting: "..settings.textloc,16, 220)
+		love.graphics.print("Current Setting: "..settings.textloc,16, 200)
 		
 	elseif menu_type == 'textspd' then
 		love.graphics.print("Settings - Text Speed:",16, 20)
@@ -100,13 +101,13 @@ function menu_draw()
 		love.graphics.print("100 (Default)",16, 95)
 		love.graphics.print("150",16, 120)
 		love.graphics.print("200 (Fastest)",16, 145)		
-		love.graphics.print("Current Setting: "..settings.textspd,16, 220)
+		love.graphics.print("Current Setting: "..settings.textspd,16, 200)
 	
 	elseif menu_type == 'animh' then
 		love.graphics.print("Settings - Char. Animations:",16, 20)
 		love.graphics.print("0 - Off",16, 45)
 		love.graphics.print("1 - On (Default)",16, 70)
-		love.graphics.print("Current Setting: "..settings.animh,16, 220)
+		love.graphics.print("Current Setting: "..settings.animh,16, 200)
 	
 	elseif menu_type == 'choice' then
 		xaload = xaload + 1
@@ -128,6 +129,8 @@ function menu_draw()
 		if menu_items >= 8 then love.graphics.print(choice7,16, 195) end
 		if menu_items >= 8 then love.graphics.print(choice8,16, 220) end
 	end
+	
+	if menu_previous then love.graphics.print("Back",16, 220) end
 end
 
 function menu_confirm()
@@ -169,7 +172,9 @@ function menu_confirm()
 			
 		elseif m_selected == 6 then --quit
 			unloadAll()
-			love.event.quit()
+			if global_os == 'Horizon' then love.quit()
+			else love.event.quit()
+			end
 		end
 		
 	elseif menu_type == 'loadgame' then --load game confirm 
@@ -183,6 +188,7 @@ function menu_confirm()
 	elseif menu_type == 'savegame' then  --save game confirm 
 		savenumber = m_selected - 1
 		savegame()
+		menu_previous = nil
 		menu_enabled = false
 	
 	elseif menu_type == 'pause' then --pause menu options
@@ -200,6 +206,7 @@ function menu_confirm()
 			menu_enable('help',5)
 		elseif m_selected == 7 then
 			menu_enabled = false
+			menu_previous = nil
 		end
 	
 	elseif menu_type == 'mainyesno' then
@@ -225,6 +232,7 @@ function menu_confirm()
 			settings.textloc = 'Bottom'
 		end
 		menu_enable(menu_previous, menu_previousitems)
+		menu_previous = nil
 	
 	elseif menu_type == 'textspd' then
 		if m_selected == 2 then
@@ -239,6 +247,7 @@ function menu_confirm()
 			settings.textspd = 200
 		end
 		menu_enable(menu_previous, menu_previousitems)
+		menu_previous = nil
 	
 	elseif menu_type == 'animh' then
 		if m_selected == 2 then
@@ -247,6 +256,7 @@ function menu_confirm()
 			settings.animh = 1
 		end
 		menu_enable(menu_previous, menu_previousitems)
+		menu_previous = nil
 	
 	elseif menu_type == 'choice' then
 		if choicepick ~= '' then
@@ -254,8 +264,10 @@ function menu_confirm()
 			cl = cl + 1
 			menu_type = nil
 			menu_enabled = false
+			menu_previous = nil
 		end
 	end
+	
 end
 
 function m_select()
@@ -344,5 +356,36 @@ function menu_keypressed(key)
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' then
 			menu_enable(menu_previous, menu_previousitems)
 		end
+		menu_previous = nil
+	end
+end
+
+function menu_mousepressed()
+	if menu_items >= 2 and mouseX>=16 and mouseX<=116 and mouseY>=45 and mouseY<=61 then
+		m_selected = 2
+		menu_keypressed('a')
+	elseif menu_items >= 3 and mouseX>=16 and mouseX<=116 and mouseY>=70 and mouseY<=86 then
+		m_selected = 3
+		menu_keypressed('a')
+	elseif menu_items >= 4 and mouseX>=16 and mouseX<=116 and mouseY>=95 and mouseY<=111 then
+		m_selected = 4
+		menu_keypressed('a')
+	elseif menu_items >= 5 and mouseX>=16 and mouseX<=116 and mouseY>=120 and mouseY<=136 then
+		m_selected = 5
+		menu_keypressed('a')
+	elseif menu_items >= 6 and mouseX>=16 and mouseX<=116 and mouseY>=145 and mouseY<=161 then
+		m_selected = 6
+		menu_keypressed('a')
+	elseif menu_items >= 7 and mouseX>=16 and mouseX<=116 and mouseY>=170 and mouseY<=186 then
+		m_selected = 7
+		menu_keypressed('a')
+	elseif menu_items >= 8 and mouseX>=16 and mouseX<=116 and mouseY>=195 and mouseY<=211 then
+		m_selected = 8
+		menu_keypressed('a')
+	elseif menu_items >= 9 and mouseX>=16 and mouseX<=116 and mouseY>=220 and mouseY<=236 then
+		m_selected = 9
+		menu_keypressed('a')
+	elseif menu_previous and mouseX>=16 and mouseX<=66 and mouseY>=220 and mouseY<=236 then
+		menu_keypressed('b')
 	end
 end
