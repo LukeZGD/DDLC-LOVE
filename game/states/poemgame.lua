@@ -169,14 +169,18 @@ function drawPoemGame()
 		ypadd = wordlist[wordpick][4]
 	end
 	
+	love.graphics.setColor(255,189,225,alpha)
+	love.graphics.rectangle("fill", 135,220,35,16) 
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
+	love.graphics.print("Pause",135,220)
 	
 	if menu_enabled then menu_draw() end
 end
 
 function updatePoemGame(dt)
-	xaload = xaload + 1
+	xaload = xaload+1
+	
 	if y_velocity ~= 0 then                                  
 		p_y = p_y + y_velocity * dt               
 		y_velocity = y_velocity - gravity * dt 
@@ -302,4 +306,9 @@ function poemgamekeypressed(key)
 	end
 	
 end
-		
+
+function poemgamemousepressed()
+	if mouseX>=135 and mouseX<=165 and mouseY>=220 then
+		poemgamekeypressed('y')
+	end
+end		

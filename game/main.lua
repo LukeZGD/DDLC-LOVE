@@ -57,6 +57,28 @@ function love.update(dt)
 		if posY <= -80 then posY = 0 end
 	end
 
+	mouseDown = love.mouse.isDown(1)
+	mouseX = love.mouse.getX()
+	mouseY = love.mouse.getY()
+	if global_os ~= 'Horizon' then
+		mouseX = mouseX - 40
+		mouseY = mouseY - 240
+	end
+	
+	--this acts as love.mousepressed
+	if mouseDown and mousereleased ~= 1 then
+		if state == 'game' and menu_enabled == false then
+			game_mousepressed()
+		elseif state == 'poemgame' and menu_enabled == false then
+			poemgamemousepressed()
+		elseif menu_enabled then
+			menu_mousepressed()
+		end
+		mousereleased = 1
+	elseif mouseDown == false then
+		mousereleased = nil
+	end
+	
 	--update depending on state
 	if state == "load" then
 		updateLoad(dt)
@@ -70,7 +92,11 @@ function love.update(dt)
 end
 
 function love.keypressed(key)	
-	if state == 'game' and menu_enabled == false then
+	if state == 'splash1' or state == 'splash2' then
+		if key == 'a' or key == 'start' then
+			changeState('title')
+		end
+	elseif state == 'game' and menu_enabled == false then
 		game_keypressed(key)
 	elseif state == 'newgame' and menu_enabled == false then
 		newgame_keypressed(key)
@@ -97,6 +123,16 @@ function love.textinput(text)
 			changeState('game',1)
 		else
 			state = "title"
+		end
+	end
+end
+
+function love.mousereleased()
+	if state == 'game' and mouseX>=240 and mouseX<=270 then
+		if mouseY<=16 or mouseY>=220 then
+			if tspd ~= nil then settings.textspd = tspd end
+			tspd = nil
+			autotimer = 0
 		end
 	end
 end

@@ -78,6 +78,7 @@ function changeState(cstate,x)
 		end
 		unloadAll('poemgame')
 	end
+	menu_previous = nil
 end
 
 function bgUpdate(bgx) --background changes
