@@ -3,6 +3,8 @@ function changeState(cstate,x)
 		require 'states.load'
 		state = 'load'
 	elseif cstate == 'splash' then
+		splash = love.graphics.newImage('images/bg/splash.png')
+		titlebg = love.graphics.newImage('images/bg/bg.png')
 		require 'states.splash'
 		alpha = 0
 		xaload = 0
@@ -41,7 +43,7 @@ function changeState(cstate,x)
 		state = 'newgame'
 		alpha = 255
 	elseif cstate == 'poemgame' then
-		poemfont = love.graphics.newFont('images/gui/fonts/Halogen')
+		poemfont = love.graphics.newFont('images/gui/fonts/Halogen',12)
 		s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
 		s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
 		y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
@@ -83,54 +85,9 @@ end
 
 function bgUpdate(bgx) --background changes
 	if xaload == 0 then
-		--backgrounds
-		if bgx == 'residential' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/residential.png')
-		elseif bgx == 'class' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/class.png')
-		elseif bgx == 'corridor' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/corridor.png')
-		elseif bgx == 'club' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/club.png')
-		elseif bgx == 'closet' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/closet.png')
-		elseif bgx == 'house' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/house.png')
-		elseif bgx == 'kitchen' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/kitchen.png')
-		elseif bgx == 'bedroom' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/bedroom.png')
-		elseif bgx == 'sayori_bedroom' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/bg/sayori_bedroom.png')
-		elseif bgx == 'black' then
-			unloadbg()
-			
-		--cg bases/backgrounds are added here
-		elseif bgx == 's_cg1' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/cg/s_cg1.png')
-		elseif bgx == 'n_cg1_base' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/cg/n_cg1_base.png')
-		elseif bgx == 'y_cg1_base' then
-			unloadbg()
-			bgch = love.graphics.newImage('images/cg/y_cg1_base.png')
-			
-		--warning screens
-		elseif bgx == 'warning' then
-			bgch = love.graphics.newImage('images/bg/warning.png')
-			bgch2 = love.graphics.newImage('images/bg/warning2.png')
-		elseif bgx == 'warning2' then
-			bgch = bgch2
+		unloadbg()
+		if bgx ~= 'black' and bgx ~= '' then
+			bgch = love.graphics.newImage('images/bg/'..bgx..'.png')
 		end
 	end	
 	bg1 = bgx
@@ -138,237 +95,35 @@ end
 
 function cgUpdate(cgx) --cg changes
 	if xaload == 0 then
-		if cgx == 'y_cg1_exp1' then
-			cgch = love.graphics.newImage('images/cg/y_cg1_exp1.png')
-		elseif cgx == 'y_cg1_exp2' then
-			cgch = love.graphics.newImage('images/cg/y_cg1_exp2.png')
-		elseif cgx == 'y_cg1_exp3' then
-			cgch = love.graphics.newImage('images/cg/y_cg1_exp3.png')
-		elseif cgx == 'n_cg1_exp1' then
-			cgch = love.graphics.newImage('images/cg/n_cg1_exp1.png')
-		elseif cgx == 'n_cg1_exp2' then
-			cgch = love.graphics.newImage('images/cg/n_cg1_exp2.png')
-		elseif cgx == 'n_cg1_exp3' then
-			cgch = love.graphics.newImage('images/cg/n_cg1_exp3.png')
-		elseif cgx == 'n_cg1_exp4' then
-			cgch = love.graphics.newImage('images/cg/n_cg1_exp4.png')
-		elseif cgx == 'n_cg1_exp5' then
-			cgch = love.graphics.newImage('images/cg/n_cg1_exp5.png')
+		if cgx ~= '' then
+			cgch = love.graphics.newImage('images/cg/'..cgx..'.png')
 		end
 	end	
 	cg1 = cgx
 end
 
-function audioUpdate(audiox) --the audio update function yay
+function audioUpdate(audiox) --audio changes
 	if xaload == 0 then
-		if audiox == '0' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/0.ogg', 'stream')
-			ddlct:setLooping(false)
-			ddlct:play()
-		elseif audiox == '1' then
-			ddlct = love.audio.newSource('audio/bgm/1.ogg', 'stream')
+		audioStop()
+		if audiox ~= '' then
+			ddlct = love.audio.newSource('audio/bgm/'..audiox..'.ogg', 'stream')
 			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '2' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/2.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '3' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/3.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '4' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/4.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_monika' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_monika.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_natsuki' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_natsuki.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_sayori' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_sayori.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_yuri' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_yuri.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '6' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/6.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '7' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/7.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '8' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/8.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '9' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/9.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '10' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/10.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == 'd' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/d.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		--ACT 2 MUSIC
-		elseif audiox == '2g' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/2g.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '3g' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/3g.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '3g2' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/3g2.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '4g' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/4g.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_ghost' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_ghost.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '5_yuri2' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/5_yuri2.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '6g' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/6g.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '6o' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/6o.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '6r' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/6r.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '6s' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/6s.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '7g' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/7g.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '9g' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/9g.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == '10-yuri' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/10-yuri.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == 'yuri-kill' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/sfx/yuri-kill.ogg', 'stream')
-			ddlct:setLooping(false)
-			ddlct:play()
-		elseif audiox == 'heartbeat' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/heartbeat.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == 'g1' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/g1.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == 'g2' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/g2.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		--ACT 3&4 MUSIC
-		elseif audiox == 'monika-start' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/monika-start.ogg', 'stream')
-			ddlct:setLooping(false)
-			ddlct:play()
-		elseif audiox == 'm1' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/m1.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == 'monika-end' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/monika-end.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
-		elseif audiox == 'end-voice' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/end-voice.ogg', 'stream')
-			ddlct:setLooping(false)
-			ddlct:play()
-		elseif audiox == 'credits' then
-			audioStop()
-			ddlct = love.audio.newSource('audio/bgm/credits.ogg', 'stream')
-			ddlct:setLooping(false)
-			ddlct:play()
-		elseif audiox == 's_kill_early' then
-			ddlct = love.audio.newSource('audio/bgm/s_kill_early.ogg', 'stream')
-			ddlct:setLooping(true)
-			ddlct:play()
 		end
+		ddlct:play()
 	end
 	audio1 = audiox
 end
 
-function sfxplay(sfx)
-	sfxp = nil
-	collectgarbage()
-	collectgarbage()
-	if sfx == 'pageflip' then
-		sfxp = love.audio.newSource('audio/sfx/pageflip.ogg')
+function sfxplay(sfx) --sfx stuff
+	if xaload == 0 then
+		sfxp = nil
+		collectgarbage()
+		collectgarbage()
+		if sfx ~= '' then
+			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', 'static')
+		end
+		sfxp:play()
 	end
-	sfxp:play()
 end
 
 function unloadbg()
@@ -394,73 +149,6 @@ function charCheck()
 	else
 		xaload = xaload + 1
 	end
-	
-end
-	
-function updateSayori(a,b,px,py)
-	if b == nil then b = '' end
-	s.a = a
-	s.b = b
-	if xaload == 0 then loadSayori() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
-		if s.x > px then
-			s.x = math.max(s.x - 24, px)
-		elseif s.x < px then
-			s.x = math.min(s.x + 24, px)
-		end
-	elseif px and xaload > 0 then
-		s.x = px
-	end
-	if py ~= nil then s.y = py end
-end
-
-function updateYuri(a,b,px,py)
-	y.a = a 
-	y.b = b
-	if xaload == 0 then loadYuri() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then
-		if y.x > px then
-			y.x = math.max(y.x - 24, px)
-		elseif y.x < px then
-			y.x = math.min(y.x + 24, px)
-		end
-	elseif px and xaload > 0 then
-		y.x = px
-	end
-	if py ~= nil then y.y = py end
-end
-
-function updateNatsuki(a,b,px,py)
-	n.a = a
-	n.b = b
-	if xaload == 0 then loadNatsuki() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
-		if n.x > px then
-			n.x = math.max(n.x - 24, px)
-		elseif n.x < px then
-			n.x = math.min(n.x + 24, px)
-		end
-	elseif px and xaload > 0 then
-		n.x = px
-	end
-	if py ~= nil then n.y = py end
-end
-
-function updateMonika(a,b,px,py)
-	if b == nil then b = '' end
-	m.a = a
-	m.b = b
-	if xaload == 0 then loadMonika() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
-		if m.x > px then
-			m.x = math.max(m.x - 24, px)
-		elseif m.x < px then
-			m.x = math.min(m.x + 24, px)
-		end
-	elseif px and xaload > 0 then
-		m.x = px		
-	end
-	if py ~= nil then m.y = py end
 end
 
 function loadSayori()
@@ -498,8 +186,8 @@ function loadSayori()
 		sl = love.graphics.newImage('images/sayori/3c.png')  
 	elseif s.a=='5d' then
 		sl = love.graphics.newImage('images/sayori/3d.png') 
-	elseif s.a=='sayori' then
-		sl = love.graphics.newImage('images/sayori/sayori.png') 
+	elseif s.a~='' then
+		sl = love.graphics.newImage('images/yuri/'..s.a..'.png')
 	end
 	
 	if s.b~='' then s_a = love.graphics.newImage('images/sayori/'..s.b..'.png') end
@@ -537,9 +225,9 @@ function loadYuri()
 	elseif y.a=='4' then
 		yl = love.graphics.newImage('images/yuri/3.png') 
 	elseif y.a=='4b' then
-		yl = love.graphics.newImage('images/yuri/3b.png') 
-	elseif y.a=='yuri' then
-		yl = love.graphics.newImage('images/yuri/yuri.png') 
+		yl = love.graphics.newImage('images/yuri/3b.png')
+	elseif y.a~='' then
+		yl = love.graphics.newImage('images/yuri/'..y.a..'.png')
 	end
 	
 	if y.b ~= '' then y_a = love.graphics.newImage('images/yuri/'..y.b..'.png') end
@@ -610,12 +298,8 @@ function loadNatsuki()
 		nl = love.graphics.newImage('images/natsuki/3.png') 
 	elseif n.a=='5b' then
 		nl = love.graphics.newImage('images/natsuki/3b.png') 
-	elseif n.a=='natsuki' then
-		nl = love.graphics.newImage('images/natsuki/natsuki.png') 
-	elseif n.a=='natsuki2' then
-		nl = love.graphics.newImage('images/natsuki/natsuki2.png') 
-	elseif n.a=='natsuki3' then
-		nl = love.graphics.newImage('images/natsuki/natsuki3.png') 
+	elseif n.a~='' then
+		nl = love.graphics.newImage('images/natsuki/'..n.a..'.png')   
 	end
 end
 

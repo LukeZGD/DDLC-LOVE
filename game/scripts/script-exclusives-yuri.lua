@@ -482,3 +482,607 @@ function yuri_exclusive_1()
 		--4: x=0-60 x=30 x=120 x=220
 	end
 end
+
+function yuri_exclusive_2()
+	if cl == 1359 then
+		y_exclusivewatched = 'true'
+		audioUpdate('6')
+		cw('mc',"Hey, Yuri.")
+	elseif cl == 1360 then
+		updateYuri('2','f',80)
+		cw('y',"Eh?")
+	elseif cl == 1361 then
+		cw('mc',"Ah...")
+	elseif cl == 1362 then
+		cw('bl',"I suddenly notice that Yuri is reading a different book from the one we've been reading together.")
+	elseif cl == 1363 then
+		cw('mc',"Sorry! I didn't mean to interrupt...")
+	elseif cl == 1364 then
+		updateYuri('2','m')
+		cw('y',"Ah, no...")
+	elseif cl == 1365 then
+		cw('y',"I was kind of just waiting for you...")
+	elseif cl == 1366 then
+		updateYuri('2','a')
+		cw('mc',"Ah, if that's the case...")
+	elseif cl >= 1367 then
+		yuri_exclusive_2_ch3()
+	end
+end
+function yuri_exclusive_2_ch3()
+	if cl == 1367 then
+		cw('mc',"Why don't we go ahead and get started?")
+	elseif cl == 1368 then
+		updateYuri('2','c')
+		cw('y',"Yes, let's!")
+	elseif cl == 1369 then
+		updateYuri('3','a')
+		cw('y',"Actually, I have a request...")
+	elseif cl == 1370 then
+		cw('y',"...Do you mind if I make some tea first?")
+	elseif cl == 1371 then
+		cw('mc',"Not at all.")
+	elseif cl == 1372 then
+		updateYuri('1','c')
+		cw('y',"Thanks very much.")
+	elseif cl == 1373 then
+		updateYuri('1','a')
+		cw('y',"If there's one thing that can make my reading time here any better, it's a nice cup of tea.")
+	elseif cl == 1374 then
+		cw('y',"Not to mention for yourself, as well.")
+	elseif cl == 1375 then
+		hideYuri()
+		cw('bl',"Yuri stands up and makes her way to the closet.")
+	elseif cl == 1376 then
+		cw('bl',"I follow and watch as she retrieves a small water pitcher from the shelf - the kind with a filter inside.")
+	elseif cl == 1377 then
+		updateYuri('1','f',80)
+		cw('y',"Can you hold this for a second?")
+	elseif cl == 1378 then
+		cw('mc',"Sure...")
+	elseif cl == 1379 then
+		cw('bl',"Yuri hands me the water pitcher and also fetches an electric kettle.")
+	elseif cl == 1380 then
+		cw('y',"I'm going to plug this in at the teacher's desk, and then we'll go get some water.")
+	elseif cl == 1381 then
+		hideYuri()
+		cw('bl',"She walks past me and sets the kettle down on the teacher's desk.")
+	elseif cl == 1382 then
+		cw('bl',"I simply watch her movements.")
+	elseif cl == 1383 then
+		cw('bl',"To my surprise, the way she moves really contrasts her speaking mannerisms.")
+	elseif cl == 1384 then
+		cw('bl',"Especially because of her long legs, Yuri appears elegant and methodical.")
+	elseif cl == 1385 then
+		updateYuri('1','f',80)
+		cw('y',"Okay, may I have the water pitcher?")
+	elseif cl == 1386 then
+		updateYuri('1','a')
+		cw('y',"Thanks. I'll be right back.")
+	elseif cl == 1387 then
+		cw('mc',"Ah, I might as well walk with you...")
+	elseif cl == 1388 then
+		updateYuri('1','s')
+		cw('y',"Yeah...why not?")
+	elseif cl == 1389 then
+		cw('y',"Shall we go, then?")
+	elseif cl == 1390 then
+		cw('mc',"Yeah...")
+	elseif cl == 1391 then
+		updateMonika('2','a',-50)
+		cw('m',"Hm? Where are you two off to?")
+	elseif cl == 1391 then
+		updateYuri('2','e')
+		cw('mc',"Eh?")
+	elseif cl == 1392 then
+		cw('mc',"We're just...Yuri was going to make some tea, so...")
+	elseif cl == 1393 then
+		cw('bl',"I suddenly realize how weird it sounds to explain this to Monika.")
+	elseif cl == 1394 then
+		cw('mc',"We're just filling the water pitcher...")
+	elseif cl == 1395 then
+		cw('m',"Ah, okay!")
+	elseif cl == 1396 then
+		updateMonika('4','j')
+		cw('m',"Sorry, I was just a bit curious...")
+	elseif cl == 1397 then
+		cw('m',"That's kind of a one-person job, isn't it?")
+	elseif cl == 1398 then
+		updateMonika('4','a')
+		cw('mc',"That's--")
+	elseif cl == 1399 then
+		updateYuri('1','k')
+		cw('y',"Monika, please mind your own business for once.")
+	elseif cl == 1400 then
+		cw('y',"Or do you want to tell me there's something wrong with helping involve "..player.." in club activities?")
+	elseif cl == 1401 then
+		updateMonika('1','g')
+		cw('m',"E-Eh...?")
+	elseif cl == 1402 then
+		cw('mc',"--!")
+	elseif cl == 1403 then
+		cw('bl',"My mouth gapes.")
+	elseif cl == 1404 then
+		updateMonika('5a')
+		cw('m',"I...")
+	elseif cl == 1405 then
+		cw('m',"I suppose there's nothing wrong with that...")
+	elseif cl == 1406 then
+		updateYuri('2','l')
+		cw('y',"Hmph...")
+	elseif cl == 1407 then
+		cw('y',"Then let's go, "..player..".")
+	elseif cl == 1408 then
+		cw('mc',"Ah...")
+	elseif cl == 1409 then
+		cw('bl',"Yuri quickly exits the room, and I follow.")
+	elseif cl == 1410 then
+		audioUpdate('0')
+		bgUpdate('corridor')
+		updateYuri('4','c')
+		cw('bl',"Once in the hallway, she suddenly puts her forehead against the wall.")
+	elseif cl == 1411 then
+		cw('y',"I spoke without thinking...")
+	elseif cl == 1412 then
+		cw('y',"How could I say something like that...?")
+	elseif cl == 1413 then
+		cw('mc',"Yuri...")
+	elseif cl == 1414 then
+		updateYuri('4','b2')
+		cw('y',"I just...")
+	elseif cl == 1415 then
+		cw('y',"Something about the way she said that...")
+	elseif cl == 1416 then
+		cw('y',"It made me feel so...irritated.")
+	elseif cl == 1417 then
+		cw('y',"What's wrong with me...?")
+	elseif cl == 1418 then
+		cw('mc',"No, Yuri.")
+	elseif cl == 1419 then
+		cw('mc',"I think...you did the right thing!")
+	elseif cl == 1420 then
+		cw('mc',"I wasn't expecting it, but...")
+	elseif cl == 1421 then
+		cw('mc',"It's also not right for Monika to judge people like that.")
+	elseif cl == 1422 then
+		audioUpdate('9')
+		updateYuri('4','a2')
+		cw('y',player.."...")
+	elseif cl == 1423 then
+		cw('y',"How come even when I do something bad...")
+	elseif cl == 1424 then
+		cw('y',"You're being nice to me?")
+	elseif cl == 1425 then
+		cw('mc',"Because.")
+	elseif cl == 1426 then
+		cw('mc',"Nothing that you do is as bad as you make it seem in your head.")
+	elseif cl == 1427 then
+		cw('mc',"Nobody's perfect.")
+	elseif cl == 1428 then
+		cw('mc',"We have emotions, and we can't always hide them away.")
+	elseif cl == 1429 then
+		cw('mc',"But you always amplify things in your head...")
+	elseif cl == 1430 then
+		cw('mc',"Your mind turns a light rain shower into a hurricane.")
+	elseif cl == 1431 then
+		updateYuri('3','q')
+		cw('y',"Ah...")
+	elseif cl == 1432 then
+		cw('y',"N-No...")
+	elseif cl == 1433 then
+		cw('y',"Wouldn't you hate me for something as terrible as that...?")
+	elseif cl == 1434 then
+		cw('mc',"Why would I hate you?")
+	elseif cl == 1435 then
+		cw('mc',"I can't hate someone for having emotions...")
+	elseif cl == 1436 then
+		cw('mc',"What kind of friend would do that?")
+	elseif cl == 1437 then
+		updateYuri('4','c')
+		cw('y',"Friend...you say?")
+	elseif cl == 1438 then
+		cw('y',"Ah...um...")
+	elseif cl == 1439 then
+		cw('bl',"Yuri lifts her head.")
+	elseif cl == 1440 then
+		updateYuri('3','t')
+		cw('y',player.."...")
+	elseif cl == 1441 then
+		updateYuri('3','t')
+		cw('y',"I really like...being friends with you!")
+	elseif cl == 1442 then
+		cw('mc',"Ahaha...")
+	elseif cl == 1443 then
+		cw('mc',"Thanks, Yuri.")
+	elseif cl == 1444 then
+		cw('mc',"I like being friends with you too...")
+	elseif cl == 1445 then
+		cw('bl',"I feel kind of awkward saying something like that...")
+	elseif cl == 1446 then
+		cw('bl',"But I'm doing my best to help Yuri feel better.")
+	elseif cl == 1447 then
+		cw('mc',"Anyway...!")
+	elseif cl == 1448 then
+		updateYuri('3','u')
+		cw('y',"Ah-- Yeah...")
+	elseif cl == 1449 then
+		cw('y',"Shall we go?")
+	elseif cl == 1450 then
+		cw('mc',"Yeah.")
+	elseif cl == 1451 then
+		hideYuri()
+		cw('bl',"Yuri and I walk to the nearest water fountain.")
+	elseif cl == 1452 then
+		cw('bl',"Once we fill up the water pitcher, we return to the classroom.")
+	elseif cl == 1453 then
+		audioUpdate('6')
+		bgUpdate('club')
+	elseif cl == 1454 then
+		updateYuri('1','a',80)
+		cw('y',player..", do you like oolong tea?")
+	elseif cl == 1455 then
+		cw('mc',"Ah, yeah.")
+	elseif cl == 1456 then
+		cw('mc',"Anything is fine.")
+	elseif cl == 1457 then
+		cw('y',"Very well.")
+	elseif cl == 1458 then
+		cw('bl',"Yuri sets the temperature on the kettle to 200 degrees.")
+	elseif cl == 1459 then
+		updateYuri('1','f')
+		cw('y',"Now it's time to get the teapot.")
+	elseif cl == 1460 then
+		cw('mc',"You really do this properly, don't you?")
+	elseif cl == 1461 then
+		updateYuri('1','u')
+		cw('y',"Of course...")
+	elseif cl == 1462 then
+		cw('y',"I shouldn't do any less when I'm making tea for others.")
+	elseif cl == 1463 then
+		cw('mc',"Even if I'm not an expert on tea or anything...?")
+	elseif cl == 1464 then
+		updateYuri('2','m')
+		cw('y',"Huhu.")
+	elseif cl == 1465 then
+		updateYuri('2','a')
+		cw('y',"In that case, you'll only be even more impressed.")
+	elseif cl == 1466 then
+		cw('mc',"Ah...perhaps I will!")
+	elseif cl == 1467 then
+		hideYuri()
+		cw('bl',"Yuri fetches the teapot and begins measuring the tea leaves.")
+	elseif cl == 1468 then
+		cw('bl',"To my surprise, she even starts humming a little to herself.")
+	elseif cl == 1469 then
+		updateYuri('1','c',80)
+		cw('mc',"You must be in a good mood now...")
+	elseif cl == 1470 then
+		updateYuri('1','a')
+		cw('y',"Is that so?")
+	elseif cl == 1471 then
+		cw('y',"I was letting it show...")
+	elseif cl == 1472 then
+		cw('y',"And you noticed.")
+	elseif cl == 1473 then
+		updateYuri('2','u')
+		cw('y',"I was doing a bit of thinking...")
+	elseif cl == 1474 then
+		cw('y',"And I decided that I would try expressing myself a little bit more.")
+	elseif cl == 1475 then
+		cw('y',"It turns out it's not very hard for me to do...")
+	elseif cl == 1476 then
+		updateYuri('1','c')
+		cw('y',"When it's you who's around, anyway.")
+	elseif cl == 1477 then
+		cw('mc',"Ah...")
+	elseif cl == 1478 then
+		cw('mc',"That's great, Yuri!")
+	elseif cl == 1479 then
+		cw('mc',"Just don't push yourself too much.")
+	elseif cl == 1480 then
+		updateYuri('3','u')
+		cw('y',"You're always worrying about me, "..player.."...")
+	elseif cl == 1481 then
+		cw('y',"It's very endearing.")
+	elseif cl == 1482 then
+		cw('mc',"That's...")
+	elseif cl == 1483 then
+		cw('bl',"Yuri wasn't kidding...")
+	elseif cl == 1484 then
+		cw('bl',"I don't even know if I can keep up with this...!")
+	elseif cl == 1485 then
+		cw('bl',"I watch Yuri pour a cup of tea for each of us.")
+	elseif cl == 1486 then
+		updateYuri('1','a')
+		cw('y',player..", I have another request.")
+	elseif cl == 1487 then
+		cw('y',"Do you mind if we sit on the floor today?")
+	elseif cl == 1488 then
+		cw('mc',"Eh? Why's that?")
+	elseif cl == 1489 then
+		updateYuri('1','b')
+		cw('y',"It's a little bit easier on my back...")
+	elseif cl == 1490 then
+		cw('y',"I can read with my back against the wall rather than bending over at my desk.")
+	elseif cl == 1491 then
+		cw('mc',"Ah, sorry, I didn't realize.")
+	elseif cl == 1492 then
+		updateYuri('1','a')
+		cw('y',"No worries.")
+	elseif cl == 1493 then
+		cw('y',"I just have back pain fairly regularly, so I do my best to manage it.")
+	elseif cl == 1494 then
+		cw('mc',"Is that so?")
+	elseif cl == 1495 then
+		cw('mc',"I wonder why that is...")
+	elseif cl == 1496 then
+		updateYuri('1','f')
+		cw('y',"It's most likely because my--")
+	elseif cl == 1497 then
+		updateYuri('1','n')
+		cw('y',"Ah--")
+	elseif cl == 1498 then
+		updateYuri('1','o')
+		cw('y',"M-My...")
+	elseif cl == 1499 then
+		cw('mc',"Your posture, right?")
+	elseif cl == 1500 then
+		cw('mc',"Always hunched over like that while reading...")
+	elseif cl == 1501 then
+		updateYuri('2','p')
+		cw('y',"Yes!")
+	elseif cl == 1502 then
+		updateYuri('2','q')
+		cw('y',"I have terrible reading posture!")
+	elseif cl == 1503 then
+		cw('y',"So that's why we should sit on the floor.")
+	elseif cl == 1504 then
+		cw('mc',"Fair enough.")
+	elseif cl == 1505 then
+		cw('mc',"I'll go ahead and get the book.")
+	elseif cl == 1506 then
+		hideYuri()
+		cw('bl',"I retrieve the book from my bag.")
+	elseif cl == 1507 then
+		cw('mc',"Ah, I have some chocolate as well...")
+	elseif cl == 1508 then
+		cw('bl',"It's a bag of small chocolate candies that I kept hidden from Sayori's candy radar.")
+	elseif cl == 1509 then
+		cw('bl',"I take it, since it'll go well with the tea.")
+	elseif cl == 1510 then
+		cw('bl',"Yuri and I then sit against the wall, teacups at our sides.")
+	elseif cl == 1511 then
+		cw('bl',"As if in sync, we assume the same reading position as last time, each holding one half of the book.")
+	elseif cl == 1512 then
+		cw('bl',"Except this time...")
+	elseif cl == 1513 then
+		cw('bl',"Our bodies are even closer to each other.")
+	elseif cl == 1514 then
+		updateYuri('2','h',80)
+		cw('y',"I can't see too well...")
+	elseif cl == 1515 then
+		cw('mc',"--!")
+	elseif cl == 1516 then
+		updateYuri('2','e')
+		cw('bl',"Yuri slides closer until our shoulders are touching.")
+	elseif cl == 1517 then
+		cw('bl',"How am I supposed to focus on reading like this...?!")
+	elseif cl == 1518 then
+		cw('bl',"Yuri was always kind of cute, but...")
+	elseif cl == 1519 then
+		cw('bl',"When she's being less apprehensive, it's almost more than I can handle!")
+	elseif cl == 1520 then
+		updateYuri('2','f')
+		cw('y',"Your teacup...")
+	elseif cl == 1521 then
+		cw('bl',"Yuri hands me my teacup.")
+	elseif cl == 1522 then
+		cw('bl',"Holding it with my hand that's not holding the book, I end up in a position that makes it even harder to focus.")
+	elseif cl == 1523 then
+		cw('bl',"Because now I need to worry about making sure I don't accidentally touch her chest...!")
+	elseif cl == 1524 then
+		cw('bl',"Meanwhile, Yuri hasn't noticed a single thing.")
+	elseif cl == 1525 then
+		cw('bl',"She wears her intense reading expression, and I can only presume the world around her has faded away.")
+	elseif cl == 1526 then
+		cw('bl',"I use all of my willpower to focus on reading.")
+	elseif cl == 1527 then
+		cw('bl',"...")
+	elseif cl == 1528 then
+		cw('bl',"After a few minutes, I finally manage to relax a little.")
+	elseif cl == 1529 then
+		cw('bl',"I put the teacup between my legs and fumble with the chocolate wrapper.")
+	elseif cl == 1530 then
+		cw('mc',"Ah, sorry...")
+	elseif cl == 1531 then
+		cw('bl',"I briefly let go of the book to finish opening the wrapper.")
+	elseif cl == 1532 then
+		cw('mc',"You can have as much as you want.")
+	elseif cl == 1533 then
+		updateYuri('2','s')
+		cw('y',"Ah, that's...")
+	elseif cl == 1534 then
+		cw('y',"That's okay, I won't take any...")
+	elseif cl == 1535 then
+		cw('mc',"Eh? Are you sure?")
+	elseif cl == 1536 then
+		updateYuri('2','v')
+		cw('y',"Well...")
+	elseif cl == 1537 then
+		cw('y',"If I touch it, then it might get smudges on the pages...")
+	elseif cl == 1538 then
+		cw('mc',"Ah, you're right...")
+	elseif cl == 1539 then
+		cw('mc',"I didn't even think about that.")
+	elseif cl == 1540 then
+		cw('mc',"My bad...")
+	elseif cl == 1541 then
+		updateYuri('2','a')
+		cw('y',"No need to apologize.")
+	elseif cl == 1542 then
+		cw('y',"I'll hold the book, okay?")
+	elseif cl == 1543 then
+		cw('mc',"Are you sure...?")
+	elseif cl == 1544 then
+		cw('y',"Of course.")
+	elseif cl == 1545 then
+		hideAll()
+		bgUpdate('y_cg2_nochoc')
+		cw('bl',"Yuri opens the book with both hands.")
+	elseif cl == 1546 then
+		cw('bl',"She holds it so that I don't have any harder of a time reading from it.")
+	elseif cl == 1547 then
+		cw('bl',"But as a result, her left arm is practically resting on top of my leg.")
+	elseif cl == 1548 then
+		cw('mc',"Well, in that case...")
+	elseif cl == 1549 then
+		cw('bl',"Yuri is already totally focused on reading again.")
+	elseif cl == 1560 then
+		cw('bl',"I take a chocolate candy and pop it into my mouth.")
+	elseif cl == 1561 then
+		cw('bl',"Then, I take another chocolate...")
+	elseif cl == 1562 then
+		cw('bl',"And I hold it up to Yuri.")
+	elseif cl == 1563 then
+		cw('bl',"She doesn't even look away from the book.")
+	elseif cl == 1564 then
+		cw('bl',"She simply parts her lips, as if this situation was completely natural.")
+	elseif cl == 1565 then
+		cw('bl',"But that means I can't stop here!")
+	elseif cl == 1566 then
+		bgUpdate('y_cg2')
+		cw('bl',"I apprehensively place the chocolate in her mouth.")
+	elseif cl == 1567 then
+		cw('bl',"Just like that, Yuri closes her lips over it.")
+	elseif cl == 1568 then
+		cw('y',"Eh...?")
+	elseif cl == 1569 then
+		cgUpdate('y_cg2_exp2')
+		cw('bl',"Yuri's expression suddenly breaks.")
+	elseif cl == 1570 then
+		cw('y',"Did...")
+	elseif cl == 1571 then
+		cw('y',"Did I just...")
+	elseif cl == 1572 then
+		cw('bl',"Yuri looks at me like she needs to confirm what just happened.")
+	elseif cl == 1573 then
+		bgUpdate('y_cg2_nochoc')
+		cgUpdate('y_cg2_exp3')
+		cw('y',"U-Um...")
+	elseif cl == 1574 then
+		cw('y',player.."...")
+	elseif cl == 1575 then
+		cw('mc',"S-Sorry!")
+	elseif cl == 1576 then
+		cw('mc',"I guess I shouldn't have done that...")
+	elseif cl == 1577 then
+		cw('y',"Ah, that's...")
+	elseif cl == 1578 then
+		cw('y',"Well...")
+	elseif cl == 1579 then
+		cw('y',"Y-You were just helping...")
+	elseif cl == 1580 then
+		cw('y',"That's something that...friends do...")
+	elseif cl == 1581 then
+		cw('y',"...Right?")
+	elseif cl == 1582 then
+		cw('mc',"I mean...")
+	elseif cl == 1583 then
+		cw('bl',"Not really in this kind of context, but...")
+	elseif cl == 1584 then
+		cw('mc',"Yeah...")
+	elseif cl == 1585 then
+		cw('mc',"...That's all it was.")
+	elseif cl == 1586 then
+		cw('y',"Yeah...")
+	elseif cl == 1587 then
+		cw('y',"Then...")
+	elseif cl == 1588 then
+		cw('y',"You don't need to stop or anything...")
+	elseif cl == 1589 then
+		cw('y',"I-I see...")
+	elseif cl == 1590 then
+		cgHide()
+		cw('bl',"The situation has gotten really tense...")
+	elseif cl == 1591 then
+		cw('bl',"Yuri tries to return to the book.")
+	elseif cl == 1592 then
+		cw('bl',"But I can tell just by her expression that even she can't focus now.")
+	elseif cl == 1593 then
+		cw('bl',"My heart is pounding...")
+	elseif cl == 1594 then
+		cw('bl',"I nervously take another chocolate between my fingers.")
+	elseif cl == 1595 then
+		cw('bl',"But this time, Yuri's eyes meet mine.")
+	elseif cl == 1596 then
+		cgUpdate('y_cg2_exp3')
+	elseif cl == 1597 then
+		cw('y',"...")
+	elseif cl == 1598 then
+		cw('bl',"How did it even come to this...?")
+	elseif cl == 1599 then
+		cw('bl',"Yuri doesn't avert her gaze.")
+	elseif cl == 1600 then
+		cw('bl',"I notice her chest rising and falling to the rhythm of her breaths.")
+	elseif cl == 1601 then
+		cw('bl',"I raise my arm...")
+	elseif cl == 1602 then
+		cw('y',"Ah...")
+	elseif cl == 1603 then
+		cw('bl',"Like before, Yuri parts her lips.")
+	elseif cl == 1604 then
+		cw('bl',"But...it's different this time.")
+	elseif cl == 1605 then
+		bgUpdate('y_cg2')
+		cw('bl',"I take the chocolate and place it in her mouth.")
+	elseif cl == 1606 then
+		cw('bl',"I feel her hot breath on my fingers.")
+	elseif cl == 1607 then
+		audioUpdate('0')
+		bgUpdate('club')
+		updateMonika('4','b',150)
+		cw('m',"Okay, everyone!")
+	elseif cl == 1608 then
+		cw('mc',"Uwa--")
+	elseif cl == 1609 then
+		updateYuri('3','p',10)
+		cw('y',"A-Ah!")
+	elseif cl == 1610 then
+		audioUpdate('3')
+		cw('bl',"Yuri jolts back.")
+	elseif cl == 1611 then
+		updateYuri('3','n')
+		cw('m',"It's time to share poems!")
+	elseif cl == 1612 then
+		cw('m',player..", you can help Yuri put away the tea stuff, right?")
+	elseif cl == 1613 then
+		cw('mc',"Y-Yeah...of course.")
+	elseif cl == 1614 then
+		cw('m',"Okay, thanks!")
+	elseif cl == 1615 then
+		hideMonika()
+		cw('bl',"The spell is abruptly broken.")
+	elseif cl == 1616 then
+		updateYuri('4','c2')
+		cw('y',"I'll...")
+	elseif cl == 1617 then
+		cw('y',"I'll take care of the cups...")
+	elseif cl == 1618 then
+		cw('mc',"Yeah...")
+	elseif cl == 1619 then
+		hideYuri()
+	elseif cl == 1620 then
+		cw('bl',"Yuri picks up the teacups from the floor.")
+	elseif cl == 1621 then
+		cw('bl',"I pick up the bag of chocolates.")
+	elseif cl == 1622 then
+		cw('bl',"In the end, we hastily clean up without so much as a word between us.")
+	elseif cl == 1623 then
+		poeminitialize()
+		cw('bl',"I get the feeling this is something neither of us will have the courage to bring up...")
+	elseif cl == 1624 then
+		cl = 666
+		xaload = -1
+		autotimer = 0
+	end
+end
