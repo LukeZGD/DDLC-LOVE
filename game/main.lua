@@ -4,7 +4,7 @@ require 'saveload'
 require 'menu'
 
 function love.load() 
-	dversion = 'v0.0.2'
+	dversion = 'v0.0.3'
 
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
@@ -21,7 +21,7 @@ function love.load()
 	
 	--os detection
 	global_os = love.system.getOS()
-	if global_os ~= 'Horizon' then 
+	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
 		love.window.setMode(400, 480) 
 		love.window.setTitle('DDLC-3DS')
 	end
@@ -47,6 +47,14 @@ function love.draw()
 		love.graphics.setColor(255, 255, 255)
 		love.graphics.draw(s_killearly,32,0)
 	end
+	
+	if global_os ~= 'Horizon' then
+		love.graphics.setColor(0,0,0)
+		drawTopScreen()
+		love.graphics.rectangle('fill', 400, 0, 880, 720 )
+		drawBottomScreen()
+		love.graphics.rectangle('fill', -40, 240, 400, 240 )
+	end
 end
 
 function love.update(dt)
@@ -57,12 +65,14 @@ function love.update(dt)
 		if posY <= -80 then posY = 0 end
 	end
 
-	mouseDown = love.mouse.isDown(1)
-	mouseX = love.mouse.getX()
-	mouseY = love.mouse.getY()
-	if global_os ~= 'Horizon' then
-		mouseX = mouseX - 40
-		mouseY = mouseY - 240
+	if global_os ~= 'HorizonNX' then
+		mouseDown = love.mouse.isDown(1)
+		mouseX = love.mouse.getX()
+		mouseY = love.mouse.getY()
+		if global_os ~= 'Horizon' then
+			mouseX = mouseX - 40
+			mouseY = mouseY - 240
+		end
 	end
 	
 	--this acts as love.mousepressed

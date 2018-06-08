@@ -528,3 +528,650 @@ function natsuki_exclusive_1()
     
 	end
 end
+
+function natsuki_exclusive_2()
+	if cl == 1359 then
+		n_exclusivewatched = 'true'
+		audioUpdate('6')
+		updateNatsuki('4','c',80)
+		cw('n',"...")
+	elseif cl == 1360 then
+		cw('bl',"It's not long before Natsuki comes up to me expectantly.")
+	elseif cl == 1361 then
+		cw('mc',"Yeah, yeah.")
+	elseif cl == 1362 then
+		cw('mc',"Don't worry, I kept my promise.")
+	elseif cl >= 1363 then
+		natsuki_exclusive_2_ch3()
+	end
+end
+function natsuki_exclusive_2_ch3()
+	if cl < 1364 then
+		cl = 1364
+	elseif cl == 1364 then
+		cw('bl',"I pull the first volume of Parfait Girls out from my bag.")
+	elseif cl == 1365 then
+		cw('bl',"Natsuki takes it from my hands, then quickly turns it over, presumably to check for wrinkles.")
+	elseif cl == 1366 then
+		cw('mc',"Hey, I'm not that careless...")
+	elseif cl == 1367 then
+		cw('mc',"I handle manga all the time, you know.")
+	elseif cl == 1368 then
+		updateNatsuki('1','m')
+		cw('n',"I just wanted to make sure!")
+	elseif cl == 1369 then
+		updateNatsuki('1','c')
+		cw('n',"Can you blame me for being paranoid?")
+	elseif cl == 1370 then
+		cw('n',"I don't give people my manga every day, you know.")
+	elseif cl == 1371 then
+		cw('mc',"That's true...")
+	elseif cl == 1372 then
+		cw('mc',"I don't blame you.")
+	elseif cl == 1373 then
+		updateNatsuki('2','j')
+		cw('n',"Well anyway, let me put this one back.")
+	elseif cl == 1374 then
+		cw('n',"I'm gonna get the next one, okay?")
+	elseif cl == 1375 then
+		hideNatsuki()
+		cw('bl',"Natsuki makes her way to the closet.")
+	elseif cl == 1376 then
+		cw('bl',"I follow.")
+	elseif cl == 1377 then
+		bgUpdate('closet')
+		updateNatsuki('2','l',80)
+		cw('n',"So you're gonna tell me everything you thought, right??")
+	elseif cl == 1378 then
+		updateNatsuki('2','k')
+		cw('n',"Where did this volume leave off again? I forget.")
+	elseif cl == 1379 then
+		cw('mc',"Ah, the chapter ended when Minori and Alice found--")
+	elseif cl == 1380 then
+		updateNatsuki('1','e')
+		cw('n',"Monika!!")
+	elseif cl == 1381 then
+		cw('bl',"Natsuki's voice resonates out from inside the closet.")
+	elseif cl == 1382 then
+		cw('mc',"Eh...?")
+	elseif cl == 1383 then
+		cw('bl',"I peer inside.")
+	elseif cl == 1384 then
+		cw('bl',"All of Natsuki's books are lined up on the top shelf.")
+	elseif cl == 1385 then
+		cw('n',"Did you move my manga again?!")
+	elseif cl == 1386 then
+		updateMonika('3','l',-50)
+		cw('m',"Ah, sorry, sorry!")
+	elseif cl == 1387 then
+		cw('m',"The teacher got mad at me for taking up so much space in her closet...")
+	elseif cl == 1388 then
+		cw('m',"So I had to move some stuff around and clean up a little bit.")
+	elseif cl == 1389 then
+		updateMonika('3','b')
+		cw('m',"It's all still there, I just had to organize it a bit!")
+	elseif cl == 1390 then
+		hideMonika()
+		updateNatsuki('1','r')
+		cw('n',"Ugh...")
+	elseif cl == 1391 then
+		cw('bl',"The top shelf is far above Natsuki's head.")
+	elseif cl == 1392 then
+		cw('bl',"She makes a futile hop, trying to figure out how to reach her manga.")
+	elseif cl == 1393 then
+		updateNatsuki('1','q')
+		cw('n',"Jeez...!")
+	elseif cl == 1394 then
+		cw('n',"This is so inconvenient!")
+	elseif cl == 1395 then
+		updateNatsuki('1','c')
+		cw('n',"I'm moving these all back down.")
+	elseif cl == 1396 then
+		cw('n',"There's plenty of room on these shelves.")
+	elseif cl == 1397 then
+		cw('n',"And besides...")
+	elseif cl == 1398 then
+		updateNatsuki('4','w')
+		cw('n',"They're really pretty to look at when they're all lined up!")
+	elseif cl == 1399 then
+		cw('n',"Why would you waste that on the top shelf?")
+	elseif cl == 1400 then
+		cw('mc',"Ah, Natsuki...")
+	elseif cl == 1401 then
+		cw('mc',"There's a stool on the wall there.")
+	elseif cl == 1402 then
+		cw('bl',"In the closet, there's a collapsible stool that's hanging on the wall.")
+	elseif cl == 1403 then
+		cw('mc',"If you want, I can reach up there and hand them to you...")
+	elseif cl == 1404 then
+		updateNatsuki('1','g')
+		cw('n',"I can get them myself!")
+	elseif cl == 1405 then
+		cw('bl',"Natsuki grabs the stool from the wall and unfolds it.")
+	elseif cl == 1406 then
+		cw('n',"You think I'm too short or something?")
+	elseif cl == 1407 then
+		cw('mc',"I mean--")
+	elseif cl == 1408 then
+		updateNatsuki('5','x')
+		cw('n',"I knew it!")
+	elseif cl == 1409 then
+		updateNatsuki('5','w')
+		cw('n',"Well, you know what?")
+	elseif cl == 1410 then
+		cw('n',"Just watch me!")
+	elseif cl == 1411 then
+		cw('bl',"Natsuki hops onto the stool, which ends up being a little wobbly because of its collapsible design.")
+	elseif cl == 1412 then
+		updateNatsuki('1','f')
+		cw('n',"A-Ah...")
+	elseif cl == 1413 then
+		cw('mc',"Careful...")
+	elseif cl == 1414 then
+		updateNatsuki('1','r')
+		cw('n',"I know what I'm doing!!")
+	elseif cl == 1415 then
+		cw('bl',"Standing on the stool, Natsuki's fingertips reach the top shelf.")
+	elseif cl == 1416 then
+		cw('bl',"The stool would be enough for me to easily grab the books, but Natsuki is being stubborn as usual.")
+	elseif cl == 1417 then
+		cw('n',"U-Uuuh...")
+	elseif cl == 1418 then
+		cw('bl',"Natsuki uses her fingers to scoot one of the smaller boxes to the edge of the shelf.")
+	elseif cl == 1419 then
+		updateNatsuki('1','t')
+		cw('n',"See...?")
+	elseif cl == 1420 then
+		updateNatsuki('1','v')
+		cw('n',"Kyah--!")
+	elseif cl == 1421 then
+		cw('bl',"The box suddenly tips.")
+	elseif cl == 1422 then
+		cw('bl',"Natuki barely catches it before it falls to the floor.")
+	elseif cl == 1423 then
+		cw('bl',"The stool wobbles.")
+	elseif cl == 1424 then
+		cw('n',"Wawaa--")
+	elseif cl == 1425 then
+		cw('bl',"Losing balance, Natsuki hops off the stool.")
+	elseif cl == 1426 then
+		cw('bl',"Thankfully, she was able to stay on her feet.")
+	elseif cl == 1427 then
+		cw('bl',"She holds the box triumphantly.")
+	elseif cl == 1428 then
+		updateNatsuki('4','y')
+		cw('n',"T-There!")
+	elseif cl == 1429 then
+		cw('bl',"Having almost fell, Natsuki is a bit shaken up.")
+	elseif cl == 1430 then
+		cw('mc',"Jeez...")
+	elseif cl == 1431 then
+		cw('mc',"No need to prove yourself to me.")
+	elseif cl == 1432 then
+		cw('mc',"There's no way you'll be able to get the bigger boxes like that.")
+	elseif cl == 1433 then
+		cw('mc',"I can reach them, so just--")
+	elseif cl == 1434 then
+		updateNatsuki('2','h')
+		cw('n',"I said I can do it!")
+	elseif cl == 1435 then
+		cw('n',"I don't want your help, okay?")
+	elseif cl == 1436 then
+		cw('mc',"Sigh...")
+	elseif cl == 1437 then
+		cw('n',"I'm gonna get a chair, so just hang on.")
+	elseif cl == 1438 then
+		hideNatsuki()
+		cw('bl',"Natsuki forces her way past me out of the closet.")
+	elseif cl == 1439 then
+		cw('n',"Let's see...")
+	elseif cl == 1440 then
+		cw('bl',"The classroom chairs have the desks attached, so they're too inconvenient to fit into the closet.")
+	elseif cl == 1441 then
+		cw('n',"Aha!")
+	elseif cl == 1442 then
+		cw('bl',"Natsuki trots over to the teacher's desk, which has a computer chair behind it.")
+	elseif cl == 1443 then
+		cw('bl',"She rolls it on its wheels back over to the closet.")
+	elseif cl == 1444 then
+		updateNatsuki('4','a',80)
+		cw('mc',"Ah--")
+	elseif cl == 1445 then
+		cw('bl',"It's a little dangerous, since the chair swivels and rolls.")
+	elseif cl == 1446 then
+		cw('bl',"But I've already learned my lesson, so I keep my mouth shut.")
+	elseif cl == 1447 then
+		updateNatsuki('1','a')
+		cw('n',"Ush--")
+	elseif cl == 1448 then
+		cw('bl',"Natsuki climbs onto the chair, then slowly balances onto her feet.")
+	elseif cl == 1449 then
+		cw('bl',"Since she refuses my help, I take a seat with my back against the side of the doorway and simply watch.")
+	elseif cl == 1450 then
+		hideAll()
+		bgUpdate('n_cg2_base')
+		cw('n',"Aha! There we go!")
+	elseif cl == 1451 then
+		cw('n',"See? I can easily do it now.")
+	elseif cl == 1452 then
+		cw('n',"Natsuki grabs a stack of manga and bends down to put it on the shelf below.")
+	elseif cl == 1453 then
+		cw('n',"W-Wahh--")
+	elseif cl == 1454 then
+		cw('bl',"The chair swivels.")
+	elseif cl == 1455 then
+		cw('bl',"Natsuki catches herself on the shelf.")
+	elseif cl == 1456 then
+		cgUpdate('n_cg2_exp1')
+		cw('n',"What are you doing??")
+	elseif cl == 1457 then
+		cw('n',"Can you at least hold the chair steady instead of sitting and doing nothing?")
+	elseif cl == 1458 then
+		cw('bl',"(Who was it who told me not to help...?)")
+	elseif cl == 1459 then
+		cw('mc',"Yeah, yeah...I got you.")
+	elseif cl == 1460 then
+		cgHide()
+		cw('bl',"I hold the chair while Natsuki reaches back up.")
+	elseif cl == 1461 then
+		cw('mc',"--!")
+	elseif cl == 1462 then
+		cw('bl',"I can...")
+	elseif cl == 1463 then
+		cw('bl',"I can almost see up her skirt?!")
+	elseif cl == 1464 then
+		cw('mc',"Guh--")
+	elseif cl == 1465 then
+		cw('bl',"I force myself to turn away.")
+	elseif cl == 1466 then
+		cw('bl',"Natsuki seriously didn't think this through...!")
+	elseif cl == 1467 then
+		cw('bl',"Once she realizes, I'll be dead!")
+	elseif cl == 1468 then
+		cw('n',"Hup--")
+	elseif cl == 1469 then
+		cw('bl',"Natsuki wraps her arms around the Parfait Girls box set, easily the largest one on the shelf.")
+	elseif cl == 1470 then
+		cw('n',"Uu...heavy...")
+	elseif cl == 1471 then
+		cgUpdate('n_cg2_exp1')
+		cw('n',"Hey, "..player.."...")
+	elseif cl == 1472 then
+		cw('n',"I-I don't think I can bend down without falling...!")
+	elseif cl == 1473 then
+		cw('n',"Hurry and take this one...")
+	elseif cl == 1474 then
+		cw('mc',"Eh?")
+	elseif cl == 1475 then
+		cw('mc',"But then I have to let go of the chair...")
+	elseif cl == 1476 then
+		cw('n',"That's fine...!")
+	elseif cl == 1477 then
+		cw('n',"Just for a second!")
+	elseif cl == 1478 then
+		cw('n',"Hurry up...")
+	elseif cl == 1479 then
+		cw('mc',"Alright...!")
+	elseif cl == 1480 then
+		cw('mc',"Let me just stand up.")
+	elseif cl == 1481 then
+		cw('bl',"I slowly release my grip from the chair.")
+	elseif cl == 1482 then
+		cw('n',"What do you mean 'stand up'?")
+	elseif cl == 1483 then
+		cw('bl',"Natsuki looks down at me.")
+	elseif cl == 1484 then
+		cw('n',"Why are you all the way back--")
+	elseif cl == 1485 then
+		audioUpdate('0')
+		cw('n',"E-Eh...?")
+	elseif cl == 1486 then
+		cw('bl',"Natsuki looks like she just realized something, but she'll lose her balance if she moves.")
+	elseif cl == 1487 then
+		cw('mc',"Natsuki, the box--")
+	elseif cl == 1488 then
+		audioUpdate('7')
+		cgUpdate('n_cg2_exp2')
+		cw('n',"W-What are you looking at?!")
+	elseif cl == 1489 then
+		cw('mc',"--!")
+    elseif cl == 1490 then
+		cw('n',"You're trying to look at my...m-my...")
+	elseif cl == 1491 then
+		cw('bl',"Natsuki's legs shake.")
+	elseif cl == 1492 then
+		cw('mc',"I-I'm not! I was just--")
+	elseif cl == 1493 then
+		cw('mc',"--Natsuki, don't try to move!")
+	elseif cl == 1494 then
+		cw('mc',"Just give me the box!")
+	elseif cl == 1495 then
+		cw('n',"You...you perv!")
+	elseif cl == 1496 then
+		cw('n',"You set me up!!")
+	elseif cl == 1497 then
+		cw('n',"Go away!")
+	elseif cl == 1498 then
+		cw('n',"Get out!")
+	elseif cl == 1499 then
+		cw('mc',"But--")
+	elseif cl == 1500 then
+		cw('n',"I'll do it myself!!")
+    elseif cl == 1501 then
+		cgHide()
+		cw('n',"A-Ah--")
+	elseif cl == 1502 then
+		cw('bl',"The chair suddenly swivels beneath Natsuki's feet.")
+	elseif cl == 1503 then
+		cw('mc',"Natsuki--!")
+	elseif cl == 1504 then
+		cgUpdate('n_cg2_exp2')
+		cw('n',"Kyaaaaa!")
+	elseif cl == 1505 then
+		cw('bl',"The scene turns to chaos in a split second.")
+	elseif cl == 1506 then
+		cw('bl',"The chair flies from under Natsuki's feet.")
+	elseif cl == 1507 then
+		cw('bl',"Frantically, I try to catch her.")
+	elseif cl == 1508 then
+		cw('bl',"The box topples out of her hands, and the books go flying.")
+	elseif cl == 1509 then
+		cw('mc',"I got you--")
+	elseif cl == 1510 then
+		cgHide()
+		bgUpdate('black')
+		audioUpdate('0')
+		sfxplay('fall2')
+		cw('bl',"Crash!")
+	elseif cl == 1511 then
+		cw('bl',"The full force of Natsuki's body against me throws me to the ground.")
+	elseif cl == 1512 then
+		cw('bl',"A whole bunch of books pelt me in the face.")
+	elseif cl == 1513 then
+		cw('bl',"Natsuki tries to shield herself with her own arms as her face lands straight on my chest.")
+	elseif cl == 1514 then
+		cw('mc',"Ungh...")
+	elseif cl == 1515 then
+		cw('bl',"My right arm and my back seriously felt the impact.")
+	elseif cl == 1516 then
+		audioUpdate('8')
+		bgUpdate('closet')
+		updateNatsuki('f_1','f_v',80) --show natsuki 1v at face
+		cw('n',"U-Uu...")
+	elseif cl == 1517 then
+		cw('bl',"Slowly, Natsuki comes to her senses.")
+	elseif cl == 1518 then
+		cw('mc',"Ghk--!")
+	elseif cl == 1519 then
+		cw('bl',"She presses her arms straight into me to prop herself up.")
+	elseif cl == 1520 then
+		updateNatsuki('f_1','f_h') --1h at face
+		cw('n',"Eh...?")
+	elseif cl == 1521 then
+		cw('bl',"Natsuki seems to realize that it's not the floor that's beneath her.")
+	elseif cl == 1522 then
+		updateNatsuki('f_1','f_o') --1o at face
+		cw('n',"G-Guuuuu...!!")
+	elseif cl == 1523 then
+		cw('n',"Gross! Gross!")
+	elseif cl == 1524 then
+		cw('mc',"Ghak--!")
+	elseif cl == 1525 then
+		cw('bl',"A fist pounds into my chest.")
+	elseif cl == 1526 then
+		cw('bl',"Natsuki then hoists herself to her feet.")
+	elseif cl == 1527 then
+		updateNatsuki('1','x')
+		cw('n',"What were you thinking?!")
+	elseif cl == 1528 then
+		cw('n',"You sicko!")
+	elseif cl == 1529 then
+		updateMonika('1','d',-50)
+		cw('m',"Everything okay over there...?")
+	elseif cl == 1530 then
+		cw('m',"I heard a loud noise...")
+	elseif cl == 1531 then
+		cw('bl',"Monika suddenly peers in.")
+	elseif cl == 1532 then
+		updateNatsuki('1','e')
+		cw('n',"Monika!")
+	elseif cl == 1533 then
+		cw('n',"See what happens when you put the manga on the top shelf?!")
+	elseif cl == 1534 then
+		updateNatsuki('1','w')
+		cw('n',"Are you trying to kill your club members or something?")
+	elseif cl == 1535 then
+		cw('n',"Jeez!")
+	elseif cl == 1536 then
+		updateMonika('5a')
+		cw('m',"S-Sorry, sorry!")
+	elseif cl == 1537 then
+		cw('m',"Ahaha...")
+	elseif cl == 1538 then
+		updateNatsuki('5','r')
+		cw('n',"Oh, and one more thing.")
+	elseif cl == 1539 then
+		cw('n',"It seems like your most recent club member is a total pervert.")
+	elseif cl == 1540 then
+		cw('n',"So I hope you're happy.")
+	elseif cl == 1541 then
+		cw('mc',"I didn't--!")
+	elseif cl == 1542 then
+		cw('bl',"Somehow, it's impossible for me to explain this whole bizarre situation to Monika.")
+	elseif cl == 1543 then
+		cw('mc',"I didn't do anything, I swear...!")
+	elseif cl == 1544 then
+		updateMonika('1','l')
+		cw('m',"I know, I know, don't worry~")
+	elseif cl == 1545 then
+		hideMonika()
+		cw('bl',"Monika says that quietly to me.")
+	elseif cl == 1546 then
+		cw('bl',"Looks like I'm off the hook...")
+	elseif cl == 1547 then
+		audioUpdate('0')
+		updateNatsuki('1','p')
+		cw('n',"Oh no...!")
+	elseif cl == 1548 then
+		cw('n',"My...my...")
+	elseif cl == 1549 then
+		updateNatsuki('1','m')
+		cw('mc',"Eh?")
+	elseif cl == 1550 then
+		cw('bl',"I look down.")
+	elseif cl == 1551 then
+		cw('bl',"Natsuki is kneeling on the floor, holding one of the books that are scattered all over.")
+	elseif cl == 1552 then
+		cw('bl',"There's a large diagonal crease along the page that she's desperately trying to smooth out.")
+	elseif cl == 1553 then
+		cw('mc',"Ah, it must have landed on the page...")
+	elseif cl == 1554 then
+		cw('bl',"Natsuki tries a bit more to fix the crease, but she can't get it out.")
+	elseif cl == 1555 then
+		updateNatsuki('1','2b')
+		cw('bl',"Suddenly, she gives up and slams the book shut, then throws it to the floor.")
+	elseif cl == 1556 then
+		cw('bl',"Instead of continuing to yell, she just lowers her head.")
+	elseif cl == 1557 then
+		audioUpdate('9')
+		updateNatsuki('1','2d')
+		cw('n',"*Sob*")
+	elseif cl == 1558 then
+		cw('mc',"...Natsuki, are you--")
+	elseif cl == 1559 then
+		updateNatsuki('1','2f')
+		cw('n',"No!")
+	elseif cl == 1560 then
+		cw('bl',"Natsuki's voice squeaks.")
+	elseif cl == 1561 then
+		cw('bl',"I see tears on her face.")
+	elseif cl == 1562 then
+		cw('mc',"Ah...")
+	elseif cl == 1563 then
+		cw('mc',"I'll help get the crease out, okay?")
+	elseif cl == 1564 then
+		cw('mc',"It's partially my fault, so...")
+	elseif cl == 1565 then
+		cw('bl',"Natsuki shakes her head, still looking down.")
+	elseif cl == 1566 then
+		cw('n',"No...")
+	elseif cl == 1567 then
+		cw('n',"I don't even care that much...")
+	elseif cl == 1568 then
+		cw('n',"I'm just...")
+	elseif cl == 1569 then
+		cw('n',"Having a really bad day today...")
+	elseif cl == 1570 then
+		cw('bl',"Natsuki sobs again.")
+	elseif cl == 1571 then
+		updateNatsuki('1','2i')
+		cw('n',"I didn't mean to take it out on you...")
+	elseif cl == 1572 then
+		cw('n',"I really didn't mean to!")
+	elseif cl == 1573 then
+		cw('mc',"It's...it's fine.")
+	elseif cl == 1574 then
+		cw('mc',"...Is there anything you want to talk about?")
+	elseif cl == 1575 then
+		updateNatsuki('1','2f')
+		cw('n',"Natsuki shakes her head.")
+	elseif cl == 1576 then
+		cw('n',"Just...")
+	elseif cl == 1577 then
+		cw('n',"Every day...")
+	elseif cl == 1578 then
+		cw('n',"...is...so hard.")
+	elseif cl == 1579 then
+		cw('n',"I just want to...")
+	elseif cl == 1580 then
+		cw('n',"...come to the club and...")
+	elseif cl == 1581 then
+		cw('n',"...")
+	elseif cl == 1582 then
+		cw('bl',"Natsuki falls silent again.")
+	elseif cl == 1583 then
+		cw('bl',"I can't press her, so I can only do what I know how to do.")
+	elseif cl == 1584 then
+		cw('mc',"Alright...")
+	elseif cl == 1585 then
+		cw('mc',"Well, I'll help clean this up.")
+	elseif cl == 1586 then
+		cw('mc',"And I'll move the rest of your manga for you.")
+	elseif cl == 1587 then
+		cw('mc',"Ah.")
+	elseif cl == 1588 then
+		cw('bl',"I pick up volume 2 of Parfait Girls.")
+	elseif cl == 1589 then
+		cw('mc',"We'll set this one aside.")
+	elseif cl == 1590 then
+		cw('mc',"This'll help cheer you up a bit, right?")
+	elseif cl == 1591 then
+		cw('mc',"We can get started on it once I'm done here.")
+	elseif cl == 1592 then
+		updateNatsuki('1','2h')
+		cw('n',"Natsuki looks up with her glossy eyes.")
+	elseif cl == 1593 then
+		cw('bl',"Her lip quivers.")
+	elseif cl == 1594 then
+		cw('n',"You're...")
+	elseif cl == 1595 then
+		cw('n',"You're really nice to me...")
+	elseif cl == 1596 then
+		cw('mc',"Eh?")
+	elseif cl == 1597 then
+		cw('bl',"That sounds really strange, coming from Natsuki.")
+	elseif cl == 1598 then
+		cw('bl',"I didn't expect it at all.")
+	elseif cl == 1599 then
+		cw('mc',"Well...")
+	elseif cl == 1600 then
+		cw('mc',"I'm just treating you like a friend, you know?")
+	elseif cl == 1601 then
+		updateNatsuki('1','2f')
+		cw('n',"Nn...")
+	elseif cl == 1602 then
+		hideAll()
+		cw('bl',"Natsuki lowers her head and stifles another sob.")
+	elseif cl == 1603 then
+		cw('bl',"I'm not sure what happened to her today, but being nice is the least I could do.")
+	elseif cl == 1604 then
+		cw('bl',"The next couple minutes are silent between us as I begin gathering the scattered books.")
+	elseif cl == 1605 then
+		cw('bl',"I make sure to slip them into the box in their correct order.")
+	elseif cl == 1606 then
+		cw('bl',"After a little bit, Natsuki starts helping.")
+	elseif cl == 1607 then
+		cw('bl',"It isn't long before we're done, and I hoist the box onto the shelf where Natsuki wanted to put it.")
+	elseif cl == 1608 then
+		cw('bl',"Then, I get on the stool and quickly finish moving the rest of her books from the top shelf.")
+	elseif cl == 1609 then
+		cw('mc',"Alright--!")
+	elseif cl == 1610 then
+		cw('mc',"That should do it.")
+	elseif cl == 1611 then
+		cw('bl',"I hop off the stool.")
+	elseif cl == 1612 then
+		cw('bl',"Natsuki averts her gaze.")
+	elseif cl == 1613 then
+		updateNatsuki('5','u',80)
+		cw('n',"T-Thanks...")
+	elseif cl == 1614 then
+		cw('mc',"Ahaha...")
+	elseif cl == 1615 then
+		cw('mc',"It's nothing.")
+	elseif cl == 1616 then
+		cw('mc',"Natsuki is holding the volume I set aside in her hands.")
+	elseif cl == 1617 then
+		cw('mc',"Alright, I'm ready.")
+	elseif cl == 1618 then
+		updateNatsuki('2','n')
+		cw('n',"Good.")
+	elseif cl == 1619 then
+		cw('n',"Even if you weren't, I'd make you anyway.")
+	elseif cl == 1620 then
+		updateNatsuki('2','u')
+		cw('n',"You're taking responsibility for what you said.")
+	elseif cl == 1621 then
+		cw('n',"The thing about cheering me up.")
+	elseif cl == 1622 then
+		cw('mc',"If you insist!")
+	elseif cl == 1623 then
+		audioUpdate('8')
+		bgUpdate('club')
+		cw('bl',"We sit in the same spot as last time, and I open the second volume.")
+	elseif cl == 1624 then
+		cw('bl',"Natsuki's mood quickly improves, laughing and pointing things out to me.")
+	elseif cl == 1625 then
+		cw('bl',"She's surprisingly sharp, making note of a lot of subtle repeated jokes and background elements.")
+	elseif cl == 1626 then
+		cw('bl',"In the end, I'm pretty impressed by how everything ties together in this manga.")
+	elseif cl == 1627 then
+		cw('bl',"I guess Natsuki has good taste after all.")
+	elseif cl == 1628 then
+		cw('bl',"After some time, Monika gets our attention as usual, and it's time to share poems again.")
+	elseif cl == 1629 then
+		updateNatsuki('2','j')
+		cw('mc',"Guess I'll be holding onto this for now.")
+	elseif cl == 1630 then
+		cw('n',"Yep!")
+	elseif cl == 1631 then
+		cw('n',"Even you sound more enthusiastic this time.")
+	elseif cl == 1632 then
+		cw('mc',"Well, I'm starting to get into it, you know.")
+	elseif cl == 1633 then
+		updateNatsuki('4','z')
+		cw('n',"Ehehe.")
+	elseif cl == 1634 then
+		cw('n',"Told you.")
+	elseif cl == 1635 then
+		cw('mc',"Yeah, yeah...")
+	elseif cl == 1636 then
+		hideNatsuki()
+		poeminitialize()
+		cw('bl',"I return to my seat and slip the book into my bag.")
+	elseif cl == 1637 then
+		cl = 666
+		xaload = -1
+		autotimer = 0
+	end
+end

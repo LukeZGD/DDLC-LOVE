@@ -142,15 +142,15 @@ function drawPoemGame()
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
-		if spadd == 3 then
+		if spadd == 3 and poemword > 0 then
 			if s_sticker_2 then love.graphics.draw(s_sticker_2,50,p_y) end
 			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
 			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
-		elseif npadd == 3 then
+		elseif npadd == 3 and poemword > 0 then
 			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
 			if n_sticker_2 then love.graphics.draw(n_sticker_2,110,p_y) end
 			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
-		elseif ypadd == 3 then
+		elseif ypadd == 3 and poemword > 0 then
 			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
 			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
 			if y_sticker_2 then love.graphics.draw(y_sticker_2,190,p_y) end

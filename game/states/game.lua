@@ -92,15 +92,18 @@ function updateGame(dt)
 		xaload = 0
 		autotimer = 1
 	end
-	if love.keyboard.isDown('x') then
-		game_skip()
-	elseif mouseDown and mouseX>=240 and mouseX<=270 then
-		if mouseY<=16 or mouseY>=220 then
+	
+	if global_os ~= 'HorizonNX' then
+		if love.keyboard.isDown('x') then
 			game_skip()
-		end
-	elseif mouseDown == false and mouseX>=240 and mouseX<=270 then
-		if mouseY<=16 or mouseY>=220 then
-			game_keyreleased('x')
+		elseif mouseDown and mouseX>=240 and mouseX<=270 then
+			if mouseY<=16 or mouseY>=220 then
+				game_skip()
+			end
+		elseif mouseDown == false and mouseX>=240 and mouseX<=270 then
+			if mouseY<=16 or mouseY>=220 then
+				game_keyreleased('x')
+			end
 		end
 	end
 end
