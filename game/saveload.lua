@@ -1,10 +1,11 @@
 bg1 = ''
 audio1 = 2
 cg1 = ''
-s = {a='',b='',x=-200,y=5}
-y = {a='',b='',x=-200,y=5}
-n = {a='',b='',x=-200,y=5}
-m = {a='',b='',x=-200,y=5}
+ct = ''
+s = {a='',b='',x=-200,y=0}
+y = {a='',b='',x=-200,y=0}
+n = {a='',b='',x=-200,y=0}
+m = {a='',b='',x=-200,y=0}
 poemwinner = {'','',''}
 chapter = 0
 settings = {textspd=100,textloc='Bottom',animh=1}

@@ -90,10 +90,76 @@ function splashalpha(x)
 	end
 end
 
-ct = '' --name text
-
 function cgHide()
 	cg1 = ''
+end
+
+function updateSayori(a,b,px,py)
+	if b == nil then b = '' end
+	s.a = a
+	s.b = b
+	if xaload == 0 then loadSayori() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+		if s.x > px then
+			s.x = math.max(s.x - 24, px)
+		elseif s.x < px then
+			s.x = math.min(s.x + 24, px)
+		end
+	elseif px and xaload > 0 then
+		s.x = px
+	end
+	if py ~= nil then s.y = py end
+end
+
+function updateYuri(a,b,px,py)
+	if b == nil then b = '' end
+	y.a = a 
+	y.b = b
+	if xaload == 0 then loadYuri() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then
+		if y.x > px then
+			y.x = math.max(y.x - 24, px)
+		elseif y.x < px then
+			y.x = math.min(y.x + 24, px)
+		end
+	elseif px and xaload > 0 then
+		y.x = px
+	end
+	if py ~= nil then y.y = py end
+end
+
+function updateNatsuki(a,b,px,py)
+	if b == nil then b = '' end
+	n.a = a
+	n.b = b
+	if xaload == 0 then loadNatsuki() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+		if n.x > px then
+			n.x = math.max(n.x - 24, px)
+		elseif n.x < px then
+			n.x = math.min(n.x + 24, px)
+		end
+	elseif px and xaload > 0 then
+		n.x = px
+	end
+	if py ~= nil then n.y = py end
+end
+
+function updateMonika(a,b,px,py)
+	if b == nil then b = '' end
+	m.a = a
+	m.b = b
+	if xaload == 0 then loadMonika() end
+	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+		if m.x > px then
+			m.x = math.max(m.x - 24, px)
+		elseif m.x < px then
+			m.x = math.min(m.x + 24, px)
+		end
+	elseif px and xaload > 0 then
+		m.x = px		
+	end
+	if py ~= nil then m.y = py end
 end
 
 function hideSayori()
@@ -167,7 +233,7 @@ function hideAll()
 end
 
 function drawSayori(a,b)
-	if a=='5a' or a=='5b' or a=='5c' or a=='5d' or a=='sayori' then
+	if a=='5a' or a=='5b' or a=='5c' or a=='5d' or a=='f_1b' then
 		love.graphics.draw(sl, s.x, s.y)
 	elseif a~='' then
 		love.graphics.draw(sl, s.x, s.y)
@@ -180,7 +246,7 @@ function drawSayori(a,b)
 end
 
 function drawYuri(a,b)
-	if a=='4' or a=='4b' or a=='yuri' then
+	if a=='4' or a=='4b' or a=='f_2bs' then
 		love.graphics.draw(yl, y.x, y.y)
 	elseif a~='' then
 		love.graphics.draw(yl, y.x, y.y)
@@ -205,7 +271,7 @@ function drawNatsuki(a,b)
 		love.graphics.draw(n_a, nxh, nyh)
 	end
 	
-	if a == '5' or a == '5b' or a == 'natsuki' or a == 'natsuki2' or a == 'natsuki3' then
+	if a == '5' or a == '5b' or a == 'f_1' or a == 'f_1b' then
 		love.graphics.draw(nl, n.x, n.y)
 	elseif a~='' then
 		love.graphics.draw(nl, n.x, n.y)

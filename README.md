@@ -10,3 +10,5 @@ Until a fix is found, New 3DS/2DS users should disable L2 Cache before playing t
 <h3>Building:</h3>
 
 You cannot build DDLC-3DS on your own. you have to add it to LovePotion, replace the makefile and meta files, and compile it with the game folder.
+
+<h3>Credits to TurtleP for LovePotion!</h3>

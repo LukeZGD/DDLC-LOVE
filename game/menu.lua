@@ -104,7 +104,7 @@ function menu_draw()
 		love.graphics.print('Current Setting: '..settings.textspd,16, 200)
 	
 	elseif menu_type == 'animh' then
-		love.graphics.print('Settings - Char. Animations:',16, 20)
+		love.graphics.print('Settings - Character Animations:',16, 20)
 		love.graphics.print('0 - Off',16, 45)
 		love.graphics.print('1 - On (Default)',16, 70)
 		love.graphics.print('Current Setting: '..settings.animh,16, 200)

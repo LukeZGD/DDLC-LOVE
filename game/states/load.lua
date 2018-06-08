@@ -16,14 +16,12 @@ function updateLoad()
 	
 	--loading assets
 	if l_timer == 97 then
-		font = love.graphics.newFont('images/gui/fonts/Aller_Rg')
+		font = love.graphics.newFont('images/gui/fonts/Aller_Rg',12)
 		love.graphics.setFont(font)
-		m1 = love.graphics.newFont('images/gui/fonts/m1')
+		m1 = love.graphics.newFont('images/gui/fonts/m1',14)
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
-		splash = love.graphics.newImage('images/bg/splash.png')
-		titlebg = love.graphics.newImage('images/bg/bg.png')
 		namebox = love.graphics.newImage('images/gui/namebox.png')
 		textbox = love.graphics.newImage('images/gui/textbox.png')
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')

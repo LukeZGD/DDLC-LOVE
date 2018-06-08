@@ -120,14 +120,14 @@ function sayori_exclusive_1()
 		cw('bl',"I can't help but wonder what it would be like to see the world through her eyes...")
 	elseif cl == 472 then
 		bgUpdate('club')
-		updateSayori('sayori','',80,0)
+		updateSayori('sayori','',80)
 		cw('mc',"Uwaa--!")
 	elseif cl == 473 then
 		cw('bl','I open my eyes to find Sayori\'s face filling my vision.')
 	elseif cl == 474 then
 		cw('bl',"I nearly fall out of my chair.")
     elseif cl == 475 then
-		updateSayori('4','q',80,5)
+		updateSayori('4','q',80)
 		cw('s',"Ehehe, sorry~")
 	elseif cl == 476 then
 		updateSayori('4','i')
@@ -419,5 +419,349 @@ function sayori_exclusive_1()
 		--3: x=-40 x=80 x=200
 		--4: x=-60 x=30 x=120 x=220
     
+	end
+end
+
+function sayori_exclusive_2()
+	if cl == 1359 then
+		if audio1 ~= 2 then audioUpdate('2') end
+		bgUpdate('club')
+		cw('s',player..", "..player.."!")
+	elseif cl == 1360 then
+		cw('bl',"Sayori suddenly comes up to me.")
+	elseif cl == 1361 then
+		updateSayori('1','x',80)
+		cw('s',"I'm gonna go get some supplies from another classroom.")
+	elseif cl == 1362 then
+		cw('s',"Want to come with me?")
+	--[[
+    mc "Supplies?"
+    mc "What for?"
+    s 2a "Well, you know how the festival is coming up?"
+    s "Me and Monika were gonna make some posters and stuff."
+    s "So I need to go find some crayons, and markers, and glue sticks..."
+    mc "Ah, I see."
+    mc "Sure, I'll go with you."
+    s 4q "Yaay~"
+    s 4x "Okay Monika, we'll be back soon!"
+    show sayori zorder 2 at t22
+    show monika 1a zorder 3 at f21
+    m "Ah, are you going with [player] to get the supplies?"
+    m "There's no need to trouble yourself."
+    m "I'd be happy to go with him."
+    show monika zorder 2 at t21
+    show sayori 1h at s22
+    s "Aw, but I wanted to go!"
+    s "It's so much fun exploring empty classrooms and stuff!"
+    show monika zorder 3 at f21
+    m 2j "Hehe, okay, okay."
+    m 2a "It was just a suggestion."
+    m "See if you can find poster paper too, okay?"
+    show monika zorder 2 at t21
+    show sayori zorder 3 at f22
+    s 1r "Okaay~!"
+    s 1a "Ready, [player]?"
+    mc "Yep, let's go."
+    scene bg corridor
+    show sayori 4a zorder 2 at t11
+    with wipeleft_scene
+    "Sayori and I exit the clubroom."
+    "I follow behind as Sayori hums and skips around the hallway."
+    "Honestly..."
+    "It feels like I'm taking a kid to the mall or something."
+    "Sayori finds pleasure in the simplest things sometimes."
+    mc "Hey, Sayori..."
+    mc "What exactly are we doing for the festival, anyway?"
+    mc "I'm not sure how you would make an event out of literature..."
+    s 1q "Ehehe!"
+    s 1x "Me and Monika have it all planned out!"
+    s "Don't you worry~"
+    mc "Is that so...?"
+    s "Yup!"
+    s "We're gonna do a poetry performance!"
+    mc "A performance...?"
+    mc "Of what kind?"
+    s 1c "Well..."
+    s "Everyone is gonna take turns on stage..."
+    s 1x "And recite their favorite poems!"
+    mc "Ah..."
+    mc "That sounds..."
+    "...Kind of dull?"
+    s 1h "[player]!"
+    s "You're not thinking about it the right way at all!"
+    s "It's not just about reading poems..."
+    s 1x "It's about performing them!"
+    s "Like, you say the lines of the poem like..."
+    s 2j "{i}Between my feet...{/i}"
+    s "{i}The last remaining flower beckons to me.{/i}"
+    s 1c "{i}I twist the stem, freeing it from its clinging roots...{/i}"
+    s "{i}Caressing the final joyous moment between my fingers.{/i}"
+    s 3g "{i}But to what ends have I summoned this joy?{/i}"
+    s "{i}For now when I look in every direction...{/i}"
+    s 1j "{i}The once-prosperous field before me...{/i}"
+    show sayori at h11
+    s 4m "{i}Is but a barren wasteland!{/i}"
+    s "..."
+    s 1r "Like that!!"
+    mc "Sayori..."
+    "How do I put this..."
+    mc "I'm sure it's just me, but it's impossible for me to take you seriously when you talk like that..."
+    show sayori 5c at s11
+    s "Ehhh?"
+    s "You meanie!"
+    s "I'm working super hard on this, you know!"
+    mc "Ah, I know, I know!"
+    mc "I just meant that it's a pretty unordinary contrast to your cute self."
+    show sayori 4s zorder 2 at t11
+    s "Ahaha! Don't say that, it's embarrassing!"
+    s 4y "But I guess that means I'm doing a good job~"
+    mc "Yeah, I guess so..."
+    show sayori at h11
+    s 4r "Aaah, I'm so excited!"
+    s "The festival is going to be so much fun~"
+    "Sayori spins herself around in the hallway again."
+    s 1x "Hey, [player], this classroom over here is empty!"
+    s "Let's begin the mission!"
+    show sayori zorder 1 at thide
+    hide sayori
+    mc "The mission, eh...?"
+    "It's been a long time since I've spent time with Sayori like this."
+    "But in the end, she hasn't changed one bit."
+    "She's nothing but a ball of sunshine, drawing happy vibes from the world around her."
+    "It's a pretty nostalgic feeling for me."
+    "As the years went by, I began to hole myself up in my room more and more."
+    "So going adventuring with Sayori brings about a special sort of feeling I forgot I had in me."
+    scene bg class_day
+    with wipeleft_scene
+    "The two of us enter the classroom."
+    "Sayori heads straight to the closet, and I follow."
+    show sayori 1b zorder 2 at t11
+    s "Let's see what we have in here..."
+    s 4x "...Crayons!!"
+    "Sayori pulls a box full of crayons off the shelf."
+    s "They're the best brand, too!"
+    s 1b "They're kind of dirty, though..."
+    "Sayori starts pulling various crayons out of the box, reading the color names."
+    mc "Alright, that's one down."
+    mc "Don't get distracted, we still need to find--"
+    s 1a "Wait, I'm looking for my favorite color..."
+    mc "Fine, fine..."
+    mc "Then at least move aside so I can look for the poster paper."
+    s 1b "Ah, I dropped one by accident--"
+    play sound "sfx/smack.ogg"
+    show white zorder 4:
+        alpha 0.6
+        linear 0.25 alpha 0.0
+    show sayori 2p at h11
+    "{i}Smack!{/i}"
+    hide white
+    s "Kya--!"
+    "Sayori bends over and smacks her forehead right into the shelf."
+    "She falls to the floor, and the crayons spill all over her lap."
+    show sayori 4p at s11
+    s "Owowowowow..."
+    mc "You okay?"
+    s "My forehead..."
+    "Sayori clutches her forehead."
+    mc "Jeez, Sayori..."
+    mc "That's just like you, isn't it?"
+    mc "C'mon, let me see."
+    "Since Sayori is sitting on the floor, I grab her by the waist and pull her out of the closet."
+    mc "You have to move your hands, Sayori..."
+    s 4g "But it hurts..."
+    mc "Just do it for a second."
+    $ persistent.clear[7] = True
+    scene s_cg2_base1
+    show s_cg2_exp2
+    with dissolve_cg
+    "Sayori slowly releases her hands from her forehead."
+    "I gently brush her bangs to the side."
+    show s_cg2_exp1 at cgfade
+    show s_cg2_exp3 at cgfade
+    s "Ow--!"
+    mc "Sorry..."
+    "There's a huge red mark on the center of her forehead."
+    "A bump is starting to form, as well."
+    mc "Man, that's gonna swell up."
+    mc "I should find you some ice..."
+    hide s_cg2_exp3
+    hide s_cg2_exp1
+    s "[player]..."
+    mc "Where would I even find ice around this time...?"
+    mc "Ah, I guess a cold drink would do..."
+    s "You don't have to--!"
+    show s_cg2_exp2 at cgfade
+    hide s_cg2_exp2
+    s "I'm fine with--looking like a unicorn--"
+    "Even wincing from the pain, Sayori makes a silly joke."
+    mc "Ahaha, what are you saying?"
+    mc "I'll be right back, okay?"
+    s "O-Okay..."
+    stop music fadeout 1.0
+    scene bg corridor with wipeleft_scene
+    "I pat Sayori on the shoulder and run out into the hallway."
+    "I locate the nearest vending machine."
+    mc "What should I get...?"
+    "It doesn't really matter, since it will be used as an ice pack, rather than to drink."
+    "But I know Sayori likes apple juice, so I purchase that one."
+    "In just a moment, I'm already returning to the classroom where I left Sayori."
+    scene s_cg2_base1
+    show s_cg2_exp2
+    with wipeleft_scene
+    play music t9
+    "She has one palm on her forehead and is using the other hand to clumsily scoop crayons back into the box."
+    s "At least they were already in the wrong spots before I spilled them..."
+    mc "Sayori, here."
+    show s_cg2_base2 behind s_cg2_exp2 at cgfade
+    "I hand Sayori the bottle of apple juice."
+    show s_cg2_exp2 at cgfade
+    hide s_cg2_exp2
+    s "It's nice and cold..."
+    "Sayori opens the cap and starts drinking from it."
+    mc "Sayori, what are you doing?!"
+    mc "It's for your forehead, idiot!"
+    show s_cg2_exp3 at cgfade
+    s "Ah--"
+    s "Sorry, I forgot~"
+    s "Ahahaha!"
+    mc "How hard did you hit your head...?"
+    "Sayori places the bottle against the bump on her head."
+    show s_cg2_exp1 at cgfade
+    s "It stings..."
+    mc "Just bear with it, it'll feel better soon."
+    mc "Looks like you cleaned up most of the crayons, so that's good."
+    hide s_cg2_exp1
+    hide s_cg2_exp3
+    s "Hey, [player]..."
+    s "This kind of reminds you of growing up, doesn't it...?"
+    mc "Eh? What do you mean?"
+    s "You know how we used to play outside all the time..."
+    s "I would always try to keep up with you."
+    s "You were kind of oblivious in some ways..."
+    s "Like I usually fell behind or had trouble climbing on the things you did..."
+    s "But sometimes when I tried to do things I couldn't, I would get myself hurt."
+    s "I'd fall and scrape myself, or get a bump..."
+    s "And I would start crying really hard."
+    show s_cg2_exp3 at cgfade
+    s "Ahaha!"
+    s "And you would rush over as quick as you could."
+    hide s_cg2_exp3
+    s "You would try really hard to get me to stop crying."
+    s "It was almost like you blamed yourself and were afraid of getting in trouble if someone found out..."
+    s "Even though it really wasn't your fault at all, you know?"
+    mc "Did I really do that...?"
+    s "Yeah...you don't remember?"
+    mc "Come to think of it, maybe I do remember a bit..."
+    mc "I guess I was always so focused on my games that I didn't pay enough attention to you."
+    mc "So in a way, it was my fault."
+    mc "Kind of like this time, too..."
+    mc "If I wasn't rushing you out of the closet, you probably wouldn't have hit your head."
+    s "[player]..."
+    s "I don't think you realize it, but you're always thinking about other people."
+    s "Even after all these years..."
+    s "You're rushing to help me, even though I'm just being clumsy."
+    show s_cg2_exp3 at cgfade
+    s "You're really a sweetheart..."
+    mc "D-Don't call me that!"
+    mc "And I don't really do this kind of thing all the time..."
+    mc "I guess when it comes to you, it just feels natural."
+    mc "Before I even know it, I'm treating you like that."
+    mc "I guess that's what happens when you've been friends for so long."
+    hide s_cg2_exp3
+    s "Really...?"
+    s "Maybe you're right..."
+    s "[player]..."
+    s "I'm so glad that nothing's changed between us."
+    s "Do you think it'll be like this forever?"
+    mc "Forever...?"
+    "If I'm honest to myself..."
+    "There's no telling where we'll each end up for college, or after that."
+    "So it wouldn't be fair for me to make any promises."
+    "But..."
+    mc "Well, I hope so."
+    mc "It's been this long already, right?"
+    mc "I can't imagine you ever changing, so my hopes are up."
+    s "I'm so happy..."
+    "Sayori has a whimsical expression in her eyes."
+    "We remain silent for a moment."
+    "She's so silly and clumsy on the outside that when I see her deep in thought like this..."
+    "It makes me not want to disturb her."
+    s "I guess we should go back..."
+    s "I don't want to worry Monika, you know?"
+    mc "Good luck with that."
+    mc "She's gonna see your forehead either way."
+    s "Not if I hide it under my bangs~"
+    play music t8 fadeout 1.0
+    scene bg class_day
+    show sayori 1a zorder 2 at i11
+    with dissolve_cg
+    "Sayori hops to her feet."
+    show sayori 4p at s11
+    s "A-Aaahh--!"
+    "She clutches her forehead again."
+    mc "Don't stand up so fast after hurting yourself!"
+    s "Uuuu..."
+    mc "Well, I guess it's too late now..."
+    mc "Anyway, let's go."
+    scene bg corridor
+    with wipeleft_scene
+    "I follow Sayori out of the classroom."
+    "Sayori plays with her bangs to try to hide the bump, but without much success."
+    "In a moment, we make it back to the clubroom."
+    scene bg club_day
+    show sayori 1a zorder 2 at t21
+    show monika 1b zorder 2 at t22
+    with wipeleft_scene
+    show monika zorder 3 at f22
+    m "Ah, you're back!"
+    m "Good timing, I was just about ready to start with sharing our poems."
+    m 1d "Eh? Sayori, your forehead..."
+    show monika zorder 2 at t22
+    mc "She's fine, don't worry about--"
+    show sayori 4r zorder 3 at f21
+    s "I was playing with the crayons and smacked my forehead into the shelf!"
+    show sayori zorder 2 at t21
+    mc "..."
+    show monika 3m zorder 3 at f22
+    m "..."
+    m 3l "...Well, anyway!"
+    m 1a "Were you able to find everything we needed?"
+    show monika zorder 2 at t22
+    show sayori 1x zorder 3 at f21
+    s "Uh-huh! I have it right--"
+    s 1n "...Eh?"
+    "Sayori frantically glances around herself."
+    show sayori 4m zorder 3 at hf21
+    s "I...forgot all of the stuff!!"
+    show sayori zorder 2 at t21
+    mc "Calm down, Sayori."
+    mc "I have it all right here."
+    mc "I found the poster paper, too."
+    show sayori 4b
+    show monika 5a zorder 3 at f22
+    m "Ahaha!"
+    m "Sounds like you ended up doing all the work, [player]."
+    show monika zorder 2 at t22
+    mc "Ah, well, Sayori--"
+    "I fail to come up with an excuse for Sayori."
+    show sayori 1q zorder 3 at f21
+    s "I made it an adventure!"
+    show sayori 1a zorder 2 at t21
+    mc "...Yeah, that."
+    show monika 1j zorder 3 at f22
+    m "Ahaha, okay, okay."
+    m 1a "In any case, good work!"
+    m "I'll start working on the posters tonight."
+    show monika zorder 2 at t22
+    show sayori 4x zorder 3 at f21
+    s "Me too!"
+    show monika zorder 2 at t11
+    show sayori behind monika at thide
+    hide sayori
+    m 4b "...Okay, everyone!"
+    m "Are you ready to share your poems?"
+    mc "Guess I should grab mine..."
+    "After making sure the crayon box is closed tightly, I return to my seat."
+	]]
 	end
 end
