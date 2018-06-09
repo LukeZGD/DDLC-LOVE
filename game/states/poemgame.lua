@@ -159,6 +159,27 @@ function drawPoemGame()
 			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
 			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
 		end
+	elseif sjump == 1 then
+		if y_velocity == 0 then
+			y_velocity = jump_height
+		end
+		if s_sticker_1 then love.graphics.draw(s_sticker_1,50,p_y) end
+		if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
+		if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
+	elseif njump == 1 then
+		if y_velocity == 0 then
+			y_velocity = jump_height
+		end
+		if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
+		if n_sticker_1 then love.graphics.draw(n_sticker_1,110,p_y) end
+		if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
+	elseif yjump == 1 then
+		if y_velocity == 0 then
+			y_velocity = jump_height
+		end
+		if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
+		if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
+		if y_sticker_1 then love.graphics.draw(y_sticker_1,190,p_y) end
 	else
 		p_y = 100
 		if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
@@ -189,6 +210,22 @@ function updatePoemGame(dt)
     if p_y > ground then  
 		y_velocity = 0     
     	p_y = ground  
+	end
+	
+	if global_os ~= 'HorizonNX' then
+		if mouseDown then
+			if mouseX>=50 and mouseX<=105 and mouseY>=90 and mouseY<=196 then
+				sjump = 1
+			elseif mouseX>=110 and mouseX<=185 and mouseY>=90 and mouseY<=196 then
+				njump = 1
+			elseif mouseX>=190 and mouseX<=260 and mouseY>=90 and mouseY<=196 then
+				yjump = 1
+			end
+		else
+			sjump = nil
+			njump = nil
+			yjump = nil
+		end
 	end
 end
 
