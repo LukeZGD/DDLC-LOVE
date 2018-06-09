@@ -32,7 +32,7 @@ function menu_draw()
 	if menu_previous then love.graphics.rectangle('fill', 16, 220, 50, 16 ) end
 	
 	love.graphics.setColor(0,0,0)
-	love.graphics.print('>',cX,cY,0,1,1)
+	love.graphics.draw(guicheck,cX,cY)
 	
 	if menu_type == 'title' then
 		love.graphics.print('Main Menu:',16, 20)
@@ -272,25 +272,25 @@ end
 
 function m_select()
 	if m_selected == 2 then
-		cX = 8
+		cX = 2
 		cY = 45
 	elseif m_selected == 3 then
-		cX = 8
+		cX = 2
 		cY = 70
 	elseif m_selected == 4 then
-		cX = 8
+		cX = 2
 		cY = 95
 	elseif m_selected == 5 then
-		cX = 8
+		cX = 2
 		cY = 120
 	elseif m_selected == 6 then
-		cX = 8
+		cX = 2
 		cY = 145
 	elseif m_selected == 7 then
-		cX = 8
+		cX = 2
 		cY = 170
 	elseif m_selected == 8 then
-		cX = 8
+		cX = 2
 		cY = 195
 	end
 end
@@ -298,28 +298,28 @@ end
 function m_selectchoice()
 	if m_selected == 2 then
 		if choice1 ~= nil then choicepick = choice1 end
-		cX = 8
+		cX = 2
 		cY = 45
 	elseif m_selected == 3 then
 		if choice2 ~= nil then choicepick = choice2 end
-		cX = 8
+		cX = 2
 		cY = 70
 	elseif m_selected == 4 then
 		if choice3 ~= nil then choicepick = choice3 end
-		cX = 8
+		cX = 2
 		cY = 95
 	elseif m_selected == 5 then
 		if choice4 ~= nil then choicepick = choice4 end
-		cX = 8
+		cX = 2
 		cY = 120
 	elseif m_selected == 6 then
-		cX = 8
+		cX = 2
 		cY = 145
 	elseif m_selected == 7 then
-		cX = 8
+		cX = 2
 		cY = 170
 	elseif m_selected == 8 then
-		cX = 8
+		cX = 2
 		cY = 195
 	end
 end

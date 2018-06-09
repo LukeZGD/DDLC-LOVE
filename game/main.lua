@@ -22,7 +22,7 @@ function love.load()
 	--os detection
 	global_os = love.system.getOS()
 	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
-		love.window.setMode(400, 480) 
+		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
 	end
 	
@@ -30,6 +30,9 @@ function love.load()
 end
 
 function love.draw() 
+	if global_os ~= 'Horizon' then love.graphics.scale(1.5, 1.5) end
+	if global_os == 'HorizonNX' then love.graphics.translate(0, 340) end
+		
 	if state == 'load' then
 		drawLoad()
 	elseif state == 'splash1' or state == 'splash2' or state == 'title' then --title (Title Screen)
@@ -58,6 +61,7 @@ function love.draw()
 end
 
 function love.update(dt)
+	--moving background (3DS only)
 	if global_os == 'Horizon' then
 		posX = posX - 0.25
 		posY = posY - 0.25
@@ -65,13 +69,14 @@ function love.update(dt)
 		if posY <= -80 then posY = 0 end
 	end
 
+	--touch(3DS only)/mouse checks
 	if global_os ~= 'HorizonNX' then
 		mouseDown = love.mouse.isDown(1)
 		mouseX = love.mouse.getX()
 		mouseY = love.mouse.getY()
 		if global_os ~= 'Horizon' then
-			mouseX = mouseX - 40
-			mouseY = mouseY - 240
+			mouseX = mouseX / 1.5 - 40
+			mouseY = mouseY / 1.5 - 240
 		end
 	end
 	
@@ -121,14 +126,20 @@ function love.keyreleased(key)
 	end
 end
 
+--For the Switch
+function love.gamepadpressed(joy, button)
+	love.keypressed(button)
+end
+function love.gamepadreleased(joy, button)
+	love.keyreleased(button)
+end
+
 function love.textinput(text)
-	if global_os == 'Horizon' then
-		if text ~= '' then 
-			player = text
-			savegame()
-			changeState('game',1)
-		else
-			state = 'title'
-		end
+	if text ~= '' then 
+		player = text
+		savegame()
+		changeState('game',1)
+	else
+		state = 'title'
 	end
 end

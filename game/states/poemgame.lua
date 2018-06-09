@@ -110,7 +110,7 @@ function drawPoemGame()
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	love.graphics.print('>',cursorX,cursorY,0,1,1)
+	love.graphics.draw(guicheck,cursorX,cursorY)
 
 	if poemfont then love.graphics.setFont(poemfont) end
 	if poemword <= 20 then
@@ -195,44 +195,44 @@ end
 function menuselect()
 
 	if menuselected == 1 then
-		cursorX = 110
-		cursorY = 43
+		cursorX = 106
+		cursorY = 44
 		wordpick = word1r
 	elseif menuselected == 2 then
-		cursorX = 110
-		cursorY = 78
+		cursorX = 106
+		cursorY = 79
 		wordpick = word2r
 	elseif menuselected == 3 then
-		cursorX = 110
-		cursorY = 116
+		cursorX = 106
+		cursorY = 117
 		wordpick = word3r
 	elseif menuselected == 4 then
-		cursorX = 110
-		cursorY = 151
+		cursorX = 106
+		cursorY = 152
 		wordpick = word4r
 	elseif menuselected == 5 then
-		cursorX = 110
-		cursorY = 186
+		cursorX = 106
+		cursorY = 187
 		wordpick = word5r
 	elseif menuselected == 6 then
-		cursorX = 193
-		cursorY = 43
+		cursorX = 189
+		cursorY = 44
 		wordpick = word6r
 	elseif menuselected == 7 then
-		cursorX = 193
-		cursorY = 78
+		cursorX = 189
+		cursorY = 79
 		wordpick = word7r
 	elseif menuselected == 8 then
-		cursorX = 193
-		cursorY = 116
+		cursorX = 189
+		cursorY = 117
 		wordpick = word8r
 	elseif menuselected == 9 then
-		cursorX = 193
-		cursorY = 151
+		cursorX = 189
+		cursorY = 152
 		wordpick = word9r
 	elseif menuselected == 10 then
-		cursorX = 193
-		cursorY = 186
+		cursorX = 189
+		cursorY = 187
 		wordpick = word10r
 	end
 
@@ -242,13 +242,26 @@ function poemgamekeypressed(key)
 	if menu_enabled == false then
 	
 	if key == 'down' or key == 'cpaddown' then
-		if menuselected <= 9 then
+		
+		if menuselected == 10 then
+			menuselected = 6
+			menuselect()
+		elseif menuselected == 5 then
+			menuselected = 1
+			menuselect()
+		elseif menuselected <= 9 then
 			menuselected = menuselected + 1
 			menuselect()
 		end
 		
 	elseif key == 'up' or key == 'cpadup' then
-		if menuselected >= 2 then
+		if menuselected == 1 then
+			menuselected = 5
+			menuselect()
+		elseif menuselected == 6 then
+			menuselected = 10
+			menuselect()
+		elseif menuselected >= 2 then
 			menuselected = menuselected - 1
 			menuselect()
 		end
