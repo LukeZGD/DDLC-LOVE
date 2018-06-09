@@ -135,11 +135,13 @@ function love.gamepadreleased(joy, button)
 end
 
 function love.textinput(text)
-	if text ~= '' then 
-		player = text
-		savegame()
-		changeState('game',1)
-	else
-		state = 'title'
+	if global_os == 'Horizon' then
+		if text ~= '' then 
+			player = text
+			savegame()
+			changeState('game',1)
+		else
+			state = 'title'
+		end
 	end
 end
