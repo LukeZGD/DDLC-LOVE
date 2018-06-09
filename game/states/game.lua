@@ -67,14 +67,14 @@ function drawGame()
 end
 
 function drawPoem()
-	if yuri_2 or yuri_3 then
+	if poembg then
 		love.graphics.draw(poembg, 40, 0)
 	else
 		love.graphics.setColor(243,243,243)
 		love.graphics.rectangle('fill',40,0,320,240)
 	end
 	love.graphics.setColor(0,0,0)
-	love.graphics.print(poemtext, 45, 15)
+	love.graphics.print(poemtext, 45, 6)
 end
 
 function updateGame(dt)

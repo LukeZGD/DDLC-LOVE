@@ -25,6 +25,8 @@ function updateLoad()
 		namebox = love.graphics.newImage('images/gui/namebox.png')
 		textbox = love.graphics.newImage('images/gui/textbox.png')
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
+		guicheck = love.graphics.newImage('images/gui/check.png')
+		guicheckwhite = love.graphics.newImage('images/gui/checkwhite.png')
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
 		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
 		

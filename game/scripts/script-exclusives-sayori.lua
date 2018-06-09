@@ -424,7 +424,7 @@ end
 
 function sayori_exclusive_2()
 	if cl == 1359 then
-		if audio1 ~= 2 then audioUpdate('2') end
+		if audio1 ~= '2' then audioUpdate('2') end
 		bgUpdate('club')
 		cw('s',player..", "..player.."!")
 	elseif cl == 1360 then
@@ -434,334 +434,581 @@ function sayori_exclusive_2()
 		cw('s',"I'm gonna go get some supplies from another classroom.")
 	elseif cl == 1362 then
 		cw('s',"Want to come with me?")
-	--[[
-    mc "Supplies?"
-    mc "What for?"
-    s 2a "Well, you know how the festival is coming up?"
-    s "Me and Monika were gonna make some posters and stuff."
-    s "So I need to go find some crayons, and markers, and glue sticks..."
-    mc "Ah, I see."
-    mc "Sure, I'll go with you."
-    s 4q "Yaay~"
-    s 4x "Okay Monika, we'll be back soon!"
-    show sayori zorder 2 at t22
-    show monika 1a zorder 3 at f21
-    m "Ah, are you going with [player] to get the supplies?"
-    m "There's no need to trouble yourself."
-    m "I'd be happy to go with him."
-    show monika zorder 2 at t21
-    show sayori 1h at s22
-    s "Aw, but I wanted to go!"
-    s "It's so much fun exploring empty classrooms and stuff!"
-    show monika zorder 3 at f21
-    m 2j "Hehe, okay, okay."
-    m 2a "It was just a suggestion."
-    m "See if you can find poster paper too, okay?"
-    show monika zorder 2 at t21
-    show sayori zorder 3 at f22
-    s 1r "Okaay~!"
-    s 1a "Ready, [player]?"
-    mc "Yep, let's go."
-    scene bg corridor
-    show sayori 4a zorder 2 at t11
-    with wipeleft_scene
-    "Sayori and I exit the clubroom."
-    "I follow behind as Sayori hums and skips around the hallway."
-    "Honestly..."
-    "It feels like I'm taking a kid to the mall or something."
-    "Sayori finds pleasure in the simplest things sometimes."
-    mc "Hey, Sayori..."
-    mc "What exactly are we doing for the festival, anyway?"
-    mc "I'm not sure how you would make an event out of literature..."
-    s 1q "Ehehe!"
-    s 1x "Me and Monika have it all planned out!"
-    s "Don't you worry~"
-    mc "Is that so...?"
-    s "Yup!"
-    s "We're gonna do a poetry performance!"
-    mc "A performance...?"
-    mc "Of what kind?"
-    s 1c "Well..."
-    s "Everyone is gonna take turns on stage..."
-    s 1x "And recite their favorite poems!"
-    mc "Ah..."
-    mc "That sounds..."
-    "...Kind of dull?"
-    s 1h "[player]!"
-    s "You're not thinking about it the right way at all!"
-    s "It's not just about reading poems..."
-    s 1x "It's about performing them!"
-    s "Like, you say the lines of the poem like..."
-    s 2j "{i}Between my feet...{/i}"
-    s "{i}The last remaining flower beckons to me.{/i}"
-    s 1c "{i}I twist the stem, freeing it from its clinging roots...{/i}"
-    s "{i}Caressing the final joyous moment between my fingers.{/i}"
-    s 3g "{i}But to what ends have I summoned this joy?{/i}"
-    s "{i}For now when I look in every direction...{/i}"
-    s 1j "{i}The once-prosperous field before me...{/i}"
-    show sayori at h11
-    s 4m "{i}Is but a barren wasteland!{/i}"
-    s "..."
-    s 1r "Like that!!"
-    mc "Sayori..."
-    "How do I put this..."
-    mc "I'm sure it's just me, but it's impossible for me to take you seriously when you talk like that..."
-    show sayori 5c at s11
-    s "Ehhh?"
-    s "You meanie!"
-    s "I'm working super hard on this, you know!"
-    mc "Ah, I know, I know!"
-    mc "I just meant that it's a pretty unordinary contrast to your cute self."
-    show sayori 4s zorder 2 at t11
-    s "Ahaha! Don't say that, it's embarrassing!"
-    s 4y "But I guess that means I'm doing a good job~"
-    mc "Yeah, I guess so..."
-    show sayori at h11
-    s 4r "Aaah, I'm so excited!"
-    s "The festival is going to be so much fun~"
-    "Sayori spins herself around in the hallway again."
-    s 1x "Hey, [player], this classroom over here is empty!"
-    s "Let's begin the mission!"
-    show sayori zorder 1 at thide
-    hide sayori
-    mc "The mission, eh...?"
-    "It's been a long time since I've spent time with Sayori like this."
-    "But in the end, she hasn't changed one bit."
-    "She's nothing but a ball of sunshine, drawing happy vibes from the world around her."
-    "It's a pretty nostalgic feeling for me."
-    "As the years went by, I began to hole myself up in my room more and more."
-    "So going adventuring with Sayori brings about a special sort of feeling I forgot I had in me."
-    scene bg class_day
-    with wipeleft_scene
-    "The two of us enter the classroom."
-    "Sayori heads straight to the closet, and I follow."
-    show sayori 1b zorder 2 at t11
-    s "Let's see what we have in here..."
-    s 4x "...Crayons!!"
-    "Sayori pulls a box full of crayons off the shelf."
-    s "They're the best brand, too!"
-    s 1b "They're kind of dirty, though..."
-    "Sayori starts pulling various crayons out of the box, reading the color names."
-    mc "Alright, that's one down."
-    mc "Don't get distracted, we still need to find--"
-    s 1a "Wait, I'm looking for my favorite color..."
-    mc "Fine, fine..."
-    mc "Then at least move aside so I can look for the poster paper."
-    s 1b "Ah, I dropped one by accident--"
-    play sound "sfx/smack.ogg"
-    show white zorder 4:
-        alpha 0.6
-        linear 0.25 alpha 0.0
-    show sayori 2p at h11
-    "{i}Smack!{/i}"
-    hide white
-    s "Kya--!"
-    "Sayori bends over and smacks her forehead right into the shelf."
-    "She falls to the floor, and the crayons spill all over her lap."
-    show sayori 4p at s11
-    s "Owowowowow..."
-    mc "You okay?"
-    s "My forehead..."
-    "Sayori clutches her forehead."
-    mc "Jeez, Sayori..."
-    mc "That's just like you, isn't it?"
-    mc "C'mon, let me see."
-    "Since Sayori is sitting on the floor, I grab her by the waist and pull her out of the closet."
-    mc "You have to move your hands, Sayori..."
-    s 4g "But it hurts..."
-    mc "Just do it for a second."
-    $ persistent.clear[7] = True
-    scene s_cg2_base1
-    show s_cg2_exp2
-    with dissolve_cg
-    "Sayori slowly releases her hands from her forehead."
-    "I gently brush her bangs to the side."
-    show s_cg2_exp1 at cgfade
-    show s_cg2_exp3 at cgfade
-    s "Ow--!"
-    mc "Sorry..."
-    "There's a huge red mark on the center of her forehead."
-    "A bump is starting to form, as well."
-    mc "Man, that's gonna swell up."
-    mc "I should find you some ice..."
-    hide s_cg2_exp3
-    hide s_cg2_exp1
-    s "[player]..."
-    mc "Where would I even find ice around this time...?"
-    mc "Ah, I guess a cold drink would do..."
-    s "You don't have to--!"
-    show s_cg2_exp2 at cgfade
-    hide s_cg2_exp2
-    s "I'm fine with--looking like a unicorn--"
-    "Even wincing from the pain, Sayori makes a silly joke."
-    mc "Ahaha, what are you saying?"
-    mc "I'll be right back, okay?"
-    s "O-Okay..."
-    stop music fadeout 1.0
-    scene bg corridor with wipeleft_scene
-    "I pat Sayori on the shoulder and run out into the hallway."
-    "I locate the nearest vending machine."
-    mc "What should I get...?"
-    "It doesn't really matter, since it will be used as an ice pack, rather than to drink."
-    "But I know Sayori likes apple juice, so I purchase that one."
-    "In just a moment, I'm already returning to the classroom where I left Sayori."
-    scene s_cg2_base1
-    show s_cg2_exp2
-    with wipeleft_scene
-    play music t9
-    "She has one palm on her forehead and is using the other hand to clumsily scoop crayons back into the box."
-    s "At least they were already in the wrong spots before I spilled them..."
-    mc "Sayori, here."
-    show s_cg2_base2 behind s_cg2_exp2 at cgfade
-    "I hand Sayori the bottle of apple juice."
-    show s_cg2_exp2 at cgfade
-    hide s_cg2_exp2
-    s "It's nice and cold..."
-    "Sayori opens the cap and starts drinking from it."
-    mc "Sayori, what are you doing?!"
-    mc "It's for your forehead, idiot!"
-    show s_cg2_exp3 at cgfade
-    s "Ah--"
-    s "Sorry, I forgot~"
-    s "Ahahaha!"
-    mc "How hard did you hit your head...?"
-    "Sayori places the bottle against the bump on her head."
-    show s_cg2_exp1 at cgfade
-    s "It stings..."
-    mc "Just bear with it, it'll feel better soon."
-    mc "Looks like you cleaned up most of the crayons, so that's good."
-    hide s_cg2_exp1
-    hide s_cg2_exp3
-    s "Hey, [player]..."
-    s "This kind of reminds you of growing up, doesn't it...?"
-    mc "Eh? What do you mean?"
-    s "You know how we used to play outside all the time..."
-    s "I would always try to keep up with you."
-    s "You were kind of oblivious in some ways..."
-    s "Like I usually fell behind or had trouble climbing on the things you did..."
-    s "But sometimes when I tried to do things I couldn't, I would get myself hurt."
-    s "I'd fall and scrape myself, or get a bump..."
-    s "And I would start crying really hard."
-    show s_cg2_exp3 at cgfade
-    s "Ahaha!"
-    s "And you would rush over as quick as you could."
-    hide s_cg2_exp3
-    s "You would try really hard to get me to stop crying."
-    s "It was almost like you blamed yourself and were afraid of getting in trouble if someone found out..."
-    s "Even though it really wasn't your fault at all, you know?"
-    mc "Did I really do that...?"
-    s "Yeah...you don't remember?"
-    mc "Come to think of it, maybe I do remember a bit..."
-    mc "I guess I was always so focused on my games that I didn't pay enough attention to you."
-    mc "So in a way, it was my fault."
-    mc "Kind of like this time, too..."
-    mc "If I wasn't rushing you out of the closet, you probably wouldn't have hit your head."
-    s "[player]..."
-    s "I don't think you realize it, but you're always thinking about other people."
-    s "Even after all these years..."
-    s "You're rushing to help me, even though I'm just being clumsy."
-    show s_cg2_exp3 at cgfade
-    s "You're really a sweetheart..."
-    mc "D-Don't call me that!"
-    mc "And I don't really do this kind of thing all the time..."
-    mc "I guess when it comes to you, it just feels natural."
-    mc "Before I even know it, I'm treating you like that."
-    mc "I guess that's what happens when you've been friends for so long."
-    hide s_cg2_exp3
-    s "Really...?"
-    s "Maybe you're right..."
-    s "[player]..."
-    s "I'm so glad that nothing's changed between us."
-    s "Do you think it'll be like this forever?"
-    mc "Forever...?"
-    "If I'm honest to myself..."
-    "There's no telling where we'll each end up for college, or after that."
-    "So it wouldn't be fair for me to make any promises."
-    "But..."
-    mc "Well, I hope so."
-    mc "It's been this long already, right?"
-    mc "I can't imagine you ever changing, so my hopes are up."
-    s "I'm so happy..."
-    "Sayori has a whimsical expression in her eyes."
-    "We remain silent for a moment."
-    "She's so silly and clumsy on the outside that when I see her deep in thought like this..."
-    "It makes me not want to disturb her."
-    s "I guess we should go back..."
-    s "I don't want to worry Monika, you know?"
-    mc "Good luck with that."
-    mc "She's gonna see your forehead either way."
-    s "Not if I hide it under my bangs~"
-    play music t8 fadeout 1.0
-    scene bg class_day
-    show sayori 1a zorder 2 at i11
-    with dissolve_cg
-    "Sayori hops to her feet."
-    show sayori 4p at s11
-    s "A-Aaahh--!"
-    "She clutches her forehead again."
-    mc "Don't stand up so fast after hurting yourself!"
-    s "Uuuu..."
-    mc "Well, I guess it's too late now..."
-    mc "Anyway, let's go."
-    scene bg corridor
-    with wipeleft_scene
-    "I follow Sayori out of the classroom."
-    "Sayori plays with her bangs to try to hide the bump, but without much success."
-    "In a moment, we make it back to the clubroom."
-    scene bg club_day
-    show sayori 1a zorder 2 at t21
-    show monika 1b zorder 2 at t22
-    with wipeleft_scene
-    show monika zorder 3 at f22
-    m "Ah, you're back!"
-    m "Good timing, I was just about ready to start with sharing our poems."
-    m 1d "Eh? Sayori, your forehead..."
-    show monika zorder 2 at t22
-    mc "She's fine, don't worry about--"
-    show sayori 4r zorder 3 at f21
-    s "I was playing with the crayons and smacked my forehead into the shelf!"
-    show sayori zorder 2 at t21
-    mc "..."
-    show monika 3m zorder 3 at f22
-    m "..."
-    m 3l "...Well, anyway!"
-    m 1a "Were you able to find everything we needed?"
-    show monika zorder 2 at t22
-    show sayori 1x zorder 3 at f21
-    s "Uh-huh! I have it right--"
-    s 1n "...Eh?"
-    "Sayori frantically glances around herself."
-    show sayori 4m zorder 3 at hf21
-    s "I...forgot all of the stuff!!"
-    show sayori zorder 2 at t21
-    mc "Calm down, Sayori."
-    mc "I have it all right here."
-    mc "I found the poster paper, too."
-    show sayori 4b
-    show monika 5a zorder 3 at f22
-    m "Ahaha!"
-    m "Sounds like you ended up doing all the work, [player]."
-    show monika zorder 2 at t22
-    mc "Ah, well, Sayori--"
-    "I fail to come up with an excuse for Sayori."
-    show sayori 1q zorder 3 at f21
-    s "I made it an adventure!"
-    show sayori 1a zorder 2 at t21
-    mc "...Yeah, that."
-    show monika 1j zorder 3 at f22
-    m "Ahaha, okay, okay."
-    m 1a "In any case, good work!"
-    m "I'll start working on the posters tonight."
-    show monika zorder 2 at t22
-    show sayori 4x zorder 3 at f21
-    s "Me too!"
-    show monika zorder 2 at t11
-    show sayori behind monika at thide
-    hide sayori
-    m 4b "...Okay, everyone!"
-    m "Are you ready to share your poems?"
-    mc "Guess I should grab mine..."
-    "After making sure the crayon box is closed tightly, I return to my seat."
-	]]
+	elseif cl == 1363 then
+		cw('mc',"Supplies?")
+	elseif cl == 1364 then
+		cw('mc',"What for?")
+	elseif cl == 1365 then
+		updateSayori('2','a')
+		cw('s',"Well, you know how the festival is coming up?")
+	elseif cl == 1366 then
+		cw('s',"Me and Monika were gonna make some posters and stuff.")
+	elseif cl == 1367 then
+		cw('s',"So I need to go find some crayons, and markers, and glue sticks...")
+	elseif cl == 1368 then
+		cw('mc',"Ah, I see.")
+	elseif cl == 1369 then
+		cw('mc',"Sure, I'll go with you.")
+	elseif cl == 1370 then
+		updateSayori('4','q')
+		cw('s',"Yaay~")
+	elseif cl == 1371 then
+		updateSayori('4','x')
+		cw('s',"Okay Monika, we'll be back soon!")
+	elseif cl == 1372 then
+		updateSayori('4','x',10)
+		updateMonika('1','a',150)
+		cw('m',"Ah, are you going with "..player.." to get the supplies?")
+	elseif cl == 1373 then
+		cw('m',"There's no need to trouble yourself.")
+	elseif cl == 1374 then
+		cw('m',"I'd be happy to go with him.")
+	elseif cl == 1375 then
+		updateSayori('1','h')
+		cw('s',"Aw, but I wanted to go!")
+	elseif cl == 1376 then
+		cw('s',"It's so much fun exploring empty classrooms and stuff!")
+	elseif cl == 1377 then
+		updateMonika('2','j')
+		cw('m',"Hehe, okay, okay.")
+	elseif cl == 1378 then
+		updateMonika('2','a')
+		cw('m',"It was just a suggestion.")
+	elseif cl == 1379 then
+		cw('m',"See if you can find poster paper too, okay?")
+	elseif cl == 1380 then
+		updateSayori('1','r')
+		cw('s',"Okaay~!")
+	elseif cl == 1381 then
+		updateSayori('1','a')
+		cw('s',"Ready, "..player.."?")
+	elseif cl == 1382 then
+		cw('mc',"Yep, let's go.")
+	elseif cl == 1383 then
+		hideMonika()
+		bgUpdate('corridor')
+		updateSayori('4','a',80)
+		cw('bl',"Sayori and I exit the clubroom.")
+	elseif cl == 1384 then
+		cw('bl',"I follow behind as Sayori hums and skips around the hallway.")
+	elseif cl == 1385 then
+		cw('bl',"Honestly...")
+	elseif cl == 1386 then
+		cw('bl',"It feels like I'm taking a kid to the mall or something.")
+	elseif cl == 1387 then
+		cw('bl',"Sayori finds pleasure in the simplest things sometimes.")
+	elseif cl == 1388 then
+		cw('mc',"Hey, Sayori...")
+	elseif cl == 1389 then
+		cw('mc',"What exactly are we doing for the festival, anyway?")
+	elseif cl == 1390 then
+		cw('mc',"I'm not sure how you would make an event out of literature...")
+	elseif cl == 1391 then
+		updateSayori('1','q')
+		cw('s',"Ehehe!")
+	elseif cl == 1392 then
+		updateSayori('1','x')
+		cw('s',"Me and Monika have it all planned out!")
+	elseif cl == 1393 then
+		cw('s',"Don't you worry~")
+	elseif cl == 1394 then
+		cw('mc',"Is that so...?")
+	elseif cl == 1395 then
+		cw('s',"Yup!")
+	elseif cl == 1396 then
+		cw('s',"We're gonna do a poetry performance!")
+	elseif cl == 1397 then
+		cw('mc',"A performance...?")
+	elseif cl == 1398 then
+		cw('mc',"Of what kind?")
+	elseif cl == 1399 then
+		updateSayori('1','c')
+		cw('s',"Well...")
+	elseif cl == 1400 then
+		cw('s',"Everyone is gonna take turns on stage...")
+	elseif cl == 1401 then
+		updateSayori('1','x')
+		cw('s',"And recite their favorite poems!")
+	elseif cl == 1402 then
+		cw('mc',"Ah...")
+	elseif cl == 1403 then
+		cw('mc',"That sounds...")
+	elseif cl == 1404 then
+		cw('bl',"...Kind of dull?")
+	elseif cl == 1405 then
+		updateSayori('1','h')
+		cw('s',player.."!")
+	elseif cl == 1406 then
+		cw('s',"You're not thinking about it the right way at all!")
+	elseif cl == 1407 then
+		cw('s',"It's not just about reading poems...")
+	elseif cl == 1408 then
+		updateSayori('1','x')
+		cw('s',"It's about performing them!")
+	elseif cl == 1409 then
+		cw('s',"Like, you say the lines of the poem like...")
+	elseif cl == 1410 then
+		updateSayori('2','j')
+		cw('s',"Between my feet...")
+	elseif cl == 1411 then
+		cw('s',"The last remaining flower beckons to me.")
+	elseif cl == 1412 then
+		updateSayori('1','c')
+		cw('s',"I twist the stem, freeing it from its clinging roots...")
+	elseif cl == 1413 then
+		cw('s',"Caressing the final joyous moment between my fingers.")
+	elseif cl == 1414 then
+		updateSayori('3','g')
+		cw('s',"But to what ends have I summoned this joy?")
+	elseif cl == 1415 then
+		cw('s',"For now when I look in every direction...")
+	elseif cl == 1416 then
+		updateSayori('1','j')
+		cw('s',"The once-prosperous field before me...")
+	elseif cl == 1417 then
+		updateSayori('4','m')
+		cw('s',"Is but a barren wasteland!")
+	elseif cl == 1418 then
+		cw('s',"...")
+	elseif cl == 1419 then
+		updateSayori('1','r')
+		cw('s',"Like that!!")
+	elseif cl == 1420 then
+		cw('mc',"Sayori...")
+	elseif cl == 1421 then
+		cw('bl',"How do I put this...")
+	elseif cl == 1422 then
+		cw('mc',"I'm sure it's just me, but it's impossible for me to take you seriously when you talk like that...")
+	elseif cl == 1423 then
+		updateSayori('5c')
+		cw('s',"Ehhh?")
+	elseif cl == 1424 then
+		cw('s',"You meanie!")
+	elseif cl == 1425 then
+		cw('s',"I'm working super hard on this, you know!")
+	elseif cl == 1426 then
+		cw('mc',"Ah, I know, I know!")
+	elseif cl == 1427 then
+		cw('mc',"I just meant that it's a pretty unordinary contrast to your cute self.")
+	elseif cl == 1428 then
+		updateSayori('4','s')
+		cw('s',"Ahaha! Don't say that, it's embarrassing!")
+	elseif cl == 1429 then
+		updateSayori('4','y')
+		cw('s',"But I guess that means I'm doing a good job~")
+	elseif cl == 1430 then
+		cw('mc',"Yeah, I guess so...")
+	elseif cl == 1431 then
+		updateSayori('4','r')
+		cw('s',"Aaah, I'm so excited!")
+	elseif cl == 1432 then
+		cw('s',"The festival is going to be so much fun~")
+	elseif cl == 1433 then
+		cw('bl',"Sayori spins herself around in the hallway again.")
+	elseif cl == 1434 then
+		updateSayori('1','x')
+		cw('s',"Hey, "..player..", this classroom over here is empty!")
+	elseif cl == 1435 then
+		cw('s',"Let's begin the mission!")
+	elseif cl == 1436 then
+		hideSayori()
+		cw('mc',"The mission, eh...?")
+	elseif cl == 1437 then
+		cw('bl',"It's been a long time since I've spent time with Sayori like this.")
+	elseif cl == 1438 then
+		cw('bl',"But in the end, she hasn't changed one bit.")
+	elseif cl == 1439 then
+		cw('bl',"She's nothing but a ball of sunshine, drawing happy vibes from the world around her.")
+	elseif cl == 1440 then
+		cw('bl',"It's a pretty nostalgic feeling for me.")
+	elseif cl == 1441 then
+		cw('bl',"As the years went by, I began to hole myself up in my room more and more.")
+	elseif cl == 1442 then
+		cw('bl',"So going adventuring with Sayori brings about a special sort of feeling I forgot I had in me.")
+	elseif cl == 1443 then
+		bgUpdate('class')
+		cw('bl',"The two of us enter the classroom.")
+	elseif cl == 1444 then
+		cw('bl',"Sayori heads straight to the closet, and I follow.")
+	elseif cl == 1445 then
+		updateSayori('1','b',80)
+		cw('s',"Let's see what we have in here...")
+	elseif cl == 1446 then
+		updateSayori('4','x')
+		cw('s',"...Crayons!!")
+	elseif cl == 1447 then
+		cw('bl',"Sayori pulls a box full of crayons off the shelf.")
+	elseif cl == 1448 then
+		cw('s',"They're the best brand, too!")
+	elseif cl == 1449 then
+		updateSayori('1','b')
+		cw('s',"They're kind of dirty, though...")
+	elseif cl == 1450 then
+		cw('bl',"Sayori starts pulling various crayons out of the box, reading the color names.")
+	elseif cl == 1451 then
+		cw('mc',"Alright, that's one down.")
+	elseif cl == 1452 then
+		cw('mc',"Don't get distracted, we still need to find--")
+	elseif cl == 1453 then
+		updateSayori('1','a')
+		cw('s',"Wait, I'm looking for my favorite color...")
+	elseif cl == 1454 then
+		cw('mc',"Fine, fine...")
+	elseif cl == 1455 then
+		cw('mc',"Then at least move aside so I can look for the poster paper.")
+	elseif cl == 1456 then
+		updateSayori('1','b')
+		cw('s',"Ah, I dropped one by accident--")
+	elseif cl == 1457 then
+		sfxplay('smack')
+		cw('bl',"Smack!")
+	elseif cl == 1458 then
+		cw('s',"Kya--!")
+	elseif cl == 1459 then
+		cw('bl',"Sayori bends over and smacks her forehead right into the shelf.")
+	elseif cl == 1460 then
+		cw('bl',"She falls to the floor, and the crayons spill all over her lap.")
+	elseif cl == 1461 then
+		updateSayori('4','p')
+		cw('s',"Owowowowow...")
+	elseif cl == 1462 then
+		cw('mc',"You okay?")
+	elseif cl == 1463 then
+		cw('s',"My forehead...")
+	elseif cl == 1464 then
+		cw('bl',"Sayori clutches her forehead.")
+	elseif cl == 1465 then
+		cw('mc',"Jeez, Sayori...")
+	elseif cl == 1466 then
+		cw('mc',"That's just like you, isn't it?")
+	elseif cl == 1467 then
+		cw('mc',"C'mon, let me see.")
+	elseif cl == 1468 then
+		cw('bl',"Since Sayori is sitting on the floor, I grab her by the waist and pull her out of the closet.")
+	elseif cl == 1469 then
+		cw('mc',"You have to move your hands, Sayori...")
+	elseif cl == 1470 then
+		updateSayori('4','g')
+		cw('s',"But it hurts...")
+	elseif cl == 1471 then
+		cw('mc',"Just do it for a second.")
+	elseif cl == 1472 then
+		hideAll()
+		bgUpdate('s_cg2_base1')
+		cgUpdate('s_cg2_exp2')
+		cw('bl',"Sayori slowly releases her hands from her forehead.")
+	elseif cl == 1473 then
+		cw('bl',"I gently brush her bangs to the side.")
+    elseif cl == 1474 then
+		cgUpdate('s_cg2_exp3')
+		cw('s',"Ow--!")
+	elseif cl == 1475 then
+		cw('mc',"Sorry...")
+	elseif cl == 1476 then
+		cw('bl',"There's a huge red mark on the center of her forehead.")
+	elseif cl == 1477 then
+		cw('bl',"A bump is starting to form, as well.")
+	elseif cl == 1478 then
+		cw('mc',"Man, that's gonna swell up.")
+	elseif cl == 1479 then
+		cw('mc',"I should find you some ice...")
+	elseif cl == 1480 then
+		cgUpdate('s_cg2_exp2')
+		cw('s',player.."...")
+	elseif cl == 1481 then
+		cw('mc',"Where would I even find ice around this time...?")
+	elseif cl == 1482 then
+		cw('mc',"Ah, I guess a cold drink would do...")
+	elseif cl == 1483 then
+		cw('s',"You don't have to--!")
+	elseif cl == 1484 then
+		cgHide()
+		cw('s',"I'm fine with--looking like a unicorn--")
+	elseif cl == 1485 then
+		cw('bl',"Even wincing from the pain, Sayori makes a silly joke.")
+	elseif cl == 1486 then
+		cw('mc',"Ahaha, what are you saying?")
+	elseif cl == 1487 then
+		cw('mc',"I'll be right back, okay?")
+	elseif cl == 1488 then
+		cw('s',"O-Okay...")
+	elseif cl == 1489 then
+		audioUpdate('0')
+		bgUpdate('corridor')
+		cw('bl',"I pat Sayori on the shoulder and run out into the hallway.")
+	elseif cl == 1490 then
+		cw('bl',"I locate the nearest vending machine.")
+	elseif cl == 1491 then
+		cw('mc',"What should I get...?")
+	elseif cl == 1492 then
+		cw('bl',"It doesn't really matter, since it will be used as an ice pack, rather than to drink.")
+	elseif cl == 1493 then
+		cw('bl',"But I know Sayori likes apple juice, so I purchase that one.")
+	elseif cl == 1494 then
+		cw('bl',"In just a moment, I'm already returning to the classroom where I left Sayori.")
+	elseif cl == 1495 then
+		bgUpdate('s_cg2_base1')
+		cgUpdate('s_cg2_exp2')
+		audioUpdate('9')
+		cw('bl',"She has one palm on her forehead and is using the other hand to clumsily scoop crayons back into the box.")
+	elseif cl == 1496 then
+		cw('s',"At least they were already in the wrong spots before I spilled them...")
+	elseif cl == 1497 then
+		cw('mc',"Sayori, here.")
+	elseif cl == 1498 then
+		bgUpdate('s_cg2_base2')
+		cw('bl',"I hand Sayori the bottle of apple juice.")
+    elseif cl == 1499 then
+		cgHide()
+		cw('s',"It's nice and cold...")
+	elseif cl == 1500 then
+		cw('bl',"Sayori opens the cap and starts drinking from it.")
+	elseif cl == 1501 then
+		cw('mc',"Sayori, what are you doing?!")
+	elseif cl == 1502 then
+		cw('mc',"It's for your forehead, idiot!")
+	elseif cl == 1503 then
+		cgUpdate('s_cg2_exp3')
+		cw('s',"Ah--")
+	elseif cl == 1504 then
+		cw('s',"Sorry, I forgot~")
+	elseif cl == 1505 then
+		cw('s',"Ahahaha!")
+	elseif cl == 1506 then
+		cw('mc',"How hard did you hit your head...?")
+	elseif cl == 1507 then
+		cw('bl',"Sayori places the bottle against the bump on her head.")
+	elseif cl == 1508 then
+		cgUpdate('s_cg2_exp1')
+		cw('s',"It stings...")
+	elseif cl == 1509 then
+		cw('mc',"Just bear with it, it'll feel better soon.")
+	elseif cl == 1510 then
+		cw('mc',"Looks like you cleaned up most of the crayons, so that's good.")
+	elseif cl == 1511 then
+		cgHide()
+		cw('s',"Hey, "..player.."...")
+	elseif cl == 1512 then
+		cw('s',"This kind of reminds you of growing up, doesn't it...?")
+	elseif cl == 1513 then
+		cw('mc',"Eh? What do you mean?")
+	elseif cl == 1514 then
+		cw('s',"You know how we used to play outside all the time...")
+	elseif cl == 1515 then
+		cw('s',"I would always try to keep up with you.")
+	elseif cl == 1516 then
+		cw('s',"You were kind of oblivious in some ways...")
+	elseif cl == 1517 then
+		cw('s',"Like I usually fell behind or had trouble climbing on the things you did...")
+	elseif cl == 1518 then
+		cw('s',"But sometimes when I tried to do things I couldn't, I would get myself hurt.")
+	elseif cl == 1519 then
+		cw('s',"I'd fall and scrape myself, or get a bump...")
+	elseif cl == 1520 then
+		cw('s',"And I would start crying really hard.")
+	elseif cl == 1521 then
+		cgUpdate('s_cg2_exp3')
+		cw('s',"Ahaha!")
+	elseif cl == 1522 then
+		cw('s',"And you would rush over as quick as you could.")
+	elseif cl == 1523 then
+		cgHide()
+		cw('s',"You would try really hard to get me to stop crying.")
+	elseif cl == 1524 then
+		cw('s',"It was almost like you blamed yourself and were afraid of getting in trouble if someone found out...")
+	elseif cl == 1525 then
+		cw('s',"Even though it really wasn't your fault at all, you know?")
+	elseif cl == 1526 then
+		cw('mc',"Did I really do that...?")
+	elseif cl == 1527 then
+		cw('s',"Yeah...you don't remember?")
+	elseif cl == 1528 then
+		cw('mc',"Come to think of it, maybe I do remember a bit...")
+	elseif cl == 1529 then
+		cw('mc',"I guess I was always so focused on my games that I didn't pay enough attention to you.")
+	elseif cl == 1530 then
+		cw('mc',"So in a way, it was my fault.")
+	elseif cl == 1531 then
+		cw('mc',"Kind of like this time, too...")
+	elseif cl == 1532 then
+		cw('mc',"If I wasn't rushing you out of the closet, you probably wouldn't have hit your head.")
+	elseif cl == 1533 then
+		cw('s',player.."...")
+	elseif cl == 1534 then
+		cw('s',"I don't think you realize it, but you're always thinking about other people.")
+	elseif cl == 1535 then
+		cw('s',"Even after all these years...")
+	elseif cl == 1536 then
+		cw('s',"You're rushing to help me, even though I'm just being clumsy.")
+	elseif cl == 1537 then
+		cgUpdate('s_cg2_exp3')
+		cw('s',"You're really a sweetheart...")
+	elseif cl == 1538 then
+		cw('mc',"D-Don't call me that!")
+	elseif cl == 1539 then
+		cw('mc',"And I don't really do this kind of thing all the time...")
+	elseif cl == 1540 then
+		cw('mc',"I guess when it comes to you, it just feels natural.")
+	elseif cl == 1541 then
+		cw('mc',"Before I even know it, I'm treating you like that.")
+	elseif cl == 1542 then
+		cw('mc',"I guess that's what happens when you've been friends for so long.")
+	elseif cl == 1543 then
+		cgHide()
+		cw('s',"Really...?")
+	elseif cl == 1544 then
+		cw('s',"Maybe you're right...")
+	elseif cl == 1545 then
+		cw('s',player.."...")
+	elseif cl == 1546 then
+		cw('s',"I'm so glad that nothing's changed between us.")
+	elseif cl == 1547 then
+		cw('s',"Do you think it'll be like this forever?")
+	elseif cl == 1548 then
+		cw('mc',"Forever...?")
+	elseif cl == 1549 then
+		cw('bl',"If I'm honest to myself...")
+	elseif cl == 1550 then
+		cw('bl',"There's no telling where we'll each end up for college, or after that.")
+	elseif cl == 1551 then
+		cw('bl',"So it wouldn't be fair for me to make any promises.")
+	elseif cl == 1552 then
+		cw('bl',"But...")
+	elseif cl == 1553 then
+		cw('mc',"Well, I hope so.")
+	elseif cl == 1554 then
+		cw('mc',"It's been this long already, right?")
+	elseif cl == 1555 then
+		cw('mc',"I can't imagine you ever changing, so my hopes are up.")
+	elseif cl == 1556 then
+		cw('s',"I'm so happy...")
+	elseif cl == 1557 then
+		cw('bl',"Sayori has a whimsical expression in her eyes.")
+	elseif cl == 1558 then
+		cw('bl',"We remain silent for a moment.")
+	elseif cl == 1559 then
+		cw('bl',"She's so silly and clumsy on the outside that when I see her deep in thought like this...")
+	elseif cl == 1560 then
+		cw('bl',"It makes me not want to disturb her.")
+	elseif cl == 1561 then
+		cw('s',"I guess we should go back...")
+	elseif cl == 1562 then
+		cw('s',"I don't want to worry Monika, you know?")
+	elseif cl == 1563 then
+		cw('mc',"Good luck with that.")
+	elseif cl == 1564 then
+		cw('mc',"She's gonna see your forehead either way.")
+	elseif cl == 1565 then
+		cw('s',"Not if I hide it under my bangs~")
+	elseif cl == 1566 then
+		audioUpdate('8')
+		bgUpdate('class')
+		updateSayori('1','a',80)
+		cw('bl',"Sayori hops to her feet.")
+	elseif cl == 1567 then
+		updateSayori('4','p')
+		cw('s',"A-Aaahh--!")
+	elseif cl == 1568 then
+		cw('bl',"She clutches her forehead again.")
+	elseif cl == 1569 then
+		cw('mc',"Don't stand up so fast after hurting yourself!")
+	elseif cl == 1570 then
+		cw('s',"Uuuu...")
+	elseif cl == 1571 then
+		cw('mc',"Well, I guess it's too late now...")
+	elseif cl == 1572 then
+		cw('mc',"Anyway, let's go.")
+	elseif cl == 1573 then
+		bgUpdate('corridor')
+		cw('bl',"I follow Sayori out of the classroom.")
+	elseif cl == 1574 then
+		cw('bl',"Sayori plays with her bangs to try to hide the bump, but without much success.")
+	elseif cl == 1575 then
+		cw('bl',"In a moment, we make it back to the clubroom.")
+	elseif cl == 1576 then
+		bgUpdate('club')
+		updateSayori('1','a',10)
+		updateMonika('1','b',150)
+		cw('m',"Ah, you're back!")
+	elseif cl == 1577 then
+		cw('m',"Good timing, I was just about ready to start with sharing our poems.")
+	elseif cl == 1578 then
+		updateMonika('1','d')
+		cw('m',"Eh? Sayori, your forehead...")
+	elseif cl == 1579 then
+		cw('mc',"She's fine, don't worry about--")
+	elseif cl == 1580 then
+		updateSayori('4','r')
+		cw('s',"I was playing with the crayons and smacked my forehead into the shelf!")
+	elseif cl == 1581 then
+		cw('mc',"...")
+	elseif cl == 1582 then
+		updateMonika('3','m')
+		cw('m',"...")
+    elseif cl == 1583 then
+		updateMonika('3','l')
+		cw('m',"...Well, anyway!")
+	elseif cl == 1584 then
+		updateMonika('1','a')
+		cw('m',"Were you able to find everything we needed?")
+	elseif cl == 1585 then
+		updateSayori('1','x')
+		cw('s',"Uh-huh! I have it right--")
+	elseif cl == 1586 then
+		updateSayori('1','n')
+		cw('s',"...Eh?")
+	elseif cl == 1587 then
+		cw('bl',"Sayori frantically glances around herself.")
+	elseif cl == 1588 then
+		updateSayori('4','m')
+		cw('s',"I...forgot all of the stuff!!")
+	elseif cl == 1589 then
+		cw('mc',"Calm down, Sayori.")
+	elseif cl == 1590 then
+		cw('mc',"I have it all right here.")
+	elseif cl == 1591 then
+		cw('mc',"I found the poster paper, too.")
+	elseif cl == 1592 then
+		updateSayori('4','b')
+		updateMonika('5a')
+		cw('m',"Ahaha!")
+	elseif cl == 1593 then
+		cw('m',"Sounds like you ended up doing all the work, "..player..".")
+	elseif cl == 1594 then
+		cw('mc',"Ah, well, Sayori--")
+	elseif cl == 1595 then
+		cw('bl',"I fail to come up with an excuse for Sayori.")
+	elseif cl == 1596 then
+		updateSayori('1','q')
+		cw('s',"I made it an adventure!")
+	elseif cl == 1597 then
+		updateSayori('1','a')
+		cw('mc',"...Yeah, that.")
+	elseif cl == 1598 then
+		updateSayori('1','j')
+		cw('m',"Ahaha, okay, okay.")
+	elseif cl == 1599 then
+		updateMonika('1','a')
+		cw('m',"In any case, good work!")
+	elseif cl == 1600 then
+		cw('m',"I'll start working on the posters tonight.")
+	elseif cl == 1601 then
+		updateSayori('4','x')
+		cw('s',"Me too!")
+	elseif cl == 1602 then
+		updateMonika('4','b',80)
+		hideSayori()
+		cw('m',"...Okay, everyone!")
+	elseif cl == 1603 then
+		cw('m',"Are you ready to share your poems?")
+	elseif cl == 1604 then
+		cw('mc',"Guess I should grab mine...")
+	elseif cl == 1605 then
+		cw('bl',"After making sure the crayon box is closed tightly, I return to my seat.")
+		poeminitialize()
+	elseif cl == 1606 then
+		cl = 666
+		xaload = -1
+		autotimer = 0
 	end
 end
