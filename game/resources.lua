@@ -130,7 +130,6 @@ function unloadbg()
 	splash = nil
 	bgch = nil
 	bgch2 = nil
-	cgch = nil
 	collectgarbage()
 	collectgarbage()
 end
@@ -187,7 +186,7 @@ function loadSayori()
 	elseif s.a=='5d' then
 		sl = love.graphics.newImage('images/sayori/3d.png') 
 	elseif s.a~='' then
-		sl = love.graphics.newImage('images/yuri/'..s.a..'.png')
+		sl = love.graphics.newImage('images/sayori/'..s.a..'.png')
 	end
 	
 	if s.b~='' then s_a = love.graphics.newImage('images/sayori/'..s.b..'.png') end

@@ -525,12 +525,16 @@ function ch2script()
 			end
 		elseif poemwinner[1] == 'Natsuki' then
 			if n_appeal == 1 and natsuki_exclusive_1 then natsuki_exclusive_1()
-			elseif n_appeal == 2 then natsuki_exclusive_2() then natsuki_exclusive_2()
+			elseif n_appeal == 2 and natsuki_exclusive_2 then natsuki_exclusive_2()
 			end
 		elseif poemwinner[1] == 'Yuri' then
 			if y_appeal == 1 and yuri_exclusive_1 then yuri_exclusive_1()
 			elseif y_appeal == 2 and yuri_exclusive_2 then yuri_exclusive_2()
 			end
 		end
+	end
+	
+	if cl == 1638 then
+	elseif cl == 1639 then
 	end
 end

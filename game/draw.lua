@@ -92,6 +92,7 @@ end
 
 function cgHide()
 	cg1 = ''
+	if xaload == 0 then cgch = nil end
 end
 
 function updateSayori(a,b,px,py)
