@@ -120,7 +120,8 @@ function sayori_exclusive_1()
 		cw('bl',"I can't help but wonder what it would be like to see the world through her eyes...")
 	elseif cl == 472 then
 		bgUpdate('club')
-		updateSayori('sayori','',80)
+		updateSayori('f_1b','',80)
+		--updateSayori('f_1','f_b',80)
 		cw('mc',"Uwaa--!")
 	elseif cl == 473 then
 		cw('bl','I open my eyes to find Sayori\'s face filling my vision.')
@@ -411,9 +412,13 @@ function sayori_exclusive_1()
 		cw('bl',"I fail to sound enthusiastic, but Sayori still trots away to retrieve her poem.")
 	elseif cl == 601 then
 		if chapter == 1 then
-			hideSayori()
-			cl = 653
+			cl = 652
+		elseif chapter == 2 then
+			poeminitialize()
 		end
+	elseif cl == 1359 then
+		cl = 423
+		xaload = -1
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=-40 x=80 x=200
@@ -1005,10 +1010,7 @@ function sayori_exclusive_2()
 		cw('mc',"Guess I should grab mine...")
 	elseif cl == 1605 then
 		cw('bl',"After making sure the crayon box is closed tightly, I return to my seat.")
-		poeminitialize()
 	elseif cl == 1606 then
-		cl = 666
-		xaload = -1
-		autotimer = 0
+		poeminitialize()
 	end
 end

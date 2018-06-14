@@ -475,7 +475,12 @@ function yuri_exclusive_1()
 	elseif cl == 634 then
 		if chapter == 1 then
 			cl = 653
+		elseif chapter >= 2 then
+			poeminitialize()
 		end
+	elseif cl == 1359 then
+		cl = 423
+		xaload = -1
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
@@ -1078,11 +1083,8 @@ function yuri_exclusive_2_ch3()
 	elseif cl == 1622 then
 		cw('bl',"In the end, we hastily clean up without so much as a word between us.")
 	elseif cl == 1623 then
-		poeminitialize()
 		cw('bl',"I get the feeling this is something neither of us will have the courage to bring up...")
 	elseif cl == 1624 then
-		cl = 666
-		xaload = -1
-		autotimer = 0
+		poeminitialize()
 	end
 end

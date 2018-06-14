@@ -8,7 +8,7 @@ function addpoints()
 end
 
 function poemgamefinish()
-	if chapter < 5 then
+	if chapter < 3 then
 		chapter = chapter+1
 	end
 
@@ -42,28 +42,10 @@ function poemgamefinish()
 end
 
 function updatewordlist()
-
-	word1r = math.random(1,#wordlist)
-	word2r = math.random(1,#wordlist)
-	word3r = math.random(1,#wordlist)
-	word4r = math.random(1,#wordlist)
-	word5r = math.random(1,#wordlist)
-	word6r = math.random(1,#wordlist)
-	word7r = math.random(1,#wordlist)
-	word8r = math.random(1,#wordlist)
-	word9r = math.random(1,#wordlist)
-	word10r = math.random(1,#wordlist)
-	
-	word1 = wordlist[word1r][1]
-	word2 = wordlist[word2r][1]
-	word3 = wordlist[word3r][1]
-	word4 = wordlist[word4r][1]
-	word5 = wordlist[word5r][1]
-	word6 = wordlist[word6r][1]
-	word7 = wordlist[word7r][1]
-	word8 = wordlist[word8r][1]
-	word9 = wordlist[word9r][1]
-	word10 = wordlist[word10r][1]
+	for i = 1, 10 do
+		wordr[i] = math.random(1,#wordlist)
+		word[i] = wordlist[wordr[i]][1]
+	end
 end
 
 function poemgame()
@@ -86,7 +68,12 @@ function poemgame()
 	gravity = -2250  
 	
 	math.randomseed(os.time())
+	math.random()
+	math.random()
+	math.random()
 	poemwords()
+	word = {}
+	wordr = {}
 	updatewordlist()
 	
 	menuselected = 1
@@ -118,16 +105,16 @@ function drawPoemGame()
 	else
 		love.graphics.print('20/20',245,25,0,1,1)
 	end
-	love.graphics.print(word1,117,45,0,1,1)
-	love.graphics.print(word2,117,80,0,1,1)
-	love.graphics.print(word3,117,118,0,1,1)
-	love.graphics.print(word4,117,153,0,1,1)
-	love.graphics.print(word5,117,188,0,1,1)
-	love.graphics.print(word6,200,45,0,1,1)
-	love.graphics.print(word7,200,80,0,1,1)
-	love.graphics.print(word8,200,118,0,1,1)
-	love.graphics.print(word9,200,153,0,1,1)
-	love.graphics.print(word10,200,188,0,1,1)
+	love.graphics.print(word[1],117,45,0,1,1)
+	love.graphics.print(word[2],117,80,0,1,1)
+	love.graphics.print(word[3],117,118,0,1,1)
+	love.graphics.print(word[4],117,153,0,1,1)
+	love.graphics.print(word[5],117,188,0,1,1)
+	love.graphics.print(word[6],200,45,0,1,1)
+	love.graphics.print(word[7],200,80,0,1,1)
+	love.graphics.print(word[8],200,118,0,1,1)
+	love.graphics.print(word[9],200,153,0,1,1)
+	love.graphics.print(word[10],200,188,0,1,1)
 	
 	love.graphics.setColor(255,255,255,alpha)
 	if poemstate == 0 then love.graphics.draw(poemtime,0,0) end
@@ -200,7 +187,7 @@ function drawPoemGame()
 end
 
 function updatePoemGame(dt)
-	xaload = xaload+1
+	xaload = xaload + 1
 	
 	if y_velocity ~= 0 then                                  
 		p_y = p_y + y_velocity * dt               
@@ -230,81 +217,82 @@ function updatePoemGame(dt)
 end
 
 function menuselect()
-
 	if menuselected == 1 then
 		cursorX = 106
 		cursorY = 44
-		wordpick = word1r
+		wordpick = wordr[1]
 	elseif menuselected == 2 then
 		cursorX = 106
 		cursorY = 79
-		wordpick = word2r
+		wordpick = wordr[2]
 	elseif menuselected == 3 then
 		cursorX = 106
 		cursorY = 117
-		wordpick = word3r
+		wordpick = wordr[3]
 	elseif menuselected == 4 then
 		cursorX = 106
 		cursorY = 152
-		wordpick = word4r
+		wordpick = wordr[4]
 	elseif menuselected == 5 then
 		cursorX = 106
 		cursorY = 187
-		wordpick = word5r
+		wordpick = wordr[5]
 	elseif menuselected == 6 then
 		cursorX = 189
 		cursorY = 44
-		wordpick = word6r
+		wordpick = wordr[6]
 	elseif menuselected == 7 then
 		cursorX = 189
 		cursorY = 79
-		wordpick = word7r
+		wordpick = wordr[7]
 	elseif menuselected == 8 then
 		cursorX = 189
 		cursorY = 117
-		wordpick = word8r
+		wordpick = wordr[8]
 	elseif menuselected == 9 then
 		cursorX = 189
 		cursorY = 152
-		wordpick = word9r
+		wordpick = wordr[9]
 	elseif menuselected == 10 then
 		cursorX = 189
 		cursorY = 187
-		wordpick = word10r
+		wordpick = wordr[10]
 	end
-
 end
 
 function poemgamekeypressed(key)
-	if menu_enabled == false then
-	
 	if key == 'down' or key == 'cpaddown' then
-		
 		if menuselected == 10 then
 			menuselected = 6
-			menuselect()
 		elseif menuselected == 5 then
 			menuselected = 1
-			menuselect()
 		elseif menuselected <= 9 then
 			menuselected = menuselected + 1
-			menuselect()
 		end
+		menuselect()
 		
 	elseif key == 'up' or key == 'cpadup' then
 		if menuselected == 1 then
 			menuselected = 5
-			menuselect()
 		elseif menuselected == 6 then
 			menuselected = 10
-			menuselect()
 		elseif menuselected >= 2 then
 			menuselected = menuselected - 1
-			menuselect()
 		end
+		menuselect()
 		
 	elseif key == 'left' or key == 'cpadleft' then
-		if menuselected == 6 then
+		if menuselected == 1 then
+			menuselected = 6
+		elseif menuselected == 2 then
+			menuselected = 7
+		elseif menuselected == 3 then
+			menuselected = 8
+		elseif menuselected == 4 then
+			menuselected = 9
+		elseif menuselected == 5 then
+			menuselected = 10
+		elseif menuselected == 6 then
 			menuselected = 1
 		elseif menuselected == 7 then
 			menuselected = 2
@@ -328,6 +316,16 @@ function poemgamekeypressed(key)
 			menuselected = 9
 		elseif menuselected == 5 then
 			menuselected = 10
+		elseif menuselected == 6 then
+			menuselected = 1
+		elseif menuselected == 7 then
+			menuselected = 2
+		elseif menuselected == 8 then
+			menuselected = 3
+		elseif menuselected == 9 then
+			menuselected = 4
+		elseif menuselected == 10 then
+			menuselected = 5
 		end
 		menuselect()
 	end
@@ -352,9 +350,6 @@ function poemgamekeypressed(key)
 		menu_enable('pause',7)
 		sfx1:play()	
 	end
-	
-	end
-	
 end
 
 function poemgamemousepressed()
