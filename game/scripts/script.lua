@@ -67,14 +67,28 @@ function scriptCheck()
 	cc = ''
 	cd = ''
 	
-	if poemsread ~= -1 and poemresponses then
+	if poemsread ~= -1 then
 		poemresponses()
-	elseif poemsread ~= -1 then
-		require 'scripts.script-poemresponses'
-		require 'scripts.poems'
+	else
+		script_poemresponses = nil
+		script_poems = nil
 	end
 	
-	if chapter == 0 and ch0script then
+	if (cl>=423 and cl<653) or (cl>=1359 and cl<1638) then
+		if poemwinner[chapter] == 'Sayori' then
+			if s_appeal == 1 then sayori_exclusive_1()
+			elseif s_appeal == 2 then sayori_exclusive_2()
+			end
+		elseif poemwinner[chapter] == 'Natsuki' then
+			if n_appeal == 1 then natsuki_exclusive_1()
+			elseif n_appeal == 2 then natsuki_exclusive_2()
+			end
+		elseif poemwinner[chapter] == 'Yuri' then
+			if y_appeal == 1 then yuri_exclusive_1()
+			elseif y_appeal == 2 then yuri_exclusive_2()
+			end
+		end
+	elseif chapter == 0 and ch0script then
 		ch0script()
 	elseif chapter == 1 and ch1script then
 		ch1script()
@@ -94,6 +108,10 @@ end
 function poeminitialize(y)
 	poemsread = 0
 	readpoem = {s=0,n=0,y=0,m=0}
-	
 	choices = {'Sayori','Natsuki','Yuri','Monika'}
+	cl = 666
+	xaload = 0
+	autotimer = 0
+	script_poemresponses = require 'scripts.script-poemresponses'
+	script_poems = require 'scripts.poems'
 end

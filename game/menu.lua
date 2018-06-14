@@ -86,7 +86,8 @@ function menu_draw()
 		love.graphics.print('Textbox Location',16, 45)
 		love.graphics.print('Text Speed',16, 70)
 		love.graphics.print('Char. Animations',16, 95)
-		love.graphics.print(dversion,270, 220)
+		love.graphics.print(dversion,270, 205)
+		love.graphics.print(dvertype,270, 220)
 		
 	elseif menu_type == 'textloc' then
 		love.graphics.print('Settings - Textbox Location:',16, 20)
@@ -171,10 +172,7 @@ function menu_confirm()
 			m_select()
 			
 		elseif m_selected == 6 then --quit
-			unloadAll()
-			if global_os == 'Horizon' then love.quit()
-			else love.event.quit()
-			end
+			game_quit()
 		end
 		
 	elseif menu_type == 'loadgame' then --load game confirm 

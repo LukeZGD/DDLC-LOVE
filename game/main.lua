@@ -8,16 +8,14 @@ function love.load()
 
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
-	l_timer = 96
-	timer = 0
 	autotimer = 0
+	l_timer = 96
+	s_timer = 0
 	xaload = 0
 	alpha = 255
 	
 	posX = -75
 	posY = 0
-	
-	menu_enabled = false
 	
 	--os detection
 	global_os = love.system.getOS()
@@ -143,5 +141,18 @@ function love.textinput(text)
 		else
 			state = 'title'
 		end
+	end
+end
+
+function game_quit()
+	unloadAll('characters')
+	unloadAll('stuff')
+	unloadAll('poemgame')
+	collectgarbage()
+	collectgarbage()
+	if global_os == 'Horizon' then
+		love.quit()
+	else
+		love.event.quit()
 	end
 end

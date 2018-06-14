@@ -27,13 +27,13 @@ end
 function splashalpha(x)
 	--team salvato splash
 	if x == 1 then
-		if timer <=150 then
+		if s_timer <=150 then
 			if alpha >= 255 then
 				alpha = 255
 			else
 				alpha = alpha + 7.75
 			end
-		elseif timer <=200 then
+		elseif s_timer <=200 then
 			if alpha >= 1 then
 				alpha = alpha - 7.75
 			else
@@ -42,13 +42,13 @@ function splashalpha(x)
 		else alpha = 0 end
 	--warning splash
 	elseif x == 2 then
-		if timer <=400 then
+		if s_timer <=400 then
 			if alpha >= 255 then
 				alpha = 255
 			else
 				alpha = alpha + 7.75
 			end
-		elseif timer <=480 then
+		elseif s_timer <=480 then
 			if alpha >= 1 then
 				alpha = alpha - 7.75
 			else
@@ -61,7 +61,7 @@ function splashalpha(x)
 			alpha = 255
 			love.graphics.setBackgroundColor(0,0,0)
 		else
-			if menu_enabled == false then menu_enable('title', 6) end
+			if menu_enabled ~= true then menu_enable('title', 6) end
 			alpha = alpha + 5
 		end
 	--fade out to poemgame
@@ -235,27 +235,27 @@ end
 
 function drawSayori(a,b)
 	if a=='5a' or a=='5b' or a=='5c' or a=='5d' or a=='f_1b' then
-		love.graphics.draw(sl, s.x, s.y)
+		if sl then love.graphics.draw(sl, s.x, s.y) end
 	elseif a~='' then
-		love.graphics.draw(sl, s.x, s.y)
-		love.graphics.draw(sr, s.x, s.y)
+		if sl then love.graphics.draw(sl, s.x, s.y) end
+		if sr then love.graphics.draw(sr, s.x, s.y) end
 	end
 	
 	if b~='' then
-		love.graphics.draw(s_a, s.x, s.y)
+		if s_a then love.graphics.draw(s_a, s.x, s.y) end
 	end
 end
 
 function drawYuri(a,b)
 	if a=='4' or a=='4b' or a=='f_2bs' then
-		love.graphics.draw(yl, y.x, y.y)
+		if yl then love.graphics.draw(yl, y.x, y.y) end
 	elseif a~='' then
-		love.graphics.draw(yl, y.x, y.y)
-		love.graphics.draw(yr, y.x, y.y)
+		if yl then love.graphics.draw(yl, y.x, y.y) end
+		if yr then love.graphics.draw(yr, y.x, y.y) end
 	end
 
 	if b~='' then
-		love.graphics.draw(y_a, y.x, y.y)
+		if y_a then love.graphics.draw(y_a, y.x, y.y) end
 	end
 end
 
@@ -269,27 +269,27 @@ function drawNatsuki(a,b)
 	end
 
 	if b~='' then
-		love.graphics.draw(n_a, nxh, nyh)
+		if n_a then love.graphics.draw(n_a, nxh, nyh) end
 	end
 	
 	if a == '5' or a == '5b' or a == 'f_1' or a == 'f_1b' then
-		love.graphics.draw(nl, n.x, n.y)
+		if nl then love.graphics.draw(nl, n.x, n.y) end
 	elseif a~='' then
-		love.graphics.draw(nl, n.x, n.y)
-		love.graphics.draw(nr, n.x, n.y)
+		if nl then love.graphics.draw(nl, n.x, n.y) end
+		if nr then love.graphics.draw(nr, n.x, n.y) end
 	end
 end
 
 function drawMonika(a,b)
 	if a=='5a' or a=='5b' then
-		love.graphics.draw(ml, m.x, m.y)
+		if ml then love.graphics.draw(ml, m.x, m.y) end
 	elseif a~='' then
-		love.graphics.draw(ml, m.x, m.y)
-		love.graphics.draw(mr, m.x, m.y)
+		if ml then love.graphics.draw(ml, m.x, m.y) end
+		if mr then love.graphics.draw(mr, m.x, m.y) end
 	end
 	
 	if b~='' then
-		love.graphics.draw(m_a, m.x, m.y)
+		if m_a then love.graphics.draw(m_a, m.x, m.y) end
 	end
 end
 

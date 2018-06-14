@@ -518,23 +518,14 @@ function ch2script()
 		cw('bl',"Sayori somehow already finished her entire cookie.")
 	elseif cl == 1358 then
 		cw('bl',"Yuri is back to her book, and Natsuki disappeared into the closet.")
-	elseif cl >= 1359 then
-		if poemwinner[1] == 'Sayori' then
-			if s_appeal == 1 and sayori_exclusive_1 then sayori_exclusive_1()
-			elseif s_appeal == 2 and sayori_exclusive_2 then sayori_exclusive_2()
-			end
-		elseif poemwinner[1] == 'Natsuki' then
-			if n_appeal == 1 and natsuki_exclusive_1 then natsuki_exclusive_1()
-			elseif n_appeal == 2 and natsuki_exclusive_2 then natsuki_exclusive_2()
-			end
-		elseif poemwinner[1] == 'Yuri' then
-			if y_appeal == 1 and yuri_exclusive_1 then yuri_exclusive_1()
-			elseif y_appeal == 2 and yuri_exclusive_2 then yuri_exclusive_2()
-			end
-		end
 	end
 	
 	if cl == 1638 then
+		bgUpdate('club')
+		audioUpdate('3')
+		updateMonika('5a','',80)
+		cw('m',"Okay, everyone!")
 	elseif cl == 1639 then
+		cw('m',"We're all done reading each other's poems, right?")
 	end
 end

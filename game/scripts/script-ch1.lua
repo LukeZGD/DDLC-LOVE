@@ -185,52 +185,40 @@ function ch1script()
 		cw('bl',"I can't help but notice her intense expression, like she was waiting for this chance.")
 	elseif cl == 422 then
 		cw('bl',"Meanwhile, Natsuki is rummaging around in the closet.")
-	elseif cl >= 423 then
-		if poemwinner[1] == 'Sayori' then
-			if s_appeal == 1 and sayori_exclusive_1 then sayori_exclusive_1()
-			elseif s_appeal == 2 and sayori_exclusive_2 then sayori_exclusive_2()
-			end
-		elseif poemwinner[1] == 'Natsuki' then
-			if n_appeal == 1 and natsuki_exclusive_1 then natsuki_exclusive_1()
-			elseif n_appeal == 2 and natsuki_exclusive_2 then natsuki_exclusive_2()
-			end
-		elseif poemwinner[1] == 'Yuri' then
-			if y_appeal == 1 and yuri_exclusive_1 then yuri_exclusive_1()
-			elseif y_appeal == 2 and yuri_exclusive_2 then yuri_exclusive_2()
-			end
-		end
 	end
 	
-	if cl == 653 then
+	if cl == 652 then
+		hideSayori()
 		updateMonika('1','a',10)
 		cw('m',"By the way, did you remember to write a poem last night?")
-	elseif cl == 654 then
+	elseif cl == 653 then
 		cw('mc',"Y-Yeah...")
-	elseif cl == 655 then
+	elseif cl == 654 then
 		cw('bl',"My relaxation ends.")
-	elseif cl == 656 then
+	elseif cl == 655 then
 		cw('bl',"I can't believe I agreed to do something so embarrassing.")
-	elseif cl == 657 then
+	elseif cl == 656 then
 		cw('bl',"I couldn't really find much inspiration, since I've never really done this before.")
-	elseif cl == 658 then
+	elseif cl == 657 then
 		cw('m',"Well, now that everyone's ready, why don't you find someone to share with?")
-	elseif cl == 659 then
+	elseif cl == 658 then
 		updateSayori('4','q',150)
 		cw('s',"I can't wait~!")
-	elseif cl == 660 then
+	elseif cl == 659 then
 		hideSayori()
 		hideMonika()
 		cw('bl',"Sayori and Monika enthusiastically pull out their poems.")
-	elseif cl == 661 then
+	elseif cl == 660 then
 		cw('bl',"Sayori's is on a wrinkled sheet of loose leaf torn from a spiral notebook.")
-	elseif cl == 662 then
+	elseif cl == 661 then
 		cw('bl',"On the other hand, Monika wrote hers in a composition notebook.")
-	elseif cl == 663 then
+	elseif cl == 662 then
 		cw('bl',"I can already see Monika's pristine handwriting from where I sit.")
-	elseif cl == 664 then
+	elseif cl == 663 then
 		cw('bl',"Natsuki and Yuri reluctantly comply as well, reaching into their bags.")
-	elseif cl == 665 then
+	elseif cl == 664 then
 		cw('bl',"I do the same, myself.")
+	elseif cl == 665 then
 		poeminitialize()
 	end
 
