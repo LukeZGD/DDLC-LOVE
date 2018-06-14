@@ -1,8 +1,11 @@
+--If I have a way to handle the script better, the number of lines in all scripts
+--would be halved, and that would be a lot better I guess...
+
 function poemresponses()
-	if cl == 666 then		
+	if cl == 666 then
+		if audio1 ~= '5' then audioUpdate('5') end
 		--set up menutext
 		if poemsread == 0 then
-			audioUpdate('5')
 			menutext = "Who should I show my poem to first?"
 		else
 			menutext = "Who should I show my poem to next?"
@@ -13,7 +16,7 @@ function poemresponses()
 		choice3 = choices[3]
 		choice4 = choices[4]
 
-		if xaload == 0 or autotimer ~= 0 then
+		if menu_enabled ~= true then
 			hideAll()
 			menu_enable('choice', 5)
 		end
@@ -503,6 +506,553 @@ function ch1_y_good()
 		cw('y',"This is the reason I was able to tell.")
 	elseif cl >= 704 then 
 		ch1_y_shared()
+	end
+end
+
+function ch2_y_end()
+	if cl < 714 then
+		xaload = -1
+		cl = 714
+	elseif cl == 714 then
+		poem('poem_y2','yuri')
+	elseif cl == 715 then
+		poem('poem_y2-a','yuri',1)
+	elseif cl == 716 then
+		updateYuri('2','m')
+		cw('y',"Um...")
+	elseif cl == 717 then
+		cw('y',"I was a little more daring with this one than yesterday's...")
+	elseif cl == 718 then
+		cw('mc',"I can see that.")
+	elseif cl == 719 then
+		cw('mc',"It's a lot more metaphorical...")
+	elseif cl == 720 then
+		cw('mc',"I don't know if it's my fault, but I can't begin to imagine what this poem is about.")
+	elseif cl == 721 then
+		updateYuri('1','a')
+		cw('y',"That's right.")
+	elseif cl == 722 then
+		cw('y',"It's a bit closer to my preferred writing style...")
+	elseif cl == 723 then
+		cw('y',"Using the poem as a canvas to express vivid imagery, and conveying emotions through them.")
+	elseif cl == 724 then
+		cw('mc',"Yeah, if I take it at face value, then I can't even figure out what it's supposed to mean...")
+	elseif cl == 725 then
+		updateYuri('2','f')
+		cw('y',"Well...")
+	elseif cl == 726 then
+		cw('y',"I think it's something that different people can relate to in their own way.")
+	elseif cl == 727 then
+		cw('y',"I wanted to express the way it feels for me to indulge in my more unusual hobbies...")
+	elseif cl == 728 then
+		updateYuri('2','v')
+		cw('y',"It's those sorts of things I'm usually forced to keep to myself.")
+	elseif cl == 729 then
+		cw('y',"So, I sometimes enjoy writing about them.")
+	elseif cl >= 730 then
+		if readpoem.n == 1 and (n_poemappeal[1] >= 0 or n_poemappeal[1] >= 0) then
+			if cl == 730 then
+				cw('mc',"Huh, that's funny...")
+			elseif cl == 730 then
+				updateYuri('2','e')
+				cw('y',"...?")
+			elseif cl == 731 then
+				cw('mc',"Didn't Natsuki also write something about that?")
+			elseif cl == 732 then
+				cw('mc',"About someone being ridiculed for a strange interest?")
+			elseif cl == 733 then
+				updateYuri('2','h')
+				cw('y',"Eh?")
+			elseif cl == 734 then
+				cw('y',"She...she did?")
+			elseif cl == 735 then
+				cw('mc',"Yeah...")
+			elseif cl == 736 then
+				cw('mc',"She was talking about how it doesn't matter what you're into as long as you're not hurting anybody.")
+			elseif cl == 737 then
+				updateYuri('3','r')
+				cw('y',"She--She's right!")
+			elseif cl == 738 then
+				updateYuri('3','o')
+				cw('y',"Ah--I mean...")
+			elseif cl == 739 then
+				cw('y',"Does she really feel that way...?")
+			elseif cl == 740 then
+				cw('mc',"Yeah.")
+			elseif cl == 741 then
+				cw('mc',"Sounds like you two have that in common...")
+			elseif cl == 742 then
+				updateYuri('3','h')
+				cw('y',"That's...well, that's interesting...")
+			elseif cl == 743 then
+				cw('y',"To me, she seemed like the kind of person who would make fun of my hobbies...")
+			elseif cl == 744 then
+				cw('y',"But I suppose that's my fault for judging, isn't it...?")
+			elseif cl == 745 then
+				updateYuri('3','p')
+				cw('y',"Ah-- Please don't tell her I said that!")
+			elseif cl == 746 then
+				cw('mc',"Ahaha. Don't worry, I have no reason to.")
+			elseif cl == 747 then
+				updateYuri('1','l')
+				cw('y',"Okay...")
+			elseif cl == 748 then
+				updateYuri('1','a')
+				cw('y',"Well, thank you for sharing it with me.")
+			end
+		else
+			if cl == 730 then
+				cw('mc',"Why do you keep them to yourself?")
+			elseif cl == 731 then
+				updateYuri('3','v')
+				cw('y',"Be...Because...")
+			elseif cl == 732 then
+				cw('y',"They're embarrassing...")
+			elseif cl == 733 then
+				cw('y',"And people would make fun of me.")
+			elseif cl == 734 then
+				cw('y',"Don't you have anything like that, "..player.."?")
+			elseif cl == 735 then
+				cw('mc',"Well...")
+			elseif cl == 736 then
+				cw('mc',"Yeah, I guess I do...")
+			elseif cl == 737 then
+				updateYuri('2','h')
+				cw('y',"I feel like everyone has a little something like that.")
+			elseif cl == 738 then
+				cw('y',"The best we can do is respect each other and our individualities.")
+			elseif cl == 739 then
+				cw('y',"Even if it's difficult sometimes, and some things make us uncomfortable...")
+			elseif cl == 740 then
+				updateYuri('1','a')
+				cw('y',"After all, if I hadn't learned to embrace my own weirdness, I would probably hate myself.")
+			elseif cl == 741 then
+				updateYuri('2','u')
+				cw('y',"I-I might be ranting a little bit now...")
+			elseif cl == 742 then
+				cw('y',"...But I'm glad that you're a good listener.")
+			elseif cl == 743 then
+				cl = 749
+			end
+		end
+		if cl >= 749 then
+			if y_appeal >= 2 then
+				if cl == 749 then
+					updateYuri('2','s')
+					cw('y',"You're good at a lot of things...")
+				elseif cl == 750 then
+					cw('y',"Writing, listening...")
+				elseif cl == 751 then
+					updateYuri('2','u')
+					cw('y',"There really aren't many people like you, "..player.."...")
+				elseif cl == 752 then
+					cw('mc',"Th-That's exaggerating a little bit...")
+				elseif cl == 753 then
+					updateYuri('2','v')
+					cw('y',"It's just...how I feel.")
+				elseif cl == 754 then
+					cw('y',"I never thought I would feel so comfortable sharing my writing...")
+				elseif cl == 755 then
+					updateYuri('2','s')
+					cw('y',"But now, I almost feel like I look forward to it...")
+				elseif cl == 756 then
+					updateYuri('2','m')
+					cw('y',"It's just...a really nice feeling.")
+				elseif cl == 757 then
+					cw('y',"And you're to thank for that.")
+				elseif cl == 758 then
+					cw('mc',"It's...it's nothing, really...")
+				elseif cl == 759 then
+					cw('bl',"Yuri smiles sincerely at me.")
+				elseif cl == 760 then
+					cw('bl',"For just a moment, her timidness seems to disappear.")
+				elseif cl == 761 then
+					poemfinish('y')
+				end
+			else
+				poemfinish('y')
+			end
+		end
+	end
+end
+
+function ch2_y_bad()
+    if y_poemappeal[1] < 0 then
+		if cl == 670 then
+			cw('y',"...")
+		elseif cl == 671 then
+			updateYuri('2','h')
+			cw('y',"Um...")
+		elseif cl == 672 then
+			cw('y',"...Are you still mad at me?")
+		elseif cl == 673 then
+			cw('mc',"Eh?!")
+		elseif cl == 674 then
+			cw('y',"For disrespecting Natsuki yesterday...")
+		elseif cl == 675 then
+			cw('y',"Because reading this poem...")
+		elseif cl == 676 then
+			cw('y',"Now I know why you got mad at me.")
+		elseif cl == 677 then
+			cw('y',"Because you...")
+		elseif cl == 678 then
+			updateYuri('3','v')
+			cw('y',"You prefer her writing over mine!")
+		elseif cl == 679 then
+			cw('mc',"That's not really true...!")
+		elseif cl == 680 then
+			cw('y',"Meaning when I disrespected her...")
+		elseif cl == 681 then
+			cw('y',"I disrespected you too...didn't I?")
+		elseif cl == 682 then
+			updateYuri('4','c2')
+			cw('y',"Oh no...")
+		elseif cl == 683 then
+			cw('mc',"Yuri...")
+		elseif cl == 684 then
+			cw('mc',"You might be reading into this a little too much...")
+		elseif cl == 685 then
+			cw('y',"How could I be so stupid...?")
+		elseif cl == 686 then
+			cw('y',"I always let these things happen...")
+		elseif cl == 687 then
+			cw('y',"Whenever I think before I speak, I just come off as awkward and unlikable.")
+		elseif cl == 688 then
+			cw('y',"But if I speak without thinking, the things I want to keep inside come out and make people hate me.")
+		elseif cl == 689 then
+			updateYuri('2','v')
+			cw('y',"So...please don't force yourself to be around me.")
+		elseif cl == 690 then
+			cw('y',"I know this is what Monika wants.")
+		elseif cl == 691 then
+			cw('y',"But it's not fair to you when you could be enjoying your time with Natsuki and Sayori.")
+		elseif cl == 692 then
+			cw('mc',"Yuri--")
+		elseif cl == 693 then
+			updateYuri('4','b2')
+			cw('y',"Please...")
+		elseif cl == 694 then
+			cw('y',"It makes it easier for me if you don't express any concern.")
+		elseif cl == 695 then
+			cw('y',"Besides...")
+		elseif cl == 696 then
+			cw('y',"I have my books with me.")
+		elseif cl == 697 then
+			updateYuri('3','u')
+			cw('y',"That's...all I need.")
+		elseif cl == 698 then
+			cw('mc',"...")
+		elseif cl == 699 then
+			cw('bl',"Yuri smiles sadly and puts her head down on her desk.")
+		elseif cl == 700 then
+			cw('bl',"I'm frustrated.")
+		elseif cl == 701 then
+			cw('bl',"I don't hate her, but it's as if she's not capable of listening to me over her own thoughts.")
+		elseif cl == 702 then
+			cw('bl',"I sigh to myself.")
+		elseif cl == 703 then
+			cw('bl',"All I can do is accept that that's how she is.")
+		elseif cl == 704 then
+			cw('bl',"If she wants to be left alone, then I have no choice but to abide to that request.")
+		elseif cl == 705 then
+			poemfinish('y')
+		end
+	else
+		if cl == 670 then
+			updateYuri('2','a')
+			cw('y',"Ah, is it my turn?")
+		elseif cl == 671 then
+			cw('y',"Let's see how it compares to yesterday's...")
+		elseif cl == 672 then
+			cw('y',"Mm...")
+		elseif cl == 673 then
+			cw('y',"I see...")
+		elseif cl == 674 then
+			cw('y',"It's a bit different.")
+		elseif cl == 675 then
+			updateYuri('1','a')
+			cw('y',"I respect you for trying different things, "..player..".")
+		elseif cl == 676 then
+			cw('y',"Were you inspired by Natsuki's poem?")
+		elseif cl == 677 then
+			cw('y',"Or Sayori's, perhaps?")
+		elseif cl == 678 then
+			cw('mc',"Well...")
+		elseif cl == 679 then
+			cw('mc',"I guess you could say that...")
+		elseif cl == 680 then
+			cw('y',"I thought so.")
+		elseif cl == 681 then
+			updateYuri('2','u')
+			cw('y',"I'm happy for you.")
+		elseif cl == 682 then
+			cw('y',"You don't need to find inspiration in my poems.")
+		elseif cl == 683 then
+			cw('y',"I write them for myself...")
+		elseif cl == 684 then
+			updateYuri('4','b2')
+			cw('y',"...Not for anyone else.")
+		elseif cl == 685 then
+			cw('y',"So I don't really...need for people to like them or anything.")
+		elseif cl == 686 then
+			cw('mc',"Yuri!")
+		elseif cl == 687 then
+			updateYuri('3','t')
+			cw('y',"E-Eh?")
+		elseif cl == 688 then
+			cw('mc',"I'm sorry for being blunt, but you're overthinking this a little.")
+		elseif cl == 689 then
+			cw('mc',"Just because our styles are different doesn't mean I dislike your poems...")
+		elseif cl == 690 then
+			cw('mc',"In fact, if I tried to do something in your style, I would probably just do a terrible job.")
+		elseif cl == 691 then
+			updateYuri('4','a2')
+			cw('y',"I...I see...")
+		elseif cl == 692 then
+			cw('y',"I'm sorry...")
+		elseif cl == 693 then
+			cw('y',"My stupid mind...it likes to do that sometimes.")
+		elseif cl == 694 then
+			cw('y',"Anyway...")
+		elseif cl >= 695 then
+			ch2_y_shared()
+		end
+	end
+end
+
+function ch2_y_shared()
+	if cl < 695 and cl ~= 666 then
+		xaload = -1
+		cl = 695
+	elseif cl == 695 then
+		updateYuri('2','h')
+		cw('y',"You don't need to be afraid to be a little more daring...")
+	elseif cl == 696 then
+		cw('y',"Metaphors can go a long way.")
+	elseif cl == 697 then
+		cw('y',"Don't feel like you need to work your brain like turning a bunch of gears.")
+	elseif cl == 698 then
+		updateYuri('1','m')
+		cw('y',"Try letting your mind wander through your feelings...")
+	elseif cl == 699 then
+		cw('y',"And write down the things you see and hear.")
+	elseif cl == 700 then
+		cw('y',"That's one way to truly enable your reader to see into your mind.")
+	elseif cl == 701 then
+		updateYuri('2','u')
+		cw('y',"It's a very intimate exercise...")
+	elseif cl == 702 then
+		cw('mc',"I see.")
+	elseif cl == 703 then
+		cw('mc',"That's a certainly interesting technique.")
+	elseif cl == 704 then
+		cw('mc',"Thanks for sharing.")
+	elseif cl == 705 then
+		updateYuri('2','v')
+		cw('y',"I have, um...")
+	elseif cl == 706 then
+		cw('y',"...Well, an example of that, if you'd like to read it...")
+	elseif cl == 707 then
+		cw('mc',"Of course.")
+	elseif cl == 708 then
+		cw('mc',"Is this the poem you wrote for today?")
+	elseif cl == 709 then
+		cw('bl',"Yuri nods, and timidly hands me her poem.")
+	elseif cl >= 710 then
+		ch2_y_end()
+	end
+end
+
+function ch2_y_med()
+    if y_poemappeal[1] <= 0 then
+		if cl == 670 then
+			updateYuri('1','a')
+			cw('y',"Let's see what you've written for today.")
+		elseif cl == 671 then
+			cw('y',"...")
+		elseif cl == 672 then
+			cw('y',"Mm...")
+		elseif cl == 673 then
+			updateYuri('1','c')
+			cw('y',"Well done, "..player..".")
+		elseif cl == 674 then
+			cw('y',"Your skills are already improving.")
+		elseif cl == 675 then
+			cw('mc',"Really?")
+		elseif cl == 676 then
+			cw('mc',"Thanks, Yuri.")
+		elseif cl == 677 then
+			cw('mc',"Coming from you, that means a lot.")
+		elseif cl == 678 then
+			updateYuri('3','f')
+			cw('y',"Eh?")
+		elseif cl == 679 then
+			updateYuri('3','v')
+			cw('y',"I-It's nothing!")
+		elseif cl == 680 then
+			cw('y',"I'm just happy to help inspire fellow writers...")
+		elseif cl == 681 then
+			cw('y',"I know you're new to this, so don't worry so much if it seems like you can't get your poem to feel perfect.")
+		elseif cl >= 682 then
+			ch2_y_shared()
+		end
+    else
+		if cl == 671 then
+			updateYuri('1','a')
+			cw('y',"Let's see what you've written for today.")
+		elseif cl == 671 then
+			cw('y',"...")
+		elseif cl == 672 then
+			cw('y',"Mm...")
+		elseif cl == 673 then
+			cw('y',"This is pretty good, "..player..".")
+		elseif cl == 674 then
+			cw('y',"Were you influenced by seeing everyone's writing styles yesterday?")
+		elseif cl == 675 then
+			cw('mc',"I guess you could say that...")
+		elseif cl == 676 then
+			updateYuri('1','m')
+			cw('y',"I was also a bit surprised by how differently everyone writes.")
+		elseif cl == 677 then
+			cw('y',"So I respect you for trying new things.")
+		elseif cl >= 678 then
+			ch2_y_shared()
+		end
+	end
+end
+
+function ch2_y_good()
+	if y_poemappeal[1] < 1 then
+        if cl == 670 then
+			updateYuri('1','a')
+			cw('y',"Let's see what you've written for today.")
+		elseif cl == 671 then
+			cw('y',"...")
+		elseif cl == 672 then
+			updateYuri('2','e')
+			cw('y',"......")
+		elseif cl == 673 then
+			cw('bl',"Yuri stares at the poem with a surprised expression on her face.")
+		elseif cl == 674 then
+			cw('mc',"Do you...like it?")
+		elseif cl == 675 then
+			cw('y',player.."...")
+		elseif cl == 676 then
+			cw('y',"...How did you even pick up on this so quickly?")
+		elseif cl >= 677 then
+			ch2_y_good_shared()
+		end
+	else
+		if cl == 670 then
+			updateYuri('1','a')
+			cw('y',"Let's see what you've written for today.")
+		elseif cl == 671 then
+			cw('y',"...")
+		elseif cl == 672 then
+			updateYuri('2','e')
+			cw('y',"......")
+		elseif cl == 673 then
+			cw('bl',"Yuri stares at the poem with a surprised expression on her face.")
+		elseif cl == 674 then
+			cw('mc',"Do you...like it?")
+		elseif cl == 675 then
+			cw('y',player.."...")
+		elseif cl == 676 then
+			cw('y',"This one might even be better than yesterday's...")
+		elseif cl == 677 then
+			cw('y',"...How did you even pick up on this so quickly?")
+		elseif cl >= 678 then
+			ch2_y_good_shared()
+		end
+	end
+end
+
+function ch2_y_good_shared()
+	if cl == 677 then
+		cl = 678
+		xaload = -1
+	elseif cl == 678 then
+		 updateYuri('2','v')
+		 cw('y',"Just yesterday, I was telling you the kind of techniques worth practicing...")
+	elseif cl == 679 then
+		cw('mc',"Maybe that's why...")
+	elseif cl == 680 then
+		cw('mc',"You did a good job explaining.")
+	elseif cl == 681 then
+		cw('mc',"I really wanted to try giving it more imagery.")
+	elseif cl == 682 then
+		updateYuri('4','b2')
+		cw('bl',"Yuri visibly swallows.")
+	elseif cl == 683 then
+		cw('bl',"Even her hands appear sweaty.")
+	elseif cl == 684 then
+		cw('y',"I'm not...used to this...")
+	elseif cl == 685 then
+		cw('mc',"Used to what?")
+	elseif cl == 686 then
+		updateYuri('3','o')
+		cw('y',"I don't know...!")
+	elseif cl == 687 then
+		cw('mc',"It's fine, take your time...")
+	elseif cl == 688 then
+		updateYuri('3','l')
+		cw('bl',"Yuri breathes and collects her thoughts.")
+	elseif cl == 689 then
+		cw('bl',"I know that Yuri likes to think before she speaks, so I offer that patience to her.")
+	elseif cl == 690 then
+		updateYuri('4','a2')
+		cw('y',"Yeah...")
+	elseif cl == 691 then
+		cw('y',"Just...being appreciated like this...I guess.")
+	elseif cl == 692 then
+		cw('y',"It probably sounds really stupid...")
+	elseif cl == 693 then
+		cw('y',"But seeing someone motivated by my writing...")
+	elseif cl == 694 then
+		cw('y',"It just makes me...")
+	elseif cl == 695 then
+		cw('y',"Really happy...")
+	elseif cl == 696 then
+		cw('mc',"Are you saying you've never shared your writing before?")
+	elseif cl == 697 then
+		cw('bl',"Yuri nods.")
+	elseif cl == 698 then
+		cw('mc', "Really? I don't believe it.")
+	elseif cl == 699 then
+		cw('y',"I really only write for myself...")
+	elseif cl == 700 then
+		cw('y',"And besides...")
+	elseif cl == 701 then
+		updateYuri('3','w')
+		cw('y',"...People would just laugh at me!")
+	elseif cl == 702 then
+		cw('mc',"Do you really think that...?")
+	elseif cl == 703 then
+		cw('bl',"Again, Yuri nods.")
+	elseif cl == 704 then
+		cw('mc',"Huh...")
+	elseif cl == 705 then
+		cw('mc',"Even your close friends?")
+	elseif cl == 706 then
+		updateYuri('2','v')
+		cw('y',"...")
+	elseif cl == 707 then
+		cw('bl',"Yuri doesn't respond to that.")
+	elseif cl == 708 then
+		cw('bl',"I wonder why...")
+	elseif cl == 709 then
+		cw('mc',"Anyway...")
+	elseif cl == 710 then
+		cw('mc',"Do you want to share the poem you wrote today?")
+	elseif cl == 711 then
+		cw('y',"...Yeah.")
+	elseif cl == 712 then
+		updateYuri('3','t')
+		cw('y',"I do!")
+	elseif cl == 713 then
+		cw('y',"If it's with you...")
+	elseif cl >= 714 then
+		ch2_y_end()
 	end
 end
 
@@ -1532,6 +2082,98 @@ function ch2_n_good_sharedwithch3()
 	end
 end
 
+function ch3_n_end()
+	if cl < 754 then
+		xaload = -1
+		cl = 754
+	elseif cl == 754 then
+		poem('poem_n3','natsuki')
+	elseif cl == 755 then
+		poem('poem_n3-a','natsuki',1)
+	elseif cl == 756 then
+		poem('poem_n3-b','natsuki',1)
+	elseif cl == 757 then
+		poem('poem_n3-c','natsuki',1)
+	elseif cl == 758 then
+		poem_disable()
+		updateNatsuki('2','a')
+		cw('n',"Yeah...")
+	elseif cl == 759 then
+		cw('n',"I felt like I kept writing about negative things, so I wanted to write something with a nice message for once.")
+	elseif cl == 760 then
+		updateNatsuki('2','z')
+		cw('n',"Besides...the beach is awesome!")
+	elseif cl == 760 then
+		updateNatsuki('2','j')
+		cw('n',"Kinda hard to write anything negative about the beach.")
+	elseif cl == 760 then
+		if readpoem.y == 0 or y_appeal >= 3 then
+			cw('mc',"So you decided to write about the beach first, and then came up with the message later?")
+		else
+			cw('mc',"Well, Yuri's take on it was a little more solemn.")
+		end
+	elseif cl == 761 then
+		if readpoem.y == 0 or y_appeal >= 3 then	
+			updateNatsuki('2','c')
+			cw('n',"Yeah, well...")
+		else
+			updateNatsuki('5','h')
+			cw('n',"Well, that's--")
+		end
+	elseif cl == 762 then
+		if readpoem.y == 0 or y_appeal >= 3 then
+			cw('n',"It's only because of what happened yesterday.")
+		else
+			updateNatsuki('4','2c')
+			cw('n',"Jeez...she better not have said anything bad about mine!")
+		end
+	elseif cl == 763 then
+		if readpoem.y == 0 or y_appeal >= 3 then
+			updateNatsuki('5','q')
+			cw('n',"I mean, after Yuri and I realized we kind of wrote about the same thing...")
+		else
+			cw('n',"After all, she was the one who wanted us to write about the same topic.")
+		end
+	elseif cl == 763 then
+		if readpoem.y == 0 or y_appeal >= 3 then
+			cw('n',"She wanted to pick a topic and have us both write about it, or whatever.")
+		else
+			xaload = -1
+			cl = 767
+		end
+	elseif cl == 764 then
+        if readpoem.y == 1 then
+			cw('mc',"I see...")
+		else
+			xaload = -1
+			cl = 767
+		end
+	elseif cl == 765 then
+		cw('bl',"Something tells me the poem Yuri showed me isn't the one she plans on sharing with everyone else...")
+	elseif cl == 766 then
+		cw('bl',"Of course, I choose not to mention that to Natsuki.")
+	elseif cl == 767 then
+		updateNatsuki('1','s')
+		cw('n',"Ugh...you can really see her doing that, too.")
+	elseif cl == 768 then
+		cw('n',"Making us write about a simple topic, then trying to impress me by coming up with something all fancy.")
+	elseif cl == 769 then
+		updateNatsuki('1','w')
+		cw('n',"Well, it's not like I care.")
+	elseif cl == 770 then
+		cw('n',"I just did it anyway.")
+	elseif cl == 771 then
+		updateNatsuki('1','q')
+		cw('n',"I mean, I guess mine ended up being kind of metaphorical too...")
+	elseif cl == 772 then
+		cw('n',"...But there's nothing wrong with doing that once in a while!")
+	elseif cl == 773 then
+		cw('n', "At the very least, it was good practice.")
+	elseif cl == 774 then
+		poemfinish('n')
+	end
+end
+
 function ch3_n_bad12_shared()
 	if cl == 670 then
 		updateNatsuki('5','x')
@@ -1721,6 +2363,412 @@ function ch3_n_med()
 		elseif cl >= 679 then
 			ch3_n_shared()
 		end
+	end
+end
+
+function ch3_n_good()
+    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+        ch3_n_bad12_shared()
+    elseif n_poemappeal[1] > 0 and n_poemappeal[2] > 0 then
+		if cl == 670 then
+			updateNatsuki('1','l')
+			cw('n',"Let's see, let's see!")
+		elseif cl == 671 then
+			cw('mc',"You're certainly enthusiastic today.")
+		elseif cl == 672 then
+			updateNatsuki('2','j')
+			cw('n',"Of course.")
+		elseif cl == 673 then
+			cw('n',"You know I like your writing.")
+		elseif cl == 674 then
+			cw('mc',"I'm just surprised.")
+		elseif cl == 675 then
+			cw('mc',"It seemed like you had a lot of trouble admitting that before.")
+		elseif cl == 676 then
+			updateNatsuki('5','w')
+			cw('n',"Well... Well, of course!")
+		elseif cl == 677 then
+			updateNatsuki('5','q')
+			cw('n',"I just had to put you in your place a little bit!")
+		elseif cl == 678 then
+			cw('n',"It's not like...")
+		elseif cl == 679 then
+			cw('n',"I mean, it's not like I was shy or anything stupid like that.")
+		elseif cl == 680 then
+			updateNatsuki('5','t')
+			cw('n',"Or jealous!")
+		elseif cl == 681 then
+			cw('n',"I really wasn't jealous.")
+		elseif cl == 682 then
+			cw('n',"Just because you happen to be a good writer?")
+		elseif cl == 683 then
+			updateNatsuki('4','y')
+			cw('n',"That's such a dumb thing to get jealous about.")
+		elseif cl == 684 then
+			cw('n',"Ahaha!")
+		elseif cl == 685 then
+			cw('mc',"Natsuki...")
+		elseif cl == 686 then
+			updateNatsuki('1','h')
+			cw('n',"What??")
+		elseif cl == 687 then
+			cw('mc',"You're not very confident about your writing, are you?")
+		elseif cl == 688 then
+			updateNatsuki('1','n')
+			cw('n',"...Eh?")
+		elseif cl == 689 then
+			cw('n',"W-What are you talking about?")
+		elseif cl == 690 then
+			updateNatsuki('1','u')
+			cw('n',"My writing is obviously the best...")
+		elseif cl == 691 then
+			cw('n',"...Right?")
+		elseif cl == 692 then
+			cw('mc',"...")
+		elseif cl == 693 then
+			cw('bl',"It took me a while to figure out, but I think I finally did.")
+		elseif cl == 694 then
+			cw('bl',"Maybe Natsuki acts so arrogant because she's trying to make up for her own insecurities.")
+		elseif cl == 695 then
+			cw('bl',"If she acts like she's the best, then other people might think that way, too.")
+		elseif cl == 696 then
+			updateNatsuki('1','m')
+			cw('n',"Right...?")
+		elseif cl == 697 then
+			cw('n',player.."...")
+		elseif cl == 698 then
+			cw('n',"Please just tell me you like my poems.")
+		elseif cl == 699 then
+			updateNatsuki('1','u')
+			cw('n',"I don't care if you hate them.")
+		elseif cl == 700 then
+			cw('n',"Just please tell me I'm the best.")
+		elseif cl == 701 then
+			cw('n',"I just...")
+		elseif cl == 702 then
+			updateNatsuki('1','q')
+			cw('n',"I just really need to hear that from someone.")
+		elseif cl == 703 then
+			cw('n',"I know I sound stupid.")
+		elseif cl == 704 then
+			cw('n',"But there's a reason I never shared my poems before this.")
+		elseif cl == 705 then
+			cw('mc',"Natsuki...")
+		elseif cl == 706 then
+			cw('n',"Because...")
+		elseif cl == 707 then
+			updateNatsuki('1','2c')
+			cw('n',"Because nobody ever takes me seriously!")
+		elseif cl == 708 then
+			cw('n',"What's the point in sharing my poems if people just laugh and say \"That's so cute, just like you, Natsuki!\"")
+		elseif cl == 709 then
+			cw('n',"Sometimes I don't want to be cute!")
+		elseif cl == 710 then
+			updateNatsuki('1','2d')
+			cw('n',"But nobody understands that!")
+		elseif cl == 711 then
+			cw('n',"I try really hard when I write.")
+		elseif cl == 712 then
+			updateNatsuki('1','2e')
+			cw('n',"The style doesn't matter.")
+		elseif cl == 713 then
+			cw('n',"The emotions are there.")
+		elseif cl == 714 then
+			updateNatsuki('1','n')
+			cw('n',"Why can't anyone see that...?")
+		elseif cl == 715 then
+			updateNatsuki('1','u')
+			cw('n',"I just want...")
+		elseif cl == 716 then
+			cw('bl',"Natsuki trails off.")
+		elseif cl == 717 then
+			cw('bl',"Maybe it's because her lip started to quiver.")
+		elseif cl == 718 then
+			cw('bl',"I look down.")
+		elseif cl == 719 then
+			cw('bl',"Her fists are clenched really tightly.")
+		elseif cl == 720 then
+			cw('mc',"Hey, Natsuki.")
+		elseif cl == 721 then
+			cw('mc',"If you're not careful, you'll rip your own poem.")
+		elseif cl == 722 then
+			cw('bl',"I gently grab the poem with my own hand until she relaxes her grip on it.")
+		elseif cl == 723 then
+			cw('bl',"I place it flat on the desk and smooth out the wrinkles that she put into it.")
+		elseif cl == 724 then
+			updateNatsuki('1','h')
+			cw('n',"D-Don't read it!")
+		elseif cl == 725 then
+			cw('bl',"Before I can pick it back up, Natsuki snatches the poem up from the desk.")
+		elseif cl == 726 then
+			updateNatsuki('5','q')
+			cw('n',"It's not any good.")
+		elseif cl == 727 then
+			cw('n',"And I know you hate my poems.")
+		elseif cl == 728 then
+			cw('n',"So you don't have to read this one, okay?")
+		elseif cl == 729 then
+			cw('mc',"But I want to read it.")
+		elseif cl == 730 then
+			cw('n',"W-Why?")
+		elseif cl == 731 then
+			cw('mc',"Because.")
+		elseif cl == 732 then
+			cw('mc',"I like your poems.")
+		elseif cl == 733 then
+			cw('mc',"I really do.")
+		elseif cl == 734 then
+			updateNatsuki('5','h')
+			cw('mc',"Why would I judge you for your style?")
+		elseif cl == 735 then
+			cw('mc',"It's not like my own style is anything crazy.")
+		elseif cl == 736 then
+			cw('mc',"I mean, it's true that the first time I read one of your poems, I didn't look much into it.")
+		elseif cl == 737 then
+			cw('mc',"But I know you better now.")
+		elseif cl == 738 then
+			cw('mc',"And it's wrong for Yuri to think your style is more amateur than hers.")
+		elseif cl == 739 then
+			cw('mc',"And Sayori... She always means well...")
+		elseif cl == 740 then
+			cw('mc',"But sometimes she's so focused on simple happiness that she doesn't understand what people really want.")
+		elseif cl == 741 then
+			cw('mc',"Yeah... I guess I never really thought about how hard it is for you.")
+		elseif cl == 742 then
+			cw('mc',"And I'm sorry if I was part of that problem.")
+		elseif cl == 743 then
+			cw('mc',"I understand now.")
+		elseif cl == 744 then
+			cw('mc',"You're not just cute, you're a lot more than that.")
+		elseif cl == 745 then
+			updateNatsuki('1','2d')
+			cw('mc',"Ah-- Natsuki, you're doing it again--")
+		elseif cl == 746 then
+			cw('bl',"Once again, Natsuki clutches her poem a little too hard.")
+		elseif cl == 747 then
+			cw('bl',"She looks down, hiding her eyes from me.")
+		elseif cl == 748 then
+			cw('bl',"I never realized how difficult this was for her.")
+		elseif cl == 749 then
+			cw('bl',"But finally, she forces herself to extend her arms and set her poem on the table.")
+		elseif cl == 750 then
+			updateNatsuki('1','2e')
+			cw('n',"You can...read it.")
+		elseif cl == 751 then
+			cw('n',"Just turn that way.")
+		elseif cl == 752 then
+			cw('n',"I don't want you to...look at my face right now.")
+		elseif cl == 753 then
+			cw('mc',"Okay, I will.")
+		--ch3_n_end_special
+		elseif cl == 754 then
+			poem('poem_n3b','natsuki')
+		elseif cl == 755 then
+			poem('poem_n3b-a','natsuki',1)
+		elseif cl == 756 then
+			poem('poem_n3b-b','natsuki',1)
+		elseif cl == 757 then
+			poem_disable()
+		elseif cl == 758 then
+			updateNatsuki('1','q')
+			cw('n',"...")
+		elseif cl == 759 then
+			cw('n',"...Why are you looking at me like that?")
+		elseif cl == 760 then
+			cw('n',"If you don't like it, then just say it.")
+		elseif cl == 760 then
+			updateNatsuki('1','u')
+			cw('n',"I won't...get mad.")
+		elseif cl == 760 then
+			cw('mc',"No, it's not that I don't like it...!")
+		elseif cl == 760 then
+			cw('mc',"It was just...a little surprising to read.")
+		elseif cl == 760 then
+			if readpoem.y == 1 then
+				cw('bl',"This clearly isn't the poem that Yuri told me she had written...")
+			else
+				cl = 762
+				xaload = -1
+			end
+		elseif cl == 761 then
+			cw('bl',"...Meaning I'm probably the only one she's showing this to.")
+		elseif cl == 762 then
+			cw('mc', "Er...I guess I'm not used to hearing such nice things coming from you...")
+		elseif cl == 763 then
+			updateNatsuki('1','h')
+			cw('n',"D-Don't just say that!")
+		elseif cl == 764 then
+			updateNatsuki('1','n')
+			cw('n',"Dummy...")
+		elseif cl == 765 then
+			cw('n',"What do you think...the point of writing is?")
+		elseif cl == 766 then
+			updateNatsuki('1','u')
+			cw('n',"Expressing things that you can't just say...")
+		elseif cl == 767 then
+			cw('mc',"Yeah...I understand.")
+		elseif cl == 768 then
+			cw('mc',"I'm sorry for missing the point sometimes.")
+		elseif cl == 769 then
+			cw('mc',"I always mean well...")
+		elseif cl == 770 then
+			cw('mc',"And...I'm happy that you showed this to me.")
+		elseif cl == 771 then
+			cw('mc',"I liked it.")
+		elseif cl == 772 then
+			updateNatsuki('1','h')
+			cw('n',"Well...yeah...")
+		elseif cl == 773 then
+			updateNatsuki('1','q')
+			cw('n',"I'm...I'm a pro, so...")
+		elseif cl == 774 then
+			cw('bl',"Natsuki mumbles, completely failing to sound confident like she usually does.")
+		elseif cl == 775 then
+			cw('n',"Just...")
+		elseif cl == 776 then
+			updateNatsuki('1','2c')
+			cw('n',"Remember that...I can think these things sometimes, too!")
+		elseif cl == 777 then
+			cw('n',"You know, when you're nice to me, it's...")
+		elseif cl == 778 then
+			updateNatsuki('1','2a')
+			cw('n',"...")
+		elseif cl == 779 then
+			cw('n', "...Meaningful.")
+		elseif cl == 780 then
+			cw('mc',"Ah...I'm glad.")
+		elseif cl == 781 then
+			cw('bl',"Sensing Natsuki is satisfied, I start to hand the poem back to her.")
+		elseif cl == 782 then
+			cw('bl',"But as I do so, Natsuki takes my hands and pushes them back away.")
+		elseif cl == 783 then
+			cw('bl',"Her small, soft hands surprise me with their assertion.")
+		elseif cl == 784 then
+			updateNatsuki('1','2b')
+			cw('n',"I don't want it.")
+		elseif cl == 785 then
+			cw('mc',"Eh...?")
+		elseif cl == 786 then
+			cw('mc',"Why not?")
+		elseif cl == 787 then
+			updateNatsuki('1','2c')
+			cw('n',"I just don't!")
+		elseif cl == 788 then
+			cw('n',"Jeez...")
+		elseif cl == 789 then
+			cw('bl',"I realize what Natsuki is doing.")
+		elseif cl == 790 then
+			cw('bl',"Unable to be honest, she's trying to give me the poem in a roundabout way.")
+		elseif cl == 791 then
+			cw('mc',"Well...in that case, I'm going to keep it.")
+		elseif cl == 792 then
+			cw('bl',"Instead of teasing her, I choose to go along with it.")
+		elseif cl == 793 then
+			updateNatsuki('1','t')
+			cw('n',"...Good.")
+		elseif cl == 794 then
+			cw('n',"If you didn't, I would...")
+		elseif cl == 795 then
+			cw('n',"...")
+		elseif cl == 796 then
+			updateNatsuki('1','h')
+			cw('n',"Never mind...")
+		elseif cl == 797 then
+			updateNatsuki('1','q')
+			cw('n',"Just...I'm glad that you want it.")
+		elseif cl == 798 then
+			cw('bl',"Natsuki backpedals on her words and leaves it at that.")
+		elseif cl == 799 then
+			cw('bl',"Despite her best efforts to hide her expression, I can see her faintly smiling to herself.")
+		elseif cl == 800 then
+			cw('n',"That's all for now, so...")
+		elseif cl == 801 then
+			updateNatsuki('1','s')
+			cw('n',"Go put it away before someone sees it, okay?")
+		elseif cl == 802 then
+			cw('mc',"Ah...yeah.")
+		elseif cl == 803 then
+			cw('mc',"I'll go do that.")
+		elseif cl == 804 then
+			cw('bl',"With that, I return to my seat so that I can put away Natsuki's poem.")
+		elseif cl == 805 then
+			poemfinish('n')
+        end
+    elseif n_poemappeal[1] > 0 or n_poemappeal[2] > 0 then
+        ch2_n_good_sharedwithch3()
+    else
+		if cl == 670 then
+			cw('n',"...")
+		elseif cl == 671 then
+			updateNatsuki('2','k')
+			cw('n',"...Finally!")
+		elseif cl == 672 then
+			cw('mc',"Eh?")
+		elseif cl == 673 then
+			updateNatsuki('2','l')
+			cw('n',"This one. It's good!")
+		elseif cl == 674 then
+			cw('n',"I was wondering how long it would take you.")
+		elseif cl == 675 then
+			cw('mc',"All right!")
+		elseif cl == 676 then
+			updateNatsuki('4','y')
+			cw('n',"Yeah, seriously.")
+		elseif cl == 677 then
+			cw('n',"Don't listen to what anyone else says.")
+		elseif cl == 678 then
+			cw('n',"Especially Yuri.")
+		elseif cl == 679 then
+			updateNatsuki('4','a')
+			cw('n', "Just keep writing poems like this. That's all you need!")
+		elseif cl == 680 then
+			cw('mc',"Er...")
+		elseif cl == 681 then
+			cw('mc',"Are you sure that's not just what you want?")
+		elseif cl == 682 then
+			updateNatsuki('2','h')
+			cw('n',"Excuse me?")
+		elseif cl == 683 then
+			cw('n', "You're talking to a pro, you know.")
+		elseif cl == 684 then
+			cw('n',"Don't you think you should trust my opinion the most?")
+		elseif cl == 685 then
+			cw('mc',"I guess that depends.")
+		elseif cl == 686 then
+			cw('mc',"Aren't you biased towards poems that are more simple and cute?")
+		elseif cl == 687 then
+			updateNatsuki('2','w')
+			cw('n',"Biased?")
+		elseif cl == 688 then
+			cw('n',"Of course not.")
+		elseif cl == 689 then
+			updateNatsuki('4','y')
+			cw('n',"My opinion just happens to be the best.")
+		elseif cl == 690 then
+			cw('mc', "...")
+		elseif cl == 691 then
+			cw('bl', "There's one thing I still can't tell.")
+		elseif cl == 692 then
+			cw('bl',"Is Natsuki actually self-aware of her spoiled behavior?")
+		elseif cl == 693 then
+			cw('bl',"At this rate, I don't know if I'll ever figure it out.")
+		elseif cl == 694 then
+			cw('mc',"...Fair enough.")
+		elseif cl == 695 then
+			cw('mc',"I'm glad that you like my poem, after all.")
+		elseif cl == 696 then
+			updateNatsuki('4','z')
+			cw('n', "Ahaha!")
+		elseif cl == 697 then
+			updateNatsuki('4','j')
+			cw('n',"I knew you'd finally understand.")
+		elseif cl == 698 then
+			cw('n',"Just keep showing me your poems and you'll be a pro before you know it.")
+		elseif cl == 699 then
+			cw('n',"Anyway, here's the one I wrote.")
+		elseif cl >= 700 then
+			ch3_n_end()
+        end
 	end
 end
 
@@ -2618,6 +3666,274 @@ function ch2_s_good()
 	end
 end
 
+function ch3_s_bad()
+    currentname = "Yuri"
+    if n_poemappeal[3] > y_poemappeal[3] then
+        currentname = "Natsuki"
+	end
+	if cl == 670 then
+		cw('s',"...")
+	elseif cl == 671 then
+		updateSayori('1','k')
+		cw('s',"...Hm.")
+	elseif cl == 672 then
+		cw('s',"It's nice, I guess~")
+	elseif cl == 673 then
+		cw('mc',"Come on, I can already tell you don't like it.")
+	elseif cl == 674 then
+		updateSayori('1','d')
+		cw('s',"Well...")
+	elseif cl == 675 then
+		cw('s',"You don't need to worry about what I think.")
+	elseif cl == 676 then
+		updateSayori('2','y')
+		cw('s',"After all, you wrote this for someone else, didn't you?")
+	elseif cl == 677 then
+		cw('s',"Probably .."..currentname.."...")
+	elseif cl == 678 then
+		cw('mc',"Eh??")
+	elseif cl == 679 then
+		cw('mc',"I didn't write this for anyone specifically!")
+	elseif cl == 680 then
+		cw('s',"Maybe...")
+	elseif cl == 681 then
+		updateSayori('1','d')
+		cw('s',"That's not really what I meant, though.")
+	elseif cl == 682 then
+		cw('s',"But it's okay.")
+	elseif cl == 683 then
+		cw('s',"You're making new friends, just like I was hoping.")
+	elseif cl == 684 then
+		updateSayori('1','q')
+		cw('s',"That makes me...really happy.")
+	elseif cl == 685 then
+		cw('s', "And you're happy too, right?")
+	elseif cl == 686 then
+		updateSayori('1','a')
+		cw('s',"In this club?")
+	elseif cl == 687 then
+		cw('mc',"Well...")
+	elseif cl == 688 then
+		cw('mc',"Of course I am.")
+	elseif cl == 689 then
+		updateSayori('4','q')
+		cw('s',"Good~")
+	elseif cl == 690 then
+		cw('s',"That's all that matters to me.")
+	elseif cl == 691 then
+		updateSayori('1','d')
+		cw('s',"Thank you, "..player..".")
+	elseif cl == 692 then
+		cw('mc',"Sayori...")
+	elseif cl == 693 then
+		cw('mc',"Is there something wrong?")
+	elseif cl == 694 then
+		updateSayori('1','b')
+		cw('s',"Huh?")
+	elseif cl == 695 then
+		updateSayori('1','k')
+		cw('s',"No, nothing.")
+	elseif cl == 696 then
+		cw('s',"I'm just a little tired today.")
+	elseif cl == 697 then
+		updateSayori('1','l')
+		cw('s',"Ehehe.")
+	elseif cl == 698 then
+		cw('mc',"Alright...")
+	elseif cl == 699 then
+		cw('mc',"Just tell me if you need anything.")
+	elseif cl == 700 then
+		updateSayori('1','a')
+		cw('s',"I will.")
+	elseif cl == 701 then
+		cw('s',"Don't worry about me, okay?")
+	elseif cl == 702 then
+		cw('s',"You can go play with everyone else now.")
+	elseif cl == 703 then
+		cw('mc',"If you insist...")
+	elseif cl == 704 then
+		updateSayori('4','q')
+		cw('s',"Yaay~")
+	elseif cl == 705 then
+		updateSayori('4','a')
+		cw('s',"I'm gonna go home a little bit early today.")
+	elseif cl == 706 then
+		cw('mc',"Sayori...?")
+	elseif cl == 707 then
+		updateSayori('1','q')
+		cw('s',"Tell Monika I wasn't feeling well, okay?")
+	elseif cl == 708 then
+		cw('s',"I'll see you tomorrow~")
+	elseif cl == 709 then
+		cw('bl',"Before I can say anything else, Sayori cheerfully walks out of the classroom, humming to herself.")
+	elseif cl == 710 then
+		poemfinish('s')
+	end
+end
+
+function ch3_s_med()
+	ch3_s_bad()
+end
+
+function ch3_s_good()
+	if poemwinner[1] ~= "Sayori" and poemwinner[2] ~= "Sayori" then
+        ch3_s_bad()
+	else
+		if cl == 670 then
+			updateSayori('1','d')
+			cw('s',"...")
+		elseif cl == 671 then
+			cw('s',"This is your best one so far.")
+		elseif cl == 672 then
+			cw('s',"It's really really nice, "..player.."~")
+		elseif cl == 673 then
+			cw('mc',"Er-- Thanks.")
+		elseif cl == 674 then
+			updateSayori('1','q')
+			cw('s',"Mhm~")
+		elseif cl == 675 then
+			cw('mc',"...")
+		elseif cl == 676 then
+			cw('mc',"Sayori, you've been a little quiet today.")
+		elseif cl == 677 then
+			cw('mc',"Is everything alright?")
+		elseif cl == 678 then
+			updateSayori('4','m')
+			cw('s',"E-Eh??")
+		elseif cl == 679 then
+			cw('s',"Of course!")
+		elseif cl == 680 then
+			updateSayori('4','l')
+			cw('s',"Everything is fine~")
+		elseif cl == 681 then
+			cw('s',"Maybe I'm just a little tired today.")
+		elseif cl == 682 then
+			updateSayori('1','l')
+			cw('s',"Ehehe.")
+		elseif cl == 683 then
+			cw('mc',"Do you want to nap or something?")
+		elseif cl == 684 then
+			updateSayori('1','h')
+			cw('s',"No, that's silly!")
+		elseif cl == 685 then
+			cw('s',"Don't worry about me, okay?")
+		elseif cl == 686 then
+			updateSayori('1','q')
+			cw('s',"I only want to see smiles on your face~")
+		elseif cl == 687 then
+			cw('mc',"Well, alright...")
+		elseif cl == 688 then
+			updateSayori('1','b')
+			cw('s',"Hey, "..player.."...")
+		elseif cl == 689 then
+			cw('s',"I'm still a little surprised.")
+		elseif cl == 690 then
+			cw('s',"I really thought that you would try writing your poems like the way Yuri does...")
+		elseif cl == 691 then
+			updateSayori('1','y')
+			cw('s',"Or even Natsuki...")
+		elseif cl == 692 then
+			cw('s',"But in the end...")
+		elseif cl == 693 then
+			cw('mc',"...Yeah.")
+		elseif cl == 694 then
+			cw('mc',"I guess you're the one who likes this one the most.")
+		elseif cl == 695 then
+			audioUpdate('0')
+			updateSayori('1','k')
+			cw('s',"...Why?")
+		elseif cl == 696 then
+			cw('s',"You don't want to get closer with everyone else?")
+		elseif cl == 697 then
+			audioUpdate('9')
+			cw('mc',"Wait!")
+		elseif cl == 698 then
+			cw('mc',"Of course I do!")
+		elseif cl == 699 then
+			cw('mc',"But that doesn't mean I need to try so hard to impress them.")
+		elseif cl == 700 then
+			cw('mc',"I still understand you the most, Sayori.")
+		elseif cl == 701 then
+			cw('mc',"I know you have to sometimes put up with me.")
+		elseif cl == 702 then
+			cw('mc',"And I have to sometimes put up with you.")
+		elseif cl == 703 then
+			cw('mc',"But we have...a wavelength or something.")
+		elseif cl == 704 then
+			cw('mc',"And this is how the poem came out.")
+		elseif cl == 705 then
+			cw('mc',"Sometimes it feels like you're the only exciting thing in my life.")
+		elseif cl == 706 then
+			cw('mc',"So sometimes it's just easier to write when thinking about you.")
+		elseif cl == 707 then
+			cw('mc',"...Sayori?")
+		elseif cl == 708 then
+			updateSayori('4','v')
+			cw('s',"N-No...")
+		elseif cl == 709 then
+			cw('s',player.."...")
+		elseif cl == 710 then
+			cw('s',"I don't...deserve this...")
+		elseif cl == 711 then
+			cw('s',"You're too nice to me...")
+		elseif cl == 712 then
+			cw('s',"Why are you doing this...?")
+		elseif cl == 713 then
+			cw('bl',"Sayori has trouble keeping her voice steady, all of a sudden.")
+		elseif cl == 714 then
+			cw('s',"If you had fun with everyone else instead...")
+		elseif cl == 715 then
+			cw('s',"This would be...so much easier!")
+		elseif cl == 716 then
+			cw('mc',"Sayori...!")
+		elseif cl == 717 then
+			cw('bl',"I glance around the room to make sure nobody has noticed this.")
+		elseif cl == 718 then
+			cw('mc',"Sayori.")
+		elseif cl == 719 then
+			cw('mc',"I've probably never said this before, but I don't understand what you're feeling right now.")
+		elseif cl == 720 then
+			cw('mc',"Tell me what will cheer you up.")
+		elseif cl == 721 then
+			cw('bl',"Sayori shakes her head.")
+		elseif cl == 722 then
+			cw('bl',"She sniffles and keeps shaking her head.")
+		elseif cl == 723 then
+			cw('bl',"Finally, she gathers herself and puts on a smile.")
+		elseif cl == 724 then
+			updateSayori('1','y')
+			cw('s',"It's nothing, "..player..".")
+		elseif cl == 725 then
+			cw('s',"It's just a little raincloud.")
+		elseif cl == 726 then
+			updateSayori('4','r')
+			cw('s',"I'm sorry you had to see that. Ahahaha!")
+		elseif cl == 727 then
+			cw('s',"I promise it won't happen again.")
+		elseif cl == 728 then
+			updateSayori('1','a')
+			cw('s',"Just smiles from everyone, okay?")
+		elseif cl == 729 then
+			cw('s',"That's all that matters.")
+		elseif cl == 730 then
+			cw('s',"Go play with everyone else.")
+		elseif cl == 731 then
+			cw('s',"I'm gonna go home a little bit early today~")
+		elseif cl == 732 then
+			cw('mc',"Sayori--")
+		elseif cl == 733 then
+			updateSayori('2','q')
+			cw('s',"Tell Monika I wasn't feeling well, okay?")
+		elseif cl == 734 then
+			cw('s',"I'll see you tomorrow~")
+		elseif cl == 735 then
+			cw('bl',"Before I can say anything else, Sayori cheerfully walks out of the classroom, humming to herself.")
+		elseif cl == 736 then
+			poemfinish('s')
+		end
+	end
+end
+
 function ch1_m_start()
 	if cl == 670 then
 		updateMonika('1','b')
@@ -2868,8 +4184,191 @@ function ch1_m_end()
 	end
 end
 
-function m_eval()
+function ch2_m_end()
+	if cl == 730 then
+		updateMonika('1','a')
+		cw('m',"But anyway...")
+	elseif cl == 731 then
+		cw('m',"You want to read my poem now?")
+	elseif cl == 732 then
+		cw('m',"I like the way this one turned out, so I hope you do too~")
+	elseif cl == 733 then
+		cw('mc',"Alright, let's take a look.")
+	elseif cl == 734 then
+		poem('poem_m2','monika')
+	elseif cl == 735 then
+		poem('poem_m2-a','monika',1)
+	elseif cl == 736 then
+		poem('poem_m2-a','monika',1)
+	elseif cl == 737 then
+		poem('poem_m2-a','monika',1)
+	elseif cl == 738 then
+		poem_disable()
+		cw('mc',"Hm...")
+	elseif cl == 739 then
+		cw('mc',"It's even more abstract than your last one, huh?")
+	elseif cl == 740 then
+		updateMonika('5a')
+		cw('m',"Ahaha...")
+	elseif cl == 741 then
+		cw('m',"I guess it's just the way I write...")
+	elseif cl == 742 then
+		cw('m',"I'm sorry if you don't like it.")
+	elseif cl == 743 then
+		cw('mc',"No, I never said that.")
+	elseif cl == 744 then
+		cw('mc',"It's just a kind of thing I've never really seen before, I guess.")
+	elseif cl == 745 then
+		updateMonika('2','a')
+		cw('m',"I kind of like playing with my space on the paper...")
+	elseif cl == 746 then
+		cw('m',"Choosing where and how to space your words can totally change the mood of the poem.")
+	elseif cl == 747 then
+		updateMonika('2','b')
+		cw('m',"It's almost like magic.")
+	elseif cl == 748 then
+		cw('m',"The way I wrote the lines really short makes it feel like they're trying to speak over the noise.")
+	elseif cl == 749 then
+		cw('mc',"I see...")
+	elseif cl == 750 then
+		cw('mc',"It's still hard for me to tell what it's about, though.")
+	elseif cl == 751 then
+		updateMonika('2','k')
+		cw('m',"Ahaha.")
+	elseif cl == 752 then
+		updateMonika('4','a')
+		cw('m',"Sometimes asking what a poem is about isn't the right question.")
+	elseif cl == 753 then
+		cw('m',"A poem can be as abstract as a physical expression of a feeling.")
+	elseif cl == 754 then
+		cw('m',"Or a conversation with the reader.")
+	elseif cl == 755 then
+		cw('m',"So putting it that way, not every poem is about something.")
+	elseif cl == 756 then
+		cw('m',"Anyway...")
+	elseif cl == 757 then
+		updateMonika('3','b')
+		cw('m',"Here's Monika's Writing Tip of the Day!")
+	elseif cl == 758 then
+		cw('m',"Sometimes you'll find yourself facing a difficult decision...")
+	elseif cl == 759 then
+		cw('m',"When that happens, don't forget to save your game!")
+	elseif cl == 760 then
+		cw('m',"You never know when you might change your mind...")
+	elseif cl == 761 then
+		cw('m',"...or when something unexpected may happen!")
+	elseif cl == 762 then
+		updateMonika('3','d')
+		cw('m',"Wait...is this tip even about writing?")
+	elseif cl == 763 then
+		updateMonika('3','k')
+		cw('m',"What am I even talking about?")
+	elseif cl == 764 then
+		cw('m',"Ahaha!")
+	elseif cl == 765 then
+		updateMonika('3','b')
+		cw('m',"...That's my advice for today!")
+	elseif cl == 766 then
+		cw('m',"Thanks for listening~")
+	elseif cl == 767 then
+		poemfinish('m')
+	end
+end
 
+function ch3_m_end()
+	if cl == 730 then
+	elseif cl == 731 then
+		updateMonika('1','a')
+		cw('m',"Anyway...!")
+	elseif cl == 732 then
+		cw('m',"I'll share my poem with you now, alright?")
+	elseif cl == 733 then
+		cw('m',"Er...")
+	elseif cl == 734 then
+		cw('mc',"Alright...")
+	elseif cl == 735 then
+		poem('poem_m3','monika')
+	elseif cl == 736 then
+		poem('poem_m3-a','monika',1)
+	elseif cl == 737 then
+		poem('poem_m3-b','monika',1)
+	elseif cl == 738 then
+		poem('poem_m3-c','monika',1)
+	elseif cl == 739 then
+		poem('poem_m3-d','monika',1)
+	elseif cl == 740 then
+		poem_disable()
+		updateMonika('1','a')
+		cw('m',"You know...")
+	elseif cl == 741 then
+		cw('m',"I feel like learning and looking for answers are the sorts of things that give life meaning.")
+	elseif cl == 742 then
+		updateMonika('1','e')
+		cw('m',"Not to get too philosophical or anything...")
+	elseif cl == 743 then
+		updateMonika('1','a')
+		cw('m',"But it was kind of on my mind, so that's what I wrote about.")
+	elseif cl == 744 then
+		cw('mc',"I see...")
+	elseif cl == 745 then
+		cw('mc',"I never really put much thought into it.")
+	elseif cl == 746 then
+		updateMonika('1','d')
+		cw('m',"In a way, it's almost paradoxical.")
+	elseif cl == 747 then
+		cw('m',"Because if we had all the answers, wouldn't the world start to lose its meaning?")
+	elseif cl == 748 then
+		cw('mc',"You know, there's one thing I noticed...")
+	elseif cl == 749 then
+		cw('mc',"It seems like everyone in the club prefers writing about things that are more sad than happy.")
+	elseif cl == 750 then
+		updateMonika('1','k')
+		cw('m',"Ahaha. Are you surprised?")
+	elseif cl == 751 then
+		updateMonika('1','a')
+		cw('m',"I mean, if everything was okay...")
+	elseif cl == 752 then
+		cw('m',"We wouldn't really have anything to write about, would we?")
+	elseif cl == 753 then
+		cw('m',"Humans aren't two-dimensional creatures.")
+	elseif cl == 754 then
+		cw('m',"I think you'd know that better than anyone.")
+	elseif cl == 755 then
+		cw('mc',"You mean one-dimensional...?")
+	elseif cl == 756 then
+		updateMonika('1','l')
+		cw('m',"Ah...yeah, that!")
+	elseif cl == 757 then
+		updateMonika('1','a')
+		cw('m',"Anyway...")
+	elseif cl == 758 then
+		updateMonika('3','b')
+		cw('m',"Here's Monika's Writing Tip of the Day!")
+	elseif cl == 759 then
+		cw('m',"Are you ever too shy to share your writing because you're afraid it's not that good?")
+	elseif cl == 760 then
+		cw('m',"It can be really disheartening to get a lukewarm response to something you put so much into.")
+	elseif cl == 761 then
+		cw('m',"But if you find other people who enjoy writing, then sharing becomes a lot easier!")
+	elseif cl == 762 then
+		cw('m',"Because instead of just telling you that your writing is good, or okay, or bad...")
+	elseif cl == 763 then
+		cw('m',"They'll want to focus more on everything that went into it, and the things you can work on.")
+	elseif cl == 764 then
+		cw('m',"It's much more encouraging that way, and it will make you want to continue improving.")
+	elseif cl == 765 then
+		cw('m',"It's almost like having your own little Literature Club, don't you think?")
+	elseif cl == 766 then
+		updateMonika('3','k')
+		cw('m',"...That's my advice for today!")
+	elseif cl == 767 then
+		cw('m',"Thanks for listening~")
+	elseif cl == 768 then
+		poemfinish('m')
+	end
+end
+
+function m_eval()
 	if poemwinner[chapter] == 'Sayori' then
 		if s_appeal == 1 then m_sayori_1()
 		elseif s_appeal == 2 then m_sayori_2()
@@ -3098,6 +4597,46 @@ end
 
 function m_natsuki_2()
 	if cl == 692 then
+		updateMonika('1','j')
+		cw('m',"It's pretty good~")
+	elseif cl == 693 then
+		updateMonika('1','a')
+		cw('m',"You've been spending some time with Natsuki, haven't you?")
+	elseif cl == 694 then
+		cw('m',"You must like her writing style.")
+	elseif cl == 695 then
+		cw('mc',"Ah, yeah...")
+	elseif cl == 696 then
+		cw('mc',"I think it's a neat way to tell a story.")
+	elseif cl == 697 then
+		updateMonika('2','a')
+		cw('m',"Mhm. I don't disagree.")
+	elseif cl == 698 then
+		cw('m',"Natsuki's poems may be cute, but they're also meaningful.")
+	elseif cl == 699 then
+		cw('m',"I can see why you'd be into the style.")
+	elseif cl == 700 then
+		cw('m',"I guess that means you're not as much a fan of Yuri's poems, then?")
+	elseif cl == 701 then
+		cw('mc',"Ah-- I wouldn't say that...")
+	elseif cl == 702 then
+		cw('mc',"I kind of like everyone's poems.")
+	elseif cl == 703 then
+		updateMonika('2','d')
+		cw('m',"That's true, but I'm sure you like some more than others, right?")
+	elseif cl == 704 then
+		cw('m',"Like Yuri's use of complex words and symbolism...")
+	elseif cl == 705 then
+		cw('m',"Or Sayori's way of expressing happiness or sadness in a more direct way.")
+	elseif cl == 706 then
+		updateMonika('2','a')
+		cw('m',"You must have some kind of preference, don't you?")
+	elseif cl == 707 then
+		updateMonika('4','l')
+		cw('m',"Ah, not that it's a contest or anything!")
+	elseif cl == 708 then
+		updateMonika('4','a')
+		cw('m',"I was just curious, that's all.")
 	elseif cl >= 709 then
 		m_end()
 	end
@@ -3105,6 +4644,58 @@ end
 
 function m_sayori_2()
 	if cl == 692 then
+		updateMonika('1','j')
+		cw('m',"It's pretty good~")
+	elseif cl == 693 then
+		updateMonika('1','a')
+		cw('m',"It makes me think of Sayori, like the other one that you wrote.")
+	elseif cl == 694 then
+		updateMonika('4','b')
+		cw('m',"You two are like the dynamic duo!")
+	elseif cl == 695 then
+		cw('mc',"Ahaha... That's kind of exaggerating it.")
+	elseif cl == 696 then
+		updateMonika('2','a')
+		cw('m',"Yeah, probably.")
+	elseif cl == 697 then
+		cw('m',"But you do spend a lot of time with her even in this club, don't you?")
+	elseif cl == 698 then
+		updateMonika('2','j')
+		cw('m',"Then again, I don't blame you for being a little shy~")
+	elseif cl == 699 then
+		cw('mc',"I-I'm not shy, it's just...")
+	elseif cl == 700 then
+		updateMonika('5a')
+		cw('m',"Ahaha! I'm just teasing.")
+	elseif cl == 701 then
+		cw('m',"I know it takes a bit of time to make friends with everyone.")
+	elseif cl == 702 then
+		updateMonika('2','d')
+		cw('m',"But Yuri and Natsuki are super interesting people, so don't be afraid to give them their share of time!")
+	elseif cl == 703 then
+		cw('m',"And you can talk to me every now and then too...")
+	elseif cl == 704 then
+		updateMonika('1','e')
+		cw('m',"I'm not, like, unapproachable or anything, am I?")
+	elseif cl == 705 then
+		cw('mc',"Ah, no, it's nothing like that...")
+	elseif cl == 706 then
+		cw('mc',"I'm just still getting used to being here, that's all.")
+	elseif cl == 707 then
+		updateMonika('1','a')
+		cw('m',"Yeah...")
+	elseif cl == 708 then
+		updateMonika('1','l')
+		cw('m',"I'm sorry if I was putting pressure on you or something!")
+	elseif cl == 709 then
+		cw('m',"I really didn't mean it like that.")
+	elseif cl == 710 then
+		cw('mc',"No, don't worry.")
+	elseif cl == 711 then
+		cw('mc',"I get what you're saying.")
+	elseif cl == 712 then
+		updateMonika('1','a')
+		cw('m',"Well, alright~")
 	elseif cl >= 713 then
 		m_end()
 	end
@@ -3112,6 +4703,88 @@ end
 
 function m_yuri_2()
 	if cl == 692 then
+		updateMonika('2','b')
+		cw('m',"This one's good!")
+	elseif cl == 693 then
+		cw('m',"It feels like you're not only getting more comfortable with your style...")
+	elseif cl == 694 then
+		cw('m',"But the imagery is better than the last one I read!")
+	elseif cl == 695 then
+		updateMonika('2','a')
+		cw('m',"Just wondering, but have you been finding inspiration in Yuri's writing style?")
+	elseif cl == 696 then
+		cw('mc',"Hmm...")
+	elseif cl == 697 then
+		cw('mc',"I guess so.")
+	elseif cl == 698 then
+		cw('mc',"You can't deny that she's talented.")
+	elseif cl == 699 then
+		updateMonika('4','k')
+		cw('m',"Yeah, totally!")
+	elseif cl == 700 then
+		updateMonika('4','a')
+		cw('m',"I think her poems are the most...")
+	elseif cl == 701 then
+		cw('m',"...Romantic.")
+	elseif cl == 702 then
+		updateMonika('1','a')
+		cw('m',"That's the best way to describe it.")
+	elseif cl == 703 then
+		updateMonika('1','d')
+		cw('m',"She's like a totally different person when she picks up a pen...")
+	elseif cl == 704 then
+		cw('mc',"I noticed that, too.")
+	elseif cl == 705 then
+		cw('mc',"Or when she's talking about literature, it's like a light turns on inside her.")
+	elseif cl == 706 then
+		updateMonika('2','a')
+		cw('m',"Mhm!")
+	elseif cl == 707 then
+		cw('m',"Sadly, it's hard to get much personal conversation out of her...")
+	elseif cl == 708 then
+		updateMonika('2','m')
+		cw('m',"Trust me, I've tried...")
+	elseif cl == 709 then
+		cw('m',"Who knows what goes on in that head of hers?")
+	elseif cl == 710 then
+		cw('mc',"I hope you don't mean that in a bad way.")
+	elseif cl == 711 then
+		updateMonika('1','g')
+		cw('m',"No, of course not!")
+	elseif cl == 712 then
+		cw('m',"I just meant that I wish she didn't keep so much to herself...")
+	elseif cl == 713 then
+		updateMonika('1','e')
+		cw('m',"But still, defending her like that...")
+	elseif cl == 714 then
+		updateMonika('5a')
+		cw('m',"You must be pretty into her...")
+	elseif cl == 715 then
+		cw('mc',"Eh?!")
+	elseif cl == 716 then
+		cw('mc',"You...completely misunderstood!")
+    elseif cl == 717 then
+		cw('m',"Ahaha! Calm down, I'm kidding!")
+	elseif cl == 718 then
+		updateMonika('2','a')
+		cw('m',"Besides, I'm pretty sure she's already got a boyfriend...")
+	elseif cl == 719 then
+		cw('mc',"Wait, really?")
+	elseif cl == 720 then
+		updateMonika('2','k')
+		cw('m',"Yeah. A fictional one, anyway.")
+	elseif cl == 721 then
+		cw('bl',"Monika kind of whispers that last part to me.")
+	elseif cl == 722 then
+		updateMonika('5a')
+		cw('m',"It's just a hunch, but...")
+	elseif cl == 723 then
+		cw('mc',"...Well, there's not really anything wrong with that!")
+	elseif cl == 724 then
+		updateMonika('1','n')
+		cw('m',"Oh, well I know...!")
+	elseif cl == 725 then
+		cw('m',"I was just saying~")
 	elseif cl >= 726 then
 		m_end()
 	end

@@ -37,7 +37,7 @@ function drawGame()
 	love.graphics.draw(background_Image, posX, posY)
 	
 	love.graphics.setColor(0,0,0)
-	love.graphics.print(cl,0,0,0)
+	love.graphics.print(cl,0,0)
 	if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
 		
 	if poem_enabled ~= true and settings.textloc == 'Bottom' then
@@ -91,6 +91,8 @@ function updateGame(dt)
 		cl = cl + 1
 		xaload = 0
 		autotimer = 1
+		collectgarbage()
+		collectgarbage()
 	end
 	
 	if global_os ~= 'HorizonNX' then
@@ -100,10 +102,8 @@ function updateGame(dt)
 			if mouseY<=16 or mouseY>=220 then
 				game_skip()
 			end
-		elseif mouseDown == false and mouseX>=240 and mouseX<=270 then
-			if mouseY<=16 or mouseY>=220 then
-				game_keyreleased('x')
-			end
+		elseif mouseDown == false and not (mouseX>=142 and mouseX<=172) then
+			game_keyreleased('x')
 		end
 	end
 end
@@ -118,8 +118,9 @@ function game_keypressed(key)
 		if autotimer == 0 then autotimer = 1 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
+	else
+		newgame_keypressed(key)
 	end
-	newgame_keypressed(key)
 end
 
 function newgame_keypressed(key)
@@ -127,6 +128,8 @@ function newgame_keypressed(key)
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
+		collectgarbage()
+		collectgarbage()
 	end
 end
 
@@ -143,6 +146,8 @@ function game_skip()
 		if tspd == nil then tspd = settings.textspd end
 		settings.textspd = 10000
 		if autotimer < 147 then autotimer = 147 end
+		collectgarbage()
+		collectgarbage()
 	end
 end
 

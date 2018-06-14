@@ -39,6 +39,60 @@ The raccoon becomes hungry more and more frequently, so my bread is always handy
 Every time I brandish my cutting knife, the raccoon shows me its excitement.
 A rush of blood. Classic Pavlovian conditioning. I slice the bread.
 And I feed myself again.]]
+	
+	elseif poemname == 'poem_y3' then
+		poemtext = [[
+Beach
+
+A marvel millions of years in the making.
+Where the womb of Earth chaotically meets the surface.
+Under a clear blue sky, an expanse of bliss--
+But beneath gray rolling clouds, an endless enigma.
+The easiest world to get lost in
+Is one where everything can be found.]]
+	elseif poemname == 'poem_y3-a' then
+		poemtext = [[
+One can only build a sand castle where the sand is wet.
+But where the sand is wet, the tide comes.
+Will it gently lick at your foundations until you give in?
+Or will a sudden wave send you crashing down in the blink of an eye?
+Either way, the outcome is the same.
+Yet we still build sand castles.]]
+	elseif poemname == 'poem_y3-b' then
+		poemtext = [[
+I stand where the foam wraps around my ankles.
+Where my toes squish into the sand.
+The salty air is therapeutic.
+The breeze is gentle, yet powerful.
+I sink my toes into the ultimate boundary line, tempted by the foamy tendrils.
+Turn back, and I abandon my peace to erode at the shore.
+Drift forward, and I return to Earth forevermore.]]
+
+	elseif poemname == 'poem_y3b' then
+		poemtext = [[
+Ghost Under the Light pt. 2
+
+The tendrils of my hair illuminate beneath the amber glow.
+Bathing.
+In the distance, a blue-green light flickers.
+A lone figure crosses its path - a silhouette obstructing the eerie glow.
+My heart pounds. The silhouette grows. Closer. Closer.
+I open my umbrella, casting a shadow to shield me from visibility.
+But I am too late.
+He steps into the streetlight. I gasp and drop my umbrella.
+The light flickers. My heart pounds. He raises his arm.]]
+	elseif poemname == 'poem_y3b-a' then
+		poemtext = [[
+Time stops.
+
+The only indication of movement is the amber light flickering against his outstretched arm.
+The flickering light is in rhythm with the pounding of my heart.
+Teasing me for succumbing to this forbidden emotion.
+Have you ever heard of a ghost feeling warmth before?
+Giving up on understanding, I laugh.
+Understanding is overrated.
+I touch his hand. The flickering stops.
+Ghosts are blue-green. My heart is amber.]]
 
 	elseif poemname == 'poem_n1' then
 		poemtext = [[
@@ -91,6 +145,80 @@ She's gross.
 The world is better off without spider lovers.
 
 And I'm gonna tell everyone.]]
+	
+	elseif poemname == 'poem_n3' then
+		poemtext = [[
+I'll Be Your Beach
+
+Your mind is so full of troubles and fears
+That diminished your wonder over the years
+But today I have a special place
+A beach for us to go.
+
+A shore reaching beyond your sight
+A sea that sparkles with brilliant light
+The walls in your mind will melt away
+Before the sunny glow.]]
+	elseif poemname == 'poem_n3-a' then
+		poemtext = [[
+I'll be the beach that washes your worries away
+I'll be the beach that you daydream about each day
+I'll be the beach that makes your heart leap
+In a way you thought had left you long ago.
+
+Let's bury your heavy thoughts in a pile of sand
+Bathe in sunbeams and hold my hand
+Wash your insecurities in the salty sea
+And let me see you shine.]]
+	elseif poemname == 'poem_n3-b' then
+		poemtext = [[
+Let's leave your memories in a footprint trail
+Set you free in my windy sail
+And remember the reasons you're wonderful
+When you press your lips to mine.
+
+I'll be the beach that washes your worries away
+I'll be the beach that you daydream about each day
+I'll be the beach that makes your heart leap
+In a way you thought had left you long ago.]]
+	elseif poemname == 'poem_n3-c' then
+		poemtext = [[
+But if you let me by your side
+Your own beach, your own escape
+You'll learn to love yourself again.]]
+
+	elseif poemname == 'poem_n3b' then
+		poemtext = [[
+Because You
+
+Tomorrow will be brighter with me around
+But when today is dim, I can only look down.
+My looking is a little more forward
+Because you look at me.
+
+When I want to say something, I say it with a shout!
+But my truest feelings can never come out.
+My words are a little less empty
+Because you listen to me.]]
+	elseif poemname == 'poem_n3b-a' then
+		poemtext = [[
+When something is above me, I reach for the stars.
+But when I feel small, I don't get very far.
+My standing is a little bit taller
+Because you sit with me.
+
+I believe in myself with all of my heart.
+But what do I do when it's torn all apart?
+My faith is a little bit stronger
+Because you trusted me.]]
+	elseif poemname == 'poem_n3b-b' then
+		poemtext = [[
+My pen always puts my feelings to the test.
+I'm not a good writer, but my best is my best.
+My poems are a little bit dearer
+Because you think of me.
+
+Because you, because you, because you.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[
@@ -158,6 +286,39 @@ They're all shouting, pleading. Something.
 But all I hear is echo, echo, echo, echo, echo
 Inside my head.]]
 	
+	elseif poemname == 'poem_s3' then
+		poemtext = [[
+%
+
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of]]
+	elseif poemname == 'poem_s3-a' then
+		poemtext = [[
+Get.
+Out.
+Of.
+My.
+Head.
+
+
+
+Get out of my head before I do what I know is best for you.
+Get out of my head before I listen to everything she said to me.
+Get out of my head before I show you how much I love you.
+Get out of my head before I finish writing this poem.]]
+	elseif poemname == 'poem_s3-b' then
+		poemtext = [[\n\n\n\n\n\n\n\n
+But a poem is never actually finished.
+It just stops moving.]]
+	
 	elseif poemname == 'poem_m1' then
 		poemtext = [[
 Hole in Wall
@@ -179,6 +340,84 @@ I realize now, that I wasn't looking in.
 I was looking out.
 And he, on the other side, was looking in.]]
 
+	elseif poemname == 'poem_m2' then
+		poemtext = [[
+Save Me
+
+The colors, they won't stop.
+Bright, beautiful colors
+Flashing, expanding, piercing
+Red, green, blue
+An endless
+cacophany
+Of meaningless
+noise]]
+	elseif poemname == 'poem_m2-a' then
+		poemtext = [[
+The noise, it won't stop.
+Violent, grating waveforms
+Squeaking, screeching, piercing
+Sine, cosine, tangent
+    Like playing a chalkboard on a turntable
+        Like playing a vinyl on a pizza crust
+An endless
+poem
+Of meaningless]]
+	elseif poemname == 'poem_m2-b' then
+		poemtext = ""
+	elseif poemname == 'poem_m2-c' then
+		poemtext = "\n\n\n\n\n\n\n\n\nLoad Me"
+	
+	elseif poemname == 'poem_m3' then
+		poemtext = [[
+The Lady who Knows Everything
+
+An old tale tells of a lady who wanders Earth.
+The Lady who Knows Everything.
+A beautiful lady who has found every answer,
+All meaning,
+All purpose,
+And all that was ever sought.]]
+	elseif poemname == 'poem_m3-a' then
+		poemtext = [[
+And here I am,
+
+
+              a feather
+
+
+Lost adrift the sky, victim of the currents of the wind.]]
+	elseif poemname == 'poem_m3-b' then
+		poemtext = [[
+Day after day, I search.
+I search with little hope, knowing legends don't exist.
+But when all else has failed me,
+When all others have turned away,
+The legend is all that remains - the last dim star glimmering in the twilit sky.
+
+Until one day, the wind ceases to blow.
+I fall.
+And I fall and fall, and fall even more.
+Gentle as a feather.
+A dry quill, expressionless.]]
+	elseif poemname == 'poem_m3-c' then
+		poemtext = [[
+But a hand catches me between the thumb and forefinger.
+The hand of a beautiful lady.
+I look at her eyes and find no end to her gaze.
+
+The Lady who Knows Everything knows what I am thinking.
+Before I can speak, she responds in a hollow voice.
+"I have found every answer, all of which amount to nothing.
+There is no meaning.
+There is no purpose.
+And we seek only the impossible.
+I am not your legend.
+Your legend does not exist."]]
+	elseif poemtext == 'poem_m3-d' then
+		poemtext = [[
+And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
+	
 	end
 
 	if xaload == 0 and continue ~= 1 then
@@ -220,8 +459,6 @@ end
 
 function poem_disable(x)
 	poembg = nil
-	collectgarbage()
-	collectgarbage()
 	poem_enabled = false
 	if x==nil or x==1 then
 		audioUpdate('5')

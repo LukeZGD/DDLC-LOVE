@@ -29,16 +29,16 @@ function drawSplash()
 end
 
 function updateSplash(dt)
-	--splash screen timer
-	if timer <= 500 then
-		timer = timer + 1
+	--splash screen s_timer
+	if s_timer <= 500 then
+		s_timer = s_timer + 1
 	end
 	
 	--splash screen (change states)
 	if state == 'splash1' or state == 'splash2' then 
-		if timer == 190 then
+		if s_timer == 190 then
 			state = 'splash2'
-		elseif timer >= 470 then
+		elseif s_timer >= 470 then
 			state = 'title' 
 		end
 	end

@@ -896,7 +896,7 @@ function ch0script()
 	if cl == 10001 then
 		bgUpdate('residential')
 		audioUpdate('2')
-		updateSayori('1','b')
+		updateSayori('1','b',80)
 		cw('s',"...")
 	elseif cl == 10002 then 
 		cw('s',"...")
@@ -931,7 +931,7 @@ function ch0script()
 		cl = 10000
 		savenumber = 1
 		savegame()
-		love.event.quit()
+		game_quit()
 	end
 	
 	--NEW GAME
@@ -948,12 +948,15 @@ function ch0script()
 	elseif cl == 10020 then
 		menutext = ''
 		choice1 = ' I agree.'
-		menu_enable('choice', 2)
+		choice2 = ' I do not agree.'
+		if xaload == 0 then menu_enable('choice', 3) end
 	elseif cl >= 10021 then
-		timer = timer + 1
+		if choicepick == ' I do not agree.' then
+			game_quit()
+		end
 		cl = 10021
 		bgUpdate('warning2')
-			if timer == 1150 then
+		if xaload > 120 then
 			cl = 1
 			player = ""
 			savegame()

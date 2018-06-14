@@ -73,12 +73,8 @@ function checkchr()
 	monikachr = love.filesystem.isFile('monika.chr')
 	if love.filesystem.isFile('save1.sav') then loadgame() end
 	
-	if sayorichr == false or cl == 10000 then --set up very early act 1 end
-		timer = 501
-		endbg = love.graphics.newImage('images/gui/end.png')
-		s_killearly = love.graphics.newImage('images/cg/s_kill_early.png')
-		state = 's_kill_early'
-		audioUpdate('s_kill_early')
+	if sayorichr == false or cl == 10000 then
+		changeState('s_kill_early')
 	else --load title screen
 		l_timer = 100
 	end

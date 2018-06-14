@@ -518,14 +518,16 @@ function natsuki_exclusive_1()
     elseif cl == 651 then
 		cw('bl',"I return to where I put my stuff and carefully slip the book into my bag.")
 	elseif cl == 652 then
-		if chapter == 1 then 
-			cl = 653
+		if chapter >= 2 then
+			poeminitialize()
 		end
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
 		--4: x=0-60 x=30 x=120 x=220
-    
+    elseif cl == 1359 then
+		cl = 423
+		xaload = -1
 	end
 end
 
@@ -1167,11 +1169,8 @@ function natsuki_exclusive_2_ch3()
 		cw('mc',"Yeah, yeah...")
 	elseif cl == 1636 then
 		hideNatsuki()
-		poeminitialize()
 		cw('bl',"I return to my seat and slip the book into my bag.")
 	elseif cl == 1637 then
-		cl = 666
-		xaload = -1
-		autotimer = 0
+		poeminitialize()
 	end
 end

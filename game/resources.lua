@@ -1,23 +1,27 @@
 function changeState(cstate,x)
+	unloadAll('stuff')
 	if cstate == 'load' then
-		require 'states.load'
+		states = require 'states.load'
 		state = 'load'
 	elseif cstate == 'splash' then
 		splash = love.graphics.newImage('images/bg/splash.png')
 		titlebg = love.graphics.newImage('images/bg/bg.png')
-		require 'states.splash'
+		states = require 'states.splash'
 		alpha = 0
 		xaload = 0
 		timer = 0
 		state = 'splash1'
 		audioUpdate('1')
 	elseif cstate == 'title' then
+		states =  require 'states.splash'
 		poem_enabled = false
 		state = 'title'
 		timer = 501
 		xaload = 0
-		audioStop()
-		audioUpdate('1')
+		if audio1 ~= '1' then
+			audioStop()
+			audioUpdate('1')
+		end
 		menu_enable('title',6)
 	elseif cstate == 'game' and x == 1 then --new game
 		xaload = 0
@@ -37,12 +41,12 @@ function changeState(cstate,x)
 		xaload = 0
 		state = 'game'
 		alpha = 255
-	elseif cstate == 'newgame' then --first new game
+	elseif cstate == 'newgame' then --first time newgame
 		timer = 501
 		cl = 10016
 		state = 'newgame'
 		alpha = 255
-	elseif cstate == 'poemgame' then
+	elseif cstate == 'poemgame' then --load poemgame assets and state
 		poemfont = love.graphics.newFont('images/gui/fonts/Halogen',12)
 		s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
 		s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
@@ -50,33 +54,40 @@ function changeState(cstate,x)
 		y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
 		n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
 		n_sticker_2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
-		require 'states.poemgame'
+		states = require 'states.poemgame'
 		poemgame()
 		alpha = 255
+	elseif cstate == 's_kill_early' then --set up very early act 1 end
+		timer = 501
+		endbg = love.graphics.newImage('images/gui/end.png')
+		s_killearly = love.graphics.newImage('images/cg/s_kill_early.png')
+		state = 's_kill_early'
+		audioUpdate('s_kill_early')
 	end
 	
+	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then	
-		require 'states.game'
-		require 'scripts.script'
+		states = require 'states.game'
+		script_mg = require 'scripts.script'
 		if chapter == 0 then
-			require 'scripts.script-ch0'
+			script_main = require 'scripts.script-ch0'
 		elseif chapter == 1 then
-			require 'scripts.script-ch1'
+			script_main = require 'scripts.script-ch1'
 		elseif chapter == 2 then
-			require 'scripts.script-ch2'
+			script_main = require 'scripts.script-ch2'
 		elseif chapter == 3 then
-			require 'scripts.script-ch3'
+			script_main = require 'scripts.script-ch3'
 		elseif chapter == 4 then
-			require 'scripts.script-ch4'
+			script_main = require 'scripts.script-ch4'
 		elseif chapter == 5 then
-			require 'scripts.script-ch5'
+			script_main = require 'scripts.script-ch5'
 		end
 		if poemwinner[chapter] == 'Sayori' then
-			require 'scripts.script-exclusives-sayori'
+			script_exclusive = require 'scripts.script-exclusives-sayori'
 		elseif poemwinner[chapter] == 'Natsuki' then
-			require 'scripts.script-exclusives-natsuki'
+			script_exclusive = require 'scripts.script-exclusives-natsuki'
 		elseif poemwinner[chapter] == 'Yuri' then
-			require 'scripts.script-exclusives-yuri'
+			script_exclusive = require 'scripts.script-exclusives-yuri'
 		end
 		unloadAll('poemgame')
 	end
@@ -117,8 +128,6 @@ end
 function sfxplay(sfx) --sfx stuff
 	if xaload == 0 then
 		sfxp = nil
-		collectgarbage()
-		collectgarbage()
 		if sfx ~= '' then
 			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', 'static')
 		end
@@ -130,15 +139,11 @@ function unloadbg()
 	splash = nil
 	bgch = nil
 	bgch2 = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function audioStop()
 	if ddlct ~= nil then ddlct:stop() end
 	ddlct = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function charCheck()
@@ -196,8 +201,6 @@ function unloadSayori()
 	sl = nil
 	sr = nil
 	s_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadYuri()	
@@ -236,34 +239,10 @@ function unloadYuri()
 	yl = nil
 	yr = nil
 	y_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadNatsuki()
-	if n.b=='1t' then
-		n_a = love.graphics.newImage('images/natsuki/1t.png') 
-	elseif n.b=='2bt' then
-		n_a = love.graphics.newImage('images/natsuki/2bt.png') 
-	elseif n.b=='2a' then
-		n_a = love.graphics.newImage('images/natsuki/2bta.png') 
-	elseif n.b=='2b' then
-		n_a = love.graphics.newImage('images/natsuki/2btb.png') 
-	elseif n.b=='2c' then
-		n_a = love.graphics.newImage('images/natsuki/2btc.png') 
-	elseif n.b=='2d' then
-		n_a = love.graphics.newImage('images/natsuki/2btd.png') 
-	elseif n.b=='2e' then
-		n_a = love.graphics.newImage('images/natsuki/2bte.png') 
-	elseif n.b=='2f' then
-		n_a = love.graphics.newImage('images/natsuki/2btf.png') 
-	elseif n.b=='2g' then
-		n_a = love.graphics.newImage('images/natsuki/2btg.png') 
-	elseif n.b=='2h' then
-		n_a = love.graphics.newImage('images/natsuki/2bth.png') 
-	elseif n.b=='2i' then
-		n_a = love.graphics.newImage('images/natsuki/2bti.png') 
-	elseif n.b~='' then
+	if n.b~='' then
 		n_a = love.graphics.newImage('images/natsuki/'..n.b..'.png')
 	end
 	
@@ -306,8 +285,6 @@ function unloadNatsuki()
 	nl = nil
 	nr = nil
 	n_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadMonika()
@@ -338,8 +315,6 @@ function unloadMonika()
 	ml = nil
 	mr = nil
 	m_a = nil
-	collectgarbage()
-	collectgarbage()
 end
 
 function loadAll()
@@ -371,7 +346,10 @@ function unloadAll(x)
 		yuristicker2 = nil
 		natsukisticker1 = nil
 		natsukisticker2 = nil
+	elseif x == 'stuff' then
+		states = nil
+		script_mg = nil
+		script_main = nil
+		script_exclusive = nil
 	end
-	collectgarbage()
-	collectgarbage()
 end
