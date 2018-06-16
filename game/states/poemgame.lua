@@ -1,44 +1,41 @@
 function addpoints()
-	spoint = spoint + spadd
-	npoint = npoint + npadd
-	ypoint = ypoint + ypadd
+	sPoint = sPoint + spAdd
+	nPoint = nPoint + npAdd
+	yPoint = yPoint + ypAdd
 
 	sfx1:play()
 	if poemword ~= 21 then poemword = poemword + 1 end
 end
 
 function poemgamefinish()
+	--add 1 to chapter number
 	if chapter < 3 then
 		chapter = chapter+1
 	end
-
-	if spoint > ypoint then
-		if spoint > npoint then poemwinner[chapter] = 'Sayori' 
-		elseif npoint > spoint then poemwinner[chapter] = 'Natsuki'
+	
+	--determine poemwinner
+	if sPoint > yPoint then
+		if sPoint > nPoint then poemwinner[chapter] = 'Sayori' 
+		elseif nPoint > sPoint then poemwinner[chapter] = 'Natsuki'
 		end
-	elseif ypoint > spoint then
-		if ypoint > npoint then poemwinner[chapter] = 'Yuri'
-		elseif npoint > ypoint then poemwinner[chapter] = 'Natsuki'
+	elseif yPoint > sPoint then
+		if yPoint > nPoint then poemwinner[chapter] = 'Yuri'
+		elseif nPoint > yPoint then poemwinner[chapter] = 'Natsuki'
 		end
 	end
 	
-	if spoint < 29 then s_poemappeal[chapter] = -1
-    elseif spoint > 45 then s_poemappeal[chapter] = 1 end
-    if npoint < 29 then n_poemappeal[chapter] = -1
-    elseif npoint > 45 then n_poemappeal[chapter] = 1 end
-	if ypoint < 29 then y_poemappeal[chapter] = -1
-    elseif ypoint > 45 then y_poemappeal[chapter] = 1 end
+	--exec(poemwinner[chapter][0] + "_appeal += 1")
+	loadstring(poemwinner[chapter]..'_appeal = '..poemwinner[chapter]..'_appeal + 1')()
 	
-	if poemwinner[chapter] == 'Sayori' then
-		s_poemappeal[chapter] = 1
-		s_appeal = s_appeal+1
-	elseif poemwinner[chapter] == 'Natsuki' then
-		n_poemappeal[chapter] = 1
-		n_appeal = n_appeal+1
-	elseif poemwinner[chapter] == 'Yuri' then
-		y_poemappeal[chapter] = 1
-		y_appeal = y_appeal+1
-	end
+	--determine poemappeal
+	POEM_DISLIKE_THRESHOLD = 29
+	POEM_LIKE_THRESHOLD = 45
+	if sPoint < POEM_DISLIKE_THRESHOLD then s_poemappeal[chapter] = -1
+    elseif sPoint > POEM_LIKE_THRESHOLD then s_poemappeal[chapter] = 1 end
+    if nPoint < POEM_DISLIKE_THRESHOLD then n_poemappeal[chapter] = -1
+    elseif nPoint > POEM_LIKE_THRESHOLD then n_poemappeal[chapter] = 1 end
+	if yPoint < POEM_DISLIKE_THRESHOLD then y_poemappeal[chapter] = -1
+    elseif yPoint > POEM_LIKE_THRESHOLD then y_poemappeal[chapter] = 1 end
 end
 
 function updatewordlist()
@@ -51,7 +48,7 @@ end
 function poemgame()
 	state = 'poemgame'
 	xaload = 0
-	audioUpdate('4')
+	if audio1 ~= '4' then audioUpdate('4') end
 	
 	hideAll()
 	bgch2 = love.graphics.newImage('images/bg/notebook.png')
@@ -79,9 +76,9 @@ function poemgame()
 	menuselected = 1
 	menuselect()
 	
-	spoint = 0
-	npoint = 0
-	ypoint = 0
+	sPoint = 0
+	nPoint = 0
+	yPoint = 0
 	poemword = 1
 end
 
@@ -129,15 +126,15 @@ function drawPoemGame()
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
-		if spadd == 3 and poemword > 0 then
+		if spAdd == 3 and poemword > 0 then
 			if s_sticker_2 then love.graphics.draw(s_sticker_2,50,p_y) end
 			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
 			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
-		elseif npadd == 3 and poemword > 0 then
+		elseif npAdd == 3 and poemword > 0 then
 			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
 			if n_sticker_2 then love.graphics.draw(n_sticker_2,110,p_y) end
 			if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
-		elseif ypadd == 3 and poemword > 0 then
+		elseif ypAdd == 3 and poemword > 0 then
 			if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
 			if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
 			if y_sticker_2 then love.graphics.draw(y_sticker_2,190,p_y) end
@@ -172,9 +169,9 @@ function drawPoemGame()
 		if s_sticker_1 then love.graphics.draw(s_sticker_1,50,100) end
 		if n_sticker_1 then love.graphics.draw(n_sticker_1,110,100) end
 		if y_sticker_1 then love.graphics.draw(y_sticker_1,190,100) end
-		spadd = wordlist[wordpick][2]
-		npadd = wordlist[wordpick][3]
-		ypadd = wordlist[wordpick][4]
+		spAdd = wordlist[wordpick][2]
+		npAdd = wordlist[wordpick][3]
+		ypAdd = wordlist[wordpick][4]
 	end
 	
 	love.graphics.setColor(255,189,225,alpha)
