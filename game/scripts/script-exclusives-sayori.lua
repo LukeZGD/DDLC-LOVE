@@ -1,4 +1,4 @@
-function sayori_exclusive_1()
+function Sayori_exclusive_1()
 	if cl == 423 then
 		cw('bl',"Man...")
     elseif cl == 424 then
@@ -412,13 +412,12 @@ function sayori_exclusive_1()
 		cw('bl',"I fail to sound enthusiastic, but Sayori still trots away to retrieve her poem.")
 	elseif cl == 601 then
 		if chapter == 1 then
-			cl = 652
+			scriptJump(652)
 		elseif chapter == 2 then
 			poeminitialize()
 		end
 	elseif cl == 1359 then
-		cl = 423
-		xaload = -1
+		scriptJump(423)
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=-40 x=80 x=200
@@ -427,7 +426,7 @@ function sayori_exclusive_1()
 	end
 end
 
-function sayori_exclusive_2()
+function Sayori_exclusive_2()
 	if cl == 1359 then
 		if audio1 ~= '2' then audioUpdate('2') end
 		bgUpdate('club')

@@ -58,14 +58,14 @@ function ch0script()
 		cw('mc',"A club?")
 	elseif cl == 25 then
 		cw('mc',"I told you already, I\'m really not interested in joining any clubs.")
-	elseif cl == 26 then ca = '"I haven\'t been looking, either."'
+	elseif cl == 26 then 
+		cw('bl',"I haven't been looking, either.")
 	elseif cl == 27 then
 		updateSayori('4','h')
 		cw('s',"Eh? That's not true!")
 	elseif cl == 28 then
 		cw('s',"You told me you would join a club this year!")
 	elseif cl == 29 then
-		ct = player
 		cw('mc',"Did I...?")
 	elseif cl == 30 then
 		cw('bl','I\'m sure it\'s possible that I did, in one of our many conversations where I dismissively go along with whatever she\'s going on about.')
@@ -112,8 +112,7 @@ function ch0script()
 	elseif cl == 48 then
 		cw('bl','After I pack up my things, I stare blankly at the wall, looking for an ounce of motivation.')
 	elseif cl == 49 then
-		ct = player
-		cw('bl',"Clubs...")
+		cw('mc',"Clubs...")
 	elseif cl == 50 then
 		cw('bl','Sayori wants me to check out some clubs.')
 	elseif cl == 51 then
@@ -133,7 +132,6 @@ function ch0script()
 	elseif cl == 57 then
 		cw('s',"Honestly, you\'re even worse than me sometimes... I\'m impressed!")
 	elseif cl == 58 then
-		ct = player
 		cw('mc',"You don\'t need to wait up for me if it's going to make you late to your own club.")
 	elseif cl == 59 then
 		updateSayori('1','y')
@@ -147,8 +145,7 @@ function ch0script()
 		cw('mc',"Sayori...")
 	elseif cl == 63 then
 		updateSayori('4','r')
-		ct = 'Sayori'
-		ca = '"Yeah??"'
+		cw('s',"Yeah??")
 	elseif cl == 64 then
 		cw('mc',"...There is no way I'm going to your club.")
 	elseif cl == 65 then
@@ -487,7 +484,6 @@ function ch0script()
 		cw('mc',"It must be hard to start a new club.")
     elseif cl == 197 then
 		updateMonika('3','b')
-		ct = 'Monika' 
 		cw('m',"You could put it that way.")
     elseif cl == 198 then
 		cw('m',"Not many people are very interested in putting out all the effort to start something brand new...")
@@ -534,12 +530,10 @@ function ch0script()
 		updateYuri('1','a',80)
 		cw('y','So, ' .. player .. ', what kinds of things do you like to read?')
 	elseif cl == 213 then
-		ct = player
 		cw('mc',"Well... Ah...")
 	elseif cl == 214 then
 		cw('bl',"Considering how little I\'ve read these past few years, I don\'t really have a good way of answering that.")
 	elseif cl == 215 then
-		ct = player
 		cw('mc',"...Manga...")
 	elseif cl == 216 then
 		cw('bl',"I mutter quietly to myself, half-joking.")
@@ -657,7 +651,7 @@ function ch0script()
 		cw('n',"I\'m not cute!!")
 	elseif cl == 260 then
 		hideSayori()
-		updateNatsuki('1','r',80)
+		updateNatsuki('1','v',80)
 		cw('mc',"Natsuki, you write your own poems?")
 	elseif cl == 261 then
 		updateNatsuki('1','c')
@@ -751,7 +745,6 @@ function ch0script()
 	elseif cl == 294 then
 		cw('bl',"Now that we\'re back to the original topic of me joining the club, I bluntly come forth with what\'s been on my mind the entire time.")
 	elseif cl == 295 then
-		ct = player
 		cw('mc',"I never said I would join this club!")
 	elseif cl == 296 then
 		cw('mc',"Sayori may have convinced me to stop by, but I never made any decision.")
@@ -870,7 +863,7 @@ function ch0script()
 		cw('bl',"Natsuki,")
 	elseif cl == 339 then
 		updateYuri('1','a',120)
-		ca = "Yuri,"
+		cw('bl',"Yuri,")
 	elseif cl == 340 then
 		updateMonika('1','a',220)
 		cw('bl',"and, of course, Monika.")

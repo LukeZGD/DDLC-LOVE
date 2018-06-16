@@ -32,11 +32,44 @@ function cw(p1, stext)
 		stext = '"'..stext..'"'
 	end
 	
+	--text drip for scripts
 	textx = dripText(stext,settings.textspd,myTextStartTime)
-		
-	--word wrapping (not perfect yet)
+	
+	--word wrapping
 	slen = string.len(textx)
 	ca = string.sub(textx, 1, caa)
+	local i = 1
+	local j = 1
+	local k = 1
+	
+	--new word wrapping (works, but cuts out sentences, so it's commented out for now)
+	--[[
+	if slen >= 46 then
+		repeat
+			i = i + 1
+			caa = string.find(stext, '%s', 46-i)
+		until caa
+		if slen < 96 then cba=150 end
+		cb = string.sub(textx, caa+1, cba)
+	end 
+	
+	if slen >= 96 then
+		repeat
+			j = j + 1
+			cba = string.find(stext, '%s', 96-j) 
+		until cba
+		if slen < 146 then cca=200 end
+		cc = string.sub(textx, cba+1, cca)
+	end
+	
+	if slen >= 146 then
+		repeat
+			k = k + 1
+			cca = string.find(stext, '%s', 146-k)
+		until cca
+		cd = string.sub(textx, cca+1)
+	end
+	]]
 	
 	if slen >= 45 then 
 		caa = string.find(stext, '%s', 45)
@@ -57,7 +90,6 @@ function cw(p1, stext)
 		if cca == nil then cca=150 end
 		cd = string.sub(textx, cca+1)
 	end
-	
 end
 
 function scriptCheck()
@@ -74,44 +106,38 @@ function scriptCheck()
 		script_poems = nil
 	end
 	
-	if (cl>=423 and cl<653) or (cl>=1359 and cl<1638) then
-		if poemwinner[chapter] == 'Sayori' then
-			if s_appeal == 1 then sayori_exclusive_1()
-			elseif s_appeal == 2 then sayori_exclusive_2()
-			end
-		elseif poemwinner[chapter] == 'Natsuki' then
-			if n_appeal == 1 then natsuki_exclusive_1()
-			elseif n_appeal == 2 then natsuki_exclusive_2()
-			end
-		elseif poemwinner[chapter] == 'Yuri' then
-			if y_appeal == 1 then yuri_exclusive_1()
-			elseif y_appeal == 2 then yuri_exclusive_2()
-			end
-		end
-	elseif chapter == 0 and ch0script then
-		ch0script()
-	elseif chapter == 1 and ch1script then
-		ch1script()
-	elseif chapter == 2 and ch2script then
-		ch2script()
-	elseif chapter == 3 and ch3script then
-		ch3script()
-	elseif chapter == 4 and ch4script then
-		ch4script()
-	elseif chapter == 5 and ch5script then
-		ch5script()
+	if (cl>=423 and cl<652) or (cl>=1359 and cl<1638) then
+		loadstring(poemwinner[chapter]..'_exclusive_'..(loadstring('return '..poemwinner[chapter]..'_appeal')())..'()')()
+		--holy crap I can't believe this worked ^^
+	elseif cl == 652 and chapter >= 2 then
+		poeminitialize()
+	elseif script_main then
+		loadstring('ch'..chapter..'script()')()
 	else
 		changeState('game',1)
 	end
 end	
+
+function scriptJump(nu, fu, au)
+	xaload = -1
+	if nu then cl = nu end
+	if au then 
+		autotimer = au
+		autoskip = au
+	end
+	if fu and fu ~= '' then
+		loadstring(fu.."()")()
+	end		
+end
 
 function poeminitialize(y)
 	poemsread = 0
 	readpoem = {s=0,n=0,y=0,m=0}
 	choices = {'Sayori','Natsuki','Yuri','Monika'}
 	cl = 666
-	xaload = 0
+	xaload = -1
 	autotimer = 0
+	autoskip = 0
 	script_poemresponses = require 'scripts.script-poemresponses'
 	script_poems = require 'scripts.poems'
 end

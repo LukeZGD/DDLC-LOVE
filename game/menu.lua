@@ -43,7 +43,7 @@ function menu_draw()
 		love.graphics.print('Quit',16, 145)
 		
 	elseif menu_type == 'help' then
-		love.graphics.print('Controls:',16, 20)
+		love.graphics.print('Help - Controls:',16, 20)
 		love.graphics.print('A - Select',16, 45)
 		love.graphics.print('B - Auto On/Off',16, 70)
 		love.graphics.print('X - Skip',16, 95)
@@ -85,29 +85,39 @@ function menu_draw()
 		love.graphics.print('Settings:',16, 20)
 		love.graphics.print('Textbox Location',16, 45)
 		love.graphics.print('Text Speed',16, 70)
-		love.graphics.print('Char. Animations',16, 95)
+		love.graphics.print('AutoForward Time',16, 95)
+		love.graphics.print('Char. Animations',16, 120)
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
 		
 	elseif menu_type == 'textloc' then
 		love.graphics.print('Settings - Textbox Location:',16, 20)
-		love.graphics.print('Top',16, 45)
-		love.graphics.print('Bottom (Default)',16, 70)
+		love.graphics.print('Top Screen',16, 45)
+		love.graphics.print('Bottom Screen',16, 70)
 		love.graphics.print('Current Setting: '..settings.textloc,16, 200)
 		
 	elseif menu_type == 'textspd' then
 		love.graphics.print('Settings - Text Speed:',16, 20)
 		love.graphics.print('50 (Slowest)',16, 45)
 		love.graphics.print('75',16, 70)
-		love.graphics.print('100 (Default)',16, 95)
+		love.graphics.print('100',16, 95)
 		love.graphics.print('150',16, 120)
 		love.graphics.print('200 (Fastest)',16, 145)		
 		love.graphics.print('Current Setting: '..settings.textspd,16, 200)
 	
+	elseif menu_type == 'autospd' then
+		love.graphics.print('Settings - Auto-Forward Time:',16, 20)
+		love.graphics.print('2 sec. (Fastest)',16, 45)
+		love.graphics.print('4 sec.',16, 70)
+		love.graphics.print('6 sec.',16, 95)
+		love.graphics.print('8 sec.',16, 120)
+		love.graphics.print('10 sec. (Slowest)',16, 145)
+		love.graphics.print('Current Setting: '..settings.autospd,16, 200)
+	
 	elseif menu_type == 'animh' then
 		love.graphics.print('Settings - Character Animations:',16, 20)
 		love.graphics.print('0 - Off',16, 45)
-		love.graphics.print('1 - On (Default)',16, 70)
+		love.graphics.print('1 - On',16, 70)
 		love.graphics.print('Current Setting: '..settings.animh,16, 200)
 	
 	elseif menu_type == 'choice' then
@@ -160,12 +170,11 @@ function menu_confirm()
 				changeState('game',1)
 			end
 		
-			
 		elseif m_selected == 3 then --load game
 			menu_enable('loadgame', 7)
 			
 		elseif m_selected == 4 then --settings
-			menu_enable('settings', 4)
+			menu_enable('settings', 5)
 		
 		elseif m_selected == 5 then --help
 			menu_enable('help', 5)
@@ -199,7 +208,7 @@ function menu_confirm()
 		elseif m_selected == 4 then
 			menu_enable('mainyesno',3)
 		elseif m_selected == 5 then
-			menu_enable('settings', 4)
+			menu_enable('settings', 5)
 		elseif m_selected == 6 then
 			menu_enable('help',5)
 		elseif m_selected == 7 then
@@ -220,6 +229,8 @@ function menu_confirm()
 		elseif m_selected == 3 then
 			menu_enable('textspd', 6)
 		elseif m_selected == 4 then
+			menu_enable('autospd', 6)
+		elseif m_selected == 5 then
 			menu_enable('animh', 3)
 		end
 		
@@ -252,6 +263,21 @@ function menu_confirm()
 			settings.animh = 0
 		elseif m_selected == 3 then
 			settings.animh = 1
+		end
+		menu_enable(menu_previous, menu_previousitems)
+		menu_previous = nil
+	
+	elseif menu_type == 'autospd' then
+		if m_selected == 2 then
+			settings.autospd = 2
+		elseif m_selected == 3 then
+			settings.autospd = 4
+		elseif m_selected == 4 then
+			settings.autospd = 6
+		elseif m_selected == 5 then
+			settings.autospd = 8
+		elseif m_selected == 6 then
+			settings.autospd = 10
 		end
 		menu_enable(menu_previous, menu_previousitems)
 		menu_previous = nil

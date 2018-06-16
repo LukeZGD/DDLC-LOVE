@@ -1,4 +1,4 @@
-function yuri_exclusive_1()
+function Yuri_exclusive_1()
 	if cl == 423 then
 		cw('bl',"I'm really curious to talk to Yuri a little bit more...")
 	elseif cl == 424 then
@@ -85,7 +85,7 @@ function yuri_exclusive_1()
 		updateYuri('1','f')
 		cw('y',"Well...")
 	elseif cl == 460 then
-		ca = "Mmm..."
+		cw('y',"Mmm...")
 	elseif cl == 461 then
 		cw('bl',"Yuri closes the book and scans her eyes over the back.")
 	elseif cl == 462 then
@@ -474,13 +474,12 @@ function yuri_exclusive_1()
 		cw('bl',"I make a mental note of where I left off in the book, then slip it back into my bag.")
 	elseif cl == 634 then
 		if chapter == 1 then
-			cl = 653
+			scriptJump(652)
 		elseif chapter >= 2 then
 			poeminitialize()
 		end
 	elseif cl == 1359 then
-		cl = 423
-		xaload = -1
+		scriptJump(423)
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
@@ -488,7 +487,7 @@ function yuri_exclusive_1()
 	end
 end
 
-function yuri_exclusive_2()
+function Yuri_exclusive_2()
 	if cl == 1359 then
 		y_exclusivewatched = 'true'
 		audioUpdate('6')
@@ -511,10 +510,10 @@ function yuri_exclusive_2()
 		updateYuri('2','a')
 		cw('mc',"Ah, if that's the case...")
 	elseif cl >= 1367 then
-		yuri_exclusive_2_ch3()
+		Yuri_exclusive_2_ch3()
 	end
 end
-function yuri_exclusive_2_ch3()
+function Yuri_exclusive_2_ch3()
 	if cl == 1367 then
 		cw('mc',"Why don't we go ahead and get started?")
 	elseif cl == 1368 then

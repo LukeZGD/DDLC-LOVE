@@ -8,7 +8,7 @@ n = {a='',b='',x=-200,y=0}
 m = {a='',b='',x=-200,y=0}
 poemwinner = {'','',''}
 chapter = 0
-settings = {textspd=100,textloc='Bottom',animh=1}
+settings = {textspd=100,textloc='Bottom',animh=1,autospd=4}
 readpoem = {s=0,n=0,y=0,m=0}
 choices = {'','','',''}
 choicepick = ''
@@ -16,9 +16,9 @@ poemsread = -1
 s_poemappeal = {0,0,0}
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
-s_appeal = 0
-n_appeal = 0
-y_appeal = 0
+Sayori_appeal = 0
+Natsuki_appeal = 0
+Yuri_appeal = 0
 y_exclusivewatched = ''
 n_exclusivewatched = ''
 ch4_name = ''
@@ -36,7 +36,7 @@ y = {a='"..y.a.."',b='"..y.b.."',x="..y.x..",y="..y.y.."}\
 n = {a='"..n.a.."',b='"..n.b.."',x="..n.x..",y="..n.y.."}\
 m = {a='"..m.a.."',b='"..m.b.."',x="..m.x..",y="..m.y.."}\
 chapter = "..chapter.."\
-settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh.."}\
+settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh..",autospd="..settings.autospd.."}\
 readpoem = {s="..readpoem.s..",n="..readpoem.n..",y="..readpoem.y..",m="..readpoem.m.."}\
 choices = {'"..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4].."'}\
 choicepick = '"..choicepick.."'\
@@ -45,13 +45,13 @@ s_poemappeal = {"..s_poemappeal[1]..","..s_poemappeal[2]..","..s_poemappeal[3]..
 n_poemappeal = {"..n_poemappeal[1]..","..n_poemappeal[2]..","..n_poemappeal[3].."}\
 y_poemappeal = {"..y_poemappeal[1]..","..y_poemappeal[2]..","..y_poemappeal[3].."}\
 poemwinner = {'"..poemwinner[1].."','"..poemwinner[2].."','"..poemwinner[3].."'}\
-s_appeal = "..s_appeal.."\
-n_appeal = "..n_appeal.."\
-y_appeal = "..y_appeal.."\
+Sayori_appeal = "..Sayori_appeal.."\
+Natsuki_appeal = "..Natsuki_appeal.."\
+Yuri_appeal = "..Yuri_appeal.."\
 y_exclusivewatched = '"..y_exclusivewatched.."'\
 n_exclusivewatched = '"..n_exclusivewatched.."'\
 ch4_name = '"..ch4_name.."'"
-
+	
 	love.filesystem.write("save"..savenumber..".sav", savedata)
 end
 

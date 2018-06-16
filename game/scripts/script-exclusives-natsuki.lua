@@ -1,4 +1,4 @@
-function natsuki_exclusive_1()
+function Natsuki_exclusive_1()
 	if cl == 423 then
 		cw('n',"Ugh...!")
     elseif cl == 424 then
@@ -517,21 +517,16 @@ function natsuki_exclusive_1()
 		cw('bl',"I stand up.")
     elseif cl == 651 then
 		cw('bl',"I return to where I put my stuff and carefully slip the book into my bag.")
-	elseif cl == 652 then
-		if chapter >= 2 then
-			poeminitialize()
-		end
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
 		--4: x=0-60 x=30 x=120 x=220
     elseif cl == 1359 then
-		cl = 423
-		xaload = -1
+		scriptJump(423)
 	end
 end
 
-function natsuki_exclusive_2()
+function Natsuki_exclusive_2()
 	if cl == 1359 then
 		n_exclusivewatched = 'true'
 		audioUpdate('6')
@@ -544,10 +539,10 @@ function natsuki_exclusive_2()
 	elseif cl == 1362 then
 		cw('mc',"Don't worry, I kept my promise.")
 	elseif cl >= 1363 then
-		natsuki_exclusive_2_ch3()
+		Natsuki_exclusive_2_ch3()
 	end
 end
-function natsuki_exclusive_2_ch3()
+function Natsuki_exclusive_2_ch3()
 	if cl < 1364 then
 		cl = 1364
 	elseif cl == 1364 then

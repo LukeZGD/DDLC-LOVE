@@ -4,18 +4,20 @@ require 'saveload'
 require 'menu'
 
 function love.load() 
-	dversion = 'v0.0.3'
-
+	dversion = 'v0.0.4'
+	dvertype = 'Test'
+	
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
+	autoskip = 0
 	l_timer = 96
 	s_timer = 0
 	xaload = 0
 	alpha = 255
-	
-	posX = -75
+	posX = -40
 	posY = 0
+	menu_enabled = false
 	
 	--os detection
 	global_os = love.system.getOS()
@@ -29,7 +31,6 @@ end
 
 function love.draw() 
 	if global_os ~= 'Horizon' then love.graphics.scale(1.5, 1.5) end
-	if global_os == 'HorizonNX' then love.graphics.translate(0, 340) end
 		
 	if state == 'load' then
 		drawLoad()
@@ -80,10 +81,16 @@ function love.update(dt)
 	
 	--this acts as love.mousepressed
 	if mouseDown and mousereleased ~= 1 then
-		if state == 'game' and menu_enabled == false then
-			game_mousepressed()
-		elseif state == 'poemgame' and menu_enabled == false then
-			poemgamemousepressed()
+		if menu_enabled ~= true then
+			if state == 'splash1' or state == 'splash2' then
+				splash_keypressed('a')
+			elseif state == 'game' then
+				game_mousepressed()
+			elseif state == 'newgame' then 
+				newgame_keypressed('a')
+			elseif state == 'poemgame' then
+				poemgamemousepressed()
+			end
 		elseif menu_enabled then
 			menu_mousepressed()
 		end
@@ -92,7 +99,7 @@ function love.update(dt)
 		mousereleased = nil
 	end
 	
-	--update depending on state
+	--update depending on gamestate
 	if state == 'load' then
 		updateLoad(dt)
 	elseif state == 'splash1' or state == 'splash2' or state == 'title' then
@@ -104,15 +111,17 @@ function love.update(dt)
 	end
 end
 
-function love.keypressed(key)	
-	if state == 'splash1' or state == 'splash2' then
-		splash_keypressed(key)
-	elseif state == 'game' and menu_enabled == false then
-		game_keypressed(key)
-	elseif state == 'newgame' and menu_enabled == false then
-		newgame_keypressed(key)
-	elseif state == 'poemgame' and menu_enabled == false then
-		poemgamekeypressed(key)
+function love.keypressed(key)
+	if menu_enabled ~= true then
+		if state == 'splash1' or state == 'splash2' then
+			splash_keypressed(key)
+		elseif state == 'game' then
+			game_keypressed(key)
+		elseif state == 'newgame' then
+			newgame_keypressed(key)
+		elseif state == 'poemgame' then
+			poemgamekeypressed(key)
+		end
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
@@ -124,7 +133,7 @@ function love.keyreleased(key)
 	end
 end
 
---For the Switch
+--For the Switch..?
 function love.gamepadpressed(joy, button)
 	love.keypressed(button)
 end
@@ -139,7 +148,7 @@ function love.textinput(text)
 			savegame()
 			changeState('game',1)
 		else
-			state = 'title'
+			changeState('title')
 		end
 	end
 end
