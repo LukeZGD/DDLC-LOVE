@@ -1,5 +1,5 @@
 function drawGame()
-	if autotimer > 0 and event_enabled ~= true then
+	if (autotimer > 0 or autoskip > 0) and event_enabled ~= true then
 		scriptCheck()
 		charCheck()
 	end
@@ -23,7 +23,7 @@ function drawGame()
 		if cb then love.graphics.print(cb,48,182) end
 		if cc then love.graphics.print(cc,48,198) end
 		if cd then love.graphics.print(cd,48,214) end
-		c_y = 0
+		c_y = 2
 	end
 	
 	if menu_enabled and menu_type ~= 'choice' then
@@ -38,8 +38,12 @@ function drawGame()
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.print(cl,0,0)
-	if autotimer > 0 then love.graphics.print('Auto/Skip - On', 0, 16) end
-		
+	if autotimer > 0 then 
+		love.graphics.print('Auto On', 2, 16)
+	elseif autoskip > 0 then
+		love.graphics.print('Skipping...', 2, 16)
+	end
+	
 	if poem_enabled ~= true and settings.textloc == 'Bottom' then
 		love.graphics.setColor(255,255,255,alpha)
 		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
@@ -78,21 +82,19 @@ function drawPoem()
 end
 
 function updateGame(dt)
-	if autotimer == 0 then
+	if autotimer == 0 and autoskip == 0 then
 		scriptCheck()
 		charCheck()
 	end
+	
 	--auto next script
 	if autotimer == 0 then
 		autotimer = 0
-	elseif autotimer <= 150 then
-		autotimer = autotimer + 1
-	elseif autotimer == 151 then
-		cl = cl + 1
-		xaload = 0
-		autotimer = 1
-		collectgarbage()
-		collectgarbage()
+	elseif autotimer <= settings.autospd then
+		autotimer = autotimer + dt
+	elseif autotimer >= settings.autospd then
+		game_keypressed('a')
+		autotimer = 0.1
 	end
 	
 	if global_os ~= 'HorizonNX' then
@@ -102,7 +104,7 @@ function updateGame(dt)
 			if mouseY<=16 or mouseY>=220 then
 				game_skip()
 			end
-		elseif mouseDown == false and not (mouseX>=142 and mouseX<=172) then
+		elseif mouseDown == false and autoskip > 0 then
 			game_keyreleased('x')
 		end
 	end
@@ -115,7 +117,7 @@ function game_keypressed(key)
 		menu_enable('pause',7)
 	elseif key == 'b' then --auto on/off
 		sfx1:play()
-		if autotimer == 0 then autotimer = 1 else autotimer = 0 end		
+		if autotimer == 0 then autotimer = 0.1 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
 	else
@@ -137,27 +139,37 @@ function game_keyreleased(key)
 	if key == 'x' then --skip disable
 		if tspd ~= nil then settings.textspd = tspd end
 		tspd = nil
-		autotimer = 0
+		autoskip = 0
 	end
 end
 
 function game_skip()
-	if state ~= 'newgame' and menu_enabled == false and cl ~= 666 then
+	local skipspeed = 4
+	if menu_enabled == false and cl ~= 666 then
 		if tspd == nil then tspd = settings.textspd end
 		settings.textspd = 10000
-		if autotimer < 147 then autotimer = 147 end
-		collectgarbage()
-		collectgarbage()
+		if autoskip < 1 then
+			autoskip = 1
+		elseif autoskip > 0 and autoskip < skipspeed then
+			autoskip = autoskip + 1
+		elseif autoskip >= skipspeed then
+			autotimer = 0
+			cl = cl + 1
+			xaload = 0
+			collectgarbage()
+			collectgarbage()
+			autoskip = 1
+		end
 	end
 end
 
 function game_mousepressed()
 	if mouseX>=50 and mouseX<=80 then
-		if mouseY<=16 or mouseY>=220 then game_keypressed('y') end
+		if mouseY<=18 or mouseY>=220 then game_keypressed('y') end
 	elseif mouseX>=142 and mouseX<=172 then 
-		if mouseY<=16 or mouseY>=220 then game_keypressed('b') end
+		if mouseY<=18 or mouseY>=220 then game_keypressed('b') end
 	elseif mouseX>=240 and mouseX<=270 then
-		if mouseY<=16 or mouseY>=220 then game_keypressed('x') end
+		if mouseY<=18 or mouseY>=220 then game_keypressed('x') end
 	else
 		game_keypressed('a')
 	end

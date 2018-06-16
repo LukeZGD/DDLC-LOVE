@@ -100,7 +100,7 @@ function updateSayori(a,b,px,py)
 	s.a = a
 	s.b = b
 	if xaload == 0 then loadSayori() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then 
 		if s.x > px then
 			s.x = math.max(s.x - 24, px)
 		elseif s.x < px then
@@ -117,7 +117,7 @@ function updateYuri(a,b,px,py)
 	y.a = a 
 	y.b = b
 	if xaload == 0 then loadYuri() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then
+	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
 		if y.x > px then
 			y.x = math.max(y.x - 24, px)
 		elseif y.x < px then
@@ -134,7 +134,7 @@ function updateNatsuki(a,b,px,py)
 	n.a = a
 	n.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then 
 		if n.x > px then
 			n.x = math.max(n.x - 24, px)
 		elseif n.x < px then
@@ -151,7 +151,7 @@ function updateMonika(a,b,px,py)
 	m.a = a
 	m.b = b
 	if xaload == 0 then loadMonika() end
-	if px and autotimer < 147 and xaload > 0 and settings.animh == 1 then 
+	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then 
 		if m.x > px then
 			m.x = math.max(m.x - 24, px)
 		elseif m.x < px then
@@ -164,7 +164,7 @@ function updateMonika(a,b,px,py)
 end
 
 function hideSayori()
-	if s.x <= -200 or s.x >= 300 or autotimer >= 146 or settings.animh == 0 then
+	if s.x <= -200 or s.x >= 300 or autoskip > 0 or settings.animh == 0 then
 		s.a = ''
 		s.b = ''
 		if sl then unloadSayori() end
@@ -178,7 +178,7 @@ function hideSayori()
 end
 
 function hideYuri()
-	if y.x <= -200 or y.x >= 300 or autotimer >= 146 or settings.animh == 0 then
+	if y.x <= -200 or y.x >= 300 or autoskip > 0 or settings.animh == 0 then
 		y.a = ''
 		y.b = ''
 		if yl then unloadYuri() end
@@ -192,7 +192,7 @@ function hideYuri()
 end
 
 function hideNatsuki()
-	if n.x <= -200 or n.x >= 300 or autotimer >= 146 or settings.animh == 0 then
+	if n.x <= -200 or n.x >= 300 or autoskip > 0 or settings.animh == 0 then
 		n.a = ''
 		n.b = ''
 		if nl then unloadNatsuki() end
@@ -206,7 +206,7 @@ function hideNatsuki()
 end
 
 function hideMonika()
-	if m.x <= -200 or m.x >= 300 or autotimer >= 146 or settings.animh == 0 then
+	if m.x <= -200 or m.x >= 300 or autoskip > 0 or settings.animh == 0 then
 		m.a = ''
 		m.b = ''
 		if ml then unloadMonika() end

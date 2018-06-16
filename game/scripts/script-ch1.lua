@@ -38,7 +38,7 @@ function ch1script()
 		cw('n',"But if you don't take us seriously, then you won't see the end of it.")
 	elseif cl == 362 then
 		updateMonika('2','b',-40)
-		cw('m',"Natsuki, you certainly have a big mouth for someone who keeps her manga collection in the       clubroom.")
+		cw('m',"Natsuki, you certainly have a big mouth for someone who keeps her manga collection in the     clubroom.")
 	elseif cl == 363 then
 		updateNatsuki('4','o')
 		cw('n',"M-M-M...!!")
@@ -185,9 +185,8 @@ function ch1script()
 		cw('bl',"I can't help but notice her intense expression, like she was waiting for this chance.")
 	elseif cl == 422 then
 		cw('bl',"Meanwhile, Natsuki is rummaging around in the closet.")
-	end
-	
-	if cl == 652 then
+		
+	elseif cl == 652 then
 		hideSayori()
 		updateMonika('1','a',10)
 		cw('m',"By the way, did you remember to write a poem last night?")
@@ -468,13 +467,14 @@ function ch1script()
 		cw('bl',"But whomever I agree with, they'll probably think more highly of me!")
 	elseif cl == 995 then
 		menutext = "So, of course that's going to be...!"
-		choices = {"Natsuki.","Yuri.","Help me, Sayori!!",""}
+		choices = {"Natsuki.","Yuri.","Help me, Sayori!!",''}
 		choice1 = choices[1]
 		choice2 = choices[2]
 		choice3 = choices[3]
-		if xaload == 0 or autotimer ~= 0 then
+		if menu_enabled ~= true then
 			menu_enable('choice', 4)
 			autotimer = 0
+			autoskip = 0
 		end
 	elseif cl >= 996 and cl < 1092 then
 		if choicepick == 'Natsuki.' or choicepick == 'n' then
@@ -861,8 +861,7 @@ function ch1_end_natsuki()
 	elseif cl == 1090 then
 		cw('bl',"...I guess it's been worth it so far.")
 	elseif cl == 1091 then
-		xaload = -1
-		cl = 1092
+		scriptJump(1092)
 	end
 end
 
@@ -1058,8 +1057,7 @@ function ch1_end_yuri()
 	elseif cl == 1074 then
 		cw('y',"Y-Yeah.")
 	elseif cl == 1075 then
-		xaload = -1
-		cl = 1092
+		scriptJump(1092)
 	end
 end
 
@@ -1254,7 +1252,6 @@ function ch1_end_sayori()
 	elseif cl == 1068 then
 		cw('bl',"If only I could get the chance to talk to her a little more...")
 	elseif cl == 1069 then
-		xaload = -1
-		cl = 1092
+		scriptJump(1092)
 	end
 end
