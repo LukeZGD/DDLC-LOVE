@@ -11,7 +11,7 @@ function love.load()
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
-	l_timer = 96
+	l_timer = 94
 	s_timer = 0
 	xaload = 0
 	alpha = 255
