@@ -1,5 +1,7 @@
 function drawLoad()
 	drawTopScreen()
+	love.graphics.setColor(255,255,255,255)
+	love.graphics.print(l_timer)
 	love.graphics.setColor(0,0,0,0)
 	love.graphics.rectangle('fill',0,0,400,240)
 	love.graphics.setColor(255,255,255,alpha)
@@ -15,10 +17,16 @@ function updateLoad()
 	end
 	
 	--loading assets
-	if l_timer == 97 then
+	if l_timer == 95 then
 		font = love.graphics.newFont('images/gui/fonts/Aller_Rg',12)
 		love.graphics.setFont(font)
+	
+	elseif l_timer == 96 then
 		m1 = love.graphics.newFont('images/gui/fonts/m1',14)
+		
+	elseif l_timer == 97 then
+		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
+		sfx2 = love.audio.newSource('audio/sfx/hover.ogg', 'static')
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
@@ -27,8 +35,6 @@ function updateLoad()
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 		guicheck = love.graphics.newImage('images/gui/check.png')
 		guicheckwhite = love.graphics.newImage('images/gui/checkwhite.png')
-		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
-		sfx2 = love.audio.newSource('audio/sfx/hover.ogg', 'static')
 		if global_os == 'HorizonNX' then
 			for i = 0, 9, 1 do
 				num = i
