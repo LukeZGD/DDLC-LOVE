@@ -59,7 +59,7 @@ function ch0script()
 	elseif cl == 25 then
 		cw('mc',"I told you already, I\'m really not interested in joining any clubs.")
 	elseif cl == 26 then 
-		cw('bl',"I haven't been looking, either.")
+		cw('mc',"I haven't been looking, either.")
 	elseif cl == 27 then
 		updateSayori('4','h')
 		cw('s',"Eh? That's not true!")

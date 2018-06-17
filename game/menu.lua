@@ -1,3 +1,5 @@
+--Code is a bit messy, maybe I'll try fixing this sometime later.
+
 function menu_enable(m, x, ctype)
 	menu_type = m
 	menu_items = x
@@ -10,18 +12,18 @@ end
 
 function menu_draw()
 	love.graphics.setColor(255, 255, 255, alpha)
-	if choicetype ~= 'spec' then love.graphics.draw(background_Image, posX, posY) end
+	if bg1 ~= 'black' then love.graphics.draw(background_Image, posX, posY) end
 	
 	love.graphics.setColor(255, 189, 225, alpha)
-	if menu_items >= 2 and choicetype ~= 'spec' then 
+	if menu_items >= 2 and choicetype ~= 'sp' then 
 		love.graphics.rectangle('fill', 16, 45, 100, 16 ) 
-	elseif menu_items >= 2 and choicetype == 'spec' then
-		love.graphics.rectangle('fill', 16, 45, 160, 16 ) 
+	elseif menu_items >= 2 and choicetype == 'sp' then
+		love.graphics.rectangle('fill', 16, 45, font:getWidth(choice1)+5, 16 ) 
 	end
-	if menu_items >= 3 and choicetype ~= 'spec' then 
+	if menu_items >= 3 and choicetype ~= 'sp' then 
 		love.graphics.rectangle('fill', 16, 70, 100, 16 ) 
-	elseif menu_items >= 3 and choicetype == 'spec' then
-		love.graphics.rectangle('fill', 16, 70, 160, 32 ) 
+	elseif menu_items >= 3 and choicetype == 'sp' then
+		love.graphics.rectangle('fill', 16, 70, font:getWidth(choice2)+5, 16 ) 
 	end
 	if menu_items >= 4 then love.graphics.rectangle('fill', 16, 95, 100, 16 ) end
 	if menu_items >= 5 then love.graphics.rectangle('fill', 16, 120, 100, 16 ) end
@@ -122,17 +124,17 @@ function menu_draw()
 	
 	elseif menu_type == 'choice' then
 		xaload = xaload + 1
-		love.graphics.print(cl,0,0)
-		if choicetype == 'spec' then love.graphics.setColor(255,255,255) end
+		love.graphics.setColor(255,255,255)
+		drawnumbers()
+		if bg1 == 'black' then 
+			love.graphics.setColor(255,255,255)
+		else
+			love.graphics.setColor(0,0,0)
+		end
 		love.graphics.print(menutext,16, 20)
 		love.graphics.setColor(0,0,0)
-		love.graphics.print(choice1,16, 45)
-		if menu_items >= 3 and choicetype ~= 'spec' then 
-			love.graphics.print(choice2,16, 70) 
-		elseif menu_items >= 3 and choicetype == 'spec' then
-			love.graphics.print(choice2,16, 70)
-			love.graphics.print(choice2a,16, 86) 
-		end
+		if menu_items >= 2 then love.graphics.print(choice1,16, 45) end
+		if menu_items >= 3 then love.graphics.print(choice2,16, 70) end
 		if menu_items >= 4 then love.graphics.print(choice3,16, 95) end
 		if menu_items >= 5 then love.graphics.print(choice4,16, 120) end
 		if menu_items >= 6 then love.graphics.print(choice5,16, 145) end
