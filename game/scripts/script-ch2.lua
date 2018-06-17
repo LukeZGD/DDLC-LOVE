@@ -1312,7 +1312,7 @@ function ch2script()
         choice1 = choices[1]
 		choice2 = choices[2]
 		if menu_enabled ~= true then
-			menu_enable('choice', 3)
+			menu_enable('choice', 3, 'sp')
 			autotimer = 0
 			autoskip = 0
 		end

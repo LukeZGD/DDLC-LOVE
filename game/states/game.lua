@@ -35,9 +35,9 @@ function drawGame()
 	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.setFont(font)
 	love.graphics.draw(background_Image, posX, posY)
+	drawnumbers()
 	
 	love.graphics.setColor(0,0,0)
-	love.graphics.print(cl,0,0)
 	if autotimer > 0 then 
 		love.graphics.print('Auto On', 2, 16)
 	elseif autoskip > 0 then
@@ -172,5 +172,22 @@ function game_mousepressed()
 		if mouseY<=18 or mouseY>=220 then game_keypressed('x') end
 	else
 		game_keypressed('a')
+	end
+end
+
+function drawnumbers()
+	if global_os == 'HorizonNX' then
+		local cl_a = tostring(cl)
+		local cl_len = string.len(cl_a)
+		drawnum_x = 0
+		for i = 1, cl_len do
+			num = i
+			loadstring("fnum = string.sub("..cl_a..","..i..","..i..")")()
+			loadstring("love.graphics.draw(number_"..fnum..","..drawnum_x..")")()
+			drawnum_x = drawnum_x + 11
+		end
+	else
+		love.graphics.setColor(0,0,0)
+		love.graphics.print(cl)
 	end
 end

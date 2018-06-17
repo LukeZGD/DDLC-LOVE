@@ -179,7 +179,7 @@ function ch1_y_bad()
 	elseif cl == 688 then
 		cw('y',"I guessed that it might be after reading through it.")
 	elseif cl == 689 then
-		cw('y',"Ah, so it\'s that bad.")
+		cw('mc',"Ah, so it\'s that bad.")
 	elseif cl == 690 then
 		updateYuri('2','p')
 		cw('y',"No!!")

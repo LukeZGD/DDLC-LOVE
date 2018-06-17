@@ -133,8 +133,17 @@ function love.keyreleased(key)
 	end
 end
 
---For the Switch..?
+--For the Switch
 function love.gamepadpressed(joy, button)
+	if button == 'dpup' then
+		button = 'up'
+	elseif button == 'dpdown' then
+		button = 'down'
+	elseif button == 'dpleft' then
+		button = 'left'
+	elseif button == 'dpright' then
+		button = 'right'
+	end
 	love.keypressed(button)
 end
 function love.gamepadreleased(joy, button)
