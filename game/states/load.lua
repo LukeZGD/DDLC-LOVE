@@ -27,8 +27,17 @@ function updateLoad()
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 		guicheck = love.graphics.newImage('images/gui/check.png')
 		guicheckwhite = love.graphics.newImage('images/gui/checkwhite.png')
-		sfx1 = love.audio.newSource('audio/sfx/select.ogg')
-		sfx2 = love.audio.newSource('audio/sfx/hover.ogg')
+		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
+		sfx2 = love.audio.newSource('audio/sfx/hover.ogg', 'static')
+		if global_os == 'HorizonNX' then
+			for i = 0, 9, 1 do
+				num = i
+				loadstring("number_"..num.." = love.graphics.newImage('images/gui/fonts/numbers/'..num..'.png')")()
+			end
+			--Uncomment out the lines below to run in yuzu without sharedfont
+			--function love.graphics.print()
+			--end
+		end
 		
 	elseif l_timer == 99 then
 		l_timer = 99

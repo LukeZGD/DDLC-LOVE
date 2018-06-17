@@ -64,7 +64,8 @@ I stand where the foam wraps around my ankles.
 Where my toes squish into the sand.
 The salty air is therapeutic.
 The breeze is gentle, yet powerful.
-I sink my toes into the ultimate boundary line, tempted by the foamy tendrils.
+I sink my toes into the ultimate boundary line, tempted by the foamy
+tendrils.
 Turn back, and I abandon my peace to erode at the shore.
 Drift forward, and I return to Earth forevermore.]]
 
@@ -85,7 +86,8 @@ The light flickers. My heart pounds. He raises his arm.]]
 		poemtext = [[
 Time stops.
 
-The only indication of movement is the amber light flickering against his outstretched arm.
+The only indication of movement is the amber light flickering against
+his outstretched arm.
 The flickering light is in rhythm with the pounding of my heart.
 Teasing me for succumbing to this forbidden emotion.
 Have you ever heard of a ghost feeling warmth before?
@@ -118,7 +120,8 @@ That's why I'm not friends with her.
 
 Amy has a cute singing voice.
 I heard her singing my favorite love song.
-Every time she sang the chorus, my heart would pound to the rhythm of the words.
+Every time she sang the chorus, my heart would pound to the rhythm of
+the words.
 But she likes spiders.
 That's why I'm not friends with her.]]
 	elseif poemname == 'poem_n2-a' then

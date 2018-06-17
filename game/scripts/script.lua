@@ -99,8 +99,11 @@ function scriptCheck()
 	cc = ''
 	cd = ''
 	
-	if poemsread ~= -1 then
+	if poemsread ~= -1 and poemresponses then
 		poemresponses()
+	elseif poemsread ~= -1 then
+		script_poemresponses = require 'scripts.script-poemresponses'
+		script_poems = require 'scripts.poems'
 	else
 		script_poemresponses = nil
 		script_poems = nil
@@ -138,6 +141,4 @@ function poeminitialize(y)
 	xaload = -1
 	autotimer = 0
 	autoskip = 0
-	script_poemresponses = require 'scripts.script-poemresponses'
-	script_poems = require 'scripts.poems'
 end
