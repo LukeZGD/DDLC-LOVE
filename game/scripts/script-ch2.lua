@@ -1308,11 +1308,9 @@ function ch2script()
 		cw('s',"Ehehe...")
 	elseif cl == 1947 then
 		menutext = "Well..."
-		choices = {"I would walk home with "..ch2_winner..".","I would still walk home with Sayori.",'',''}
-        choice1 = choices[1]
-		choice2 = choices[2]
+		choices = {"I would walk home with "..ch2_winner..".","I would still walk home with Sayori."}
 		if menu_enabled ~= true then
-			menu_enable('choice', 3, 'sp')
+			menu_enable('choice')
 			autotimer = 0
 			autoskip = 0
 		end

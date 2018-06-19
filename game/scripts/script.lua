@@ -1,3 +1,8 @@
+local stext
+local caa
+local cba
+local cca
+
 function cw(p1, stext)
 	if p1 == 's' then
 		ct = 'Sayori'
@@ -35,69 +40,40 @@ function cw(p1, stext)
 	--text drip for scripts
 	textx = dripText(stext,settings.textspd,myTextStartTime)
 	
-	--word wrapping
-	slen = string.len(textx)
-	ca = string.sub(textx, 1, caa)
-	local i = 1
-	local j = 1
-	local k = 1
-	
-	--new word wrapping (works, but cuts out sentences, so it's commented out for now)
-	--[[
-	if slen >= 46 then
-		repeat
-			i = i + 1
-			caa = string.find(stext, '%s', 46-i)
-		until caa
-		if slen < 96 then cba=150 end
-		cb = string.sub(textx, caa+1, cba)
-	end 
-	
-	if slen >= 96 then
-		repeat
-			j = j + 1
-			cba = string.find(stext, '%s', 96-j) 
-		until cba
-		if slen < 146 then cca=200 end
-		cc = string.sub(textx, cba+1, cca)
-	end
-	
-	if slen >= 146 then
-		repeat
-			k = k + 1
-			cca = string.find(stext, '%s', 146-k)
-		until cca
-		cd = string.sub(textx, cca+1)
-	end
-	]]
-	
-	if slen >= 45 then 
-		caa = string.find(stext, '%s', 45)
-		if caa == nil then caa=50 end
-		if slen < 95 then cba=100 end
-		cb = string.sub(textx, caa+1, cba)
-	end 
-	
-	if slen >= 95 then 
-		cba = string.find(stext, '%s', 95) 
-		if cba == nil then cba=100 end
-		if slen < 145 then cca=150 end
-		cc = string.sub(textx, cba+1, cca)
-	end
-	
-	if slen >= 145 then 
-		cca = string.find(stext, '%s', 145)
-		if cca == nil then cca=150 end
-		cd = string.sub(textx, cca+1)
+	--word wrap for 3DS (others use printf)
+	if global_os == 'Horizon' then
+		slen = string.len(textx)
+		ca = string.sub(textx, 1, caa)
+		
+		if slen >= 45 then 
+			caa = string.find(stext, '%s', 45)
+			if caa == nil then caa=50 end
+			if slen < 95 then cba=100 end
+			cb = string.sub(textx, caa+1, cba)
+		end 
+		
+		if slen >= 95 then 
+			cba = string.find(stext, '%s', 95) 
+			if cba == nil then cba=100 end
+			if slen < 145 then cca=150 end
+			cc = string.sub(textx, cba+1, cca)
+		end
+		
+		if slen >= 145 then 
+			cca = string.find(stext, '%s', 145)
+			if cca == nil then cca=150 end
+			cd = string.sub(textx, cca+1)
+		end
 	end
 end
 
 function scriptCheck()
 	love.graphics.setBackgroundColor ( 0, 0, 0 )
-	ca = ''
-	cb = ''
-	cc = ''
-	cd = ''
+	if global_os == 'Horizon' then
+		ca = ''; cb = ''; cc = ''; cd = ''
+	else
+		textx = ''
+	end
 	
 	if poemsread ~= -1 and poemresponses then
 		poemresponses()
@@ -111,7 +87,6 @@ function scriptCheck()
 	
 	if (cl>=423 and cl<652) or (cl>=1359 and cl<1638) then
 		loadstring(poemwinner[chapter]..'_exclusive_'..(loadstring('return '..poemwinner[chapter]..'_appeal')())..'()')()
-		--holy crap I can't believe this worked ^^
 	elseif cl == 652 and chapter >= 2 then
 		poeminitialize()
 	elseif script_main then
@@ -124,7 +99,7 @@ end
 function scriptJump(nu, fu, au)
 	xaload = -1
 	if nu then cl = nu end
-	if au then 
+	if au then
 		autotimer = au
 		autoskip = au
 	end
