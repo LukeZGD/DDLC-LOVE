@@ -344,7 +344,7 @@ function poemgamekeypressed(key)
 			end
 		end
 	elseif key == 'y' then 
-		menu_enable('pause',7)
+		menu_enable('pause')
 		sfx1:play()	
 	end
 end
