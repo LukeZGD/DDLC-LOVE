@@ -1,3 +1,6 @@
+local c_y
+local skipspeed = 4
+
 function drawGame()
 	if (autotimer > 0 or autoskip > 0) and event_enabled ~= true then
 		scriptCheck()
@@ -18,11 +21,15 @@ function drawGame()
 		if ct ~= '' then love.graphics.draw(namebox, 52, 142) end
 		love.graphics.draw(textbox, 40, 162)
 		love.graphics.setColor(0,0,0)
-		if ct then love.graphics.print(ct,60,142) end
-		if ca then love.graphics.print(ca,48,166) end
-		if cb then love.graphics.print(cb,48,182) end
-		if cc then love.graphics.print(cc,48,198) end
-		if cd then love.graphics.print(cd,48,214) end
+		if ct then love.graphics.print(ct,63,142) end
+		if global_os == 'Horizon' then
+			if ca then love.graphics.print(ca,48,166) end
+			if cb then love.graphics.print(cb,48,182) end
+			if cc then love.graphics.print(cc,48,198) end
+			if cd then love.graphics.print(cd,48,214) end
+		else
+			if textx then love.graphics.printf(textx,48,166,300) end
+		end
 		c_y = 2
 	end
 	
@@ -49,11 +56,15 @@ function drawGame()
 		if ct ~= '' then love.graphics.draw(namebox, 12, 40) end
 		love.graphics.draw(textbox, 0, 60)
 		love.graphics.setColor(0,0,0)
-		if ct then love.graphics.print(ct,20,40) end
-		if ca then love.graphics.print(ca,8,64) end
-		if cb then love.graphics.print(cb,8,80) end
-		if cc then love.graphics.print(cc,8,96) end
-		if cd then love.graphics.print(cd,8,112) end
+		if ct then love.graphics.print(ct,23,40) end
+		if global_os == 'Horizon' then
+			if ca then love.graphics.print(ca,8,64) end
+			if cb then love.graphics.print(cb,8,80) end
+			if cc then love.graphics.print(cc,8,96) end
+			if cd then love.graphics.print(cd,8,112) end
+		else
+			if textx then love.graphics.printf(textx,8,64,300) end
+		end
 		c_y = 220
 	end
 	
@@ -114,7 +125,7 @@ function game_keypressed(key)
 	if key == 'y' then --pause menu
 		sfx1:play()
 		autotimer = 0
-		menu_enable('pause',7)
+		menu_enable('pause')
 	elseif key == 'b' then --auto on/off
 		sfx1:play()
 		if autotimer == 0 then autotimer = 0.1 else autotimer = 0 end		
@@ -144,7 +155,6 @@ function game_keyreleased(key)
 end
 
 function game_skip()
-	local skipspeed = 4
 	if menu_enabled == false and cl ~= 666 then
 		if tspd == nil then tspd = settings.textspd end
 		settings.textspd = 10000

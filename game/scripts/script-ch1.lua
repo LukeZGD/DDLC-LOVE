@@ -467,12 +467,9 @@ function ch1script()
 		cw('bl',"But whomever I agree with, they'll probably think more highly of me!")
 	elseif cl == 995 then
 		menutext = "So, of course that's going to be...!"
-		choices = {"Natsuki.","Yuri.","Help me, Sayori!!",''}
-		choice1 = choices[1]
-		choice2 = choices[2]
-		choice3 = choices[3]
+		choices = {"Natsuki.","Yuri.","Help me, Sayori!!"}
 		if menu_enabled ~= true then
-			menu_enable('choice', 4)
+			menu_enable('choice')
 			autotimer = 0
 			autoskip = 0
 		end

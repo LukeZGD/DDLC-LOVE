@@ -1,12 +1,11 @@
 function drawLoad()
 	drawTopScreen()
-	love.graphics.setColor(255,255,255,255)
+	love.graphics.setColor(255,255,255)
 	love.graphics.print(l_timer)
-	love.graphics.setColor(0,0,0,0)
+	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',0,0,400,240)
-	love.graphics.setColor(255,255,255,alpha)
 	drawBottomScreen()
-	love.graphics.setColor(0,0,0,0)
+	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',-40,0,400,240)
 end
 

@@ -1,159 +1,126 @@
---Code is a bit messy, maybe I'll try fixing this sometime later.
+local menu_type
+local menu_items
+local getcompare = {}
+local rectwidth
+local pagenum
+local savenum = {}
+local itemnames = {}
+local chch
+local cpick
 
-function menu_enable(m, x, ctype)
-	menu_type = m
-	menu_items = x
-	choicetype = ctype
+function menu_enable(m)
 	menu_enabled = true
+	menu_type = m
+	
+	if menu_type == 'savegame' or menu_type == 'loadgame' then
+		for i = 1, 6 do
+			if pagenum > 1 then	
+				chch = ((pagenum-1)*6)+i
+			else
+				chch = i
+			end
+			savenum[i] = chch
+			itemnames[i] = 'Save File '..chch
+		end
+	end
+	
+	if menu_type == 'mainyesno' then
+		menutext = 'Are you sure?'
+		itemnames = {'Yes','No'}
+		
+	elseif menu_type == 'help' then
+		menutext = 'Help - Controls'
+		itemnames = {'A - Select','B - Auto On/Off','X - Skip','Y - Pause'}
+		
+	elseif menu_type == 'title' then
+		menutext = 'Main Menu'
+		itemnames = {'New Game','Load Game','Settings','Help','Quit'}
+		
+	elseif menu_type == 'settings' then
+		menutext = 'Settings'
+		itemnames = {'Textbox Location','Text Speed','AutoForward Time','Char. Animations','Save Settings'}
+	
+	elseif menu_type == 'pause' then
+		menutext = 'Pause Menu'
+		itemnames = {'Save Game','Load Game','Main Menu','Settings','Help','Return'}
+	
+	elseif menu_type == 'savegame' then
+		menutext = 'Save Game'
+	
+	elseif menu_type == 'loadgame' then
+		menutext = 'Load Game'
+	end
+	
+	if menu_type == 'choices' then
+		menu_items = #choices + 1
+	else
+		menu_items = #itemnames + 1
+	end
 	m_selected = 2 
-	if menu_type ~= 'choice' then m_select()
-	else m_selectchoice() end
+	m_select()
 end
 
 function menu_draw()
+	xaload = xaload + 1
+	
 	love.graphics.setColor(255, 255, 255, alpha)
 	if bg1 ~= 'black' then love.graphics.draw(background_Image, posX, posY) end
+	for i = 1, #itemnames do
+		getcompare[i] = font:getWidth(itemnames[i])
+	end
+	rectwidth = math.max(unpack(getcompare)) + 5
 	
 	love.graphics.setColor(255, 189, 225, alpha)
-	if menu_items >= 2 and choicetype ~= 'sp' then 
-		love.graphics.rectangle('fill', 16, 45, 100, 16 ) 
-	elseif menu_items >= 2 and choicetype == 'sp' then
-		love.graphics.rectangle('fill', 16, 45, font:getWidth(choice1)+5, 16 ) 
-	end
-	if menu_items >= 3 and choicetype ~= 'sp' then 
-		love.graphics.rectangle('fill', 16, 70, 100, 16 ) 
-	elseif menu_items >= 3 and choicetype == 'sp' then
-		love.graphics.rectangle('fill', 16, 70, font:getWidth(choice2)+5, 16 ) 
-	end
-	if menu_items >= 4 then love.graphics.rectangle('fill', 16, 95, 100, 16 ) end
-	if menu_items >= 5 then love.graphics.rectangle('fill', 16, 120, 100, 16 ) end
-	if menu_items >= 6 then love.graphics.rectangle('fill', 16, 145, 100, 16 ) end
-	if menu_items >= 7 then love.graphics.rectangle('fill', 16, 170, 100, 16 ) end
-	if menu_items >= 8 then love.graphics.rectangle('fill', 16, 195, 100, 16 ) end
-	if menu_items >= 9 then love.graphics.rectangle('fill', 16, 220, 100, 16 ) end
-	if menu_previous then love.graphics.rectangle('fill', 16, 220, 50, 16 ) end
+	if menu_items >= 2 then love.graphics.rectangle('fill', 16, 45, rectwidth, 16) end
+	if menu_items >= 3 then love.graphics.rectangle('fill', 16, 70, rectwidth, 16) end 
+	if menu_items >= 4 then love.graphics.rectangle('fill', 16, 95, rectwidth, 16) end
+	if menu_items >= 5 then love.graphics.rectangle('fill', 16, 120, rectwidth, 16) end
+	if menu_items >= 6 then love.graphics.rectangle('fill', 16, 145, rectwidth, 16) end
+	if menu_items >= 7 then love.graphics.rectangle('fill', 16, 170, rectwidth, 16) end
+	if menu_items >= 8 then love.graphics.rectangle('fill', 16, 195, rectwidth, 16) end
+	if menu_items >= 9 then love.graphics.rectangle('fill', 16, 220, rectwidth, 16) end
+	if menu_previous then love.graphics.rectangle('fill', 16, 220, 30, 16) end
+	
+	if bg1 ~= 'black' then love.graphics.setColor(0,0,0) end
+	love.graphics.print(menutext,16, 20)
 	
 	love.graphics.setColor(0,0,0)
+	if menu_type == 'choices' then
+		if menu_items >= 2 then love.graphics.print(choices[1],17, 45) end
+		if menu_items >= 3 then love.graphics.print(choices[2],17, 70) end
+		if menu_items >= 4 then love.graphics.print(choices[3],17, 95) end
+		if menu_items >= 5 then love.graphics.print(choices[4],17, 120) end
+	else
+		if menu_items >= 2 then love.graphics.print(itemnames[1],17, 45) end
+		if menu_items >= 3 then love.graphics.print(itemnames[2],17, 70) end
+		if menu_items >= 4 then love.graphics.print(itemnames[3],17, 95) end
+		if menu_items >= 5 then love.graphics.print(itemnames[4],17, 120) end
+		if menu_items >= 6 then love.graphics.print(itemnames[5],17, 145) end
+		if menu_items >= 7 then love.graphics.print(itemnames[6],17, 170) end
+		if menu_items >= 8 then love.graphics.print(itemnames[7],17, 195) end
+		if menu_items >= 8 then love.graphics.print(itemnames[8],17, 220) end
+	end
+	if menu_previous then love.graphics.print('Back',17, 220) end
 	love.graphics.draw(guicheck,cX,cY)
 	
-	if menu_type == 'title' then
-		love.graphics.print('Main Menu:',16, 20)
-		love.graphics.print('New Game',16, 45)
-		love.graphics.print('Load Game',16, 70)
-		love.graphics.print('Settings',16, 95)
-		love.graphics.print('Help',16, 120)
-		love.graphics.print('Quit',16, 145)
-		
-	elseif menu_type == 'help' then
-		love.graphics.print('Help - Controls:',16, 20)
-		love.graphics.print('A - Select',16, 45)
-		love.graphics.print('B - Auto On/Off',16, 70)
-		love.graphics.print('X - Skip',16, 95)
-		love.graphics.print('Y - Pause',16, 120)
-		
-	elseif menu_type == 'loadgame' then
-		love.graphics.print('Load Game:',16, 20)
-		love.graphics.print('Save File 1',16, 45)
-		love.graphics.print('Save File 2',16, 70)
-		love.graphics.print('Save File 3',16, 95)
-		love.graphics.print('Save File 4',16, 120)
-		love.graphics.print('Save File 5',16, 145)
-		love.graphics.print('Save File 6',16, 170)
-		
-	elseif menu_type == 'savegame' then
-		love.graphics.print('Save Game:',16, 20)
-		love.graphics.print('Save File 1',16, 45)
-		love.graphics.print('Save File 2',16, 70)
-		love.graphics.print('Save File 3',16, 95)
-		love.graphics.print('Save File 4',16, 120)
-		love.graphics.print('Save File 5',16, 145)
-		love.graphics.print('Save File 6',16, 170)
-		
-	elseif menu_type == 'pause' then
-		love.graphics.print('Pause Menu:',16, 20)
-		love.graphics.print('Save Game',16, 45)
-		love.graphics.print('Load Game',16, 70)
-		love.graphics.print('Main Menu',16, 95)
-		love.graphics.print('Settings',16, 120)
-		love.graphics.print('Help',16, 145)
-		love.graphics.print('Return',16, 170)
-		
-	elseif menu_type == 'mainyesno' then
-		love.graphics.print('Are you sure?',16, 20)
-		love.graphics.print('Yes',16, 45)
-		love.graphics.print('No',16, 70)
-		
-	elseif menu_type == 'settings' then
-		love.graphics.print('Settings:',16, 20)
-		love.graphics.print('Textbox Location',16, 45)
-		love.graphics.print('Text Speed',16, 70)
-		love.graphics.print('AutoForward Time',16, 95)
-		love.graphics.print('Char. Animations',16, 120)
+	if menu_type == 'settings' then
+		love.graphics.print(settings.textloc..' Screen',140, 45)
+		love.graphics.print(settings.textspd, 140, 70)
+		love.graphics.print(settings.autospd..' sec.',140, 95)
+		love.graphics.print(settings.animh,140, 120)
+		love.graphics.print('Press (<) and (>) to change settings.',16,190)
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
-		
-	elseif menu_type == 'textloc' then
-		love.graphics.print('Settings - Textbox Location:',16, 20)
-		love.graphics.print('Top Screen',16, 45)
-		love.graphics.print('Bottom Screen',16, 70)
-		love.graphics.print('Current Setting: '..settings.textloc,16, 200)
-		
-	elseif menu_type == 'textspd' then
-		love.graphics.print('Settings - Text Speed:',16, 20)
-		love.graphics.print('50 (Slowest)',16, 45)
-		love.graphics.print('75',16, 70)
-		love.graphics.print('100',16, 95)
-		love.graphics.print('150',16, 120)
-		love.graphics.print('200 (Fastest)',16, 145)		
-		love.graphics.print('Current Setting: '..settings.textspd,16, 200)
-	
-	elseif menu_type == 'autospd' then
-		love.graphics.print('Settings - Auto-Forward Time:',16, 20)
-		love.graphics.print('2 sec. (Fastest)',16, 45)
-		love.graphics.print('4 sec.',16, 70)
-		love.graphics.print('6 sec.',16, 95)
-		love.graphics.print('8 sec.',16, 120)
-		love.graphics.print('10 sec. (Slowest)',16, 145)
-		love.graphics.print('Current Setting: '..settings.autospd,16, 200)
-	
-	elseif menu_type == 'animh' then
-		love.graphics.print('Settings - Character Animations:',16, 20)
-		love.graphics.print('0 - Off',16, 45)
-		love.graphics.print('1 - On',16, 70)
-		love.graphics.print('Current Setting: '..settings.animh,16, 200)
-	
-	elseif menu_type == 'choice' then
-		xaload = xaload + 1
-		love.graphics.setColor(255,255,255)
-		drawnumbers()
-		if bg1 == 'black' then 
-			love.graphics.setColor(255,255,255)
-		else
-			love.graphics.setColor(0,0,0)
-		end
-		love.graphics.print(menutext,16, 20)
-		love.graphics.setColor(0,0,0)
-		if menu_items >= 2 then love.graphics.print(choice1,16, 45) end
-		if menu_items >= 3 then love.graphics.print(choice2,16, 70) end
-		if menu_items >= 4 then love.graphics.print(choice3,16, 95) end
-		if menu_items >= 5 then love.graphics.print(choice4,16, 120) end
-		if menu_items >= 6 then love.graphics.print(choice5,16, 145) end
-		if menu_items >= 7 then love.graphics.print(choice6,16, 170) end
-		if menu_items >= 8 then love.graphics.print(choice7,16, 195) end
-		if menu_items >= 8 then love.graphics.print(choice8,16, 220) end
-	end
-	
-	if menu_previous then love.graphics.print('Back',16, 220) end
+	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
+		love.graphics.print('Page '..pagenum..' of 10',16,200)
+	end	
 end
 
 function menu_confirm()
-	
 	sfx1:play()
 
 	if menu_type == 'title' then --title screen options
-		
 		menu_previous = 'title'
-		menu_previousitems = 6
 		
 		if global_os ~= 'Horizon' then
 			player = 'MC'
@@ -173,13 +140,14 @@ function menu_confirm()
 			end
 		
 		elseif m_selected == 3 then --load game
-			menu_enable('loadgame', 7)
+			pagenum = 1
+			menu_enable('loadgame')
 			
 		elseif m_selected == 4 then --settings
-			menu_enable('settings', 5)
+			menu_enable('settings')
 		
 		elseif m_selected == 5 then --help
-			menu_enable('help', 5)
+			menu_enable('help')
 			m_select()
 			
 		elseif m_selected == 6 then --quit
@@ -188,31 +156,32 @@ function menu_confirm()
 		
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= '' then
-			savenumber = m_selected - 1
+			savenumber = savenum[m_selected-1]
 			if love.filesystem.isFile('save'..savenumber..'.sav') then
 				changeState('game',2)
 			end
 		end
 		
 	elseif menu_type == 'savegame' then  --save game confirm 
-		savenumber = m_selected - 1
+		savenumber = savenum[m_selected-1]
 		savegame()
 		menu_previous = nil
 		menu_enabled = false
 	
 	elseif menu_type == 'pause' then --pause menu options
 		menu_previous = 'pause'
-		menu_previousitems = 7
 		if m_selected == 2 then
-			menu_enable('savegame',7)
+			pagenum = 1
+			menu_enable('savegame')
 		elseif m_selected == 3 then
-			menu_enable('loadgame',7)
+			pagenum = 1
+			menu_enable('loadgame')
 		elseif m_selected == 4 then
-			menu_enable('mainyesno',3)
+			menu_enable('mainyesno')
 		elseif m_selected == 5 then
-			menu_enable('settings', 5)
+			menu_enable('settings')
 		elseif m_selected == 6 then
-			menu_enable('help',5)
+			menu_enable('help')
 		elseif m_selected == 7 then
 			menu_enabled = false
 			menu_previous = nil
@@ -222,91 +191,56 @@ function menu_confirm()
 		if m_selected == 2 then
 			changeState('title')
 		elseif m_selected == 3 then
-			menu_enable('pause',7)
+			menu_enable('pause')
 		end
 		
 	elseif menu_type == 'settings' then
-		if m_selected == 2 then
-			menu_enable('textloc', 3)
-		elseif m_selected == 3 then
-			menu_enable('textspd', 6)
-		elseif m_selected == 4 then
-			menu_enable('autospd', 6)
-		elseif m_selected == 5 then
-			menu_enable('animh', 3)
+		if m_selected == 6 then
+			savegame()
+			menu_enable(menu_previous)
 		end
 		
-	elseif menu_type == 'textloc' then
-		if m_selected == 2 then
-			settings.textloc = 'Top'
-		elseif m_selected == 3 then
-			settings.textloc = 'Bottom'
-		end
-		menu_enable(menu_previous, menu_previousitems)
-		menu_previous = nil
-	
-	elseif menu_type == 'textspd' then
-		if m_selected == 2 then
-			settings.textspd = 50
-		elseif m_selected == 3 then
-			settings.textspd = 75
-		elseif m_selected == 4 then
-			settings.textspd = 100
-		elseif m_selected == 5 then
-			settings.textspd = 150
-		elseif m_selected == 6 then
-			settings.textspd = 200
-		end
-		menu_enable(menu_previous, menu_previousitems)
-		menu_previous = nil
-	
-	elseif menu_type == 'animh' then
-		if m_selected == 2 then
-			settings.animh = 0
-		elseif m_selected == 3 then
-			settings.animh = 1
-		end
-		menu_enable(menu_previous, menu_previousitems)
-		menu_previous = nil
-	
-	elseif menu_type == 'autospd' then
-		if m_selected == 2 then
-			settings.autospd = 2
-		elseif m_selected == 3 then
-			settings.autospd = 4
-		elseif m_selected == 4 then
-			settings.autospd = 6
-		elseif m_selected == 5 then
-			settings.autospd = 8
-		elseif m_selected == 6 then
-			settings.autospd = 10
-		end
-		menu_enable(menu_previous, menu_previousitems)
-		menu_previous = nil
-	
 	elseif menu_type == 'choice' then
 		if choicepick ~= '' then
-			xaload = -1
-			cl = cl + 1
+			scriptJump(cl+1)
 			menu_type = nil
 			menu_enabled = false
 			menu_previous = nil
 		end
 	end
-	
 end
 
 function m_select()
 	if m_selected == 2 then
+		if menu_type == 'choice' then 
+			choicepick = choices[1] 
+		else
+			cpick = itemnames[1]
+		end
 		cX = 2
 		cY = 45
 	elseif m_selected == 3 then
+		if menu_type == 'choice' then 
+			choicepick = choices[2] 
+		else
+			cpick = itemnames[2]
+		end
 		cX = 2
 		cY = 70
 	elseif m_selected == 4 then
+		if menu_type == 'choice' then 
+			choicepick = choices[3] 
+		else
+			cpick = itemnames[3]
+		end
 		cX = 2
 		cY = 95
 	elseif m_selected == 5 then
+		if menu_type == 'choice' then 
+			choicepick = choices[4] 
+		else
+			cpick = itemnames[4]
+		end
 		cX = 2
 		cY = 120
 	elseif m_selected == 6 then
@@ -318,35 +252,9 @@ function m_select()
 	elseif m_selected == 8 then
 		cX = 2
 		cY = 195
-	end
-end
-
-function m_selectchoice()
-	if m_selected == 2 then
-		if choice1 ~= nil then choicepick = choice1 end
+	elseif m_selected == 9 then
 		cX = 2
-		cY = 45
-	elseif m_selected == 3 then
-		if choice2 ~= nil then choicepick = choice2 end
-		cX = 2
-		cY = 70
-	elseif m_selected == 4 then
-		if choice3 ~= nil then choicepick = choice3 end
-		cX = 2
-		cY = 95
-	elseif m_selected == 5 then
-		if choice4 ~= nil then choicepick = choice4 end
-		cX = 2
-		cY = 120
-	elseif m_selected == 6 then
-		cX = 2
-		cY = 145
-	elseif m_selected == 7 then
-		cX = 2
-		cY = 170
-	elseif m_selected == 8 then
-		cX = 2
-		cY = 195
+		cY = 220
 	end
 end
 
@@ -358,9 +266,7 @@ function menu_keypressed(key)
 		else
 			m_selected = 2
 		end
-		
-		if menu_type ~= 'choice' then m_select()
-		else m_selectchoice() end
+		m_select()
 		
 	elseif key == 'up' or key == 'cpadup' then
 		sfx2:play()
@@ -369,8 +275,7 @@ function menu_keypressed(key)
 		else
 			m_selected = menu_items
 		end
-		if menu_type ~= 'choice' then m_select()
-		else m_selectchoice() end
+		m_select()
 		
 	elseif key == 'a' then
 		if alpha == 255 then menu_confirm() end
@@ -380,38 +285,85 @@ function menu_keypressed(key)
 		if menu_type == 'pause' then
 			menu_enabled = false
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' then
-			menu_enable(menu_previous, menu_previousitems)
+			menu_enable(menu_previous)
 		end
 		menu_previous = nil
+		
+	elseif key == 'left' or key == 'cpadleft' then
+		if menu_type == 'settings' then
+			if cpick == 'Textbox Location' then
+				if settings.textloc == 'Bottom' then
+					settings.textloc = 'Top'
+				else
+					settings.textloc = 'Bottom'
+				end
+			elseif cpick == 'Text Speed' then
+				if settings.textspd > 50 then
+					settings.textspd = settings.textspd - 10
+				end
+			elseif cpick == 'AutoForward Time' then
+				if settings.autospd > 1 then
+					settings.autospd = settings.autospd - 1
+				end
+			elseif cpick == 'Char. Animations' then
+				if settings.animh == 0 then
+					settings.animh = 1
+				else
+					settings.animh = 0
+				end
+			end
+			
+		elseif (menu_type == 'savegame' or menu_type == 'loadgame') and pagenum > 1 then
+			pagenum = pagenum - 1
+			menu_enable(menu_type)
+		end
+		
+	elseif key == 'right' or key == 'cpadright' then
+		if menu_type == 'settings' then
+			if cpick == 'Textbox Location' then
+				menu_keypressed('left')
+			elseif cpick == 'Text Speed' then
+				if settings.textspd >= 50 and settings.textspd < 300 then
+					settings.textspd = settings.textspd + 10
+				end
+			elseif cpick == 'AutoForward Time' then
+				if settings.autospd >= 1 and settings.autospd < 15 then
+					settings.autospd = settings.autospd + 1
+				end
+			elseif cpick == 'Char. Animations' then
+				menu_keypressed('left')
+			end
+		
+		elseif (menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10 then
+			pagenum = pagenum + 1
+			menu_enable(menu_type)
+		end
 	end
 end
 
 function menu_mousepressed()
-	if menu_items >= 2 and mouseX>=16 and mouseX<=116 and mouseY>=45 and mouseY<=61 then
+	if menu_items >= 2 and mouseX>=16 and mouseX<=rectwidth and mouseY>=45 and mouseY<=61 then
 		m_selected = 2
-		menu_keypressed('a')
-	elseif menu_items >= 3 and mouseX>=16 and mouseX<=116 and mouseY>=70 and mouseY<=86 then
+	elseif menu_items >= 3 and mouseX>=16 and mouseX<=rectwidth and mouseY>=70 and mouseY<=86 then
 		m_selected = 3
-		menu_keypressed('a')
-	elseif menu_items >= 4 and mouseX>=16 and mouseX<=116 and mouseY>=95 and mouseY<=111 then
+	elseif menu_items >= 4 and mouseX>=16 and mouseX<=rectwidth and mouseY>=95 and mouseY<=111 then
 		m_selected = 4
-		menu_keypressed('a')
-	elseif menu_items >= 5 and mouseX>=16 and mouseX<=116 and mouseY>=120 and mouseY<=136 then
+	elseif menu_items >= 5 and mouseX>=16 and mouseX<=rectwidth and mouseY>=120 and mouseY<=136 then
 		m_selected = 5
-		menu_keypressed('a')
-	elseif menu_items >= 6 and mouseX>=16 and mouseX<=116 and mouseY>=145 and mouseY<=161 then
+	elseif menu_items >= 6 and mouseX>=16 and mouseX<=rectwidth and mouseY>=145 and mouseY<=161 then
 		m_selected = 6
-		menu_keypressed('a')
-	elseif menu_items >= 7 and mouseX>=16 and mouseX<=116 and mouseY>=170 and mouseY<=186 then
+	elseif menu_items >= 7 and mouseX>=16 and mouseX<=rectwidth and mouseY>=170 and mouseY<=186 then
 		m_selected = 7
-		menu_keypressed('a')
-	elseif menu_items >= 8 and mouseX>=16 and mouseX<=116 and mouseY>=195 and mouseY<=211 then
+	elseif menu_items >= 8 and mouseX>=16 and mouseX<=rectwidth and mouseY>=195 and mouseY<=211 then
 		m_selected = 8
-		menu_keypressed('a')
-	elseif menu_items >= 9 and mouseX>=16 and mouseX<=116 and mouseY>=220 and mouseY<=236 then
+	elseif menu_items >= 9 and mouseX>=16 and mouseX<=rectwidth and mouseY>=220 and mouseY<=236 then
 		m_selected = 9
-		menu_keypressed('a')
-	elseif menu_previous and mouseX>=16 and mouseX<=66 and mouseY>=220 and mouseY<=236 then
+	elseif menu_previous and mouseX>=16 and mouseX<=46 and mouseY>=220 and mouseY<=236 then
 		menu_keypressed('b')
+	end
+	
+	if mouseX <= rectwidth and mouseY <= 211 then
+		m_select()
+		menu_keypressed('a')
 	end
 end

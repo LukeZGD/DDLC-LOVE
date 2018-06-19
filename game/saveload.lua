@@ -25,6 +25,10 @@ ch4_name = ''
 savenumber = 1
 
 function savegame()
+	for i = 1, 4 do
+		if choices[i] == nil then choices[i] = '' end
+	end
+	
 	local savedata = "cl = "..cl.."\
 player = '"..player.."'\
 bg1 = '"..bg1.."'\

@@ -10,15 +10,10 @@ function poemresponses()
 			menutext = "Who should I show my poem to next?"
 			
 		end
-		
-		choice1 = choices[1]
-		choice2 = choices[2]
-		choice3 = choices[3]
-		choice4 = choices[4]
 
 		if menu_enabled ~= true then
 			hideAll()
-			menu_enable('choice', 5)
+			menu_enable('choice')
 		end
 		
 	elseif cl == 667 or cl == 668 then --first time poem script
