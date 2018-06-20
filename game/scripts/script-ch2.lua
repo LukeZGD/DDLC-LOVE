@@ -1309,11 +1309,7 @@ function ch2script()
 	elseif cl == 1947 then
 		menutext = "Well..."
 		choices = {"I would walk home with "..ch2_winner..".","I would still walk home with Sayori."}
-		if menu_enabled ~= true then
-			menu_enable('choice')
-			autotimer = 0
-			autoskip = 0
-		end
+		choice_enable()
 	elseif cl >= 1948 and cl < 1973 then
 		if choicepick == "I would walk home with "..ch2_winner.."." or choicepick == 'n' or choicepick == 'y' then
 			if ch2_winner == 'Natsuki' or choicepick == 'n' then

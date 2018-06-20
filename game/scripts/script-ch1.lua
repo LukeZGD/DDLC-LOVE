@@ -468,11 +468,7 @@ function ch1script()
 	elseif cl == 995 then
 		menutext = "So, of course that's going to be...!"
 		choices = {"Natsuki.","Yuri.","Help me, Sayori!!"}
-		if menu_enabled ~= true then
-			menu_enable('choice')
-			autotimer = 0
-			autoskip = 0
-		end
+		choice_enable()
 	elseif cl >= 996 and cl < 1092 then
 		if choicepick == 'Natsuki.' or choicepick == 'n' then
 			choicepick = 'n'

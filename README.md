@@ -5,7 +5,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 
 This was intended to be only for 3DS systems, but it is now also working on other platforms that support LÖVE or LovePotion. It will still have 2 screens, though.
 
-**Save files and character files locations:**
+**Locations of save files:**
 
 | Platform | Location                       |
 |----------|--------------------------------|
@@ -13,7 +13,7 @@ This was intended to be only for 3DS systems, but it is now also working on othe
 | Switch   | /switch/DDLC-3DS/              |
 | Windows  | %appdata%\LOVE\DDLC-3DS\       |
 
-The character files are generated on the first run. You can reset the save data and start over by deleting all of the save*.sav files on that folder.
+You can reset the save data and start over by deleting all of the files on that folder.
 
 New 3DS/2DS users should disable L2 Cache before playing this.
 

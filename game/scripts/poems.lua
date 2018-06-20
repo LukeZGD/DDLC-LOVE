@@ -352,7 +352,7 @@ Bright, beautiful colors
 Flashing, expanding, piercing
 Red, green, blue
 An endless
-cacophany
+cacophony
 Of meaningless
 noise]]
 	elseif poemname == 'poem_m2-a' then

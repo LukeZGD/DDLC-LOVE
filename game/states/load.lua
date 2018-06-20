@@ -39,14 +39,11 @@ function updateLoad()
 				num = i
 				loadstring("number_"..num.." = love.graphics.newImage('images/gui/fonts/numbers/'..num..'.png')")()
 			end
-			--Uncomment out the lines below to run in yuzu without sharedfont
-			--function love.graphics.print()
-			--end
 		end
 		
 	elseif l_timer == 99 then
 		l_timer = 99
-		local file = love.filesystem.isFile('save1.sav')
+		local file = love.filesystem.isFile('persistent')
 		if file then
 			checkchr()
 		else

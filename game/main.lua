@@ -3,6 +3,10 @@ require 'resources'
 require 'saveload'
 require 'menu'
 
+--Uncomment out the lines below to run in yuzu without sharedfont
+--function love.graphics.print()
+--end
+
 function love.load() 
 	dversion = 'v0.0.4'
 	dvertype = 'Test'
