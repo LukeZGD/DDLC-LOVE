@@ -921,9 +921,8 @@ function ch0script()
 	elseif cl == 10014 then 
 		cw('s',"PLEASE MAKE IT STOP!")
 	elseif cl == 10015 then 
-		cl = 10000
-		savenumber = 1
-		savegame()
+		persistent.schr = 0
+		savepersistent()
 		game_quit()
 	end
 	
@@ -940,21 +939,30 @@ function ch0script()
 		timer = 1000
 	elseif cl == 10020 then
 		menutext = ''
-		choice1 = ' I agree.'
-		choice2 = ' I do not agree.'
-		if xaload == 0 then menu_enable('choice', 3) end
+		choices = {'I agree.','I do not agree.'}
+		choice_enable()
 	elseif cl >= 10021 then
-		if choicepick == ' I do not agree.' then
+		if choicepick == 'I do not agree.' then
 			game_quit()
+		else
+			cl = 10021
+			bgUpdate('warning2')
+			if xaload > 120 then
+				--set default values of persistent then go to splash screen
+				cl = 1
+				player = ""
+				savegame()
+				persistent = {
+					playthrough=0;
+					clear={0,0,0,0,0,0,0,0,0};
+					mchr=1;
+					schr=1;
+					nchr=1;
+					ychr=1;
+					}
+				savepersistent()
+				changeState('splash')
+			end
 		end
-		cl = 10021
-		bgUpdate('warning2')
-		if xaload > 120 then
-			cl = 1
-			player = ""
-			savegame()
-			resetchr()
-			changeState('splash')
-		 end
 	end
 end

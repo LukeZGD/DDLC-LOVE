@@ -74,7 +74,6 @@ function splashalpha(x)
 	--fade out from poemgame to game
 	elseif x == 5 then
 		if alpha <= 0 then
-			if cl == 2500 or chapter == 4 then chapter = chapter + 1 end
 			changeState('game',3)
 		else	
 			alpha = alpha - 2
@@ -82,7 +81,6 @@ function splashalpha(x)
 	--fade from load to splash screens
 	elseif x == 6 then
 		if alpha <= 0 then
-			resetchr(2)
 			changeState('splash')
 		else
 			alpha = alpha - 5

@@ -300,6 +300,10 @@ function Yuri_exclusive_1()
 	elseif cl == 556 then
 		hideAll()
 		bgUpdate('y_cg1_base')
+		persistent.clear[3] = 1
+		if xaload == 1 then
+			savepersistent()
+		end
 		cw('bl',"Yuri takes her left arm and holds the left side of the book between her thumb and forefinger.")
 	elseif cl == 557 then
 		cw('mc',"Ah...")
@@ -932,6 +936,10 @@ function Yuri_exclusive_2_ch3()
 	elseif cl == 1545 then
 		hideAll()
 		bgUpdate('y_cg2_nochoc')
+		persistent.clear[4] = 1
+		if xaload == 1 then
+			savepersistent()
+		end
 		cw('bl',"Yuri opens the book with both hands.")
 	elseif cl == 1546 then
 		cw('bl',"She holds it so that I don't have any harder of a time reading from it.")

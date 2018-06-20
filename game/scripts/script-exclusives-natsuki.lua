@@ -281,6 +281,10 @@ function Natsuki_exclusive_1()
 	elseif cl == 544 then
 		hideAll()
 		bgUpdate('n_cg1_base')
+		persistent.clear[1] = 1
+		if xaload == 1 then
+			savepersistent()
+		end
 		cw('bl',"...")
 	elseif cl == 545 then
 		cw('bl',"We read on for a few more minutes.")
@@ -747,6 +751,10 @@ function Natsuki_exclusive_2_ch3()
 	elseif cl == 1450 then
 		hideAll()
 		bgUpdate('n_cg2_base')
+		persistent.clear[2] = 1
+		if xaload == 1 then
+			savepersistent()
+		end
 		cw('n',"Aha! There we go!")
 	elseif cl == 1451 then
 		cw('n',"See? I can easily do it now.")

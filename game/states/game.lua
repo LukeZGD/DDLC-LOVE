@@ -22,7 +22,7 @@ function drawGame()
 		love.graphics.draw(textbox, 40, 162)
 		love.graphics.setColor(0,0,0)
 		if ct then love.graphics.print(ct,63,142) end
-		if global_os == 'Horizon' then
+		if global_os == 'Horizon' or global_os == 'HorizonNX' then
 			if ca then love.graphics.print(ca,48,166) end
 			if cb then love.graphics.print(cb,48,182) end
 			if cc then love.graphics.print(cc,48,198) end
@@ -57,7 +57,7 @@ function drawGame()
 		love.graphics.draw(textbox, 0, 60)
 		love.graphics.setColor(0,0,0)
 		if ct then love.graphics.print(ct,23,40) end
-		if global_os == 'Horizon' then
+		if global_os == 'Horizon' or global_os == 'HorizonNX' then
 			if ca then love.graphics.print(ca,8,64) end
 			if cb then love.graphics.print(cb,8,80) end
 			if cc then love.graphics.print(cc,8,96) end
@@ -108,7 +108,7 @@ function updateGame(dt)
 		autotimer = 0.1
 	end
 	
-	if global_os ~= 'HorizonNX' then
+	if global_os ~= 'HorizonNX' and state ~= 'newgame' then
 		if love.keyboard.isDown('x') then
 			game_skip()
 		elseif mouseDown and mouseX>=240 and mouseX<=270 then
@@ -174,14 +174,10 @@ function game_skip()
 end
 
 function game_mousepressed()
-	if mouseX>=50 and mouseX<=80 then
-		if mouseY<=18 or mouseY>=220 then game_keypressed('y') end
-	elseif mouseX>=142 and mouseX<=172 then 
-		if mouseY<=18 or mouseY>=220 then game_keypressed('b') end
-	elseif mouseX>=240 and mouseX<=270 then
-		if mouseY<=18 or mouseY>=220 then game_keypressed('x') end
-	else
-		game_keypressed('a')
+	if mouseX>=50 and mouseX<=80 and (mouseY<=18 or mouseY>=220) then game_keypressed('y')
+	elseif mouseX>=142 and mouseX<=172 and (mouseY<=18 or mouseY>=220) then game_keypressed('b')
+	elseif mouseX>=240 and mouseX<=270 and (mouseY<=18 or mouseY>=220) then game_keypressed('x')
+	else game_keypressed('a')
 	end
 end
 

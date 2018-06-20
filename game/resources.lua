@@ -23,19 +23,31 @@ function changeState(cstate,x)
 			audioUpdate('1')
 		end
 		menu_enable('title',6)
+	elseif cstate == 'game' and x == 0 then
+		xaload = 0
+		state = 'game'
+		menu_enabled = false
 	elseif cstate == 'game' and x == 1 then --new game
+		if persistent.playthrough == 0 then 
+			chapter = 0
+		end
 		xaload = 0
 		state = 'game'
 		menu_enabled = false
 	elseif cstate == 'game' and x == 2 then --load game
 		hideAll()
 		loadgame()
-		loadAll()
-		loadupdate()
-		xaload = 0
-		state = 'game'
-		poem_enabled = false
-		menu_enabled = false
+		if data_ptr ~= persistent.playthrough then --default to new game when loading a save from different act
+			cl = 1
+			changeState('game',1)
+		else
+			loadAll()
+			loadupdate()
+			xaload = 0
+			state = 'game'
+			poem_enabled = false
+			menu_enabled = false
+		end
 	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
 		cl = cl + 2
 		xaload = 0

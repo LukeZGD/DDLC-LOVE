@@ -1,3 +1,7 @@
+--default values
+persistent = {}
+persistent.playthrough = 0
+data_ptr = persistent.playthrough
 bg1 = ''
 audio1 = 2
 cg1 = ''
@@ -29,7 +33,8 @@ function savegame()
 		if choices[i] == nil then choices[i] = '' end
 	end
 	
-	local savedata = "cl = "..cl.."\
+	local savedata = "data_ptr = "..persistent.playthrough.."\
+cl = "..cl.."\
 player = '"..player.."'\
 bg1 = '"..bg1.."'\
 audio1 = '"..audio1.."'\
@@ -60,8 +65,33 @@ ch4_name = '"..ch4_name.."'"
 end
 
 function loadgame()
-	local loadsavefile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
-	loadsavefile()
+	loadstring(love.filesystem.read("save"..savenumber..".sav"))()
+end
+
+function savepersistent()
+	local spfile = "persistent = {\
+playthrough="..persistent.playthrough..";\
+	clear={\
+		"..persistent.clear[1]..",\
+		"..persistent.clear[2]..",\
+		"..persistent.clear[3]..",\
+		"..persistent.clear[4]..",\
+		"..persistent.clear[5]..",\
+		"..persistent.clear[6]..",\
+		"..persistent.clear[7]..",\
+		"..persistent.clear[8]..",\
+		"..persistent.clear[9].."};\
+	mchr="..persistent.mchr..";\
+	schr="..persistent.schr..";\
+	nchr="..persistent.nchr..";\
+	ychr="..persistent.ychr..";\
+}"
+	
+	love.filesystem.write('persistent', spfile)
+end
+
+function loadpersistent()
+	loadstring(love.filesystem.read('persistent'))()
 end
 
 function loadupdate()
@@ -73,25 +103,19 @@ function loadupdate()
 end
 
 function checkchr()
-	local sayorichr = love.filesystem.isFile('sayori.chr')
-	monikachr = love.filesystem.isFile('monika.chr')
-	if love.filesystem.isFile('save1.sav') then loadgame() end
+	if love.filesystem.isFile('persistent') then 
+		loadgame() 
+		loadpersistent()
+	end
 	
-	if sayorichr == false or cl == 10000 then
+	if persistent.schr == 0 then
 		changeState('s_kill_early')
 	else --load title screen
 		l_timer = 100
 	end
 end
 
-function resetchr(x)
-	if x == 1 or x == nil then
-		love.filesystem.write("monika.chr","U25WemRDQk5iMjVwYTJFdUlFcDFjM1FnVFc5dWFXdGhMaUJLZFhOMElFMXZibWxyWVM0Z1NuVnpkQ0JOYjI1cGEyRXVJRXAxYzNRZ1RXOXVhV3RoTGlBPQ==")
-		love.filesystem.write("sayori.chr","VTJGNWIzSnBJRUpsYzNRZ1IybHliQ0VoSVE9PQ==")
-		love.filesystem.write("yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA==")
-		love.filesystem.write("natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU=")
-	elseif x == 2 then
-		love.filesystem.write("yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA==")
-		love.filesystem.write("natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU=")
-	end
-end
+--"monika.chr","U25WemRDQk5iMjVwYTJFdUlFcDFjM1FnVFc5dWFXdGhMaUJLZFhOMElFMXZibWxyWVM0Z1NuVnpkQ0JOYjI1cGEyRXVJRXAxYzNRZ1RXOXVhV3RoTGlBPQ=="
+--"sayori.chr","VTJGNWIzSnBJRUpsYzNRZ1IybHliQ0VoSVE9PQ=="
+--"yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA=="
+--"natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU="
