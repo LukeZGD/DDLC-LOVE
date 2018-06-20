@@ -1,4 +1,3 @@
-local menu_type
 local menu_items
 local getcompare = {}
 local rectwidth
@@ -38,7 +37,11 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Text Speed','AutoForward Time','Char. Animations','Save Settings'}
+		itemnames = {'Textbox Location','Text Speed','AutoForward Time','Char. Animations','Characters','Save Settings'}
+	
+	elseif menu_type == 'characters' then
+		menutext = 'Characters'
+		itemnames = {'Delete monika.chr','Delete sayori.chr','Delete natsuki.chr','Delete yuri.chr','Restore all'}
 	
 	elseif menu_type == 'pause' then
 		menutext = 'Pause Menu'
@@ -51,7 +54,7 @@ function menu_enable(m)
 		menutext = 'Load Game'
 	end
 	
-	if menu_type == 'choices' then
+	if menu_type == 'choice' then
 		menu_items = #choices + 1
 	else
 		menu_items = #itemnames + 1
@@ -65,8 +68,14 @@ function menu_draw()
 	
 	love.graphics.setColor(255, 255, 255, alpha)
 	if bg1 ~= 'black' then love.graphics.draw(background_Image, posX, posY) end
-	for i = 1, #itemnames do
-		getcompare[i] = font:getWidth(itemnames[i])
+	if menu_type == 'choice' then
+		for i = 1, #choices do
+			getcompare[i] = font:getWidth(choices[i])
+		end
+	else
+		for i = 1, #itemnames do
+			getcompare[i] = font:getWidth(itemnames[i])
+		end
 	end
 	rectwidth = math.max(unpack(getcompare)) + 5
 	
@@ -81,15 +90,25 @@ function menu_draw()
 	if menu_items >= 9 then love.graphics.rectangle('fill', 16, 220, rectwidth, 16) end
 	if menu_previous then love.graphics.rectangle('fill', 16, 220, 30, 16) end
 	
-	if bg1 ~= 'black' then love.graphics.setColor(0,0,0) end
+	if bg1 ~= 'black' then 
+		love.graphics.setColor(0,0,0) 
+		love.graphics.draw(guicheck,cX,cY)
+	else
+		love.graphics.setColor(255,255,255)
+		love.graphics.draw(guicheckwhite,cX,cY)
+	end
 	love.graphics.print(menutext,16, 20)
 	
 	love.graphics.setColor(0,0,0)
-	if menu_type == 'choices' then
+	if menu_type == 'choice' then
 		if menu_items >= 2 then love.graphics.print(choices[1],17, 45) end
 		if menu_items >= 3 then love.graphics.print(choices[2],17, 70) end
 		if menu_items >= 4 then love.graphics.print(choices[3],17, 95) end
 		if menu_items >= 5 then love.graphics.print(choices[4],17, 120) end
+		if menu_items >= 6 then love.graphics.print(choices[5],17, 145) end
+		if menu_items >= 7 then love.graphics.print(choices[6],17, 170) end
+		if menu_items >= 8 then love.graphics.print(choices[7],17, 195) end
+		if menu_items >= 8 then love.graphics.print(choices[8],17, 220) end
 	else
 		if menu_items >= 2 then love.graphics.print(itemnames[1],17, 45) end
 		if menu_items >= 3 then love.graphics.print(itemnames[2],17, 70) end
@@ -101,14 +120,13 @@ function menu_draw()
 		if menu_items >= 8 then love.graphics.print(itemnames[8],17, 220) end
 	end
 	if menu_previous then love.graphics.print('Back',17, 220) end
-	love.graphics.draw(guicheck,cX,cY)
 	
 	if menu_type == 'settings' then
 		love.graphics.print(settings.textloc..' Screen',140, 45)
 		love.graphics.print(settings.textspd, 140, 70)
 		love.graphics.print(settings.autospd..' sec.',140, 95)
 		love.graphics.print(settings.animh,140, 120)
-		love.graphics.print('Press (<) and (>) to change settings.',16,190)
+		love.graphics.print('Press (<) and (>) to change settings.',16,200)
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
@@ -127,7 +145,7 @@ function menu_confirm()
 		end
 		
 		if m_selected == 2 then --new game
-			if monikachr == false and chapter < 5 then --set up early act 1 end
+			if persistent.mchr == 0 and persistent.playthrough == 0 then --set up early act 1 end
 				menu_enabled = false
 				cl = 10001
 				changeState('game',1)
@@ -196,9 +214,29 @@ function menu_confirm()
 		
 	elseif menu_type == 'settings' then
 		if m_selected == 6 then
+			menu_enable('characters')
+		elseif m_selected == 7 then
 			savegame()
 			menu_enable(menu_previous)
 		end
+		
+	elseif menu_type == 'characters' then
+		if m_selected == 2 then
+			persistent.mchr = 0
+		elseif m_selected == 3 then
+			persistent.schr = 0
+		elseif m_selected == 4 then
+			persistent.nchr = 0
+		elseif m_selected == 5 then
+			persistent.ychr = 0
+		elseif m_selected == 6 then
+			persistent.mchr = 1
+			persistent.schr = 1
+			persistent.nchr = 1
+			persistent.ychr = 1
+		end
+		savepersistent()
+		menu_enable(menu_previous)
 		
 	elseif menu_type == 'choice' then
 		if choicepick ~= '' then
@@ -290,7 +328,7 @@ function menu_keypressed(key)
 		menu_previous = nil
 		
 	elseif key == 'left' or key == 'cpadleft' then
-		if menu_type == 'settings' then
+		if menu_type == 'settings' and m_selected <= 5 then
 			if cpick == 'Textbox Location' then
 				if settings.textloc == 'Bottom' then
 					settings.textloc = 'Top'
@@ -319,7 +357,7 @@ function menu_keypressed(key)
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
-		if menu_type == 'settings' then
+		if menu_type == 'settings' and m_selected <= 5 then
 			if cpick == 'Textbox Location' then
 				menu_keypressed('left')
 			elseif cpick == 'Text Speed' then
@@ -342,21 +380,21 @@ function menu_keypressed(key)
 end
 
 function menu_mousepressed()
-	if menu_items >= 2 and mouseX>=16 and mouseX<=rectwidth and mouseY>=45 and mouseY<=61 then
+	if menu_items >= 2 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=45 and mouseY<=61 then
 		m_selected = 2
-	elseif menu_items >= 3 and mouseX>=16 and mouseX<=rectwidth and mouseY>=70 and mouseY<=86 then
+	elseif menu_items >= 3 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=70 and mouseY<=86 then
 		m_selected = 3
-	elseif menu_items >= 4 and mouseX>=16 and mouseX<=rectwidth and mouseY>=95 and mouseY<=111 then
+	elseif menu_items >= 4 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=95 and mouseY<=111 then
 		m_selected = 4
-	elseif menu_items >= 5 and mouseX>=16 and mouseX<=rectwidth and mouseY>=120 and mouseY<=136 then
+	elseif menu_items >= 5 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=120 and mouseY<=136 then
 		m_selected = 5
-	elseif menu_items >= 6 and mouseX>=16 and mouseX<=rectwidth and mouseY>=145 and mouseY<=161 then
+	elseif menu_items >= 6 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=145 and mouseY<=161 then
 		m_selected = 6
-	elseif menu_items >= 7 and mouseX>=16 and mouseX<=rectwidth and mouseY>=170 and mouseY<=186 then
+	elseif menu_items >= 7 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=170 and mouseY<=186 then
 		m_selected = 7
-	elseif menu_items >= 8 and mouseX>=16 and mouseX<=rectwidth and mouseY>=195 and mouseY<=211 then
+	elseif menu_items >= 8 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=195 and mouseY<=211 then
 		m_selected = 8
-	elseif menu_items >= 9 and mouseX>=16 and mouseX<=rectwidth and mouseY>=220 and mouseY<=236 then
+	elseif menu_items >= 9 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=220 and mouseY<=236 then
 		m_selected = 9
 	elseif menu_previous and mouseX>=16 and mouseX<=46 and mouseY>=220 and mouseY<=236 then
 		menu_keypressed('b')

@@ -263,6 +263,10 @@ function Sayori_exclusive_1()
 	elseif cl == 534 then
 		hideAll()
 		bgUpdate('s_cg1')
+		persistent.clear[7] = 1
+		if xaload == 1 then
+			savepersistent()
+		end
 		cw('s',"Ehehe~")
 	elseif cl == 535 then
 		cw('s',"This is so funny.")
@@ -700,6 +704,10 @@ function Sayori_exclusive_2()
 		hideAll()
 		bgUpdate('s_cg2_base1')
 		cgUpdate('s_cg2_exp2')
+		persistent.clear[8] = 1
+		if xaload == 1 then
+			savepersistent()
+		end
 		cw('bl',"Sayori slowly releases her hands from her forehead.")
 	elseif cl == 1473 then
 		cw('bl',"I gently brush her bangs to the side.")

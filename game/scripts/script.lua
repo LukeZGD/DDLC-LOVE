@@ -40,8 +40,8 @@ function cw(p1, stext)
 	--text drip for scripts
 	textx = dripText(stext,settings.textspd,myTextStartTime)
 	
-	--word wrap for 3DS (others use printf)
-	if global_os == 'Horizon' then
+	--word wrap for 3DS and Switch (PC will use printf)
+	if global_os == 'Horizon' or global_os == 'HorizonNX' then
 		slen = string.len(textx)
 		ca = string.sub(textx, 1, caa)
 		
@@ -68,8 +68,8 @@ function cw(p1, stext)
 end
 
 function scriptCheck()
-	love.graphics.setBackgroundColor ( 0, 0, 0 )
-	if global_os == 'Horizon' then
+	love.graphics.setBackgroundColor(0,0,0)
+	if global_os == 'Horizon' or global_os == 'HorizonNX' then
 		ca = ''; cb = ''; cc = ''; cd = ''
 	else
 		textx = ''
@@ -92,7 +92,7 @@ function scriptCheck()
 	elseif script_main then
 		loadstring('ch'..chapter..'script()')()
 	else
-		changeState('game',1)
+		changeState('game',0)
 	end
 end	
 
@@ -106,6 +106,14 @@ function scriptJump(nu, fu, au)
 	if fu and fu ~= '' then
 		loadstring(fu.."()")()
 	end		
+end
+
+function choice_enable()
+	if menu_enabled ~= true then
+		menu_enable('choice')
+		autotimer = 0
+		autoskip = 0
+	end
 end
 
 function poeminitialize(y)

@@ -1,14 +1,15 @@
 function poemresponses()
 	if cl == 666 then
-		if audio1 ~= '5' then audioUpdate('5') end
+		if audio1 ~= '5' then 
+			xaload = 0
+			audioUpdate('5')
+		end
 		
 		--set up menutext
 		if poemsread == 0 then
 			menutext = "Who should I show my poem to first?"
-			
 		else
 			menutext = "Who should I show my poem to next?"
-			
 		end
 
 		if menu_enabled ~= true then
@@ -51,19 +52,26 @@ function poemresponses()
 end
 
 function poemfinish(a)
+	local c_remove
+	
 	if a == 's' then
 		readpoem.s = 1
-		choices[1] = ''
+		c_remove = 'Sayori'
 	elseif a == 'n' then
 		readpoem.n = 1
-		choices[2] = ''
+		c_remove = 'Natsuki'
 	elseif a == 'y' then
 		readpoem.y = 1
-		choices[3] = ''
+		c_remove = 'Yuri'
 	elseif a == 'm' then
 		readpoem.m = 1
-		choices[4] = ''
+		c_remove = 'Monika'
 	end
+	
+	for i = 1, #choices do
+		if choices[i] == c_remove then table.remove(choices, i) end
+	end
+	
 	poemsread = poemsread + 1
 	hideAll()
 	if poemsread == 4 or (poemsread == 3 and chapter > 5) then
@@ -74,8 +82,10 @@ function poemfinish(a)
 			scriptJump(900, 'ch1script')
 		elseif chapter == 2 then
 			scriptJump(1638, 'ch2script')
+		elseif chapter == 3 then
+			scriptJump(2114, 'ch3script')
 		end
-	else
+	else --go back to choices menu
 		scriptJump(666, 'poemresponses', 0)
 	end
 end
