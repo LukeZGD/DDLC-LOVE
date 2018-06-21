@@ -1059,10 +1059,28 @@ function ch3_end()
 	elseif cl == 2248 then
 		cw('bl',"Everyone looks straight at me.")
 	elseif cl == 2249 then
-		menutext = "But of course, I'm going to go with--"
-		choices = {"Natsuki.","Yuri.","Monika.","Sayori..."}
+		if audio1 ~= '3' then audioUpdate('3') end
+		if help_monika == true then
+			menutext = "Do you have a preference, "..player.."?"
+			if help_sayori == nil then
+				choices = {"Natsuki.","Yuri.","Sayori..."}
+			else
+				choices = {"Natsuki.","Yuri."}
+			end
+		elseif help_sayori == true then
+			menutext = "Just think of the club, okay?"
+			if help_monika == nil then
+				choices = {"Natsuki.","Yuri.","Monika."}
+			else
+				choices = {"Natsuki.","Yuri."}
+			end
+		else
+			menutext = "But of course, I'm going to go with--"
+			choices = {"Natsuki.","Yuri.","Monika.","Sayori..."}
+		end
 		choice_enable()
-	elseif cl >= 2250 then
+		
+	elseif cl >= 2250 and cl < 2386 then
         if choicepick == "Natsuki." then
 			ch3_end_natsuki()
         elseif choicepick == "Yuri." then
@@ -1071,6 +1089,68 @@ function ch3_end()
             ch3_end_monika()
         elseif choicepick == "Sayori..." then
             ch3_end_sayori()
+		end
+	
+	elseif cl == 2386 then
+		hideAll()
+		bgUpdate('residential')
+		cw('bl',"I can't believe this!")
+	elseif cl == 2387 then
+		cw('bl',ch4_name.." is going to be coming to my house on Sunday...?")
+	
+	elseif cl >= 2388 then
+		if help_sayori then
+			if cl == 2388 then
+				cw('bl',"Even though I would have preferred to do this with Sayori...")
+			elseif cl == 2389 then
+				cw('bl',"My anxiety still shoots through the roof.")
+			elseif cl == 2390 then
+				cw('bl',"I guess I've gotten pretty used to handling her at this point...")
+			elseif cl == 2391 then
+				cw('bl',"But who knows what might end up happening when we're outside of school?")
+			elseif cl == 2392 then
+				cw('bl',"She even told me she was looking forward to it...")
+			elseif cl == 2393 then
+				cw('bl',"I shake my head.")
+			elseif cl == 2394 then
+				cw('bl',"Why do I feel nervous that Sayori finds out about this?")
+			elseif cl == 2395 then
+				cw('bl',"It's not like we feel that way about each other...")
+			elseif cl == 2396 then
+				cw('bl',"Besides, like Monika said, this is about the club.")
+			elseif cl == 2397 then
+				cw('bl',"I have nothing to worry about.")
+			elseif cl == 2398 then
+				cw('bl',"If I just go with it, then I'll have a good time.")
+			elseif cl == 2399 then
+				splashalpha(7)
+			elseif cl == 2400 then
+				cl = 2399
+			end
+		else
+			if cl == 2388 then
+				cw('bl',"My anxiety shoots through the roof.")
+			elseif cl == 2389 then
+				cw('bl',"Even though I've gotten pretty used to handling her at this point...")
+			elseif cl == 2390 then
+				cw('bl',"There's no telling what might end up happening when we're outside of school.")
+			elseif cl == 2391 then
+				cw('bl',"More than that...she told me that she was looking forward to it.")
+			elseif cl == 2392 then
+				cw('bl',"Is this the chance I have to make something happen between us?")
+			elseif cl == 2393 then
+				cw('bl',"...Or is it too early for that?")
+			elseif cl == 2394 then
+				cw('bl',"Only time will tell...")
+			elseif cl == 2395 then
+				cw('bl',"But until then, I won't be able to take my mind off it.")
+			elseif cl == 2396 then
+				cw('bl',"I seriously can't wait!")
+			elseif cl == 2397 then
+				splashalpha(7)
+			elseif cl == 2398 then
+				cl = 2397
+			end
 		end
 	end
 end
@@ -1099,15 +1179,7 @@ function ch3_end_sayori()
 	elseif cl == 2258 then
 		cw('m',"Sorry, I didn't mean for this to be difficult...")
 	elseif cl == 2259 then
-		menutext = "Just think of the club, okay?"
-		if help_monika == nil then
-			choices = {"Natsuki.","Yuri.","Monika."}
-		else
-			choices = {"Natsuki.","Yuri."}
-		end
-        choice_enable()
-	elseif cl == 2260 then
-		scriptJump(2250)
+		scriptJump(2249)
 	end
 end
 
@@ -1208,22 +1280,14 @@ function ch3_end_monika()
 		cw('m',"Sigh...")
 	elseif cl == 2284 then
 		updateMonika('1','g')
-		cw('m',"It's...technically most logical for .."player.." to help one of you two.")
+		cw('m',"It's...technically most logical for "..player.." to help one of you two.")
 	elseif cl == 2285 then
 		cw('m',"So...")
 	elseif cl == 2286 then
 		updateMonika('1','c')
 		cw('m',"I guess...that's what we'll do.")
 	elseif cl == 2287 then
-		audioUpdate('3')
-		menutext = "Do you have a preference, "..player.."?"
-		if help_sayori == nil then
-			choices = {"Natsuki.","Yuri.","Sayori..."}
-		else
-			choices = {"Natsuki.","Yuri."}
-		end
-    elseif cl == 2288 then
-		scriptJump(2250)
+		scriptJump(2249)
 	end
 end
 
@@ -1238,192 +1302,327 @@ function ch3_end_natsuki()
 		cw('n',"Don't worry!")
 	elseif cl == 2253 then
 		cw('n',"Baking is a ton of fun!")
-		--[[
-    n "You'll definitely agree!"
-    show natsuki zorder 2 at t31
-    show monika 1d zorder 3 at f32
-    m "Eh?"
-    m "Just a minute ago you were saying that--"
-    show monika zorder 2 at t32
-    show natsuki 1q zorder 3 at f31
-    n "Th-That's because--!"
-    n "..."
-    n "...Never mind, okay?"
-    show natsuki zorder 2 at t31
-    show monika 2a zorder 3 at f32
-    m "Well, anyway..."
-    m "You'll be fine by yourself, right, Yuri?"
-    show monika zorder 2 at t32
-    show yuri 1j zorder 3 at f33
-    y "Of course."
-    y "I'm used to it, after all..."
-    show yuri 1g zorder 2 at t33
-    show monika 1e zorder 3 at f32
-    m "..."
-    show monika zorder 2 at t32
-    mc "..."
-    show monika zorder 3 at f32
-    m 1n "That's...good..."
-    "Even though Yuri is being melodramatic, it's a little hard to not feel bad..."
-    show monika 1m zorder 2 at t32
-    show natsuki 3a zorder 3 at f31
-    n "So, that's everything, right?"
-    n "Anything else we need to talk about?"
-    show natsuki zorder 2 at t31
-    show monika 1a zorder 3 at f32
-    m "No, I think that's it..."
-    m "Are you guys excited?"
-    show monika zorder 2 at t32
-    show natsuki 1z zorder 3 at f31
-    n "Yes!"
-    n "Everything except the performance is gonna be awesome!"
-    show natsuki 1a zorder 2 at t31
-    mc "I don't think that really counts..."
-    show monika zorder 3 at f32
-    m "What about you, [player]?"
-    show monika zorder 2 at t32
-    mc "Me?"
-    mc "Ah, I guess you could say I'm interested to see how it'll turn out..."
-    show monika 2b zorder 3 at f32
-    m "That's good enough for me!"
-    m "What about you, Yuri?"
-    m 2d "...Yuri?"
-    show monika zorder 2 at t32
-    show natsuki 3c zorder 3 at f31
-    n "She's still sulking."
-    show natsuki zorder 2 at t31
-    show yuri 4b zorder 3 at f33
-    y "..."
-    show yuri zorder 2 at t33
-    show natsuki 5n zorder 3 at f31
-    n "..."
-    "Natsuki starts pouting, too."
-    n "It's not..."
-    n 5m "I mean, it's not that big of a deal or anything..."
-    show natsuki zorder 2 at t31
-    mc "Well, it might not be just that..."
-    show natsuki zorder 3 at f31
-    n "...?"
-    show natsuki zorder 2 at t31
-    mc "I think that Yuri might just be feeling a little underappreciated in general."
-    mc "Having to come up with something for her to do, and then nobody offering to help."
-    show natsuki zorder 3 at f31
-    n 5q "That doesn't mean..."
-    n "..."
-    n 5r "Uu..."
-    show natsuki 5u
-    "Natsuki glances back and forth between everyone with a worried expression."
-    n 1u "Look..."
-    "Natsuki goes over and puts her hands down on Yuri's shoulders."
-    n 1h "Yuri."
-    n "You really are the most talented one here."
-    n "And..."
-    n "And you're going to help make the event a lot more fun and welcoming."
-    n 1q "I mean, the cupcakes will probably help a lot too..."
-    n 3h "But you're gonna make the atmosphere special."
-    n "That'll be really important for the way that people feel during the performances."
-    n "So..."
-    n 4w "You need to stop being dumb and give yourself a little more credit!"
-    "Natsuki releases her hands and turns around to face the other direction."
-    show natsuki zorder 2 at t31
-    show yuri zorder 3 at f33
-    y 4a "..."
-    y "You didn't...really mean that, did you?"
-    show yuri zorder 2 at t33
-    show natsuki 5u zorder 3 at f31
-    n "Um..."
-    n "N-Not really, but..."
-    show natsuki zorder 2 at t31
-    "Yuri isn't the only one surprised."
-    "Monika and I are also taken aback by Natsuki's words."
-    "Natsuki, of all people, to be saying such encouraging things."
-    "But I begin to understand."
-    "Natsuki was trying to sound like Sayori."
-    "Even if it didn't work perfectly, I can tell that she tried to say something Sayori would say at a time like this."
-    "Because Sayori always helps everyone smile and feel good about themselves."
-    show yuri 2l zorder 3 at f33
-    y "I'm sorry...for being dumb."
-    y 2i "I'm going to do my best."
-    y "And all of us are going to make it a really great event."
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 5j "Yeah."
-    show natsuki zorder 2 at t31
-    show monika 2k zorder 3 at f32
-    m "Yeah!"
-    m 2b "I hope to see everyone do their best."
-    m "But with that..."
-    m "There's nothing more for today."
-    m "So I guess it's time for us to head out."
-    show monika zorder 2 at t32
-    show natsuki 3k zorder 3 at f31
-    n "Okay, but I'm staying here a bit longer."
-    n "I barely got to do any reading today, so..."
-    show natsuki zorder 2 at t31
-    show monika 2a zorder 3 at f32
-    m "Fair enough, there's nothing wrong with that."
-    hide natsuki
-    hide monika
-    hide yuri
-    with wipeleft
-    "Everyone packs up their things."
-    "I start to follow Monika and Yuri out the door as they chat between each other."
-    play music t6 fadeout 1
-    show natsuki 4g zorder 2 at t11
-    n "Um, where are you going?"
-    mc "Eh...?"
-    n 4c "We still need to figure out our plans for this weekend."
-    n "You literally would've gotten home and realized that you didn't even have a way to contact me."
-    mc "Oh, that's true..."
-    mc "I have no idea how that slipped my mind."
-    n 2c "Jeez, good thing I stopped you."
-    n "I'm giving you my number, okay?"
-    n 2q "You'd better not make it weird or anything!"
-    mc "Why would I do that...?"
-    n 1s "Hmph..."
-    "Natsuki gives me her number."
-    n 1c "Okay..."
-    n "I'm coming over on Sunday."
-    n "I'll bring all the ingredients."
-    mc "Wait!"
-    mc "You're coming to {i}my{/i} house?"
-    n 2c "Well, yeah."
-    n "What's wrong with that?"
-    mc "I mean..."
-    mc "I just figured that since I'm the one helping, I would be going to your house..."
-    n "Yeah, right."
-    n 5x "Like I could have a guy over my house..."
-    n "My dad would kill me."
-    mc "Really?"
-    mc "That's kinda strict, if you ask me."
-    n 5r "Yeah, how do you think I feel?"
-    n "I can't do anything when my dad is home..."
-    n 2q "Anyway...I just needed to complain for a second."
-    n 2c "We have each other's numbers now."
-    n "That's all I needed from you."
-    n "I guess I'll text you when I'm coming over."
-    mc "Alright, fine by me."
-    n "Yeah."
-    n 4a "I'm really gonna show you why I love baking so much."
-    n "So you'd better look forward to it."
-    mc "Oh?"
-    mc "Didn't you say you were just going to give me the dirty work?"
-    n 1r "Well--!"
-    n "I was...just saying that."
-    n 1q "It's not like I could act like...in front of everyone..."
-    n "That I was looking forward to this."
-    mc "Wait, really??"
-    n 5w "Well, kind of!"
-    n "Just because...I never got to bake with someone else before."
-    n 5h "That's all it is, so..."
-    mc "Alright, I get it."
-    mc "Sorry for overreacting."
-    mc "Anyway, I'll be heading out now."
-    mc "See you on Sunday."
-    n 5m "Ah--"
-    n "..."
-    n 5u "...Never mind."
-	]]
+	elseif cl == 2254 then
+		cw('n',"You'll definitely agree!")
+	elseif cl == 2255 then
+		updateMonika('1','d')
+		cw('m',"Eh?")
+	elseif cl == 2256 then
+		cw('m',"Just a minute ago you were saying that--")
+	elseif cl == 2257 then
+		updateNatsuki('1','q')
+		cw('n',"Th-That's because--!")
+	elseif cl == 2258 then
+		cw('n',"...")
+	elseif cl == 2259 then
+		cw('n',"...Never mind, okay?")
+	elseif cl == 2260 then
+		updateMonika('2','a')
+		cw('m',"Well, anyway...")
+	elseif cl == 2261 then
+		cw('m',"You'll be fine by yourself, right, Yuri?")
+	elseif cl == 2262 then
+		updateYuri('1','j')
+		cw('y',"Of course.")
+	elseif cl == 2263 then
+		cw('y',"I'm used to it, after all...")
+	elseif cl == 2264 then
+		updateYuri('1','g')
+		updateMonika('1','e')
+		cw('m',"...")
+	elseif cl == 2265 then
+		cw('mc',"...")
+	elseif cl == 2266 then
+		updateMonika('1','n')
+		cw('m',"That's...good...")
+	elseif cl == 2267 then
+		cw('bl',"Even though Yuri is being melodramatic, it's a little hard to not feel bad...")
+	elseif cl == 2268 then
+		updateNatsuki('1','m')
+		updateMonika('3','a')
+		cw('n',"So, that's everything, right?")
+	elseif cl == 2269 then
+		cw('n',"Anything else we need to talk about?")
+	elseif cl == 2270 then
+		updateMonika('1','a')
+		cw('m',"No, I think that's it...")
+	elseif cl == 2271 then
+		cw('m',"Are you guys excited?")
+	elseif cl == 2272 then
+		updateNatsuki('1','z')
+		cw('n',"Yes!")
+	elseif cl == 2273 then
+		cw('n',"Everything except the performance is gonna be awesome!")
+	elseif cl == 2274 then
+		updateNatsuki('1','a')
+		cw('mc',"I don't think that really counts...")
+	elseif cl == 2275 then
+		cw('m',"What about you, "..player.."?")
+	elseif cl == 2276 then
+		cw('mc',"Me?")
+	elseif cl == 2277 then
+		cw('mc',"Ah, I guess you could say I'm interested to see how it'll turn out...")
+	elseif cl == 2278 then
+		updateMonika('2','b')
+		cw('m',"That's good enough for me!")
+	elseif cl == 2279 then
+		cw('m',"What about you, Yuri?")
+	elseif cl == 2280 then
+		updateMonika('2','d')
+		cw('m',"...Yuri?")
+	elseif cl == 2281 then
+		updateNatsuki('3','c')
+		cw('n',"She's still sulking.")
+	elseif cl == 2282 then
+		updateYuri('4','b2')
+		cw('y',"...")
+	elseif cl == 2283 then
+		updateNatsuki('5','n')
+		cw('n',"...")
+	elseif cl == 2284 then
+		cw('bl',"Natsuki starts pouting, too.")
+	elseif cl == 2285 then
+		cw('n',"It's not...")
+	elseif cl == 2286 then
+		updateNatsuki('5','m')
+		cw('n',"I mean, it's not that big of a deal or anything...")
+	elseif cl == 2287 then
+		cw('mc',"Well, it might not be just that...")
+	elseif cl == 2288 then
+		cw('n',"...?")
+	elseif cl == 2289 then
+		cw('mc',"I think that Yuri might just be feeling a little underappreciated in general.")
+	elseif cl == 2290 then
+		cw('mc',"Having to come up with something for her to do, and then nobody offering to help.")
+	elseif cl == 2291 then
+		updateNatsuki('5','q')
+		cw('n',"That doesn't mean...")
+	elseif cl == 2292 then
+		cw('n',"...")
+	elseif cl == 2293 then
+		updateNatsuki('5','r')
+		cw('n',"Uu...")
+	elseif cl == 2294 then
+		updateNatsuki('5','u')
+		cw('bl',"Natsuki glances back and forth between everyone with a worried expression.")
+	elseif cl == 2295 then
+		updateNatsuki('1','u')
+		cw('n',"Look...")
+	elseif cl == 2296 then
+		cw('bl',"Natsuki goes over and puts her hands down on Yuri's shoulders.")
+	elseif cl == 2297 then
+		updateNatsuki('1','h')
+		cw('n',"Yuri.")
+	elseif cl == 2298 then
+		cw('n',"You really are the most talented one here.")
+	elseif cl == 2299 then
+		cw('n',"And...")
+	elseif cl == 2300 then
+		cw('n',"And you're going to help make the event a lot more fun and welcoming.")
+    elseif cl == 2301 then
+		updateNatsuki('1','q')
+		cw('n',"I mean, the cupcakes will probably help a lot too...")
+	elseif cl == 2302 then
+		updateNatsuki('3','h')
+		cw('n',"But you're gonna make the atmosphere special.")
+	elseif cl == 2303 then
+		cw('n',"That'll be really important for the way that people feel during the performances.")
+	elseif cl == 2304 then
+		cw('n',"So...")
+	elseif cl == 2305 then
+		updateNatsuki('4','w')
+		cw('n',"You need to stop being dumb and give yourself a little more credit!")
+	elseif cl == 2306 then
+		cw('bl',"Natsuki releases her hands and turns around to face the other direction.")
+	elseif cl == 2307 then
+		updateYuri('4','a2')
+		cw('y',"...")
+	elseif cl == 2308 then
+		cw('y',"You didn't...really mean that, did you?")
+	elseif cl == 2309 then
+		updateNatsuki('5','u')
+		cw('n',"Um...")
+	elseif cl == 2310 then
+		cw('n',"N-Not really, but...")
+	elseif cl == 2311 then
+		cw('bl',"Yuri isn't the only one surprised.")
+	elseif cl == 2312 then
+		cw('bl',"Monika and I are also taken aback by Natsuki's words.")
+	elseif cl == 2313 then
+		cw('bl',"Natsuki, of all people, to be saying such encouraging things.")
+	elseif cl == 2314 then
+		cw('bl',"But I begin to understand.")
+	elseif cl == 2315 then
+		cw('bl',"Natsuki was trying to sound like Sayori.")
+	elseif cl == 2316 then
+		cw('bl',"Even if it didn't work perfectly, I can tell that she tried to say something Sayori would say at a time like this.")
+	elseif cl == 2317 then
+		cw('bl',"Because Sayori always helps everyone smile and feel good about themselves.")
+	elseif cl == 2318 then
+		updateYuri('2','l')
+		cw('y',"I'm sorry...for being dumb.")
+	elseif cl == 2319 then
+		updateYuri('2','i')
+		cw('y',"I'm going to do my best.")
+	elseif cl == 2320 then
+		cw('y',"And all of us are going to make it a really great event.")
+	elseif cl == 2321 then
+		updateNatsuki('5','j')
+		cw('n',"Yeah.")
+	elseif cl == 2322 then
+		updateMonika('2','k')
+		cw('m',"Yeah!")
+	elseif cl == 2323 then
+		updateMonika('2','b')
+		cw('m',"I hope to see everyone do their best.")
+	elseif cl == 2324 then
+		cw('m',"But with that...")
+	elseif cl == 2325 then
+		cw('m',"There's nothing more for today.")
+	elseif cl == 2326 then
+		cw('m',"So I guess it's time for us to head out.")
+	elseif cl == 2327 then
+		updateNatsuki('3','k')
+		cw('n',"Okay, but I'm staying here a bit longer.")
+	elseif cl == 2328 then
+		cw('n',"I barely got to do any reading today, so...")
+	elseif cl == 2329 then
+		updateMonika('2','a')
+		cw('m',"Fair enough, there's nothing wrong with that.")
+	elseif cl == 2330 then
+		hideNatsuki()
+		hideMonika()
+		hideYuri()
+		cw('bl',"Everyone packs up their things.")
+	elseif cl == 2331 then
+		cw('bl',"I start to follow Monika and Yuri out the door as they chat between each other.")
+	elseif cl == 2332 then
+		audioUpdate('6')
+		updateNatsuki('4','g',80)
+		cw('n',"Um, where are you going?")
+	elseif cl == 2333 then
+		cw('mc',"Eh...?")
+	elseif cl == 2334 then
+		updateNatsuki('4','c')
+		cw('n',"We still need to figure out our plans for this weekend.")
+	elseif cl == 2335 then
+		cw('n',"You literally would've gotten home and realized that you didn't even have a way to contact me.")
+	elseif cl == 2336 then
+		cw('mc',"Oh, that's true...")
+	elseif cl == 2337 then
+		cw('mc',"I have no idea how that slipped my mind.")
+	elseif cl == 2338 then
+		updateNatsuki('2','c')
+		cw('n',"Jeez, good thing I stopped you.")
+	elseif cl == 2339 then
+		cw('n',"I'm giving you my number, okay?")
+	elseif cl == 2340 then
+		updateNatsuki('2','q')
+		cw('n',"You'd better not make it weird or anything!")
+	elseif cl == 2341 then
+		cw('mc',"Why would I do that...?")
+	elseif cl == 2342 then
+		updateNatsuki('1','s')
+		cw('n',"Hmph...")
+	elseif cl == 2343 then
+		cw('bl',"Natsuki gives me her number.")
+	elseif cl == 2344 then
+		updateNatsuki('1','c')
+		cw('n',"Okay...")
+	elseif cl == 2345 then
+		cw('n',"I'm coming over on Sunday.")
+	elseif cl == 2346 then
+		cw('n',"I'll bring all the ingredients.")
+	elseif cl == 2347 then
+		cw('mc',"Wait!")
+	elseif cl == 2348 then
+		cw('mc',"You're coming to my house?")
+	elseif cl == 2349 then
+		updateNatsuki('2','c')
+		cw('n',"Well, yeah.")
+	elseif cl == 2350 then
+		cw('n',"What's wrong with that?")
+	elseif cl == 2351 then
+		cw('mc',"I mean...")
+	elseif cl == 2352 then
+		cw('mc',"I just figured that since I'm the one helping, I would be going to your house...")
+	elseif cl == 2353 then
+		cw('n',"Yeah, right.")
+	elseif cl == 2354 then
+		updateNatsuki('5','x')
+		cw('n',"Like I could have a guy over my house...")
+	elseif cl == 2355 then
+		cw('n',"My dad would kill me.")
+	elseif cl == 2356 then
+		cw('mc',"Really?")
+	elseif cl == 2357 then
+		cw('mc',"That's kinda strict, if you ask me.")
+	elseif cl == 2358 then
+		updateNatsuki('5','r')
+		cw('n',"Yeah, how do you think I feel?")
+	elseif cl == 2359 then
+		cw('n',"I can't do anything when my dad is home...")
+	elseif cl == 2360 then
+		updateNatsuki('2','q')
+		cw('n',"Anyway...I just needed to complain for a second.")
+	elseif cl == 2361 then
+		updateNatsuki('2','c')
+		cw('n',"We have each other's numbers now.")
+	elseif cl == 2362 then
+		cw('n',"That's all I needed from you.")
+	elseif cl == 2363 then
+		cw('n',"I guess I'll text you when I'm coming over.")
+	elseif cl == 2364 then
+		cw('mc',"Alright, fine by me.")
+	elseif cl == 2365 then
+		cw('n',"Yeah.")
+	elseif cl == 2566 then
+		updateNatsuki('4','a')
+		cw('n',"I'm really gonna show you why I love baking so much.")
+	elseif cl == 2367 then
+		cw('n',"So you'd better look forward to it.")
+	elseif cl == 2368 then
+		cw('mc',"Oh?")
+	elseif cl == 2369 then
+		cw('mc',"Didn't you say you were just going to give me the dirty work?")
+	elseif cl == 2370 then
+		updateNatsuki('1','r')
+		cw('n',"Well--!")
+	elseif cl == 2371 then
+		cw('n',"I was...just saying that.")
+	elseif cl == 2372 then
+		updateNatsuki('1','q')
+		cw('n',"It's not like I could act like...in front of everyone...")
+	elseif cl == 2373 then
+		cw('n',"That I was looking forward to this.")
+	elseif cl == 2374 then
+		cw('mc',"Wait, really??")
+	elseif cl == 2375 then
+		updateNatsuki('5','w')
+		cw('n',"Well, kind of!")
+	elseif cl == 2376 then
+		cw('n',"Just because...I never got to bake with someone else before.")
+	elseif cl == 2377 then
+		updateNatsuki('5','h')
+		cw('n',"That's all it is, so...")
+	elseif cl == 2378 then
+		cw('mc',"Alright, I get it.")
+	elseif cl == 2379 then
+		cw('mc',"Sorry for overreacting.")
+	elseif cl == 2380 then
+		cw('mc',"Anyway, I'll be heading out now.")
+	elseif cl == 2381 then
+		cw('mc',"See you on Sunday.")
+	elseif cl == 2382 then
+		updateNatsuki('5','m')
+		cw('n',"Ah--")
+	elseif cl == 2383 then
+		cw('n', "...")
+	elseif cl == 2384 then
+		updateNatsuki('5','u')
+		cw('n',"...Never mind.")
+	elseif cl == 2385 then
+		scriptJump(2386)
     end
 end
 
@@ -1431,201 +1630,329 @@ function ch3_end_yuri()
 	if cl == 2250 then
 		ch4_name = "Yuri"
 		cw('mc',"Well, I'll probably be most useful helping out Yuri...")
-		--[[
-    show yuri zorder 3 at f33
-    y 2n "M-Me...?"
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 4e "Are you serious?"
-    n "Why would you--"
-    show natsuki zorder 2 at t31
-    show monika zorder 3 at f32
-    m 1i "Natsuki."
-    m "I can already tell you're about to say something mean."
-    show monika zorder 2 at t32
-    show natsuki zorder 3 at f31
-    n 5r "N-No..."
-    n "I was just saying--"
-    n "Ugh..."
-    show natsuki zorder 2 at t31
-    show monika zorder 3 at f32
-    m 2a "So, you'll be helping Yuri then, [player]?"
-    show monika zorder 2 at t32
-    mc "Yeah."
-    mc "That's what I'm going to do."
-    show yuri zorder 3 at f33
-    y 1u "I'm glad."
-    y "I have a bad habit of overthinking these sorts of things..."
-    y "So I think your assistance will be very useful."
-    show yuri zorder 2 at t33
-    show monika zorder 3 at f32
-    m "That's great to hear."
-    m "Natsuki, will you be able to handle the baking yourself?"
-    show monika zorder 2 at t32
-    show natsuki zorder 3 at f31
-    n 3w "I mean, yeah."
-    n "I already said I would be fine."
-    show natsuki zorder 2 at t31
-    show monika zorder 3 at f32
-    m 1i "Okay, okay..."
-    "Everyone can tell that Natsuki is feeling a little sour."
-    show monika zorder 2 at t32
-    mc "So...is that everything we needed to go over?"
-    show monika zorder 3 at f32
-    m 1a "Yeah, that should be about it."
-    m 2a "Are you guys excited?"
-    show monika zorder 2 at t32
-    show yuri zorder 3 at f33
-    y 1i "Well, 'excited' may not be the right word..."
-    y "But I suppose I'm looking forward to it a little bit."
-    show yuri zorder 2 at t33
-    show monika zorder 3 at f32
-    m "Do you feel the same way, [player]?"
-    show monika zorder 2 at t32
-    mc "Me?"
-    mc "Ah, I guess you could say I'm interested to see how it'll turn out..."
-    show monika zorder 3 at f32
-    m 2b "That's good enough for me!"
-    m 2a "What about you, Natsuki?"
-    show monika zorder 2 at t32
-    show natsuki zorder 3 at f31
-    n 5s "..."
-    show monika zorder 2 at t32
-    show yuri zorder 3 at f33
-    y 2h "Natsuki!"
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 1o "What??"
-    n 1m "Why is everyone yelling at me?"
-    n "I didn't even do anything...!"
-    show natsuki 1n zorder 2 at t31
-    show yuri zorder 3 at f33
-    y 3n "N-no--!"
-    y "That's not what I meant at all!"
-    y 3o "A-Ah..."
-    "Yuri anxiously glances between everyone in the room."
-    y 2w "I-I'm sorry for this!"
-    y 2v "I don't really know why [player] picked me..."
-    y "And also..."
-    y 2t "Your cupcakes are the best cupcakes I've ever had!"
-    y "They go really well with my tea!"
-    y "And nothing that I do for the event will compare to that, so..."
-    y 4b "So..."
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 3q "I get it, I get it."
-    n 3h "I'm kinda surprised, though..."
-    show natsuki zorder 2 at t31
-    show yuri zorder 3 at f33
-    y "W-Why?"
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 3q "Um..."
-    n "Well, I'm the one acting immature..."
-    n "I already know that."
-    n 5h "But you're trying to cheer me up all of a sudden..."
-    show natsuki zorder 2 at t31
-    show yuri zorder 3 at f33
-    y "I-I know I'm not very good at it..."
-    y 2v "I'm sorry if I said something bad!"
-    "Natsuki isn't the only one surprised."
-    "Monika and I are also taken aback by Yuri's words."
-    "When she already has trouble with words, trying to cheer someone up must be far out of her own comfort zone."
-    "But I begin to understand."
-    "Yuri was trying to sound like Sayori."
-    "Even if it didn't work perfectly, I can tell that she tried to say something Sayori would say at a time like this."
-    "Because Sayori always helps everyone smile and feel good about themselves."
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 1h "No..."
-    n "I kinda appreciated it."
-    n 1u "I'm sorry...for making a big deal out of nothing."
-    n 1m "But I'm going to say this."
-    show natsuki zorder 2 at t31
-    show yuri zorder 3 at f33
-    y 2e "...?"
-    show yuri zorder 2 at t33
-    show natsuki zorder 3 at f31
-    n 4e "You better bet that my cupcakes are going to be the best part of the whole event!"
-    show natsuki 4a zorder 2 at t31
-    show yuri zorder 3 at f33
-    y 2f "Ah..."
-    y 1s "...I believe you."
-    show yuri zorder 2 at t33
-    show monika zorder 3 at f32
-    m 2b "Yeah!"
-    m "I hope to see everyone do their best."
-    m "But with that..."
-    m "There's nothing more for today."
-    m "So I guess it's time for us to head out."
-    show monika zorder 2 at t32
-    show natsuki zorder 3 at f31
-    n "Alright, let's get out of here, then."
-    hide monika
-    hide natsuki
-    hide yuri
-    with wipeleft
-    "Everyone packs up their things."
-    "I start to follow Monika and Natsuki out the door as they chat between each other."
-    play music t6 fadeout 1
-    show yuri 2t zorder 2 at t11
-    y "U-Um--!"
-    mc "Eh?"
-    "I turn around."
-    y "Sorry..."
-    y 2s "I realized that I don't have any way of contacting you this weekend..."
-    mc "Oh, you're right."
-    mc "I can't believe that slipped my mind."
-    mc "Should I give you my phone number?"
-    y 1a "I think...that would be the best way, yes."
-    mc "Alright, then..."
-    "Yuri and I exchange phone numbers."
-    y "Okay."
-    y "Then, I'll be stopping by your house on Sunday..."
-    mc "Eh?"
-    mc "My house?"
-    y 2t "I-Is that a problem...?"
-    mc "No, not at all..."
-    mc "I just thought that I would be the one going to your house, since I'm the one helping you."
-    y "Ah, I suppose that makes sense..."
-    y "But, if you don't mind..."
-    y 1u "I think I would prefer going to your house."
-    mc "Alright."
-    mc "In that case, it won't be a problem."
-    "I decide not to press Yuri for a reason."
-    "It's not like it should matter much either way, so I'll just need to make sure my room is clean."
-    mc "I hope I manage to make myself useful in some way..."
-    mc "I'm not nearly as creative as you are."
-    y 1a "Don't underestimate yourself, [player]."
-    y "I think that we'll make a very productive team."
-    y 1u "Even if you only chose me because you felt bad or something..."
-    mc "Wait...!"
-    mc "You don't actually think that, do you?"
-    y 4b "..."
-    y "I...don't know."
-    y "It's difficult to come up with any other reason you may have chosen me..."
-    mc "You're forgetting the one reason with the most common sense!"
-    mc "I chose to help you because that's what I want to do."
-    y 2v "B-But..."
-    "Yuri thinks to herself with an extremely tense expression."
-    mc "Yuri...you're overthinking this."
-    mc "You wanted me to point out when you're overthinking, right?"
-    y "Eh...?"
-    y 4 "I...didn't realize..."
-    mc "I'm telling you, I want to."
-    mc "That's all there is to it."
-    mc "Do you believe me?"
-    y 1t "I..."
-    "Yuri thinks really hard again."
-    "She looks straight into my eyes for a long while."
-    y 3l "...I believe you!"
-    "As if it took her tremendous effort, Yuri finally says that and relaxes her expression."
-    y 3s "And I'm really looking forward to Sunday."
-    mc "Yeah..."
-    mc "I am too."
-    show yuri zorder 1 at thide
-    hide yuri
-    "After that exchange, I make my way out the door, and Yuri follows."
-	]]
+	elseif cl == 2251 then
+		updateYuri('2','n')
+		cw('y',"M-Me...?")
+	elseif cl == 2252 then
+		updateNatsuki('4','e')
+		cw('n',"Are you serious?")
+	elseif cl == 2253 then
+		cw('n',"Why would you--")
+	elseif cl == 2254 then
+		updateMonika('1','i')
+		cw('m',"Natsuki.")
+	elseif cl == 2255 then
+		cw('m',"I can already tell you're about to say something mean.")
+	elseif cl == 2256 then
+		updateNatsuki('5','r')
+		cw('n',"N-No...")
+	elseif cl == 2257 then
+		cw('n',"I was just saying--")
+	elseif cl == 2258 then
+		cw('n',"Ugh...")
+	elseif cl == 2259 then
+		updateMonika('2','a')
+		cw('m',"So, you'll be helping Yuri then, "..player.."?")
+	elseif cl == 2260 then
+		cw('mc',"Yeah.")
+	elseif cl == 2261 then
+		cw('mc',"That's what I'm going to do.")
+	elseif cl == 2262 then
+		updateYuri('1','u')
+		cw('y',"I'm glad.")
+	elseif cl == 2263 then
+		cw('y',"I have a bad habit of overthinking these sorts of things...")
+	elseif cl == 2264 then
+		cw('y',"So I think your assistance will be very useful.")
+	elseif cl == 2265 then
+		cw('m',"That's great to hear.")
+	elseif cl == 2266 then
+		cw('m',"Natsuki, will you be able to handle the baking yourself?")
+	elseif cl == 2267 then
+		updateNatsuki('3','w')
+		cw('n',"I mean, yeah.")
+	elseif cl == 2268 then
+		cw('n',"I already said I would be fine.")
+	elseif cl == 2269 then
+		updateMonika('1','i')
+		cw('m',"Okay, okay...")
+	elseif cl == 2270 then
+		cw('bl',"Everyone can tell that Natsuki is feeling a little sour.")
+	elseif cl == 2271 then
+		cw('mc',"So...is that everything we needed to go over?")
+	elseif cl == 2272 then
+		updateMonika('1','a')
+		cw('m',"Yeah, that should be about it.")
+	elseif cl == 2273 then
+		updateMonika('2','a')
+		cw('m',"Are you guys excited?")
+	elseif cl == 2274 then
+		updateYuri('1','i')
+		cw('y',"Well, 'excited' may not be the right word...")
+	elseif cl == 2275 then
+		cw('y',"But I suppose I'm looking forward to it a little bit.")
+	elseif cl == 2276 then
+		cw('m',"Do you feel the same way, "..player.."?")
+	elseif cl == 2277 then
+		cw('mc',"Me?")
+	elseif cl == 2278 then
+		cw('mc',"Ah, I guess you could say I'm interested to see how it'll turn out...")
+	elseif cl == 2279 then
+		updateMonika('2','b')
+		cw('m',"That's good enough for me!")
+	elseif cl == 2280 then
+		updateMonika('2','a')
+		cw('m',"What about you, Natsuki?")
+	elseif cl == 2281 then
+		updateNatsuki('5','s')
+		cw('n',"...")
+	elseif cl == 2282 then
+		updateYuri('2','h')
+		cw('y',"Natsuki!")
+	elseif cl == 2283 then
+		updateNatsuki('1','o')
+		cw('n',"What??")
+	elseif cl == 2284 then
+		updateNatsuki('1','m')
+		cw('n',"Why is everyone yelling at me?")
+	elseif cl == 2285 then
+		cw('n',"I didn't even do anything...!")
+	elseif cl == 2286 then
+		updateNatsuki('1','n')
+		updateYuri('3','n')
+		cw('y',"N-no--!")
+	elseif cl == 2287 then
+		cw('y',"That's not what I meant at all!")
+	elseif cl == 2288 then
+		updateYuri('3','o')
+		cw('y',"A-Ah...")
+	elseif cl == 2289 then
+		cw('bl',"Yuri anxiously glances between everyone in the room.")
+	elseif cl == 2290 then
+		updateYuri('2','w')
+		cw('y',"I-I'm sorry for this!")
+	elseif cl == 2291 then
+		updateYuri('2','v')
+		cw('y',"I don't really know why "..player.." picked me...")
+	elseif cl == 2292 then
+		cw('y',"And also...")
+	elseif cl == 2293 then
+		updateYuri('2','t')
+		cw('y',"Your cupcakes are the best cupcakes I've ever had!")
+	elseif cl == 2294 then
+		cw('y',"They go really well with my tea!")
+	elseif cl == 2295 then
+		cw('y',"And nothing that I do for the event will compare to that, so...")
+	elseif cl == 2296 then
+		updateYuri('4','b2')
+		cw('y',"So...")
+	elseif cl == 2297 then
+		updateNatsuki('3','q')
+		cw('n',"I get it, I get it.")
+	elseif cl == 2298 then
+		updateNatsuki('3','h')
+		cw('n',"I'm kinda surprised, though...")
+	elseif cl == 2299 then
+		cw('y',"W-Why?")
+	elseif cl == 2300 then
+		updateNatsuki('3','q')
+		cw('n',"Um...")
+	elseif cl == 2301 then
+		cw('n',"Well, I'm the one acting immature...")
+	elseif cl == 2302 then
+		cw('n',"I already know that.")
+	elseif cl == 2303 then
+		updateNatsuki('5','h')
+		cw('n',"But you're trying to cheer me up all of a sudden...")
+	elseif cl == 2304 then
+		cw('y',"I-I know I'm not very good at it...")
+	elseif cl == 2305 then
+		updateYuri('2','v')
+		cw('y',"I'm sorry if I said something bad!")
+	elseif cl == 2306 then
+		cw('bl',"Natsuki isn't the only one surprised.")
+	elseif cl == 2307 then
+		cw('bl',"Monika and I are also taken aback by Yuri's words.")
+	elseif cl == 2308 then
+		cw('bl',"When she already has trouble with words, trying to cheer someone up must be far out of her own comfort zone.")
+	elseif cl == 2309 then
+		cw('bl',"But I begin to understand.")
+	elseif cl == 2310 then
+		cw('bl',"Yuri was trying to sound like Sayori.")
+	elseif cl == 2311 then
+		cw('bl',"Even if it didn't work perfectly, I can tell that she tried to say something Sayori would say at a time like this.")
+	elseif cl == 2312 then
+		cw('bl',"Because Sayori always helps everyone smile and feel good about themselves.")
+	elseif cl == 2313 then
+		updateNatsuki('1','h')
+		cw('n',"No...")
+	elseif cl == 2314 then
+		cw('n',"I kinda appreciated it.")
+	elseif cl == 2315 then
+		updateNatsuki('1','u')
+		cw('n',"I'm sorry...for making a big deal out of nothing.")
+	elseif cl == 2316 then
+		updateNatsuki('1','m')
+		cw('n',"But I'm going to say this.")
+	elseif cl == 2317 then
+		updateYuri('2','e')
+		cw('y',"...?")
+	elseif cl == 2318 then
+		updateNatsuki('4','e')
+		cw('n',"You better bet that my cupcakes are going to be the best part of the whole event!")
+	elseif cl == 2319 then
+		updateNatsuki('4','a')
+		updateYuri('2','f')
+		cw('y',"Ah...")
+	elseif cl == 2320 then
+		updateYuri('1','s')
+		cw('y',"...I believe you.")
+	elseif cl == 2321 then
+		updateMonika('2','b')
+		cw('m',"Yeah!")
+	elseif cl == 2322 then
+		cw('m',"I hope to see everyone do their best.")
+	elseif cl == 2323 then
+		cw('m',"But with that...")
+	elseif cl == 2324 then
+		cw('m',"There's nothing more for today.")
+	elseif cl == 2325 then
+		cw('m',"So I guess it's time for us to head out.")
+	elseif cl == 2326 then
+		cw('n',"Alright, let's get out of here, then.")
+	elseif cl == 2327 then
+		hideMonika()
+		hideNatsuki()
+		hideYuri()
+		cw('bl',"Everyone packs up their things.")
+	elseif cl == 2328 then
+		cw('bl',"I start to follow Monika and Natsuki out the door as they chat between each other.")
+	elseif cl == 2329 then
+		audioUpdate('6')
+		updateYuri('2','t',80)
+		cw('y',"U-Um--!")
+	elseif cl == 2330 then
+		cw('mc',"Eh?")
+	elseif cl == 2331 then
+		cw('bl',"I turn around.")
+	elseif cl == 2332 then
+		cw('y',"Sorry...")
+	elseif cl == 2333 then
+		updateYuri('2','s')
+		cw('y',"I realized that I don't have any way of contacting you this weekend...")
+	elseif cl == 2334 then
+		cw('mc',"Oh, you're right.")
+	elseif cl == 2335 then
+		cw('mc',"I can't believe that slipped my mind.")
+	elseif cl == 2336 then
+		cw('mc',"Should I give you my phone number?")
+	elseif cl == 2337 then
+		updateYuri('1','a')
+		cw('y',"I think...that would be the best way, yes.")
+	elseif cl == 2338 then
+		cw('mc',"Alright, then...")
+	elseif cl == 2339 then
+		cw('bl',"Yuri and I exchange phone numbers.")
+	elseif cl == 2340 then
+		cw('y',"Okay.")
+	elseif cl == 2341 then
+		cw('y',"Then, I'll be stopping by your house on Sunday...")
+	elseif cl == 2342 then
+		cw('mc',"Eh?")
+	elseif cl == 2343 then
+		cw('mc',"My house?")
+	elseif cl == 2344 then
+		updateYuri('2','t')
+		cw('y',"I-Is that a problem...?")
+	elseif cl == 2345 then
+		cw('mc',"No, not at all...")
+	elseif cl == 2346 then
+		cw('mc',"I just thought that I would be the one going to your house, since I'm the one helping you.")
+	elseif cl == 2347 then
+		cw('y',"Ah, I suppose that makes sense...")
+	elseif cl == 2348 then
+		cw('y',"But, if you don't mind...")
+	elseif cl == 2349 then	
+		updateYuri('1','u')
+		cw('y',"I think I would prefer going to your house.")
+	elseif cl == 2350 then
+		cw('mc',"Alright.")
+	elseif cl == 2351 then
+		cw('mc',"In that case, it won't be a problem.")
+	elseif cl == 2352 then
+		cw('bl',"I decide not to press Yuri for a reason.")
+	elseif cl == 2353 then
+		cw('bl',"It's not like it should matter much either way, so I'll just need to make sure my room is clean.")
+	elseif cl == 2354 then
+		cw('mc',"I hope I manage to make myself useful in some way...")
+	elseif cl == 2355 then
+		cw('mc',"I'm not nearly as creative as you are.")
+	elseif cl == 2356 then
+		updateYuri('1','a')
+		cw('y',"Don't underestimate yourself, "..player..".")
+	elseif cl == 2357 then
+		cw('y',"I think that we'll make a very productive team.")
+	elseif cl == 2358 then
+		updateYuri('1','u')
+		cw('y',"Even if you only chose me because you felt bad or something...")
+	elseif cl == 2359 then
+		cw('mc',"Wait...!")
+	elseif cl == 2360 then
+		cw('mc',"You don't actually think that, do you?")
+	elseif cl == 2361 then
+		updateYuri('4','b2')
+		cw('y',"...")
+	elseif cl == 2362 then
+		cw('y',"I...don't know.")
+	elseif cl == 2363 then
+		cw('y',"It's difficult to come up with any other reason you may have chosen me...")
+	elseif cl == 2364 then
+		cw('mc',"You're forgetting the one reason with the most common sense!")
+	elseif cl == 2365 then
+		cw('mc',"I chose to help you because that's what I want to do.")
+	elseif cl == 2366 then
+		updateYuri('2','v')
+		cw('y',"B-But...")
+	elseif cl == 2367 then
+		cw('bl',"Yuri thinks to herself with an extremely tense expression.")
+	elseif cl == 2368 then
+		cw('mc',"Yuri...you're overthinking this.")
+	elseif cl == 2369 then
+		cw('mc',"You wanted me to point out when you're overthinking, right?")
+	elseif cl == 2370 then
+		cw('y',"Eh...?")
+	elseif cl == 2371 then
+		updateYuri('4','a2')
+		cw('y',"I...didn't realize...")
+	elseif cl == 2372 then
+		cw('mc',"I'm telling you, I want to.")
+	elseif cl == 2373 then
+		cw('mc',"That's all there is to it.")
+	elseif cl == 2374 then
+		cw('mc', "Do you believe me?")
+	elseif cl == 2375 then
+		updateYuri('1','t')
+		cw('y',"I...")
+	elseif cl == 2376 then
+		cw('bl',"Yuri thinks really hard again.")
+	elseif cl == 2377 then
+		cw('bl',"She looks straight into my eyes for a long while.")
+	elseif cl == 2378 then
+		updateYuri('3','l')
+		cw('y',"...I believe you!")
+	elseif cl == 2379 then
+		cw('bl', "As if it took her tremendous effort, Yuri finally says that and relaxes her expression.")
+	elseif cl == 2380 then
+		updateYuri('3','s')
+		cw('y', "And I'm really looking forward to Sunday.")
+	elseif cl == 2381 then
+		cw('mc', "Yeah...")
+	elseif cl == 2382 then
+		cw('mc', "I am too.")
+	elseif cl == 2383 then
+		hideYuri()
+		cw('bl',"After that exchange, I make my way out the door, and Yuri follows.")
+	elseif cl == 2384 then
+		scriptJump(2386)
     end
 end

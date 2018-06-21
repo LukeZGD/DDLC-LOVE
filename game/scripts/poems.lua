@@ -389,26 +389,26 @@ And here I am,
               a feather
 
 
-Lost adrift the sky, victim of the currents of the wind.]]
-	elseif poemname == 'poem_m3-b' then
-		poemtext = [[
+Lost adrift the sky, victim of the currents of the wind.
+
 Day after day, I search.
 I search with little hope, knowing legends don't exist.
 But when all else has failed me,
 When all others have turned away,
-The legend is all that remains - the last dim star glimmering in the twilit sky.
-
+The legend is all that remains - the last dim star glimmering in the twilit sky.]]
+	elseif poemname == 'poem_m3-b' then
+		poemtext = [[
 Until one day, the wind ceases to blow.
 I fall.
 And I fall and fall, and fall even more.
 Gentle as a feather.
-A dry quill, expressionless.]]
-	elseif poemname == 'poem_m3-c' then
-		poemtext = [[
+A dry quill, expressionless.
+
 But a hand catches me between the thumb and forefinger.
 The hand of a beautiful lady.
-I look at her eyes and find no end to her gaze.
-
+I look at her eyes and find no end to her gaze.]]
+	elseif poemname == 'poem_m3-c' then
+		poemtext = [[
 The Lady who Knows Everything knows what I am thinking.
 Before I can speak, she responds in a hollow voice.
 "I have found every answer, all of which amount to nothing.
@@ -416,9 +416,8 @@ There is no meaning.
 There is no purpose.
 And we seek only the impossible.
 I am not your legend.
-Your legend does not exist."]]
-	elseif poemtext == 'poem_m3-d' then
-		poemtext = [[
+Your legend does not exist."
+
 And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 	
 	end

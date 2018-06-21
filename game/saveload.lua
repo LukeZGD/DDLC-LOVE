@@ -1,6 +1,13 @@
 --default values
-persistent = {}
-persistent.playthrough = 0
+persistent = {
+	playthrough=0;
+	clear={0,0,0,0,0,0,0,0,0};
+	mchr=1;
+	schr=1;
+	nchr=1;
+	ychr=1;
+}
+settings = {textspd=100,textloc='Bottom',animh=1,autospd=4}
 data_ptr = persistent.playthrough
 bg1 = ''
 audio1 = 2
@@ -12,7 +19,6 @@ n = {a='',b='',x=-200,y=0}
 m = {a='',b='',x=-200,y=0}
 poemwinner = {'','',''}
 chapter = 0
-settings = {textspd=100,textloc='Bottom',animh=1,autospd=4}
 readpoem = {s=0,n=0,y=0,m=0}
 choices = {'','','',''}
 choicepick = ''
@@ -45,7 +51,6 @@ y = {a='"..y.a.."',b='"..y.b.."',x="..y.x..",y="..y.y.."}\
 n = {a='"..n.a.."',b='"..n.b.."',x="..n.x..",y="..n.y.."}\
 m = {a='"..m.a.."',b='"..m.b.."',x="..m.x..",y="..m.y.."}\
 chapter = "..chapter.."\
-settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh..",autospd="..settings.autospd.."}\
 readpoem = {s="..readpoem.s..",n="..readpoem.n..",y="..readpoem.y..",m="..readpoem.m.."}\
 choices = {'"..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4].."'}\
 choicepick = '"..choicepick.."'\
@@ -65,12 +70,13 @@ ch4_name = '"..ch4_name.."'"
 end
 
 function loadgame()
-	loadstring(love.filesystem.read("save"..savenumber..".sav"))()
+	local savfile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
+	savfile()
 end
 
 function savepersistent()
 	local spfile = "persistent = {\
-playthrough="..persistent.playthrough..";\
+	playthrough="..persistent.playthrough..";\
 	clear={\
 		"..persistent.clear[1]..",\
 		"..persistent.clear[2]..",\
@@ -84,14 +90,15 @@ playthrough="..persistent.playthrough..";\
 	mchr="..persistent.mchr..";\
 	schr="..persistent.schr..";\
 	nchr="..persistent.nchr..";\
-	ychr="..persistent.ychr..";\
-}"
+	ychr="..persistent.ychr.."};\
+settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh..",autospd="..settings.autospd.."}"
 	
 	love.filesystem.write('persistent', spfile)
 end
 
 function loadpersistent()
-	loadstring(love.filesystem.read('persistent'))()
+	local pfile = loadstring(love.filesystem.read('persistent'))
+	pfile()
 end
 
 function loadupdate()

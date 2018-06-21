@@ -952,14 +952,6 @@ function ch0script()
 				cl = 1
 				player = ""
 				savegame()
-				persistent = {
-					playthrough=0;
-					clear={0,0,0,0,0,0,0,0,0};
-					mchr=1;
-					schr=1;
-					nchr=1;
-					ychr=1;
-					}
 				savepersistent()
 				changeState('splash')
 			end

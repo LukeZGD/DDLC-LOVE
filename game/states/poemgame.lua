@@ -1,3 +1,24 @@
+local poemword
+local word = {}
+local wordr = {}
+local sPoint
+local nPoint
+local yPoint
+local spAdd
+local npAdd
+local ypAdd
+
+local unsorted_pointlist = {}
+local maxpoint
+local POEM_DISLIKE_THRESHOLD = 29
+local POEM_LIKE_THRESHOLD = 45
+
+local p_y = 100
+local ground = 100    
+local y_velocity = 0       
+local jump_height = -300  
+local gravity = -2250
+
 function addpoints()
 	sPoint = sPoint + spAdd
 	nPoint = nPoint + npAdd
@@ -9,27 +30,20 @@ end
 
 function poemgamefinish()
 	--add 1 to chapter number
-	if chapter < 3 then
-		chapter = chapter+1
-	end
+	chapter = chapter + 1
 	
 	--determine poemwinner
-	if sPoint > yPoint then
-		if sPoint > nPoint then poemwinner[chapter] = 'Sayori' 
-		elseif nPoint > sPoint then poemwinner[chapter] = 'Natsuki'
-		end
-	elseif yPoint > sPoint then
-		if yPoint > nPoint then poemwinner[chapter] = 'Yuri'
-		elseif nPoint > yPoint then poemwinner[chapter] = 'Natsuki'
-		end
+	unsorted_pointlist = {sPoint,nPoint,yPoint}
+	maxpoint = math.max(unpack(unsorted_pointlist))
+	if maxpoint == sPoint then poemwinner[chapter] = 'Sayori'
+	elseif maxpoint == nPoint then poemwinner[chapter] = 'Natsuki'
+	elseif maxpoint == yPoint then poemwinner[chapter] = 'Yuri'
 	end
 	
-	--exec(poemwinner[chapter][0] + "_appeal += 1")
+	--add 1 to poemwinner appeal
 	loadstring(poemwinner[chapter]..'_appeal = '..poemwinner[chapter]..'_appeal + 1')()
 	
 	--determine poemappeal
-	POEM_DISLIKE_THRESHOLD = 29
-	POEM_LIKE_THRESHOLD = 45
 	if sPoint < POEM_DISLIKE_THRESHOLD then s_poemappeal[chapter] = -1
     elseif sPoint > POEM_LIKE_THRESHOLD then s_poemappeal[chapter] = 1 end
     if nPoint < POEM_DISLIKE_THRESHOLD then n_poemappeal[chapter] = -1
@@ -57,12 +71,6 @@ function poemgame()
 	end
 
 	require 'scripts.poemwords'
-	
-	p_y = 100
-	ground = 100    
-	y_velocity = 0       
-	jump_height = -300  
-	gravity = -2250  
 	
 	math.randomseed(os.time())
 	math.random()
