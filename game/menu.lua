@@ -216,7 +216,7 @@ function menu_confirm()
 		if m_selected == 6 then
 			menu_enable('characters')
 		elseif m_selected == 7 then
-			savegame()
+			savepersistent()
 			menu_enable(menu_previous)
 		end
 		

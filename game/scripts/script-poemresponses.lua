@@ -1067,7 +1067,7 @@ end
 function ch3_y_end()
 	if cl < 768 and cl ~= 666 then
 		scriptJump(768)
-	elseif cl == 768 then
+	elseif cl >= 768 then
 		if Yuri_appeal >= 3 then
 			ch3_y_end_special()
 		else
@@ -1165,7 +1165,7 @@ function ch3_y_end_special()
 	if cl == 768 then
 		poem('poem_y3b','yuri')
 	elseif cl == 769 then
-		poem('poem_y3b-a','yuri')
+		poem('poem_y3b-a','yuri',1)
 	elseif cl == 770 then
 		poem_disable()
 		cw('bl',"Finishing the poem, I start to hand it back to Yuri.")
@@ -5091,7 +5091,7 @@ function ch3_m_end()
 	elseif cl == 738 then
 		poem('poem_m3-c','monika',1)
 	elseif cl == 739 then
-		poem('poem_m3-d','monika',1)
+		scriptJump(740)
 	elseif cl == 740 then
 		poem_disable()
 		updateMonika('1','a')
