@@ -85,6 +85,14 @@ function splashalpha(x)
 		else
 			alpha = alpha - 5
 		end
+	--fade out from game to game (add 1 to chapter)
+	elseif x == 7 then
+		if alpha <= 0 then
+			chapter = chapter + 1
+			changeState('game',3)
+		else	
+			alpha = alpha - 2
+		end
 	end
 end
 
