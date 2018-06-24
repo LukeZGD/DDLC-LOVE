@@ -8,7 +8,7 @@ function drawGame()
 	drawTopScreen()
 	love.graphics.setColor(255, 255, 255, alpha)
 	if bgch then love.graphics.draw(bgch, 0, 0) end
-	if xaload >= 1 and menu_enabled == false or menu_type == 'choice' then
+	if xaload >= 1 then
 		if cg1 ~= '' then love.graphics.draw(cgch, 0, 0) end
 		drawSayori(s_Set.a,s_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
@@ -17,7 +17,8 @@ function drawGame()
 	end
 	
 	if menu_enabled and menu_type ~= 'choice' then
-		love.graphics.draw(background_Image, posX, posY)
+		love.graphics.setColor(255,255,255,128)
+		love.graphics.rectangle('fill',0,0,400,240)
 	elseif poem_enabled then drawPoem()
 	end
 	
