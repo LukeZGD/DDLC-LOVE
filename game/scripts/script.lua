@@ -85,9 +85,9 @@ function scriptCheck()
 		script_poems = nil
 	end
 	
-	if (cl>=423 and cl<652) or (cl>=1359 and cl<1638) then
+	if persistent.playthrough == 0 and chapter ~= 4 and ((cl>=423 and cl<652) or (cl>=1359 and cl<1638)) then
 		loadstring(poemwinner[chapter]..'_exclusive_'..(loadstring('return '..poemwinner[chapter]..'_appeal')())..'()')()
-	elseif cl == 652 and chapter >= 2 then
+	elseif persistent.playthrough == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
 		poeminitialize()
 	elseif script_main then
 		loadstring('ch'..chapter..'script()')()
@@ -95,6 +95,30 @@ function scriptCheck()
 		changeState('game',0)
 	end
 end	
+
+-- ...I tried
+--[[
+function loadscene(scene_name, clset, clstype)
+	scene_enabled = true
+	
+	if clset then
+		if clstype == 'plus' then
+			return scene_name[cl+clset]
+		elseif clstype == 'minus' then
+			return scene_name[cl-clset]
+		end
+	else
+		return scene_name[cl]
+	end
+end
+]]
+
+function bl (say) return cw('bl',say) end
+function mc (say) return cw('mc',say) end
+function s (say) return cw('s',say) end
+function n (say) return cw('n',say) end
+function y (say) return cw('y',say) end
+function m (say) return cw('m',say) end
 
 function scriptJump(nu, fu, au)
 	xaload = -1
@@ -119,9 +143,36 @@ end
 function poeminitialize(y)
 	poemsread = 0
 	readpoem = {s=0,n=0,y=0,m=0}
-	choices = {'Sayori','Natsuki','Yuri','Monika'}
+	if persistent.playthrough == 0 then
+		choices = {'Sayori','Natsuki','Yuri','Monika'}
+	else
+		choices = {'Natsuki','Yuri','Monika'}
+	end
 	cl = 666
 	xaload = -1
 	autotimer = 0
 	autoskip = 0
+end
+
+function event_init(etype)
+	if xaload == 2 then
+		eventscript = require 'scripts.event'
+		if etype == 's_kill' then --Sayo-nara.... load sprites
+			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
+			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
+			s_killzoom = love.graphics.newImage('images/cg/s_kill/s_killzoom.png')
+			s_kill_bg = love.graphics.newImage('images/cg/s_kill/s_kill_bg.png')
+			s_kill_bg2 = love.graphics.newImage('images/cg/s_kill/s_kill_bg2.png')
+			s_kill_bgzoom = love.graphics.newImage('images/cg/s_kill/s_kill_bgzoom.png')
+			splash_glitch = love.graphics.newImage('images/bg/splash-glitch.png')
+			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
+		elseif etype == 'endscreen' then
+			bgch = love.graphics.newImage('images/gui/end.png')
+		end
+	end
+end
+
+function event_initstart(etype,arg1,arg2)
+	event_init(etype)
+	if xaload > 2 then event_start(etype,arg1,arg2) end
 end

@@ -13,10 +13,10 @@ bg1 = ''
 audio1 = 2
 cg1 = ''
 ct = ''
-s = {a='',b='',x=-200,y=0}
-y = {a='',b='',x=-200,y=0}
-n = {a='',b='',x=-200,y=0}
-m = {a='',b='',x=-200,y=0}
+s_Set = {a='',b='',x=-200,y=0}
+y_Set = {a='',b='',x=-200,y=0}
+n_Set = {a='',b='',x=-200,y=0}
+m_Set = {a='',b='',x=-200,y=0}
 poemwinner = {'','',''}
 chapter = 0
 readpoem = {s=0,n=0,y=0,m=0}
@@ -46,10 +46,10 @@ bg1 = '"..bg1.."'\
 audio1 = '"..audio1.."'\
 cg1 = '"..cg1.."'\
 ct = '"..ct.."'\
-s = {a='"..s.a.."',b='"..s.b.."',x="..s.x..",y="..s.y.."}\
-y = {a='"..y.a.."',b='"..y.b.."',x="..y.x..",y="..y.y.."}\
-n = {a='"..n.a.."',b='"..n.b.."',x="..n.x..",y="..n.y.."}\
-m = {a='"..m.a.."',b='"..m.b.."',x="..m.x..",y="..m.y.."}\
+s_Set = {a='"..s_Set.a.."',b='"..s_Set.b.."',x="..s_Set.x..",y="..s_Set.y.."}\
+y_Set = {a='"..y_Set.a.."',b='"..y_Set.b.."',x="..y_Set.x..",y="..y_Set.y.."}\
+n_Set = {a='"..n_Set.a.."',b='"..n_Set.b.."',x="..n_Set.x..",y="..n_Set.y.."}\
+m_Set = {a='"..m_Set.a.."',b='"..m_Set.b.."',x="..m_Set.x..",y="..m_Set.y.."}\
 chapter = "..chapter.."\
 readpoem = {s="..readpoem.s..",n="..readpoem.n..",y="..readpoem.y..",m="..readpoem.m.."}\
 choices = {'"..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4].."'}\
@@ -74,6 +74,11 @@ function loadgame()
 	savfile()
 end
 
+function savesettings()
+	local settingsfile = "settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh..",autospd="..settings.autospd.."}"
+	love.filesystem.write("settings.sav", settingsfile)
+end
+
 function savepersistent()
 	local spfile = "persistent = {\
 	playthrough="..persistent.playthrough..";\
@@ -90,15 +95,16 @@ function savepersistent()
 	mchr="..persistent.mchr..";\
 	schr="..persistent.schr..";\
 	nchr="..persistent.nchr..";\
-	ychr="..persistent.ychr.."};\
-settings = {textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh..",autospd="..settings.autospd.."}"
+	ychr="..persistent.ychr.."}"
 	
 	love.filesystem.write('persistent', spfile)
 end
 
 function loadpersistent()
 	local pfile = loadstring(love.filesystem.read('persistent'))
+	local settingsfile = loadstring(love.filesystem.read('settings.sav'))
 	pfile()
+	settingsfile()
 end
 
 function loadupdate()
@@ -110,12 +116,12 @@ function loadupdate()
 end
 
 function checkchr()
-	if love.filesystem.isFile('persistent') then 
+	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then 
 		loadgame() 
 		loadpersistent()
 	end
 	
-	if persistent.schr == 0 then
+	if persistent.schr == 0 and persistent.playthrough == 0 then
 		changeState('s_kill_early')
 	else --load title screen
 		l_timer = 100
