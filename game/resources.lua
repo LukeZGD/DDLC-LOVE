@@ -5,18 +5,24 @@ function changeState(cstate,x)
 		state = 'load'
 	elseif cstate == 'splash' then
 		splash = love.graphics.newImage('images/bg/splash.png')
-		titlebg = love.graphics.newImage('images/bg/bg.png')
+		if persistent.playthrough == 0 then
+			titlebg = love.graphics.newImage('images/gui/bg.png')
+		else
+			titlebg = love.graphics.newImage('images/gui/bg2.png')
+		end
 		states = require 'states.splash'
 		alpha = 0
 		xaload = 0
-		timer = 0
 		state = 'splash1'
 		audioUpdate('1')
 	elseif cstate == 'title' then
+		alpha = 0
+		if x == 1 then
+			titlebg = love.graphics.newImage('images/gui/bg2.png')
+		end
 		states =  require 'states.splash'
 		poem_enabled = false
 		state = 'title'
-		timer = 501
 		xaload = 0
 		if audio1 ~= '1' then
 			audioStop()
@@ -30,6 +36,8 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 1 then --new game
 		if persistent.playthrough == 0 then 
 			chapter = 0
+		else
+			chapter = 10
 		end
 		xaload = 0
 		state = 'game'
@@ -38,8 +46,7 @@ function changeState(cstate,x)
 		hideAll()
 		loadgame()
 		if data_ptr ~= persistent.playthrough then --default to new game when loading a save from different act
-			cl = 1
-			changeState('game',1)
+			changeState('title')
 		else
 			loadAll()
 			loadupdate()
@@ -93,6 +100,8 @@ function changeState(cstate,x)
 			script_main = require 'scripts.script-ch4'
 		elseif chapter == 5 then
 			script_main = require 'scripts.script-ch5'
+		elseif chapter == 10 then
+			script_main = require 'scripts.script-ch10'
 		end
 		if poemwinner[chapter] == 'Sayori' then
 			script_exclusive = require 'scripts.script-exclusives-sayori'

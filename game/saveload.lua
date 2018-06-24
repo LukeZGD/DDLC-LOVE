@@ -116,8 +116,8 @@ function loadupdate()
 end
 
 function checkchr()
-	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then 
-		loadgame() 
+	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
+		loadgame()
 		loadpersistent()
 	end
 	

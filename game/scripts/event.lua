@@ -22,13 +22,20 @@ function event_start(etype, arg1)
 			xaload = 0
 			audioUpdate('s_kill')
 		end
-	elseif event_type == 'wipe' or event_type == 'endscreen' then
+	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
 		if arg1 then bgch_change = arg1 end
-	elseif event_type == 's_kill_black' then
+	elseif event_type == 'black' then
 		textbox_enabled = true
 		bgimg_disabled = true
+	elseif event_type == 'endscreen' then
+		hideAll()
+		textbox_enabled = false
+		if audio1 ~= '0' then
+			xaload = 0
+			audioUpdate('0')
+		end
 	end
 end
 
@@ -155,6 +162,7 @@ function event_end(arg1)
 	event_enabled = false
 	event_timer = 0
 	textbox_enabled = true
+	bgimg_disabled = false
 	
 	if arg1 == 'next' then
 		newgame_keypressed('a')
