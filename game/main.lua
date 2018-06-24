@@ -8,7 +8,7 @@ require 'menu'
 --end
 
 function love.load() 
-	dversion = 'v0.0.4'
+	dversion = 'v0.1.0'
 	dvertype = 'Test'
 	
 	love.graphics.setBackgroundColor(0,0,0)	
@@ -35,8 +35,10 @@ end
 
 function love.draw() 
 	if global_os ~= 'Horizon' then love.graphics.scale(1.5, 1.5) end
-		
-	if state == 'load' then
+	
+	if event_enabled then
+		event_draw()
+	elseif state == 'load' then
 		drawLoad()
 	elseif state == 'splash1' or state == 'splash2' or state == 'title' then --title (Title Screen)
 		drawSplash()

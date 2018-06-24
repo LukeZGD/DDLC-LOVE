@@ -293,16 +293,16 @@ Inside my head.]]
 		poemtext = [[
 %
 
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of my head.
-Get out of my head. Get out of my head. Get out of my head. Get out of]]
+Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get
+out of my head. Get out of my head. Get out of my head. Get out of my head. Get out
+of my head. Get out of my head. Get out of my head. Get out of my head. Get out of
+my head. Get out of my head. Get out of my head. Get out of my head. Get out of my
+head. Get out of my head. Get out of my head. Get out of my head. Get out of my head.
+Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get
+out of my head. Get out of my head. Get out of my head. Get out of my head. Get out
+of my head. Get out of my head. Get out of my head. Get out of my head. Get out of
+my head. Get out of my head. Get out of my head. Get out of my head. Get out of my
+head. Get out of my head. Get out of]]
 	elseif poemname == 'poem_s3-a' then
 		poemtext = [[
 Get.
@@ -318,7 +318,15 @@ Get out of my head before I listen to everything she said to me.
 Get out of my head before I show you how much I love you.
 Get out of my head before I finish writing this poem.]]
 	elseif poemname == 'poem_s3-b' then
-		poemtext = [[\n\n\n\n\n\n\n\n
+		poemtext = [[
+		
+		
+		
+		
+		
+		
+		
+		
 But a poem is never actually finished.
 It just stops moving.]]
 	
