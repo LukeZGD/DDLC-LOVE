@@ -91,7 +91,7 @@ function poemfinish(a)
 end
 	
 function poemresponse_sayori()
-	s.x = 80
+	s_Set.x = 80
 	if cl <= 669 then updateSayori('1','a') end
 	
 	poemopinion = "med"
@@ -105,7 +105,7 @@ function poemresponse_sayori()
 end
 
 function poemresponse_natsuki()
-	n.x = 80
+	n_Set.x = 80
     if cl <= 669 then updateNatsuki('1','c') end
 	
     poemopinion = "med"
@@ -119,7 +119,7 @@ function poemresponse_natsuki()
 end
 
 function poemresponse_yuri()
-	y.x = 80
+	y_Set.x = 80
 	if cl <= 669 then updateYuri('1','a') end
 	
     poemopinion = "med"
@@ -133,7 +133,7 @@ function poemresponse_yuri()
 end
 
 function poemresponse_monika()
-	m.x = 80
+	m_Set.x = 80
 	if cl <= 669 then updateMonika('1','a') end
 	
 	loadstring("ch"..chapter.."_m_start()")()

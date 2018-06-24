@@ -72,7 +72,7 @@ function changeState(cstate,x)
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
 		timer = 501
 		endbg = love.graphics.newImage('images/gui/end.png')
-		s_killearly = love.graphics.newImage('images/cg/s_kill_early.png')
+		s_killearly = love.graphics.newImage('images/cg/s_kill/s_kill_early.png')
 		state = 's_kill_early'
 		audioUpdate('s_kill_early')
 	end
@@ -125,23 +125,28 @@ function cgUpdate(cgx) --cg changes
 	cg1 = cgx
 end
 
-function audioUpdate(audiox) --audio changes
+function audioUpdate(audiox, looping) --audio changes
 	if xaload == 0 then
 		audioStop()
-		if audiox ~= '' then
+		if audiox ~= '' and audiox ~= '0' then
 			ddlct = love.audio.newSource('audio/bgm/'..audiox..'.ogg', 'stream')
-			ddlct:setLooping(true)
+			if looping == nil or looping == true then
+				ddlct:setLooping(true)
+			else
+				ddlct:setLooping(false)
+			end
+			ddlct:play()
 		end
-		ddlct:play()
 	end
 	audio1 = audiox
 end
 
-function sfxplay(sfx) --sfx stuff
+function sfxplay(sfx, sfxtype) --sfx stuff
 	if xaload == 0 then
 		sfxp = nil
 		if sfx ~= '' then
-			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', 'static')
+			if sfxtype == nil then sfxtype = 'static' end
+			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', sfxtype)
 		end
 		sfxp:play()
 	end
@@ -168,45 +173,45 @@ function charCheck()
 end
 
 function loadSayori()
-	if s.a=='1' then
+	if s_Set.a=='1' then
 		sl = love.graphics.newImage('images/sayori/1l.png') 
 		sr = love.graphics.newImage('images/sayori/1r.png') 
-	elseif s.a=='2' then
+	elseif s_Set.a=='2' then
 		sl = love.graphics.newImage('images/sayori/1l.png') 
 		sr = love.graphics.newImage('images/sayori/2r.png') 
-	elseif s.a=='3' then
+	elseif s_Set.a=='3' then
 		sl = love.graphics.newImage('images/sayori/2l.png') 
 		sr = love.graphics.newImage('images/sayori/1r.png') 
-	elseif s.a=='4' then
+	elseif s_Set.a=='4' then
 		sl = love.graphics.newImage('images/sayori/2l.png') 
 		sr = love.graphics.newImage('images/sayori/2r.png') 
 	
-	elseif s.a=='1b' then
+	elseif s_Set.a=='1b' then
 		sl = love.graphics.newImage('images/sayori/1bl.png')
 		sr = love.graphics.newImage('images/sayori/1br.png')
-	elseif s.a=='2b' then
+	elseif s_Set.a=='2b' then
 		sl = love.graphics.newImage('images/sayori/1bl.png') 
 		sr = love.graphics.newImage('images/sayori/2br.png') 
-	elseif s.a=='3b' then
+	elseif s_Set.a=='3b' then
 		sr = love.graphics.newImage('images/sayori/2bl.png') 
 		sr = love.graphics.newImage('images/sayori/1br.png') 
-	elseif s.a=='4b' then
+	elseif s_Set.a=='4b' then
 		sl = love.graphics.newImage('images/sayori/2bl.png') 
 		sr = love.graphics.newImage('images/sayori/2br.png') 
 	
-	elseif s.a=='5a' then
+	elseif s_Set.a=='5a' then
 		sl = love.graphics.newImage('images/sayori/3a.png') 
-	elseif s.a=='5b' then
+	elseif s_Set.a=='5b' then
 		sl = love.graphics.newImage('images/sayori/3b.png') 
-	elseif s.a=='5c' then
+	elseif s_Set.a=='5c' then
 		sl = love.graphics.newImage('images/sayori/3c.png')  
-	elseif s.a=='5d' then
+	elseif s_Set.a=='5d' then
 		sl = love.graphics.newImage('images/sayori/3d.png') 
-	elseif s.a~='' then
-		sl = love.graphics.newImage('images/sayori/'..s.a..'.png')
+	elseif s_Set.a~='' then
+		sl = love.graphics.newImage('images/sayori/'..s_Set.a..'.png')
 	end
 	
-	if s.b~='' then s_a = love.graphics.newImage('images/sayori/'..s.b..'.png') end
+	if s_Set.b~='' then s_a = love.graphics.newImage('images/sayori/'..s_Set.b..'.png') end
 end
 
 function unloadSayori()
@@ -216,35 +221,35 @@ function unloadSayori()
 end
 
 function loadYuri()	
-	if y.a=='1' then
+	if y_Set.a=='1' then
 		yl = love.graphics.newImage('images/yuri/1l.png') 
 		yr = love.graphics.newImage('images/yuri/1r.png') 
-	elseif y.a=='2' then
+	elseif y_Set.a=='2' then
 		yl = love.graphics.newImage('images/yuri/1l.png') 
 		yr = love.graphics.newImage('images/yuri/2r.png') 
-	elseif y.a=='3' then
+	elseif y_Set.a=='3' then
 		yl = love.graphics.newImage('images/yuri/2l.png') 
 		yr = love.graphics.newImage('images/yuri/2r.png') 
 		
-	elseif y.a=='1b' then
+	elseif y_Set.a=='1b' then
 		yl = love.graphics.newImage('images/yuri/1bl.png') 
 		yr = love.graphics.newImage('images/yuri/1br.png') 
-	elseif y.a=='2b' then
+	elseif y_Set.a=='2b' then
 		yl = love.graphics.newImage('images/yuri/1bl.png')
 		yr = love.graphics.newImage('images/yuri/2br.png') 
-	elseif y.a=='3b' then
+	elseif y_Set.a=='3b' then
 		yl = love.graphics.newImage('images/yuri/2bl.png') 
 		yr = love.graphics.newImage('images/yuri/2br.png') 
 	
-	elseif y.a=='4' then
+	elseif y_Set.a=='4' then
 		yl = love.graphics.newImage('images/yuri/3.png') 
-	elseif y.a=='4b' then
+	elseif y_Set.a=='4b' then
 		yl = love.graphics.newImage('images/yuri/3b.png')
-	elseif y.a~='' then
-		yl = love.graphics.newImage('images/yuri/'..y.a..'.png')
+	elseif y_Set.a~='' then
+		yl = love.graphics.newImage('images/yuri/'..y_Set.a..'.png')
 	end
 	
-	if y.b ~= '' then y_a = love.graphics.newImage('images/yuri/'..y.b..'.png') end
+	if y_Set.b ~= '' then y_a = love.graphics.newImage('images/yuri/'..y_Set.b..'.png') end
 end
 
 function unloadYuri()
@@ -254,42 +259,42 @@ function unloadYuri()
 end
 
 function loadNatsuki()
-	if n.b~='' then
-		n_a = love.graphics.newImage('images/natsuki/'..n.b..'.png')
+	if n_Set.b~='' then
+		n_a = love.graphics.newImage('images/natsuki/'..n_Set.b..'.png')
 	end
 	
-	if n.a=='1' then
+	if n_Set.a=='1' then
 		nl = love.graphics.newImage('images/natsuki/1l.png') 
 		nr = love.graphics.newImage('images/natsuki/1r.png') 
-	elseif n.a=='2' then
+	elseif n_Set.a=='2' then
 		nl = love.graphics.newImage('images/natsuki/1l.png') 
 		nr = love.graphics.newImage('images/natsuki/2r.png') 
-	elseif n.a=='3' then
+	elseif n_Set.a=='3' then
 		nl = love.graphics.newImage('images/natsuki/2l.png') 
 		nr = love.graphics.newImage('images/natsuki/1r.png') 
-	elseif n.a=='4' then
+	elseif n_Set.a=='4' then
 		nl = love.graphics.newImage('images/natsuki/2l.png') 
 		nr = love.graphics.newImage('images/natsuki/2r.png') 
 		
-	elseif n.a=='1b' then
+	elseif n_Set.a=='1b' then
 		nl = love.graphics.newImage('images/natsuki/1bl.png') 
 		nr = love.graphics.newImage('images/natsuki/1br.png') 
-	elseif n.a=='2b' then
+	elseif n_Set.a=='2b' then
 		nl = love.graphics.newImage('images/natsuki/1bl.png') 
 		nr = love.graphics.newImage('images/natsuki/2br.png') 
-	elseif n.a=='3b' then
+	elseif n_Set.a=='3b' then
 		nl = love.graphics.newImage('images/natsuki/2bl.png') 
 		nr = love.graphics.newImage('images/natsuki/1br.png') 
-	elseif n.a=='4b' then
+	elseif n_Set.a=='4b' then
 		nl = love.graphics.newImage('images/natsuki/2bl.png') 
 		nr = love.graphics.newImage('images/natsuki/2br.png') 
 		
-	elseif n.a=='5' then
+	elseif n_Set.a=='5' then
 		nl = love.graphics.newImage('images/natsuki/3.png') 
-	elseif n.a=='5b' then
+	elseif n_Set.a=='5b' then
 		nl = love.graphics.newImage('images/natsuki/3b.png') 
-	elseif n.a~='' then
-		nl = love.graphics.newImage('images/natsuki/'..n.a..'.png')   
+	elseif n_Set.a~='' then
+		nl = love.graphics.newImage('images/natsuki/'..n_Set.a..'.png')   
 	end
 end
 
@@ -300,26 +305,26 @@ function unloadNatsuki()
 end
 
 function loadMonika()
-	if m.a=='5a' then
+	if m_Set.a=='5a' then
 		ml = love.graphics.newImage('images/monika/3a.png') 
-	elseif m.a=='5b' then
+	elseif m_Set.a=='5b' then
 		ml = love.graphics.newImage('images/monika/3b.png') 
-	elseif m.a=='1' then
+	elseif m_Set.a=='1' then
 		ml = love.graphics.newImage('images/monika/1l.png')
 		mr = love.graphics.newImage('images/monika/1r.png')
-	elseif m.a=='2' then
+	elseif m_Set.a=='2' then
 		ml = love.graphics.newImage('images/monika/1l.png')
 		mr = love.graphics.newImage('images/monika/2r.png')
-	elseif m.a=='3' then
+	elseif m_Set.a=='3' then
 		ml = love.graphics.newImage('images/monika/2l.png')
 		mr = love.graphics.newImage('images/monika/1r.png')
-	elseif m.a=='4' then
+	elseif m_Set.a=='4' then
 		ml = love.graphics.newImage('images/monika/2l.png')
 		mr = love.graphics.newImage('images/monika/2r.png')
 	end
 	
-	if m.b~='' then
-		m_a = love.graphics.newImage('images/monika/'..m.b..'.png') 
+	if m_Set.b~='' then
+		m_a = love.graphics.newImage('images/monika/'..m_Set.b..'.png') 
 	end
 end
 
@@ -363,5 +368,6 @@ function unloadAll(x)
 		script_mg = nil
 		script_main = nil
 		script_exclusive = nil
+		eventscript = nil
 	end
 end

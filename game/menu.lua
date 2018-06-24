@@ -67,7 +67,7 @@ function menu_draw()
 	xaload = xaload + 1
 	
 	love.graphics.setColor(255, 255, 255, alpha)
-	if bg1 ~= 'black' then love.graphics.draw(background_Image, posX, posY) end
+	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
 	if menu_type == 'choice' then
 		for i = 1, #choices do
 			getcompare[i] = font:getWidth(choices[i])
@@ -90,12 +90,12 @@ function menu_draw()
 	if menu_items >= 9 then love.graphics.rectangle('fill', 16, 220, rectwidth, 16) end
 	if menu_previous then love.graphics.rectangle('fill', 16, 220, 30, 16) end
 	
-	if bg1 ~= 'black' then 
-		love.graphics.setColor(0,0,0) 
-		love.graphics.draw(guicheck,cX,cY)
-	else
+	if bgimg_disabled then
 		love.graphics.setColor(255,255,255)
 		love.graphics.draw(guicheckwhite,cX,cY)
+	else
+		love.graphics.setColor(0,0,0) 
+		love.graphics.draw(guicheck,cX,cY)
 	end
 	love.graphics.print(menutext,16, 20)
 	
@@ -130,7 +130,9 @@ function menu_draw()
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		love.graphics.print('Page '..pagenum..' of 10',16,200)
+		love.graphics.print('Page '..pagenum..' of 10',220,20)
+	elseif menu_type == 'choice' then
+		--drawdatetime()
 	end	
 end
 
@@ -216,7 +218,7 @@ function menu_confirm()
 		if m_selected == 6 then
 			menu_enable('characters')
 		elseif m_selected == 7 then
-			savepersistent()
+			savesettings()
 			menu_enable(menu_previous)
 		end
 		
@@ -226,9 +228,9 @@ function menu_confirm()
 		elseif m_selected == 3 then
 			persistent.schr = 0
 		elseif m_selected == 4 then
-			persistent.nchr = 0
+			--persistent.nchr = 0
 		elseif m_selected == 5 then
-			persistent.ychr = 0
+			--persistent.ychr = 0
 		elseif m_selected == 6 then
 			persistent.mchr = 1
 			persistent.schr = 1

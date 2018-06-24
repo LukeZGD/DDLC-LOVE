@@ -953,6 +953,7 @@ function ch0script()
 				player = ""
 				savegame()
 				savepersistent()
+				savesettings()
 				changeState('splash')
 			end
 		end
