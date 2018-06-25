@@ -9,7 +9,7 @@ require 'menu'
 
 function love.load() 
 	dversion = 'v0.1.0'
-	dvertype = 'Test'
+	dvertype = 'Release'
 	
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
@@ -28,6 +28,8 @@ function love.load()
 	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
 		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
+		windowicon = love.graphics.newImage('images/gui/icon.png')
+		love.window.setIcon(windowicon:getData())
 	end
 	
 	changeState('load')

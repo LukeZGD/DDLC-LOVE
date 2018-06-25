@@ -948,9 +948,7 @@ function ch0script()
 			cl = 10021
 			bgUpdate('warning2')
 			if xaload > 120 then
-				--make persistent and settings files then go to splash screen
-				cl = 1
-				player = ''
+				--make save1, persistent, and settings files then go to splash screen
 				savegame()
 				savepersistent()
 				savesettings()

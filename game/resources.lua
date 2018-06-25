@@ -36,8 +36,10 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 1 then --new game
 		if persistent.playthrough == 0 then 
 			chapter = 0
-		else
+		elseif persistent.playthrough == 1 then
 			chapter = 10
+		else
+			chapter = 20
 		end
 		xaload = 0
 		state = 'game'

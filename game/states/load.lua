@@ -10,7 +10,6 @@ function drawLoad()
 end
 
 function updateLoad()
-	timer = 501
 	if l_timer <= 100 then
 		l_timer = l_timer + 1
 	end
