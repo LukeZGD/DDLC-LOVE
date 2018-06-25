@@ -304,6 +304,7 @@ function ch5script()
 	elseif cl == 121 then
     bl "That's why I can't believe what my eyes are showing me...!"
 	elseif cl == 122 then
+	event_end('s_kill')
 	event_start('black')
 	bl "I suppress the urge to vomit."
 	elseif cl == 123 then

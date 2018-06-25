@@ -3,7 +3,7 @@ A Doki Doki Literature Club port for the 3DS! Programmed in Lua, running under t
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
-This was intended to be only for 3DS systems, but it is now also working on other platforms that support LÖVE or LovePotion. It will still have 2 screens, though.
+This was intended to be only for 3DS systems, but it is also working on other platforms that support LÖVE or LovePotion. It will still have 2 screens, though.
 
 **Locations of save files:**
 
@@ -23,7 +23,7 @@ You cannot build DDLC-3DS on your own. you have to add it to LovePotion 1.0.9, r
 ### Running:
 3DSX - [Running LovePotion (3DS)](https://github.com/TurtleP/LovePotion/wiki/Running-(3DS))
 
-CIA - Install the cia file from the releases (none yet)
+CIA - Install the cia file from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases)
 
 Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))
 

@@ -96,23 +96,6 @@ function scriptCheck()
 	end
 end	
 
--- ...I tried
---[[
-function loadscene(scene_name, clset, clstype)
-	scene_enabled = true
-	
-	if clset then
-		if clstype == 'plus' then
-			return scene_name[cl+clset]
-		elseif clstype == 'minus' then
-			return scene_name[cl-clset]
-		end
-	else
-		return scene_name[cl]
-	end
-end
-]]
-
 function bl (say) return cw('bl',say) end
 function mc (say) return cw('mc',say) end
 function s (say) return cw('s',say) end

@@ -124,8 +124,9 @@ function drawPoemGame()
 	love.graphics.setColor(255,255,255,alpha)
 	if poemstate == 0 then love.graphics.draw(poemtime,0,0) end
 	
-	if menu_enabled then 
-		love.graphics.draw(background_Image, posX, posY)
+	if menu_enabled then
+		love.graphics.setColor(255,255,255,128)
+		love.graphics.rectangle('fill',0,0,400,240)
 	end
 	
 	drawBottomScreen()
@@ -186,7 +187,7 @@ function drawPoemGame()
 	love.graphics.rectangle('fill', 135,220,40,16) 
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	love.graphics.print('Pause',135,220)
+	love.graphics.print('Pause',135,2)
 	
 	if menu_enabled then menu_draw() end
 end
@@ -358,7 +359,7 @@ function poemgamekeypressed(key)
 end
 
 function poemgamemousepressed()
-	if mouseX>=135 and mouseX<=165 and mouseY>=220 then
+	if mouseX>=135 and mouseX<=165 and mouseY<=18 then
 		poemgamekeypressed('y')
 	end
 end		

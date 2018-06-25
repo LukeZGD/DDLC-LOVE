@@ -1,4 +1,6 @@
 --default values
+player = ''
+cl = 1
 persistent = {
 	playthrough=0;
 	clear={0,0,0,0,0,0,0,0,0};
@@ -41,7 +43,6 @@ function savegame()
 	
 	local savedata = "data_ptr = "..persistent.playthrough.."\
 cl = "..cl.."\
-player = '"..player.."'\
 bg1 = '"..bg1.."'\
 audio1 = '"..audio1.."'\
 cg1 = '"..cg1.."'\
@@ -80,7 +81,8 @@ function savesettings()
 end
 
 function savepersistent()
-	local spfile = "persistent = {\
+	local spfile = "player = '"..player.."'\
+persistent = {\
 	playthrough="..persistent.playthrough..";\
 	clear={\
 		"..persistent.clear[1]..",\
@@ -127,8 +129,3 @@ function checkchr()
 		l_timer = 100
 	end
 end
-
---"monika.chr","U25WemRDQk5iMjVwYTJFdUlFcDFjM1FnVFc5dWFXdGhMaUJLZFhOMElFMXZibWxyWVM0Z1NuVnpkQ0JOYjI1cGEyRXVJRXAxYzNRZ1RXOXVhV3RoTGlBPQ=="
---"sayori.chr","VTJGNWIzSnBJRUpsYzNRZ1IybHliQ0VoSVE9PQ=="
---"yuri.chr","V1hWeWFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdscGFXbHBhV2xwYVdraA=="
---"natsuki.chr","TmF0c3VraSBOYXRzdWtpIE5hdHN1a2kgTmF0c3VraSBOYXRzdWtpIGlzIENVVEU="

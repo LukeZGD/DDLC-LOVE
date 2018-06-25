@@ -81,7 +81,7 @@ function event_draw()
 		love.graphics.setColor(0,0,0)
 		love.graphics.rectangle('fill', -40, 0, 400, 240)
 		love.graphics.setColor(255,255,255,255)
-		love.graphics.print(event_timer)
+		--love.graphics.print(event_timer)
 	else
 		drawnumbers()
 		drawTextBox()
@@ -100,9 +100,9 @@ function event_update(dt)
 		if s_killzoom_timer >= 400 then
 			s_killzoom_timer = 0
 		elseif s_killzoom_timer > 200 then
-			s_killzoom_x = s_killzoom_x - 0.025
+			s_killzoom_x = s_killzoom_x - 0.0225
 		else
-			s_killzoom_x = s_killzoom_x + 0.025
+			s_killzoom_x = s_killzoom_x + 0.0225
 		end
 		
 		posX = posX - 0.25*posSpeed
@@ -124,13 +124,14 @@ function event_update(dt)
 	end
 	
 	--wipe timers
-	if event_type == 'wipe' and event_timer > 1 then event_end('next')
-	elseif event_type == 'wipe' and event_timer >= 0.5 then
+	if event_type == 'wipe' and event_timer > 1.5 then event_end('next')
+	elseif event_type == 'wipe' and event_timer >= 1 then
+		w_alpha = math.max(w_alpha - 15, 0)
+	elseif event_type == 'wipe' and event_timer > 0.5 then
 		if bgch_change and bg1 ~= bgch_change then
 			xaload = 0
 			bgUpdate(bgch_change)
 		end
-		w_alpha = math.max(w_alpha - 15, 0)
 	elseif event_type == 'wipe' and event_timer < 0.5 then
 		w_alpha = math.min(w_alpha + 15, 255)
 	end
@@ -152,8 +153,6 @@ function event_keypressed(key)
 	if textbox_enabled then
 		if key == 'a' then
 			newgame_keypressed('a')
-		elseif key == 'start' then
-			game_quit()
 		end
 	end
 end
@@ -164,7 +163,19 @@ function event_end(arg1)
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	if arg1 == 'next' then
+	bgch_change = nil
+	
+	if arg1 == 's_kill' then
+		s_kill = nil
+		s_kill2 = nil
+		s_kill_bg = nil
+		s_kill_bg2 = nil
+		s_kill_bgzoom = nil
+		splash_glitch = nil
+		exception = nil
+		posX = -40
+		posY = 0
+	elseif arg1 == 'next' then
 		newgame_keypressed('a')
 	end
 end
