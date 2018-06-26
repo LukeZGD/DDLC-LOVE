@@ -163,6 +163,7 @@ function love.textinput(text)
 		if text ~= '' then 
 			player = text
 			savepersistent()
+			cl = 1
 			changeState('game',1)
 		else
 			changeState('title')
