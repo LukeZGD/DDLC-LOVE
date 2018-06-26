@@ -8,7 +8,7 @@ require 'menu'
 --end
 
 function love.load() 
-	dversion = 'v0.1.0'
+	dversion = 'v0.1.1'
 	dvertype = 'Release'
 	
 	love.graphics.setBackgroundColor(0,0,0)	
@@ -162,7 +162,7 @@ function love.textinput(text)
 	if global_os == 'Horizon' then
 		if text ~= '' then 
 			player = text
-			savegame()
+			savepersistent()
 			changeState('game',1)
 		else
 			changeState('title')
