@@ -586,7 +586,7 @@ function ch4_exclusive_natsuki()
 	elseif cl == 246 then
 		cw('bl',"Without delay, I open the front door to let her in.")
 	elseif cl == 247 then
-		updateNatsuki('2b','j')
+		updateNatsuki('2b','j',80)
 		cw('mc',"...")
 	elseif cl == 248 then
 		cw('n',"'Sup?")

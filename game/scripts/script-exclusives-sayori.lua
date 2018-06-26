@@ -291,7 +291,7 @@ function Sayori_exclusive_1()
 	elseif cl == 545 then
 		cw('mc',"Ah--")
 	elseif cl == 546 then
-		cw('s',"I-I guess...")
+		cw('mc',"I-I guess...")
 	elseif cl == 547 then
 		cw('s',"Hey, be careful...")
 	elseif cl == 548 then
