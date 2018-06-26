@@ -184,7 +184,7 @@ function drawPoemGame()
 	end
 	
 	love.graphics.setColor(255,189,225,alpha)
-	love.graphics.rectangle('fill', 135,220,40,16) 
+	love.graphics.rectangle('fill', 135,2,40,16) 
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
 	love.graphics.print('Pause',135,2)
