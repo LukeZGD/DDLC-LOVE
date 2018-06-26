@@ -47,7 +47,7 @@ function poemresponses()
 			poemresponse_monika()
 		end
 		
-		if cl == 669 then cl = cl+1 end
+		if cl == 669 then cl = cl + 1 end
 	end
 end
 
@@ -74,7 +74,7 @@ function poemfinish(a)
 	
 	poemsread = poemsread + 1
 	hideAll()
-	if poemsread == 4 or (poemsread == 3 and chapter > 5) then
+	if poemsread == 4 or (poemsread == 3 and persistent.playthrough == 2) then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
 		readpoem = {s=0,n=0,y=0,m=0}
@@ -91,8 +91,10 @@ function poemfinish(a)
 end
 	
 function poemresponse_sayori()
-	s_Set.x = 80
-	if cl <= 669 then updateSayori('1','a') end
+	if cl <= 669 then
+		s_Set.x = 80
+		updateSayori('1','a')
+	end
 	
 	poemopinion = "med"
 	if s_poemappeal[chapter] < 0 then
@@ -105,8 +107,10 @@ function poemresponse_sayori()
 end
 
 function poemresponse_natsuki()
-	n_Set.x = 80
-    if cl <= 669 then updateNatsuki('1','c') end
+    if cl <= 669 then
+		n_Set.x = 80
+		updateNatsuki('1','c')
+	end
 	
     poemopinion = "med"
 	if n_poemappeal[chapter] < 0 then
@@ -119,8 +123,10 @@ function poemresponse_natsuki()
 end
 
 function poemresponse_yuri()
-	y_Set.x = 80
-	if cl <= 669 then updateYuri('1','a') end
+	if cl <= 669 then
+		y_Set.x = 80
+		updateYuri('1','a')
+	end
 	
     poemopinion = "med"
 	if y_poemappeal[chapter] < 0 then
@@ -133,8 +139,10 @@ function poemresponse_yuri()
 end
 
 function poemresponse_monika()
-	m_Set.x = 80
-	if cl <= 669 then updateMonika('1','a') end
+	if cl <= 669 then 
+		m_Set.x = 80
+		updateMonika('1','a') 
+	end
 	
 	loadstring("ch"..chapter.."_m_start()")()
 end
@@ -1054,6 +1062,7 @@ function ch3_y_bad12_shared()
 		updateYuri('4','b2')
 		cw('y',"...")
 	elseif cl == 671 then
+		updateYuri('4','b2')
 		cw('bl',"Yuri doesn't look too enthusiastic about spending time with me...")
 	elseif cl == 672 then
 		cw('bl',"I guess if she changes her mind, she'll come to me.")
@@ -2687,7 +2696,7 @@ function ch2_n_good_sharedwithch3()
 		updateNatsuki('1','p')
 		cw('n',"I...have to use the bathroom!")
 	elseif cl == 696 then
-		hideNatsuki()
+		hideAll()
 		cw('bl',"Red-faced, Natsuki quickly walks out of the room.")
 	elseif cl == 697 then
 		updateMonika('1','d',80)

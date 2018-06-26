@@ -110,9 +110,7 @@ function ch3script()
 	elseif cl == 2019 then
 		cw('mc',"Oh, there you are.")
 	elseif cl == 2020 then
-		hideMonika()
-		hideYuri()
-		hideNatsuki()
+		hideAll()
 		cw('bl',"Sayori is sitting at a desk in the corner of the room, looking down at nothing.")
 	elseif cl == 2021 then
 		cw('bl',"I walk over to her.")
