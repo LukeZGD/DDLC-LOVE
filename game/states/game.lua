@@ -16,24 +16,25 @@ function drawGame()
 		drawMonika(m_Set.a,m_Set.b)
 	end
 	
+	if poem_enabled then drawPoem()	end
+	
 	if menu_enabled and menu_type ~= 'choice' then
 		love.graphics.setColor(255,255,255,128)
 		love.graphics.rectangle('fill',0,0,400,240)
-	elseif poem_enabled then drawPoem()
 	end
 	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.setFont(font)
 	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
-	drawnumbers()
+	drawNumbers()
 	drawTextBox()
 	
 	love.graphics.setColor(0,0,0)
 	if autotimer > 0 then 
-		love.graphics.print('Auto On', 2, 16)
+		love.graphics.print('Auto-Forward On', 2, 20)
 	elseif autoskip > 0 then
-		love.graphics.print('Skipping...', 2, 16)
+		love.graphics.print('Skipping >>>', 2, 20)
 	end
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
@@ -48,47 +49,6 @@ function drawGame()
 	end
 	--drawdatetime()
 	if menu_enabled then menu_draw() end
-end
-
-function drawTextBox()
-	local xps = {}
-	local yps = {}
-	if settings.textloc == 'Top' then
-		xps = {c=48,ct=63,textbox=40,namebox=52}
-		yps = {ca=166,cb=182,cc=198,cd=214,ct=142,textbox=162,namebox=142}
-		drawTopScreen()
-	else
-		xps = {c=8,ct=23,textbox=0,namebox=12}
-		yps = {ca=66,cb=82,cc=98,cd=114,ct=42,textbox=62,namebox=42}
-	end
-	
-	if (menu_enabled ~= true and poem_enabled ~= true) or (event_enabled and textbox_enabled) then
-		love.graphics.setColor(255,255,255,alpha)
-		if ct ~= '' then love.graphics.draw(namebox, xps.namebox, yps.namebox) end
-		love.graphics.draw(textbox, xps.textbox, yps.textbox)
-		love.graphics.setColor(0,0,0,alpha)
-		if ct then love.graphics.print(ct,xps.ct,yps.ct) end
-		if global_os == 'Horizon' or global_os == 'HorizonNX' then
-			if ca then love.graphics.print(ca,xps.c,yps.ca) end
-			if cb then love.graphics.print(cb,xps.c,yps.cb) end
-			if cc then love.graphics.print(cc,xps.c,yps.cc) end
-			if cd then love.graphics.print(cd,xps.c,yps.cd) end
-		else
-			if textx then love.graphics.printf(textx,xps.c,yps.ca,300) end
-		end
-	end
-	if settings.textloc == 'Top' then drawBottomScreen() end
-end
-
-function drawPoem()
-	if poembg then
-		love.graphics.draw(poembg, 40, 0)
-	else
-		love.graphics.setColor(243,243,243)
-		love.graphics.rectangle('fill',40,0,320,240)
-	end
-	love.graphics.setColor(0,0,0)
-	love.graphics.print(poemtext, 45, 6)
 end
 
 function updateGame(dt)
@@ -181,26 +141,5 @@ function game_mousepressed()
 	elseif mouseX>=142 and mouseX<=172 and mouseY<=18 then game_keypressed('b')
 	elseif mouseX>=240 and mouseX<=270 and mouseY<=18 then game_keypressed('x')
 	else game_keypressed('a')
-	end
-end
-
-function drawnumbers()
-	if global_os == 'HorizonNX' then
-		local cl_a = tostring(cl)
-		local cl_len = string.len(cl_a)
-		drawnum_x = 0
-		for i = 1, cl_len do
-			num = i
-			loadstring("fnum = string.sub("..cl_a..","..i..","..i..")")()
-			loadstring("love.graphics.draw(number_"..fnum..","..drawnum_x..")")()
-			drawnum_x = drawnum_x + 11
-		end
-	else
-		if bgimg_disabled then 
-			love.graphics.setColor(255,255,255,255)
-		else
-			love.graphics.setColor(0,0,0,255)
-		end
-		love.graphics.print(cl)
 	end
 end

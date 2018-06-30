@@ -4,12 +4,14 @@ function ch10script()
 	elseif cl == 1 then
 		bgUpdate('black')
 		audioUpdate('0')
-		bl "This is the end of DDLC-3DS v0.1.0 for now!"
+		bl "This is the end of DDLC-3DS v0.1.2 for now!"
 	elseif cl == 2 then
-		bl "Act 2 will be in the next version."
+		bl "Act 2 will be included in the next big release when it's done."
 	elseif cl == 3 then
 		updateMonika('1','a',80)
-		m "See you there!"
+		m "For more updates, go to:"
+		cb = "https://github.com/LukeZGD/DDLC-3DS or"
+		cc = "https://twitter.com/lukee_gd_"
 	elseif cl == 4 then
 		changeState('title')
 	end

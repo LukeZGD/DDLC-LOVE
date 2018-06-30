@@ -68,7 +68,7 @@ function changeState(cstate,x)
 		state = 'newgame'
 		alpha = 255
 	elseif cstate == 'poemgame' then --load poemgame assets and state
-		poemfont = love.graphics.newFont('images/gui/fonts/Halogen',12)
+		poemfont = love.graphics.newFont('fonts/Halogen',12)
 		s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
 		s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
 		y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')

@@ -110,6 +110,64 @@ function drawdatetime()
 	love.graphics.print(os.date("%Y-%m-%d %H:%M"),195,220)
 end
 
+function drawTextBox()
+	local xps = {}
+	local yps = {}
+	if settings.textloc == 'Top' then
+		xps = {c=48,ct=63,textbox=40,namebox=52}
+		yps = {ca=166,cb=182,cc=198,cd=214,ct=142,textbox=162,namebox=142}
+		drawTopScreen()
+	else
+		xps = {c=8,ct=23,textbox=0,namebox=12}
+		yps = {ca=66,cb=82,cc=98,cd=114,ct=42,textbox=62,namebox=42}
+	end
+	
+	if (menu_enabled ~= true and poem_enabled ~= true) or (event_enabled and textbox_enabled) then
+		love.graphics.setColor(255,255,255,alpha)
+		if ct ~= '' then love.graphics.draw(namebox, xps.namebox, yps.namebox) end
+		love.graphics.draw(textbox, xps.textbox, yps.textbox)
+		love.graphics.setColor(0,0,0,alpha)
+		if ct then love.graphics.print(ct,xps.ct,yps.ct) end
+		if ca then love.graphics.print(ca,xps.c,yps.ca) end
+		if cb then love.graphics.print(cb,xps.c,yps.cb) end
+		if cc then love.graphics.print(cc,xps.c,yps.cc) end
+		if cd then love.graphics.print(cd,xps.c,yps.cd) end
+	end
+	if settings.textloc == 'Top' then drawBottomScreen() end
+end
+
+function drawPoem()
+	if poembg then
+		love.graphics.draw(poembg, 40, 0)
+	else
+		love.graphics.setColor(243,243,243)
+		love.graphics.rectangle('fill',40,0,320,240)
+	end
+	love.graphics.setColor(0,0,0)
+	love.graphics.print(poemtext, 45, 6)
+end
+
+function drawNumbers()
+	if global_os == 'HorizonNX' then
+		local cl_a = tostring(cl)
+		local cl_len = string.len(cl_a)
+		drawnum_x = 0
+		for i = 1, cl_len do
+			num = i
+			loadstring("fnum = string.sub("..cl_a..","..i..","..i..")")()
+			loadstring("love.graphics.draw(number_"..fnum..","..drawnum_x..")")()
+			drawnum_x = drawnum_x + 11
+		end
+	else
+		if bgimg_disabled then 
+			love.graphics.setColor(255,255,255,255)
+		else
+			love.graphics.setColor(0,0,0,255)
+		end
+		love.graphics.print(cl,2,2)
+	end
+end
+
 function updateSayori(a,b,px,py)
 	if b == nil then b = '' end
 	s_Set.a = a
