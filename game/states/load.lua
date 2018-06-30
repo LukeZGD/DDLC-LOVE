@@ -1,7 +1,5 @@
 function drawLoad()
 	drawTopScreen()
-	love.graphics.setColor(255,255,255)
-	love.graphics.print(l_timer)
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',0,0,400,240)
 	drawBottomScreen()
@@ -10,17 +8,17 @@ function drawLoad()
 end
 
 function updateLoad()
-	if l_timer <= 100 then
+	if l_timer < 100 then
 		l_timer = l_timer + 1
 	end
 	
 	--loading assets
 	if l_timer == 95 then
-		font = love.graphics.newFont('images/gui/fonts/Aller_Rg',12)
+		font = love.graphics.newFont('fonts/Aller_Rg',12)
 		love.graphics.setFont(font)
 	
 	elseif l_timer == 96 then
-		m1 = love.graphics.newFont('images/gui/fonts/m1',14)
+		m1 = love.graphics.newFont('fonts/m1',14)
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
@@ -36,7 +34,7 @@ function updateLoad()
 		if global_os == 'HorizonNX' then
 			for i = 0, 9, 1 do
 				num = i
-				loadstring("number_"..num.." = love.graphics.newImage('images/gui/fonts/numbers/'..num..'.png')")()
+				loadstring("number_"..num.." = love.graphics.newImage('fonts/numbers/'..num..'.png')")()
 			end
 		end
 		
@@ -48,7 +46,7 @@ function updateLoad()
 		else
 			changeState('newgame')
 		end
-	elseif l_timer >= 100 then
+	elseif l_timer == 100 then
 		love.graphics.setBackgroundColor(255,255,255)
 		l_timer = 100
 		splashalpha(6)

@@ -725,9 +725,10 @@ function Yuri_exclusive_2_ch3()
 	elseif cl == 1453 then
 		audioUpdate('6')
 		bgUpdate('club')
-	elseif cl == 1454 then
 		updateYuri('1','a',80)
 		cw('y',player..", do you like oolong tea?")
+	elseif cl == 1454 then
+		scriptJump(1455)
 	elseif cl == 1455 then
 		cw('mc',"Ah, yeah.")
 	elseif cl == 1456 then

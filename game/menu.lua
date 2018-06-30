@@ -37,7 +37,7 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Text Speed','AutoForward Time','Char. Animations','Characters','Save Settings'}
+		itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Char. Animations','Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
@@ -123,8 +123,12 @@ function menu_draw()
 	
 	if menu_type == 'settings' then
 		love.graphics.print(settings.textloc..' Screen',140, 45)
-		love.graphics.print(settings.textspd, 140, 70)
-		love.graphics.print(settings.autospd..' sec.',140, 95)
+		love.graphics.print(settings.textspd, 157, 70)
+		love.graphics.print('(<)',140,70)
+		love.graphics.print('(>)',184,70)
+		love.graphics.print(settings.autospd..' sec.',157, 95)
+		love.graphics.print('(<)',140,95)
+		love.graphics.print('(>)',198,95)
 		love.graphics.print(settings.animh,140, 120)
 		love.graphics.print('Press (<) and (>) to change settings.',16,200)
 		love.graphics.print(dversion,270, 205)
@@ -215,7 +219,9 @@ function menu_confirm()
 		end
 		
 	elseif menu_type == 'settings' then
-		if m_selected == 6 then
+		if m_selected == 2 or m_selected == 5 then
+			menu_keypressed('left')
+		elseif m_selected == 6 then
 			menu_enable('characters')
 		elseif m_selected == 7 then
 			savesettings()
@@ -252,7 +258,8 @@ function menu_confirm()
 	end
 end
 
-function m_select()
+function m_select(arg)
+	if arg then m_selected = arg end
 	if m_selected == 2 then
 		if menu_type == 'choice' then 
 			choicepick = choices[1] 
@@ -343,7 +350,7 @@ function menu_keypressed(key)
 				if settings.textspd > 50 then
 					settings.textspd = settings.textspd - 10
 				end
-			elseif cpick == 'AutoForward Time' then
+			elseif cpick == 'Auto-Forward Time' then
 				if settings.autospd > 1 then
 					settings.autospd = settings.autospd - 1
 				end
@@ -368,7 +375,7 @@ function menu_keypressed(key)
 				if settings.textspd >= 50 and settings.textspd < 300 then
 					settings.textspd = settings.textspd + 10
 				end
-			elseif cpick == 'AutoForward Time' then
+			elseif cpick == 'Auto-Forward Time' then
 				if settings.autospd >= 1 and settings.autospd < 15 then
 					settings.autospd = settings.autospd + 1
 				end
@@ -385,27 +392,38 @@ end
 
 function menu_mousepressed()
 	if menu_items >= 2 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=45 and mouseY<=61 then
-		m_selected = 2
+		m_select(2)
 	elseif menu_items >= 3 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=70 and mouseY<=86 then
-		m_selected = 3
+		m_select(3)
 	elseif menu_items >= 4 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=95 and mouseY<=111 then
-		m_selected = 4
+		m_select(4)
 	elseif menu_items >= 5 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=120 and mouseY<=136 then
-		m_selected = 5
+		m_select(5)
 	elseif menu_items >= 6 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=145 and mouseY<=161 then
-		m_selected = 6
+		m_select(6)
 	elseif menu_items >= 7 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=170 and mouseY<=186 then
-		m_selected = 7
+		m_select(7)
 	elseif menu_items >= 8 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=195 and mouseY<=211 then
-		m_selected = 8
+		m_select(8)
 	elseif menu_items >= 9 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=220 and mouseY<=236 then
-		m_selected = 9
+		m_select(9)
 	elseif menu_previous and mouseX>=16 and mouseX<=46 and mouseY>=220 and mouseY<=236 then
 		menu_keypressed('b')
+	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 70 and mouseY <= 90 then
+		m_select(3)
+		menu_keypressed('left')
+	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 95 and mouseY <= 115 then
+		m_select(4)
+		menu_keypressed('left')
+	elseif mouseX >= 184 and mouseX <= 201 and mouseY >= 70 and mouseY <= 90 then
+		m_select(3)
+		menu_keypressed('right')
+	elseif mouseX >= 198 and mouseX <= 215 and mouseY >= 95 and mouseY <= 115 then
+		m_select(4)
+		menu_keypressed('right')
 	end
 	
 	if mouseX <= rectwidth and mouseY <= 211 then
-		m_select()
 		menu_keypressed('a')
 	end
 end
