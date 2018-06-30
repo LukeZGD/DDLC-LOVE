@@ -29,7 +29,7 @@ function Natsuki_exclusive_1()
 	elseif cl == 434 then
 		cw('mc',"Ah - ")
 	elseif cl == 435 then
-		ca = "...Sometimes..."
+		cw('mc',"...Sometimes...")
 	elseif cl == 436 then
 		cw('bl',"Manga is one of those things where you can't admit you're really into it until you figure out where the other person stands.")
 	elseif cl == 437 then
@@ -315,7 +315,7 @@ function Natsuki_exclusive_1()
 	elseif cl == 558 then
 		cw('mc',"Hm?")
 	elseif cl == 559 then
-		cw('n',"You don't?")
+		cw('mc',"You don't?")
 	elseif cl == 560 then
 		cgUpdate('n_cg1_exp2')
 		cw('n',"Um...")

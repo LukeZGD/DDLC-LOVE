@@ -43,7 +43,7 @@ function Sayori_exclusive_1()
 		cw('s',"That doesn't solve the problem, though!")
 	elseif cl == 441 then
 		updateMonika('1','d')
-		cw('s',"Eh? What do you mean?")
+		cw('m',"Eh? What do you mean?")
 	elseif cl == 442 then
 		updateSayori('1','c')
 		cw('s',"Even if we come up with the most fun thing ever...")
@@ -87,7 +87,7 @@ function Sayori_exclusive_1()
 		cw('s',"That works out perfectly~")
 	elseif cl == 459 then
 		updateMonika('1','d')
-		cw('s',"That wasn't why you suggested it...?")
+		cw('m',"That wasn't why you suggested it...?")
 	elseif cl == 460 then
 		updateSayori('4','q')
 		cw('s',"Cupcakes speak to my creative tummy~")
@@ -932,6 +932,7 @@ function Sayori_exclusive_2()
 		cw('mc',"Anyway, let's go.")
 	elseif cl == 1573 then
 		bgUpdate('corridor')
+		hideSayori()
 		cw('bl',"I follow Sayori out of the classroom.")
 	elseif cl == 1574 then
 		cw('bl',"Sayori plays with her bangs to try to hide the bump, but without much success.")
