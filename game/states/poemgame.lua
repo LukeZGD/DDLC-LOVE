@@ -204,7 +204,7 @@ function drawPoemGame()
 	love.graphics.rectangle('fill', 135,2,40,16) 
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	love.graphics.print('Pause',137,2)
+	love.graphics.print('Menu',138,2)
 	
 	if menu_enabled then menu_draw() end
 end

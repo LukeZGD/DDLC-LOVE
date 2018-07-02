@@ -338,7 +338,7 @@ function ch1_y_shared()
 	elseif cl == 751 then
 		cw('y',"Something easy to digest, I suppose.")
 	elseif cl == 752 then
-		cw('y',"Are you into ghosts, Yuri?")
+		cw('mc',"Are you into ghosts, Yuri?")
 	elseif cl == 753 then
 		updateYuri('1','m')
 		cw('y',"Huhu.")
@@ -2632,7 +2632,10 @@ function ch2_n_good()
 end
 
 function ch2_n_good_sharedwithch3()
-	if unfairto == nil then unfairto = 'Sayori' end
+	local unfairto = 'Sayori'
+	if readpoem.s == 1 then
+		unfairto = "Yuri"
+	end
 	if cl == 670 then
 		updateNatsuki('1','n')
 		cw('n',"...")
@@ -2696,7 +2699,7 @@ function ch2_n_good_sharedwithch3()
 		updateNatsuki('1','p')
 		cw('n',"I...have to use the bathroom!")
 	elseif cl == 696 then
-		hideAll()
+		hideNatsuki()
 		cw('bl',"Red-faced, Natsuki quickly walks out of the room.")
 	elseif cl == 697 then
 		updateMonika('1','d',80)
@@ -2838,20 +2841,17 @@ function ch2_n_good_sharedwithch3()
         if poemsread >= 3 then
             cw('bl',"Well, I guess Natsuki has my poem now.")
         else
-            if readpoem.s == 1 then
-                unfairto = "Yuri"
-			end
             cw('mc',"Ah, Natsuki...")
 		end
 	elseif cl == 748 then
-		if poemsread >=3 then
+		if poemsread >= 3 then
 			cw('bl',"Not that I really planned on keeping it.")
 		else
             cw('mc',"I'll give you the poem, but that's still not very fair to "..unfairto.."...")
 		end
 	elseif cl == 749 then
 		if poemsread >= 3 then
-			scriptJump(765)
+			scriptJump(757)
 		else
 			cw('mc',"...She hasn't gotten to read it yet.")
 		end
@@ -3000,121 +3000,121 @@ function ch3_n_end_special()
 		cw('n',"...Why are you looking at me like that?")
 	elseif cl == 760 then
 		cw('n',"If you don't like it, then just say it.")
-	elseif cl == 760 then
+	elseif cl == 761 then
 		updateNatsuki('1','u')
 		cw('n',"I won't...get mad.")
-	elseif cl == 760 then
+	elseif cl == 762 then
 		cw('mc',"No, it's not that I don't like it...!")
-	elseif cl == 760 then
+	elseif cl == 763 then
 		cw('mc',"It was just...a little surprising to read.")
-	elseif cl == 760 then
+	elseif cl == 764 then
 		if readpoem.y == 1 then
 			cw('bl',"This clearly isn't the poem that Yuri told me she had written...")
 		else
-			scriptJump(762)
+			scriptJump(766)
 		end
-	elseif cl == 761 then
+	elseif cl == 765 then
 		cw('bl',"...Meaning I'm probably the only one she's showing this to.")
-	elseif cl == 762 then
+	elseif cl == 766 then
 		cw('mc', "Er...I guess I'm not used to hearing such nice things coming from you...")
-	elseif cl == 763 then
+	elseif cl == 767 then
 		updateNatsuki('1','h')
 		cw('n',"D-Don't just say that!")
-	elseif cl == 764 then
+	elseif cl == 768 then
 		updateNatsuki('1','n')
 		cw('n',"Dummy...")
-	elseif cl == 765 then
+	elseif cl == 769 then
 		cw('n',"What do you think...the point of writing is?")
-	elseif cl == 766 then
+	elseif cl == 770 then
 		updateNatsuki('1','u')
 		cw('n',"Expressing things that you can't just say...")
-	elseif cl == 767 then
-		cw('mc',"Yeah...I understand.")
-	elseif cl == 768 then
-		cw('mc',"I'm sorry for missing the point sometimes.")
-	elseif cl == 769 then
-		cw('mc',"I always mean well...")
-	elseif cl == 770 then
-		cw('mc',"And...I'm happy that you showed this to me.")
 	elseif cl == 771 then
-		cw('mc',"I liked it.")
+		cw('mc',"Yeah...I understand.")
 	elseif cl == 772 then
+		cw('mc',"I'm sorry for missing the point sometimes.")
+	elseif cl == 773 then
+		cw('mc',"I always mean well...")
+	elseif cl == 774 then
+		cw('mc',"And...I'm happy that you showed this to me.")
+	elseif cl == 775 then
+		cw('mc',"I liked it.")
+	elseif cl == 776 then
 		updateNatsuki('1','h')
 		cw('n',"Well...yeah...")
-	elseif cl == 773 then
+	elseif cl == 777 then
 		updateNatsuki('1','q')
 		cw('n',"I'm...I'm a pro, so...")
-	elseif cl == 774 then
+	elseif cl == 778 then
 		cw('bl',"Natsuki mumbles, completely failing to sound confident like she usually does.")
-	elseif cl == 775 then
+	elseif cl == 779 then
 		cw('n',"Just...")
-	elseif cl == 776 then
+	elseif cl == 780 then
 		updateNatsuki('1','2c')
 		cw('n',"Remember that...I can think these things sometimes, too!")
-	elseif cl == 777 then
+	elseif cl == 781 then
 		cw('n',"You know, when you're nice to me, it's...")
-	elseif cl == 778 then
+	elseif cl == 782 then
 		updateNatsuki('1','2a')
 		cw('n',"...")
-	elseif cl == 779 then
-		cw('n', "...Meaningful.")
-	elseif cl == 780 then
-		cw('mc',"Ah...I'm glad.")
-	elseif cl == 781 then
-		cw('bl',"Sensing Natsuki is satisfied, I start to hand the poem back to her.")
-	elseif cl == 782 then
-		cw('bl',"But as I do so, Natsuki takes my hands and pushes them back away.")
 	elseif cl == 783 then
-		cw('bl',"Her small, soft hands surprise me with their assertion.")
+		cw('n', "...Meaningful.")
 	elseif cl == 784 then
+		cw('mc',"Ah...I'm glad.")
+	elseif cl == 785 then
+		cw('bl',"Sensing Natsuki is satisfied, I start to hand the poem back to her.")
+	elseif cl == 786 then
+		cw('bl',"But as I do so, Natsuki takes my hands and pushes them back away.")
+	elseif cl == 787 then
+		cw('bl',"Her small, soft hands surprise me with their assertion.")
+	elseif cl == 788 then
 		updateNatsuki('1','2b')
 		cw('n',"I don't want it.")
-	elseif cl == 785 then
+	elseif cl == 789 then
 		cw('mc',"Eh...?")
-	elseif cl == 786 then
+	elseif cl == 790 then
 		cw('mc',"Why not?")
-	elseif cl == 787 then
+	elseif cl == 791 then
 		updateNatsuki('1','2c')
 		cw('n',"I just don't!")
-	elseif cl == 788 then
-		cw('n',"Jeez...")
-	elseif cl == 789 then
-		cw('bl',"I realize what Natsuki is doing.")
-	elseif cl == 790 then
-		cw('bl',"Unable to be honest, she's trying to give me the poem in a roundabout way.")
-	elseif cl == 791 then
-		cw('mc',"Well...in that case, I'm going to keep it.")
 	elseif cl == 792 then
-		cw('bl',"Instead of teasing her, I choose to go along with it.")
+		cw('n',"Jeez...")
 	elseif cl == 793 then
+		cw('bl',"I realize what Natsuki is doing.")
+	elseif cl == 794 then
+		cw('bl',"Unable to be honest, she's trying to give me the poem in a roundabout way.")
+	elseif cl == 795 then
+		cw('mc',"Well...in that case, I'm going to keep it.")
+	elseif cl == 796 then
+		cw('bl',"Instead of teasing her, I choose to go along with it.")
+	elseif cl == 797 then
 		updateNatsuki('1','t')
 		cw('n',"...Good.")
-	elseif cl == 794 then
+	elseif cl == 798 then
 		cw('n',"If you didn't, I would...")
-	elseif cl == 795 then
+	elseif cl == 799 then
 		cw('n',"...")
-	elseif cl == 796 then
+	elseif cl == 800 then
 		updateNatsuki('1','h')
 		cw('n',"Never mind...")
-	elseif cl == 797 then
+	elseif cl == 801 then
 		updateNatsuki('1','q')
 		cw('n',"Just...I'm glad that you want it.")
-	elseif cl == 798 then
+	elseif cl == 802 then
 		cw('bl',"Natsuki backpedals on her words and leaves it at that.")
-	elseif cl == 799 then
+	elseif cl == 803 then
 		cw('bl',"Despite her best efforts to hide her expression, I can see her faintly smiling to herself.")
-	elseif cl == 800 then
+	elseif cl == 804 then
 		cw('n',"That's all for now, so...")
-	elseif cl == 801 then
+	elseif cl == 805 then
 		updateNatsuki('1','s')
 		cw('n',"Go put it away before someone sees it, okay?")
-	elseif cl == 802 then
+	elseif cl == 806 then
 		cw('mc',"Ah...yeah.")
-	elseif cl == 803 then
+	elseif cl == 807 then
 		cw('mc',"I'll go do that.")
-	elseif cl == 804 then
+	elseif cl == 808 then
 		cw('bl',"With that, I return to my seat so that I can put away Natsuki's poem.")
-	elseif cl == 805 then
+	elseif cl == 809 then
 		poemfinish('n')
     end
 end
@@ -4473,7 +4473,7 @@ function ch2_s_good()
 end
 
 function ch3_s_bad()
-    currentname = "Yuri"
+    local currentname = "Yuri"
     if n_poemappeal[3] > y_poemappeal[3] then
         currentname = "Natsuki"
 	end

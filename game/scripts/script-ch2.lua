@@ -1,3 +1,8 @@
+local ch2_winner = poemwinner[2]
+if ch2_winner == "Sayori" then
+	ch2_winner = "Yuri"
+end
+
 function ch2script()
 	if cl == 1149 then
 		bgUpdate('club')
@@ -1332,11 +1337,6 @@ function ch2script()
 	elseif cl >= 1976 then
 		cl = 1975
 	end
-end
-
-ch2_winner = poemwinner[2]
-if ch2_winner == "Sayori" then
-	ch2_winner = "Yuri"
 end
 
 function ch2_end_sayori()

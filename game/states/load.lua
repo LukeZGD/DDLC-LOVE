@@ -28,6 +28,7 @@ function updateLoad()
 		--splash, title screen, gui elements, sfx
 		namebox = love.graphics.newImage('images/gui/namebox.png')
 		textbox = love.graphics.newImage('images/gui/textbox.png')
+		bgside = love.graphics.newImage('images/gui/bgside.png')
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 		guicheck = love.graphics.newImage('images/gui/check.png')
 		guicheckwhite = love.graphics.newImage('images/gui/checkwhite.png')
