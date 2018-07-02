@@ -43,9 +43,9 @@ function drawGame()
 		love.graphics.rectangle('fill', 139, 2, 32, 16 ) 
 		love.graphics.rectangle('fill', 237, 2, 32, 16 ) 
 		love.graphics.setColor(0,0,0,alpha)
-		love.graphics.print('Pause',50,2,0,1,1)
+		love.graphics.print('Menu',51,2,0,1,1)
 		love.graphics.print('Auto',142,2,0,1,1)
-		love.graphics.print('Skip',240,2,0,1,1) 
+		love.graphics.print('Skip',241,2,0,1,1) 
 	end
 	--drawdatetime()
 	if menu_enabled then menu_draw() end
@@ -86,7 +86,6 @@ function game_keypressed(key)
 	if event_enabled then
 		event_keypressed(key)
 	elseif key == 'y' then --pause menu
-		sfx1:play()
 		autotimer = 0
 		menu_enable('pause')
 	elseif key == 'b' then --auto on/off

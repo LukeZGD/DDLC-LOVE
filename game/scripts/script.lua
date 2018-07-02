@@ -27,7 +27,7 @@ function cw(p1, stext)
 	elseif p1 == 'bl' then
 		ct = ''
 	else
-		ct = gtext(12)
+		ct = 'Error'
 	end
 	
 	if stext == nil then stext = '' end

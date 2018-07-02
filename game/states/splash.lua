@@ -1,3 +1,5 @@
+local sidexpos = -120
+
 function drawSplash()
 	if state == 'splash1' then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
@@ -25,6 +27,7 @@ function drawSplash()
 		love.graphics.setBackgroundColor(255,255,255)
 		love.graphics.setColor(255, 255, 255, alpha)
 		love.graphics.draw(background_Image, posX, posY)
+		love.graphics.draw(bgside, sidexpos, 0)
 		love.graphics.draw(titlebg, 0, 0)
 		
 		drawBottomScreen()
@@ -53,6 +56,11 @@ function updateSplash(dt)
 		splashalpha(2)
 	elseif state == 'title' then
 		splashalpha(3)
+		if alpha > 64 then
+			sidexpos = math.min(sidexpos + 3.5, 0)
+		else
+			sidexpos = -120
+		end
 	end
 end
 

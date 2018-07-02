@@ -24,7 +24,7 @@ function menu_enable(m)
 	end
 	
 	if menu_type == 'mainyesno' then
-		menutext = 'Are you sure?'
+		menutext = 'Are you sure? This will lose unsaved progress.'
 		itemnames = {'Yes','No'}
 		
 	elseif menu_type == 'help' then
@@ -44,7 +44,7 @@ function menu_enable(m)
 		itemnames = {'Delete monika.chr','Delete sayori.chr','Delete natsuki.chr','Delete yuri.chr','Restore all'}
 	
 	elseif menu_type == 'pause' then
-		menutext = 'Pause Menu'
+		menutext = 'Game Menu'
 		itemnames = {'Save Game','Load Game','Main Menu','Settings','Help','Return'}
 	
 	elseif menu_type == 'savegame' then
@@ -189,8 +189,7 @@ function menu_confirm()
 	elseif menu_type == 'savegame' then  --save game confirm 
 		savenumber = savenum[m_selected-1]
 		savegame()
-		menu_previous = nil
-		menu_enabled = false
+		menu_enable(menu_previous)
 	
 	elseif menu_type == 'pause' then --pause menu options
 		menu_previous = 'pause'
