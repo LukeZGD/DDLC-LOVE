@@ -18,15 +18,15 @@ You can reset the save data and start over by deleting all of the files on that 
 New 3DS/2DS users should disable L2 Cache before playing this.
 
 ### Building (3DS):
-You cannot build DDLC-3DS on your own. you have to add it to LovePotion 1.0.9, replace the makefile and meta files, and compile it with the game folder.
+- You cannot build DDLC-3DS on your own. you have to add it to LovePotion 1.0.9, replace the makefile and meta files, and compile it with the game folder.
 
 ### Running:
-3DSX - [Running LovePotion (3DS)](https://github.com/TurtleP/LovePotion/wiki/Running-(3DS))
+- 3DSX - Download the source code (zip) from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases) and extract the folder with the .3dsx and the game folder in the 3ds folder of your SD card. You can run this with the homebrew launcher.
 
-CIA - Install the cia file from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases)
+- CIA - Install the cia file from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases)
 
-Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))
+- Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))
 
-PC - Drag the game folder to LÖVE 0.10.2
+- PC - Drag the game folder to LÖVE 0.10.2
 
 **Credits to TurtleP for LovePotion!**
