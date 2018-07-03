@@ -46,7 +46,7 @@ function updateSplash(dt)
 		if s_timer == 190 then
 			state = 'splash2'
 		elseif s_timer >= 470 then
-			state = 'title' 
+			changeState('title')
 		end
 	end
 	
