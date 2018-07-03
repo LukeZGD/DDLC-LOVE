@@ -61,7 +61,7 @@ function splashalpha(x)
 			alpha = 255
 			love.graphics.setBackgroundColor(0,0,0)
 		else
-			if state ~= 'title' then changeState('title') end
+			if menu_enabled ~= true then menu_enable('title') end
 			alpha = alpha + 5
 		end
 	--fade out to poemgame
