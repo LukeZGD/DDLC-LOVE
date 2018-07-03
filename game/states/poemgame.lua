@@ -1,3 +1,5 @@
+require 'scripts.poemwords'
+
 local poemword = 1
 local progress = '1'
 local word = {}
@@ -19,9 +21,9 @@ local n_y = 100
 local y_y = 100
 
 local p_y = 100
-local ground = 100    
-local y_velocity = 0       
-local jump_height = -300  
+local ground = 100
+local y_velocity = 0
+local jump_height = -300
 local gravity = -2250
 
 local menuselected = 1
@@ -97,24 +99,42 @@ function updatewordlist()
 end
 
 function poemgame()
+	hideAll()
+	collectgarbage()
+	collectgarbage()
+	
 	state = 'poemgame'
 	xaload = 0
-	if audio1 ~= '4' then audioUpdate('4') end
+	if persistent.playthrough <= 2 and audio1 ~= '4' then 
+		audioUpdate('4')
+		bgch2 = love.graphics.newImage('images/bg/notebook.png')
+	elseif persistent.playthrough == 3 and audio1 ~= 'ghostmenu' then 
+		audioUpdate('ghostmenu')
+	end
 	
-	hideAll()
-	bgch2 = love.graphics.newImage('images/bg/notebook.png')
 	if poemstate == 0 then 
 		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
 	end
-
-	require 'scripts.poemwords'
+	
+	poemword = 1
+	progress = '1'
+	sPoint = 0
+	nPoint = 0
+	yPoint = 0
+	
+	s_y = 100
+	n_y = 100
+	y_y = 100
+	y_velocity = 0
 	
 	math.randomseed(os.time())
 	math.random()
 	math.random()
 	math.random()
+	
 	poemwords()
 	updatewordlist()
+	menuselected = 1
 	menuselect()
 end
 
@@ -125,9 +145,7 @@ function drawPoemGame()
 	love.graphics.draw(bgch2, 0, 0)
 	
 	love.graphics.setColor(0,0,0)
-	love.graphics.setFont(font)
 	love.graphics.draw(guicheck,cursorX,cursorY)
-
 	if poemfont then love.graphics.setFont(poemfont) end
 	if poemword <= 20 then
 		love.graphics.print(progress .. '/20',245,25,0,1,1)
@@ -145,8 +163,10 @@ function drawPoemGame()
 	love.graphics.print(word[9],200,153,0,1,1)
 	love.graphics.print(word[10],200,188,0,1,1)
 	
-	love.graphics.setColor(255,255,255,alpha)
-	if poemstate == 0 then love.graphics.draw(poemtime,0,0) end
+	if poemstate == 0 then
+		love.graphics.setColor(255,255,255,alpha)
+		love.graphics.draw(poemtime,0,0)
+	end
 	
 	if menu_enabled then
 		love.graphics.setColor(255,255,255,128)
@@ -154,6 +174,7 @@ function drawPoemGame()
 	end
 	
 	drawBottomScreen()
+	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.draw(background_Image, posX, posY)
 	if xaload <= 35 then
 		if y_velocity == 0 then
@@ -204,7 +225,7 @@ function drawPoemGame()
 	love.graphics.rectangle('fill', 135,2,40,16) 
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
-	love.graphics.print('Menu',138,2)
+	love.graphics.print('Menu',139,2)
 	
 	if menu_enabled then menu_draw() end
 end
@@ -359,7 +380,6 @@ function poemgamekeypressed(key)
 		end
 	elseif key == 'y' then 
 		menu_enable('pause')
-		sfx1:play()	
 	end
 end
 
