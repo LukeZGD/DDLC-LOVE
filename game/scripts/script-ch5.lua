@@ -167,8 +167,6 @@ function ch5script()
 	elseif cl == 63 then
 		poem('poem_s3-a', 'sayori', 1)
 	elseif cl == 64 then
-		poem('poem_s3-b', 'sayori', 1)
-	elseif cl == 65 then
 		poem_disable(0)
 		scriptJump(66)
 	elseif cl == 66 then
@@ -406,6 +404,6 @@ function ch5script()
 	elseif cl == 161 then
 	event_initstart('endscreen')
 	elseif cl == 162 then
-	changeState('title',1)
+	changeState('title')
 	end
 end

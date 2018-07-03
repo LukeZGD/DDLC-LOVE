@@ -5,11 +5,6 @@ function changeState(cstate,x)
 		state = 'load'
 	elseif cstate == 'splash' then
 		splash = love.graphics.newImage('images/bg/splash.png')
-		if persistent.playthrough == 0 then
-			titlebg = love.graphics.newImage('images/gui/bg.png')
-		else
-			titlebg = love.graphics.newImage('images/gui/bg2.png')
-		end
 		states = require 'states.splash'
 		alpha = 0
 		xaload = 0
@@ -17,9 +12,12 @@ function changeState(cstate,x)
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
-		if x == 1 then
+		if persistent.playthrough > 0 then
 			titlebg = love.graphics.newImage('images/gui/bg2.png')
+		else
+			titlebg = love.graphics.newImage('images/gui/bg.png')
 		end
+		bgside = love.graphics.newImage('images/gui/bgside.png')
 		states =  require 'states.splash'
 		poem_enabled = false
 		state = 'title'
@@ -63,23 +61,25 @@ function changeState(cstate,x)
 		state = 'game'
 		alpha = 255
 	elseif cstate == 'newgame' then --first time newgame
-		timer = 501
 		cl = 10016
 		state = 'newgame'
 		alpha = 255
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		poemfont = love.graphics.newFont('fonts/Halogen',12)
-		s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-		s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
-		y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
-		y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
-		n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
-		n_sticker_2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+		if persistent.playthrough <= 2 then
+			s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+			s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+			y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
+			y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
+			n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
+			n_sticker_2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+		else
+			m_sticker_1 = love.graphics.newImage('images/gui/poemgame/m_sticker_1.png')
+		end
 		states = require 'states.poemgame'
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
-		timer = 501
 		endbg = love.graphics.newImage('images/gui/end.png')
 		s_killearly = love.graphics.newImage('images/cg/s_kill/s_kill_early.png')
 		state = 's_kill_early'
@@ -104,13 +104,23 @@ function changeState(cstate,x)
 			script_main = require 'scripts.script-ch5'
 		elseif chapter == 10 then
 			script_main = require 'scripts.script-ch10'
+		elseif chapter == 20 then
+			script_main = require 'scripts.script-ch20'
 		end
-		if poemwinner[chapter] == 'Sayori' then
-			script_exclusive = require 'scripts.script-exclusives-sayori'
-		elseif poemwinner[chapter] == 'Natsuki' then
-			script_exclusive = require 'scripts.script-exclusives-natsuki'
-		elseif poemwinner[chapter] == 'Yuri' then
-			script_exclusive = require 'scripts.script-exclusives-yuri'
+		if persistent.playthrough == 0 then
+			if poemwinner[chapter] == 'Sayori' then
+				script_exclusive = require 'scripts.script-exclusives-sayori'
+			elseif poemwinner[chapter] == 'Natsuki' then
+				script_exclusive = require 'scripts.script-exclusives-natsuki'
+			elseif poemwinner[chapter] == 'Yuri' then
+				script_exclusive = require 'scripts.script-exclusives-yuri'
+			end
+		elseif persistent.playthrough == 2 and chapter > 20 then
+			if poemwinner[chapter] == 'Natsuki' and chapter == 21 then
+				script_exclusive = require 'scripts.script-exclusives2-natsuki'
+			elseif poemwinner[chapter] == 'Yuri' or chapter > 21 then
+				script_exclusive = require 'scripts.script-exclusives2-yuri'
+			end
 		end
 		unloadAll('poemgame')
 	end
@@ -167,6 +177,8 @@ function unloadbg()
 	splash = nil
 	bgch = nil
 	bgch2 = nil
+	bgside = nil
+	titlebg = nil
 end
 
 function audioStop()

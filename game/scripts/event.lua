@@ -83,7 +83,7 @@ function event_draw()
 		love.graphics.setColor(255,255,255,255)
 		--love.graphics.print(event_timer)
 	else
-		drawnumbers()
+		drawNumbers()
 		drawTextBox()
 	end
 end
@@ -176,6 +176,7 @@ function event_end(arg1)
 		posX = -40
 		posY = 0
 	elseif arg1 == 'next' then
-		newgame_keypressed('a')
+		cl = cl + 1
+		xaload = 0
 	end
 end
