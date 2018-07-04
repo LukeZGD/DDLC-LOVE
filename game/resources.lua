@@ -17,7 +17,6 @@ function changeState(cstate,x)
 		else
 			titlebg = love.graphics.newImage('images/gui/bg.png')
 		end
-		bgside = love.graphics.newImage('images/gui/bgside.png')
 		states =  require 'states.splash'
 		poem_enabled = false
 		state = 'title'
@@ -177,7 +176,6 @@ function unloadbg()
 	splash = nil
 	bgch = nil
 	bgch2 = nil
-	bgside = nil
 	titlebg = nil
 end
 
