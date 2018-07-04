@@ -8,7 +8,7 @@ require 'menu'
 --end
 
 function love.load() 
-	dversion = 'v0.1.2-1'
+	dversion = 'v0.1.2-2'
 	dvertype = 'Release'
 	
 	love.graphics.setBackgroundColor(0,0,0)	

@@ -168,65 +168,65 @@ function ch5script()
 		poem('poem_s3-a', 'sayori', 1)
 	elseif cl == 64 then
 		poem_disable(0)
-		scriptJump(66)
-	elseif cl == 66 then
 	mc "Ah--"
-	elseif cl == 67 then
+	elseif cl == 65 then
     bl "What is this...?"
-	elseif cl == 68 then
+	elseif cl == 66 then
     bl "Reading the poem, I get a pit in my stomach."
-	elseif cl == 69 then
+	elseif cl == 67 then
 	updateMonika('1','d',80)
 	cw('m',player.."?")
-	elseif cl == 70 then
+	elseif cl == 68 then
     m "What's wrong?"
-	elseif cl == 71 then
+	elseif cl == 69 then
     mc "Ah, nothing..."
-	elseif cl == 72 then
+	elseif cl == 70 then
     bl "This poem feels completely different from everything else Sayori's written."
-	elseif cl == 73 then
+	elseif cl == 71 then
     bl "But more than that..."
-	elseif cl == 74 then
+	elseif cl == 72 then
     mc "I-I changed my mind!"
-	elseif cl == 75 then
+	elseif cl == 73 then
     mc "I'm going to go get Sayori, so..."
-	elseif cl == 76 then
+	elseif cl == 74 then
     m "Ah--"
-	elseif cl == 77 then
+	elseif cl == 75 then
 	updateMonika('1','b')
     m "Well, alright!"
-	elseif cl == 78 then
+	elseif cl == 76 then
     m "Try not to take too long, okay?"
 	
-	elseif cl == 79 then
+	elseif cl == 77 then
 	event_initstart('wipe','corridor')
+	elseif cl == 78 then
 	bl "I quickly leave the classroom."
-	elseif cl == 80 then
+	elseif cl == 79 then
     m "Don't strain yourself~"
-	elseif cl == 81 then
+	elseif cl == 80 then
     bl "Monika calls that out after me."
-	elseif cl == 82 then
+	elseif cl == 81 then
     bl "I quicken my pace."
 
-	elseif cl == 83 then
+	elseif cl == 82 then
 	event_initstart('wipe','residential')
-	elseif cl == 84 then
+	elseif cl == 83 then
 	bl "What was I thinking?"
-	elseif cl == 85 then
+	elseif cl == 84 then
     bl "I should have tried a little bit harder for Sayori."
-	elseif cl == 86 then
+	elseif cl == 85 then
     bl "It's not a big deal to at least wait for her, or help her wake up."
-	elseif cl == 87 then
+	elseif cl == 86 then
     bl "Even the simple gesture of walking her to school makes her really happy."
-	elseif cl == 88 then
+	elseif cl == 87 then
     bl "Besides..."
-	elseif cl == 89 then
+	elseif cl == 88 then
     bl "I told her yesterday that things will be the same as they always have been."
-	elseif cl == 90 then
+	elseif cl == 89 then
     bl "That's all she needs, and what I want to give her."
 	
-	elseif cl == 91 then
+	elseif cl == 90 then
 	event_initstart('wipe','house')
+	elseif cl == 91 then
     bl "I reach Sayori's house and knock on the door."
 	elseif cl == 92 then
     bl "I don't expect an answer, since she's not picking up her phone, either."
