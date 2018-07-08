@@ -696,7 +696,7 @@ function ch3_start_none()
 		bgUpdate('club')
 		cw('bl',"...")
 	elseif cl == 88 then
-		if audio1 ~= '3' then audioUpdate('3') end
+		audioUpdate('3')
 		updateMonika('4','b',80)
 		cw('m',"Okay, everyone!")
 	elseif cl == 89 then
@@ -1057,7 +1057,7 @@ function ch3_end()
 	elseif cl == 2248 then
 		cw('bl',"Everyone looks straight at me.")
 	elseif cl == 2249 then
-		if audio1 ~= '3' then audioUpdate('3') end
+		audioUpdate('3')
 		if help_monika == true then
 			menutext = "Do you have a preference, "..player.."?"
 			if help_sayori == nil then

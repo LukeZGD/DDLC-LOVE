@@ -1,18 +1,24 @@
+local gtext = glitchtext(48)
+local s_name = glitchtext(12)
+
 function ch10script()
-	if cl > 50 then
+	if cl > 150 then
 		scriptJump(1)
 	elseif cl == 1 then
-		bgUpdate('black')
-		audioUpdate('0')
-		bl "This is the end of DDLC-3DS v0.1.2 for now!"
+	bgUpdate('residential')
+	audioUpdate('2g')
+	cw(s_name,gtext)
 	elseif cl == 2 then
-		bl "Act 2 will be included in the next big release when it's done."
+	bl "I see an annoying girl running toward me from the distance, waving her arms in the air like she's totally oblivious to any attention she might draw to herself."
 	elseif cl == 3 then
-		updateMonika('1','a',80)
-		m "For more updates, go to:"
-		cb = "https://github.com/LukeZGD/DDLC-3DS or"
-		cc = "https://twitter.com/lukee_gd_"
-	elseif cl == 4 then
-		changeState('title')
+	cw('bl',"That girl is "..s_name..", my neighbor and good friend since we were children.")
+    elseif cl == 4 then
+	bl "You know, the kind of friend you'd never see yourself making today, but it just kind of works out because you've known each other for so long?"
+    elseif cl == 5 then
+	bl "We used to walk to school together on days like this, but starting around high school she would oversleep more and more frequently, and I would get tired of waiting up."
+    elseif cl == 6 then
+	bl "But if she's going to chase after me like this, I almost feel better off running away."
+    elseif cl == 7 then
+	cw('bl',"However, I just sigh and idle in front of the crosswalk and let "..s_name.." catch up to me.")
 	end
 end

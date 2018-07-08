@@ -209,22 +209,22 @@ function ch0script()
 		cw('bl','Eh? I glance around the room.')
 	elseif cl == 89 then
 		updateYuri('1','a',80)
-		cw('g1',"Welcome to the Literature Club. It's a pleasure meeting you.")
+		cw('Girl 1',"Welcome to the Literature Club. It's a pleasure meeting you.")
     elseif cl == 90 then 
-		cw('g1',"Sayori always says nice things about you.")
+		cw('Girl 1',"Sayori always says nice things about you.")
 	elseif cl == 91 then
 		updateNatsuki('4','c',20)
 		updateYuri('1','a',140)
-		cw('g2',"Seriously? You brought a boy?")
+		cw('Girl 2',"Seriously? You brought a boy?")
 	elseif cl == 92 then 
-		cw('g2',"Way to kill the atmosphere.")
+		cw('Girl 2',"Way to kill the atmosphere.")
 	elseif cl == 93 then
 		updateMonika('1','k',-40)
 		updateNatsuki('4','c',80)
 		updateYuri('1','a',200)
-		cw('g3',"Ah, " .. player .. "! What a nice surprise!")
+		cw('Girl 3',"Ah, " .. player .. "! What a nice surprise!")
 	elseif cl == 94 then 
-		cw('g3',"Welcome to the club!")
+		cw('Girl 3',"Welcome to the club!")
 	elseif cl == 95 then
 		updateMonika('1','a')
 		cw('mc',"...")
@@ -238,17 +238,17 @@ function ch0script()
 		hideMonika()
 		hideYuri()
 		updateNatsuki('2','c')
-		cw('g2',"What are you looking at?")
+		cw('Girl 2',"What are you looking at?")
 	elseif cl == 100 then 
-		cw('g2',"If you want to say something, say it.")
+		cw('Girl 2',"If you want to say something, say it.")
 	elseif cl == 101 then
 		cw('mc',"S-Sorry...")
 	elseif cl == 102 then
 		updateYuri('2','l',200)
-		cw('g1',"Natsuki...")
+		cw('Girl 1',"Natsuki...")
 	elseif cl == 103 then
 		updateNatsuki('5','s')
-		cw('g2',"Hmph.")
+		cw('Girl 2',"Hmph.")
 	elseif cl == 104 then
 		cw('bl','The girl with the sour attitude, whose name is apparently Natsuki, is one I don\'t recognize.')
 	elseif cl == 105 then

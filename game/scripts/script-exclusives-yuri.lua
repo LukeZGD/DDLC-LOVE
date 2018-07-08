@@ -627,6 +627,7 @@ function Yuri_exclusive_2_ch3()
 	elseif cl == 1410 then
 		audioUpdate('0')
 		bgUpdate('corridor')
+		hideMonika()
 		updateYuri('4','c')
 		cw('bl',"Once in the hallway, she suddenly puts her forehead against the wall.")
 	elseif cl == 1411 then
@@ -1054,6 +1055,7 @@ function Yuri_exclusive_2_ch3()
 		audioUpdate('0')
 		bgUpdate('club')
 		updateMonika('4','b',150)
+		cgHide()
 		cw('m',"Okay, everyone!")
 	elseif cl == 1608 then
 		cw('mc',"Uwa--")

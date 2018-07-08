@@ -18,10 +18,7 @@ function event_start(etype, arg1)
 	elseif event_type == 's_kill' then
 		settings.textspd = 150
 		textbox_enabled = false
-		if audio1 ~= 's_kill' then
-			xaload = 0
-			audioUpdate('s_kill')
-		end
+		audioUpdate('s_kill')
 	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
@@ -32,10 +29,7 @@ function event_start(etype, arg1)
 	elseif event_type == 'endscreen' then
 		hideAll()
 		textbox_enabled = false
-		if audio1 ~= '0' then
-			xaload = 0
-			audioUpdate('0')
-		end
+		audioUpdate('0')
 	end
 end
 
@@ -111,10 +105,7 @@ function event_update(dt)
 		if posY <= -80 then posY = 0 end
 		
 		if event_timer >= 21.125 then
-			if audio1 ~= 'd' then
-				xaload = 0
-				audioUpdate('d')
-			end
+			audioUpdate('d')
 			textbox_enabled = true
 			
 		elseif event_timer > 3.74 then
