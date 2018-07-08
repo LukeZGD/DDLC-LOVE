@@ -21,10 +21,7 @@ function changeState(cstate,x)
 		poem_enabled = false
 		state = 'title'
 		xaload = 0
-		if audio1 ~= '1' then
-			audioStop()
-			audioUpdate('1')
-		end
+		audioUpdate('1')
 		menu_enable('title',6)
 	elseif cstate == 'game' and x == 0 then
 		xaload = 0
@@ -127,7 +124,7 @@ function changeState(cstate,x)
 end
 
 function bgUpdate(bgx) --background changes
-	if xaload == 0 then
+	if bg1 ~= bgx then
 		unloadbg()
 		if bgx ~= 'black' and bgx ~= '' then
 			bgch = love.graphics.newImage('images/bg/'..bgx..'.png')
@@ -137,7 +134,7 @@ function bgUpdate(bgx) --background changes
 end
 
 function cgUpdate(cgx) --cg changes
-	if xaload == 0 then
+	if cg1 ~= cgx then
 		if cgx ~= '' then
 			cgch = love.graphics.newImage('images/cg/'..cgx..'.png')
 		end
@@ -146,7 +143,7 @@ function cgUpdate(cgx) --cg changes
 end
 
 function audioUpdate(audiox, looping) --audio changes
-	if xaload == 0 then
+	if audio1 ~= audiox then
 		audioStop()
 		if audiox ~= '' and audiox ~= '0' then
 			ddlct = love.audio.newSource('audio/bgm/'..audiox..'.ogg', 'stream')
