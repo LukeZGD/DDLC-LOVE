@@ -14,18 +14,12 @@ function cw(p1, stext)
 		ct = 'Monika'
 	elseif p1 == 'ny' then
 		ct = 'Nat & Yuri'
-	elseif p1 == 'g1' then
-		ct = 'Girl 1'
-	elseif p1 == 'g2' then
-		ct = 'Girl 2'
-	elseif p1 == 'g3' then
-		ct = 'Girl 3'
-	elseif p1 == '???' then
-		ct = '???'
 	elseif p1 == 'mc' then
 		ct = player
 	elseif p1 == 'bl' then
 		ct = ''
+	elseif p1 then
+		ct = p1
 	else
 		ct = 'Error'
 	end
@@ -154,7 +148,7 @@ function event_initstart(etype,arg1,arg2)
 	if xaload > 2 then event_start(etype,arg1,arg2) end
 end
 
-function gtext(range)
+function glitchtext(range)
 	local aaa
 	local gtextstring = ''
 	local chars = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',

@@ -8,8 +8,8 @@ require 'menu'
 --end
 
 function love.load() 
-	dversion = 'v0.1.2-1'
-	dvertype = 'Release'
+	dversion = 'v0.2.0'
+	dvertype = 'Test'
 	
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()

@@ -1,10 +1,6 @@
 function poemresponses()
 	if cl == 666 then
-		if audio1 ~= '5' then 
-			xaload = 0
-			audioUpdate('5')
-		end
-		
+		audioUpdate('5')
 		--set up menutext
 		if poemsread == 0 then
 			menutext = "Who should I show my poem to first?"
@@ -1727,7 +1723,7 @@ function ch3_y_good_shared()
 	if cl < 705 and cl ~= 666 then
 		scriptJump(705)
 	elseif cl == 705 then
-		if audio1 ~= '9' then audioUpdate('9') end
+		audioUpdate('9')
 		cw('bl',"Yuri smiles sadly.")
 	elseif cl == 706 then
 		updateYuri('1','u')
@@ -2330,7 +2326,7 @@ function ch2_n_bad()
 			cw('n',"It's trying too hard to be serious.")
 		elseif cl == 676 then
 			cw('mc',"Eh? What do you mean by that?")
-		elseif cl == 677 then
+		elseif cl >= 677 then
 			ch2_n_bad_sharedwithch3()
 		end
 	else
