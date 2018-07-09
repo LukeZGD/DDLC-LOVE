@@ -136,7 +136,7 @@ function changeState(cstate,x)
 end
 
 function bgUpdate(bgx, forceload) --background changes
-	if bg1 ~= bgx or forceload then
+	if xaload == 0 or forceload then
 		unloadbg()
 		if bgx ~= 'black' and bgx ~= '' then
 			bgch = love.graphics.newImage('images/bg/'..bgx..'.png')
