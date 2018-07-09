@@ -45,7 +45,9 @@ function changeState(cstate,x)
 			changeState('title')
 		else
 			loadAll()
-			loadupdate()
+			bgUpdate(bg1, true)
+			audioUpdate(audio1, true)
+			cgUpdate(cg1, true)
 			xaload = 0
 			state = 'game'
 			poem_enabled = false
@@ -76,10 +78,20 @@ function changeState(cstate,x)
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
+		states = require 'states.splash'
 		endbg = love.graphics.newImage('images/gui/end.png')
 		s_killearly = love.graphics.newImage('images/cg/s_kill/s_kill_early.png')
 		state = 's_kill_early'
 		audioUpdate('s_kill_early')
+	elseif cstate == 'ghostmenu' then
+		states = require 'states.splash'
+		endbg = love.graphics.newImage('images/gui/end.png')
+		titlebg = love.graphics.newImage('images/gui/bg_ghost.png')
+		state = 'ghostmenu'
+		audioUpdate('ghostmenu')
+	elseif cstate == 'poem_special' then
+		states = require 'states.poem_special'
+		poem_special_i(x)
 	end
 	
 	--load game state and scripts
@@ -112,9 +124,9 @@ function changeState(cstate,x)
 				script_exclusive = require 'scripts.script-exclusives-yuri'
 			end
 		elseif persistent.playthrough == 2 and chapter > 20 then
-			if poemwinner[chapter] == 'Natsuki' and chapter == 21 then
+			if poemwinner[chapter-20] == 'Natsuki' and chapter == 21 then
 				script_exclusive = require 'scripts.script-exclusives2-natsuki'
-			elseif poemwinner[chapter] == 'Yuri' or chapter > 21 then
+			elseif poemwinner[chapter-20] == 'Yuri' or chapter > 21 then
 				script_exclusive = require 'scripts.script-exclusives2-yuri'
 			end
 		end
@@ -123,8 +135,8 @@ function changeState(cstate,x)
 	menu_previous = nil
 end
 
-function bgUpdate(bgx) --background changes
-	if bg1 ~= bgx then
+function bgUpdate(bgx, forceload) --background changes
+	if bg1 ~= bgx or forceload then
 		unloadbg()
 		if bgx ~= 'black' and bgx ~= '' then
 			bgch = love.graphics.newImage('images/bg/'..bgx..'.png')
@@ -133,8 +145,8 @@ function bgUpdate(bgx) --background changes
 	bg1 = bgx
 end
 
-function cgUpdate(cgx) --cg changes
-	if cg1 ~= cgx then
+function cgUpdate(cgx, forceload) --cg changes
+	if cg1 ~= cgx or forceload then
 		if cgx ~= '' then
 			cgch = love.graphics.newImage('images/cg/'..cgx..'.png')
 		end
@@ -142,8 +154,8 @@ function cgUpdate(cgx) --cg changes
 	cg1 = cgx
 end
 
-function audioUpdate(audiox, looping) --audio changes
-	if audio1 ~= audiox then
+function audioUpdate(audiox, forceload, looping) --audio changes
+	if audio1 ~= audiox or forceload then
 		audioStop()
 		if audiox ~= '' and audiox ~= '0' then
 			ddlct = love.audio.newSource('audio/bgm/'..audiox..'.ogg', 'stream')
@@ -339,6 +351,8 @@ function loadMonika()
 	elseif m_Set.a=='4' then
 		ml = love.graphics.newImage('images/monika/2l.png')
 		mr = love.graphics.newImage('images/monika/2r.png')
+	elseif m_Set.a~='' then
+		ml = love.graphics.newImage('images/monika/'..m_Set.a..'.png')
 	end
 	
 	if m_Set.b~='' then

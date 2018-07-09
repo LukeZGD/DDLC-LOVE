@@ -52,9 +52,12 @@ function poemgamefinish()
 	local POEM_LIKE_THRESHOLD = 45
 	
 	--add 1 to chapter number
-	chapter = chapter + 1
-	pchapter = chapter
-	if persistent.playthrough == 2 then pchapter = pchapter - 20 end
+	if persistent.playthrough <= 2 then chapter = chapter + 1 end
+	if persistent.playthrough == 2 then 
+		pchapter = chapter - 20
+	else
+		pchapter = chapter
+	end
 	
 	--determine poemwinner
 	if persistent.playthrough == 0 then
@@ -74,9 +77,9 @@ function poemgamefinish()
 		elseif maxpoint == nPoint then poemwinner[pchapter] = 'Natsuki'
 		elseif maxpoint == yPoint then poemwinner[pchapter] = 'Yuri'
 		end
-	else
+	elseif persistent.playthrough == 2 then
 		if nPoint > yPoint then poemwinner[pchapter] = 'Natsuki'
-		else poemappeal[pchapter] = 'Yuri'
+		else poemwinner[pchapter] = 'Yuri'
 		end
 	end
 	
@@ -105,10 +108,10 @@ function poemgame()
 	
 	state = 'poemgame'
 	xaload = 0
-	if persistent.playthrough <= 2 and audio1 ~= '4' then 
+	if persistent.playthrough <= 2 then 
 		audioUpdate('4')
 		bgch2 = love.graphics.newImage('images/bg/notebook.png')
-	elseif persistent.playthrough == 3 and audio1 ~= 'ghostmenu' then 
+	elseif persistent.playthrough == 3 then 
 		audioUpdate('ghostmenu')
 	end
 	
@@ -192,10 +195,10 @@ function drawPoemGame()
 				y_y = p_y
 			end
 		elseif persistent.playthrough == 2 then
-			if npAdd == 3 or npAdd == 2 then
+			if npAdd == 3 or (spAdd == 3 and npAdd == 2) then
 				n_sticker = n_sticker_2
 				n_y = p_y
-			elseif ypAdd == 3 or ypAdd == 2 then
+			elseif ypAdd == 3 or (spAdd == 3 and ypAdd == 2) then
 				y_sticker = y_sticker_2
 				y_y = p_y
 			end

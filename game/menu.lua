@@ -59,8 +59,8 @@ function menu_enable(m)
 	else
 		menu_items = #itemnames + 1
 	end
-	m_selected = 2 
-	m_select()
+	
+	m_select(2)
 end
 
 function menu_draw()
@@ -108,7 +108,7 @@ function menu_draw()
 		if menu_items >= 6 then love.graphics.print(choices[5],17, 145) end
 		if menu_items >= 7 then love.graphics.print(choices[6],17, 170) end
 		if menu_items >= 8 then love.graphics.print(choices[7],17, 195) end
-		if menu_items >= 8 then love.graphics.print(choices[8],17, 220) end
+		if menu_items >= 9 then love.graphics.print(choices[8],17, 220) end
 	else
 		if menu_items >= 2 then love.graphics.print(itemnames[1],17, 45) end
 		if menu_items >= 3 then love.graphics.print(itemnames[2],17, 70) end
@@ -117,7 +117,7 @@ function menu_draw()
 		if menu_items >= 6 then love.graphics.print(itemnames[5],17, 145) end
 		if menu_items >= 7 then love.graphics.print(itemnames[6],17, 170) end
 		if menu_items >= 8 then love.graphics.print(itemnames[7],17, 195) end
-		if menu_items >= 8 then love.graphics.print(itemnames[8],17, 220) end
+		if menu_items >= 9 then love.graphics.print(itemnames[8],17, 220) end
 	end
 	if menu_previous then love.graphics.print('Back',17, 220) end
 	
