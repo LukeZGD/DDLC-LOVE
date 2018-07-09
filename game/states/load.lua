@@ -18,7 +18,7 @@ function updateLoad()
 		love.graphics.setFont(font)
 	
 	elseif l_timer == 96 then
-		m1 = love.graphics.newFont('fonts/m1',14)
+		m1 = love.graphics.newFont('fonts/m1',12)
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
@@ -42,7 +42,7 @@ function updateLoad()
 		l_timer = 99
 		local file = love.filesystem.isFile('persistent')
 		if file then
-			checkchr()
+			checkLoad()
 		else
 			changeState('newgame')
 		end
@@ -50,5 +50,21 @@ function updateLoad()
 		love.graphics.setBackgroundColor(255,255,255)
 		l_timer = 100
 		splashalpha(6)
+	end
+end
+
+function checkLoad()
+	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
+		loadgame()
+		loadpersistent()
+	end
+	
+	local ghostmenu_chance = math.random(0, 63)
+	if persistent.schr == 0 and persistent.playthrough == 0 then
+		changeState('s_kill_early')
+	elseif ghostmenu_chance == 0 and persistent.playthrough == 2 then
+		changeState('ghostmenu')
+	else
+		l_timer = 100
 	end
 end
