@@ -93,6 +93,15 @@ function splashalpha(x)
 		else	
 			alpha = alpha - 2
 		end
+	--fade out then go to next 2 lines
+	elseif x == 8 then
+		if alpha <= 0 then
+			cl = cl + 2
+			xaload = 0
+			alpha = 255
+		else
+			alpha = alpha - 3
+		end
 	end
 end
 
@@ -307,11 +316,11 @@ function hideAll()
 end
 
 function drawSayori(a,b)
-	if a=='5a' or a=='5b' or a=='5c' or a=='5d' or a=='f_1b' then
-		if sl then love.graphics.draw(sl, s_Set.x, s_Set.y) end
-	elseif a~='' then
+	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
 		if sl then love.graphics.draw(sl, s_Set.x, s_Set.y) end
 		if sr then love.graphics.draw(sr, s_Set.x, s_Set.y) end
+	elseif a~='' then
+		if sl then love.graphics.draw(sl, s_Set.x, s_Set.y) end
 	end
 	
 	if b~='' then
@@ -320,11 +329,11 @@ function drawSayori(a,b)
 end
 
 function drawYuri(a,b)
-	if a=='4' or a=='4b' or a=='f_2bs' then
-		if yl then love.graphics.draw(yl, y_Set.x, y_Set.y) end
-	elseif a~='' then
+	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' then
 		if yl then love.graphics.draw(yl, y_Set.x, y_Set.y) end
 		if yr then love.graphics.draw(yr, y_Set.x, y_Set.y) end
+	elseif a~='' then
+		if yl then love.graphics.draw(yl, y_Set.x, y_Set.y) end
 	end
 
 	if b~='' then
@@ -333,7 +342,7 @@ function drawYuri(a,b)
 end
 
 function drawNatsuki(a,b)
-	if a=='5' or a=='5b' then --set natsuki's head x and y
+	if a=='5' or a=='5b' then --set natsuki's head x and y pos
 		nxh = n_Set.x + 4
 		nyh = n_Set.y + 6
 	else
@@ -345,20 +354,20 @@ function drawNatsuki(a,b)
 		if n_a then love.graphics.draw(n_a, nxh, nyh) end
 	end
 	
-	if a == '5' or a == '5b' or a == 'f_1' or a == 'f_1b' then
-		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
-	elseif a~='' then
+	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
 		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
 		if nr then love.graphics.draw(nr, n_Set.x, n_Set.y) end
+	elseif a~='' then
+		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
 	end
 end
 
 function drawMonika(a,b)
-	if a=='5a' or a=='5b' then
-		if ml then love.graphics.draw(ml, m_Set.x, m_Set.y) end
-	elseif a~='' then
+	if a=='1' or a=='2' or a=='3' or a=='4' then
 		if ml then love.graphics.draw(ml, m_Set.x, m_Set.y) end
 		if mr then love.graphics.draw(mr, m_Set.x, m_Set.y) end
+	elseif a~='' then
+		if ml then love.graphics.draw(ml, m_Set.x, m_Set.y) end
 	end
 	
 	if b~='' then

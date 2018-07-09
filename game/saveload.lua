@@ -109,12 +109,14 @@ function loadpersistent()
 	settingsfile()
 end
 
-function loadupdate()
-	xaload = 0
-	audioStop()
-	bgUpdate(bg1)
-	audioUpdate(audio1)
-	cgUpdate(cg1)
+function savespecialpoems()
+	local poemsfile = 'special_poems = {'..special_poems[1]..','..special_poems[2]..','..special_poems[3]..'}'
+	love.filesystem.write('special_poems', poemsfile)
+end
+
+function loadspecialpoems()
+	local poemsfile = loadstring(love.filesystem.read('special_poems'))
+	poemsfile()
 end
 
 function checkchr()
@@ -123,8 +125,11 @@ function checkchr()
 		loadpersistent()
 	end
 	
+	local ghostmenu_chance = math.random(0, 63)
 	if persistent.schr == 0 and persistent.playthrough == 0 then
 		changeState('s_kill_early')
+	elseif ghostmenu_chance == 0 and persistent.playthrough == 2 then
+		changeState('ghostmenu')
 	else --load title screen
 		l_timer = 100
 	end

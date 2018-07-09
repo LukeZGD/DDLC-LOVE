@@ -1,12 +1,31 @@
 local event_timer = 0
 local event_type
-local s_killzoom_timer = 0
-local s_killzoom_x = 0
-local sg_alpha = 0
-local posSpeed = 0
+local eventvar1 = 0
+local eventvar2 = 0
+local eventvar3 = 0
+local eventvar4 = 0
 
-local w_alpha = 0
-local bgch_change
+--[[
+Info about the eventvar stuff
+The eventvars can be used for anything that will be coded here
+
+s_kill:
+- eventvar 1 is the timer for eventvar 2, on when it will go left/right
+- eventvar 2 is the x pos of s_killzoom
+- eventvar 3 is the alpha of splash_glitch
+- eventvar 4 is the speed of background_Image
+
+wipe:
+- eventvar 1 is the alpha of the black rectangle that un/covers the bg1
+- eventvar 2 is the bg that will replace the current
+
+endscreen:
+- eventvar 1 - alpha of endscreen
+
+s_glitch:
+- eventvar 1 - random number from 1 to 16, determines eventvar 2
+- eventvar 2 - one of 2 s_glitch sprites (randomized by eventvar 1)
+]]
 
 function event_start(etype, arg1)
 	event_enabled = true
@@ -22,7 +41,7 @@ function event_start(etype, arg1)
 	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
-		if arg1 then bgch_change = arg1 end
+		if arg1 then eventvar2 = arg1 end
 	elseif event_type == 'black' then
 		textbox_enabled = true
 		bgimg_disabled = true
@@ -30,6 +49,13 @@ function event_start(etype, arg1)
 		hideAll()
 		textbox_enabled = false
 		audioUpdate('0')
+	elseif event_type == 's_glitch' then
+		bgimg_disabled = false
+		textbox_enabled = false
+		audioUpdate('2gs')
+	elseif event_type == 'm_glitch1' then
+		bgimg_disabled = false
+		textbox_enabled = false
 	end
 end
 
@@ -46,7 +72,7 @@ function event_draw()
 		love.graphics.draw(s_kill2, 75, 0)
 	elseif event_type == 's_killzoom' then
 		love.graphics.draw(s_kill_bgzoom)
-		love.graphics.draw(s_killzoom, s_killzoom_x)
+		love.graphics.draw(s_killzoom, eventvar2)
 		if event_timer >= 10 then
 			love.graphics.setColor(255,255,255,64)
 			love.graphics.draw(exception)
@@ -54,31 +80,45 @@ function event_draw()
 			love.graphics.setColor(255,255,255,128)
 			love.graphics.draw(background_Image, posX, posY)
 		elseif event_timer >= 3.75 then
-			love.graphics.setColor(255,255,255,sg_alpha)
+			love.graphics.setColor(255,255,255,eventvar3)
 			love.graphics.draw(splash_glitch)
 		end
 	end
 	
 	if event_type == 'wipe' then
 		love.graphics.draw(bgch)
-		love.graphics.setColor(0,0,0,w_alpha)
+		love.graphics.setColor(0,0,0,eventvar1)
 		love.graphics.rectangle('fill',0,0,400,240)
 	end
 	
 	if event_type == 'endscreen' then
-		love.graphics.setColor(255,255,255,w_alpha)
+		love.graphics.setColor(255,255,255,eventvar1)
 		love.graphics.draw(bgch)
 	end
 	
+	if event_type == 's_glitch' then
+		if event_timer < 3.5 then
+			love.graphics.draw(bgch)
+			love.graphics.draw(eventvar2, 80)
+		end
+	end
+	
+	if event_type == 'm_glitch1' then
+		love.graphics.draw(bgch)
+		love.graphics.draw(ml, 100)
+	end
+	
 	drawBottomScreen()
-	if textbox_enabled == false then
-		love.graphics.setColor(0,0,0)
-		love.graphics.rectangle('fill', -40, 0, 400, 240)
-		love.graphics.setColor(255,255,255,255)
-		--love.graphics.print(event_timer)
-	else
+	if bgimg_disabled ~= true then
+		love.graphics.setColor(255,255,255)
+		love.graphics.draw(background_Image, posX, posY)
+	end
+	
+	if textbox_enabled then
 		drawNumbers()
 		drawTextBox()
+	else
+		--love.graphics.print(event_timer)
 	end
 end
 
@@ -90,17 +130,17 @@ function event_update(dt)
 	elseif event_type == 's_kill' and event_timer > 3.75 then event_next()
 	elseif event_type == 's_kill2' and event_timer > 0.26 then event_next()
 	elseif event_type == 's_killzoom' then
-		s_killzoom_timer = s_killzoom_timer + 1
-		if s_killzoom_timer >= 400 then
-			s_killzoom_timer = 0
-		elseif s_killzoom_timer > 200 then
-			s_killzoom_x = s_killzoom_x - 0.0225
+		eventvar1 = eventvar1 + 1
+		if eventvar1 >= 400 then
+			eventvar1 = 0
+		elseif eventvar1 > 200 then
+			eventvar2 = eventvar2 - 0.0225
 		else
-			s_killzoom_x = s_killzoom_x + 0.0225
+			eventvar2 = eventvar2 + 0.0225
 		end
 		
-		posX = posX - 0.25*posSpeed
-		posY = posY - 0.25*posSpeed
+		posX = posX - 0.25*eventvar4
+		posY = posY - 0.25*eventvar4
 		if posX <= -80 then posX = 0 end
 		if posY <= -80 then posY = 0 end
 		
@@ -109,29 +149,58 @@ function event_update(dt)
 			textbox_enabled = true
 			
 		elseif event_timer > 3.74 then
-			sg_alpha = math.min(sg_alpha+7, 128)
-			posSpeed = posSpeed + 0.175
+			eventvar3 = math.min(eventvar3+7, 128)
+			eventvar4 = eventvar4 + 0.175
 		end
 	end
 	
 	--wipe timers
 	if event_type == 'wipe' and event_timer > 1.5 then event_end('next')
 	elseif event_type == 'wipe' and event_timer >= 1 then
-		w_alpha = math.max(w_alpha - 15, 0)
+		eventvar1 = math.max(eventvar5 - 15, 0)
 	elseif event_type == 'wipe' and event_timer > 0.5 then
-		if bgch_change and bg1 ~= bgch_change then
-			xaload = 0
-			bgUpdate(bgch_change)
+		if eventvar2 and bg1 ~= eventvar2 then
+			bgUpdate(eventvar2)
 		end
 	elseif event_type == 'wipe' and event_timer < 0.5 then
-		w_alpha = math.min(w_alpha + 15, 255)
+		eventvar1 = math.min(eventvar5 + 15, 255)
 	end
 	
+	--end screen
 	if event_type == 'endscreen' and event_timer > 3 then event_end('next')
 	elseif event_type == 'endscreen' and event_timer >= 2.5 then
-		w_alpha = math.max(w_alpha - 7, 0)
+		eventvar1 = math.max(eventvar1 - 7, 0)
 	elseif event_type == 'endscreen' and event_timer <= 0.5 then
-		w_alpha = math.min(w_alpha + 7, 255)
+		eventvar1 = math.min(eventvar1 + 7, 255)
+	end
+	
+	--s_glitch
+	if event_type == 's_glitch' then
+		if event_timer > 7 then
+			persistent.playthrough = 2
+			savepersistent()
+			special_poems = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
+			savespecialpoems()
+			chapter = 20
+			cl = 1
+			changeState('game',1)
+			event_end('s_glitch')
+		elseif event_timer < 2 then
+			eventvar1 = math.random(1, 16)
+			if eventvar1 <= 8 then
+				eventvar2 = s_glitch2
+			else
+				eventvar2 = s_glitch1
+			end
+		end
+	end
+	
+	--m_glitch
+	if event_type == 'm_glitch1' then
+		xaload = xaload + 1
+		if event_timer > 0.8 then
+			event_end('next')
+		end
 	end
 end
 
@@ -154,7 +223,7 @@ function event_end(arg1)
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	bgch_change = nil
+	eventvar2 = nil
 	
 	if arg1 == 's_kill' then
 		s_kill = nil
@@ -169,5 +238,8 @@ function event_end(arg1)
 	elseif arg1 == 'next' then
 		cl = cl + 1
 		xaload = 0
+	elseif arg1 == 's_glitch' then
+		s_glitch1 = nil
+		s_glitch2 = nil
 	end
 end

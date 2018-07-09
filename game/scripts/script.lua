@@ -139,6 +139,11 @@ function event_init(etype)
 			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
 		elseif etype == 'endscreen' then
 			bgch = love.graphics.newImage('images/gui/end.png')
+		elseif etype == 's_glitch' then
+			s_glitch1 = love.graphics.newImage('images/sayori/glitch1.png')
+			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
+		elseif etype == 'm_glitch1' then
+			ml = love.graphics.newImage('images/monika/g2.png')
 		end
 	end
 end
