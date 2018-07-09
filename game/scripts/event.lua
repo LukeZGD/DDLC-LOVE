@@ -193,6 +193,8 @@ function event_update(dt)
 				eventvar2 = s_glitch1
 			end
 		end
+		posX = -40
+		posY = 0
 	end
 	
 	--m_glitch
@@ -201,6 +203,8 @@ function event_update(dt)
 		if event_timer > 0.8 then
 			event_end('next')
 		end
+		posX = -40
+		posY = 0
 	end
 end
 

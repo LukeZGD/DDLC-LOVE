@@ -96,8 +96,7 @@ function splashalpha(x)
 	--fade out then go to next 2 lines
 	elseif x == 8 then
 		if alpha <= 0 then
-			cl = cl + 2
-			xaload = 0
+			scriptJump(cl + 2)
 			alpha = 255
 		else
 			alpha = alpha - 3
@@ -354,7 +353,7 @@ function drawNatsuki(a,b)
 		if n_a then love.graphics.draw(n_a, nxh, nyh) end
 	end
 	
-	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
+	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' or a=='f_1' or a=='f_1b' then
 		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
 		if nr then love.graphics.draw(nr, n_Set.x, n_Set.y) end
 	elseif a~='' then
