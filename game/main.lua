@@ -22,6 +22,7 @@ function love.load()
 	posX = -40
 	posY = 0
 	menu_enabled = false
+	math.randomseed(os.time())
 	
 	--os detection
 	global_os = love.system.getOS()
@@ -49,13 +50,11 @@ function love.draw()
 	elseif state == 'poemgame' then
 		drawPoemGame()
 	elseif state == 's_kill_early' then --early act 1 end
-		drawTopScreen()
-		love.graphics.setBackgroundColor (245,245,245)
-		love.graphics.setColor(255, 255, 255)
-		love.graphics.draw(endbg,0,0)
-		drawBottomScreen()
-		love.graphics.setColor(255, 255, 255)
-		love.graphics.draw(s_killearly,32,0)
+		drawSplashspec('s_kill_early')
+	elseif state == 'ghostmenu' then
+		drawSplashspec('ghostmenu')
+	elseif state == 'poem_special' then
+		drawpoem_special()
 	end
 	
 	if global_os ~= 'Horizon' then
@@ -116,12 +115,16 @@ function love.update(dt)
 		updateGame(dt)
 	elseif state == 'poemgame' then
 		updatePoemGame(dt)
+	elseif state == 'poem_special' then
+		updatepoem_special(dt)
+	elseif state == 'ghostmenu' then
+		updateSplashspec(dt)
 	end
 end
 
 function love.keypressed(key)
 	if menu_enabled ~= true then
-		if state == 'splash1' or state == 'splash2' then
+		if state == 'splash1' or state == 'splash2' or state == 's_kill_early' or state == 'ghostmenu' then
 			splash_keypressed(key)
 		elseif state == 'game' then
 			game_keypressed(key)
@@ -129,6 +132,8 @@ function love.keypressed(key)
 			newgame_keypressed(key)
 		elseif state == 'poemgame' then
 			poemgamekeypressed(key)
+		elseif state == 'poem_special' then
+			poem_special_keypressed(key)
 		end
 	elseif menu_enabled then
 		menu_keypressed(key)

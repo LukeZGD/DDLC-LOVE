@@ -1,3 +1,20 @@
+local random_msgchance = math.random(0, 3)
+local splash_messages = {
+	"You are my sunshine,\nMy only sunshine",
+    "I missed you.",
+    "Play with me",
+    "It's just a game, mostly.",
+    "This game is not suitable for children\nor those who are easily disturbed?",
+    "sdfasdklfgsdfgsgoinrfoenlvbd",
+    "null",
+    "I have granted kids to hell",
+    "PM died for this.",
+    "It was only partially your fault.",
+    "This game is not suitable for children\nor those who are easily dismembered.",
+    "Don't forget to backup Monika's character file.";
+	}
+local random_msg = math.random(1, #splash_messages)
+
 function drawSplash()
 	if state == 'splash1' then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
@@ -11,8 +28,12 @@ function drawSplash()
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
 		love.graphics.setColor(0,0,0, alpha)
-		love.graphics.print('This game is not suitable for children', 95, 100)
-		love.graphics.print('  or those who are easily disturbed.', 95, 116)
+		if persistent.playthrough == 2 and random_msgchance == 0 then
+			love.graphics.print(splash_messages[random_msg], 95, 100)
+		else
+			love.graphics.print('This game is not suitable for children', 95, 100)
+			love.graphics.print('  or those who are easily disturbed.', 95, 116)
+		end
 		love.graphics.print('Unofficial port by LukeeGD', 5, 220)
 		
 	elseif state == 'splash3' then --Just Monika. (ahaha)
@@ -57,7 +78,45 @@ function updateSplash(dt)
 end
 
 function splash_keypressed(key)
-	if key == 'a' or key == 'start' then
+	if (key == 'a' or key == 'start') and persistent.playthrough == 0 then
 		changeState('title')
+	elseif key == 'y' and (state == 'ghostmenu' or state == 's_kill_early') then
+		game_quit()
+	end
+end
+
+function drawSplashspec(spec)
+	if spec == 's_kill_early' then
+		drawTopScreen()
+		love.graphics.setBackgroundColor(245,245,245)
+		love.graphics.setColor(255,255,255)
+		love.graphics.draw(endbg,0,0)
+		drawBottomScreen()
+		love.graphics.setColor(255,255,255)
+		love.graphics.draw(s_killearly,32,0)
+	elseif spec == 'ghostmenu' then
+		drawTopScreen()
+		love.graphics.setColor(255,255,255,alpha)
+		if s_timer > 2.1 then
+			love.graphics.setBackgroundColor(255,255,255)
+			love.graphics.draw(titlebg)
+		else
+			love.graphics.setBackgroundColor(0,0,0)
+			love.graphics.draw(endbg)
+		end
+		drawBottomScreen()
+		love.graphics.setBackgroundColor(0,0,0)
+	end
+end
+
+function updateSplashspec(dt)
+	s_timer = s_timer + dt
+	
+	if s_timer > 2.1 then
+		alpha = math.min(alpha + 4, 255)
+	elseif s_timer > 2 then
+		alpha = 0
+	elseif s_timer <= 2 then
+		alpha = math.min(alpha + 4, 255)
 	end
 end

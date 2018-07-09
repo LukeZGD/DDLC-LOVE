@@ -20,5 +20,8 @@ function ch10script()
 	bl "But if she's going to chase after me like this, I almost feel better off running away."
     elseif cl == 7 then
 	cw('bl',"However, I just sigh and idle in front of the crosswalk and let "..s_name.." catch up to me.")
+	event_init('s_glitch')
+	elseif cl == 8 then
+	event_start('s_glitch')
 	end
 end
