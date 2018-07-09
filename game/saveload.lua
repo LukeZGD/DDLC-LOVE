@@ -118,19 +118,3 @@ function loadspecialpoems()
 	local poemsfile = loadstring(love.filesystem.read('special_poems'))
 	poemsfile()
 end
-
-function checkchr()
-	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
-		loadgame()
-		loadpersistent()
-	end
-	
-	local ghostmenu_chance = math.random(0, 63)
-	if persistent.schr == 0 and persistent.playthrough == 0 then
-		changeState('s_kill_early')
-	elseif ghostmenu_chance == 0 and persistent.playthrough == 2 then
-		changeState('ghostmenu')
-	else --load title screen
-		l_timer = 100
-	end
-end
