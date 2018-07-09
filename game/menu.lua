@@ -97,7 +97,7 @@ function menu_draw()
 		love.graphics.setColor(0,0,0) 
 		love.graphics.draw(guicheck,cX,cY)
 	end
-	love.graphics.print(menutext,16, 20)
+	love.graphics.print(menutext,16, 14)
 	
 	love.graphics.setColor(0,0,0)
 	if menu_type == 'choice' then
@@ -134,7 +134,7 @@ function menu_draw()
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		love.graphics.print('Page '..pagenum..' of 10',220,20)
+		love.graphics.print('Page '..pagenum..' of 10',220,14)
 	elseif menu_type == 'choice' then
 		--drawdatetime()
 	end	

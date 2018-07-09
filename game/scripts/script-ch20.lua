@@ -198,7 +198,7 @@ function ch20script()
 	
 	elseif cl == 80 then
 	if autoskip > 0 or m_chance > 0 then
-		updateMonika('3','b',-40)
+		updateMonika('3','b',-40,0)
 	elseif m_chance == 0 then
 		updateMonika('g1')
 		m_Set.x = math.random(-40, -20)
@@ -215,7 +215,7 @@ function ch20script()
     m "I'm back~!"
 	
 	elseif cl == 81 then
-	updateMonika('3','b',-40)
+	updateMonika('3','b',-40,0)
 	updateYuri('2','t',200)
 	sfxplay('glitch1s')
 	cw('Girl 1',"Eh?")
@@ -764,7 +764,7 @@ function ch20script()
 	end
 	elseif cl >= 297 then
 	cl = 297
-	--splashalpha(4)
+	splashalpha(4)
 	
 	--1: x=80
 	--2: x=20 x=140 ..or.. x=10 x=150
