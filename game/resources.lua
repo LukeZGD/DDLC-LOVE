@@ -52,6 +52,7 @@ function changeState(cstate,x)
 			state = 'game'
 			poem_enabled = false
 			menu_enabled = false
+			if audio1 == '4' or audio1 == '4a' then alpha = 0 end
 		end
 	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
 		cl = cl + 2

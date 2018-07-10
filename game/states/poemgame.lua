@@ -46,11 +46,6 @@ function addpoints()
 end
 
 function poemgamefinish()
-	local unsorted_pointlist = {}
-	local maxpoint
-	local POEM_DISLIKE_THRESHOLD = 29
-	local POEM_LIKE_THRESHOLD = 45
-	
 	--add 1 to chapter number
 	if persistent.playthrough <= 2 then chapter = chapter + 1 end
 	if persistent.playthrough == 2 then 
@@ -71,8 +66,7 @@ function poemgamefinish()
 			end
 		end
 		
-		unsorted_pointlist = {sPoint,nPoint,yPoint}
-		maxpoint = math.max(unpack(unsorted_pointlist))
+		local maxpoint = math.max(sPoint,nPoint,yPoint)
 		if maxpoint == sPoint then poemwinner[pchapter] = 'Sayori'
 		elseif maxpoint == nPoint then poemwinner[pchapter] = 'Natsuki'
 		elseif maxpoint == yPoint then poemwinner[pchapter] = 'Yuri'
@@ -86,12 +80,12 @@ function poemgamefinish()
 	loadstring(poemwinner[pchapter]..'_appeal = '..poemwinner[pchapter]..'_appeal + 1')()
 	
 	--determine poemappeal
-	if sPoint < POEM_DISLIKE_THRESHOLD then s_poemappeal[pchapter] = -1
-    elseif sPoint > POEM_LIKE_THRESHOLD then s_poemappeal[pchapter] = 1 end
-    if nPoint < POEM_DISLIKE_THRESHOLD then n_poemappeal[pchapter] = -1
-    elseif nPoint > POEM_LIKE_THRESHOLD then n_poemappeal[pchapter] = 1 end
-	if yPoint < POEM_DISLIKE_THRESHOLD then y_poemappeal[pchapter] = -1
-    elseif yPoint > POEM_LIKE_THRESHOLD then y_poemappeal[pchapter] = 1 end
+	if sPoint < 29 then s_poemappeal[pchapter] = -1
+    elseif sPoint > 45 then s_poemappeal[pchapter] = 1 end
+    if nPoint < 29 then n_poemappeal[pchapter] = -1
+    elseif nPoint > 45 then n_poemappeal[pchapter] = 1 end
+	if yPoint < 29 then y_poemappeal[pchapter] = -1
+    elseif yPoint > 45 then y_poemappeal[pchapter] = 1 end
 end
 
 function updatewordlist()
@@ -179,6 +173,30 @@ function drawPoemGame()
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.draw(background_Image, posX, posY)
+	
+	if persistent.playthrough == 0 then
+		if s_sticker_1 and s_sticker_2 then love.graphics.draw(s_sticker,50,s_y) end
+		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
+		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
+	elseif persistent.playthrough == 2 then
+		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
+		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
+	else
+		if m_sticker_1 then love.graphics.draw(m_sticker1,100,100) end
+	end
+	
+	love.graphics.setColor(255,189,225,alpha)
+	love.graphics.rectangle('fill', 135,2,40,16) 
+	love.graphics.setColor(0,0,0)
+	love.graphics.setFont(font)
+	love.graphics.print('Menu',139,2)
+	
+	if menu_enabled then menu_draw() end
+end
+
+function updatePoemGame(dt)
+	xaload = xaload + 1
+	
 	if xaload <= 35 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
@@ -204,7 +222,7 @@ function drawPoemGame()
 			end
 		end
 	else
-		s_y = 100; n_y = 100; y_y = 100
+		s_y = 100; n_y = 100; y_y = 100; p_y = 100
 		s_sticker = s_sticker_1
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
@@ -212,29 +230,6 @@ function drawPoemGame()
 		npAdd = wordlist[wordpick][3]
 		ypAdd = wordlist[wordpick][4]
 	end
-	
-	if persistent.playthrough == 0 then
-		if s_sticker_1 and s_sticker_2 then love.graphics.draw(s_sticker,50,s_y) end
-		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
-		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
-	elseif persistent.playthrough == 2 then
-		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
-		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
-	else
-		if m_sticker_1 then love.graphics.draw(m_sticker1,100,100) end
-	end
-	
-	love.graphics.setColor(255,189,225,alpha)
-	love.graphics.rectangle('fill', 135,2,40,16) 
-	love.graphics.setColor(0,0,0)
-	love.graphics.setFont(font)
-	love.graphics.print('Menu',139,2)
-	
-	if menu_enabled then menu_draw() end
-end
-
-function updatePoemGame(dt)
-	xaload = xaload + 1
 	
 	if poemword >= 21 then
 		splashalpha(5)
@@ -245,9 +240,15 @@ function updatePoemGame(dt)
 		y_velocity = y_velocity - gravity * dt 
 	end
  
-    if p_y > ground then  
+	if p_y > ground then  
 		y_velocity = 0     
     	p_y = ground  
+	end
+	
+	--custom audio looping
+	if audio1 == '4' then
+		local audiotell = ddlct:tell('seconds')
+		if audiotell > 19.45 then audioUpdate('4a') end
 	end
 end
 
@@ -316,51 +317,11 @@ function poemgamekeypressed(key)
 		end
 		menuselect()
 		
-	elseif key == 'left' or key == 'cpadleft' then
-		if menuselected == 1 then
-			menuselected = 6
-		elseif menuselected == 2 then
-			menuselected = 7
-		elseif menuselected == 3 then
-			menuselected = 8
-		elseif menuselected == 4 then
-			menuselected = 9
-		elseif menuselected == 5 then
-			menuselected = 10
-		elseif menuselected == 6 then
-			menuselected = 1
-		elseif menuselected == 7 then
-			menuselected = 2
-		elseif menuselected == 8 then
-			menuselected = 3
-		elseif menuselected == 9 then
-			menuselected = 4
-		elseif menuselected == 10 then
-			menuselected = 5
-		end
-		menuselect()
-	
-	elseif key == 'right' or key == 'cpadright' then
-		if menuselected == 1 then
-			menuselected = 6
-		elseif menuselected == 2 then
-			menuselected = 7
-		elseif menuselected == 3 then
-			menuselected = 8
-		elseif menuselected == 4 then
-			menuselected = 9
-		elseif menuselected == 5 then
-			menuselected = 10
-		elseif menuselected == 6 then
-			menuselected = 1
-		elseif menuselected == 7 then
-			menuselected = 2
-		elseif menuselected == 8 then
-			menuselected = 3
-		elseif menuselected == 9 then
-			menuselected = 4
-		elseif menuselected == 10 then
-			menuselected = 5
+	elseif key == 'left' or key == 'cpadleft' or key == 'right' or key == 'cpadright' then
+		if menuselected <= 5 then
+			menuselected = menuselected + 5
+		elseif menuselected >= 6 then
+			menuselected = menuselected - 5
 		end
 		menuselect()
 	end

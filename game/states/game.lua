@@ -82,7 +82,7 @@ function updateGame(dt)
 	
 	if event_enabled then event_update(dt) end
 	
-	--custom audio looping (I might use this in all of looping audio)
+	--custom audio looping
 	if audio1 == '7g' then
 		local audiotell = ddlct:tell('seconds')
 		if audiotell > 31.75 then audioUpdate('7g2') end
