@@ -6,7 +6,7 @@ function ch4script()
 		bgUpdate('residential')
 		cw('bl',"It's already Sunday.")
 	elseif cl > 1 and cl < 10 then
-		if ch4_name == "Natsuki" then
+		if savevalue == "Natsuki" then
 			if cl == 2 then
 				cw('bl',"I've been getting increasingly anxious about Natsuki's upcoming visit.")
 			elseif cl == 3 then
@@ -56,7 +56,7 @@ function ch4script()
 	elseif cl == 14 then
 		bgUpdate('house')
 		audioUpdate('0')
-		cw('bl',"I decide to visit Sayori before "..ch4_name.." comes over.")
+		cw('bl',"I decide to visit Sayori before "..savevalue.." comes over.")
 	elseif cl == 15 then
 		cw('bl',"Rather than asking, I simply tell her \"I'm coming over\", much like we've done in the past.")
 	elseif cl == 16 then
@@ -109,7 +109,7 @@ function ch4script()
 		updateSayori('1b','b')
 		cw('s',"How come you suddenly wanted to come over today?")
 	elseif cl == 37 then
-		cw('s',"Aren't you supposed to see "..ch4_name.." today?")
+		cw('s',"Aren't you supposed to see "..savevalue.." today?")
 	elseif cl == 38 then
 		cw('mc',"Yeah, but...")
 	elseif cl == 39 then
@@ -135,7 +135,7 @@ function ch4script()
 	elseif cl == 48 then
 		cw('s',"We didn't plan to meet up or anything.")
 	elseif cl == 49 then
-		cw('mc',"Ah, so it's just me and "..ch4_name..", then...")
+		cw('mc',"Ah, so it's just me and "..savevalue..", then...")
 	elseif cl == 50 then
 		updateSayori('1b','a')
 		cw('s',"Yep~")
@@ -522,7 +522,7 @@ function ch4script()
 	elseif cl == 222 then
 		cw('mc',"But...")
 	elseif cl == 223 then
-		cw('mc',"It's almost time for "..ch4_name.." to meet me at my house...")
+		cw('mc',"It's almost time for "..savevalue.." to meet me at my house...")
 	elseif cl == 224 then
 		cw('mc',"At the very least, do you want to come along and help out?")
 	elseif cl == 225 then
@@ -560,7 +560,7 @@ function ch4script()
 	elseif cl == 239 then
 		cw('bl',"On the way home, I find myself still feeling uneasy.")
 	elseif cl == 240 then
-		cw('bl',"But it's hard for me to keep thinking about it when "..ch4_name.." is about to come over, too...")
+		cw('bl',"But it's hard for me to keep thinking about it when "..savevalue.." is about to come over, too...")
 	elseif cl == 241 then
 		cw('bl',"I think Sayori is right.")
 	elseif cl == 242 then
@@ -568,7 +568,7 @@ function ch4script()
 	elseif cl == 243 then
 		cw('bl',"I should just focus on what's ahead of me!")
 	elseif cl >= 244 then
-		if ch4_name == 'Natsuki' then
+		if savevalue == 'Natsuki' then
 			ch4_exclusive_natsuki()
 		else
 			ch4_exclusive_yuri()
@@ -2513,7 +2513,7 @@ function ch3_end()
 	elseif cl == 719 then
 		cw('s',"You know...")
 	elseif cl == 720 then
-		cw('s',"How much fun you were having with "..ch4_name..".")
+		cw('s',"How much fun you were having with "..savevalue..".")
 	elseif cl == 721 then
 		cw('s',"And how close you got to her.")
 	elseif cl == 722 then

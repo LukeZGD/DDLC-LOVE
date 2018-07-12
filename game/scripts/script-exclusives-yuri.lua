@@ -493,7 +493,7 @@ end
 
 function Yuri_exclusive_2()
 	if cl == 1359 then
-		y_exclusivewatched = 'true'
+		savevalue = 'y'
 		audioUpdate('6')
 		cw('mc',"Hey, Yuri.")
 	elseif cl == 1360 then

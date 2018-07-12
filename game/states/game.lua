@@ -1,4 +1,5 @@
 local skipspeed = 4
+local audiotell
 
 function drawGame()
 	if (autotimer > 0 or autoskip > 0) and event_enabled ~= true then
@@ -83,9 +84,14 @@ function updateGame(dt)
 	if event_enabled then event_update(dt) end
 	
 	--custom audio looping
-	if audio1 == '7g' then
-		local audiotell = ddlct:tell('seconds')
+	if audio1 == '7' and persistent.playthrough == 2 then
+		audiotell = audiotell + dt
+		if audiotell > 4.1 then audioUpdate('7a') end
+	elseif audio1 == '7g' then
+		audiotell = audiotell + dt
 		if audiotell > 31.75 then audioUpdate('7g2') end
+	else
+		audiotell = 0
 	end
 end
 

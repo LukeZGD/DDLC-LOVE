@@ -231,11 +231,9 @@ function menu_confirm()
 		if m_selected == 2 then
 			persistent.mchr = 0
 		elseif m_selected == 3 then
-			persistent.schr = 0
-		elseif m_selected == 4 then
-			--persistent.nchr = 0
-		elseif m_selected == 5 then
-			--persistent.ychr = 0
+			if persistent.playthrough == 0 then
+				persistent.schr = 0
+			end
 		elseif m_selected == 6 then
 			if persistent.playthrough == 0 then
 				persistent.schr = 1
