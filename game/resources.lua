@@ -44,15 +44,18 @@ function changeState(cstate,x)
 		if data_ptr ~= persistent.playthrough then --default to new game when loading a save from different act
 			changeState('title')
 		else
-			loadAll()
-			bgUpdate(bg1, true)
-			audioUpdate(audio1, true)
-			cgUpdate(cg1, true)
+			if audio1 == '4' then
+				alpha = 20
+			else
+				loadAll()
+				bgUpdate(bg1, true)
+				audioUpdate(audio1, true)
+				cgUpdate(cg1, true)
+			end
 			xaload = 0
 			state = 'game'
 			poem_enabled = false
 			menu_enabled = false
-			if audio1 == '4' or audio1 == '4a' then alpha = 0 end
 		end
 	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
 		cl = cl + 2
@@ -137,6 +140,15 @@ function changeState(cstate,x)
 end
 
 function bgUpdate(bgx, forceload) --background changes
+	if bgx == 'club_day2' then
+		local bgclub_day = math.random(1, 6)
+		if bgclub_day == 6 then
+			bgx = 'club_skill'
+		else
+			bgx = 'club'
+		end
+	end
+	
 	if xaload == 0 or forceload then
 		unloadbg()
 		if bgx ~= 'black' and bgx ~= '' then

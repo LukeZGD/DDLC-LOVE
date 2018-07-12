@@ -532,7 +532,7 @@ end
 
 function Natsuki_exclusive_2()
 	if cl == 1359 then
-		n_exclusivewatched = 'true'
+		savevalue = 'n'
 		audioUpdate('6')
 		updateNatsuki('4','c',80)
 		cw('n',"...")

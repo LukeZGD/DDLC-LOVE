@@ -178,9 +178,8 @@ function event_update(dt)
 	if event_type == 's_glitch' then
 		if event_timer > 7 then
 			persistent.playthrough = 2
-			savepersistent()
 			special_poems = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-			savespecialpoems()
+			savepersistent()
 			chapter = 20
 			cl = 1
 			changeState('game',1)

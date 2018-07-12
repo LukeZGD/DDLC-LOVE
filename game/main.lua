@@ -22,7 +22,11 @@ function love.load()
 	posX = -40
 	posY = 0
 	menu_enabled = false
+	
 	math.randomseed(os.time())
+	math.random()
+	math.random()
+	math.random()
 	
 	--os detection
 	global_os = love.system.getOS()

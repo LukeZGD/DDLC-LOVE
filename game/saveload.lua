@@ -9,6 +9,7 @@ persistent = {
 	nchr=1;
 	ychr=1;
 }
+special_poems = {1,2,3}
 settings = {textspd=100,textloc='Bottom',animh=1,autospd=4}
 data_ptr = persistent.playthrough
 bg1 = ''
@@ -31,9 +32,7 @@ y_poemappeal = {0,0,0}
 Sayori_appeal = 0
 Natsuki_appeal = 0
 Yuri_appeal = 0
-y_exclusivewatched = ''
-n_exclusivewatched = ''
-ch4_name = ''
+savevalue = ''
 savenumber = 1
 
 function savegame()
@@ -97,7 +96,8 @@ persistent = {\
 	mchr="..persistent.mchr..";\
 	schr="..persistent.schr..";\
 	nchr="..persistent.nchr..";\
-	ychr="..persistent.ychr.."}"
+	ychr="..persistent.ychr.."};\
+	special_poems = {"..special_poems[1]..','..special_poems[2]..','..special_poems[3]..'}'
 	
 	love.filesystem.write('persistent', spfile)
 end
@@ -107,14 +107,4 @@ function loadpersistent()
 	local settingsfile = loadstring(love.filesystem.read('settings.sav'))
 	pfile()
 	settingsfile()
-end
-
-function savespecialpoems()
-	local poemsfile = 'special_poems = {'..special_poems[1]..','..special_poems[2]..','..special_poems[3]..'}'
-	love.filesystem.write('special_poems', poemsfile)
-end
-
-function loadspecialpoems()
-	local poemsfile = loadstring(love.filesystem.read('special_poems'))
-	poemsfile()
 end
