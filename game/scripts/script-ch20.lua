@@ -1,5 +1,4 @@
 local m_chance = math.random(0, 2)
-local bgclub_day = math.random(1, 6)
 Natsuki_appeal = 0
 Yuri_appeal = 0
 n_poemappeal = {0,0,0}
@@ -204,13 +203,7 @@ function ch20script()
 		m_Set.x = math.random(-40, -20)
 		m_Set.y = math.random(0, 20)
 	end
-	
-	if bgclub_day == 6 then
-		bgUpdate('club-skill')
-	else
-		bgUpdate('club')
-	end
-	
+	bgUpdate('club_day2')	
 	audioUpdate('3')
     m "I'm back~!"
 	
@@ -756,12 +749,11 @@ function ch20script()
 	if menu_enabled ~= true then menu_enable('choice') end
 	elseif cl == 296 then
 	if choicepick == 'Yes' then
-		loadspecialpoems()
 		changeState('poem_special',special_poems[1])
-		alpha = 10
 	else
 		scriptJump(297)
 	end
+	alpha = 20
 	elseif cl >= 297 then
 	cl = 297
 	splashalpha(4)

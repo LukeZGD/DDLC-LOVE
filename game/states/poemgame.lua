@@ -244,12 +244,6 @@ function updatePoemGame(dt)
 		y_velocity = 0     
     	p_y = ground  
 	end
-	
-	--custom audio looping
-	if audio1 == '4' then
-		local audiotell = ddlct:tell('seconds')
-		if audiotell > 19.45 then audioUpdate('4a') end
-	end
 end
 
 function menuselect()

@@ -474,7 +474,7 @@ function ch3_start_natsuki()
 	elseif cl == 58 then
 		cw('mc',"Yeah, yeah...")
 	elseif cl >= 59 then
-		if n_exclusivewatched ~= 'true' and poemwinner[3] == "Natsuki" then
+		if savevalue ~= 'n' and poemwinner[3] == "Natsuki" then
 			scriptJump(1364)
 		else
 			ch3_start_none()
@@ -680,8 +680,8 @@ function ch3_start_yuri()
 	elseif cl == 86 then
 		cw('mc',"I should be taking my mind off this whole thing anyway.")
 	elseif cl >= 87 then
-		if y_exclusivewatched ~= 'true' and poemwinner[3] == "Yuri" then
-			scriptJump()
+		if savevalue ~= 'y' and poemwinner[3] == "Yuri" then
+			scriptJump(1367)
 		else
 			ch3_start_none()
 		end
@@ -1094,7 +1094,7 @@ function ch3_end()
 		bgUpdate('residential')
 		cw('bl',"I can't believe this!")
 	elseif cl == 2387 then
-		cw('bl',ch4_name.." is going to be coming to my house on Sunday...?")
+		cw('bl',savevalue.." is going to be coming to my house on Sunday...?")
 	
 	elseif cl >= 2388 then
 		if help_sayori then
@@ -1291,7 +1291,7 @@ end
 
 function ch3_end_natsuki()
 	if cl == 2250 then
-		ch4_name = "Natsuki"
+		savevalue = "Natsuki"
 		cw('mc',"Well, baking sounds like it could be fun...")
 	elseif cl == 2251 then
 		cw('mc',"And you guys made it sound like a lot of work, so it could probably use two people.")
@@ -1626,7 +1626,7 @@ end
 
 function ch3_end_yuri()
 	if cl == 2250 then
-		ch4_name = "Yuri"
+		savevalue = "Yuri"
 		cw('mc',"Well, I'll probably be most useful helping out Yuri...")
 	elseif cl == 2251 then
 		updateYuri('2','n')
