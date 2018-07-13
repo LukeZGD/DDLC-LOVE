@@ -2,8 +2,10 @@ local stext
 local caa
 local cba
 local cca
+local tspd
+local tagtimer
 
-function cw(p1, stext)
+function cw(p1, stext, tag)
 	if p1 == 's' then
 		ct = 'Sayori'
 	elseif p1 == 'n' then
@@ -57,6 +59,23 @@ function cw(p1, stext)
 		if cca == nil then cca=150 end
 		cd = string.sub(textx, cca+1)
 	end
+	
+	if tag then
+		tagtimer = tagtimer + (settings.textspd / 100)
+		if tagtimer >= (settings.textspd - (slen+35)) then
+			if tag == 'fast' or tag == 'nwfast' then
+				settings.textspd = tspd
+			end
+			if tag == 'nw' or tag == 'nwfast' then
+				scriptJump(cl+1)
+			end
+		elseif tag == 'fast' or tag == 'nwfast' then
+			tspd = settings.textspd
+			settings.textspd = 250
+		end
+	else
+		tagtimer = 0
+	end
 end
 
 function scriptCheck()
@@ -68,13 +87,21 @@ function scriptCheck()
 	elseif poemsread ~= -1 then
 		script_poemresponses = require 'scripts.script-poemresponses'
 		script_poems = require 'scripts.poems'
+		if persistent.playthrough == 0 then
+			script_poemresponsesx = require 'scripts.script-poemresponses1'
+		else
+			script_poemresponsesx = require 'scripts.script-poemresponses2'
+		end
 	else
 		script_poemresponses = nil
 		script_poems = nil
+		script_poemresponsesx = nil
 	end
 	
 	if persistent.playthrough == 0 and chapter ~= 4 and ((cl>=423 and cl<652) or (cl>=1359 and cl<1638)) then
 		loadstring(poemwinner[chapter]..'_exclusive_'..(loadstring('return '..poemwinner[chapter]..'_appeal')())..'()')()
+	elseif persistent.playthrough == 2 and ((cl>=358 and cl<652) or (cl>=1359 and cl<1638)) then
+		loadstring(poemwinner[chapter-20]..'_exclusive2_'..(loadstring('return '..poemwinner[chapter-20]..'_appeal')())..'()')()
 	elseif persistent.playthrough == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
 		poeminitialize()
 	elseif script_main then
@@ -116,6 +143,8 @@ function poeminitialize(y)
 	readpoem = {s=0,n=0,y=0,m=0}
 	if persistent.playthrough == 0 then
 		choices = {'Sayori','Natsuki','Yuri','Monika'}
+	elseif y == 'y_ranaway' then
+		choices = {'Natsuki','Monika'}
 	else
 		choices = {'Natsuki','Yuri','Monika'}
 	end
@@ -144,6 +173,8 @@ function event_init(etype)
 			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
 		elseif etype == 'm_glitch1' then
 			ml = love.graphics.newImage('images/monika/g2.png')
+		elseif etype == 'n_glitch1' then
+			nl = love.graphics.newImage('images/natsuki/glitch1.png')
 		end
 	end
 end

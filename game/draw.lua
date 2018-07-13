@@ -130,6 +130,8 @@ function drawTextBox()
 		yps = {ca=66,cb=82,cc=98,cd=114,ct=42,textbox=62,namebox=42}
 	end
 	
+	if style_edited then love.graphics.setFont(deffont) end
+	
 	if (menu_enabled ~= true and poem_enabled ~= true) or (event_enabled and textbox_enabled) then
 		love.graphics.setColor(255,255,255,alpha)
 		if ct ~= '' then love.graphics.draw(namebox, xps.namebox, yps.namebox) end

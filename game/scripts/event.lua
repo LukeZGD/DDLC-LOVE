@@ -38,6 +38,8 @@ function event_start(etype, arg1)
 		settings.textspd = 150
 		textbox_enabled = false
 		audioUpdate('s_kill')
+		eventvar1 = 0
+		eventvar2 = 0
 	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
@@ -53,9 +55,12 @@ function event_start(etype, arg1)
 		bgimg_disabled = false
 		textbox_enabled = false
 		audioUpdate('2gs')
-	elseif event_type == 'm_glitch1' then
+	elseif event_type == 'm_glitch1' or 'n_glitch1' then
 		bgimg_disabled = false
 		textbox_enabled = false
+	elseif event_type == 'm_onlayer_front' then
+		bgimg_disabled = false
+		textbox_enabled = true
 	end
 end
 
@@ -105,20 +110,39 @@ function event_draw()
 	
 	if event_type == 'm_glitch1' then
 		love.graphics.draw(bgch)
-		love.graphics.draw(ml, 100)
+		love.graphics.draw(m1,100)
+	end
+	
+	if event_type == 'n_glitch1' then
+		love.graphics.draw(bgch)
+		drawMonika(m_Set.a,m_Set.b)
+		drawYuri(y_Set.a,y_Set.b)
+		love.graphics.draw(nl,200,n_Set.y)
+	end
+	
+	if event_type == 'm_onlayer_front' then
+		love.graphics.draw(bgch)
+		drawYuri(y_Set.a,y_Set.b)
+		drawNatsuki(n_Set.a,n_Set.b)
 	end
 	
 	drawBottomScreen()
+	love.graphics.setColor(255,255,255)
 	if bgimg_disabled ~= true then
-		love.graphics.setColor(255,255,255)
 		love.graphics.draw(background_Image, posX, posY)
+		love.graphics.setColor(0,0,0)
 	end
 	
 	if textbox_enabled then
 		drawNumbers()
-		drawTextBox()
-	else
-		--love.graphics.print(event_timer)
+		drawTextBox()	
+	end
+	love.graphics.print(event_timer,2,220)
+	
+	if event_type == 'm_onlayer_front' then
+		love.graphics.setColor(255,255,255)
+		drawMonika(m_Set.a,m_Set.b)
+		textbox_enabled = true
 	end
 end
 
@@ -157,13 +181,14 @@ function event_update(dt)
 	--wipe timers
 	if event_type == 'wipe' and event_timer > 1.5 then event_end('next')
 	elseif event_type == 'wipe' and event_timer >= 1 then
-		eventvar1 = math.max(eventvar5 - 15, 0)
+		eventvar1 = math.max(eventvar1 - 15, 0)
 	elseif event_type == 'wipe' and event_timer > 0.5 then
 		if eventvar2 and bg1 ~= eventvar2 then
+			xaload = 0
 			bgUpdate(eventvar2)
 		end
 	elseif event_type == 'wipe' and event_timer < 0.5 then
-		eventvar1 = math.min(eventvar5 + 15, 255)
+		eventvar1 = math.min(eventvar1 + 15, 255)
 	end
 	
 	--end screen
@@ -204,6 +229,18 @@ function event_update(dt)
 		end
 		posX = -40
 		posY = 0
+	end
+	
+	if event_type == 'n_glitch1' then
+		xaload = xaload + 1
+		if n_Set.y <= 0 then
+			n_Set.y = 50
+		else
+			n_Set.y = n_Set.y - 7
+		end
+		if event_timer >= 0.75 then
+			event_end('next')
+		end
 	end
 end
 
