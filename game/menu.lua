@@ -345,7 +345,7 @@ function menu_keypressed(key)
 				end
 			elseif cpick == 'Text Speed' then
 				if settings.textspd > 50 then
-					settings.textspd = settings.textspd - 10
+					settings.textspd = settings.textspd - 25
 				end
 			elseif cpick == 'Auto-Forward Time' then
 				if settings.autospd > 1 then
@@ -369,11 +369,11 @@ function menu_keypressed(key)
 			if cpick == 'Textbox Location' then
 				menu_keypressed('left')
 			elseif cpick == 'Text Speed' then
-				if settings.textspd >= 50 and settings.textspd < 300 then
-					settings.textspd = settings.textspd + 10
+				if settings.textspd < 250 then
+					settings.textspd = settings.textspd + 25
 				end
 			elseif cpick == 'Auto-Forward Time' then
-				if settings.autospd >= 1 and settings.autospd < 15 then
+				if settings.autospd < 15 then
 					settings.autospd = settings.autospd + 1
 				end
 			elseif cpick == 'Char. Animations' then
@@ -406,16 +406,16 @@ function menu_mousepressed()
 		m_select(9)
 	elseif menu_previous and mouseX>=16 and mouseX<=46 and mouseY>=220 and mouseY<=236 then
 		menu_keypressed('b')
-	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 70 and mouseY <= 90 then
+	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' then
 		m_select(3)
 		menu_keypressed('left')
-	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 95 and mouseY <= 115 then
+	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' then
 		m_select(4)
 		menu_keypressed('left')
-	elseif mouseX >= 184 and mouseX <= 201 and mouseY >= 70 and mouseY <= 90 then
+	elseif mouseX >= 184 and mouseX <= 201 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' then
 		m_select(3)
 		menu_keypressed('right')
-	elseif mouseX >= 198 and mouseX <= 215 and mouseY >= 95 and mouseY <= 115 then
+	elseif mouseX >= 198 and mouseX <= 215 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' then
 		m_select(4)
 		menu_keypressed('right')
 	end

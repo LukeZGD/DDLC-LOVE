@@ -341,6 +341,24 @@ I realize now, that I wasn't looking in.
 I was looking out.
 And he, on the other side, was looking in.]]
 
+	elseif poemname == 'poem_m21' then
+		poemtext = [[
+Hole in Wall
+
+But he wasn't looking at me.
+Confused, I frantically glance at my surroundings.
+But my burned eyes can no longer see color.
+Are there others in this room? Are they talking?
+Or are they simply poems on flat sheets of paper,
+The sound of frantic scrawling playing tricks on my ears?
+The room begins to crinkle.
+Closing in on me.
+The air I breathe dissipates before it reaches my lungs.
+I panic. There must be a way out.
+It's right there. He's right there.]]
+	elseif poemname == 'poem_m21-a' then
+		poemtext == "Swallowing my fears, I brandish my pen."
+
 	elseif poemname == 'poem_m2' then
 		poemtext = [[
 Save Me

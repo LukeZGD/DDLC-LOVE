@@ -78,7 +78,7 @@ function updateSplash(dt)
 end
 
 function splash_keypressed(key)
-	if (key == 'a' or key == 'start') and persistent.playthrough < 2 then
+	if (key == 'a' or key == 'start') then
 		changeState('title')
 	elseif key == 'y' and (state == 'ghostmenu' or state == 's_kill_early') then
 		game_quit()

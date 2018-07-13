@@ -62,9 +62,7 @@ poemwinner = {'"..poemwinner[1].."','"..poemwinner[2].."','"..poemwinner[3].."'}
 Sayori_appeal = "..Sayori_appeal.."\
 Natsuki_appeal = "..Natsuki_appeal.."\
 Yuri_appeal = "..Yuri_appeal.."\
-y_exclusivewatched = '"..y_exclusivewatched.."'\
-n_exclusivewatched = '"..n_exclusivewatched.."'\
-ch4_name = '"..ch4_name.."'"
+savevalue = '"..savevalue.."'"
 	
 	love.filesystem.write("save"..savenumber..".sav", savedata)
 end
