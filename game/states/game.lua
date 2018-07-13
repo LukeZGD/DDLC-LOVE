@@ -26,12 +26,12 @@ function drawGame()
 	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
-	love.graphics.setFont(font)
 	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
 	drawNumbers()
 	drawTextBox()
 	
 	love.graphics.setColor(0,0,0)
+	love.graphics.setFont(font)
 	if autotimer > 0 then 
 		love.graphics.print('Auto-Forward On', 2, 20)
 	elseif autoskip > 0 then

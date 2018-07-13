@@ -118,6 +118,12 @@ function changeState(cstate,x)
 			script_main = require 'scripts.script-ch10'
 		elseif chapter == 20 then
 			script_main = require 'scripts.script-ch20'
+		elseif chapter == 21 then
+			script_main = require 'scripts.script-ch21'
+		elseif chapter == 22 then
+			script_main = require 'scripts.script-ch22'
+		elseif chapter == 23 then
+			script_main = require 'scripts.script-ch23'
 		end
 		if persistent.playthrough == 0 then
 			if poemwinner[chapter] == 'Sayori' then
@@ -143,7 +149,7 @@ function bgUpdate(bgx, forceload) --background changes
 	if bgx == 'club_day2' then
 		local bgclub_day = math.random(1, 6)
 		if bgclub_day == 6 then
-			bgx = 'club_skill'
+			bgx = 'club-skill'
 		else
 			bgx = 'club'
 		end
