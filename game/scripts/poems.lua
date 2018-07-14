@@ -357,7 +357,7 @@ The air I breathe dissipates before it reaches my lungs.
 I panic. There must be a way out.
 It's right there. He's right there.]]
 	elseif poemname == 'poem_m21-a' then
-		poemtext == "Swallowing my fears, I brandish my pen."
+		poemtext = "Swallowing my fears, I brandish my pen."
 
 	elseif poemname == 'poem_m2' then
 		poemtext = [[

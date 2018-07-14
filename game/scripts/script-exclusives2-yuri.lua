@@ -333,6 +333,7 @@ function Yuri_exclusive2_1_ch22()
 	elseif cl == 491 then
     y "Here..."
 	elseif cl == 492 then
+	hideAll()
 	persistent.clear[3] = 1
     if xaload == 0 then
 		savepersistent()

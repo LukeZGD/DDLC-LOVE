@@ -175,6 +175,8 @@ function event_init(etype)
 			ml = love.graphics.newImage('images/monika/g2.png')
 		elseif etype == 'n_glitch1' then
 			nl = love.graphics.newImage('images/natsuki/glitch1.png')
+		elseif etype == 'n_blackeyes' then
+			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
 		end
 	end
 end
