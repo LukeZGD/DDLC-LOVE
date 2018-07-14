@@ -62,6 +62,10 @@ function poemfinish(a)
 	elseif a == 'm' then
 		readpoem.m = 1
 		c_remove = 'Monika'
+	elseif a == 'my' then
+		readpoem.m = 1
+		c_remove = 'Monika'
+		table.insert(choices, 'Yuri')
 	end
 	
 	for i = 1, #choices do
@@ -80,6 +84,8 @@ function poemfinish(a)
 			scriptJump(1638, 'ch2script')
 		elseif chapter == 3 then
 			scriptJump(2114, 'ch3script')
+		elseif chapter == 21 then
+			scriptJump(900, 'ch21script')
 		end
 	else --go back to choices menu
 		scriptJump(666, 'poemresponses', 0)
@@ -603,12 +609,20 @@ function ch1_n_end()
 	end
 end
 
+local n_blackeyeschance = math.random(0,2)
+
 function ch1_n_bad()
 	if cl == 670 then
 		cw('n',"...")
 	elseif cl == 671 then
-		cw('n',"...?")
+		if persistent.playthrough == 2 and n_blackeyeschance == 0 then
+			audioUpdate('0')
+			event_initstart('n_blackeyes')
+		else
+			cw('mc',"...?")
+		end
 	elseif cl == 672 then
+		audioUpdate('5')
 		updateNatsuki('2','b')
 		cw('n',player..", if you\'re not going to take this club seriously then go home.")
 	elseif cl == 673 then
@@ -848,7 +862,11 @@ function ch1_m_end2()
 	elseif cl == 775 then
 		cw('m',"Thanks for listening~")
 	elseif cl == 776 then
-		poemfinish('m')
+		if persistent.playthrough == 2 and poemwinner[1] == 'Yuri' then
+			poemfinish('my')
+		else
+			poemfinish('m')
+		end
 	end
 end
 
@@ -886,10 +904,10 @@ function m_eval()
 			loadstring('m_yuri_'..Yuri_appeal..'()')()
 		end
 	else
-		if poemwinner[chapter-20] == 'Natsuki' then
-			loadstring('m2_natsuki_'..Natsuki_appeal..'()')()
-		elseif poemwinner[chapter-20] == 'Yuri' then
-			loadstring('m2_yuri_'..Yuri_appeal..'()')()
+		if poemwinner[1] == 'Natsuki' then
+			m2_natsuki_1()
+		elseif poemwinner[1] == 'Yuri' then
+			m2_yuri_1()
 		end
 	end
 	

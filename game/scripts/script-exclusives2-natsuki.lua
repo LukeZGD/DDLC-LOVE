@@ -334,54 +334,64 @@ function Natsuki_exclusive2_1()
 	elseif cl == 499 then
 	sfxplay('fall')
     mc "H-Hey--"
-	--[[
-    show n_cg1_exp5
-    hide n_cg1_exp5
+	
+	elseif cl == 500 then
+	cgHide()
+	bgUpdate('n_cg1b')
+	audioUpdate('6g')
+	event_initstart('n_rects_ghost')
+    style_edited = true
+    cw('n',ntext)
+	elseif cl == 501 then
+    cw('n',ntext2)
 
-    show n_cg1b
-    hide n_cg1_base
-
-    $ currentpos = get_pos()
-    $ audio.t6g = "<from " + str(currentpos) + " loop 10.893>bgm/6g.ogg"
-    play music t6g
-    $ ntext = glitchtext(96)
-    $ style.say_dialogue = style.edited
-    n "{color=#000}[ntext]{/color}"
-    $ ntext = glitchtext(96)
-    n "{color=#000}[ntext]{/color}"
-    $ style.say_dialogue = style.normal
-
-    stop music
-    window hide(None)
-    window auto
-    scene bg club_day
-    show monika 1r zorder 2 at t11
+	elseif cl == 502 then
+	event_end()
+	audioUpdate('0')
+	bgUpdate('club')
+	updateMonika('1','r',80)
+	style_edited = false
     m "Oh jeez..."
-    m 1d "Natsuki, are you okay?"
-    show monika zorder 2 at t21
-    show natsuki 12b zorder 3 at f22
+	elseif cl == 503 then
+	updateMonika('1','d')
+    m "Natsuki, are you okay?"
+    elseif cl == 504 then
+	updateMonika('1','d',10)
+	updateNatsuki('1','2b',150)
     n "..."
-    show natsuki zorder 2 at t22
-    show monika zorder 3 at f21
-    m 1a "Here..."
-    show monika zorder 2 at t21
-    "Monika reaches into her bag and pulls out some kind of protein bar."
-    "She throws it in Natsuki's direction."
-    "Natsuki's eyes suddenly light up again."
-    "She snatches the bar from the floor and immediately tears off the wrapper."
-    show natsuki zorder 3 at f22
-    n 1s "I told you not to give mmph..."
-    show natsuki zorder 2 at t22
-    "She doesn't even finish her sentence before stuffing it into her mouth."
-    show natsuki zorder 1 at thide
-    hide natsuki
-    show monika 3b zorder 2 at t11
-    m "Don't worry, [player]."
+    elseif cl == 505 then
+	updateMonika('1','a')
+    m "Here..."
+	elseif cl == 506 then
+    bl "Monika reaches into her bag and pulls out some kind of protein bar."
+	elseif cl == 507 then
+    bl "She throws it in Natsuki's direction."
+	elseif cl == 508 then
+    bl "Natsuki's eyes suddenly light up again."
+	elseif cl == 509 then
+    bl "She snatches the bar from the floor and immediately tears off the wrapper."
+	elseif cl == 510 then
+	updateNatsuki('1','s')
+    n "I told you not to give mmph..."
+	elseif cl == 511 then
+    bl "She doesn't even finish her sentence before stuffing it into her mouth."
+	elseif cl == 512 then
+	hideNatsuki()
+	updateMonika('3','b',80)
+    cw('m',"Don't worry, "..player..".")
+	elseif cl == 513 then
     m "She's fine."
+	elseif cl == 514 then
     m "It just happens every now and then."
-    m 1a "That's why I always keep a snack in my bag for her."
-    m 5a "Anyway...!"
+	elseif cl == 515 then
+	updateMonika('1','a')
+    m "That's why I always keep a snack in my bag for her."
+	elseif cl == 516 then
+	updateMonika('5a')
+    m "Anyway...!"
+	elseif cl == 517 then
     m "Why don't we all share poems now?"
-	]]
+	elseif cl == 518 then
+	poeminitialize()
 	end
 end
