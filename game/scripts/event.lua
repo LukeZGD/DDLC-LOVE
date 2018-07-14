@@ -58,7 +58,7 @@ function event_start(etype, arg1)
 	elseif event_type == 'm_glitch1' or 'n_glitch1' then
 		bgimg_disabled = false
 		textbox_enabled = false
-	elseif event_type == 'm_onlayer_front' then
+	elseif event_type == 'm_onlayer_front' or event_type == 'n_rects_ghost' or event_type == 'n_blackeyes' then
 		bgimg_disabled = false
 		textbox_enabled = true
 	end
@@ -124,6 +124,27 @@ function event_draw()
 		love.graphics.draw(bgch)
 		drawYuri(y_Set.a,y_Set.b)
 		drawNatsuki(n_Set.a,n_Set.b)
+	end
+	
+	if event_type == 'n_rects_ghost' then
+		love.graphics.draw(bgch)
+		love.graphics.setColor(0,0,0)
+		love.graphics.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
+		love.graphics.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
+		love.graphics.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
+		love.graphics.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
+		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(15,25))
+		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(15,25))
+		textbox_enabled = true
+	end
+	
+	if event_type == 'n_blackeyes' then
+		love.graphics.draw(bgch)
+		if event_timer > 2 then
+			love.graphics.draw(n_blackeyes, 80)
+		else
+			drawNatsuki(n_Set.a,n_Set.b)
+		end
 	end
 	
 	drawBottomScreen()
@@ -242,6 +263,16 @@ function event_update(dt)
 			event_end('next')
 		end
 	end
+	
+	if event_type == 'n_blackeyes' then
+		xaload = xaload + 1
+		if event_timer > 2.75 then
+			event_end('n_blackeyes')
+		elseif event_timer > 2 and event_timer < 2.03 then
+			xaload = 0
+			sfxplay('stab')
+		end
+	end
 end
 
 function event_next()
@@ -281,5 +312,9 @@ function event_end(arg1)
 	elseif arg1 == 's_glitch' then
 		s_glitch1 = nil
 		s_glitch2 = nil
+	elseif arg1 == 'n_blackeyes' then
+		n_blackeyes = nil
+		cl = cl + 1
+		xaload = 0
 	end
 end

@@ -19,7 +19,7 @@ function updateLoad()
 	
 	elseif l_timer == 96 then
 		m1 = love.graphics.newFont('fonts/m1',12)
-		deffont = love.graphics.newFont(14)
+		deffont = love.graphics.newFont()
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
