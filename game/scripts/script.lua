@@ -71,7 +71,7 @@ function cw(p1, stext, tag)
 			end
 		elseif tag == 'fast' or tag == 'nwfast' then
 			tspd = settings.textspd
-			settings.textspd = 250
+			settings.textspd = 200
 		end
 	else
 		tagtimer = 0
@@ -177,6 +177,14 @@ function event_init(etype)
 			nl = love.graphics.newImage('images/natsuki/glitch1.png')
 		elseif etype == 'n_blackeyes' then
 			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
+		elseif etype == 'ny_argument' then
+			vignette = love.graphics.newImage('images/bg/vignette.png')
+			noise1 = love.graphics.newImage('images/bg/noise1.png')
+			noise2 = love.graphics.newImage('images/bg/noise2.png')
+			noise3 = love.graphics.newImage('images/bg/noise3.png')
+			noise4 = love.graphics.newImage('images/bg/noise4.png')
+		elseif etype == 'ny_argument2' then
+			ml = love.graphics.newImage('images/monika/ac.png')
 		end
 	end
 end

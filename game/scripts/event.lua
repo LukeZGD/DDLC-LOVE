@@ -4,6 +4,10 @@ local eventvar1 = 0
 local eventvar2 = 0
 local eventvar3 = 0
 local eventvar4 = 0
+local eventvar5 = 0
+local eventvar6 = 0
+local noise
+local noisetimer = 0
 
 --[[
 Info about the eventvar stuff
@@ -25,6 +29,13 @@ endscreen:
 s_glitch:
 - eventvar 1 - random number from 1 to 16, determines eventvar 2
 - eventvar 2 - one of 2 s_glitch sprites (randomized by eventvar 1)
+
+ny_argument:
+- eventvar 1 - alpha of vignette
+- eventvar 2 - alpha of noise
+- eventvar 3 - table for start to show vignette
+- eventvar 4 - table for end to hide vignette
+- eventvar 5 - set table item number
 ]]
 
 function event_start(etype, arg1)
@@ -51,14 +62,18 @@ function event_start(etype, arg1)
 		hideAll()
 		textbox_enabled = false
 		audioUpdate('0')
-	elseif event_type == 's_glitch' then
+	elseif event_type == 's_glitch' or event_type == 'm_glitch1' or event_type == 'n_glitch1' then
 		bgimg_disabled = false
 		textbox_enabled = false
-		audioUpdate('2gs')
-	elseif event_type == 'm_glitch1' or 'n_glitch1' then
+	elseif event_type == 'ny_argument' then
+		eventvar1 = 0
+		eventvar2 = 0
+		eventvar3 = {2,3.6,5.2,6.8,8.3,9.9,11.5,13.1,14.7,16.3,17.9,19.45,21.1,22.7,24.2,25.8}
+		eventvar4 = {2.5,4.1,5.7,7.3,8.8,10.3,12,13.5,15.1,16.7,18.25,19.85,21.5,23,24.6,26.2}
+		eventvar5 = 1
 		bgimg_disabled = false
-		textbox_enabled = false
-	elseif event_type == 'm_onlayer_front' or event_type == 'n_rects_ghost' or event_type == 'n_blackeyes' then
+		textbox_enabled = true
+	else
 		bgimg_disabled = false
 		textbox_enabled = true
 	end
@@ -147,6 +162,28 @@ function event_draw()
 		end
 	end
 	
+	if event_type == 'ny_argument' then
+		love.graphics.draw(bgch)
+		drawYuri(y_Set.a,y_Set.b)
+		drawNatsuki(n_Set.a,n_Set.b)
+		if eventvar3 and eventvar4 then
+			if event_timer > eventvar3[eventvar5] and event_timer < eventvar4[eventvar5] then
+				love.graphics.draw(vignette)
+			end
+		end
+		love.graphics.setColor(255,255,255,eventvar1)
+		love.graphics.draw(vignette)
+		love.graphics.setColor(255,255,255,eventvar2)
+		drawNoise()
+	end
+	
+	if event_type == 'ny_argument2' then
+		drawNoise()
+		if cl <= 1008 and ml then
+			love.graphics.draw(ml)
+		end
+	end
+	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255)
 	if bgimg_disabled ~= true then
@@ -159,11 +196,33 @@ function event_draw()
 		drawTextBox()	
 	end
 	love.graphics.print(event_timer,2,220)
+	love.graphics.print(eventvar5,2,200)
 	
-	if event_type == 'm_onlayer_front' then
+	if event_type == 'm_onlayer_front' or event_type == 'ny_argument2' then
 		love.graphics.setColor(255,255,255)
 		drawMonika(m_Set.a,m_Set.b)
 		textbox_enabled = true
+	end
+	
+	if menu_enabled then menu_draw() end
+end
+
+function drawNoise()
+	if noise then
+		love.graphics.draw(noise)
+	end
+	local dt = love.timer.getDelta()
+	noisetimer = noisetimer + dt
+	if noisetimer > 1 then
+		noisetimer = 0
+	elseif noisetimer > 0.75 then
+		noise = noise4
+	elseif noisetimer > 0.5 then
+		noise = noise3
+	elseif noisetimer > 0.25 then
+		noise = noise2
+	else
+		noise = noise1
 	end
 end
 
@@ -273,6 +332,36 @@ function event_update(dt)
 			sfxplay('stab')
 		end
 	end
+	
+	if event_type == 'ny_argument' then
+		eventvar1 = math.min(eventvar1 + 0.15, 255)
+		if cl == 1000 then
+			eventvar2 = 60
+		elseif cl == 1001 then
+			eventvar2 = 80
+		elseif cl == 1002 then
+			eventvar2 = 100
+		elseif cl == 1003 then
+			eventvar2 = 120
+		elseif cl == 1004 then
+			eventvar2 = 140
+		elseif cl == 1005 then
+			eventvar2 = 160
+		elseif cl == 1006 then
+			eventvar2 = 180
+		elseif event_timer > 36 then
+			eventvar2 = 40
+		elseif event_timer > 26 then
+			eventvar2 = 32
+		elseif event_timer > 22 then
+			eventvar2 = 16
+		elseif event_timer > 18 then
+			eventvar2 = 8
+		end
+		if event_timer > eventvar4[eventvar5] and event_timer < 26.2 then
+			eventvar5 = eventvar5 + 1
+		end
+	end
 end
 
 function event_next()
@@ -284,6 +373,8 @@ function event_keypressed(key)
 	if textbox_enabled then
 		if key == 'a' then
 			newgame_keypressed('a')
+		elseif key == 'y' and event_type == 'ny_argument' then
+			menu_enable('pause')
 		end
 	end
 end
@@ -316,5 +407,11 @@ function event_end(arg1)
 		n_blackeyes = nil
 		cl = cl + 1
 		xaload = 0
+	elseif arg1 == 'ny_argument2' then
+		vignette = nil
+		noise1 = nil
+		noise2 = nil
+		noise3 = nil
+		noise4 = nil
 	end
 end
