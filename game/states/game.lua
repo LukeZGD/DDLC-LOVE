@@ -1,5 +1,5 @@
 local skipspeed = 4
-local audiotell
+local audiotell = 0
 
 function drawGame()
 	if (autotimer > 0 or autoskip > 0) and event_enabled ~= true then
@@ -90,6 +90,9 @@ function updateGame(dt)
 	elseif audio1 == '7g' then
 		audiotell = audiotell + dt
 		if audiotell > 31.75 then audioUpdate('7g2') end
+	elseif audio1 == '3g' then
+		audiotell = audiotell + dt
+		if audiotell > 25.5 and audio1 ~= '3g2' then audioUpdate('3g2') end
 	else
 		audiotell = 0
 	end

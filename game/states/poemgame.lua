@@ -31,6 +31,11 @@ local cursorX
 local cursorY
 local wordpick
 
+local eyes_chance = math.random(0,5)
+local eyes_timer = 0
+local eyes_y = 0
+local eyes_in
+
 function addpoints()
 	sPoint = sPoint + spAdd
 	nPoint = nPoint + npAdd
@@ -103,7 +108,7 @@ function poemgame()
 	state = 'poemgame'
 	xaload = 0
 	if persistent.playthrough <= 2 then 
-		audioUpdate('4')
+		audioUpdate('4',true)
 		bgch2 = love.graphics.newImage('images/bg/notebook.png')
 	elseif persistent.playthrough == 3 then 
 		audioUpdate('ghostmenu')
@@ -128,6 +133,9 @@ function poemgame()
 	math.random()
 	math.random()
 	math.random()
+	
+	eyes_chance = math.random(0,5)
+	eyes_in = false
 	
 	poemwords()
 	updatewordlist()
@@ -170,6 +178,17 @@ function drawPoemGame()
 		love.graphics.rectangle('fill',0,0,400,240)
 	end
 	
+	if eyes_in then
+		love.graphics.setColor(0,0,0)
+		love.graphics.rectangle('fill',0,0,400,240)
+		if eyes_timer <= 2.2 then
+			love.graphics.setColor(255,255,255)
+			love.graphics.draw(eyes,110,eyes_y)
+			love.graphics.draw(eyes,110,eyes_y+240)
+			love.graphics.draw(eyes,110,eyes_y+480)
+		end
+	end
+	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.draw(background_Image, posX, posY)
@@ -192,6 +211,10 @@ function drawPoemGame()
 	love.graphics.print('Menu',139,2)
 	
 	if menu_enabled then menu_draw() end
+	
+	if eyes_in then
+		love.graphics.rectangle('fill',-40,0,400,240)
+	end
 end
 
 function updatePoemGame(dt)
@@ -201,6 +224,9 @@ function updatePoemGame(dt)
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
+		if spAdd == nil then spAdd = 0 end
+		if npAdd == nil then npAdd = 0 end
+		if ypAdd == nil then ypAdd = 0 end
 		if persistent.playthrough == 0 and poemword > 0 then
 			if spAdd == 3 then
 				s_sticker = s_sticker_2
@@ -232,7 +258,24 @@ function updatePoemGame(dt)
 	end
 	
 	if poemword >= 21 then
-		splashalpha(5)
+		if persistent.playthrough == 2 and eyes_chance == 0 then
+			audioUpdate('0')
+			sfxplay('eyes')
+			eyes_in = true
+			eyes_timer = eyes_timer + dt
+			if eyes_timer > 3.45 then
+				eyes_in = false
+				splashalpha(5)
+			elseif eyes_timer > 2.2 then
+				alpha = 0
+			elseif eyes_timer > 1.7 then
+				eyes_y = math.min(eyes_y - 10, -480)
+			elseif eyes_timer < 1.2 then
+				eyes_y = math.min(eyes_y - 10, -240)
+			end
+		else
+			splashalpha(5)
+		end
 	end
 	
 	if y_velocity ~= 0 then                                  
@@ -333,10 +376,10 @@ function poemgamekeypressed(key)
 			elseif poemword == 20 then
 				addpoints()
 				poemgamefinish()
-				xaload = 0
+				xaload = -1
 			end
 		end
-	elseif key == 'y' then 
+	elseif key == 'y' and eyes_in ~= true then 
 		menu_enable('pause')
 	end
 end
