@@ -179,12 +179,16 @@ function event_init(etype)
 			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
 		elseif etype == 'ny_argument' then
 			vignette = love.graphics.newImage('images/bg/vignette.png')
-			noise1 = love.graphics.newImage('images/bg/noise1.png')
-			noise2 = love.graphics.newImage('images/bg/noise2.png')
-			noise3 = love.graphics.newImage('images/bg/noise3.png')
-			noise4 = love.graphics.newImage('images/bg/noise4.png')
+			animframe1 = love.graphics.newImage('images/bg/noise1.png')
+			animframe2 = love.graphics.newImage('images/bg/noise2.png')
+			animframe3 = love.graphics.newImage('images/bg/noise3.png')
+			animframe4 = love.graphics.newImage('images/bg/noise4.png')
 		elseif etype == 'ny_argument2' then
 			ml = love.graphics.newImage('images/monika/ac.png')
+		elseif etype == 'yuri_glitch' then
+			animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
+			animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
+			animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
 		end
 	end
 end

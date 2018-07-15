@@ -96,6 +96,28 @@ Understanding is overrated.
 I touch his hand. The flickering stops.
 Ghosts are blue-green. My heart is amber.]]
 
+	elseif poemname == 'poem_y22' then
+		poemtext == [[
+Wheel
+
+A rotating wheel. Turning an axle. Grinding. Bolthead. Linear gearbox. Falling sky.
+Seven holy stakes. A docked ship. A portal to another world. A thin rope tied to a
+thick rope. A torn harness. Parabolic gearbox. Expanding universe. Time controlled
+by slipping cogwheels. Existence of God. Swimming with open water in all directions.
+Drowning. A prayer written in blood. A prayer written in time-devouring snakes with
+human eyes. A thread connecting all living human eyes. A kaleidoscope of holy stakes.
+Exponential gearbox. A sky of exploding stars. God disproving the existence of God.
+A wheel rotating in six dimensions. Forty gears and a ticking clock. A clock that
+ticks one second for every rotation of the planet. A clock that ticks forty times
+every time it ticks every second time. A bolthead of holy stakes tied to the existence
+of a docked ship to another world. A kaleidoscope of blood written in clocks.]]
+	elseif poemname == 'poem_y22-a' then
+		poemtext == [[
+A time-devouring prayer connecting a sky of forty gears and open human eyes in all
+directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal.
+Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing
+human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.]]
+
 	elseif poemname == 'poem_n1' then
 		poemtext = [[
 Eagles Can Fly
@@ -148,6 +170,25 @@ She's gross.
 The world is better off without spider lovers.
 
 And I'm gonna tell everyone.]]
+	
+	elseif poemname == 'poem_n2b' then
+		poemtext == [[
+T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
+
+SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
+cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
+ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
+biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
+b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
+IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
+dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
+ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
+dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
+bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
+biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
+YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
+Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
+b3AgbXlzZWxmLg==]]
 	
 	elseif poemname == 'poem_n3' then
 		poemtext = [[
@@ -222,6 +263,31 @@ My poems are a little bit dearer
 Because you think of me.
 
 Because you, because you, because you.]]
+	
+	elseif poemname == 'poem_n23' then
+		poemtext == [[
+I don't know how else to bring this up. But there's been something I've been worried
+about. Yuri has been acting kind of strange lately. You've only been here a few days,
+so you may not know what I mean. But she's not normally like this. She's always been
+quiet and polite and attentive...things like that.
+
+Okay... This is really embarrassing, but I'm forcing myself to suck it up. The truth is,
+I'm REALLY worried about her. But if I try talking to her, she'll just get mad at me
+again. I don't know what to do. I think you're the only person that she'll listen to.
+I don't know why. But please try to do something. Maybe you can convince her to talk to
+a therapist.]]
+	elseif poemname == 'poem_n23-a' then
+		poemtext == [[
+I've always wanted to try being better friends with Yuri, and it really hurts me to see 
+this happening. I know I'm going to hate myself later for admitting that, but right now 
+I don't care. I just feel so helpless. So please see if you can do something to help. 
+I don't want anything bad to happen to her. I'll make you cupcakes if I have to. Just
+please try to do something.
+
+As for Monika... I don't know why, but she's been really dismissive about this. It's like
+she just wants us to ignore it. So I'm mad at her right now, and that's why I'm coming to
+you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you a really
+good poem, okay? I'm counting on you. Thanks for reading.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[
@@ -387,6 +453,32 @@ Of meaningless]]
 	elseif poemname == 'poem_m2-c' then
 		poemtext = "\n\n\n\n\n\n\n\n\nLoad Me"
 	
+	elseif poemname == 'poem_m22' then
+		poemtext = [[
+Save Me
+
+The colors, they won't
+Bright, bea t ful c l rs
+Flash ng, exp nd ng, piercing
+Red, green, blue
+An  ndless
+CACOPHONY
+Of meaningless
+noise]]
+	elseif poemname == 'poem_m22-a' then
+		poemtext == [[
+The noise, it won't STOP.
+Viol nt, grating w vef rms
+Sq e king, screech ng, piercing
+SINE, COSINE, TANGENT
+    Like play ng a ch lkboard on a t rntable
+        Like playing a KNIFE on a BREATHING RIBCAGE
+ n  ndl ss
+p  m
+Of m  n ngl ss]]
+	elseif poemname == 'poem_m22-c' then
+		poemtext = "\n\n\n\n\n\n\n\n\nDelete Her"
+	
 	elseif poemname == 'poem_m3' then
 		poemtext = [[
 The Lady who Knows Everything
@@ -476,8 +568,8 @@ And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 end
 
 function poem_disable(x)
-	poembg = nil
 	poem_enabled = false
+	poembg = nil
 	if x==nil or x==1 then
 		audioUpdate('5')
 	elseif x==0 then

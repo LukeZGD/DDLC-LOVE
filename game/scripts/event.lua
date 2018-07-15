@@ -6,22 +6,22 @@ local eventvar3 = 0
 local eventvar4 = 0
 local eventvar5 = 0
 local eventvar6 = 0
-local noise
-local noisetimer = 0
+local animframe
+local animtimer = 0
 
 --[[
 Info about the eventvar stuff
 The eventvars can be used for anything that will be coded here
 
 s_kill:
-- eventvar 1 is the timer for eventvar 2, on when it will go left/right
-- eventvar 2 is the x pos of s_killzoom
-- eventvar 3 is the alpha of splash_glitch
-- eventvar 4 is the speed of background_Image
+- eventvar 1 - timer for eventvar 2, on when it will go left/right
+- eventvar 2 - x pos of s_killzoom
+- eventvar 3 - alpha of splash_glitch
+- eventvar 4 - speed of background_Image
 
 wipe:
-- eventvar 1 is the alpha of the black rectangle that un/covers the bg1
-- eventvar 2 is the bg that will replace the current
+- eventvar 1 - alpha of the black rectangle that un/covers the bg1
+- eventvar 2 - the bg that will replace the current
 
 endscreen:
 - eventvar 1 - alpha of endscreen
@@ -174,14 +174,20 @@ function event_draw()
 		love.graphics.setColor(255,255,255,eventvar1)
 		love.graphics.draw(vignette)
 		love.graphics.setColor(255,255,255,eventvar2)
-		drawNoise()
+		drawanimframe()
 	end
 	
 	if event_type == 'ny_argument2' then
-		drawNoise()
+		drawanimframe()
 		if cl <= 1008 and ml then
 			love.graphics.draw(ml)
 		end
+	end
+	
+	if event_type == 'yuri_glitch' then
+		love.graphics.draw(bgch)
+		drawMonika(m_Set.a,m_Set.b)
+		drawanimframe(80)
 	end
 	
 	drawBottomScreen()
@@ -207,23 +213,31 @@ function event_draw()
 	if menu_enabled then menu_draw() end
 end
 
-function drawNoise()
-	if noise then
-		love.graphics.draw(noise)
+function drawanimframe(x)
+	if x == nil then x = 0 end
+	if animframe then
+		love.graphics.draw(animframe,x)
 	end
 	local dt = love.timer.getDelta()
-	noisetimer = noisetimer + dt
-	if noisetimer > 1 then
-		noisetimer = 0
-	elseif noisetimer > 0.75 then
-		noise = noise4
-	elseif noisetimer > 0.5 then
-		noise = noise3
-	elseif noisetimer > 0.25 then
-		noise = noise2
-	else
-		noise = noise1
+	animtimer = animtimer + dt
+	if animtimer > 1 then
+		animtimer = 0
+	elseif animtimer > 0.75 and animframe4 then
+		animframe = animframe4
+	elseif animtimer > 0.5 and animframe3 then
+		animframe = animframe3
+	elseif animtimer > 0.25 and animframe2 then
+		animframe = animframe2
+	elseif animframe1 then
+		animframe = animframe1
 	end
+end
+
+function unloadanimframe()
+	animframe1 = nil
+	animframe2 = nil
+	animframe3 = nil
+	animframe4 = nil
 end
 
 function event_update(dt)
@@ -362,11 +376,18 @@ function event_update(dt)
 			eventvar5 = eventvar5 + 1
 		end
 	end
+	
+	if event_type == 'yuri_glitch' and event_timer > 0.5 then event_end('next') end
 end
 
 function event_next()
 	newgame_keypressed('a')
 	event_timer = 0
+end
+
+function event_endnext()
+	cl = cl + 1
+	xaload = 0
 end
 
 function event_keypressed(key)
@@ -398,20 +419,19 @@ function event_end(arg1)
 		posX = -40
 		posY = 0
 	elseif arg1 == 'next' then
-		cl = cl + 1
-		xaload = 0
+		event_endnext()
 	elseif arg1 == 's_glitch' then
 		s_glitch1 = nil
 		s_glitch2 = nil
 	elseif arg1 == 'n_blackeyes' then
 		n_blackeyes = nil
-		cl = cl + 1
-		xaload = 0
+		event_endnext()
 	elseif arg1 == 'ny_argument2' then
 		vignette = nil
-		noise1 = nil
-		noise2 = nil
-		noise3 = nil
-		noise4 = nil
+		unloadanimframe()
+		event_endnext()
+	elseif arg1 == 'yuri_glitch' then
+		unloadanimframe()
+		event_endnext()
 	end
 end
