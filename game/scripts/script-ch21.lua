@@ -1,4 +1,5 @@
 local y_gtimer = 0
+local gtext = glitchtext(20)
 
 function yuri_glitch2()
 	local dt = love.timer.getDelta()
@@ -475,9 +476,169 @@ function ch21script(dt)
 	elseif cl == 1013 then
 	event_end('ny_argument2')
 	bgUpdate('corridor')
-	updateMonika('1','n',80)
+	updateMonika('1','n')
+	m_Set.x = 80
 	m "Sorry about that..."
 	elseif cl == 1014 then
     m "They really shouldn't have tried to get you involved."
+	elseif cl == 1015 then
+	updateMonika('1','e')
+	m "It's probably better for us to stay out of this..."
+	elseif cl == 1016 then
+    m "We'll go back inside once they're done yelling."
+	elseif cl == 1017 then
+	updateMonika('5a')
+    m "Ahaha..."
+	elseif cl == 1018 then
+    m "Some president I am, right?"
+	elseif cl == 1019 then
+	updateMonika('1','m')
+    m "I can't even confront my own club members properly..."
+	elseif cl == 1020 then
+    m "I just wish I was able to be a little more assertive sometimes."
+	elseif cl == 1021 then
+    m "But I never have it in me to put my foot down against others..."
+	elseif cl == 1022 then
+	updateMonika('1','e')
+    m "You understand, right?"
+	elseif cl == 1023 then
+    m "Anyway..."
+	elseif cl == 1024 then
+	updateMonika('1','a')
+    m "If this makes you want to spend less time with the others, then that's fine."
+	elseif cl == 1025 then
+	updateMonika('1','j')
+    m "I'd be happy to spend time with you instead..."
+    elseif cl == 1026 then
+	hideMonika()
+    bl "Suddenly, Natsuki runs out of the classroom."
+	elseif cl == 1027 then
+	updateNatsuki('1','2h',80)
+    n "..."
+	elseif cl == 1028 then
+	updateNatsuki('1','2f')
+	if autotimer < (settings.autospd - 0.75) then autotimer = settings.autospd - 0.75 end
+    elseif cl == 1029 then
+	autotimer = 0
+	hideNatsuki()
+    bl "She quickly runs away."
+    elseif cl == 1030 then
+	updateMonika('1','l',80)
+    m "Oh dear..."
+	elseif cl == 1031 then
+    m "...Well, it looks like they're done..."
+	elseif cl == 1032 then
+	bgUpdate('club_day2')
+	hideAll()
+    y "I didn't mean it..."
+	elseif cl == 1033 then
+    y "I didn't mean it..."
+	elseif cl == 1034 then
+    y "I didn't mean it..."
+	elseif cl == 1035 then
+    bl "Yuri is rocking back and forth in her desk with her palms on her forehead."
+	elseif cl == 1036 then
+    mc "Yuri...?"
+	elseif cl == 1037 then
+	updateYuri('4','d2',80)
+    y "I didn't mean it!!"
+	elseif cl == 1038 then
+    mc "I-I believe you..."
+	elseif cl == 1039 then
+    bl "I have no idea what Yuri might have said to Natsuki."
+	elseif cl == 1040 then
+    bl "Or did."
+	elseif cl == 1041 then
+	cw('y',player..".")
+	elseif cl == 1042 then
+    y "Please don't hate me."
+	elseif cl == 1043 then
+    y "Please!"
+	elseif cl == 1044 then
+    y "I'm not like this!"
+	elseif cl == 1045 then
+    y "There's something wrong with me today..."
+	elseif cl == 1046 then
+	updateMonika('1','d',-40)
+    m "It's fine, Yuri."
+	elseif cl == 1047 then
+    m "We know you didn't mean it."
+	elseif cl == 1048 then
+	updateMonika('1','j')
+    m "Besides, I'm sure Natsuki will forget all about it by tomorrow."
+	elseif cl == 1049 then
+	updateMonika('1','a')
+    m "Completely."
+	elseif cl == 1050 then
+	updateYuri('4','b2')
+    y "..."
+	elseif cl == 1051 then
+    m "Anyway, the meeting is over, so you can go home now if you want."
+	elseif cl == 1052 then
+	updateYuri('4','a2')
+    y "..."
+    elseif cl == 1053 then
+    bl "Yuri looks at me like she wants to say something."
+	elseif cl == 1054 then
+    bl "But she keeps glancing at Monika."
+    elseif cl == 1055 then
+	updateYuri('2','v')
+    y "Y-You can go first, Monika..."
+	elseif cl == 1056 then
+    y "I'd like to stay a little bit longer."
+	elseif cl == 1057 then
+	updateMonika('2','k')
+    m "I'm the President, so I should be the last one out."
+	elseif cl == 1058 then
+    m "I'll wait for you to be done."
+	elseif cl == 1059 then
+	updateMonika('2','a')
+	updateYuri('4','b2')
+    y "..."
+	elseif cl == 1060 then
+    y "..."
+	elseif cl == 1061 then
+    y "Well-- I'm Vice President, so..."
+	elseif cl == 1062 then
+    y "Please let me take that responsibility today."
+	elseif cl == 1063 then
+	updateMonika('2','i')
+    m "It kind of sounds like you don't want me around for something, Yuri."
+	elseif cl == 1064 then
+	updateYuri('3','p')
+    y "I-It's not that!"
+	elseif cl == 1065 then
+	updateYuri('3','o')
+    y "It's not that..."
+	elseif cl == 1066 then
+	updateYuri('3','n')
+    y "I just..."
+	elseif cl == 1067 then
+	updateYuri('3','q')
+    cw('y',"I didn't get much of a chance to discuss my book with "..player.."...")
+	elseif cl == 1068 then
+    y "It would just be...embarrassing with you listening..."
+	elseif cl == 1069 then
+	updateMonika('1','r')
+    m "*Sigh*"
+	elseif cl == 1070 then
+	updateMonika('1','d')
+    m "I guess I don't really have a choice, do I?"
+    elseif cl == 1071 then
+	updateYuri('1','t')
+    y "I-I'm sorry for causing trouble..."
+	event_init('yuri_glitch')
+    elseif cl == 1072 then
+	updateYuri('1','s')
+    cw('y',"But I really appreciate you understan",'nw')
+	elseif cl == 1073 then
+	audioUpdate('g1')
+    event_start('yuri_glitch')
+    cw('y',gtext.." "..gtext..gtext)
+	elseif cl == 1074 then
+	alpha = 10
+	scriptJump(1075)
+	elseif cl == 1075 then
+	splashalpha(4)
 	end
 end
