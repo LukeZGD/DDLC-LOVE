@@ -21,6 +21,7 @@ function dripText(text,charactersPerSecond,startTime)
 	currentTime = love.timer.getTime()
 	if (currentTime <= startTime) or startTime == 0 then return '' end
 	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
+	if charactersPerSecond == nil then charactersPerSecond = 100 end
 	return text:sub(1,math.min(math.floor((currentTime-startTime)*charactersPerSecond),text:len()))
 end
 

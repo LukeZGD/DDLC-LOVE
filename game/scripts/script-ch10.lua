@@ -1,5 +1,6 @@
 local gtext = glitchtext(48)
 local s_name = glitchtext(12)
+local gs = math.random(0,2)
 
 function ch10script()
 	if cl > 150 then
@@ -22,6 +23,13 @@ function ch10script()
 	cw('bl',"However, I just sigh and idle in front of the crosswalk and let "..s_name.." catch up to me.")
 	event_init('s_glitch')
 	elseif cl == 8 then
+	if gs == 0 then
+		audioUpdate('2gs')
+	elseif gs == 1 then
+		audioUpdate('2gs2')
+	else
+		audioUpdate('2gs3')
+	end
 	event_start('s_glitch')
 	end
 end

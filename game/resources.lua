@@ -69,8 +69,12 @@ function changeState(cstate,x)
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		poemfont = love.graphics.newFont('fonts/Halogen',12)
 		if persistent.playthrough <= 2 then
-			s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-			s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+			if persistent.playthrough == 0 then
+				s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
+				s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+			else
+				eyes = love.graphics.newImage('images/bg/eyes.png')
+			end
 			y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
 			y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
 			n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
@@ -414,6 +418,7 @@ function unloadAll(x)
 		yuristicker2 = nil
 		natsukisticker1 = nil
 		natsukisticker2 = nil
+		eyes = nil
 	elseif x == 'stuff' then
 		states = nil
 		script_mg = nil

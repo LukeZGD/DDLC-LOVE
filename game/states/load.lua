@@ -65,6 +65,7 @@ function checkLoad()
 	elseif ghostmenu_chance == 0 and persistent.playthrough == 2 and persistent.schr >= 0 then
 		changeState('ghostmenu')
 		persistent.schr = -1
+		savepersistent()
 	else
 		l_timer = 100
 	end
