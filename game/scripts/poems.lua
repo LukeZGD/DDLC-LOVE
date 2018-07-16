@@ -97,7 +97,7 @@ I touch his hand. The flickering stops.
 Ghosts are blue-green. My heart is amber.]]
 
 	elseif poemname == 'poem_y22' then
-		poemtext == [[
+		poemtext = [[
 Wheel
 
 A rotating wheel. Turning an axle. Grinding. Bolthead. Linear gearbox. Falling sky.
@@ -112,7 +112,7 @@ ticks one second for every rotation of the planet. A clock that ticks forty time
 every time it ticks every second time. A bolthead of holy stakes tied to the existence
 of a docked ship to another world. A kaleidoscope of blood written in clocks.]]
 	elseif poemname == 'poem_y22-a' then
-		poemtext == [[
+		poemtext = [[
 A time-devouring prayer connecting a sky of forty gears and open human eyes in all
 directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal.
 Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing
@@ -172,7 +172,7 @@ The world is better off without spider lovers.
 And I'm gonna tell everyone.]]
 	
 	elseif poemname == 'poem_n2b' then
-		poemtext == [[
+		poemtext = [[
 T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
 
 SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
@@ -265,7 +265,7 @@ Because you think of me.
 Because you, because you, because you.]]
 	
 	elseif poemname == 'poem_n23' then
-		poemtext == [[
+		poemtext = [[
 I don't know how else to bring this up. But there's been something I've been worried
 about. Yuri has been acting kind of strange lately. You've only been here a few days,
 so you may not know what I mean. But she's not normally like this. She's always been
@@ -277,7 +277,7 @@ again. I don't know what to do. I think you're the only person that she'll liste
 I don't know why. But please try to do something. Maybe you can convince her to talk to
 a therapist.]]
 	elseif poemname == 'poem_n23-a' then
-		poemtext == [[
+		poemtext = [[
 I've always wanted to try being better friends with Yuri, and it really hurts me to see 
 this happening. I know I'm going to hate myself later for admitting that, but right now 
 I don't care. I just feel so helpless. So please see if you can do something to help. 
@@ -466,7 +466,7 @@ CACOPHONY
 Of meaningless
 noise]]
 	elseif poemname == 'poem_m22-a' then
-		poemtext == [[
+		poemtext = [[
 The noise, it won't STOP.
 Viol nt, grating w vef rms
 Sq e king, screech ng, piercing
