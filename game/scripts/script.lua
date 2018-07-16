@@ -87,7 +87,7 @@ function scriptCheck()
 	elseif poemsread ~= -1 then
 		script_poemresponses = require 'scripts.script-poemresponses'
 		script_poems = require 'scripts.poems'
-		if persistent.playthrough == 0 then
+		if persistent.ptr == 0 then
 			script_poemresponsesx = require 'scripts.script-poemresponses1'
 		else
 			script_poemresponsesx = require 'scripts.script-poemresponses2'
@@ -98,11 +98,11 @@ function scriptCheck()
 		script_poemresponsesx = nil
 	end
 	
-	if persistent.playthrough == 0 and chapter ~= 4 and ((cl>=423 and cl<652) or (cl>=1359 and cl<1638)) then
+	if persistent.ptr == 0 and chapter ~= 4 and ((cl>=423 and cl<652) or (cl>=1359 and cl<1638)) then
 		loadstring(poemwinner[chapter]..'_exclusive_'..(loadstring('return '..poemwinner[chapter]..'_appeal')())..'()')()
-	elseif persistent.playthrough == 2 and ((cl>=358 and cl<652) or (cl>=1359 and cl<1638)) then
+	elseif persistent.ptr == 2 and ((cl>=358 and cl<652) or (cl>=1359 and cl<1638)) then
 		loadstring(poemwinner[chapter-20]..'_exclusive2_'..(loadstring('return '..poemwinner[chapter-20]..'_appeal')())..'()')()
-	elseif persistent.playthrough == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
+	elseif persistent.ptr == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
 		poeminitialize()
 	elseif script_main then
 		loadstring('ch'..chapter..'script()')()
@@ -141,7 +141,7 @@ end
 function poeminitialize(y)
 	poemsread = 0
 	readpoem = {s=0,n=0,y=0,m=0}
-	if persistent.playthrough == 0 then
+	if persistent.ptr == 0 then
 		choices = {'Sayori','Natsuki','Yuri','Monika'}
 	elseif y == 'y_ranaway' then
 		choices = {'Natsuki','Monika'}

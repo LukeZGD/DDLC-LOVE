@@ -1,14 +1,18 @@
+local err = ''
+
 function drawLoad()
 	drawTopScreen()
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',0,0,400,240)
+	love.graphics.setColor(255,255,255)
+	love.graphics.print(err)
 	drawBottomScreen()
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',-40,0,400,240)
 end
 
 function updateLoad()
-	if l_timer < 100 then
+	if l_timer < 99 then
 		l_timer = l_timer + 1
 	end
 	
@@ -60,11 +64,13 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = math.random(0, 63)
-	if persistent.schr == 0 and persistent.playthrough == 0 then
+	if persistent.playthrough then
+		err = 'Error!\nOld save files detected, and are not compatible with this version.\nPlease delete all save files and try again.\n\nPress Y to quit'
+	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
-	elseif ghostmenu_chance == 0 and persistent.playthrough == 2 and persistent.schr >= 0 then
+	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
 		changeState('ghostmenu')
-		persistent.schr = -1
+		persistent.chr.s = 2
 		savepersistent()
 	else
 		l_timer = 100

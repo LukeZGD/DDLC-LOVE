@@ -296,8 +296,8 @@ function event_update(dt)
 	--s_glitch
 	if event_type == 's_glitch' then
 		if event_timer > 7 then
-			persistent.playthrough = 2
-			special_poems = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
+			persistent.ptr = 2
+			sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 			savepersistent()
 			chapter = 20
 			cl = 1

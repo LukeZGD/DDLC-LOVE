@@ -1,10 +1,9 @@
 local m_chance = math.random(0, 2)
-Natsuki_appeal = 0
-Yuri_appeal = 0
+appeal.n = 0
+appeal.y = 0
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
-y_exclusivewatched = ''
-n_exclusivewatched = ''
+savevalue = ''
 
 function ch20script()
 	if cl == 1 then
@@ -746,10 +745,10 @@ function ch20script()
 	bgUpdate('black')
 	menutext = 'You have unlocked a special poem.\nWould you like to read it?'
 	choices = {'Yes','No'}
-	if menu_enabled ~= true then menu_enable('choice') end
+	choice_enable()
 	elseif cl == 296 then
 	if choicepick == 'Yes' then
-		changeState('poem_special',special_poems[1])
+		changeState('poem_special',sp[1])
 	else
 		scriptJump(297)
 	end

@@ -271,7 +271,7 @@ function ch5script()
 		cw('bl',"I gently open the door.")
 		event_init('s_kill')
 	elseif cl == 110 then
-		persistent.playthrough = 1
+		persistent.ptr = 1
 		persistent.schr = 0
 		if xaload == 0 then
 			savepersistent()

@@ -138,6 +138,8 @@ function love.keypressed(key)
 			poemgamekeypressed(key)
 		elseif state == 'poem_special' then
 			poem_special_keypressed(key)
+		elseif state == 'load' and key == 'y' then
+			game_quit()
 		end
 	elseif menu_enabled then
 		menu_keypressed(key)

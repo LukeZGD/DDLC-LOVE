@@ -52,15 +52,15 @@ end
 
 function poemgamefinish()
 	--add 1 to chapter number
-	if persistent.playthrough <= 2 then chapter = chapter + 1 end
-	if persistent.playthrough == 2 then 
+	if persistent.ptr <= 2 then chapter = chapter + 1 end
+	if persistent.ptr == 2 then 
 		pchapter = chapter - 20
 	else
 		pchapter = chapter
 	end
 	
 	--determine poemwinner
-	if persistent.playthrough == 0 then
+	if persistent.ptr == 0 then
 		if chapter == 2 then
 			if choicepick == 'Natsuki' then
 				nPoint = nPoint + 5
@@ -76,13 +76,18 @@ function poemgamefinish()
 		elseif maxpoint == nPoint then poemwinner[pchapter] = 'Natsuki'
 		elseif maxpoint == yPoint then poemwinner[pchapter] = 'Yuri'
 		end
-	elseif persistent.playthrough == 2 then
+	elseif persistent.ptr == 2 then
 		if nPoint > yPoint then poemwinner[pchapter] = 'Natsuki'
 		else poemwinner[pchapter] = 'Yuri'
 		end
 	end
 	
-	loadstring(poemwinner[pchapter]..'_appeal = '..poemwinner[pchapter]..'_appeal + 1')()
+	local aa
+	if poemwinner[pchapter] == 'Sayori' then aa = 's'
+	elseif poemwinner[pchapter] == 'Natsuki' then aa = 'n'
+	elseif poemwinner[pchapter] == 'Yuri' then aa = 'y'
+	end
+	loadstring('appeal.'..aa..' = appeal.'..aa..' + 1')()
 	
 	--determine poemappeal
 	if sPoint < 29 then s_poemappeal[pchapter] = -1
@@ -107,10 +112,10 @@ function poemgame()
 	
 	state = 'poemgame'
 	xaload = 0
-	if persistent.playthrough <= 2 then 
+	if persistent.ptr <= 2 then 
 		audioUpdate('4',true)
 		bgch2 = love.graphics.newImage('images/bg/notebook.png')
-	elseif persistent.playthrough == 3 then 
+	elseif persistent.ptr == 3 then 
 		audioUpdate('ghostmenu')
 	end
 	
@@ -193,11 +198,11 @@ function drawPoemGame()
 	love.graphics.setColor(255,255,255,alpha)
 	love.graphics.draw(background_Image, posX, posY)
 	
-	if persistent.playthrough == 0 then
+	if persistent.ptr == 0 then
 		if s_sticker_1 and s_sticker_2 then love.graphics.draw(s_sticker,50,s_y) end
 		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
 		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
-	elseif persistent.playthrough == 2 then
+	elseif persistent.ptr == 2 then
 		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
 		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
 	else
@@ -227,7 +232,7 @@ function updatePoemGame(dt)
 		if spAdd == nil then spAdd = 0 end
 		if npAdd == nil then npAdd = 0 end
 		if ypAdd == nil then ypAdd = 0 end
-		if persistent.playthrough == 0 and poemword > 0 then
+		if persistent.ptr == 0 and poemword > 0 then
 			if spAdd == 3 then
 				s_sticker = s_sticker_2
 				s_y = p_y
@@ -238,7 +243,7 @@ function updatePoemGame(dt)
 				y_sticker = y_sticker_2
 				y_y = p_y
 			end
-		elseif persistent.playthrough == 2 then
+		elseif persistent.ptr == 2 then
 			if npAdd == 3 or (spAdd == 3 and npAdd == 2) then
 				n_sticker = n_sticker_2
 				n_y = p_y
@@ -258,7 +263,7 @@ function updatePoemGame(dt)
 	end
 	
 	if poemword >= 21 then
-		if persistent.playthrough == 2 and eyes_chance == 0 then
+		if persistent.ptr == 2 and eyes_chance == 0 then
 			audioUpdate('0')
 			sfxplay('eyes')
 			eyes_in = true
