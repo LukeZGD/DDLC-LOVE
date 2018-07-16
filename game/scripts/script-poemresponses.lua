@@ -74,7 +74,7 @@ function poemfinish(a)
 	
 	poemsread = poemsread + 1
 	hideAll()
-	if poemsread == 4 or (poemsread == 3 and persistent.playthrough == 2) then
+	if poemsread == 4 or (poemsread == 3 and persistent.ptr == 2) then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
 		readpoem = {s=0,n=0,y=0,m=0}
@@ -115,7 +115,7 @@ function poemresponse_natsuki()
 	end
 	
     poemopinion = "med"
-	if persistent.playthrough == 0 then
+	if persistent.ptr == 0 then
 		if n_poemappeal[chapter] < 0 then
 			poemopinion = "bad"
 		elseif n_poemappeal[chapter] > 0 then
@@ -139,7 +139,7 @@ function poemresponse_yuri()
 	end
 	
     poemopinion = "med"
-	if persistent.playthrough == 0 then
+	if persistent.ptr == 0 then
 		if y_poemappeal[chapter] < 0 then
 			poemopinion = "bad"
 		elseif y_poemappeal[chapter] > 0 then
@@ -615,7 +615,7 @@ function ch1_n_bad()
 	if cl == 670 then
 		cw('n',"...")
 	elseif cl == 671 then
-		if persistent.playthrough == 2 and n_blackeyeschance == 0 then
+		if persistent.ptr == 2 and n_blackeyeschance == 0 then
 			audioUpdate('0')
 			event_initstart('n_blackeyes')
 		else
@@ -862,7 +862,7 @@ function ch1_m_end2()
 	elseif cl == 775 then
 		cw('m',"Thanks for listening~")
 	elseif cl == 776 then
-		if persistent.playthrough == 2 and poemwinner[1] == 'Yuri' then
+		if persistent.ptr == 2 and poemwinner[1] == 'Yuri' then
 			poemfinish('my')
 		else
 			poemfinish('m')
@@ -895,13 +895,13 @@ function ch21_y_good()
 end
 
 function m_eval()
-	if persistent.playthrough == 0 then
+	if persistent.ptr == 0 then
 		if poemwinner[chapter] == 'Sayori' then
-			loadstring('m_sayori_'..Sayori_appeal..'()')()
+			loadstring('m_sayori_'..appeal.s..'()')()
 		elseif poemwinner[chapter] == 'Natsuki' then
-			loadstring('m_natsuki_'..Natsuki_appeal..'()')()
+			loadstring('m_natsuki_'..appeal.n..'()')()
 		elseif poemwinner[chapter] == 'Yuri' then
-			loadstring('m_yuri_'..Yuri_appeal..'()')()
+			loadstring('m_yuri_'..appeal.y..'()')()
 		end
 	else
 		if poemwinner[1] == 'Natsuki' then

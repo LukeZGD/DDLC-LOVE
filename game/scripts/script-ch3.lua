@@ -319,11 +319,11 @@ function ch3script()
 	elseif cl == 2113 then
 		scriptJump(1)
 	elseif cl < 1977 then
-		if Natsuki_appeal == 0 and Yuri_appeal == 0 then
+		if appeal.n == 0 and appeal.y == 0 then
 			ch3_start_none()
-		elseif Natsuki_appeal > 1 then
+		elseif appeal.n > 1 then
 			ch3_start_natsuki()
-		elseif Yuri_appeal > 1 then
+		elseif appeal.y > 1 then
 			ch3_start_yuri()
 		elseif poemwinner[2] == "Natsuki" then
 			ch3_start_natsuki()

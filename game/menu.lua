@@ -151,7 +151,7 @@ function menu_confirm()
 		end
 		
 		if m_selected == 2 then --new game
-			if persistent.mchr == 0 and persistent.playthrough == 0 then --set up early act 1 end
+			if persistent.chr.m == 0 and persistent.ptr == 0 then --set up early act 1 end
 				menu_enabled = false
 				cl = 10001
 				changeState('game',1)
@@ -229,18 +229,16 @@ function menu_confirm()
 		
 	elseif menu_type == 'characters' then
 		if m_selected == 2 then
-			persistent.mchr = 0
+			persistent.chr.m = 0
 		elseif m_selected == 3 then
-			if persistent.playthrough == 0 then
-				persistent.schr = 0
+			if persistent.ptr == 0 then
+				persistent.chr.s = 0
 			end
 		elseif m_selected == 6 then
-			if persistent.playthrough == 0 then
-				persistent.schr = 1
+			if persistent.ptr == 0 then
+				persistent.chr.s = 1
 			end
-			persistent.mchr = 1
-			persistent.nchr = 1
-			persistent.ychr = 1
+			persistent.chr.m = 1
 		end
 		savepersistent()
 		menu_enable(menu_previous)

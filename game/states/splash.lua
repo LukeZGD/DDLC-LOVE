@@ -28,7 +28,7 @@ function drawSplash()
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
 		love.graphics.setColor(0,0,0, alpha)
-		if persistent.playthrough == 2 and random_msgchance == 0 then
+		if persistent.ptr == 2 and random_msgchance == 0 then
 			love.graphics.print(splash_messages[random_msg], 95, 100)
 		else
 			love.graphics.print('This game is not suitable for children', 95, 100)
