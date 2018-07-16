@@ -125,7 +125,7 @@ function event_draw()
 	
 	if event_type == 'm_glitch1' then
 		love.graphics.draw(bgch)
-		love.graphics.draw(m1,100)
+		love.graphics.draw(ml,100)
 	end
 	
 	if event_type == 'n_glitch1' then
