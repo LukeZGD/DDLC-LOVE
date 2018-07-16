@@ -84,7 +84,7 @@ function updateGame(dt)
 	if event_enabled then event_update(dt) end
 	
 	--custom audio looping
-	if audio1 == '7' and persistent.playthrough == 2 then
+	if audio1 == '7' and persistent.ptr == 2 then
 		audiotell = audiotell + dt
 		if audiotell > 4.1 then audioUpdate('7a') end
 	elseif audio1 == '7g' then

@@ -433,22 +433,7 @@ function ch21script(dt)
     cw('bl',"So, of course that's going to be...!",'nwfast')
 	elseif cl == 999 then
 	ch21_endmenu()
-	elseif cl == 1000 then
-	sfxplay('s_kill_glitch1s')
-	if xaload > 0 then ch21_endmenu() end
-	elseif cl == 1001 then
-	sfxplay('s_kill_glitch1s')
-	if xaload > 0 then ch21_endmenu() end
-	elseif cl == 1002 then
-	sfxplay('s_kill_glitch1s')
-	if xaload > 0 then ch21_endmenu() end
-	elseif cl == 1003 then
-	sfxplay('s_kill_glitch1s')
-	if xaload > 0 then ch21_endmenu() end
-	elseif cl == 1004 then
-	sfxplay('s_kill_glitch1s')
-	if xaload > 0 then ch21_endmenu() end
-	elseif cl == 1005 then
+	elseif cl >= 1000 and cl <= 1005 then
 	sfxplay('s_kill_glitch1s')
 	if xaload > 0 then ch21_endmenu() end
 	elseif cl == 1006 then

@@ -921,7 +921,7 @@ function ch0script()
 	elseif cl == 10014 then 
 		cw('s',"PLEASE MAKE IT STOP!")
 	elseif cl == 10015 then 
-		persistent.schr = 0
+		persistent.chr.s = 0
 		savepersistent()
 		game_quit()
 	end

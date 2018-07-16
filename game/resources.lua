@@ -12,7 +12,7 @@ function changeState(cstate,x)
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
-		if persistent.playthrough > 0 then
+		if persistent.ptr > 0 then
 			titlebg = love.graphics.newImage('images/gui/bg2.png')
 		else
 			titlebg = love.graphics.newImage('images/gui/bg.png')
@@ -28,9 +28,9 @@ function changeState(cstate,x)
 		state = 'game'
 		menu_enabled = false
 	elseif cstate == 'game' and x == 1 then --new game
-		if persistent.playthrough == 0 then 
+		if persistent.ptr == 0 then 
 			chapter = 0
-		elseif persistent.playthrough == 1 then
+		elseif persistent.ptr == 1 then
 			chapter = 10
 		else
 			chapter = 20
@@ -41,7 +41,7 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 2 then --load game
 		hideAll()
 		loadgame()
-		if data_ptr ~= persistent.playthrough then --default to new game when loading a save from different act
+		if data_ptr ~= persistent.ptr then --default to new game when loading a save from different act
 			changeState('title')
 		else
 			if audio1 == '4' then
@@ -68,8 +68,8 @@ function changeState(cstate,x)
 		alpha = 255
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		poemfont = love.graphics.newFont('fonts/Halogen',12)
-		if persistent.playthrough <= 2 then
-			if persistent.playthrough == 0 then
+		if persistent.ptr <= 2 then
+			if persistent.ptr == 0 then
 				s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
 				s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
 			else
@@ -129,7 +129,7 @@ function changeState(cstate,x)
 		elseif chapter == 23 then
 			script_main = require 'scripts.script-ch23'
 		end
-		if persistent.playthrough == 0 then
+		if persistent.ptr == 0 then
 			if poemwinner[chapter] == 'Sayori' then
 				script_exclusive = require 'scripts.script-exclusives-sayori'
 			elseif poemwinner[chapter] == 'Natsuki' then
@@ -137,7 +137,7 @@ function changeState(cstate,x)
 			elseif poemwinner[chapter] == 'Yuri' then
 				script_exclusive = require 'scripts.script-exclusives-yuri'
 			end
-		elseif persistent.playthrough == 2 and chapter > 20 then
+		elseif persistent.ptr == 2 and chapter > 20 then
 			if poemwinner[chapter-20] == 'Natsuki' and chapter == 21 then
 				script_exclusive = require 'scripts.script-exclusives2-natsuki'
 			elseif poemwinner[chapter-20] == 'Yuri' or chapter > 21 then
