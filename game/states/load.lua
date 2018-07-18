@@ -1,3 +1,4 @@
+local l_timer = 94
 local err = ''
 
 function drawLoad()

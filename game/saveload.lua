@@ -72,11 +72,8 @@ end
 
 function savepersistent()
 	local spfile = "player='"..player.."'\
-persistent={ptr="..persistent.ptr..";\
-clear={"..persistent.clear[1]..","..persistent.clear[2]..","..persistent.clear[3]..",\
-"..persistent.clear[4]..","..persistent.clear[5]..","..persistent.clear[6]..",\
-"..persistent.clear[7]..","..persistent.clear[8]..","..persistent.clear[9].."};\
-chr={m="..persistent.chr.m..",s="..persistent.chr.s.."};\
+persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
+clear={"..persistent.clear[1]..","..persistent.clear[2]..","..persistent.clear[3]..","..persistent.clear[4]..","..persistent.clear[5]..","..persistent.clear[6]..","..persistent.clear[7]..","..persistent.clear[8]..","..persistent.clear[9].."}};\
 sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 	
 	love.filesystem.write('persistent', spfile)
