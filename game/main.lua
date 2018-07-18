@@ -15,7 +15,6 @@ function love.load()
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
-	l_timer = 94
 	s_timer = 0
 	xaload = 0
 	alpha = 255
@@ -53,10 +52,8 @@ function love.draw()
 		drawGame()
 	elseif state == 'poemgame' then
 		drawPoemGame()
-	elseif state == 's_kill_early' then --early act 1 end
-		drawSplashspec('s_kill_early')
-	elseif state == 'ghostmenu' then
-		drawSplashspec('ghostmenu')
+	elseif state == 's_kill_early' or state == 'ghostmenu' then
+		drawSplashspec()
 	elseif state == 'poem_special' then
 		drawpoem_special()
 	end
@@ -121,14 +118,14 @@ function love.update(dt)
 		updatePoemGame(dt)
 	elseif state == 'poem_special' then
 		updatepoem_special(dt)
-	elseif state == 'ghostmenu' then
+	elseif state == 's_kill_early' or state == 'ghostmenu' then
 		updateSplashspec(dt)
 	end
 end
 
 function love.keypressed(key)
 	if menu_enabled ~= true then
-		if state == 'splash1' or state == 'splash2' or state == 's_kill_early' or state == 'ghostmenu' then
+		if state == 'splash1' or state == 'splash2' then
 			splash_keypressed(key)
 		elseif state == 'game' then
 			game_keypressed(key)
@@ -138,7 +135,7 @@ function love.keypressed(key)
 			poemgamekeypressed(key)
 		elseif state == 'poem_special' then
 			poem_special_keypressed(key)
-		elseif state == 'load' and key == 'y' then
+		elseif (state == 'load' or state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
 			game_quit()
 		end
 	elseif menu_enabled then

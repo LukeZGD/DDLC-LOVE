@@ -42,7 +42,7 @@ function changeState(cstate,x)
 		hideAll()
 		loadgame()
 		if data_ptr ~= persistent.ptr then --default to new game when loading a save from different act
-			changeState('title')
+			changeState(state,1)
 		else
 			if audio1 == '4' then
 				alpha = 20
@@ -91,12 +91,14 @@ function changeState(cstate,x)
 		s_killearly = love.graphics.newImage('images/cg/s_kill/s_kill_early.png')
 		state = 's_kill_early'
 		audioUpdate('s_kill_early')
+		alpha = 0
 	elseif cstate == 'ghostmenu' then
 		states = require 'states.splash'
 		endbg = love.graphics.newImage('images/gui/end.png')
 		titlebg = love.graphics.newImage('images/gui/bg_ghost.png')
 		state = 'ghostmenu'
 		audioUpdate('ghostmenu')
+		alpha = 0
 	elseif cstate == 'poem_special' then
 		states = require 'states.poem_special'
 		poem_special_i(x)
@@ -128,6 +130,8 @@ function changeState(cstate,x)
 			script_main = require 'scripts.script-ch22'
 		elseif chapter == 23 then
 			script_main = require 'scripts.script-ch23'
+		elseif chapter == 40 then
+			script_main = require 'scripts.script-ch40'
 		end
 		if persistent.ptr == 0 then
 			if poemwinner[chapter] == 'Sayori' then
