@@ -1,6 +1,5 @@
 local m_chance = math.random(0, 2)
-appeal.n = 0
-appeal.y = 0
+appeal = {s=0,n=0,y=0}
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
 savevalue = ''
