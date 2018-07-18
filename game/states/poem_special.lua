@@ -4,8 +4,9 @@ local p_confirm
 local p_number
 
 function poem_special_i(poem)
+	p_alpha = 1
+	p_confirm = 0
 	p_number = poem
-	p_alpha = 0
 	poemsp = {}
 	if p_number == 1 then
 		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special1.png')
