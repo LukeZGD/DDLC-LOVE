@@ -4,6 +4,8 @@ local cba
 local cca
 local tspd
 local tagtimer
+local pchapter
+local aa
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
@@ -98,10 +100,20 @@ function scriptCheck()
 		script_poemresponsesx = nil
 	end
 	
-	if persistent.ptr == 0 and chapter ~= 4 and ((cl>=423 and cl<652) or (cl>=1359 and cl<1638)) then
-		loadstring(poemwinner[chapter]..'_exclusive_'..(loadstring('return '..poemwinner[chapter]..'_appeal')())..'()')()
+	if persistent.ptr == 2 then 
+		pchapter = chapter - 20
+	else
+		pchapter = chapter
+	end
+	if poemwinner[pchapter] == 'Sayori' then aa = 's'
+	elseif poemwinner[pchapter] == 'Natsuki' then aa = 'n'
+	elseif poemwinner[pchapter] == 'Yuri' then aa = 'y'
+	end
+	
+	if persistent.ptr == 0 and chapter ~= 4 and ((cl>=423 and cl<665) or (cl>=1235 and cl<1638)) then
+		loadstring(poemwinner[pchapter]..'_exclusive_'..(loadstring('return appeal.'..aa)())..'()')()
 	elseif persistent.ptr == 2 and ((cl>=358 and cl<652) or (cl>=1359 and cl<1638)) then
-		loadstring(poemwinner[chapter-20]..'_exclusive2_'..(loadstring('return '..poemwinner[chapter-20]..'_appeal')())..'()')()
+		loadstring(poemwinner[pchapter]..'_exclusive2_'..(loadstring('return appeal.'..aa)())..'()')()
 	elseif persistent.ptr == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
 		poeminitialize()
 	elseif script_main then
