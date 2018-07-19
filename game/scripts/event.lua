@@ -54,7 +54,9 @@ function event_start(etype, arg1)
 	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
-		if arg1 then eventvar2 = arg1 end
+		if arg1 then eventvar2 = arg1 
+		else eventvar2 = nil 
+		end
 	elseif event_type == 'black' then
 		textbox_enabled = true
 		bgimg_disabled = true
@@ -62,17 +64,23 @@ function event_start(etype, arg1)
 		hideAll()
 		textbox_enabled = false
 		audioUpdate('0')
-	elseif event_type == 's_glitch' or event_type == 'm_glitch1' or event_type == 'n_glitch1' then
+	elseif event_type == 's_glitch' or event_type == 'm_glitch1' or event_type == 'n_glitch1' or event_type == 'yuri_eyes' then
 		bgimg_disabled = false
 		textbox_enabled = false
 	elseif event_type == 'ny_argument' then
 		eventvar1 = 0
 		eventvar2 = 0
-		eventvar3 = {2,3.6,5.2,6.8,8.3,9.9,11.5,13.1,14.7,16.3,17.9,19.45,21.1,22.7,24.2,25.8}
-		eventvar4 = {2.5,4.1,5.7,7.3,8.8,10.3,12,13.5,15.1,16.7,18.25,19.85,21.5,23,24.6,26.2}
+		eventvar3 = {2.0,3.6,5.2,6.8,8.3,9.90,11.5,13.1,14.7,16.3,17.90,19.45,21.1,22.7,24.2,25.8}
+		eventvar4 = {2.5,4.1,5.7,7.3,8.8,10.3,12.0,13.5,15.1,16.7,18.25,19.85,21.5,23.0,24.6,26.2}
 		eventvar5 = 1
 		bgimg_disabled = false
 		textbox_enabled = true
+	elseif event_type == 'yuri_eyes' then
+		bgimg_disabled = false
+		textbox_enabled = false
+		eventvar1 = 2
+		eventvar2 = -13
+		eventvar3 = 0
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
@@ -148,8 +156,8 @@ function event_draw()
 		love.graphics.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
 		love.graphics.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
 		love.graphics.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
-		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(15,25))
-		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(15,25))
+		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
+		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
 		textbox_enabled = true
 	end
 	
@@ -190,6 +198,22 @@ function event_draw()
 		drawanimframe(80)
 	end
 	
+	if event_type == 'show_vignette' then
+		love.graphics.draw(bgch)
+		love.graphics.draw(vignette)
+	elseif event_type == 'show_dark' then
+		love.graphics.draw(bgch)
+		drawYuri(y_Set.a,y_Set.b)
+		love.graphics.setColor(0,0,0,192)
+		love.graphics.rectangle('fill',0,0,400,240)
+	elseif event_type == 'yuri_eyes' then
+		love.graphics.draw(bgch)
+		if eyes1 then love.graphics.draw(eyes1,-13) end
+		if eyes2 then love.graphics.draw(eyes2,eventvar2,eventvar3) end
+		love.graphics.setColor(0,0,0,192)
+		love.graphics.rectangle('fill',0,0,400,240)
+	end
+	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255)
 	if bgimg_disabled ~= true then
@@ -202,7 +226,7 @@ function event_draw()
 		drawTextBox()	
 	end
 	love.graphics.print(event_timer,2,220)
-	love.graphics.print(eventvar5,2,200)
+	if eventvar2 then love.graphics.print(eventvar2,2,200) end
 	
 	if event_type == 'm_onlayer_front' or event_type == 'ny_argument2' then
 		love.graphics.setColor(255,255,255)
@@ -242,6 +266,7 @@ end
 
 function event_update(dt)
 	event_timer = event_timer + dt
+	xaload = xaload + 1
 	
 	--s_kill timers
 	if event_type == 's_kill_start' and event_timer > 0.75 then event_next()
@@ -317,7 +342,6 @@ function event_update(dt)
 	
 	--m_glitch
 	if event_type == 'm_glitch1' then
-		xaload = xaload + 1
 		if event_timer > 0.8 then
 			event_end('next')
 		end
@@ -326,7 +350,6 @@ function event_update(dt)
 	end
 	
 	if event_type == 'n_glitch1' then
-		xaload = xaload + 1
 		if n_Set.y <= 0 then
 			n_Set.y = 50
 		else
@@ -338,7 +361,6 @@ function event_update(dt)
 	end
 	
 	if event_type == 'n_blackeyes' then
-		xaload = xaload + 1
 		if event_timer > 2.75 then
 			event_end('n_blackeyes')
 		elseif event_timer > 2 and event_timer < 2.03 then
@@ -378,6 +400,23 @@ function event_update(dt)
 	end
 	
 	if event_type == 'yuri_glitch' and event_timer > 0.5 then event_end('next') end
+	
+	if event_type == 'yuri_eyes' then
+		eventvar1 = eventvar1 + dt
+		if eventvar1 >= 2 then
+			eventvar1 = 0
+			eventvar2 = math.random(-14,-12)
+			eventvar3 = math.random(0,1)
+		end
+		if eventvar2 > -12 then eventvar2 = math.random(-14,-12) end
+		if xaload > 450 and cl == 1442 then
+			event_end('yuri_eyes')
+		elseif xaload > 450 then
+			textbox_enabled = true
+		else
+			textbox_enabled = false
+		end
+	end
 end
 
 function event_next()
@@ -406,7 +445,9 @@ function event_end(arg1)
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	eventvar2 = nil
+	if event_type == 'wipe' then
+		eventvar2 = nil
+	end
 	
 	if arg1 == 's_kill' then
 		s_kill = nil
@@ -432,6 +473,12 @@ function event_end(arg1)
 		event_endnext()
 	elseif arg1 == 'yuri_glitch' then
 		unloadanimframe()
+		event_endnext()
+	elseif arg1 == 'show_vignette' then
+		vignette = nil
+	elseif arg1 == 'yuri_eyes' then
+		eyes1 = nil
+		eyes2 = nil
 		event_endnext()
 	end
 end

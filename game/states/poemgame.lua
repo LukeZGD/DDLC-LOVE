@@ -152,7 +152,7 @@ function drawPoemGame()
 	drawTopScreen()
 	love.graphics.setBackgroundColor(0,0,0)
 	love.graphics.setColor(255,255,255,alpha)
-	love.graphics.draw(bgch2, 0, 0)
+	if bgch2 then love.graphics.draw(bgch2, 0, 0) end
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.draw(guicheck,cursorX,cursorY)

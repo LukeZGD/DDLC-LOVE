@@ -343,7 +343,7 @@ function ch22script()
 			elseif cl == 1212 then
 				mc "After we finished reading yesterday, she--"
 			elseif cl >= 1213 then
-				if n_appeal >= 2 then
+				if appeal.n >= 2 then
 					if cl == 1213 then
 						updateYuri('3','r')
 						y "She's fine!"
@@ -438,6 +438,7 @@ function ch22script()
 		poemwinner[2] = "Yuri"
 		bgUpdate('club_day2')
 		updateYuri('3','a')
+		autotimer = 0
 		if appeal.y == 1 then
 			scriptJump(393)
 		elseif appeal.y == 2 then
