@@ -64,13 +64,14 @@ function cw(p1, stext, tag)
 	
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)
-		if tagtimer >= (settings.textspd - (slen+35)) then
+		if tagtimer >= (settings.textspd + slen) / 4 then
 			if tag == 'fast' or tag == 'nwfast' then
 				settings.textspd = tspd
 			end
 			if tag == 'nw' or tag == 'nwfast' then
 				scriptJump(cl+1)
 			end
+			tagtimer = 0
 		elseif tag == 'fast' or tag == 'nwfast' then
 			tspd = settings.textspd
 			settings.textspd = 200
@@ -110,10 +111,12 @@ function scriptCheck()
 	elseif poemwinner[pchapter] == 'Yuri' then aa = 'y'
 	end
 	
-	if persistent.ptr == 0 and chapter ~= 4 and ((cl>=423 and cl<665) or (cl>=1235 and cl<1638)) then
+	if persistent.ptr == 0 and chapter ~= 4 and ((cl>=423 and cl<652) or (cl>=1359 and cl<1638)) then
 		loadstring(poemwinner[pchapter]..'_exclusive_'..(loadstring('return appeal.'..aa)())..'()')()
-	elseif persistent.ptr == 2 and ((cl>=358 and cl<652) or (cl>=1359 and cl<1638)) then
+	elseif persistent.ptr == 2 and cl>=358 and cl<665 then
 		loadstring(poemwinner[pchapter]..'_exclusive2_'..(loadstring('return appeal.'..aa)())..'()')()
+	elseif persistent.ptr == 2 and cl>=1235 and cl<=1445 then
+		Yuri_exclusive2_2_ch22()
 	elseif persistent.ptr == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
 		poeminitialize()
 	elseif script_main then
@@ -138,7 +141,7 @@ function scriptJump(nu, fu, au)
 		autoskip = au
 	end
 	if fu and fu ~= '' then
-		loadstring(fu.."()")()
+		loadstring(fu..'()')()
 	end		
 end
 
@@ -201,6 +204,11 @@ function event_init(etype)
 			animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
 			animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
 			animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
+		elseif etype == 'show_vignette' then
+			vignette = love.graphics.newImage('images/bg/vignette.png')
+		elseif etype == 'yuri_eyes' then
+			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
+			eyes2 = love.graphics.newImage('images/yuri/eyes2.png')
 		end
 	end
 end

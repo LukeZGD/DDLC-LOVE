@@ -305,94 +305,95 @@ function Natsuki_exclusive2_1()
     bl "I flip the page."
 	elseif cl == 487 then
 	cgHide()
-	bgUpdate('black')
-    bl "..."
+	event_initstart('wipe','black')
 	elseif cl == 488 then
     bl "..."
 	elseif cl == 489 then
-    bl "....."
+    bl "..."
 	elseif cl == 490 then
-    bl "......."
+    bl "....."
 	elseif cl == 491 then
-    bl "........."
+    bl "......."
 	elseif cl == 492 then
-    bl "Time passes."
+    bl "........."
 	elseif cl == 493 then
-    bl "Natsuki is strangely quiet now."
+    bl "Time passes."
 	elseif cl == 494 then
-    bl "I glance over at her."
+    bl "Natsuki is strangely quiet now."
 	elseif cl == 495 then
+    bl "I glance over at her."
+	elseif cl == 496 then
 	bgUpdate('n_cg1_base')
 	cgUpdate('n_cg1_exp4')
     bl "It looks like she's started to fall asleep."
-	elseif cl == 496 then
-    mc "Hey, Natsuki..."
 	elseif cl == 497 then
+    mc "Hey, Natsuki..."
+	elseif cl == 498 then
 	cgUpdate('n_cg1_exp5')
     n "Y-Yeah...?"
-	elseif cl == 498 then
-    bl "Suddenly, Natsuki collapses straight into me."
 	elseif cl == 499 then
+    bl "Suddenly, Natsuki collapses straight into me."
+	elseif cl == 500 then
 	sfxplay('fall')
     mc "H-Hey--"
 	
-	elseif cl == 500 then
+	elseif cl == 501 then
 	cgHide()
 	bgUpdate('n_cg1b')
 	audioUpdate('6g')
 	event_initstart('n_rects_ghost')
     style_edited = true
     cw('n',ntext)
-	elseif cl == 501 then
+	elseif cl == 502 then
     cw('n',ntext2)
 
-	elseif cl == 502 then
+	elseif cl == 503 then
 	event_end()
 	audioUpdate('0')
 	bgUpdate('club')
 	updateMonika('1','r',80)
 	style_edited = false
     m "Oh jeez..."
-	elseif cl == 503 then
+	elseif cl == 504 then
 	updateMonika('1','d')
     m "Natsuki, are you okay?"
-    elseif cl == 504 then
+    elseif cl == 505 then
 	updateMonika('1','d',10)
 	updateNatsuki('1','2b',150)
     n "..."
-    elseif cl == 505 then
+    elseif cl == 506 then
 	updateMonika('1','a')
     m "Here..."
-	elseif cl == 506 then
-    bl "Monika reaches into her bag and pulls out some kind of protein bar."
 	elseif cl == 507 then
-    bl "She throws it in Natsuki's direction."
+    bl "Monika reaches into her bag and pulls out some kind of protein bar."
 	elseif cl == 508 then
-    bl "Natsuki's eyes suddenly light up again."
+    bl "She throws it in Natsuki's direction."
 	elseif cl == 509 then
-    bl "She snatches the bar from the floor and immediately tears off the wrapper."
+    bl "Natsuki's eyes suddenly light up again."
 	elseif cl == 510 then
+    bl "She snatches the bar from the floor and immediately tears off the wrapper."
+	elseif cl == 511 then
 	updateNatsuki('1','s')
     n "I told you not to give mmph..."
-	elseif cl == 511 then
-    bl "She doesn't even finish her sentence before stuffing it into her mouth."
 	elseif cl == 512 then
+    bl "She doesn't even finish her sentence before stuffing it into her mouth."
+	elseif cl == 513 then
 	hideNatsuki()
 	updateMonika('3','b',80)
     cw('m',"Don't worry, "..player..".")
-	elseif cl == 513 then
-    m "She's fine."
 	elseif cl == 514 then
-    m "It just happens every now and then."
+    m "She's fine."
 	elseif cl == 515 then
+    m "It just happens every now and then."
+	elseif cl == 516 then
 	updateMonika('1','a')
     m "That's why I always keep a snack in my bag for her."
-	elseif cl == 516 then
+	elseif cl == 517 then
 	updateMonika('5a')
     m "Anyway...!"
-	elseif cl == 517 then
-    m "Why don't we all share poems now?"
 	elseif cl == 518 then
+    m "Why don't we all share poems now?"
+	elseif cl == 519 then
 	poeminitialize()
 	end
 end
