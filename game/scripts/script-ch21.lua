@@ -623,7 +623,7 @@ function ch21script(dt)
 	elseif cl == 1074 then
 	alpha = 10
 	scriptJump(1075)
-	elseif cl == 1075 then
+	elseif cl >= 1075 then
 	splashalpha(4)
 	end
 end
