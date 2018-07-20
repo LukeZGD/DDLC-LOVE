@@ -86,6 +86,8 @@ function poemfinish(a)
 			scriptJump(2114, 'ch3script')
 		elseif chapter == 21 then
 			scriptJump(900, 'ch21script')
+		elseif chapter == 22 then
+			scriptJump(1446, 'ch22script')
 		end
 	else --go back to choices menu
 		scriptJump(666, 'poemresponses', 0)

@@ -145,9 +145,13 @@ function scriptJump(nu, fu, au)
 	end		
 end
 
-function choice_enable()
+function choice_enable(x)
 	if menu_enabled ~= true then
-		menu_enable('choice')
+		if x == 'dialog' then
+			menu_enable('dialog')
+		else
+			menu_enable('choice')
+		end
 		autotimer = 0
 		autoskip = 0
 	end

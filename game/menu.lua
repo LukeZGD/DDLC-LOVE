@@ -52,6 +52,9 @@ function menu_enable(m)
 	
 	elseif menu_type == 'loadgame' then
 		menutext = 'Load Game'
+		
+	elseif menu_type == 'dialog' then
+		itemnames = {'OK'}
 	end
 	
 	if menu_type == 'choice' then
@@ -250,6 +253,12 @@ function menu_confirm()
 			menu_enabled = false
 			menu_previous = nil
 		end
+		
+	elseif menu_type == 'dialog' then
+		scriptJump(cl+1)
+		menu_type = nil
+		menu_enabled = false
+		menu_previous = nil
 	end
 end
 
