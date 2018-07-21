@@ -1,6 +1,5 @@
---default values
+--default persistent values
 player = ''
-cl = 1
 persistent = {
 	ptr=0;
 	clear={0,0,0,0,0,0,0,0,0};
@@ -8,7 +7,9 @@ persistent = {
 }
 special_poems = {1,2,3}
 settings = {textspd=100,textloc='Bottom',animh=1,autospd=4}
-data_ptr = persistent.ptr
+--default save values
+data_ptr = 0
+cl = 1
 bg1 = ''
 audio1 = 2
 cg1 = ''
@@ -17,7 +18,6 @@ s_Set = {a='',b='',x=-200,y=0}
 y_Set = {a='',b='',x=-200,y=0}
 n_Set = {a='',b='',x=-200,y=0}
 m_Set = {a='',b='',x=-200,y=0}
-poemwinner = {'','',''}
 chapter = 0
 readpoem = {s=0,n=0,y=0,m=0}
 choices = {'','','',''}
@@ -26,6 +26,7 @@ poemsread = -1
 s_poemappeal = {0,0,0}
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
+poemwinner = {'','',''}
 appeal = {s=0,n=0,y=0}
 savevalue = ''
 savenumber = 1

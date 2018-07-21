@@ -265,8 +265,7 @@ function Natsuki_exclusive2_1()
     n "I mean, I feel like I can't even keep it in my own room..."
 	elseif cl == 470 then
 	style_edited = true
-	ca = '"My dad would beat the shit out of me'
-	cb = 'if he found this."'
+	n "My dad would beat the shit out of me if he found this."
 	elseif cl == 471 then
     style_edited = false
     n "At least it's safe here in the clubroom."

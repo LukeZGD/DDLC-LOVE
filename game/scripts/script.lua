@@ -1,7 +1,8 @@
+require 'scripts.event'
+
 local stext
-local caa
-local cba
-local cca
+local c_a = {}
+local c_a1 = {}
 local tspd
 local tagtimer
 local pchapter
@@ -40,26 +41,19 @@ function cw(p1, stext, tag)
 	
 	--word wrap
 	slen = string.len(textx)
-	ca = string.sub(textx, 1, caa)
+	c_a1 = {47,97,147}
+	if style_edited then c_a1 = {40,70,100} end
 	
-	if slen >= 45 then 
-		caa = string.find(stext, '%s', 45)
-		if caa == nil then caa=50 end
-		if slen < 95 then cba=100 end
-		cb = string.sub(textx, caa+1, cba)
-	end 
-	
-	if slen >= 95 then 
-		cba = string.find(stext, '%s', 95) 
-		if cba == nil then cba=100 end
-		if slen < 145 then cca=150 end
-		cc = string.sub(textx, cba+1, cca)
+	for i = 1, 3 do
+		c_a[i] = string.find(stext, '%s', c_a1[i])
+		if c_a[i] == nil then c_a[i] = c_a1[i] + 3 end
 	end
 	
-	if slen >= 145 then 
-		cca = string.find(stext, '%s', 145)
-		if cca == nil then cca=150 end
-		cd = string.sub(textx, cca+1)
+	c_disp[1] = string.sub(textx, 1, c_a[1])
+	for i = 2, 4 do
+		if slen >= c_a[i-1] then
+			c_disp[i] = string.sub(textx, c_a[i-1]+1, c_a[i])
+		end
 	end
 	
 	if tag then
@@ -83,7 +77,7 @@ end
 
 function scriptCheck()
 	love.graphics.setBackgroundColor(0,0,0)
-	ca = ''; cb = ''; cc = ''; cd = ''
+	c_disp = {'','','',''}
 	
 	if poemsread ~= -1 and poemresponses then
 		poemresponses()
@@ -171,55 +165,6 @@ function poeminitialize(y)
 	xaload = -1
 	autotimer = 0
 	autoskip = 0
-end
-
-function event_init(etype)
-	if xaload == 2 then
-		eventscript = require 'scripts.event'
-		if etype == 's_kill' then --Sayo-nara.... load sprites
-			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
-			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
-			s_killzoom = love.graphics.newImage('images/cg/s_kill/s_killzoom.png')
-			s_kill_bg = love.graphics.newImage('images/cg/s_kill/s_kill_bg.png')
-			s_kill_bg2 = love.graphics.newImage('images/cg/s_kill/s_kill_bg2.png')
-			s_kill_bgzoom = love.graphics.newImage('images/cg/s_kill/s_kill_bgzoom.png')
-			splash_glitch = love.graphics.newImage('images/bg/splash-glitch.png')
-			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
-		elseif etype == 'endscreen' then
-			bgch = love.graphics.newImage('images/gui/end.png')
-		elseif etype == 's_glitch' then
-			s_glitch1 = love.graphics.newImage('images/sayori/glitch1.png')
-			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
-		elseif etype == 'm_glitch1' then
-			ml = love.graphics.newImage('images/monika/g2.png')
-		elseif etype == 'n_glitch1' then
-			nl = love.graphics.newImage('images/natsuki/glitch1.png')
-		elseif etype == 'n_blackeyes' then
-			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
-		elseif etype == 'ny_argument' then
-			vignette = love.graphics.newImage('images/bg/vignette.png')
-			animframe1 = love.graphics.newImage('images/bg/noise1.png')
-			animframe2 = love.graphics.newImage('images/bg/noise2.png')
-			animframe3 = love.graphics.newImage('images/bg/noise3.png')
-			animframe4 = love.graphics.newImage('images/bg/noise4.png')
-		elseif etype == 'ny_argument2' then
-			ml = love.graphics.newImage('images/monika/ac.png')
-		elseif etype == 'yuri_glitch' then
-			animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
-			animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
-			animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
-		elseif etype == 'show_vignette' then
-			vignette = love.graphics.newImage('images/bg/vignette.png')
-		elseif etype == 'yuri_eyes' then
-			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
-			eyes2 = love.graphics.newImage('images/yuri/eyes2.png')
-		end
-	end
-end
-
-function event_initstart(etype,arg1,arg2)
-	event_init(etype)
-	if xaload > 2 then event_start(etype,arg1,arg2) end
 end
 
 function glitchtext(range)

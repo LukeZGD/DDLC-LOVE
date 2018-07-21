@@ -2,6 +2,7 @@ require 'draw'
 require 'resources'
 require 'saveload'
 require 'menu'
+require 'scripts.script'
 
 --Uncomment out the lines below to run in yuzu without sharedfont
 --function love.graphics.print()
@@ -90,12 +91,10 @@ function love.update(dt)
 	--this acts as love.mousepressed
 	if mouseDown and mousereleased ~= 1 then
 		if menu_enabled ~= true then
-			if state == 'splash1' or state == 'splash2' then
-				splash_keypressed('a')
+			if state == 'splash1' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
+				love.keypressed('a')
 			elseif state == 'game' then
 				game_mousepressed()
-			elseif state == 'newgame' then 
-				newgame_keypressed('a')
 			elseif state == 'poemgame' then
 				poemgamemousepressed()
 			end
