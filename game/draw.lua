@@ -107,7 +107,7 @@ end
 
 function cgHide()
 	cg1 = ''
-	if xaload == 0 then cgch = nil end
+	cgch = nil
 end
 
 function drawdatetime()
@@ -138,11 +138,11 @@ function drawTextBox()
 		if ct ~= '' then love.graphics.draw(namebox, xps.namebox, yps.namebox) end
 		love.graphics.draw(textbox, xps.textbox, yps.textbox)
 		love.graphics.setColor(0,0,0,alpha)
-		if ct then love.graphics.print(ct,xps.ct,yps.ct) end
-		if ca then love.graphics.print(ca,xps.c,yps.ca) end
-		if cb then love.graphics.print(cb,xps.c,yps.cb) end
-		if cc then love.graphics.print(cc,xps.c,yps.cc) end
-		if cd then love.graphics.print(cd,xps.c,yps.cd) end
+		love.graphics.print(ct,xps.ct,yps.ct)
+		love.graphics.print(c_disp[1],xps.c,yps.ca)
+		love.graphics.print(c_disp[2],xps.c,yps.cb)
+		love.graphics.print(c_disp[3],xps.c,yps.cc)
+		love.graphics.print(c_disp[4],xps.c,yps.cd)
 	end
 	if settings.textloc == 'Top' then drawBottomScreen() end
 end

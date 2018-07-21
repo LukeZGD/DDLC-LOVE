@@ -7,7 +7,6 @@ function changeState(cstate,x)
 		splash = love.graphics.newImage('images/bg/splash.png')
 		states = require 'states.splash'
 		alpha = 0
-		xaload = 0
 		state = 'splash1'
 		audioUpdate('1')
 	elseif cstate == 'title' then
@@ -20,9 +19,8 @@ function changeState(cstate,x)
 		states =  require 'states.splash'
 		poem_enabled = false
 		state = 'title'
-		xaload = 0
 		audioUpdate('1')
-		menu_enable('title',6)
+		menu_enable('title')
 	elseif cstate == 'game' and x == 0 then
 		xaload = 0
 		state = 'game'
@@ -41,7 +39,7 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 2 then --load game
 		hideAll()
 		loadgame()
-		if data_ptr ~= persistent.ptr then --default to new game when loading a save from different act
+		if data_ptr ~= persistent.ptr then --default to new game/title when loading a save from different act
 			changeState(state,1)
 		else
 			if audio1 == '4' then
@@ -107,7 +105,6 @@ function changeState(cstate,x)
 	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then	
 		states = require 'states.game'
-		script_mg = require 'scripts.script'
 		if chapter == 0 then
 			script_main = require 'scripts.script-ch0'
 		elseif chapter == 1 then
@@ -223,10 +220,8 @@ end
 function charCheck()
 	if xaload == 0 then
 		myTextStartTime = love.timer.getTime()
-		xaload = xaload + 1
-	else
-		xaload = xaload + 1
 	end
+	xaload = xaload + 1
 end
 
 function loadSayori()
@@ -425,7 +420,6 @@ function unloadAll(x)
 		eyes = nil
 	elseif x == 'stuff' then
 		states = nil
-		script_mg = nil
 		script_main = nil
 		script_exclusive = nil
 		eventscript = nil
