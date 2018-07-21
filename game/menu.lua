@@ -105,7 +105,7 @@ function menu_draw()
 	
 	love.graphics.setColor(0,0,0)
 	for i = 1, 8 do
-		if menu_items >= i+1 and menutype == 'choice' then love.graphics.print(choices[i],17,20+(25*i))
+		if menu_items >= i+1 and menu_type == 'choice' then love.graphics.print(choices[i],17,20+(25*i))
 		elseif menu_items >= i+1 then love.graphics.print(itemnames[i],17,20+(25*i)) end
 	end
 	if menu_previous then love.graphics.print('Back',17, 220) end
