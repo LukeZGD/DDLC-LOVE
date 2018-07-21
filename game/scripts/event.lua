@@ -14,29 +14,82 @@ Info about the eventvar stuff
 The eventvars can be used for anything that will be coded here
 
 s_kill:
-- eventvar 1 - timer for eventvar 2, on when it will go left/right
-- eventvar 2 - x pos of s_killzoom
-- eventvar 3 - alpha of splash_glitch
-- eventvar 4 - speed of background_Image
+eventvar1 - timer for eventvar 2, on when it will go left/right
+eventvar2 - x pos of s_killzoom
+eventvar3 - alpha of splash_glitch
+eventvar4 - speed of background_Image
 
 wipe:
-- eventvar 1 - alpha of the black rectangle that un/covers the bg1
-- eventvar 2 - the bg that will replace the current
+eventvar1 - alpha of the black rectangle that un/covers the bg1
+eventvar2 - the bg that will replace the current
 
 endscreen:
-- eventvar 1 - alpha of endscreen
+eventvar1 - alpha of endscreen
 
 s_glitch:
-- eventvar 1 - random number from 1 to 16, determines eventvar 2
-- eventvar 2 - one of 2 s_glitch sprites (randomized by eventvar 1)
+eventvar1 - random number from 1 to 16, determines eventvar 2
+eventvar2 - one of 2 s_glitch sprites (randomized by eventvar 1)
 
 ny_argument:
-- eventvar 1 - alpha of vignette
-- eventvar 2 - alpha of noise
-- eventvar 3 - table for start to show vignette
-- eventvar 4 - table for end to hide vignette
-- eventvar 5 - set table item number
+eventvar1 - alpha of vignette
+eventvar2 - alpha of noise
+eventvar3 - table for start to show vignette
+eventvar4 - table for end to hide vignette
+eventvar5 - set table item number
+
+yuri_eyes:
+eventvar1 - timer (change x and y pos every 2 seconds)
+eventvar2 - eyes2 x pos
+eventvar3 - eyes2 y pos
 ]]
+
+function event_init(etype)
+	if xaload == 1 then
+		if etype == 's_kill' then --Sayo-nara.... load sprites
+			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
+			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
+			s_killzoom = love.graphics.newImage('images/cg/s_kill/s_killzoom.png')
+			s_kill_bg = love.graphics.newImage('images/cg/s_kill/s_kill_bg.png')
+			s_kill_bg2 = love.graphics.newImage('images/cg/s_kill/s_kill_bg2.png')
+			s_kill_bgzoom = love.graphics.newImage('images/cg/s_kill/s_kill_bgzoom.png')
+			splash_glitch = love.graphics.newImage('images/bg/splash-glitch.png')
+			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
+		elseif etype == 'endscreen' then
+			bgch = love.graphics.newImage('images/gui/end.png')
+		elseif etype == 's_glitch' then
+			s_glitch1 = love.graphics.newImage('images/sayori/glitch1.png')
+			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
+		elseif etype == 'm_glitch1' then
+			ml = love.graphics.newImage('images/monika/g2.png')
+		elseif etype == 'n_glitch1' then
+			nl = love.graphics.newImage('images/natsuki/glitch1.png')
+		elseif etype == 'n_blackeyes' then
+			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
+		elseif etype == 'ny_argument' then
+			vignette = love.graphics.newImage('images/bg/vignette.png')
+			animframe1 = love.graphics.newImage('images/bg/noise1.png')
+			animframe2 = love.graphics.newImage('images/bg/noise2.png')
+			animframe3 = love.graphics.newImage('images/bg/noise3.png')
+			animframe4 = love.graphics.newImage('images/bg/noise4.png')
+		elseif etype == 'ny_argument2' then
+			ml = love.graphics.newImage('images/monika/ac.png')
+		elseif etype == 'yuri_glitch' then
+			animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
+			animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
+			animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
+		elseif etype == 'show_vignette' then
+			vignette = love.graphics.newImage('images/bg/vignette.png')
+		elseif etype == 'yuri_eyes' then
+			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
+			eyes2 = love.graphics.newImage('images/yuri/eyes2.png')
+		end
+	end
+end
+
+function event_initstart(etype,arg1,arg2)
+	event_init(etype)
+	if xaload > 1 then event_start(etype,arg1,arg2) end
+end
 
 function event_start(etype, arg1)
 	event_enabled = true
@@ -114,7 +167,7 @@ function event_draw()
 	end
 	
 	if event_type == 'wipe' then
-		love.graphics.draw(bgch)
+		if bgch then love.graphics.draw(bgch) end
 		love.graphics.setColor(0,0,0,eventvar1)
 		love.graphics.rectangle('fill',0,0,400,240)
 	end
@@ -226,7 +279,6 @@ function event_draw()
 		drawTextBox()	
 	end
 	love.graphics.print(event_timer,2,220)
-	if eventvar2 then love.graphics.print(eventvar2,2,200) end
 	
 	if event_type == 'm_onlayer_front' or event_type == 'ny_argument2' then
 		love.graphics.setColor(255,255,255)

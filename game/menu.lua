@@ -4,6 +4,7 @@ local rectwidth
 local pagenum
 local savenum = {}
 local itemnames = {}
+local saveindicator = {}
 local chch
 local cpick
 
@@ -20,11 +21,16 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
+			if love.filesystem.isFile('save'..chch..'.sav') then
+				saveindicator[i] = 1
+			else
+				saveindicator[i] = 0
+			end
 		end
 	end
 	
 	if menu_type == 'mainyesno' then
-		menutext = 'Are you sure? This will lose unsaved progress.'
+		menutext = 'Are you sure you want to return to the main menu?\nThis will lose unsaved progress.'
 		itemnames = {'Yes','No'}
 		
 	elseif menu_type == 'help' then
@@ -41,7 +47,7 @@ function menu_enable(m)
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
-		itemnames = {'Delete monika.chr','Delete sayori.chr','Delete natsuki.chr','Delete yuri.chr','Restore all'}
+		itemnames = {'Delete monika.chr','Delete natsuki.chr','Delete sayori.chr','Delete yuri.chr','Restore all'}
 	
 	elseif menu_type == 'pause' then
 		menutext = 'Game Menu'
@@ -83,14 +89,9 @@ function menu_draw()
 	rectwidth = math.max(unpack(getcompare)) + 5
 	
 	love.graphics.setColor(255, 189, 225, alpha)
-	if menu_items >= 2 then love.graphics.rectangle('fill', 16, 45, rectwidth, 16) end
-	if menu_items >= 3 then love.graphics.rectangle('fill', 16, 70, rectwidth, 16) end 
-	if menu_items >= 4 then love.graphics.rectangle('fill', 16, 95, rectwidth, 16) end
-	if menu_items >= 5 then love.graphics.rectangle('fill', 16, 120, rectwidth, 16) end
-	if menu_items >= 6 then love.graphics.rectangle('fill', 16, 145, rectwidth, 16) end
-	if menu_items >= 7 then love.graphics.rectangle('fill', 16, 170, rectwidth, 16) end
-	if menu_items >= 8 then love.graphics.rectangle('fill', 16, 195, rectwidth, 16) end
-	if menu_items >= 9 then love.graphics.rectangle('fill', 16, 220, rectwidth, 16) end
+	for i = 1, 8 do
+		if menu_items >= i+1 then love.graphics.rectangle('fill',16, 20+(25*i),rectwidth,16) end
+	end
 	if menu_previous then love.graphics.rectangle('fill', 16, 220, 30, 16) end
 	
 	if bgimg_disabled then
@@ -100,27 +101,12 @@ function menu_draw()
 		love.graphics.setColor(0,0,0) 
 		love.graphics.draw(guicheck,cX,cY)
 	end
-	love.graphics.print(menutext,16, 14)
+	love.graphics.print(menutext,16, 12)
 	
 	love.graphics.setColor(0,0,0)
-	if menu_type == 'choice' then
-		if menu_items >= 2 then love.graphics.print(choices[1],17, 45) end
-		if menu_items >= 3 then love.graphics.print(choices[2],17, 70) end
-		if menu_items >= 4 then love.graphics.print(choices[3],17, 95) end
-		if menu_items >= 5 then love.graphics.print(choices[4],17, 120) end
-		if menu_items >= 6 then love.graphics.print(choices[5],17, 145) end
-		if menu_items >= 7 then love.graphics.print(choices[6],17, 170) end
-		if menu_items >= 8 then love.graphics.print(choices[7],17, 195) end
-		if menu_items >= 9 then love.graphics.print(choices[8],17, 220) end
-	else
-		if menu_items >= 2 then love.graphics.print(itemnames[1],17, 45) end
-		if menu_items >= 3 then love.graphics.print(itemnames[2],17, 70) end
-		if menu_items >= 4 then love.graphics.print(itemnames[3],17, 95) end
-		if menu_items >= 5 then love.graphics.print(itemnames[4],17, 120) end
-		if menu_items >= 6 then love.graphics.print(itemnames[5],17, 145) end
-		if menu_items >= 7 then love.graphics.print(itemnames[6],17, 170) end
-		if menu_items >= 8 then love.graphics.print(itemnames[7],17, 195) end
-		if menu_items >= 9 then love.graphics.print(itemnames[8],17, 220) end
+	for i = 1, 8 do
+		if menu_items >= i+1 and menutype == 'choice' then love.graphics.print(choices[i],17,20+(25*i))
+		elseif menu_items >= i+1 then love.graphics.print(itemnames[i],17,20+(25*i)) end
 	end
 	if menu_previous then love.graphics.print('Back',17, 220) end
 	
@@ -137,7 +123,16 @@ function menu_draw()
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		love.graphics.print('Page '..pagenum..' of 10',220,14)
+		love.graphics.print('Page '..pagenum..' of 10',220,12)
+		for i = 1, 6 do
+			if saveindicator[i] == 1 then
+				love.graphics.setColor(0,255,0)
+				love.graphics.rectangle('fill',95,26+(25*i),6,6)
+			else
+				love.graphics.setColor(255,0,0)
+				love.graphics.rectangle('fill',95,26+(25*i),6,6)
+			end
+		end
 	elseif menu_type == 'choice' then
 		--drawdatetime()
 	end	
@@ -145,7 +140,7 @@ end
 
 function menu_confirm()
 	sfx1:play()
-
+	
 	if menu_type == 'title' then --title screen options
 		menu_previous = 'title'
 		
@@ -184,7 +179,7 @@ function menu_confirm()
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= '' then
 			savenumber = savenum[m_selected-1]
-			if love.filesystem.isFile('save'..savenumber..'.sav') then
+			if saveindicator[m_selected-1] == 1 then
 				changeState('game',2)
 			end
 		end
@@ -233,7 +228,7 @@ function menu_confirm()
 	elseif menu_type == 'characters' then
 		if m_selected == 2 then
 			persistent.chr.m = 0
-		elseif m_selected == 3 then
+		elseif m_selected == 4 then
 			if persistent.ptr == 0 then
 				persistent.chr.s = 0
 			end
@@ -334,7 +329,6 @@ function menu_keypressed(key)
 		if alpha == 255 then menu_confirm() end
 		
 	elseif key == 'b' then
-		sfx1:play()
 		if menu_type == 'pause' then
 			menu_enabled = false
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' then
@@ -351,7 +345,9 @@ function menu_keypressed(key)
 					settings.textloc = 'Bottom'
 				end
 			elseif cpick == 'Text Speed' then
-				if settings.textspd > 50 then
+				if settings.textspd > 250 then
+					settings.textspd = 250
+				elseif settings.textspd > 50 then
 					settings.textspd = settings.textspd - 25
 				end
 			elseif cpick == 'Auto-Forward Time' then
