@@ -95,11 +95,9 @@ function event_start(etype, arg1)
 	event_enabled = true
 	event_type = etype
 	if event_type == 's_kill_start' then
-		settings.textspd = 25
 		textbox_enabled = true
 		bgimg_disabled = true
 	elseif event_type == 's_kill' then
-		settings.textspd = 150
 		textbox_enabled = false
 		audioUpdate('s_kill')
 		eventvar1 = 0

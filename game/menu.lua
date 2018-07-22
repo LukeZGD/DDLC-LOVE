@@ -1,4 +1,6 @@
 local menu_items
+local cX
+local cY
 local getcompare = {}
 local rectwidth
 local pagenum
@@ -259,51 +261,15 @@ end
 
 function m_select(arg)
 	if arg then m_selected = arg end
-	if m_selected == 2 then
+	if m_selected <= 5 then
 		if menu_type == 'choice' then 
-			choicepick = choices[1] 
+			choicepick = choices[m_selected-1] 
 		else
-			cpick = itemnames[1]
+			cpick = itemnames[m_selected-1]
 		end
-		cX = 2
-		cY = 45
-	elseif m_selected == 3 then
-		if menu_type == 'choice' then 
-			choicepick = choices[2] 
-		else
-			cpick = itemnames[2]
-		end
-		cX = 2
-		cY = 70
-	elseif m_selected == 4 then
-		if menu_type == 'choice' then 
-			choicepick = choices[3] 
-		else
-			cpick = itemnames[3]
-		end
-		cX = 2
-		cY = 95
-	elseif m_selected == 5 then
-		if menu_type == 'choice' then 
-			choicepick = choices[4] 
-		else
-			cpick = itemnames[4]
-		end
-		cX = 2
-		cY = 120
-	elseif m_selected == 6 then
-		cX = 2
-		cY = 145
-	elseif m_selected == 7 then
-		cX = 2
-		cY = 170
-	elseif m_selected == 8 then
-		cX = 2
-		cY = 195
-	elseif m_selected == 9 then
-		cX = 2
-		cY = 220
 	end
+	cX = 2
+	cY = 22+(25*(m_selected-1))
 end
 
 function menu_keypressed(key)

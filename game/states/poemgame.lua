@@ -158,20 +158,20 @@ function drawPoemGame()
 	love.graphics.draw(guicheck,cursorX,cursorY)
 	if poemfont then love.graphics.setFont(poemfont) end
 	if poemword <= 20 then
-		love.graphics.print(progress .. '/20',245,25,0,1,1)
+		love.graphics.print(progress .. '/20',245,25)
 	else
-		love.graphics.print('20/20',245,25,0,1,1)
+		love.graphics.print('20/20',245,25)
 	end
-	love.graphics.print(word[1],117,45,0,1,1)
-	love.graphics.print(word[2],117,80,0,1,1)
-	love.graphics.print(word[3],117,118,0,1,1)
-	love.graphics.print(word[4],117,153,0,1,1)
-	love.graphics.print(word[5],117,188,0,1,1)
-	love.graphics.print(word[6],200,45,0,1,1)
-	love.graphics.print(word[7],200,80,0,1,1)
-	love.graphics.print(word[8],200,118,0,1,1)
-	love.graphics.print(word[9],200,153,0,1,1)
-	love.graphics.print(word[10],200,188,0,1,1)
+	love.graphics.print(word[1],117,45)
+	love.graphics.print(word[2],117,81)
+	love.graphics.print(word[3],117,117)
+	love.graphics.print(word[4],117,152)
+	love.graphics.print(word[5],117,187)
+	love.graphics.print(word[6],200,45)
+	love.graphics.print(word[7],200,81)
+	love.graphics.print(word[8],200,117)
+	love.graphics.print(word[9],200,152)
+	love.graphics.print(word[10],200,187)
 	
 	if poemstate == 0 then
 		love.graphics.setColor(255,255,255,alpha)
@@ -295,46 +295,22 @@ function updatePoemGame(dt)
 end
 
 function menuselect()
-	if menuselected == 1 then
+	wordpick = wordr[menuselected]
+	if menuselected <= 5 then
 		cursorX = 106
-		cursorY = 44
-		wordpick = wordr[1]
-	elseif menuselected == 2 then
-		cursorX = 106
+	else
+		cursorX = 189
+	end
+	if menuselected == 1 or menuselected == 6 then
+		cursorY = 43
+	elseif menuselected == 2 or menuselected == 7 then
 		cursorY = 79
-		wordpick = wordr[2]
-	elseif menuselected == 3 then
-		cursorX = 106
-		cursorY = 117
-		wordpick = wordr[3]
-	elseif menuselected == 4 then
-		cursorX = 106
-		cursorY = 152
-		wordpick = wordr[4]
-	elseif menuselected == 5 then
-		cursorX = 106
-		cursorY = 187
-		wordpick = wordr[5]
-	elseif menuselected == 6 then
-		cursorX = 189
-		cursorY = 44
-		wordpick = wordr[6]
-	elseif menuselected == 7 then
-		cursorX = 189
-		cursorY = 79
-		wordpick = wordr[7]
-	elseif menuselected == 8 then
-		cursorX = 189
-		cursorY = 117
-		wordpick = wordr[8]
-	elseif menuselected == 9 then
-		cursorX = 189
-		cursorY = 152
-		wordpick = wordr[9]
-	elseif menuselected == 10 then
-		cursorX = 189
-		cursorY = 187
-		wordpick = wordr[10]
+	elseif menuselected == 3 or menuselected == 8 then
+		cursorY = 115
+	elseif menuselected == 4 or menuselected == 9 then
+		cursorY = 150
+	elseif menuselected == 5 or menuselected == 10 then
+		cursorY = 186
 	end
 end
 
