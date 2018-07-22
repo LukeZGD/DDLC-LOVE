@@ -217,13 +217,6 @@ function audioStop()
 	ddlct = nil
 end
 
-function charCheck()
-	if xaload == 0 then
-		myTextStartTime = love.timer.getTime()
-	end
-	xaload = xaload + 1
-end
-
 function loadSayori()
 	if s_Set.a=='1' then
 		sl = love.graphics.newImage('images/sayori/1l.png') 
