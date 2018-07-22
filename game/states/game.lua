@@ -2,15 +2,14 @@ local skipspeed = 4
 local audiotell = 0
 
 function drawGame()
-	if (autotimer > 0 or autoskip > 0) and event_enabled ~= true then
-		scriptCheck()
-		charCheck()
-	end
+	if autotimer > 0 or autoskip > 0 then scriptCheck()	end
+	love.graphics.setBackgroundColor(0,0,0)
+	
 	drawTopScreen()
-	love.graphics.setColor(255, 255, 255, alpha)
-	if bgch then love.graphics.draw(bgch, 0, 0) end
+	love.graphics.setColor(255,255,255,alpha)
+	if bgch then love.graphics.draw(bgch,0,0) end
 	if xaload > 0 then
-		if cg1 ~= '' then love.graphics.draw(cgch, 0, 0) end
+		if cg1 ~= '' then love.graphics.draw(cgch,0,0) end
 		drawSayori(s_Set.a,s_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
 		drawNatsuki(n_Set.a,n_Set.b)
@@ -53,10 +52,7 @@ function drawGame()
 end
 
 function updateGame(dt)
-	if autotimer == 0 and autoskip == 0 then
-		scriptCheck()
-		charCheck()
-	end
+	if autotimer == 0 and autoskip == 0 then scriptCheck() end
 	
 	--auto next script
 	if autotimer == 0 then
@@ -126,16 +122,12 @@ end
 
 function game_keyreleased(key)
 	if key == 'x' then --skip disable
-		if tspd ~= nil then settings.textspd = tspd end
-		tspd = nil
 		autoskip = 0
 	end
 end
 
 function game_skip()
 	if menu_enabled == false and cl ~= 666 then
-		if tspd == nil then tspd = settings.textspd end
-		settings.textspd = 10000
 		if autoskip < 1 then
 			autoskip = 1
 		elseif autoskip > 0 and autoskip < skipspeed then

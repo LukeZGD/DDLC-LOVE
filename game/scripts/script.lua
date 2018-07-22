@@ -37,7 +37,16 @@ function cw(p1, stext, tag)
 	end
 	
 	--text drip for scripts
-	textx = dripText(stext,settings.textspd,myTextStartTime)
+	if autoskip > 0 then
+		tspd = 10000
+	elseif tag == 'fast' or tag == 'nwfast' then
+		tspd = 250
+	elseif tag == 'slow' then
+		tspd = 25
+	else
+		tspd = settings.textspd
+	end
+	textx = dripText(stext,tspd,myTextStartTime)
 	
 	--word wrap
 	slen = string.len(textx)
@@ -59,24 +68,19 @@ function cw(p1, stext, tag)
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)
 		if tagtimer >= (settings.textspd + slen) / 4 then
-			if tag == 'fast' or tag == 'nwfast' then
-				settings.textspd = tspd
-			end
 			if tag == 'nw' or tag == 'nwfast' then
 				scriptJump(cl+1)
 			end
 			tagtimer = 0
-		elseif tag == 'fast' or tag == 'nwfast' then
-			tspd = settings.textspd
-			settings.textspd = 200
 		end
-	else
-		tagtimer = 0
 	end
 end
 
 function scriptCheck()
-	love.graphics.setBackgroundColor(0,0,0)
+	if xaload == 0 then
+		myTextStartTime = love.timer.getTime()
+	end
+	xaload = xaload + 1
 	c_disp = {'','','',''}
 	
 	if poemsread ~= -1 and poemresponses then

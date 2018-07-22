@@ -277,7 +277,7 @@ function ch5script()
 			savepersistent()
 		end
 		event_start('s_kill_start')
-		cw('bl','.......Sayo--')
+		cw('bl','.......Sayo--','slow')
 	elseif cl == 111 then
 		event_start('s_kill')
 	elseif cl == 112 then
