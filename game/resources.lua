@@ -21,6 +21,8 @@ function changeState(cstate,x)
 		state = 'title'
 		audioUpdate('1')
 		menu_enable('title')
+		y_timer = 0
+		titlebg_ypos = -240
 	elseif cstate == 'game' and x == 0 then
 		xaload = 0
 		state = 'game'
@@ -148,6 +150,17 @@ function changeState(cstate,x)
 		unloadAll('poemgame')
 	end
 	menu_previous = nil
+end
+
+function timerCheck()
+	local dt = love.timer.getDelta()
+	if xaload == 0 then
+		myTextStartTime = love.timer.getTime()
+	end
+	xaload = xaload + 1
+	if unitimer < uniduration then
+		unitimer = unitimer + dt
+	end
 end
 
 function bgUpdate(bgx, forceload) --background changes

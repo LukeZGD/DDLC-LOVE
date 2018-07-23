@@ -624,6 +624,6 @@ function ch21script(dt)
 	alpha = 10
 	scriptJump(1075)
 	elseif cl >= 1075 then
-	splashalpha(4)
+	fadeOut(4)
 	end
 end

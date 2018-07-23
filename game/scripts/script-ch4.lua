@@ -2822,7 +2822,7 @@ function ch4_end_yes()
 	elseif cl == 852 then
     bl "And I'll do whatever it takes to have a happy future with her."
 	elseif cl == 853 then
-	splashalpha(7)
+	fadeOut(3)
 	elseif cl >= 854 then
 	cl = 853
 	end
@@ -2940,7 +2940,7 @@ function ch4_end_no()
 	elseif cl == 827 then
     bl "And I'll do whatever it takes to put a smile on her face every day."
 	elseif cl == 828 then
-	splashalpha(7)
+	fadeOut(3)
 	elseif cl == 829 then
 	cl = 828
 	end

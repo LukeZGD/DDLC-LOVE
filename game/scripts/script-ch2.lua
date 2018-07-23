@@ -1333,7 +1333,7 @@ function ch2script()
 	elseif cl == 1974 then
 		cw('bl',"Who knows what will happen in that time?")
 	elseif cl == 1975 then
-		splashalpha(4)
+		fadeOut(4)
 	elseif cl >= 1976 then
 		cl = 1975
 	end

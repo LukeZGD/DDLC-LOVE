@@ -735,7 +735,7 @@ function ch20script()
 	elseif cl == 292 then
     bl "And I guess that starts with writing a poem tonight..."
 	elseif cl == 293 then
-	splashalpha(8)
+	fadeOut(4)
 	elseif cl == 294 then
 	cl = 293
 	
@@ -754,7 +754,7 @@ function ch20script()
 	alpha = 20
 	elseif cl >= 297 then
 	cl = 297
-	splashalpha(4)
+	fadeOut(1)
 	
 	--1: x=80
 	--2: x=20 x=140 ..or.. x=10 x=150
