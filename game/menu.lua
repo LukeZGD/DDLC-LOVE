@@ -45,7 +45,7 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Char. Animations','Characters','Save Settings'}
+		itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Show Date&Time','Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
@@ -120,7 +120,7 @@ function menu_draw()
 		love.graphics.print(settings.autospd..' sec.',157, 95)
 		love.graphics.print('(<)',140,95)
 		love.graphics.print('(>)',198,95)
-		love.graphics.print(settings.animh,140, 120)
+		love.graphics.print(settings.dtym,140, 120)
 		love.graphics.print('Press (<) and (>) to change settings.',16,200)
 		love.graphics.print(dversion,270, 205)
 		love.graphics.print(dvertype,270, 220)
@@ -136,7 +136,7 @@ function menu_draw()
 			end
 		end
 	elseif menu_type == 'choice' then
-		--drawdatetime()
+		if settings.dtym == 1 then drawdatetime() end
 	end	
 end
 
@@ -320,11 +320,11 @@ function menu_keypressed(key)
 				if settings.autospd > 1 then
 					settings.autospd = settings.autospd - 1
 				end
-			elseif cpick == 'Char. Animations' then
-				if settings.animh == 0 then
-					settings.animh = 1
+			elseif cpick == 'Show Date&Time' then
+				if settings.dtym == 0 then
+					settings.dtym = 1
 				else
-					settings.animh = 0
+					settings.dtym = 0
 				end
 			end
 			
@@ -345,7 +345,7 @@ function menu_keypressed(key)
 				if settings.autospd < 15 then
 					settings.autospd = settings.autospd + 1
 				end
-			elseif cpick == 'Char. Animations' then
+			elseif cpick == 'Show Date&Time' then
 				menu_keypressed('left')
 			end
 		

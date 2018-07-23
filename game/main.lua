@@ -16,7 +16,8 @@ function love.load()
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
-	s_timer = 0
+	unitimer = 0
+	uniduration = 0.3
 	xaload = 0
 	alpha = 255
 	posX = -40
@@ -33,7 +34,7 @@ function love.load()
 	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
 		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
-		windowicon = love.graphics.newImage('images/gui/icon.png')
+		local windowicon = love.graphics.newImage('images/gui/icon.png')
 		love.window.setIcon(windowicon:getData())
 	end
 	

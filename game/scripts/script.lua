@@ -77,10 +77,6 @@ function cw(p1, stext, tag)
 end
 
 function scriptCheck()
-	if xaload == 0 then
-		myTextStartTime = love.timer.getTime()
-	end
-	xaload = xaload + 1
 	c_disp = {'','','',''}
 	
 	if poemsread ~= -1 and poemresponses then
