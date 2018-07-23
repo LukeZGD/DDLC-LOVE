@@ -6,7 +6,7 @@ persistent = {
 	chr={m=1,s=1};
 }
 special_poems = {1,2,3}
-settings = {textspd=100,textloc='Bottom',animh=1,autospd=4}
+settings = {textspd=100,textloc='Bottom',dtym=1,autospd=4}
 --default save values
 data_ptr = 0
 cl = 1
@@ -67,7 +67,7 @@ function loadgame()
 end
 
 function savesettings()
-	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',animh="..settings.animh..",autospd="..settings.autospd.."}"
+	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',dtym="..settings.dtym..",autospd="..settings.autospd.."}"
 	love.filesystem.write("settings.sav", settingsfile)
 end
 

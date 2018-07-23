@@ -316,7 +316,7 @@ end
 
 function event_update(dt)
 	event_timer = event_timer + dt
-	xaload = xaload + 1
+	timerCheck()
 	
 	--s_kill timers
 	if event_type == 's_kill_start' and event_timer > 0.75 then event_next()

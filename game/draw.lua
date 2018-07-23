@@ -1,3 +1,8 @@
+local drawbottom
+local xps = {}
+local yps = {}
+local changeX = {from={s=0,y=0,n=0,m=0},to={s=0,y=0,n=0,m=0}}
+
 function drawTopScreen()
 	if drawbottom == 1 then
 		love.graphics.pop()
@@ -25,82 +30,42 @@ function dripText(text,charactersPerSecond,startTime)
 	return text:sub(1,math.min(math.floor((currentTime-startTime)*charactersPerSecond),text:len()))
 end
 
-function splashalpha(x)
-	--team salvato splash
-	if x == 1 then
-		if s_timer <=150 then
-			if alpha >= 255 then
-				alpha = 255
-			else
-				alpha = alpha + 7.75
-			end
-		elseif s_timer <=200 then
-			if alpha >= 1 then
-				alpha = alpha - 7.75
-			else
-				alpha = 0
-			end
-		else alpha = 0 end
-	--warning splash
-	elseif x == 2 then
-		if s_timer <=400 then
-			if alpha >= 255 then
-				alpha = 255
-			else
-				alpha = alpha + 7.75
-			end
-		elseif s_timer <=480 then
-			if alpha >= 1 then
-				alpha = alpha - 7.75
-			else
-				alpha = 0
-			end
-		else alpha = 0 end
-	--fade in title screen
-	elseif x == 3 then
-		if alpha >= 255 then
-			alpha = 255
-			love.graphics.setBackgroundColor(0,0,0)
-		else
-			if menu_enabled ~= true then menu_enable('title') end
-			alpha = alpha + 5
-		end
+function easeQuadIn(t,b,c,d)
+	t = t / d
+	return c*t*t + b
+end
+
+function easeQuadOut(t,b,c,d)
+	t = t / d
+	return -(c) * t*(t-2) + b
+end
+
+function fadeOut(x)
 	--fade out to poemgame
-	elseif x == 4 then
-		if alpha <= 0 then
+	if x == 1 then
+		alpha = math.max(alpha - 2, 0)
+		if alpha == 0 then
 			changeState('poemgame')
-		else	
-			alpha = alpha - 2
 		end
 	--fade out from poemgame to game
-	elseif x == 5 then
-		if alpha <= 0 then
+	elseif x == 2 then
+		alpha = math.max(alpha - 2, 0)
+		if alpha == 0 then
 			changeState('game',3)
-		else	
-			alpha = alpha - 2
-		end
-	--fade from load to splash screens
-	elseif x == 6 then
-		if alpha <= 0 then
-			changeState('splash')
-		else
-			alpha = alpha - 5
 		end
 	--fade out from game to game (add 1 to chapter)
-	elseif x == 7 then
-		if alpha <= 0 then
+	elseif x == 3 then
+		alpha = math.max(alpha - 2, 0)
+		if alpha == 0 then
 			chapter = chapter + 1
 			changeState('game',3)
-		else	
-			alpha = alpha - 2
 		end
 	--fade out then go to next 2 lines
-	elseif x == 8 then
-		if alpha <= 0 then
+	elseif x == 4 then
+		alpha = math.max(alpha - 3, 0)
+		if alpha == 0 then
 			scriptJump(cl + 2)
 			alpha = 255
-		else
-			alpha = alpha - 3
 		end
 	end
 end
@@ -120,8 +85,6 @@ function drawdatetime()
 end
 
 function drawTextBox()
-	local xps = {}
-	local yps = {}
 	if settings.textloc == 'Top' then
 		xps = {c=48,ct=63,textbox=40,namebox=52}
 		yps = {ca=166,cb=182,cc=198,cd=214,ct=142,textbox=162,namebox=142}
@@ -184,14 +147,17 @@ function updateSayori(a,b,px,py)
 	s_Set.a = a
 	s_Set.b = b
 	if xaload == 0 then loadSayori() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then 
-		if s_Set.x > px then
-			s_Set.x = math.max(s_Set.x - 24, px)
-		elseif s_Set.x < px then
-			s_Set.x = math.min(s_Set.x + 24, px)
+	if px and autoskip < 1 and xaload > 0 then
+		if s_Set.x < px then
+			s_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.s,-changeX.to.s,uniduration))
+		elseif s_Set.x > px then
+			s_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.s,-changeX.to.s,uniduration))
 		end
 	elseif px and xaload > 0 then
 		s_Set.x = px
+	elseif px and xaload == 0 then
+		changeX.from.s = s_Set.x
+		changeX.to.s = changeX.from.s - px
 	end
 	if py ~= nil then s_Set.y = py end
 end
@@ -201,14 +167,17 @@ function updateYuri(a,b,px,py)
 	y_Set.a = a 
 	y_Set.b = b
 	if xaload == 0 then loadYuri() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if y_Set.x > px then
-			y_Set.x = math.max(y_Set.x - 24, px)
-		elseif y_Set.x < px then
-			y_Set.x = math.min(y_Set.x + 24, px)
+	if px and autoskip < 1 and xaload > 0 then
+		if y_Set.x < px then
+			y_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.y,-changeX.to.y,uniduration))
+		elseif m_Set.x > px then
+			y_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.y,-changeX.to.y,uniduration))
 		end
 	elseif px and xaload > 0 then
 		y_Set.x = px
+	elseif px and xaload == 0 then
+		changeX.from.y = y_Set.x
+		changeX.to.y = changeX.from.y - px
 	end
 	if py ~= nil then y_Set.y = py end
 end
@@ -218,14 +187,17 @@ function updateNatsuki(a,b,px,py)
 	n_Set.a = a
 	n_Set.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then 
-		if n_Set.x > px then
-			n_Set.x = math.max(n_Set.x - 24, px)
-		elseif n_Set.x < px then
-			n_Set.x = math.min(n_Set.x + 24, px)
+	if px and autoskip < 1 and xaload > 0 then 
+		if n_Set.x < px then
+			n_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.n,-changeX.to.n,uniduration))
+		elseif n_Set.x > px then
+			n_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.n,-changeX.to.n,uniduration))
 		end
 	elseif px and xaload > 0 then
 		n_Set.x = px
+	elseif px and xaload == 0 then
+		changeX.from.n = n_Set.x
+		changeX.to.n = changeX.from.n - px
 	end
 	if py ~= nil then n_Set.y = py end
 end
@@ -235,86 +207,114 @@ function updateMonika(a,b,px,py)
 	m_Set.a = a
 	m_Set.b = b
 	if xaload == 0 then loadMonika() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then 
-		if m_Set.x > px then
-			m_Set.x = math.max(m_Set.x - 24, px)
-		elseif m_Set.x < px then
-			m_Set.x = math.min(m_Set.x + 24, px)
+	if px and autoskip < 1 and xaload > 0 then
+		if m_Set.x < px then
+			m_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.m,-changeX.to.m,uniduration))
+		elseif m_Set.x > px then
+			m_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.m,-changeX.to.m,uniduration))
 		end
 	elseif px and xaload > 0 then
-		m_Set.x = px		
+		m_Set.x = px
+	elseif px and xaload == 0 then
+		changeX.from.m = m_Set.x
+		changeX.to.m = changeX.from.m - px
 	end
 	if py ~= nil then m_Set.y = py end
 end
 
 function hideSayori()
-	if s_Set.x <= -200 or s_Set.x >= 300 or autoskip > 0 or settings.animh == 0 then
+	if xaload == 0 then
+		changeX.from.s = s_Set.x
+		changeX.to.s = s_Set.x + 200
+	end
+	if s_Set.x <= -200 or autoskip > 0 then
 		s_Set.a = ''
 		s_Set.b = ''
 		if sl then unloadSayori() end
-	else
-		if s_Set.x > 200 then
-			s_Set.x = s_Set.x + 22
+	elseif xaload > 0 then
+		if settings.animh == 0 then
+			s_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.s,changeX.to.s,uniduration)) + changeX.from.s*2)
 		else
-			s_Set.x = s_Set.x - 25
+			if s_Set.x > 200 then
+				s_Set.x = s_Set.x + 22
+			else
+				s_Set.x = s_Set.x - 25
+			end
 		end
 	end
 end
 
 function hideYuri()
-	if y_Set.x <= -200 or y_Set.x >= 300 or autoskip > 0 or settings.animh == 0 then
+	if xaload == 0 then
+		changeX.from.y = y_Set.x
+		changeX.to.y = y_Set.x + 200
+	end
+	if y_Set.x <= -200 or autoskip > 0 then
 		y_Set.a = ''
 		y_Set.b = ''
 		if yl then unloadYuri() end
-	else
-		if y_Set.x > 200 then
-			y_Set.x = y_Set.x + 22
+	elseif xaload > 0 then
+		if settings.animh == 0 then
+			y_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.y,changeX.to.y,uniduration)) + changeX.from.y*2)
 		else
-			y_Set.x = y_Set.x - 25
+			if n_Set.x > 200 then
+				y_Set.x = y_Set.x + 22
+			else
+				y_Set.x = y_Set.x - 25
+			end
 		end
 	end
 end
 
 function hideNatsuki()
-	if n_Set.x <= -200 or n_Set.x >= 300 or autoskip > 0 or settings.animh == 0 then
+	if xaload == 0 then
+		changeX.from.n = n_Set.x
+		changeX.to.n = n_Set.x + 200
+	end
+	if n_Set.x <= -200 or autoskip > 0 then
 		n_Set.a = ''
 		n_Set.b = ''
 		if nl then unloadNatsuki() end
-	else
-		if n_Set.x > 200 then
-			n_Set.x = n_Set.x + 22
+	elseif xaload > 0 then
+		if settings.animh == 0 then
+			n_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.n,changeX.to.n,uniduration)) + changeX.from.n*2)
 		else
-			n_Set.x = n_Set.x - 25
+			if n_Set.x > 200 then
+				n_Set.x = n_Set.x + 22
+			else
+				n_Set.x = n_Set.x - 25
+			end
 		end
 	end
 end
 
 function hideMonika()
-	if m_Set.x <= -200 or m_Set.x >= 300 or autoskip > 0 or settings.animh == 0 then
+	if xaload == 0 then
+		changeX.from.m = m_Set.x
+		changeX.to.m = m_Set.x + 200
+	end
+	if m_Set.x <= -200 or autoskip > 0 then
 		m_Set.a = ''
 		m_Set.b = ''
 		if ml then unloadMonika() end
-	else
-		if m_Set.x > 200 then
-			m_Set.x = m_Set.x + 22
+	elseif xaload > 0 then
+		if settings.animh == 0 then
+			m_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.m,changeX.to.m,uniduration)) + changeX.from.m*2)
 		else
-			m_Set.x = m_Set.x - 25
+			if m_Set.x > 200 then
+				m_Set.x = m_Set.x + 22
+			else
+				m_Set.x = m_Set.x - 25
+			end
 		end
 	end
 end
 
 function hideAll()
-	if x == nil then
-		s_Set.a = ''
-		s_Set.b = ''
-		y_Set.a = ''
-		y_Set.b = ''
-		n_Set.a = ''
-		n_Set.b = ''
-		m_Set.a = ''
-		m_Set.b = ''
-		unloadAll()
-	end
+	hideSayori()
+	hideYuri()
+	hideNatsuki()
+	hideMonika()
 end
 
 function drawSayori(a,b)

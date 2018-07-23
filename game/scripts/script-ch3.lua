@@ -1121,7 +1121,7 @@ function ch3_end()
 			elseif cl == 2398 then
 				cw('bl',"If I just go with it, then I'll have a good time.")
 			elseif cl == 2399 then
-				splashalpha(7)
+				fadeOut(3)
 			elseif cl == 2400 then
 				cl = 2399
 			end
@@ -1145,7 +1145,7 @@ function ch3_end()
 			elseif cl == 2396 then
 				cw('bl',"I seriously can't wait!")
 			elseif cl == 2397 then
-				splashalpha(7)
+				fadeOut(3)
 			elseif cl == 2398 then
 				cl = 2397
 			end

@@ -2,7 +2,10 @@ local skipspeed = 4
 local audiotell = 0
 
 function drawGame()
-	if autotimer > 0 or autoskip > 0 then scriptCheck()	end
+	if autotimer > 0 or autoskip > 0 then
+		scriptCheck()
+		timerCheck()
+	end
 	love.graphics.setBackgroundColor(0,0,0)
 	
 	drawTopScreen()
@@ -47,12 +50,15 @@ function drawGame()
 		love.graphics.print('Auto',142,2,0,1,1)
 		love.graphics.print('Skip',241,2,0,1,1) 
 	end
-	--drawdatetime()
+	if settings.dtym == 1 then drawdatetime() end
 	if menu_enabled then menu_draw() end
 end
 
 function updateGame(dt)
-	if autotimer == 0 and autoskip == 0 then scriptCheck() end
+	if autotimer == 0 and autoskip == 0 then
+		scriptCheck()
+		timerCheck()
+	end
 	
 	--auto next script
 	if autotimer == 0 then
@@ -111,10 +117,11 @@ function game_keypressed(key)
 end
 
 function newgame_keypressed(key)
-	if key == 'a' and xaload >= 14 then 
+	if key == 'a' and unitimer >= uniduration then 
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
+		unitimer = 0
 		collectgarbage()
 		collectgarbage()
 	end

@@ -616,7 +616,7 @@ function ch1script()
 	elseif cl == 1146 then
 		cw('bl',"Let's do this!")
 	elseif cl == 1147 then
-		splashalpha(4)
+		fadeOut(1)
 	elseif cl >= 1148 then
 		cl = 1147
 		--1: x=80

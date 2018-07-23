@@ -270,7 +270,7 @@ function updatePoemGame(dt)
 			eyes_timer = eyes_timer + dt
 			if eyes_timer > 3.45 then
 				eyes_in = false
-				splashalpha(5)
+				fadeOut(2)
 			elseif eyes_timer > 2.2 then
 				alpha = 0
 			elseif eyes_timer > 1.7 then
@@ -279,7 +279,7 @@ function updatePoemGame(dt)
 				eyes_y = math.min(eyes_y - 10, -240)
 			end
 		else
-			splashalpha(5)
+			fadeOut(2)
 		end
 	end
 	

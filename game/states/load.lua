@@ -55,7 +55,10 @@ function updateLoad()
 	elseif l_timer == 100 then
 		love.graphics.setBackgroundColor(255,255,255)
 		l_timer = 100
-		splashalpha(6)
+		alpha = math.max(alpha - 5, 0)
+		if alpha == 0 then
+			changeState('splash')
+		end
 	end
 end
 
