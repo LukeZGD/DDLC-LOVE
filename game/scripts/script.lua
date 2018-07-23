@@ -4,7 +4,7 @@ local stext
 local c_a = {}
 local c_a1 = {}
 local tspd
-local tagtimer
+local tagtimer = 0
 local pchapter
 local aa
 
@@ -50,7 +50,7 @@ function cw(p1, stext, tag)
 	
 	--word wrap
 	slen = string.len(textx)
-	c_a1 = {47,97,147}
+	c_a1 = {45,95,145}
 	if style_edited then c_a1 = {40,70,100} end
 	
 	for i = 1, 3 do
@@ -72,7 +72,10 @@ function cw(p1, stext, tag)
 				scriptJump(cl+1)
 			end
 			tagtimer = 0
+			if autotimer > 0 then autotimer = 1 end
 		end
+	else
+		tagtimer = 0
 	end
 end
 
