@@ -87,11 +87,11 @@ end
 function drawTextBox()
 	if settings.textloc == 'Top' then
 		xps = {c=48,ct=63,textbox=40,namebox=52}
-		yps = {ca=166,cb=182,cc=198,cd=214,ct=142,textbox=162,namebox=142}
+		yps = {c={166,182,198,214},ct=142,textbox=162,namebox=142}
 		drawTopScreen()
 	else
 		xps = {c=8,ct=23,textbox=0,namebox=12}
-		yps = {ca=66,cb=82,cc=98,cd=114,ct=42,textbox=62,namebox=42}
+		yps = {c={66,82,98,114},ct=42,textbox=62,namebox=42}
 	end
 	
 	if style_edited then love.graphics.setFont(deffont) end
@@ -102,10 +102,9 @@ function drawTextBox()
 		love.graphics.draw(textbox, xps.textbox, yps.textbox)
 		love.graphics.setColor(0,0,0,alpha)
 		love.graphics.print(ct,xps.ct,yps.ct)
-		love.graphics.print(c_disp[1],xps.c,yps.ca)
-		love.graphics.print(c_disp[2],xps.c,yps.cb)
-		love.graphics.print(c_disp[3],xps.c,yps.cc)
-		love.graphics.print(c_disp[4],xps.c,yps.cd)
+		for i = 1, 4 do
+			love.graphics.print(c_disp[i],xps.c,yps.c[i])
+		end
 	end
 	if settings.textloc == 'Top' then drawBottomScreen() end
 end
@@ -170,7 +169,7 @@ function updateYuri(a,b,px,py)
 	if px and autoskip < 1 and xaload > 0 then
 		if y_Set.x < px then
 			y_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.y,-changeX.to.y,uniduration))
-		elseif m_Set.x > px then
+		elseif y_Set.x > px then
 			y_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.y,-changeX.to.y,uniduration))
 		end
 	elseif px and xaload > 0 then
@@ -232,15 +231,7 @@ function hideSayori()
 		s_Set.b = ''
 		if sl then unloadSayori() end
 	elseif xaload > 0 then
-		if settings.animh == 0 then
-			s_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.s,changeX.to.s,uniduration)) + changeX.from.s*2)
-		else
-			if s_Set.x > 200 then
-				s_Set.x = s_Set.x + 22
-			else
-				s_Set.x = s_Set.x - 25
-			end
-		end
+		s_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.s,changeX.to.s,uniduration)) + changeX.from.s*2)
 	end
 end
 
@@ -254,15 +245,7 @@ function hideYuri()
 		y_Set.b = ''
 		if yl then unloadYuri() end
 	elseif xaload > 0 then
-		if settings.animh == 0 then
-			y_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.y,changeX.to.y,uniduration)) + changeX.from.y*2)
-		else
-			if n_Set.x > 200 then
-				y_Set.x = y_Set.x + 22
-			else
-				y_Set.x = y_Set.x - 25
-			end
-		end
+		y_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.y,changeX.to.y,uniduration)) + changeX.from.y*2)
 	end
 end
 
@@ -276,15 +259,7 @@ function hideNatsuki()
 		n_Set.b = ''
 		if nl then unloadNatsuki() end
 	elseif xaload > 0 then
-		if settings.animh == 0 then
-			n_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.n,changeX.to.n,uniduration)) + changeX.from.n*2)
-		else
-			if n_Set.x > 200 then
-				n_Set.x = n_Set.x + 22
-			else
-				n_Set.x = n_Set.x - 25
-			end
-		end
+		n_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.n,changeX.to.n,uniduration)) + changeX.from.n*2)
 	end
 end
 
@@ -298,15 +273,7 @@ function hideMonika()
 		m_Set.b = ''
 		if ml then unloadMonika() end
 	elseif xaload > 0 then
-		if settings.animh == 0 then
-			m_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.m,changeX.to.m,uniduration)) + changeX.from.m*2)
-		else
-			if m_Set.x > 200 then
-				m_Set.x = m_Set.x + 22
-			else
-				m_Set.x = m_Set.x - 25
-			end
-		end
+		m_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.m,changeX.to.m,uniduration)) + changeX.from.m*2)
 	end
 end
 
