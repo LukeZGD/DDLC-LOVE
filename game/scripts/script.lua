@@ -72,7 +72,7 @@ function cw(p1, stext, tag)
 				scriptJump(cl+1)
 			end
 			tagtimer = 0
-			if autotimer > 0 then autotimer = 1 end
+			if autotimer > 0 then autotimer = 0.01 end
 		end
 	else
 		tagtimer = 0

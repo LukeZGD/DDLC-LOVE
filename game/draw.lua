@@ -81,7 +81,7 @@ function drawdatetime()
 	else
 		love.graphics.setColor(0,0,0,alpha)
 	end
-	love.graphics.print(os.date("%Y-%m-%d %H:%M"),195,220)
+	love.graphics.print(os.date("%Y-%m-%d %H:%M"),195,230)
 end
 
 function drawTextBox()
@@ -326,10 +326,17 @@ function hideMonika()
 end
 
 function hideAll()
-	hideSayori()
-	hideYuri()
-	hideNatsuki()
-	hideMonika()
+	if x == nil then
+		s_Set.a = ''
+		s_Set.b = ''
+		y_Set.a = ''
+		y_Set.b = ''
+		n_Set.a = ''
+		n_Set.b = ''
+		m_Set.a = ''
+		m_Set.b = ''
+		unloadAll()
+	end
 end
 
 function drawSayori(a,b)

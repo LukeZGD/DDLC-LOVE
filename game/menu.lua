@@ -129,10 +129,10 @@ function menu_draw()
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
 				love.graphics.setColor(0,255,0)
-				love.graphics.rectangle('fill',95,26+(25*i),6,6)
+				love.graphics.rectangle('fill',95,25+(25*i),6,6)
 			else
 				love.graphics.setColor(255,0,0)
-				love.graphics.rectangle('fill',95,26+(25*i),6,6)
+				love.graphics.rectangle('fill',95,25+(25*i),6,6)
 			end
 		end
 	elseif menu_type == 'choice' then
@@ -181,7 +181,7 @@ function menu_confirm()
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= '' then
 			savenumber = savenum[m_selected-1]
-			if saveindicator[m_selected-1] == 1 then
+			if love.filesystem.isFile('save'..savenumber..'.sav') then
 				changeState('game',2)
 			end
 		end
