@@ -132,6 +132,10 @@ function event_start(etype, arg1)
 		eventvar1 = 2
 		eventvar2 = -13
 		eventvar3 = 0
+	elseif event_type == 'faint_effect' then
+		eventvar1 = 192
+		bgimg_disabled = false
+		textbox_enabled = true
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
@@ -262,6 +266,16 @@ function event_draw()
 		if eyes1 then love.graphics.draw(eyes1,-13) end
 		if eyes2 then love.graphics.draw(eyes2,eventvar2,eventvar3) end
 		love.graphics.setColor(0,0,0,192)
+		love.graphics.rectangle('fill',0,0,400,240)
+	end
+	
+	if event_type == 'faint_effect' then
+		love.graphics.setColor(255,255,255,alpha)
+		love.graphics.draw(bgch)
+		drawNatsuki(n_Set.a,n_Set.b)
+		drawYuri(y_Set.a,y_Set.b)
+		drawMonika(m_Set.a,m_Set.b)
+		love.graphics.setColor(128,0,0,eventvar1)
 		love.graphics.rectangle('fill',0,0,400,240)
 	end
 	
@@ -465,6 +479,18 @@ function event_update(dt)
 			textbox_enabled = true
 		else
 			textbox_enabled = false
+		end
+	end
+	
+	if event_type == 'faint_effect' then
+		if cl == 1456 then
+			alpha = math.max(alpha - 5, 1)
+			eventvar1 = math.max(eventvar1 - 2.25, 1)
+			audioUpdate('0')
+		elseif cl > 1456 then
+			alpha = 255
+			event_end()
+			audioUpdate('3')
 		end
 	end
 end
