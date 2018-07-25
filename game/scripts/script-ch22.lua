@@ -1,4 +1,5 @@
 local y_chance = math.random(0,2)
+local faint_effect = math.random(0,2)
 
 function ch22script()
 	if cl == 1077 then
@@ -444,5 +445,293 @@ function ch22script()
 		elseif appeal.y == 2 then
 			scriptJump(1235)
 		end
+		
+	elseif cl >= 1446 then ch22_end()
+	end
+end
+
+function ch22_end()
+	if cl == 1446 then
+	hideAll()
+	scriptJump(1447)
+	elseif cl == 1447 then
+    audioUpdate('0')
+	bgUpdate('black')
+	menutext = 'You have unlocked a special poem.\nWould you like to read it?'
+	choices = {'Yes','No'}
+	choice_enable()
+	elseif cl == 1448 then
+	if choicepick == 'Yes' then
+		changeState('poem_special',sp[2])
+	else
+		scriptJump(1449)
+	end
+	
+	elseif cl == 1449 then
+	if faint_effect == 0 then
+		event_start('faint_effect')
+		audioUpdate('3g3')
+	else
+		audioUpdate('3')
+	end
+	bgUpdate('club_day2')
+	updateMonika('4','b',80)
+	m "Okay, everyone!"
+	elseif cl == 1450 then
+	m "We're all done reading each other's poems, right?"
+	elseif cl == 1451 then
+    m "We have something we need to go over today, so if everyone could come sit at the front of the room..."
+	elseif cl == 1452 then
+	updateNatsuki('3','c',-40)
+    n "Is this about the festival?"
+	elseif cl == 1453 then
+	updateNatsuki('1','j')
+    m "Well, sort of~"
+	elseif cl == 1454 then
+	updateMonika('1','a')
+	updateNatsuki('1','m')
+    n "Ugh. Do we really have to do something for the festival?"
+	elseif cl == 1455 then
+    n "It's not like we can put together anything good in just a few days."
+	elseif cl == 1456 then
+    n "We'll just end up embarrassing ourselves instead of getting any new members."
+	elseif cl == 1457 then
+	updateYuri('2','g',200)
+	y "That's a concern of mine as well."
+	elseif cl == 1458 then
+	y "I don't really do well with last-minute preparations..."
+	elseif cl == 1459 then
+	updateMonika('1','b')
+	m "Don't worry so much!"
+	elseif cl == 1460 then
+    m "We're going to keep it simple, okay?"
+	elseif cl == 1461 then
+	updateMonika('2','a')
+    m "Look..."
+	elseif cl == 1462 then
+	updateMonika('2','m')
+    cw('m',"I know everyone's been a little more...lively...ever since "..player.." joined and we've started with some club activities.")
+	elseif cl == 1463 then
+	updateMonika('2','d')
+    m "But this isn't the time for us to become complacent."
+	elseif cl == 1464 then
+    m "We still only have four members..."
+	elseif cl == 1465 then
+	updateMonika('2','a')
+    m "And the festival is our only real chance to find more, you know?"
+    elseif cl == 1466 then
+	updateNatsuki('5','g')
+    n "What's so great about getting new members, anyway?"
+	elseif cl == 1467 then
+    n "We already have enough to be considered an official club."
+	elseif cl == 1468 then
+    n "More members will just mean everything gets noisier and more difficult to manage."
+	elseif cl == 1469 then
+	updateMonika('1','g')
+    m "Natsuki..."
+	elseif cl == 1470 then
+    m "I don't think you're looking at it the right way at all."
+	elseif cl == 1471 then
+    m "Don't you want to share your passion with as many people as you can?"
+	elseif cl == 1472 then
+	updateMonika('3','e')
+    m "To inspire them to find the same feelings that brought you here in the first place?"
+	elseif cl == 1473 then
+    m "The Literature Club should be a place where people can express themselves like they can't do anywhere else."
+	elseif cl == 1474 then
+    m "It should be a place so intimate that you never want to leave."
+	elseif cl == 1475 then
+	updateMonika('2','e')
+    m "I know you feel that way, too."
+	elseif cl == 1476 then
+	updateMonika('2','b')
+    m "I know we all do!"
+	elseif cl == 1477 then
+    m "So that's why we should work hard and put something together for the festival...even if it's something small!"
+	elseif cl == 1478 then
+	cw('m',"Right, "..player.."?")
+	elseif cl == 1479 then
+    mc "Ah..."
+	elseif cl == 1480 then
+	updateNatsuki('4','2c')
+    n "Oh, come on!"
+	elseif cl == 1481 then
+	cw('n',"You can't take advantage of "..player.." to agree with you just because he doesn't know how to say no to anything.")
+	elseif cl == 1482 then
+	audioUpdate('0')
+	updateNatsuki('1','c')
+    n "Look, Monika."
+	elseif cl == 1483 then
+    n "Do you really think any of us here joined the club with other people in mind?"
+	elseif cl == 1484 then
+	cw('n',"Yuri never even talked until "..player.." joined.")
+	elseif cl == 1485 then
+	updateMonika('2','b')
+	elseif cl == 1486 then
+    n "As for me, I just like it better here than I do at home."
+	elseif cl == 1487 then
+	cw('n',"And "..player.." isn't even passionate about literature in the first place.")
+	elseif cl == 1488 then
+    n "And that's everyone."
+	elseif cl == 1489 then
+	updateNatsuki('4','w')
+    n "Sorry, but you're really the only one who's so interested in finding new members."
+	elseif cl == 1490 then
+    n "The rest of us are fine like this."
+	elseif cl == 1491 then
+	updateNatsuki('4','q')
+    n "I know you're President and all, but you should really consider our opinions for once."
+	elseif cl == 1492 then
+	updateMonika('1','g')
+    m "..."
+	elseif cl == 1493 then
+    bl "Monika is clearly taken aback by Natsuki's words."
+	elseif cl == 1494 then
+	audioUpdate('9')
+	updateMonika('1','m')
+    m "That's...not true at all."
+	elseif cl == 1495 then
+	updateMonika('2','m')
+    cw('m',"I'm sure Yuri and "..player.." want to get more members too...")
+	elseif cl == 1496 then
+	updateMonika('2','p')
+    m "...Right?"
+	updateYuri('4','b2')
+    y "..."
+	elseif cl == 1497 then
+    mc "..."
+	elseif cl == 1498 then
+    bl "I don't know about Yuri, but I'm kind of indifferent."
+	elseif cl == 1499 then
+    bl "If I showed as much enthusiasm as Monika wanted, then I would probably be lying."
+	elseif cl == 1500 then
+    bl "Still, if it's up to me to rescue this situation..."
+	elseif cl == 1501 then
+    mc "Um--"
+	elseif cl == 1502 then
+	updateMonika('1','i')
+    m "No."
+	elseif cl == 1503 then
+    m "Natsuki's right, isn't she?"
+	elseif cl == 1504 then
+	updateMonika('1','g')
+    m "This club..."
+	elseif cl == 1505 then
+    m "It's nothing more than a place for a few people to hang out."
+	elseif cl == 1506 then
+	updateMonika('1','r')
+    m "Why did I think that everyone here saw it the same way as I did?"
+	elseif cl == 1507 then
+    mc "But that doesn't mean that we're against getting new members or anything..."
+	elseif cl == 1508 then
+	updateMonika('1','i')
+    cw('m',player..", why did you even join this club?")
+	elseif cl == 1509 then
+    m "What were you hoping to get out of it?"
+	elseif cl == 1510 then
+    mc "Well--"
+	elseif cl == 1511 then
+    bl "That's not really something I can be honest about, is it?"
+	elseif cl == 1512 then
+	updateMonika('1','p')
+    m "In fact..."
+	elseif cl == 1513 then
+    m "If I remember, you weren't even given a choice not to join."
+	elseif cl == 1514 then
+	hideMonika()
+    bl "Monika sits down and stares at her desk."
+	elseif cl == 1515 then
+    m "What's the point of all this, anyway?"
+	elseif cl == 1516 then
+    m "What if starting this club was a mistake?"
+	elseif cl == 1517 then
+    mc "..."
+	elseif cl == 1518 then
+	updateYuri('2','g')
+    y "Now you've done it, Natsuki..."
+	elseif cl == 1519 then
+	updateNatsuki('1','p')
+    n "What, me?"
+	elseif cl == 1520 then
+	updateNatsuki('1','s')
+    n "I just spoke my mind..."
+	elseif cl == 1521 then
+    n "Is it a crime to be honest?"
+	elseif cl == 1522 then
+	updateYuri('2','l')
+    y "It's not about being honest."
+	elseif cl == 1523 then
+    y "It's about word choice."
+	elseif cl == 1524 then
+	updateYuri('2','h')
+    y "Besides, you have no right to speak for everyone else in the club like that..."
+	elseif cl == 1525 then
+	updateNatsuki('1','e')
+    n "You don't understand at all!"
+	elseif cl == 1526 then
+	updateNatsuki('5','s')
+    n "I just..."
+	elseif cl == 1527 then
+    n "I just want a place that feels nice to hang out with a few friends."
+	elseif cl == 1528 then
+	updateNatsuki('5','u')
+    n "Is there a problem with the club being that for me?"
+	elseif cl == 1529 then
+    n "There aren't...there aren't many other places like that for me..."
+	elseif cl == 1530 then
+	updateNatsuki('5','x')
+    n "And now Monika wants to take it away from me!"
+	elseif cl == 1531 then
+    mc "She's not taking anything away--"
+	elseif cl == 1532 then
+	updateNatsuki('1','g')
+    cw('n',"No, "..player..".")
+	elseif cl == 1533 then
+    n "It's not the same."
+	elseif cl == 1534 then
+	updateNatsuki('1','q')
+    n "It won't be the same with the direction she wants to take it."
+	elseif cl == 1535 then
+    n "If I wanted that, then I could have just joined any other stupid club."
+	elseif cl == 1536 then
+	updateNatsuki('1','2d')
+    n "But this one..."
+	elseif cl == 1537 then
+    n "I mean..."
+	elseif cl == 1538 then
+	updateNatsuki('1','2e')
+    n "At least for a little bit of time..."
+	elseif cl == 1539 then
+    n "Things were nice."
+	elseif cl == 1540 then
+    bl "Natsuki starts packing up her things."
+	elseif cl == 1541 then
+	updateNatsuki('1','2d')
+    n "I'm going home."
+	elseif cl == 1542 then
+    n "I feel like...I don't belong here right now."
+	elseif cl == 1543 then
+	updateYuri('3','t')
+    y "Natsuki..."
+	elseif cl == 1544 then
+	hideNatsuki()
+    bl "Natsuki ignores Yuri and walks right out of the classroom."
+	elseif cl == 1545 then
+	updateYuri('3','v')
+    y "..."
+	elseif cl == 1546 then
+    y "This is bad..."
+	elseif cl == 1547 then
+    y "I don't know what to do..."
+	elseif cl == 1548 then
+    mc "Well..."
+	elseif cl == 1549 then
+    mc "Do you have an opinion on the festival?"
+	elseif cl == 1550 then
+	updateYuri('4','b2')
+    y "I-I don't know..."
+	elseif cl == 1551 then
+    y "I'm kind of indifferent, I guess..."
+	event_init('y_glitch_head')
 	end
 end

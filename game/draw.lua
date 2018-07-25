@@ -147,10 +147,18 @@ function updateSayori(a,b,px,py)
 	s_Set.b = b
 	if xaload == 0 then loadSayori() end
 	if px and autoskip < 1 and xaload > 0 then
-		if s_Set.x < px then
-			s_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.s,-changeX.to.s,uniduration))
-		elseif s_Set.x > px then
-			s_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.s,-changeX.to.s,uniduration))
+		if global_os ~= 'Horizon' then
+			if s_Set.x < px then
+				s_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.s,-changeX.to.s,uniduration))
+			elseif s_Set.x > px then
+				s_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.s,-changeX.to.s,uniduration))
+			end
+		else
+			if s_Set.x < px then
+				s_Set.x = math.min(s_Set.x + 24, px)
+			elseif m_Set.x > px then
+				s_Set.x = math.max(s_Set.x - 24, px)
+			end
 		end
 	elseif px and xaload > 0 then
 		s_Set.x = px
@@ -167,10 +175,18 @@ function updateYuri(a,b,px,py)
 	y_Set.b = b
 	if xaload == 0 then loadYuri() end
 	if px and autoskip < 1 and xaload > 0 then
-		if y_Set.x < px then
-			y_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.y,-changeX.to.y,uniduration))
-		elseif y_Set.x > px then
-			y_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.y,-changeX.to.y,uniduration))
+		if global_os ~= 'Horizon' then
+			if y_Set.x < px then
+				y_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.y,-changeX.to.y,uniduration))
+			elseif y_Set.x > px then
+				y_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.y,-changeX.to.y,uniduration))
+			end
+		else
+			if y_Set.x < px then
+				y_Set.x = math.min(y_Set.x + 24, px)
+			elseif m_Set.x > px then
+				y_Set.x = math.max(y_Set.x - 24, px)
+			end
 		end
 	elseif px and xaload > 0 then
 		y_Set.x = px
@@ -186,11 +202,19 @@ function updateNatsuki(a,b,px,py)
 	n_Set.a = a
 	n_Set.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px and autoskip < 1 and xaload > 0 then 
-		if n_Set.x < px then
-			n_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.n,-changeX.to.n,uniduration))
-		elseif n_Set.x > px then
-			n_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.n,-changeX.to.n,uniduration))
+	if px and autoskip < 1 and xaload > 0 then
+		if global_os ~= 'Horizon' then
+			if n_Set.x < px then
+				n_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.n,-changeX.to.n,uniduration))
+			elseif n_Set.x > px then
+				n_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.n,-changeX.to.n,uniduration))
+			end
+		else
+			if n_Set.x < px then
+				n_Set.x = math.min(n_Set.x + 24, px)
+			elseif m_Set.x > px then
+				n_Set.x = math.max(n_Set.x - 24, px)
+			end
 		end
 	elseif px and xaload > 0 then
 		n_Set.x = px
@@ -207,10 +231,18 @@ function updateMonika(a,b,px,py)
 	m_Set.b = b
 	if xaload == 0 then loadMonika() end
 	if px and autoskip < 1 and xaload > 0 then
-		if m_Set.x < px then
-			m_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.m,-changeX.to.m,uniduration))
-		elseif m_Set.x > px then
-			m_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.m,-changeX.to.m,uniduration))
+		if global_os ~= 'Horizon' then
+			if m_Set.x < px then
+				m_Set.x = math.floor(easeQuadOut(unitimer,changeX.from.m,-changeX.to.m,uniduration))
+			elseif m_Set.x > px then
+				m_Set.x = math.floor(easeQuadOut(unitimer,-changeX.from.m,-changeX.to.m,uniduration))
+			end
+		else
+			if m_Set.x < px then
+				m_Set.x = math.min(m_Set.x + 24, px)
+			elseif m_Set.x > px then
+				m_Set.x = math.max(m_Set.x - 24, px)
+			end
 		end
 	elseif px and xaload > 0 then
 		m_Set.x = px
@@ -231,7 +263,11 @@ function hideSayori()
 		s_Set.b = ''
 		if sl then unloadSayori() end
 	elseif xaload > 0 then
-		s_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.s,changeX.to.s,uniduration)) + changeX.from.s*2)
+		if global_os == 'Horizon' then
+			s_Set.x = math.max(s_Set.x - 24, -200)
+		else
+			s_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.s,changeX.to.s,uniduration)) + changeX.from.s*2)
+		end
 	end
 end
 
@@ -245,7 +281,11 @@ function hideYuri()
 		y_Set.b = ''
 		if yl then unloadYuri() end
 	elseif xaload > 0 then
-		y_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.y,changeX.to.y,uniduration)) + changeX.from.y*2)
+		if global_os == 'Horizon' then
+			y_Set.x = math.max(y_Set.x - 24, -200)
+		else
+			y_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.y,changeX.to.y,uniduration)) + changeX.from.y*2)
+		end
 	end
 end
 
@@ -259,7 +299,11 @@ function hideNatsuki()
 		n_Set.b = ''
 		if nl then unloadNatsuki() end
 	elseif xaload > 0 then
-		n_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.n,changeX.to.n,uniduration)) + changeX.from.n*2)
+		if global_os == 'Horizon' then
+			n_Set.x = math.max(n_Set.x - 24, -200)
+		else
+			n_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.n,changeX.to.n,uniduration)) + changeX.from.n*2)
+		end
 	end
 end
 
@@ -273,7 +317,11 @@ function hideMonika()
 		m_Set.b = ''
 		if ml then unloadMonika() end
 	elseif xaload > 0 then
-		m_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.m,changeX.to.m,uniduration)) + changeX.from.m*2)
+		if global_os == 'Horizon' then
+			m_Set.x = math.max(m_Set.x - 24, -200)
+		else
+			m_Set.x = math.floor(-(easeQuadIn(unitimer,changeX.from.m,changeX.to.m,uniduration)) + changeX.from.m*2)
+		end
 	end
 end
 
