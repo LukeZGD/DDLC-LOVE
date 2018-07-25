@@ -880,7 +880,7 @@ function ch0script()
 		cw('bl',"And I guess that starts with writing a poem tonight...")
 	elseif cl == 346 then
 		poemstate = 0
-		fadeOut(4)
+		fadeOut(1)
 	elseif cl == 347 then
 		cl = 346
 	end 
