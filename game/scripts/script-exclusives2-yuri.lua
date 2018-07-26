@@ -693,6 +693,7 @@ function Yuri_exclusive2_2_ch22()
 		
 	elseif cl == 1303 then
 	audioUpdate('6')
+	bgUpdate('club')
 	updateYuri('1','a')
 	y "I'm back."
 	elseif cl == 1304 then
