@@ -42,7 +42,8 @@ function changeState(cstate,x)
 		hideAll()
 		loadgame()
 		if data_ptr ~= persistent.ptr then --default to new game/title when loading a save from different act
-			changeState(state,1)
+			changeState('title')
+			menutext = 'Save File '..savenumber..' could not be loaded.'
 		else
 			if audio1 == '4' then
 				alpha = 20

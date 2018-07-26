@@ -453,21 +453,23 @@ end
 function ch22_end()
 	if cl == 1446 then
 	hideAll()
-	scriptJump(1447)
+	fadeOut(4)
 	elseif cl == 1447 then
+	cl = 1446
+	elseif cl == 1448 then
     audioUpdate('0')
 	bgUpdate('black')
 	menutext = 'You have unlocked a special poem.\nWould you like to read it?'
 	choices = {'Yes','No'}
 	choice_enable()
-	elseif cl == 1448 then
+	elseif cl == 1449 then
 	if choicepick == 'Yes' then
 		changeState('poem_special',sp[2])
 	else
 		scriptJump(1449)
 	end
 	
-	elseif cl == 1449 then
+	elseif cl == 1450 then
 	if faint_effect == 0 then
 		event_start('faint_effect')
 		audioUpdate('3g3')
@@ -477,261 +479,468 @@ function ch22_end()
 	bgUpdate('club_day2')
 	updateMonika('4','b',80)
 	m "Okay, everyone!"
-	elseif cl == 1450 then
-	m "We're all done reading each other's poems, right?"
 	elseif cl == 1451 then
-    m "We have something we need to go over today, so if everyone could come sit at the front of the room..."
+	m "We're all done reading each other's poems, right?"
 	elseif cl == 1452 then
+    m "We have something we need to go over today, so if everyone could come sit at the front of the room..."
+	elseif cl == 1453 then
 	updateNatsuki('3','c',-40)
     n "Is this about the festival?"
-	elseif cl == 1453 then
+	elseif cl == 1454 then
 	updateNatsuki('1','j')
     m "Well, sort of~"
-	elseif cl == 1454 then
+	elseif cl == 1455 then
 	updateMonika('1','a')
 	updateNatsuki('1','m')
     n "Ugh. Do we really have to do something for the festival?"
-	elseif cl == 1455 then
-    n "It's not like we can put together anything good in just a few days."
 	elseif cl == 1456 then
-    n "We'll just end up embarrassing ourselves instead of getting any new members."
+    n "It's not like we can put together anything good in just a few days."
 	elseif cl == 1457 then
+    n "We'll just end up embarrassing ourselves instead of getting any new members."
+	elseif cl == 1458 then
 	updateYuri('2','g',200)
 	y "That's a concern of mine as well."
-	elseif cl == 1458 then
-	y "I don't really do well with last-minute preparations..."
 	elseif cl == 1459 then
+	y "I don't really do well with last-minute preparations..."
+	elseif cl == 1460 then
 	updateMonika('1','b')
 	m "Don't worry so much!"
-	elseif cl == 1460 then
-    m "We're going to keep it simple, okay?"
 	elseif cl == 1461 then
+    m "We're going to keep it simple, okay?"
+	elseif cl == 1462 then
 	updateMonika('2','a')
     m "Look..."
-	elseif cl == 1462 then
+	elseif cl == 1463 then
 	updateMonika('2','m')
     cw('m',"I know everyone's been a little more...lively...ever since "..player.." joined and we've started with some club activities.")
-	elseif cl == 1463 then
+	elseif cl == 1464 then
 	updateMonika('2','d')
     m "But this isn't the time for us to become complacent."
-	elseif cl == 1464 then
-    m "We still only have four members..."
 	elseif cl == 1465 then
+    m "We still only have four members..."
+	elseif cl == 1466 then
 	updateMonika('2','a')
     m "And the festival is our only real chance to find more, you know?"
-    elseif cl == 1466 then
+    elseif cl == 1467 then
 	updateNatsuki('5','g')
     n "What's so great about getting new members, anyway?"
-	elseif cl == 1467 then
-    n "We already have enough to be considered an official club."
 	elseif cl == 1468 then
-    n "More members will just mean everything gets noisier and more difficult to manage."
+    n "We already have enough to be considered an official club."
 	elseif cl == 1469 then
+    n "More members will just mean everything gets noisier and more difficult to manage."
+	elseif cl == 1470 then
 	updateMonika('1','g')
     m "Natsuki..."
-	elseif cl == 1470 then
-    m "I don't think you're looking at it the right way at all."
 	elseif cl == 1471 then
-    m "Don't you want to share your passion with as many people as you can?"
+    m "I don't think you're looking at it the right way at all."
 	elseif cl == 1472 then
+    m "Don't you want to share your passion with as many people as you can?"
+	elseif cl == 1473 then
 	updateMonika('3','e')
     m "To inspire them to find the same feelings that brought you here in the first place?"
-	elseif cl == 1473 then
-    m "The Literature Club should be a place where people can express themselves like they can't do anywhere else."
 	elseif cl == 1474 then
-    m "It should be a place so intimate that you never want to leave."
+    m "The Literature Club should be a place where people can express themselves like they can't do anywhere else."
 	elseif cl == 1475 then
+    m "It should be a place so intimate that you never want to leave."
+	elseif cl == 1476 then
 	updateMonika('2','e')
     m "I know you feel that way, too."
-	elseif cl == 1476 then
+	elseif cl == 1477 then
 	updateMonika('2','b')
     m "I know we all do!"
-	elseif cl == 1477 then
-    m "So that's why we should work hard and put something together for the festival...even if it's something small!"
 	elseif cl == 1478 then
-	cw('m',"Right, "..player.."?")
+    m "So that's why we should work hard and put something together for the festival...even if it's something small!"
 	elseif cl == 1479 then
-    mc "Ah..."
+	cw('m',"Right, "..player.."?")
 	elseif cl == 1480 then
+    mc "Ah..."
+	elseif cl == 1481 then
 	updateNatsuki('4','2c')
     n "Oh, come on!"
-	elseif cl == 1481 then
-	cw('n',"You can't take advantage of "..player.." to agree with you just because he doesn't know how to say no to anything.")
 	elseif cl == 1482 then
+	cw('n',"You can't take advantage of "..player.." to agree with you just because he doesn't know how to say no to anything.")
+	elseif cl == 1483 then
 	audioUpdate('0')
 	updateNatsuki('1','c')
     n "Look, Monika."
-	elseif cl == 1483 then
-    n "Do you really think any of us here joined the club with other people in mind?"
 	elseif cl == 1484 then
-	cw('n',"Yuri never even talked until "..player.." joined.")
+    n "Do you really think any of us here joined the club with other people in mind?"
 	elseif cl == 1485 then
-	updateMonika('2','b')
+	cw('n',"Yuri never even talked until "..player.." joined.")
 	elseif cl == 1486 then
-    n "As for me, I just like it better here than I do at home."
+	updateMonika('2','b')
 	elseif cl == 1487 then
-	cw('n',"And "..player.." isn't even passionate about literature in the first place.")
+    n "As for me, I just like it better here than I do at home."
 	elseif cl == 1488 then
-    n "And that's everyone."
+	cw('n',"And "..player.." isn't even passionate about literature in the first place.")
 	elseif cl == 1489 then
+    n "And that's everyone."
+	elseif cl == 1490 then
 	updateNatsuki('4','w')
     n "Sorry, but you're really the only one who's so interested in finding new members."
-	elseif cl == 1490 then
-    n "The rest of us are fine like this."
 	elseif cl == 1491 then
+    n "The rest of us are fine like this."
+	elseif cl == 1492 then
 	updateNatsuki('4','q')
     n "I know you're President and all, but you should really consider our opinions for once."
-	elseif cl == 1492 then
+	elseif cl == 1493 then
 	updateMonika('1','g')
     m "..."
-	elseif cl == 1493 then
-    bl "Monika is clearly taken aback by Natsuki's words."
 	elseif cl == 1494 then
+    bl "Monika is clearly taken aback by Natsuki's words."
+	elseif cl == 1495 then
 	audioUpdate('9')
 	updateMonika('1','m')
     m "That's...not true at all."
-	elseif cl == 1495 then
+	elseif cl == 1496 then
 	updateMonika('2','m')
     cw('m',"I'm sure Yuri and "..player.." want to get more members too...")
-	elseif cl == 1496 then
+	elseif cl == 1497 then
 	updateMonika('2','p')
     m "...Right?"
 	updateYuri('4','b2')
     y "..."
-	elseif cl == 1497 then
-    mc "..."
 	elseif cl == 1498 then
-    bl "I don't know about Yuri, but I'm kind of indifferent."
+    mc "..."
 	elseif cl == 1499 then
-    bl "If I showed as much enthusiasm as Monika wanted, then I would probably be lying."
+    bl "I don't know about Yuri, but I'm kind of indifferent."
 	elseif cl == 1500 then
-    bl "Still, if it's up to me to rescue this situation..."
+    bl "If I showed as much enthusiasm as Monika wanted, then I would probably be lying."
 	elseif cl == 1501 then
-    mc "Um--"
+    bl "Still, if it's up to me to rescue this situation..."
 	elseif cl == 1502 then
+    mc "Um--"
+	elseif cl == 1503 then
 	updateMonika('1','i')
     m "No."
-	elseif cl == 1503 then
-    m "Natsuki's right, isn't she?"
 	elseif cl == 1504 then
+    m "Natsuki's right, isn't she?"
+	elseif cl == 1505 then
 	updateMonika('1','g')
     m "This club..."
-	elseif cl == 1505 then
-    m "It's nothing more than a place for a few people to hang out."
 	elseif cl == 1506 then
+    m "It's nothing more than a place for a few people to hang out."
+	elseif cl == 1507 then
 	updateMonika('1','r')
     m "Why did I think that everyone here saw it the same way as I did?"
-	elseif cl == 1507 then
-    mc "But that doesn't mean that we're against getting new members or anything..."
 	elseif cl == 1508 then
+    mc "But that doesn't mean that we're against getting new members or anything..."
+	elseif cl == 1509 then
 	updateMonika('1','i')
     cw('m',player..", why did you even join this club?")
-	elseif cl == 1509 then
-    m "What were you hoping to get out of it?"
 	elseif cl == 1510 then
-    mc "Well--"
+    m "What were you hoping to get out of it?"
 	elseif cl == 1511 then
-    bl "That's not really something I can be honest about, is it?"
+    mc "Well--"
 	elseif cl == 1512 then
+    bl "That's not really something I can be honest about, is it?"
+	elseif cl == 1513 then
 	updateMonika('1','p')
     m "In fact..."
-	elseif cl == 1513 then
-    m "If I remember, you weren't even given a choice not to join."
 	elseif cl == 1514 then
+    m "If I remember, you weren't even given a choice not to join."
+	elseif cl == 1515 then
 	hideMonika()
     bl "Monika sits down and stares at her desk."
-	elseif cl == 1515 then
-    m "What's the point of all this, anyway?"
 	elseif cl == 1516 then
-    m "What if starting this club was a mistake?"
+    m "What's the point of all this, anyway?"
 	elseif cl == 1517 then
-    mc "..."
+    m "What if starting this club was a mistake?"
 	elseif cl == 1518 then
+    mc "..."
+	elseif cl == 1519 then
 	updateYuri('2','g')
     y "Now you've done it, Natsuki..."
-	elseif cl == 1519 then
+	elseif cl == 1520 then
 	updateNatsuki('1','p')
     n "What, me?"
-	elseif cl == 1520 then
+	elseif cl == 1521 then
 	updateNatsuki('1','s')
     n "I just spoke my mind..."
-	elseif cl == 1521 then
-    n "Is it a crime to be honest?"
 	elseif cl == 1522 then
+    n "Is it a crime to be honest?"
+	elseif cl == 1523 then
 	updateYuri('2','l')
     y "It's not about being honest."
-	elseif cl == 1523 then
-    y "It's about word choice."
 	elseif cl == 1524 then
+    y "It's about word choice."
+	elseif cl == 1525 then
 	updateYuri('2','h')
     y "Besides, you have no right to speak for everyone else in the club like that..."
-	elseif cl == 1525 then
+	elseif cl == 1526 then
 	updateNatsuki('1','e')
     n "You don't understand at all!"
-	elseif cl == 1526 then
+	elseif cl == 1527 then
 	updateNatsuki('5','s')
     n "I just..."
-	elseif cl == 1527 then
-    n "I just want a place that feels nice to hang out with a few friends."
 	elseif cl == 1528 then
+    n "I just want a place that feels nice to hang out with a few friends."
+	elseif cl == 1529 then
 	updateNatsuki('5','u')
     n "Is there a problem with the club being that for me?"
-	elseif cl == 1529 then
-    n "There aren't...there aren't many other places like that for me..."
 	elseif cl == 1530 then
+    n "There aren't...there aren't many other places like that for me..."
+	elseif cl == 1531 then
 	updateNatsuki('5','x')
     n "And now Monika wants to take it away from me!"
-	elseif cl == 1531 then
-    mc "She's not taking anything away--"
 	elseif cl == 1532 then
+    mc "She's not taking anything away--"
+	elseif cl == 1533 then
 	updateNatsuki('1','g')
     cw('n',"No, "..player..".")
-	elseif cl == 1533 then
-    n "It's not the same."
 	elseif cl == 1534 then
+    n "It's not the same."
+	elseif cl == 1535 then
 	updateNatsuki('1','q')
     n "It won't be the same with the direction she wants to take it."
-	elseif cl == 1535 then
-    n "If I wanted that, then I could have just joined any other stupid club."
 	elseif cl == 1536 then
+    n "If I wanted that, then I could have just joined any other stupid club."
+	elseif cl == 1537 then
 	updateNatsuki('1','2d')
     n "But this one..."
-	elseif cl == 1537 then
-    n "I mean..."
 	elseif cl == 1538 then
+    n "I mean..."
+	elseif cl == 1539 then
 	updateNatsuki('1','2e')
     n "At least for a little bit of time..."
-	elseif cl == 1539 then
-    n "Things were nice."
 	elseif cl == 1540 then
-    bl "Natsuki starts packing up her things."
+    n "Things were nice."
 	elseif cl == 1541 then
+    bl "Natsuki starts packing up her things."
+	elseif cl == 1542 then
 	updateNatsuki('1','2d')
     n "I'm going home."
-	elseif cl == 1542 then
-    n "I feel like...I don't belong here right now."
 	elseif cl == 1543 then
+    n "I feel like...I don't belong here right now."
+	elseif cl == 1544 then
 	updateYuri('3','t')
     y "Natsuki..."
-	elseif cl == 1544 then
+	elseif cl == 1545 then
 	hideNatsuki()
     bl "Natsuki ignores Yuri and walks right out of the classroom."
-	elseif cl == 1545 then
-	updateYuri('3','v')
-    y "..."
 	elseif cl == 1546 then
-    y "This is bad..."
+	updateYuri('3','v',80)
+    y "..."
 	elseif cl == 1547 then
-    y "I don't know what to do..."
+    y "This is bad..."
 	elseif cl == 1548 then
-    mc "Well..."
+    y "I don't know what to do..."
 	elseif cl == 1549 then
-    mc "Do you have an opinion on the festival?"
+    mc "Well..."
 	elseif cl == 1550 then
+    mc "Do you have an opinion on the festival?"
+	elseif cl == 1551 then
 	updateYuri('4','b2')
     y "I-I don't know..."
-	elseif cl == 1551 then
+	elseif cl == 1552 then
     y "I'm kind of indifferent, I guess..."
-	event_init('y_glitch_head')
+	elseif cl == 1553 then
+	event_initstart('yuri_glitch_head',1)
+	audioUpdate('9g')
+	y "Who cares about that obnoxious brat?"
+	elseif cl == 1554 then
+	event_end()
+	audioUpdate('9')
+	y "I mean, I like how nice and quiet the club is right now..."
+	elseif cl == 1555 then
+    y "And I'm just...happy with you here..."
+	elseif cl == 1556 then
+	updateYuri('2','t')
+    y "But still!"
+	elseif cl == 1557 then
+    y "I'm the Vice President..."
+	elseif cl == 1558 then
+    y "It's not right for me to ignore my responsibilities like that..."
+	elseif cl == 1559 then
+	event_initstart('yuri_glitch_head',2)
+	audioUpdate('9g')
+    y "Nobody would cry if she killed herself."
+	elseif cl == 1560 then
+	audioUpdate('0')
+	elseif cl == 1561 then
+	audioUpdate('9')
+	updateYuri('2','l')
+	y "I should do my best to consider everyone's perspective and make the decision that's right for the club."
+	elseif cl == 1562 then
+	updateYuri('1','t')
+    cw('y',"But what about you, "..player.."?")
+	elseif cl == 1563 then
+    y "What do you want to get out of this club?"
+	elseif cl == 1564 then
+    bl "Yuri repeats the same question as Monika."
+	elseif cl == 1565 then
+    bl "I decide giving an indirect answer is better than nothing."
+	elseif cl == 1566 then
+    mc "...I think the most important thing is for everyone to get along..."
+	elseif cl == 1567 then
+    mc "...And for the club to provide something that you can't get anywhere else."
+	elseif cl == 1568 then
+    mc "I don't think it's about how many members, but rather the quality of each member."
+	elseif cl == 1569 then
+    mc "That's what will end up making the Literature Club a special place."
+	elseif cl == 1570 then
+	updateYuri('1','u')
+    y "I see..."
+	elseif cl == 1571 then
+    y "I really agree with you."
+	elseif cl == 1572 then
+	updateYuri('1','f')
+    y "Each member contributes their own qualities in a special way."
+	elseif cl == 1573 then
+    y "With each change in members, the identity of the club as a whole will change, too."
+	elseif cl == 1574 then
+	updateYuri('1','h')
+    y "I don't think that's necessarily a bad thing."
+	elseif cl == 1575 then
+    y "Stepping out of your comfort zone once in a while..."
+	elseif cl == 1576 then
+	updateYuri('1','a')
+    y "So if you would like to help Monika with the festival, then I'm on your side as well."
+	elseif cl == 1577 then
+    mc "Alright."
+	elseif cl == 1578 then
+    mc "Well, maybe we can all talk to Natsuki tomorrow..."
+	elseif cl == 1579 then
+    bl "Yuri nods."
+	elseif cl == 1580 then
+	updateMonika('1','g',10)
+	updateYuri('1','a',150)
+    m "Hey, Yuri..."
+	elseif cl == 1581 then
+	updateYuri('1','t')
+    y "Eh?"
+	elseif cl == 1582 then
+	updateMonika('1','p')
+    m "Um, I know things were a little awkward yesterday..."
+	elseif cl == 1583 then
+    m "But I feel like you deserve to know that I still think you're a wonderful vice president."
+	elseif cl == 1584 then
+	updateMonika('1','e')
+    m "And also, a wonderful friend."
+	elseif cl == 1585 then
+	updateYuri('3','s')
+    y "M-Monika..."
+	elseif cl == 1586 then
+	updateMonika('2','e')
+    m "I want to do everything I can to make this the best club ever."
+	elseif cl == 1587 then
+    m "Okay?"
+	elseif cl == 1588 then
+    y "...Me too."
+	elseif cl == 1589 then
+	updateMonika('1','a')
+    m "Yeah..."
+	elseif cl == 1590 then
+    m "Let's all go home for today."
+	elseif cl == 1591 then
+    m "We'll talk about the festival tomorrow."
+	elseif cl == 1592 then
+	updateYuri('1','m')
+    y "Okay."
+	elseif cl == 1593 then
+    y "I look forward to it."
+	elseif cl == 1594 then
+	updateYuri('1','a')
+	cw('y',"Shall we go, "..player.."?")
+	elseif cl == 1595 then
+	updateMonika('1','d')
+    m "Um--"
+	elseif cl == 1596 then
+	updateMonika('1','p')
+    m "Please don't take this the wrong way, but..."
+	elseif cl == 1597 then
+	cw('m',"I'm going to chat a little bit with "..player.." before we leave.")
+	elseif cl == 1598 then
+	updateMonika('1','d')
+    m "Just to see what he thinks of his time here and all that..."
+	elseif cl == 1599 then
+    m "It's important to me, as President."
+	elseif cl == 1600 then
+	updateYuri('2','v')
+    y "..."
+	elseif cl == 1601 then
+    bl "Yuri looks a little troubled, but she doesn't protest."
+	elseif cl == 1602 then
+	updateYuri('2','t')
+    y "Okay."
+	elseif cl == 1603 then
+	updateYuri('2','s')
+    y "I trust your judgment, Monika."
+	elseif cl == 1604 then
+    y "In that case, I'll see the two of you tomorrow."
+	elseif cl == 1605 then
+	updateMonika('1','j')
+    m "See you tomorrow~"
+	elseif cl == 1606 then
+	hideYuri()
+    bl "Monika waves as Yuri exits the classroom."
+	
+	elseif cl == 1607 then
+	updateMonika('2','a',80)
+    m "Phew..."
+	elseif cl == 1608 then
+	updateMonika('2','e')
+    m "Things have been a bit hectic lately, haven't they?"
+	elseif cl == 1609 then
+	event_initstart('show_darkred','show_noise')
+	cw('m',player..", I just wanted to make sure you're enjoying your time at this club.")
+	elseif cl == 1610 then
+    m "I would really hate to see you unhappy."
+	elseif cl == 1611 then
+	updateMonika('2','m')
+    m "I feel kind of like I'm responsible for that, as President..."
+	elseif cl == 1612 then
+    audioUpdate('0')
+	updateMonika('4','e')
+    m "And I really do care about you...you know?"
+	elseif cl == 1613 then
+    m "I don't like seeing the other girls give you a hard time."
+	elseif cl == 1614 then
+	updateMonika('4','r')
+    m "With how mean Natsuki is and everything..."
+	elseif cl == 1615 then
+	updateMonika('4','m')
+    m "And Yuri being a little bit...you know."
+	elseif cl == 1616 then
+	updateMonika('5a')
+    m "Ahaha..."
+	elseif cl == 1617 then
+    m "Sometimes it feels like you and I are the only real people here."
+	elseif cl == 1618 then
+    m "You know what I mean?"
+	elseif cl == 1619 then
+	updateMonika('1','g')
+    m "But it's weird, because in all the time you've been here, we've hardly gotten to spend any time together."
+	elseif cl == 1620 then
+	updateMonika('1','n')
+    m "Ah...I mean..."
+	elseif cl == 1621 then
+    m "I guess it's technically only been a couple days..."
+	elseif cl == 1622 then
+	updateMonika('1','l')
+    m "Sorry, I didn't mean to say something weird!"
+	elseif cl == 1623 then
+	updateMonika('1','e')
+    m "There are just some things I've been hoping to talk about with you..."
+	elseif cl == 1624 then
+    m "Things I know only you could understand."
+	elseif cl == 1625 then
+    fadeOut(4)
+    cw('m',"So that's why--",'nwfast')
+	elseif cl == 1626 then
+	fadeOut(4)
+	updateMonika('1','g')
+    cw('m',"Wait, not yet!",'nwfast')
+	elseif cl == 1626 then
+	fadeOut(4)
+    cw('m',"No!",'nwfast')
+	elseif cl == 1627 then
+	fadeOut(4)
+    cw('m',"Stop it!",'nwfast')
+	elseif cl == 1628 then
+	alpha = 20
+	event_end('next')
+	elseif cl >= 1629 then
+	fadeOut(1)
 	end
 end
