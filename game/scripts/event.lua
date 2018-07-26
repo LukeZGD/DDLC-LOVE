@@ -49,6 +49,10 @@ yuri_ch23_2:
 eventvar1 - x pos of bg
 eventvar2 - monika alpha
 
+natsuki_ch22:
+eventvar1 - darkred alpha
+eventvar2 - rects alpha
+eventvar3 - ghost_blood alpha
 ]]
 
 function event_init(etype,arg1,arg2)
@@ -168,7 +172,7 @@ function event_start(etype, arg1)
 		hideAll()
 		textbox_enabled = false
 		audioUpdate('0')
-	elseif event_type == 's_glitch' or event_type == 'm_glitch1' or event_type == 'n_glitch1' or event_type == 'yuri_eyes' then
+	elseif event_type == 's_glitch' or event_type == 'm_glitch1' or event_type == 'n_glitch1' then
 		bgimg_disabled = false
 		textbox_enabled = false
 	elseif event_type == 'ny_argument' then
@@ -399,7 +403,7 @@ function event_draw()
 	end
 	
 	if event_type == 'm_ch23ex' then
-		if event_timer > 2 then
+		if event_timer > 1 then
 			love.graphics.draw(ex3top)
 		end
 		if event_timer > 4 then
@@ -412,6 +416,9 @@ function event_draw()
 		if event_timer < 3.75 then
 			love.graphics.setColor(255,255,255,alpha)
 			love.graphics.draw(splash)
+			love.graphics.setColor(0,0,0,alpha)
+			love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
+			love.graphics.print('Made with Just Monika.',0,220)
 		else
 			love.graphics.setColor(0,0,0,alpha)
 			love.graphics.print('Just Monika.', 170, 100)
@@ -455,7 +462,7 @@ function event_draw()
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255)
 	
-	if event_type == 'm_ch23ex' then
+	if event_type == 'm_ch23ex' and event_timer > 1 then
 		love.graphics.draw(ex3bottom)
 	end
 	

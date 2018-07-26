@@ -276,7 +276,7 @@ function ch22_n_end2()
 	if cl < 700 then
 	scriptJump(700)
 	elseif cl == 700 then
-	poem('poem_n22','natsuki')
+	poem('poem_n2b','natsuki')
 	elseif cl == 701 then
 	poem_disable(-1)
 	style_edited = true
@@ -303,7 +303,6 @@ function ch22_n_end2()
 	elseif cl == 710 then
 	event_initstart('natsuki_ch22')
 	audioUpdate('5_ghost')
-	updateNatsuki('ghost1')
     n "Yuri is a sick freak."
 	elseif cl == 711 then
     n "That should be obvious by now."
@@ -316,6 +315,7 @@ function ch22_n_end2()
 	elseif cl == 715 then
     n "Do you hate me?"
 	elseif cl == 716 then
+	updateNatsuki('ghost1')
     n "Do you want to make me go home crying?"
 	elseif cl == 717 then
     n "The club is the only place I feel safe."
@@ -590,10 +590,9 @@ function ch23_n_end()
 	elseif cl == 711 then
     n "Just Monika."
 	elseif cl == 712 then
-	hideAll()
-	menutext = 'Just Monika.'
-	choice_enable('dialog')
+	n "Just Monika."
 	elseif cl == 713 then
+	hideAll()
 	menutext = 'Just Monika.'
 	choice_enable('dialog')
 	elseif cl == 714 then

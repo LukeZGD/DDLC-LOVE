@@ -81,7 +81,7 @@ function drawdatetime()
 	else
 		love.graphics.setColor(0,0,0,alpha)
 	end
-	love.graphics.print(os.date("%Y-%m-%d %H:%M"),195,230)
+	love.graphics.print(os.date("%Y-%m-%d %H:%M"),205,220)
 end
 
 function drawTextBox()
