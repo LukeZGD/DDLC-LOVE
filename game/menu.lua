@@ -183,6 +183,9 @@ function menu_confirm()
 			savenumber = savenum[m_selected-1]
 			if love.filesystem.isFile('save'..savenumber..'.sav') then
 				changeState('game',2)
+			else
+				menu_enable(menu_previous)
+				menutext = 'Save File '..savenumber..' does not exist.'
 			end
 		end
 		

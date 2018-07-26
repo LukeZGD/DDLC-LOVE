@@ -62,10 +62,6 @@ function poemfinish(a)
 	elseif a == 'm' then
 		readpoem.m = 1
 		c_remove = 'Monika'
-	elseif a == 'my' then
-		readpoem.m = 1
-		c_remove = 'Monika'
-		table.insert(choices, 'Yuri')
 	end
 	
 	for i = 1, #choices do
@@ -88,6 +84,8 @@ function poemfinish(a)
 			scriptJump(900, 'ch21script')
 		elseif chapter == 22 then
 			scriptJump(1446, 'ch22script')
+		elseif chapter == 23 then
+			scriptJump(1806, 'ch23script')
 		end
 	else --go back to choices menu
 		scriptJump(666, 'poemresponses', 0)

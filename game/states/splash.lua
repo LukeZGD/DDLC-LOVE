@@ -37,11 +37,6 @@ function drawSplash()
 			love.graphics.print('  or those who are easily disturbed.', 95, 116)
 		end
 		
-	elseif state == 'splash3' then --Just Monika. (ahaha)
-		drawTopScreen()
-		love.graphics.setColor(0,0,0, alpha)
-		love.graphics.print('Just Monika.', 170, 100)
-		
 	elseif state == 'title' then --title (Title Screen)
 		drawTopScreen()
 		love.graphics.setBackgroundColor(255,255,255)

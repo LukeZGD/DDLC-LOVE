@@ -286,8 +286,8 @@ please try to do something.
 
 As for Monika... I don't know why, but she's been really dismissive about this. It's like
 she just wants us to ignore it. So I'm mad at her right now, and that's why I'm coming to
-you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you a really
-good poem, okay? I'm counting on you. Thanks for reading.]]
+you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you a
+really good poem, okay? I'm counting on you. Thanks for reading.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[
@@ -528,16 +528,21 @@ Your legend does not exist."
 
 And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 	
+	else poemtext = ''
 	end
-
-	if xaload == 0 and continue ~= 1 then
+	
+	if continue == nil then continue = 0 end
+	
+	if xaload == 0 and continue > 1 then
+		poembg = love.graphics.newImage('images/bg/poem'..continue..'.png')
+	elseif xaload == 0 and continue < 1 then
 		sfxplay('pageflip')
 		if author == 'yuri' then
 			if yuri_2 then
 				poembg = love.graphics.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				poembg = love.graphics.newImage('images/bg/poem_y2.png')
+				poembg = love.graphics.newImage('images/bg/poem1.png')
 				audioUpdate('5_yuri2')
 			else
 				audioUpdate('5_yuri')
@@ -551,6 +556,7 @@ And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 		elseif author == 'monika' then
 			audioUpdate('5_monika')
 		end
+	
 	elseif xaload > 0 then
 		--[[
 		if author == 'yuri' and yuri_3 ~= true then

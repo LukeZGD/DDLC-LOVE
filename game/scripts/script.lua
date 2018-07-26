@@ -51,7 +51,7 @@ function cw(p1, stext, tag)
 	--word wrap
 	slen = string.len(textx)
 	c_a1 = {45,95,145}
-	if style_edited then c_a1 = {40,70,100} end
+	if style_edited then c_a1 = {35,65,95} end
 	
 	for i = 1, 3 do
 		c_a[i] = string.find(stext, '%s', c_a1[i])

@@ -32,8 +32,14 @@ savevalue = ''
 savenumber = 1
 
 function savegame()
+	local choiceset = ''
+	
 	for i = 1, 4 do
-		if choices[i] == nil then choices[i] = '' end
+		if choices[i] and choices[i+1] then
+			choiceset = choiceset..choices[i].."','"
+		elseif choices[i] then
+			choiceset = choiceset..choices[i]
+		end
 	end
 	
 	local savedata = "data_ptr="..persistent.ptr.."\
@@ -48,7 +54,7 @@ n_Set={a='"..n_Set.a.."',b='"..n_Set.b.."',x="..n_Set.x..",y="..n_Set.y.."}\
 m_Set={a='"..m_Set.a.."',b='"..m_Set.b.."',x="..m_Set.x..",y="..m_Set.y.."}\
 chapter="..chapter.."\
 readpoem={s="..readpoem.s..",n="..readpoem.n..",y="..readpoem.y..",m="..readpoem.m.."}\
-choices={'"..choices[1].."','"..choices[2].."','"..choices[3].."','"..choices[4].."'}\
+choices={'"..choiceset.."'}\
 choicepick='"..choicepick.."'\
 poemsread="..poemsread.."\
 s_poemappeal={"..s_poemappeal[1]..","..s_poemappeal[2]..","..s_poemappeal[3].."}\
