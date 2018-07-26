@@ -69,7 +69,7 @@ function cw(p1, stext, tag)
 		tagtimer = tagtimer + (settings.textspd / 100)
 		if tagtimer >= (settings.textspd + slen) / 4 then
 			if tag == 'nw' or tag == 'nwfast' then
-				scriptJump(cl+1)
+				newgame_keypressed('a')
 			end
 			tagtimer = 0
 			if autotimer > 0 then autotimer = 0.01 end
@@ -132,6 +132,7 @@ function m (say) return cw('m',say) end
 
 function scriptJump(nu, fu, au)
 	xaload = -1
+	unitimer = 0
 	if nu then cl = nu end
 	if au then
 		autotimer = au

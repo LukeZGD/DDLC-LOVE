@@ -568,9 +568,10 @@ function ch22_end()
 	elseif cl == 1485 then
 	cw('n',"Yuri never even talked until "..player.." joined.")
 	elseif cl == 1486 then
-	updateMonika('2','b')
-	elseif cl == 1487 then
+	updateNatsuki('2','b')
     n "As for me, I just like it better here than I do at home."
+	elseif cl == 1487 then
+	scriptJump(1488)
 	elseif cl == 1488 then
 	cw('n',"And "..player.." isn't even passionate about literature in the first place.")
 	elseif cl == 1489 then
