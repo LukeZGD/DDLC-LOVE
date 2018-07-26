@@ -29,6 +29,7 @@ function drawGame()
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255,alpha)
 	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
+	love.graphics.setFont(font)
 	drawNumbers()
 	drawTextBox()
 	

@@ -1,4 +1,6 @@
 local gtext24 = glitchtext(24)
+local gtext80 = glitchtext(80)
+local gtext200 = glitchtext(200)
 local y_gtimer = 0
 
 function yuri_dragon()
@@ -683,8 +685,8 @@ function Yuri_exclusive2_2_ch22()
 	
 	elseif cl == 1302 then
 		event_end('show_vignette')
-		if chapter == 23 then
-			scriptJump()
+		if poemwinner[1] == 'Yuri' and chapter == 23 then
+			scriptJump(1723)
 		else
 			scriptJump(1303)
 		end
@@ -1031,5 +1033,223 @@ function Yuri_exclusive2_2_ch22()
 	elseif cl == 1445 then
 	bgUpdate('club')
 	poeminitialize()
+	end
+end
+
+function Yuri_exclusive2_2_ch23()
+	if cl == 1723 then
+	bgUpdate('corridor')
+	event_initstart('yuri_ch23')
+	audioUpdate('6g-')
+	elseif cl == 1724 then
+	audioUpdate('g1')
+	cw('y',gtext80,'nw')
+	elseif cl == 1725 then
+	updateYuri('2','n')
+	y_Set.x = 80
+	event_end('yuri_ch23')
+	audioUpdate('0')
+	y "Um..."
+	elseif cl == 1726 then
+    y "Wait..."
+	elseif cl == 1727 then
+	updateYuri('2','o')
+    y "How did I..."
+	elseif cl == 1728 then
+	updateYuri('2','y6')
+    y  "...Sorry, I just had a really weird deja vu..."
+	elseif cl == 1729 then
+    y "This hasn't happened before or anything...right?"
+	elseif cl == 1730 then
+	updateYuri('2','t')
+    y "My head has been a little fuzzy lately..."
+	elseif cl == 1731 then
+	updateYuri('3','t')
+    y "I hope it hasn't really been showing or anything!"
+	elseif cl == 1732 then
+    y "I would hate for you to think I'm weird just after we started spending time together..."
+	elseif cl == 1733 then
+    y "I mean..."
+	elseif cl == 1734 then
+	if xaload < 3 then event_initstart('yuri_ch23_2') end
+	audioUpdate('9')
+    y "Everyone has a few unusual things about them."
+	elseif cl == 1735 then
+	updateYuri('1','v')
+	y "But expressing those things so soon after meeting someone is usually seen as inappropriate...or unlikable."
+	elseif cl == 1736 then
+    y "At least, that's what I've discovered."
+	elseif cl == 1737 then
+    y "When I was a bit younger, I think I would come on really strongly and get a little too intense..."
+	elseif cl == 1738 then
+    y "It made people not want to be around me."
+	elseif cl == 1739 then
+	updateYuri('2','w')
+    y "So...I started hating those things about myself."
+	elseif cl == 1740 then
+    y "My obsession with certain hobbies."
+	elseif cl == 1741 then
+    y "And the way I can't control myself when I get too excited about something."
+	elseif cl == 1742 then
+    y "So..."
+	elseif cl == 1743 then
+	updateYuri('1','v')
+    y "I eventually stopped trying to talk to people."
+	elseif cl == 1744 then
+    y "If nobody could ever like me for the things that matter most to me..."
+	elseif cl == 1745 then
+	updateYuri('1','u')
+    y "...Then it's just easier if I close myself off."
+	elseif cl == 1746 then
+	updateYuri('1','h')
+    y "But recently, something's been wrong."
+	elseif cl == 1747 then
+    y "I don't know what it is."
+	elseif cl == 1748 then
+	updateYuri('2','y6')
+    y "But every time we come to the club, my heart starts to go crazy."
+	elseif cl == 1749 then
+    y "Like it's going to rip out of my chest."
+	elseif cl == 1750 then
+    y "It overwhelms me with energy and emotions that I can't let out."
+	elseif cl == 1751 then
+    y "It's been making me do weird things."
+	elseif cl == 1752 then
+	updateYuri('2','t')
+    y "I don't know why it's happening!"
+	elseif cl == 1753 then
+	audioUpdate('0')
+    updateYuri('1','t')
+    cw('y',player.."...")
+	elseif cl == 1754 then
+    y "Is it just me, or has Monika been acting a little off lately?"
+	elseif cl == 1755 then
+	updateYuri('1','v')
+    y "She's always been a sweetheart ever since I joined the club..."
+	elseif cl == 1756 then
+    y "But recently, I've been feeling something sharp whenever she's around."
+	elseif cl == 1757 then
+	updateYuri('2','y4')
+    y "I'm not crazy, right?"
+	elseif cl == 1758 then
+	updateYuri('2','y1')
+    y "Please tell me I'm not!"
+	elseif cl == 1759 then
+    y "I couldn't say anything before, because she's always listening!"
+	elseif cl == 1760 then
+	updateYuri('2','y3')
+    y "But finally, we're alone..."
+	elseif cl == 1761 then
+    y "Can we just stay here for a while?"
+	elseif cl == 1762 then
+	updateYuri('1','m')
+    y "Yeah..."
+	elseif cl == 1763 then
+    y "..."
+	elseif cl == 1764 then
+	audioUpdate('heartbeat')
+	updateYuri('1','s')
+	updateMonika('1','a',80)
+    y "I just want to stay here."
+	elseif cl == 1765 then
+    y "Just the two of us."
+	elseif cl == 1766 then
+    y "We can stay here until the club ends."
+	elseif cl == 1767 then
+	updateYuri('1','m')
+    y "And then we'll have the clubroom all to ourselves."
+	elseif cl == 1768 then
+    y "Nobody to interfere with our reading time."
+	elseif cl == 1769 then
+	updateYuri('1','y4')
+    y "Nobody to make me feel like stabbing myself in the throat."
+	elseif cl == 1770 then
+	updateYuri('1','q')
+    y "Ahaha..."
+	elseif cl == 1771 then
+    y "That was a joke!"
+	elseif cl == 1772 then
+    y "Just a joke."
+	elseif cl == 1773 then
+	updateYuri('1','i')
+    y "I do like knives, though..."
+	elseif cl == 1774 then
+    y "It sounds strange, but you wouldn't understand if you've never seen how beautiful they can be."
+	elseif cl == 1775 then
+	updateYuri('1','f')
+    y "I have an idea."
+	elseif cl == 1776 then
+    y "Why don't you come to my house sometime?"
+	elseif cl == 1777 then
+	updateYuri('1','y6')
+    y "I can show you my collection."
+	elseif cl == 1778 then
+    y "I've gotten them all from various artisans."
+	elseif cl == 1779 then
+	updateYuri('1','a')
+    y "I make sure to give them all their fair share of use."
+	elseif cl == 1780 then
+	updateYuri('1','m')
+    y "I don't want them to get lonely or anything..."
+	elseif cl == 1781 then
+	updateYuri('1','y6')
+    y "Nobody deserves to be lonely."
+	elseif cl == 1782 then
+	updateYuri('1','y4')
+    y "Nobody."
+	elseif cl == 1783 then
+	updateYuri('1','c')
+	cw('y',"And that's why I'm so happy you joined the Literature Club, "..player..".")
+	elseif cl == 1784 then
+	updateYuri('1','a')
+    y "Now we don't need to be lonely anymore."
+	elseif cl == 1785 then
+    y "Because we have each other."
+	elseif cl == 1786 then
+    y "Every day."
+	elseif cl == 1787 then
+    y "That's all we need."
+	elseif cl == 1788 then
+	updateYuri('1','y6')
+    y "You know what?"
+	elseif cl == 1789 then
+    y "Let's quit the Literature Club."
+	elseif cl == 1790 then
+    y "There's no need for us to be around Monika's slimy tongue anymore."
+	elseif cl == 1791 then
+	updateYuri('1','y4')
+    y "Not to mention that other pathetic child."
+	elseif cl == 1792 then
+	updateYuri('1','s')
+    y "We can walk home together every day after school."
+	elseif cl == 1793 then
+    y "And read together."
+	elseif cl == 1794 then
+	updateYuri('1','m')
+    y "Eat together."
+	elseif cl == 1795 then
+    y "Sleep together."
+	elseif cl == 1796 then
+	updateYuri('1','s')
+    y "Doesn't that sound perfect?"
+	elseif cl == 1797 then
+    y "It's everything we could ever want."
+	elseif cl == 1798 then
+	updateYuri('1','a')
+    y "Isn't that why you joined the club in the first place?"
+	elseif cl == 1799 then
+    y "It's almost like it was fate."
+	elseif cl == 1800 then
+    y "Fate that we would meet each other."
+	elseif cl == 1801 then
+    y "And now we get the happy ending that I've patiently waited years for."
+	elseif cl == 1802 then
+    cw('y',"Will you do that with me, "..player.."?")
+	elseif cl == 1803 then
+    cw('y',"Will             "..gtext200,'nw')
+	elseif cl == 1804 then
+	event_end()
+	if bg1 ~= 'club' then bgUpdate('club',true)
+	else poeminitialize() end
 	end
 end

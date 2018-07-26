@@ -41,9 +41,17 @@ yuri_eyes:
 eventvar1 - timer (change x and y pos every 2 seconds)
 eventvar2 - eyes2 x pos
 eventvar3 - eyes2 y pos
+
+yuri_glitch_head:
+eventvar1 - set type (1 or 2)
+
+yuri_ch23_2:
+eventvar1 - x pos of bg
+eventvar2 - monika alpha
+
 ]]
 
-function event_init(etype)
+function event_init(etype,arg1,arg2)
 	if xaload == 1 then
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
@@ -55,7 +63,11 @@ function event_init(etype)
 			splash_glitch = love.graphics.newImage('images/bg/splash-glitch.png')
 			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
 		elseif etype == 'endscreen' then
-			bgch = love.graphics.newImage('images/gui/end.png')
+			if arg1 == 'flipped' then
+				bgch = love.graphics.newImage('images/gui/endflipped.png')
+			else
+				bgch = love.graphics.newImage('images/gui/end.png')
+			end
 		elseif etype == 's_glitch' then
 			s_glitch1 = love.graphics.newImage('images/sayori/glitch1.png')
 			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
@@ -67,27 +79,68 @@ function event_init(etype)
 			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
 		elseif etype == 'ny_argument' then
 			vignette = love.graphics.newImage('images/bg/vignette.png')
-			animframe1 = love.graphics.newImage('images/bg/noise1.png')
-			animframe2 = love.graphics.newImage('images/bg/noise2.png')
-			animframe3 = love.graphics.newImage('images/bg/noise3.png')
-			animframe4 = love.graphics.newImage('images/bg/noise4.png')
+			loadNoise()
 		elseif etype == 'ny_argument2' then
 			ml = love.graphics.newImage('images/monika/ac.png')
 		elseif etype == 'yuri_glitch' then
-			animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
-			animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
-			animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
+			loadYuriGlitch()
 		elseif etype == 'show_vignette' then
-			vignette = love.graphics.newImage('images/bg/vignette.png')
+			loadVignette()
 		elseif etype == 'yuri_eyes' then
 			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
 			eyes2 = love.graphics.newImage('images/yuri/eyes2.png')
+		elseif etype == 'yuri_glitch_head' then
+			animframe1 = love.graphics.newImage('images/yuri/za.png')
+			animframe2 = love.graphics.newImage('images/yuri/zb.png')
+			animframe3 = love.graphics.newImage('images/yuri/zc.png')
+			animframe4 = love.graphics.newImage('images/yuri/zd.png')
+		elseif etype == 'yuri_ch23' then
+			bg_glitch = love.graphics.newImage('images/bg/glitch.png')
+			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
+			loadYuriGlitch()
+		elseif etype == 'm_ch23ex' then
+			ex3top = love.graphics.newImage('images/gui/ex3top.png')
+			ex3bottom = love.graphics.newImage('images/gui/ex3bottom.png')
+		elseif etype == 'just_monika' then
+			splash = love.graphics.newImage('images/bg/splash.png')
+		elseif etype == 'natsuki_ch22' then
+			ghost_blood = love.graphics.newImage('images/natsuki/ghost_blood.png')
+			ghost3 = love.graphics.newImage('images/natsuki/ghost3.png')
+			ghost3_1 = love.graphics.newImage('images/natsuki/ghost3-1.png')
+			ghost3_2 = love.graphics.newImage('images/natsuki/ghost3-2.png')
+			ghost3_3 = love.graphics.newImage('images/natsuki/ghost3-3.png')
+		end
+		if arg1 == 'show_noise' then
+			loadNoise()
+			eventvar4 = 'show_noise'
+		elseif arg1 == 'show_vignette' then
+			loadVignette()
+		elseif arg1 == 'show_darkred' then
+			eventvar4 = 'show_darkred'
 		end
 	end
 end
 
+function loadNoise()
+	animframe1 = love.graphics.newImage('images/bg/noise1.png')
+	animframe2 = love.graphics.newImage('images/bg/noise2.png')
+	animframe3 = love.graphics.newImage('images/bg/noise3.png')
+	animframe4 = love.graphics.newImage('images/bg/noise4.png')
+end
+
+function loadVignette()
+	vignette = love.graphics.newImage('images/bg/vignette.png')
+end
+
+function loadYuriGlitch()
+	animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
+	animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
+	animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
+	animframe4 = love.graphics.newImage('images/yuri/glitch4.png')
+end
+
 function event_initstart(etype,arg1,arg2)
-	event_init(etype)
+	event_init(etype,arg1,arg2)
 	if xaload > 1 then event_start(etype,arg1,arg2) end
 end
 
@@ -136,6 +189,27 @@ function event_start(etype, arg1)
 		eventvar1 = 192
 		bgimg_disabled = false
 		textbox_enabled = true
+	elseif event_type == 'yuri_glitch_head' then
+		eventvar1 = arg1
+		bgimg_disabled = false
+		textbox_enabled = true
+	elseif event_type == 'show_darkred' then
+		eventvar2 = 1
+		bgimg_disabled = false
+		textbox_enabled = true
+	elseif event_type == 'yuri_ch23' then
+		bgimg_disabled = true
+		textbox_enabled = false
+	elseif event_type == 'yuri_ch23_2' or event_type == 'natsuki_ch22' then
+		eventvar1 = 0
+		eventvar2 = 0
+		eventvar3 = 0
+		bgimg_disabled = false
+		textbox_enabled = true
+	elseif event_type == 'm_ch23ex' or event_type == 'just_monika' then
+		bgimg_disabled = true
+		textbox_enabled = false
+		if event_type == 'just_monika' then alpha = 0 end
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
@@ -265,8 +339,14 @@ function event_draw()
 		love.graphics.draw(bgch)
 		if eyes1 then love.graphics.draw(eyes1,-13) end
 		if eyes2 then love.graphics.draw(eyes2,eventvar2,eventvar3) end
-		love.graphics.setColor(0,0,0,192)
+		if chapter == 23 then
+			love.graphics.setColor(32,0,0,192)
+		else
+			love.graphics.setColor(0,0,0,192)
+		end
 		love.graphics.rectangle('fill',0,0,400,240)
+		love.graphics.setColor(255,255,255)
+		if poem_enabled then drawPoem()	end
 	end
 	
 	if event_type == 'faint_effect' then
@@ -279,13 +359,112 @@ function event_draw()
 		love.graphics.rectangle('fill',0,0,400,240)
 	end
 	
+	if event_type == 'yuri_glitch_head' then
+		if eventvar1 == 2 then
+			drawanimframe(220,10)
+		else
+			drawanimframe(180)
+		end
+	end
+	
+	if event_type == 'show_darkred' then
+		love.graphics.setColor(255,255,255,alpha)
+		love.graphics.draw(bgch)
+		drawYuri(y_Set.a,y_Set.b)
+		love.graphics.setColor(32,0,0,eventvar2)
+		love.graphics.rectangle('fill',0,0,400,240)
+		if eventvar4 == 'show_noise' then
+			love.graphics.setColor(255,255,255,eventvar2/8)
+			drawanimframe()
+		end
+		love.graphics.setColor(255,255,255,alpha)
+		drawMonika(m_Set.a,m_Set.b)
+	end
+	
+	if event_type == 'yuri_ch23' then
+		if event_timer >= 5.5 then
+			love.graphics.draw(bg_glitch)
+			drawanimframe(80)
+		elseif event_timer >= 4.5 then
+			love.graphics.draw(bgch)
+			love.graphics.draw(eyes1,-13)
+		end
+	end
+	
+	if event_type == 'yuri_ch23_2' then
+		love.graphics.draw(bgch,eventvar1)
+		drawYuri(y_Set.a,y_Set.b)
+		love.graphics.setColor(0,0,0,128+(eventvar1*4))
+		love.graphics.rectangle('fill',0,0,400,240)
+	end
+	
+	if event_type == 'm_ch23ex' then
+		if event_timer > 2 then
+			love.graphics.draw(ex3top)
+		end
+		if event_timer > 4 then
+			drawMonika(m_Set.a,m_Set.b)
+		end
+	end
+	
+	if event_type == 'just_monika' then
+		love.graphics.setBackgroundColor(255,255,255)
+		if event_timer < 3.75 then
+			love.graphics.setColor(255,255,255,alpha)
+			love.graphics.draw(splash)
+		else
+			love.graphics.setColor(0,0,0,alpha)
+			love.graphics.print('Just Monika.', 170, 100)
+		end
+	end
+	
+	if event_type == 'natsuki_ch22' then
+		love.graphics.draw(bgch)
+		if cl < 726 then
+			drawNatsuki(n_Set.a,n_Set.b)
+			if cl < 725 then
+				love.graphics.setColor(255,255,255,eventvar3)
+				love.graphics.draw(ghost_blood,80)
+				love.graphics.setColor(0,0,0,eventvar2)
+				love.graphics.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
+				love.graphics.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
+				love.graphics.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
+				love.graphics.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
+				love.graphics.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
+				love.graphics.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
+			end
+		end
+		love.graphics.setColor(32,0,0,eventvar1)
+		love.graphics.rectangle('fill',0,0,400,240)
+		love.graphics.setColor(255,255,255)
+		if cl == 726 then
+			if event_timer < 1 then
+				love.graphics.draw(nl,80)
+			elseif event_timer < 1.5 then
+				love.graphics.draw(ghost3,80)
+			elseif event_timer < 1.5625 then
+				love.graphics.draw(ghost3_1,80)
+			elseif event_timer < 1.625 then
+				love.graphics.draw(ghost3_2,80)
+			elseif event_timer < 1.6875 then
+				love.graphics.draw(ghost3_3,80)
+			end
+		end
+	end
+	
 	drawBottomScreen()
 	love.graphics.setColor(255,255,255)
+	
+	if event_type == 'm_ch23ex' then
+		love.graphics.draw(ex3bottom)
+	end
+	
 	if bgimg_disabled ~= true then
 		love.graphics.draw(background_Image, posX, posY)
 		love.graphics.setColor(0,0,0)
 	end
 	
+	love.graphics.setFont(font)
 	if textbox_enabled then
 		drawNumbers()
 		drawTextBox()	
@@ -296,15 +475,21 @@ function event_draw()
 		love.graphics.setColor(255,255,255)
 		drawMonika(m_Set.a,m_Set.b)
 		textbox_enabled = true
+	elseif event_type == 'yuri_ch23_2' then
+		drawTopScreen()
+		love.graphics.setColor(255,255,255,eventvar2)
+		drawMonika(m_Set.a,m_Set.b)
+		drawBottomScreen()
 	end
 	
 	if menu_enabled then menu_draw() end
 end
 
-function drawanimframe(x)
+function drawanimframe(x,y)
 	if x == nil then x = 0 end
+	if y == nil then y = 0 end
 	if animframe then
-		love.graphics.draw(animframe,x)
+		love.graphics.draw(animframe,x,y)
 	end
 	local dt = love.timer.getDelta()
 	animtimer = animtimer + dt
@@ -414,10 +599,9 @@ function event_update(dt)
 	end
 	
 	if event_type == 'n_glitch1' then
+		n_Set.y = math.max(n_Set.y - 7, 0)
 		if n_Set.y <= 0 then
 			n_Set.y = 50
-		else
-			n_Set.y = n_Set.y - 7
 		end
 		if event_timer >= 0.75 then
 			event_end('next')
@@ -473,12 +657,15 @@ function event_update(dt)
 			eventvar3 = math.random(0,1)
 		end
 		if eventvar2 > -12 then eventvar2 = math.random(-14,-12) end
-		if xaload > 450 and cl == 1442 then
-			event_end('yuri_eyes')
-		elseif xaload > 450 then
-			textbox_enabled = true
-		else
-			textbox_enabled = false
+		if chapter == 22 then
+			if xaload > 450 and cl == 1442 then
+				event_end('yuri_eyes')
+			elseif xaload > 450 then
+				textbox_enabled = true
+			else
+				textbox_enabled = false
+			end
+		elseif chapter == 23 and cl >= 700 then textbox_enabled = true
 		end
 	end
 	
@@ -493,6 +680,111 @@ function event_update(dt)
 			audioUpdate('3')
 		end
 	end
+	
+	if event_type == 'yuri_glitch_head' then
+		if unitimer < uniduration then event_timer = 0 end
+		if eventvar1 == 2 and cl == 1560 and event_timer <= 1.3 then
+			if event_timer >= 0.5 and event_timer <= 0.53 then
+				xaload = 0
+				sfxplay('stab')
+			elseif event_timer >= 1.25 then
+				event_end('next')
+			end
+		end
+	end
+	
+	if event_type == 'show_darkred' then eventvar2 = math.min(eventvar2 + 0.1, 128) end
+	
+	if event_type == 'yuri_ch23' and textbox_enabled == false then
+		if event_timer >= 5.5 then 
+			textbox_enabled = true
+			newgame_keypressed('a')
+		end
+	end
+	
+	if event_type == 'yuri_ch23_2' then
+		eventvar3 = eventvar3 + dt
+		if eventvar3 >= math.random(0.5,2) then
+			eventvar1 = math.random(-1,1)
+			eventvar3 = 0
+		end
+		if cl == 1764 then eventvar2 = 6.375
+		elseif cl == 1768 then eventvar2 = 9.5625
+		elseif cl == 1769 then eventvar2 = 12.75
+		elseif cl == 1770 then eventvar2 = 15.9375
+		elseif cl == 1771 then eventvar2 = 19.125
+		elseif cl == 1772 then eventvar2 = 22.3125
+		elseif cl == 1773 then eventvar2 = 25.5
+		elseif cl == 1774 then eventvar2 = 28.6875
+		elseif cl == 1775 then eventvar2 = 31.875
+		elseif cl == 1776 then eventvar2 = 38.25
+		elseif cl == 1777 then eventvar2 = 44.625
+		elseif cl == 1778 then eventvar2 = 51
+		elseif cl == 1779 then eventvar2 = 57.375
+		elseif cl == 1780 then eventvar2 = 63.75
+		elseif cl == 1781 then eventvar2 = 70.125
+		elseif cl == 1782 then eventvar2 = 76.5
+		elseif cl == 1783 then eventvar2 = 82.875
+		elseif cl == 1784 then eventvar2 = 89.25
+		elseif cl == 1785 then eventvar2 = 95.625
+		elseif cl == 1786 then eventvar2 = 102
+		elseif cl == 1787 then eventvar2 = 108.375
+		elseif cl == 1788 then eventvar2 = 114.75
+		elseif cl == 1789 then eventvar2 = 121.125
+		elseif cl == 1790 then eventvar2 = 127.5
+		elseif cl == 1791 then eventvar2 = 133.875
+		elseif cl == 1792 then eventvar2 = 141
+		elseif cl == 1793 then eventvar2 = 147
+		elseif cl == 1794 then eventvar2 = 155
+		elseif cl == 1795 then eventvar2 = 160
+		elseif cl == 1796 then eventvar2 = 172
+		elseif cl == 1797 then eventvar2 = 185
+		elseif cl == 1798 then eventvar2 = 198
+		elseif cl == 1799 then eventvar2 = 210
+		elseif cl == 1800 then eventvar2 = 223
+		elseif cl == 1801 then eventvar2 = 235
+		elseif cl == 1802 then eventvar2 = 255
+		end
+	end
+	
+	if event_type == 'm_ch23ex' and textbox_enabled == false then
+		if event_timer >= 4 then 
+			textbox_enabled = true
+			newgame_keypressed('a')
+		end
+	end
+	
+	if event_type == 'just_monika' then
+		if event_timer <= 3 then
+			alpha = math.min(alpha+7.75,255)
+		elseif event_timer > 3 and event_timer < 3.75 then
+			alpha = math.max(alpha-7.75,0)
+		elseif event_timer <= 6 then
+			alpha = math.min(alpha+7.75,255)
+		elseif event_timer > 6 then
+			alpha = 255
+			event_end('next')
+		end
+	end
+	
+	if event_type == 'natsuki_ch22' then
+		eventvar1 = math.min(eventvar1 + 0.1, 128)
+		eventvar2 = math.min(eventvar2 + 0.05, 192)
+		if cl == 726 and textbox_enabled then
+			event_timer = 0
+			textbox_enabled = false
+		elseif cl == 726 and event_timer > 1 and event_timer < 1.02 then
+			xaload = 0
+			sfxplay('crack')
+		elseif cl == 726 and event_timer > 1.5 and event_timer < 1.52 then
+			xaload = 0
+			sfxplay('run')
+		elseif cl == 726 and event_timer > 1.75 then
+			event_end('natsuki_ch22')
+		elseif cl >= 716 then
+			eventvar3 = math.min(eventvar3 + 0.2, 255)
+		end
+	end
 end
 
 function event_next()
@@ -503,10 +795,11 @@ end
 function event_endnext()
 	cl = cl + 1
 	xaload = 0
+	unitimer = 0
 end
 
 function event_keypressed(key)
-	if textbox_enabled then
+	if (textbox_enabled and event_type ~= 'show_vignette') or (chapter == 23 and event_type == 'yuri_eyes') then
 		if key == 'a' then
 			newgame_keypressed('a')
 		elseif key == 'y' and event_type == 'ny_argument' then
@@ -555,6 +848,20 @@ function event_end(arg1)
 	elseif arg1 == 'yuri_eyes' then
 		eyes1 = nil
 		eyes2 = nil
+		event_endnext()
+	elseif arg1 == 'yuri_ch23' then
+		eyes1 = nil
+		bg_glitch = nil
+		unloadanimframe()
+	elseif arg1 == 'm_ch23ex' then
+		ex3top = nil
+		ex3bottom = nil
+	elseif arg1 == 'natsuki_ch22' then
+		ghost3 = nil
+		ghost3_1 = nil
+		ghost3_2 = nil
+		ghost3_3 = nil
+		ghost_blood = nil
 		event_endnext()
 	end
 end
