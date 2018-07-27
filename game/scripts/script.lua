@@ -69,7 +69,7 @@ function cw(p1, stext, tag)
 		tagtimer = tagtimer + (settings.textspd / 100)
 		if tagtimer >= (settings.textspd + slen) / 4 then
 			if tag == 'nw' or tag == 'nwfast' then
-				newgame_keypressed('a')
+				scriptJump(cl+1)
 			end
 			tagtimer = 0
 			if autotimer > 0 then autotimer = 0.01 end
@@ -130,6 +130,18 @@ function n (say) return cw('n',say) end
 function y (say) return cw('y',say) end
 function m (say) return cw('m',say) end
 
+function pause(t)
+	textbox_enabled = false
+	autotimer = 0
+	local dt = love.timer.getDelta()
+	tagtimer = tagtimer + dt
+	if tagtimer > t then
+		textbox_enabled = true
+		scriptJump(cl+1)
+		tagtimer = 0
+	end
+end
+
 function scriptJump(nu, fu, au)
 	xaload = -1
 	unitimer = 0
@@ -184,4 +196,13 @@ function glitchtext(range)
 	end
 	
 	return gtextstring
+end
+
+function space(range)
+	local spaces = ' '
+	for i = 1, range do
+		spaces = spaces..' '
+	end
+	
+	return spaces
 end

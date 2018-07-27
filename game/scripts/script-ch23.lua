@@ -1,3 +1,6 @@
+local gtextg = glitchtext(math.random(8,80))
+local gtext10 = glitchtext(10)
+
 function ch23script()
 	if cl == 1631 then
 	audioUpdate('6')
@@ -733,9 +736,16 @@ function ch23_end()
 	choices = {'Yes.','No.'}
 	choice_enable()
 	
+	--yuri_kill_1
 	elseif cl == 1939 then
 	audioUpdate('0')
 	y "...Ahahaha."
+	persistent.chr.m = 2
+	savenumber = 1
+	if xaload == 0 then
+		savepersistent()
+		savegame()
+	end
 	elseif cl == 1940 then
     y "Ahahahahahaha!"
 	elseif cl == 1941 then
@@ -747,7 +757,173 @@ function ch23_end()
     style_edited = true
     cw('y',"AHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA",'nw')
 	elseif cl == 1943 then
-	event_start('yuri_kill')
-	sfxplay('yuri-kill')
+	audioUpdate('yuri-kill')
+	if xaload == 0 then event_start('yuri_kill') end
+	elseif cl == 1944 then
+	scriptJump(2001)
+	end
+end
+
+function yuri_kill()
+	if xaload == 0 then gtextg = glitchtext(math.random(8,80)) end
+	
+	--yuri_kill_2
+	if cl <= 3440 then
+		style_edited = true
+		cw('y',gtextg)
+	end
+	if cl == 2001 then
+		hideAll()
+		bgUpdate('black')
+		cgUpdate('y_kill/1a')
+		audioUpdate('6s')
+		if xaload == 0 then savegame() end
+	elseif cl == 2200 then
+		cgUpdate('y_kill/1b')
+		if xaload == 0 then savegame() end
+	elseif cl == 2260 then
+		cgUpdate('y_kill/1c')
+		if xaload == 0 then savegame() end
+	elseif cl == 2460 then
+		cgUpdate('y_kill/2a')
+		if xaload == 0 then savegame() end
+	elseif cl == 2660 then
+		cgUpdate('y_kill/2b')
+		if xaload == 0 then savegame() end
+	elseif cl == 2720 then
+		cgUpdate('y_kill/2c')
+		if xaload == 0 then savegame() end
+	elseif cl == 2920 or cl == 3380 then
+		cgUpdate('y_kill/3a')
+		if xaload == 0 then savegame() end
+	elseif cl == 3120 then
+		cgUpdate('y_kill/3b')
+		if xaload == 0 then savegame() end
+	elseif cl == 3180 then
+		cgUpdate('y_kill/3c')
+		if xaload == 0 then savegame() end
+	end
+	
+	--yuri_kill_3
+	if cl == 3441 then
+	style_edited = false
+	bgUpdate('club')
+	cgHide()
+	event_initstart('ch23-30')
+	cw('bl',gtextg,'slow')
+	if xaload == 0 then savegame() end
+	elseif cl == 3442 then
+	n "Alright, it's festival time!"
+	elseif cl == 3443 then
+	updateNatsuki('4','k',80)
+    n "Wow, you got here before me?"
+	elseif cl == 3444 then
+	cw('n',"I thought I was pretty ea--",'nw')
+	elseif cl == 3445 then
+    updateNatsuki('1','scream')
+    n "EYAH!"
+	elseif cl == 3446 then
+    n "AAAAAAAAAAAAAAAHHHH!!!"
+	elseif cl == 3447 then
+	pause(1)
+	elseif cl == 3448 then
+	updateNatsuki('vomit')
+	pause(0.75)
+	elseif cl == 3449 then
+	hideNatsuki()
+	bl "Natsuki runs away."
+	elseif cl == 3450 then
+	m "..."
+	elseif cl == 3451 then
+	updateMonika('2','b',80)
+    m "I'm here!"
+	elseif cl == 3452 then
+	updateMonika('2','d')
+	cw('m',player..", did something happen?")
+	elseif cl == 3453 then
+    m "Natsuki just ran past me..."
+	elseif cl == 3454 then
+	updateMonika('2','i')
+    m "...Oh..."
+	elseif cl == 3455 then
+    m "...Oh."
+	elseif cl == 3456 then
+	updateMonika('2','r')
+    m "..."
+	elseif cl == 3457 then
+	updateMonika('2','l')
+    m "Ahahaha!"
+	elseif cl == 3458 then
+    m "Well, that's a shame."
+	elseif cl == 3459 then
+	updateMonika('2','d')
+	cw('m',"Wait, were you here the entire weekend, "..player.."?")
+	elseif cl == 3460 then
+    m "Oh, jeez..."
+	elseif cl == 3461 then
+	updateMonika('2','g')
+    m "I didn't realize the script was broken that badly."
+	elseif cl == 3462 then
+    m "I'm super sorry!"
+	elseif cl == 3463 then
+    m "It must have been pretty boring..."
+	elseif cl == 3464 then
+	updateMonika('2','e')
+    m "I'll make it up to you, okay?"
+	elseif cl == 3465 then
+    m "Just gimme a sec..."
+	elseif cl == 3466 then
+	updateConsole('')
+	pause(0.1)
+	elseif cl == 3467 then
+    updateConsole("os.remove(\"characters/yuri.chr\")")
+	pause(2)
+	elseif cl == 3468 then
+    updateConsole('', "yuri.chr deleted successfully.")
+	pause(1)
+	elseif cl == 3469 then
+	updateConsole("os.remove(\"characters/natsuki.chr\")","yuri.chr deleted successfully.")
+	pause(2)
+	elseif cl == 3470 then
+    updateConsole('', "natsuki.chr deleted successfully.","yuri.chr deleted successfully.")
+	pause(1)
+	elseif cl == 3471 then
+	updateMonika('2','a')
+    m "I'm almost done."
+	elseif cl == 3472 then
+	updateMonika('2','j')
+    m "I just want to have a cupcake real quick!"
+	elseif cl == 3473 then
+	cw('bl',"Monika lifts the foil from "..gtext10.."'s tray and takes a cupcake.")
+	elseif cl == 3474 then
+	updateMonika('2','b')
+    m "Seriously, these are the best!"
+	elseif cl == 3475 then
+    m "I really just had to have one, since it's the last time I'll ever get the chance to."
+	elseif cl == 3476 then
+	updateMonika('2','a')
+    m "You know, before they stop existing and everything."
+	elseif cl == 3477 then
+    m "...But anyway, I really shouldn't be making you wait any longer."
+	elseif cl == 3478 then
+	updateMonika('2','j')
+    m "Just bear with me, okay?"
+	elseif cl == 3479 then
+	updateMonika('2','a')
+    m "This should only take a second."
+	elseif cl == 3480 then
+	pause(1.5)
+	elseif cl == 3481 then
+	event_end()
+	console_enabled = false
+	settings.textspd = 50
+	persistent.ptr = 3
+	data_ptr = 3
+	chapter = 30
+	cl = 1
+	savepersistent()
+	savegame()
+	savesettings()
+	changeState('game',2)
 	end
 end

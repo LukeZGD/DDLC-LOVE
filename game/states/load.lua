@@ -76,6 +76,8 @@ function checkLoad()
 		changeState('ghostmenu')
 		persistent.chr.s = 2
 		savepersistent()
+	elseif persistent.chr.m == 2 then
+		changeState('game',2)
 	else
 		l_timer = 100
 	end
