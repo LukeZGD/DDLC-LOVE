@@ -299,7 +299,7 @@ function Yuri_exclusive_1()
 		cw('y',"Here...")
 	elseif cl == 556 then
 		hideAll()
-		bgUpdate('y_cg1_base')
+		bgUpdate('cg/y_cg1_base')
 		persistent.clear[3] = 1
 		if xaload == 1 then
 			savepersistent()
@@ -937,7 +937,7 @@ function Yuri_exclusive_2_ch3()
 		cw('y',"Of course.")
 	elseif cl == 1545 then
 		hideAll()
-		bgUpdate('y_cg2_nochoc')
+		bgUpdate('cg/y_cg2_nochoc')
 		persistent.clear[4] = 1
 		if xaload == 1 then
 			savepersistent()
@@ -964,7 +964,7 @@ function Yuri_exclusive_2_ch3()
 	elseif cl == 1565 then
 		cw('bl',"But that means I can't stop here!")
 	elseif cl == 1566 then
-		bgUpdate('y_cg2')
+		bgUpdate('cg/y_cg2')
 		cw('bl',"I apprehensively place the chocolate in her mouth.")
 	elseif cl == 1567 then
 		cw('bl',"Just like that, Yuri closes her lips over it.")
@@ -980,7 +980,7 @@ function Yuri_exclusive_2_ch3()
 	elseif cl == 1572 then
 		cw('bl',"Yuri looks at me like she needs to confirm what just happened.")
 	elseif cl == 1573 then
-		bgUpdate('y_cg2_nochoc')
+		bgUpdate('cg/y_cg2_nochoc')
 		cgUpdate('y_cg2_exp3')
 		cw('y',"U-Um...")
 	elseif cl == 1574 then
@@ -1047,7 +1047,7 @@ function Yuri_exclusive_2_ch3()
 	elseif cl == 1604 then
 		cw('bl',"But...it's different this time.")
 	elseif cl == 1605 then
-		bgUpdate('y_cg2')
+		bgUpdate('cg/y_cg2')
 		cw('bl',"I take the chocolate and place it in her mouth.")
 	elseif cl == 1606 then
 		cw('bl',"I feel her hot breath on my fingers.")

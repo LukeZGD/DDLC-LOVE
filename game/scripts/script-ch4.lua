@@ -961,7 +961,7 @@ function ch4_exclusive_natsuki()
 		if xaload == 0 then
 			savepersistent()
 		end
-		bgUpdate('n_cg3_cake')
+		bgUpdate('cg/n_cg3_cake')
 		cgUpdate('n_cg3_exp1')
 		cw('n',"Ahahaha! Stop!")
 	elseif cl == 407 then
@@ -985,7 +985,7 @@ function ch4_exclusive_natsuki()
 	elseif cl == 416 then
 		cw('mc',"In that case, I probably shouldn't do this, either...")
 	elseif cl == 417 then
-		bgUpdate('n_cg3_base')
+		bgUpdate('cg/n_cg3_base')
 		cw('bl',"I take Natsuki's finger and put it in my mouth, licking off the icing.")
 	elseif cl == 418 then
 		cgUpdate('n_cg3_exp2')
@@ -2178,7 +2178,7 @@ function ch4_exclusive_yuri()
 		if xaload == 0 then
 			savepersistent()
 		end
-		bgUpdate('y_cg3_base')
+		bgUpdate('cg/y_cg3_base')
 		mc "Here..."
 	elseif cl == 579 then
 		bl "I pat down Yuri's face and neck with the towel."
@@ -2686,7 +2686,7 @@ function ch4_end_yes()
 			savepersistent()
 		end
 		hideAll()
-		bgUpdate('s_cg3')
+		bgUpdate('cg/s_cg3')
 		bl "Suddenly, Sayori wraps her arms tightly around me."
 	elseif cl == 791 then
 	cw('s',player.."...")

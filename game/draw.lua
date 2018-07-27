@@ -102,8 +102,10 @@ function drawTextBox()
 		love.graphics.draw(textbox, xps.textbox, yps.textbox)
 		love.graphics.setColor(0,0,0,alpha)
 		love.graphics.print(ct,xps.ct,yps.ct)
-		for i = 1, 4 do
-			love.graphics.print(c_disp[i],xps.c,yps.c[i])
+		if c_disp then
+			for i = 1, 4 do
+				love.graphics.print(c_disp[i],xps.c,yps.c[i])
+			end
 		end
 	end
 	if settings.textloc == 'Top' then drawBottomScreen() end

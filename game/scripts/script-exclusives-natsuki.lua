@@ -280,7 +280,7 @@ function Natsuki_exclusive_1()
 		cw('bl',"Not to mention she's really good at it, so who am I to judge?")
 	elseif cl == 544 then
 		hideAll()
-		bgUpdate('n_cg1_base')
+		bgUpdate('cg/n_cg1_base')
 		persistent.clear[1] = 1
 		if xaload == 1 then
 			savepersistent()
@@ -750,7 +750,7 @@ function Natsuki_exclusive_2_ch3()
 		cw('bl',"Since she refuses my help, I take a seat with my back against the side of the doorway and simply watch.")
 	elseif cl == 1450 then
 		hideAll()
-		bgUpdate('n_cg2_base')
+		bgUpdate('cg/n_cg2_base')
 		persistent.clear[2] = 1
 		if xaload == 1 then
 			savepersistent()

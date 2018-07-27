@@ -502,9 +502,8 @@ function ch21script(dt)
     n "..."
 	elseif cl == 1028 then
 	updateNatsuki('1','2f')
-	if autotimer < (settings.autospd - 0.75) then autotimer = settings.autospd - 0.75 end
+	pause(0.75)
     elseif cl == 1029 then
-	autotimer = 0
 	hideNatsuki()
     bl "She quickly runs away."
     elseif cl == 1030 then

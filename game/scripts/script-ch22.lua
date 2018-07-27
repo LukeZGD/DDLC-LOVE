@@ -363,7 +363,7 @@ function ch22script()
 						style_edited = false
 						audioUpdate('0')
 						bgUpdate('black')
-						if autotimer < (settings.autospd - 2) then autotimer = settings.autospd - 2 end
+						pause(2)
 					elseif cl == 1219 then
 						audioUpdate('6')
 						scriptJump(1234)
@@ -439,7 +439,6 @@ function ch22script()
 		poemwinner[2] = "Yuri"
 		bgUpdate('club_day2')
 		updateYuri('3','a')
-		autotimer = 0
 		if appeal.y == 1 then
 			scriptJump(393)
 		elseif appeal.y == 2 then

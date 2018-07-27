@@ -262,7 +262,7 @@ function Sayori_exclusive_1()
 		cw('mc',"Once you see how much better it looks, you'll change your mind.")
 	elseif cl == 534 then
 		hideAll()
-		bgUpdate('s_cg1')
+		bgUpdate('cg/s_cg1')
 		persistent.clear[7] = 1
 		if xaload == 1 then
 			savepersistent()
@@ -702,7 +702,7 @@ function Sayori_exclusive_2()
 		cw('mc',"Just do it for a second.")
 	elseif cl == 1472 then
 		hideAll()
-		bgUpdate('s_cg2_base1')
+		bgUpdate('cg/s_cg2_base1')
 		cgUpdate('s_cg2_exp2')
 		persistent.clear[8] = 1
 		if xaload == 1 then
@@ -759,7 +759,7 @@ function Sayori_exclusive_2()
 	elseif cl == 1494 then
 		cw('bl',"In just a moment, I'm already returning to the classroom where I left Sayori.")
 	elseif cl == 1495 then
-		bgUpdate('s_cg2_base1')
+		bgUpdate('cg/s_cg2_base1')
 		cgUpdate('s_cg2_exp2')
 		audioUpdate('9')
 		cw('bl',"She has one palm on her forehead and is using the other hand to clumsily scoop crayons back into the box.")
@@ -768,7 +768,7 @@ function Sayori_exclusive_2()
 	elseif cl == 1497 then
 		cw('mc',"Sayori, here.")
 	elseif cl == 1498 then
-		bgUpdate('s_cg2_base2')
+		bgUpdate('cg/s_cg2_base2')
 		cw('bl',"I hand Sayori the bottle of apple juice.")
     elseif cl == 1499 then
 		cgHide()
