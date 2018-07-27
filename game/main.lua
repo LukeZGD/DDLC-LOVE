@@ -23,6 +23,8 @@ function love.load()
 	posX = -40
 	posY = 0
 	menu_enabled = false
+	textbox_enabled = true
+	bgimg_disabled = false
 	
 	math.randomseed(os.time())
 	math.random()

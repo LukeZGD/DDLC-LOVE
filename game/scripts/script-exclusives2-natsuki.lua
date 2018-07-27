@@ -91,7 +91,7 @@ function Natsuki_exclusive2_1()
     cw('n',"Consider this a lesson straight from the Literature Club:",'nw')
 	elseif cl == 394 then
 	style_edited = true
-    n "don't judge a bookkkkkkkkkkkkkkkkk kkkkk kk                         k                                   k\nk\nk"
+    cw('n',"don't judge a bookkkkkkkkkkkkkkkkk kkkkk kk"..space(20)..'k'..space(40)..'k'..space(120)..'k'..space(160)..'k'..space(200)..'k')
     elseif cl == 395 then
 	style_edited = false
     n "In fact--"
@@ -186,7 +186,7 @@ function Natsuki_exclusive2_1()
     bl "I kind of grew out of these, since it's rare for the writing to be entertaining enough to make up for the lack of plot."
 	elseif cl == 435 then
     hideAll()
-	bgUpdate('n_cg1_base')
+	bgUpdate('cg/n_cg1_base')
 	persistent.clear[1] = 1
 	if xaload == 1 then
 		savepersistent()
@@ -322,7 +322,7 @@ function Natsuki_exclusive2_1()
 	elseif cl == 495 then
     bl "I glance over at her."
 	elseif cl == 496 then
-	bgUpdate('n_cg1_base')
+	bgUpdate('cg/n_cg1_base')
 	cgUpdate('n_cg1_exp4')
     bl "It looks like she's started to fall asleep."
 	elseif cl == 497 then
@@ -338,7 +338,7 @@ function Natsuki_exclusive2_1()
 	
 	elseif cl == 501 then
 	cgHide()
-	bgUpdate('n_cg1b')
+	bgUpdate('cg/n_cg1b')
 	audioUpdate('6g')
 	event_initstart('n_rects_ghost')
     style_edited = true

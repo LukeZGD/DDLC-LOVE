@@ -70,6 +70,7 @@ function poemfinish(a)
 	
 	poemsread = poemsread + 1
 	hideAll()
+	s_Set.x = -200; n_Set.x = -200; y_Set.x = -200; m_Set.x = -200
 	if poemsread == 4 or (poemsread == 3 and persistent.ptr == 2) then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
@@ -862,36 +863,8 @@ function ch1_m_end2()
 	elseif cl == 775 then
 		cw('m',"Thanks for listening~")
 	elseif cl == 776 then
-		if persistent.ptr == 2 and poemwinner[1] == 'Yuri' then
-			poemfinish('my')
-		else
-			poemfinish('m')
-		end
+		poemfinish('m')
 	end
-end
-
-function ch21_n_bad()
-	ch1_n_bad()
-end
-
-function ch21_n_med()
-	ch1_n_med()
-end
-
-function ch21_n_good()
-	ch1_n_good()
-end
-
-function ch21_y_bad()
-	ch1_y_bad()
-end
-
-function ch21_y_med()
-	ch1_y_bad()
-end
-
-function ch21_y_good()
-	ch1_y_good()
 end
 
 function m_eval()

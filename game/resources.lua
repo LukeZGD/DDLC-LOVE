@@ -130,6 +130,8 @@ function changeState(cstate,x)
 			script_main = require 'scripts.script-ch22'
 		elseif chapter == 23 then
 			script_main = require 'scripts.script-ch23'
+		elseif chapter == 30 then
+			script_main = require 'scripts.script-ch30'
 		elseif chapter == 40 then
 			script_main = require 'scripts.script-ch40'
 		end

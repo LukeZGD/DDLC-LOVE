@@ -30,8 +30,10 @@ function drawGame()
 	love.graphics.setColor(255,255,255,alpha)
 	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
 	love.graphics.setFont(font)
-	drawNumbers()
-	drawTextBox()
+	if textbox_enabled then
+		drawNumbers()
+		drawTextBox()
+	end
 	
 	love.graphics.setColor(0,0,0)
 	love.graphics.setFont(font)
@@ -106,10 +108,12 @@ function game_keypressed(key)
 		event_keypressed(key)
 	elseif key == 'y' then --pause menu
 		autotimer = 0
-		menu_enable('pause')
+		if persistent.chr.m == 2 then menu_enable('pause2')
+		else menu_enable('pause')
+		end
 	elseif key == 'b' then --auto on/off
 		sfx1:play()
-		if autotimer == 0 then autotimer = 0.1 else autotimer = 0 end		
+		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
 	else

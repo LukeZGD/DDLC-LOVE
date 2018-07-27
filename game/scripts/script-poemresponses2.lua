@@ -2,6 +2,18 @@ local y_gave
 local y_timer = 0
 local gtext80 = glitchtext(80)
 
+function ch21_n_bad()
+	ch1_n_bad()
+end
+
+function ch21_n_med()
+	ch1_n_med()
+end
+
+function ch21_n_good()
+	ch1_n_good()
+end
+
 function ch22_n_bad()
     if n_poemappeal[1] < 0 then
 		if cl == 670 then
@@ -568,10 +580,9 @@ function ch23_n_end()
 	poem('poem_n23-a','natsuki',1)
 	elseif cl == 702 then
 	poem_disable(0)
-	if autotimer < (settings.autospd - 3) then autotimer = settings.autospd - 3 end
+	pause(3)
 	elseif cl == 703 then
 	updateNatsuki('ghost1')
-	autotimer = 0
 	n "I changed my mind."
 	elseif cl == 704 then
     n "Ignore everything you just read."
@@ -601,6 +612,18 @@ function ch23_n_end()
 	elseif cl == 715 then
 	poemfinish('n')
 	end
+end
+
+function ch21_y_bad()
+	ch1_y_bad()
+end
+
+function ch21_y_med()
+	ch1_y_bad()
+end
+
+function ch21_y_good()
+	ch1_y_good()
 end
 
 function ch22_y_bad()
@@ -923,7 +946,7 @@ function ch23_y_good()
 	elseif cl == 701 then
     y "I wrote it for you!"
 	elseif cl == 702 then
-	if xaload <= 2 then
+	if xaload <= 3 then
 		event_end('yuri_eyes')
 		event_start('show_darkred')
 	end
@@ -937,10 +960,9 @@ function ch23_y_good()
 	elseif cl == 705 then
 	sfxplay('glitch2')
 	updateYuri('glitch2')
-	if autotimer < (settings.autospd - 0.25) then autotimer = settings.autospd - 0.25 end
+	pause(0.25)
 	elseif cl == 706 then
 	event_end()
-	autotimer = 0
 	audioUpdate('5')
 	updateYuri('3','y2')
     y "..."
@@ -951,7 +973,7 @@ function ch23_y_good()
     y "I think I'm...going to vomit."
 	elseif cl == 709 then
 	hideYuri()
-	if autotimer < (settings.autospd - 1) then autotimer = settings.autospd - 1 end
+	pause(1)
 	elseif cl == 710 then
 	poemfinish('y')
 	end
@@ -1104,11 +1126,10 @@ function ch22_m_end()
 	poem_disable()
 	textbox_enabled = false
 	audioUpdate('0')
-	if autotimer < (settings.autospd - 2.5) then autotimer = settings.autospd - 2.5 end
+	pause(2.5)
 	elseif cl == 738 then
 	audioUpdate('5')
 	updateMonika('5a')
-	autotimer = 0
 	m "Sorry, I know it's kind of abstract."
 	elseif cl == 739 then
     m "I'm just trying to...um..."

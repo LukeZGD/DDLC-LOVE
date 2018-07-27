@@ -340,7 +340,7 @@ function Yuri_exclusive2_1_ch22()
     if xaload == 0 then
 		savepersistent()
 	end
-	bgUpdate('y_cg1_base')
+	bgUpdate('cg/y_cg1_base')
     bl "Yuri takes her left arm and holds the left side of the book between her thumb and forefinger."
 	elseif cl == 493 then
     mc "Ah..."
@@ -912,7 +912,7 @@ function Yuri_exclusive2_2_ch22()
 		savepersistent()
 	end
 	hideAll()
-	bgUpdate('y_cg2_nochoc')
+	bgUpdate('cg/y_cg2_nochoc')
     bl "Yuri opens the book with both hands."
 	elseif cl == 1396 then
     bl "She holds it so that I don't have any harder of a time reading from it."
@@ -935,7 +935,7 @@ function Yuri_exclusive2_2_ch22()
 	elseif cl == 1405 then
     bl "But that means I can't stop here!"
 	elseif cl == 1406 then
-	bgUpdate('y_cg2')
+	bgUpdate('cg/y_cg2')
     bl "I apprehensively place the chocolate in her mouth."
 	elseif cl == 1407 then
     bl "Just like that, Yuri closes her lips over it."
@@ -1017,7 +1017,7 @@ function Yuri_exclusive2_2_ch22()
 	elseif cl == 1438 then
 	event_end('next')
 	elseif cl == 1439 then
-	event_start('yuri_eyes')
+	if xaload < 3 then event_start('yuri_eyes') end
 	y "...Haah..."
     elseif cl == 1440 then
     y "...Haah..."
@@ -1247,7 +1247,7 @@ function Yuri_exclusive2_2_ch23()
 	elseif cl == 1802 then
     cw('y',"Will you do that with me, "..player.."?")
 	elseif cl == 1803 then
-    cw('y',"Will             "..gtext200,'nw')
+    cw('y',"Will"..space(60)..gtext200,'nw')
 	elseif cl == 1804 then
 	event_end()
 	if bg1 ~= 'club' then bgUpdate('club',true)

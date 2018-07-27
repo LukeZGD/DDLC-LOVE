@@ -106,13 +106,25 @@ function event_init(etype,arg1,arg2)
 			ex3top = love.graphics.newImage('images/gui/ex3top.png')
 			ex3bottom = love.graphics.newImage('images/gui/ex3bottom.png')
 		elseif etype == 'just_monika' then
-			splash = love.graphics.newImage('images/bg/splash.png')
+			if arg1 == 'ch30' then
+				splash = love.graphics.newImage('images/bg/splash-glitch2.png')
+			else
+				splash = love.graphics.newImage('images/bg/splash.png')
+			end
 		elseif etype == 'natsuki_ch22' then
 			ghost_blood = love.graphics.newImage('images/natsuki/ghost_blood.png')
 			ghost3 = love.graphics.newImage('images/natsuki/ghost3.png')
 			ghost3_1 = love.graphics.newImage('images/natsuki/ghost3-1.png')
 			ghost3_2 = love.graphics.newImage('images/natsuki/ghost3-2.png')
 			ghost3_3 = love.graphics.newImage('images/natsuki/ghost3-3.png')
+		elseif etype == 'yuri_kill' then
+			stab1 = love.graphics.newImage('images/yuri/stab/1.png')
+			stab2 = love.graphics.newImage('images/yuri/stab/2.png')
+			stab3 = love.graphics.newImage('images/yuri/stab/3.png')
+			stab4 = love.graphics.newImage('images/yuri/stab/4.png')
+			stab5 = love.graphics.newImage('images/yuri/stab/5.png')
+			stab6 = love.graphics.newImage('images/yuri/stab/6.png')
+			stab6f = love.graphics.newImage('images/yuri/stab/6-full.png')
 		end
 		if arg1 == 'show_noise' then
 			loadNoise()
@@ -201,19 +213,25 @@ function event_start(etype, arg1)
 		eventvar2 = 1
 		bgimg_disabled = false
 		textbox_enabled = true
-	elseif event_type == 'yuri_ch23' then
-		bgimg_disabled = true
-		textbox_enabled = false
 	elseif event_type == 'yuri_ch23_2' or event_type == 'natsuki_ch22' then
 		eventvar1 = 0
 		eventvar2 = 0
 		eventvar3 = 0
 		bgimg_disabled = false
 		textbox_enabled = true
-	elseif event_type == 'm_ch23ex' or event_type == 'just_monika' then
+	elseif event_type == 'yuri_ch23' or event_type == 'm_ch23ex' or event_type == 'just_monika' then
 		bgimg_disabled = true
 		textbox_enabled = false
-		if event_type == 'just_monika' then alpha = 0 end
+		if event_type == 'just_monika' then 
+			alpha = 0
+			if arg1 == 'ch30' then eventvar1 = 'ch30' end
+		end
+	elseif event_type == 'yuri_kill' then
+		eventvar1 = stab1
+		eventvar2 = 0
+		eventvar3 = 0.025
+		bgimg_disabled = true
+		textbox_enabled = false
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
@@ -343,7 +361,7 @@ function event_draw()
 		love.graphics.draw(bgch)
 		if eyes1 then love.graphics.draw(eyes1,-13) end
 		if eyes2 then love.graphics.draw(eyes2,eventvar2,eventvar3) end
-		if chapter == 23 then
+		if cl < 701 then
 			love.graphics.setColor(32,0,0,192)
 		else
 			love.graphics.setColor(0,0,0,192)
@@ -416,9 +434,6 @@ function event_draw()
 		if event_timer < 3.75 then
 			love.graphics.setColor(255,255,255,alpha)
 			love.graphics.draw(splash)
-			love.graphics.setColor(0,0,0,alpha)
-			love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
-			love.graphics.print('Made with Just Monika.',0,220)
 		else
 			love.graphics.setColor(0,0,0,alpha)
 			love.graphics.print('Just Monika.', 170, 100)
@@ -459,8 +474,47 @@ function event_draw()
 		end
 	end
 	
+	if event_type == 'yuri_kill' then
+		if event_timer < 9.5 then
+			love.graphics.draw(bgch)
+			if event_timer < 1.43 then
+				drawYuri(y_Set.a,y_Set.b)
+			else
+				love.graphics.draw(eventvar1,80,eventvar2)
+			end
+		end
+	end
+	
+	if event_type == 'ch23-30' then
+		if bgch then love.graphics.draw(bgch) end
+		if xaload > 0 then
+			if cg1 ~= '' then love.graphics.draw(cgch,0,0) end
+			drawSayori(s_Set.a,s_Set.b)
+			drawYuri(y_Set.a,y_Set.b)
+			drawNatsuki(n_Set.a,n_Set.b)
+			drawMonika(m_Set.a,m_Set.b)
+		end
+		
+		if console_enabled and console_font then
+			love.graphics.setColor(51,51,51,191)
+			love.graphics.rectangle('fill',0,0,320,60)
+			love.graphics.setColor(255,255,255)
+			love.graphics.setFont(console_font)
+			love.graphics.print('> '..console_text1,0,0)
+			love.graphics.print(console_text2,5,15)
+			love.graphics.print(console_text3,5,30)
+		end
+		
+		if poem_enabled then drawPoem()	end
+		
+		if menu_enabled and menu_type ~= 'choice' then
+			love.graphics.setColor(255,255,255,128)
+			love.graphics.rectangle('fill',0,0,400,240)
+		end
+	end
+	
 	drawBottomScreen()
-	love.graphics.setColor(255,255,255)
+	love.graphics.setColor(255,255,255,255)
 	
 	if event_type == 'm_ch23ex' and event_timer > 1 then
 		love.graphics.draw(ex3bottom)
@@ -476,7 +530,7 @@ function event_draw()
 		drawNumbers()
 		drawTextBox()	
 	end
-	love.graphics.print(event_timer,2,220)
+	--love.graphics.print(event_timer,2,220)
 	
 	if event_type == 'm_onlayer_front' or event_type == 'ny_argument2' then
 		love.graphics.setColor(255,255,255)
@@ -489,6 +543,7 @@ function event_draw()
 		drawBottomScreen()
 	end
 	
+	if settings.dtym == 1 and event_type == 'ch23-30' then drawdatetime() end
 	if menu_enabled then menu_draw() end
 end
 
@@ -520,9 +575,16 @@ function unloadanimframe()
 	animframe4 = nil
 end
 
+function updateConsole(text,text2,text3)
+	if console_font == nil then console_font = love.graphics.newFont('fonts/F25_Bank_Printer') end
+	if console_enabled ~= true then console_enabled = true end
+	console_text1 = dripText(text,30,myTextStartTime)
+	if text2 then console_text2 = text2 else console_text2 = '' end
+	if text3 then console_text3 = text3 else console_text3 = '' end
+end
+
 function event_update(dt)
 	event_timer = event_timer + dt
-	timerCheck()
 	
 	--s_kill timers
 	if event_type == 's_kill_start' and event_timer > 0.75 then event_next()
@@ -664,7 +726,7 @@ function event_update(dt)
 			eventvar3 = math.random(0,1)
 		end
 		if eventvar2 > -12 then eventvar2 = math.random(-14,-12) end
-		if chapter == 22 then
+		if cl >= 1439 then
 			if xaload > 450 and cl == 1442 then
 				event_end('yuri_eyes')
 			elseif xaload > 450 then
@@ -672,7 +734,7 @@ function event_update(dt)
 			else
 				textbox_enabled = false
 			end
-		elseif chapter == 23 and cl >= 700 then textbox_enabled = true
+		elseif cl >= 700 then textbox_enabled = true
 		end
 	end
 	
@@ -767,6 +829,7 @@ function event_update(dt)
 		elseif event_timer > 3 and event_timer < 3.75 then
 			alpha = math.max(alpha-7.75,0)
 		elseif event_timer <= 6 then
+			if eventvar1 == 'ch30' then event_timer = 7 end
 			alpha = math.min(alpha+7.75,255)
 		elseif event_timer > 6 then
 			alpha = 255
@@ -792,6 +855,32 @@ function event_update(dt)
 			eventvar3 = math.min(eventvar3 + 0.2, 255)
 		end
 	end
+	
+	if event_type == 'yuri_kill' then
+		if event_timer > 2.18 and event_timer <= 3.43 then
+			eventvar1 = stab2
+		elseif event_timer > 3.43 and event_timer <= 4.18 then
+			eventvar1 = stab3
+		elseif event_timer > 4.18 and event_timer <= 5.43 then
+			eventvar1 = stab4
+		elseif event_timer > 5.43 and event_timer <= 6.13 then
+			eventvar1 = stab5
+		elseif event_timer > 6.13 and event_timer <= 9 then
+			eventvar1 = stab6f
+		elseif event_timer > 9 and event_timer <= 12 then
+			eventvar3 = eventvar3 * 1.25
+			eventvar2 = eventvar2 + eventvar3
+			eventvar1 = stab6
+		elseif event_timer > 12 then
+			event_end('yuri_kill')
+		end
+	end
+	
+	if event_type == 'ch23-30' then
+		if persistent.chr.m == 0 and cl < 1001 then
+			scriptJump(1001)
+		end
+	end
 end
 
 function event_next()
@@ -806,12 +895,10 @@ function event_endnext()
 end
 
 function event_keypressed(key)
-	if (textbox_enabled and event_type ~= 'show_vignette') or (chapter == 23 and event_type == 'yuri_eyes') then
-		if key == 'a' then
-			newgame_keypressed('a')
-		elseif key == 'y' and event_type == 'ny_argument' then
-			menu_enable('pause')
-		end
+	if ((textbox_enabled and event_type ~= 'show_vignette') or (event_type == 'yuri_eyes' and cl < 700)) and key == 'a' then
+		newgame_keypressed('a')
+	elseif key == 'y' and event_type == 'ch23-30' then
+		menu_enable('pause2')
 	end
 end
 
@@ -869,6 +956,15 @@ function event_end(arg1)
 		ghost3_2 = nil
 		ghost3_3 = nil
 		ghost_blood = nil
+		event_endnext()
+	elseif arg1 == 'yuri_kill' then
+		stab1 = nil
+		stab2 = nil
+		stab3 = nil
+		stab4 = nil
+		stab5 = nil
+		stab6 = nil
+		stab6f = nil
 		event_endnext()
 	end
 end
