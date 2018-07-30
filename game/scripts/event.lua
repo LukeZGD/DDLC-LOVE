@@ -120,11 +120,14 @@ function event_start(etype, arg1)
 	if event_type == 's_kill_start' then
 		textbox_enabled = true
 		bgimg_disabled = true
-	elseif event_type == 's_kill' then
+	elseif string.sub(event_type,1,6) == 's_kill' then
+		bgimg_disabled = true
 		textbox_enabled = false
-		audioUpdate('s_kill')
-		eventvar1 = 0
-		eventvar2 = 0
+		if event_type == 's_kill' then
+			audioUpdate('s_kill')
+			eventvar1 = 0
+			eventvar2 = 0
+		end
 	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
@@ -559,7 +562,7 @@ function event_update(dt)
 		if posX <= -80 then posX = 0 end
 		if posY <= -80 then posY = 0 end
 		
-		if event_timer >= 21.125 then
+		if event_timer >= 21.11 then
 			audioUpdate('d')
 			textbox_enabled = true
 			
