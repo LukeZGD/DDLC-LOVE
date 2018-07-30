@@ -640,7 +640,6 @@ function event_update(dt)
 	if event_type == 's_glitch' then
 		if event_timer > 7 then
 			persistent.ptr = 2
-			sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 			savepersistent()
 			chapter = 20
 			cl = 1

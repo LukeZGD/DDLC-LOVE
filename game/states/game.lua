@@ -70,7 +70,7 @@ function updateGame(dt)
 		autotimer = autotimer + dt
 	elseif autotimer >= settings.autospd then
 		game_keypressed('a')
-		autotimer = 0.1
+		autotimer = 0.01
 	end
 	
 	--skipping
