@@ -272,7 +272,7 @@ function ch5script()
 		event_init('s_kill')
 	elseif cl == 110 then
 		persistent.ptr = 1
-		persistent.schr = 0
+		persistent.chr.s = 0
 		if xaload == 0 then
 			savepersistent()
 		end
