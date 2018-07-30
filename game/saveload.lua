@@ -5,7 +5,7 @@ persistent = {
 	clear={0,0,0,0,0,0,0,0,0};
 	chr={m=1,s=1};
 }
-special_poems = {1,2,3}
+sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 settings = {textspd=100,textloc='Bottom',dtym=1,autospd=4}
 --default save values
 data_ptr = 0
