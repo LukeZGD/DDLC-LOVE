@@ -2645,6 +2645,7 @@ function ch4_end()
 			choicepick = 's_no'
 			ch4_end_no()
 		end
+		choices = {''}
 	end
 end
 

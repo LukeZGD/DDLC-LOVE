@@ -133,8 +133,8 @@ function menu_draw()
 		elseif menu_type == 'settings2' then
 			love.graphics.print(settings.dtym,140, 70)
 		end
-		love.graphics.print('Press (<) and (>) to change settings.',16,180)
-		love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,16, 196)
+		love.graphics.print('Press (<) and (>) to change settings.',16,188)
+		love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		love.graphics.print('Page '..pagenum..' of 10',220,12)
 		for i = 1, 6 do
