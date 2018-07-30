@@ -1415,7 +1415,7 @@ function ch4_exclusive_natsuki()
 		hideNatsuki()
 		cw('bl',"Clearly flustered, Natsuki hurries off, and Sayori waves goodbye.")
 	elseif cl >= 604 then
-		ch3_end()
+		ch4_end()
 	end
 end
 
@@ -2483,11 +2483,11 @@ function ch4_exclusive_yuri()
 	elseif cl == 710 then
 	bl "Sayori waves goodbye after her."
 	elseif cl >= 711 then
-	ch3_end()
+	ch4_end()
 	end
 end
 
-function ch3_end()
+function ch4_end()
 	if cl < 711 then
 		scriptJump(711)
 	elseif cl == 711 then

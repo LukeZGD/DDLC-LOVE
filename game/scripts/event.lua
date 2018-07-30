@@ -9,52 +9,6 @@ local eventvar6 = 0
 local animframe
 local animtimer = 0
 
---[[
-Info about the eventvar stuff
-The eventvars can be used for anything that will be coded here
-
-s_kill:
-eventvar1 - timer for eventvar 2, on when it will go left/right
-eventvar2 - x pos of s_killzoom
-eventvar3 - alpha of splash_glitch
-eventvar4 - speed of background_Image
-
-wipe:
-eventvar1 - alpha of the black rectangle that un/covers the bg1
-eventvar2 - the bg that will replace the current
-
-endscreen:
-eventvar1 - alpha of endscreen
-
-s_glitch:
-eventvar1 - random number from 1 to 16, determines eventvar 2
-eventvar2 - one of 2 s_glitch sprites (randomized by eventvar 1)
-
-ny_argument:
-eventvar1 - alpha of vignette
-eventvar2 - alpha of noise
-eventvar3 - table for start to show vignette
-eventvar4 - table for end to hide vignette
-eventvar5 - set table item number
-
-yuri_eyes:
-eventvar1 - timer (change x and y pos every 2 seconds)
-eventvar2 - eyes2 x pos
-eventvar3 - eyes2 y pos
-
-yuri_glitch_head:
-eventvar1 - set type (1 or 2)
-
-yuri_ch23_2:
-eventvar1 - x pos of bg
-eventvar2 - monika alpha
-
-natsuki_ch22:
-eventvar1 - darkred alpha
-eventvar2 - rects alpha
-eventvar3 - ghost_blood alpha
-]]
-
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
 		if etype == 's_kill' then --Sayo-nara.... load sprites

@@ -263,6 +263,7 @@ function hideSayori()
 	if s_Set.x <= -200 or autoskip > 0 then
 		s_Set.a = ''
 		s_Set.b = ''
+		s_Set.x = -200
 		if sl then unloadSayori() end
 	elseif xaload > 0 then
 		if global_os == 'Horizon' then
@@ -281,6 +282,7 @@ function hideYuri()
 	if y_Set.x <= -200 or autoskip > 0 then
 		y_Set.a = ''
 		y_Set.b = ''
+		y_Set.x = -200
 		if yl then unloadYuri() end
 	elseif xaload > 0 then
 		if global_os == 'Horizon' then
@@ -299,6 +301,7 @@ function hideNatsuki()
 	if n_Set.x <= -200 or autoskip > 0 then
 		n_Set.a = ''
 		n_Set.b = ''
+		n_Set.x = -200
 		if nl then unloadNatsuki() end
 	elseif xaload > 0 then
 		if global_os == 'Horizon' then
@@ -317,6 +320,7 @@ function hideMonika()
 	if m_Set.x <= -200 or autoskip > 0 then
 		m_Set.a = ''
 		m_Set.b = ''
+		m_Set.x = -200
 		if ml then unloadMonika() end
 	elseif xaload > 0 then
 		if global_os == 'Horizon' then
