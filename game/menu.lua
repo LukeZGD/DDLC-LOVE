@@ -37,7 +37,7 @@ function menu_enable(m)
 		
 	elseif menu_type == 'help' then
 		menutext = 'Help - Controls'
-		itemnames = {'A - Select','B - Auto On/Off','X - Skip','Y - Pause'}
+		itemnames = {'A / L - Select','B - Auto On/Off','X (Hold) - Skip','Y - Pause'}
 		
 	elseif menu_type == 'title' then
 		menutext = 'Main Menu'

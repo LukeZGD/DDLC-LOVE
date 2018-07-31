@@ -65,7 +65,9 @@ function drawpoem_special()
 	drawTopScreen()
 	love.graphics.setBackgroundColor(0,0,0)
 	love.graphics.setColor(255,255,255,p_alpha)
-	love.graphics.draw(poemsp.topimg, poemsp.topX)
+	if poemsp.topimg then
+		love.graphics.draw(poemsp.topimg, poemsp.topX)
+	end
 	drawBottomScreen()
 	if poemsp.bottomimg then
 		love.graphics.draw(poemsp.bottomimg, poemsp.bottomX)
@@ -76,6 +78,8 @@ function updatepoem_special(dt)
 	xaload = xaload + 1
 	if p_confirm == 1 then
 		if p_alpha <= 0 then
+			poemsp.topimg = nil
+			poemsp.bottomimg = nil
 			cl = cl + 1
 			xaload = 0
 			changeState('game',0)

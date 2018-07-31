@@ -24,7 +24,6 @@ function changeState(cstate,x)
 		y_timer = 0
 		titlebg_ypos = -240
 	elseif cstate == 'game' and x == 0 then
-		xaload = 0
 		state = 'game'
 		menu_enabled = false
 	elseif cstate == 'game' and x == 1 then --new game
@@ -35,7 +34,6 @@ function changeState(cstate,x)
 		else
 			chapter = 20
 		end
-		xaload = 0
 		state = 'game'
 		menu_enabled = false
 	elseif cstate == 'game' and x == 2 then --load game
@@ -53,14 +51,12 @@ function changeState(cstate,x)
 				audioUpdate(audio1, true)
 				cgUpdate(cg1, true)
 			end
-			xaload = 0
 			state = 'game'
 			poem_enabled = false
 			menu_enabled = false
 		end
 	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
 		cl = cl + 2
-		xaload = 0
 		state = 'game'
 		alpha = 255
 	elseif cstate == 'newgame' then --first time newgame
@@ -108,6 +104,7 @@ function changeState(cstate,x)
 	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then	
 		states = require 'states.game'
+		xaload = -1
 		if chapter == 0 then
 			script_main = require 'scripts.script-ch0'
 		elseif chapter == 1 then

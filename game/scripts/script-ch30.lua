@@ -30,7 +30,7 @@ function ch30script()
 	elseif cl == 11 then
 	m "After all, not everything has been ported, so I don't have much to say yet."
 	elseif cl == 12 then
-	m "This is only the v0.2.0 release of DDLC-3DS, which is supposed to end in Act 2."
+	m "This is only the v0.2.1 release of DDLC-3DS, which is supposed to end in Act 2."
 	elseif cl == 13 then
 	m "In the meantime, we can just look into each other's eyes~"
 	elseif cl == 14 then
