@@ -65,9 +65,9 @@ function ch2script()
 	elseif cl == 1174 then
 		cw('bl',"She fumbles with the latch and gets it open.")
 	elseif cl == 1175 then
-		cw('s',"Then, she turns it upside-down and lets its contents spill onto the desk.")
+		cw('bl',"Then, she turns it upside-down and lets its contents spill onto the desk.")
 	elseif cl == 1176 then
-		cw('s',"Only two small coins fall out.")
+		cw('bl',"Only two small coins fall out.")
 	elseif cl == 1177 then
 		updateSayori('5a')
 		cw('s',"A-Ahaha...")

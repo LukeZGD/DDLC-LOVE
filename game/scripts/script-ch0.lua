@@ -889,6 +889,7 @@ function ch0script()
 	if cl == 10001 then
 		bgUpdate('residential')
 		audioUpdate('2')
+		hideAll()
 		updateSayori('1','b',80)
 		cw('s',"...")
 	elseif cl == 10002 then 
@@ -936,7 +937,6 @@ function ch0script()
 		cw('bl','Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: http://ddlc.moe/warning.html')
 	elseif cl == 10019 then
 		cw('bl','By playing Doki Doki Literature Club, you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.')
-		timer = 1000
 	elseif cl == 10020 then
 		menutext = ''
 		choices = {'I agree.','I do not agree.'}

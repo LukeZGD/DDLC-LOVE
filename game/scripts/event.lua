@@ -783,7 +783,7 @@ function event_endnext()
 end
 
 function event_keypressed(key)
-	if ((textbox_enabled and event_type ~= 'show_vignette') or (event_type == 'yuri_eyes' and cl < 700)) and key == 'a' then
+	if ((textbox_enabled and event_type ~= 'show_vignette') or (event_type == 'yuri_eyes' and cl < 700)) and (key == 'a' or key == 'lbutton') then
 		newgame_keypressed('a')
 	elseif key == 'y' and event_type == 'ch23-30' then
 		menu_enable('pause2')

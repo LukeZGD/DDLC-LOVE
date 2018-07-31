@@ -143,9 +143,6 @@ function love.keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
-	if key == 'lbutton' or key == 'l' then
-		love.keypressed('a')
-	end
 end
 
 --For the Switch

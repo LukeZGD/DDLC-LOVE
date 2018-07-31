@@ -744,7 +744,7 @@ function ch23_end()
 	savenumber = 1
 	if xaload == 0 then
 		savepersistent()
-		savegame()
+		savegame('autoload')
 	end
 	elseif cl == 1940 then
     y "Ahahahahahaha!"
@@ -777,31 +777,31 @@ function yuri_kill()
 		bgUpdate('black')
 		cgUpdate('y_kill/1a')
 		audioUpdate('6s')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2200 then
 		cgUpdate('y_kill/1b')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2260 then
 		cgUpdate('y_kill/1c')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2460 then
 		cgUpdate('y_kill/2a')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2660 then
 		cgUpdate('y_kill/2b')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2720 then
 		cgUpdate('y_kill/2c')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2920 or cl == 3380 then
 		cgUpdate('y_kill/3a')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 3120 then
 		cgUpdate('y_kill/3b')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	elseif cl == 3180 then
 		cgUpdate('y_kill/3c')
-		if xaload == 0 then savegame() end
+		if xaload == 0 then savegame('autoload') end
 	end
 	
 	--yuri_kill_3
@@ -811,7 +811,7 @@ function yuri_kill()
 	cgHide()
 	event_initstart('ch23-30')
 	cw('bl',gtextg,'slow')
-	if xaload == 0 then savegame() end
+	if xaload == 0 then savegame('autoload') end
 	elseif cl == 3442 then
 	n "Alright, it's festival time!"
 	elseif cl == 3443 then
@@ -921,7 +921,7 @@ function yuri_kill()
 	chapter = 30
 	cl = 1
 	savepersistent()
-	savegame()
+	savegame('autoload')
 	savesettings()
 	changeState('game',2)
 	end

@@ -1143,6 +1143,7 @@ function Natsuki_exclusive_2_ch3()
 	elseif cl == 1623 then
 		audioUpdate('8')
 		bgUpdate('club')
+		hideNatsuki()
 		cw('bl',"We sit in the same spot as last time, and I open the second volume.")
 	elseif cl == 1624 then
 		cw('bl',"Natsuki's mood quickly improves, laughing and pointing things out to me.")
@@ -1155,7 +1156,7 @@ function Natsuki_exclusive_2_ch3()
 	elseif cl == 1628 then
 		cw('bl',"After some time, Monika gets our attention as usual, and it's time to share poems again.")
 	elseif cl == 1629 then
-		updateNatsuki('2','j')
+		updateNatsuki('2','j',80)
 		cw('mc',"Guess I'll be holding onto this for now.")
 	elseif cl == 1630 then
 		cw('n',"Yep!")

@@ -115,7 +115,7 @@ function ch3script()
 	elseif cl == 2021 then
 		cw('bl',"I walk over to her.")
 	elseif cl == 2022 then
-		cw('bl',"Hey, Sayori.")
+		cw('mc',"Hey, Sayori.")
 	elseif cl == 2023 then
 		updateSayori('1','k',80)
 		cw('bl',"I wave my hand in front of her face.")
@@ -131,7 +131,7 @@ function ch3script()
 		cw('s',"Ehehe, sorry...")
 	elseif cl == 2028 then
 		cw('s',"Don't mind me.")
-	elseif cl == 2029 then --it's the magic number!
+	elseif cl == 2029 then --it's the magic number! (year?)
 		updateSayori('4','y')
 		cw('s',"You can go talk to everyone else.")
 	elseif cl == 2030 then
@@ -693,6 +693,7 @@ function ch3_start_none()
 		scriptJump(87)
 	elseif cl == 87 then
 		if audio1 ~= '3' then audioUpdate('0') end
+		hideAll()
 		bgUpdate('club')
 		cw('bl',"...")
 	elseif cl == 88 then

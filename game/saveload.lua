@@ -6,9 +6,8 @@ persistent = {
 	chr={m=1,s=1};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=125,textloc='Bottom',dtym=0,autospd=4}
+settings = {textspd=125,textloc='Bottom',dtym=0,autospd=4,animh=1}
 --default save values
-data_ptr = 0
 cl = 1
 bg1 = ''
 audio1 = 2
@@ -31,7 +30,7 @@ appeal = {s=0,n=0,y=0}
 savevalue = ''
 savenumber = 1
 
-function savegame()
+function savegame(x)
 	local choiceset = ''
 	
 	for i = 1, 4 do
@@ -42,8 +41,7 @@ function savegame()
 		end
 	end
 	
-	local savedata = "data_ptr="..persistent.ptr.."\
-cl="..cl.."\
+	local savedata = "cl="..cl.."\
 bg1='"..bg1.."'\
 audio1='"..audio1.."'\
 cg1='"..cg1.."'\
@@ -64,16 +62,25 @@ poemwinner={'"..poemwinner[1].."','"..poemwinner[2].."','"..poemwinner[3].."'}\
 appeal={s="..appeal.s..",n="..appeal.n..",y="..appeal.y.."}\
 savevalue='"..savevalue.."'"
 	
-	love.filesystem.write("save"..savenumber..".sav", savedata)
+	if x == 'autoload' then
+		love.filesystem.write("save-autoload.sav", savedata)
+	else
+		love.filesystem.write("save"..savenumber.."-"..persistent.ptr..".sav", savedata)
+	end
 end
 
-function loadgame()
-	local savfile = loadstring(love.filesystem.read("save"..savenumber..".sav"))
+function loadgame(x)
+	local savfile
+	if x == 'autoload' then
+		savfile = loadstring(love.filesystem.read("save-autoload.sav"))
+	else
+		savfile = loadstring(love.filesystem.read("save"..savenumber.."-"..persistent.ptr..".sav"))
+	end
 	savfile()
 end
 
 function savesettings()
-	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',dtym="..settings.dtym..",autospd="..settings.autospd.."}"
+	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',dtym="..settings.dtym..",autospd="..settings.autospd..",animh="..settings.animh.."}"
 	love.filesystem.write("settings.sav", settingsfile)
 end
 

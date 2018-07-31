@@ -43,7 +43,7 @@ function poemresponses()
 			poemresponse_monika()
 		end
 		
-		if cl == 669 then cl = cl + 1 end
+		if cl == 669 then scriptJump(670) end
 	end
 end
 
