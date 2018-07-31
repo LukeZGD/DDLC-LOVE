@@ -68,7 +68,7 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = math.random(0, 63)
-	if persistent.playthrough then
+	if persistent.playthrough or settings.animh == nil then
 		err = 'Error!\nOld save files detected, and are not compatible with this version.\nPlease delete all save files and try again.\n\nPress Y to quit'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
@@ -77,7 +77,7 @@ function checkLoad()
 		persistent.chr.s = 2
 		savepersistent()
 	elseif persistent.chr.m == 2 then
-		changeState('game',2)
+		changeState('game','autoload')
 	else
 		l_timer = 100
 	end

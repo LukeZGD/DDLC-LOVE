@@ -3,7 +3,7 @@ local cX
 local cY
 local getcompare = {}
 local rectwidth
-local pagenum
+local pagenum = 1
 local savenum = {}
 local itemnames = {}
 local saveindicator = {}
@@ -23,7 +23,7 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
-			if love.filesystem.isFile('save'..chch..'.sav') then
+			if love.filesystem.isFile('save'..chch..'-'..persistent.ptr..'.sav') then
 				saveindicator[i] = 1
 			else
 				saveindicator[i] = 0
@@ -36,8 +36,8 @@ function menu_enable(m)
 		itemnames = {'Yes','No'}
 		
 	elseif menu_type == 'help' then
-		menutext = 'Help - Controls'
-		itemnames = {'A / L - Select','B - Auto On/Off','X (Hold) - Skip','Y - Pause'}
+		menutext = 'Help'
+		itemnames = {}
 		
 	elseif menu_type == 'title' then
 		menutext = 'Main Menu'
@@ -45,11 +45,15 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Show Date&Time','Characters','Save Settings'}
+		if pagenum == 1 then
+			itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Show Date&Time','Characters','Save Settings'}
+		elseif pagenum == 2 then
+			itemnames = {'Char. Animations','Save Settings'}
+		end
 		
 	elseif menu_type == 'settings2' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Show Date&Time','Characters','Save Settings'}
+		itemnames = {'Textbox Location','Show Date&Time','Char. Animations','Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
@@ -121,8 +125,10 @@ function menu_draw()
 	if menu_previous then love.graphics.print('Back',17, 220) end
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
-		love.graphics.print(settings.textloc..' Screen',140, 45)
-		if menu_type == 'settings' then
+		if menu_type == 'settings' and pagenum == 1 then
+			love.graphics.print('Page 1 of 2',220,12)
+			love.graphics.print('(<) X | Y (>)',223,27)
+			love.graphics.print(settings.textloc..' Screen',140, 45)
 			love.graphics.print(settings.textspd, 157, 70)
 			love.graphics.print('(<)',140,70)
 			love.graphics.print('(>)',184,70)
@@ -130,13 +136,23 @@ function menu_draw()
 			love.graphics.print('(<)',140,95)
 			love.graphics.print('(>)',198,95)
 			love.graphics.print(settings.dtym,140, 120)
+			
+		elseif menu_type == 'settings' and pagenum == 2 then
+			love.graphics.print('Page 2 of 2',220,12)
+			love.graphics.print('(<) X | Y (>)',223,27)
+			love.graphics.print(settings.animh, 140, 45)
+			
 		elseif menu_type == 'settings2' then
+			love.graphics.print(settings.textloc..' Screen',140, 45)
 			love.graphics.print(settings.dtym,140, 70)
+			love.graphics.print(settings.animh, 140, 95)
 		end
 		love.graphics.print('Press (<) and (>) to change settings.',16,188)
 		love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
+		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		love.graphics.print('Page '..pagenum..' of 10',220,12)
+		love.graphics.print('(<) X | Y (>)',230,27)
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
 				love.graphics.setColor(0,255,0)
@@ -146,8 +162,25 @@ function menu_draw()
 				love.graphics.rectangle('fill',95,25+(25*i),6,6)
 			end
 		end
+		
 	elseif menu_type == 'choice' then
 		if settings.dtym == 1 then drawdatetime() end
+		
+	elseif menu_type == 'help' then
+		love.graphics.setColor(255,189,225)
+		love.graphics.rectangle('fill',14,30,260,110)
+		love.graphics.rectangle('fill',14,150,260,16)
+		love.graphics.rectangle('fill',14,180,260,30)
+		love.graphics.setColor(0,0,0)
+		love.graphics.print('Key Bindings:',16,30)
+		love.graphics.print('A, L Trigger - Advances through the game,',16,45)
+		love.graphics.print('activates menu choices',90,60)
+		love.graphics.print('B - Exit Menu, AutoForward On/Off',16,80)
+		love.graphics.print('X - (Menu) Previous Page, (Hold) Skip',16,100)
+		love.graphics.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
+		love.graphics.print('Managing files: Go to Settings > Characters',16,150)
+		love.graphics.print('Deleting save data: Delete everything in here',16,180)
+		love.graphics.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
 	end	
 end
 
@@ -164,13 +197,10 @@ function menu_confirm()
 		if m_selected == 2 then --new game
 			if persistent.chr.m == 0 and persistent.ptr == 0 then --set up early act 1 end
 				menu_enabled = false
-				cl = 10001
 				changeState('game',1)
 			elseif player == '' and global_os == 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
-			elseif cl <= 9999 or global_os ~= 'Horizon' then --go straight to new game
-				hideAll()
-				cl = 1
+			elseif global_os ~= 'Horizon' then --go straight to new game
 				changeState('game',1)
 			end
 		
@@ -179,6 +209,7 @@ function menu_confirm()
 			menu_enable('loadgame')
 			
 		elseif m_selected == 4 then --settings
+			pagenum = 1
 			menu_enable('settings')
 		
 		elseif m_selected == 5 then --help
@@ -192,7 +223,7 @@ function menu_confirm()
 	elseif menu_type == 'loadgame' then --load game confirm 
 		if player ~= '' then
 			savenumber = savenum[m_selected-1]
-			if love.filesystem.isFile('save'..savenumber..'.sav') then
+			if love.filesystem.isFile('save'..savenumber..'-'..persistent.ptr..'.sav') then
 				changeState('game',2)
 			else
 				menu_enable(menu_previous)
@@ -216,6 +247,7 @@ function menu_confirm()
 		elseif m_selected == 4 then
 			menu_enable('mainyesno')
 		elseif m_selected == 5 then
+			pagenum = 1
 			menu_enable('settings')
 		elseif m_selected == 6 then
 			menu_enable('help')
@@ -246,7 +278,7 @@ function menu_confirm()
 			menu_enable('pause')
 		end
 		
-	elseif menu_type == 'settings' then
+	elseif menu_type == 'settings' and pagenum == 1 then
 		if m_selected == 2 or m_selected == 5 then
 			menu_keypressed('left')
 		elseif m_selected == 6 then
@@ -256,12 +288,20 @@ function menu_confirm()
 			menu_enable(menu_previous)
 		end
 		
-	elseif menu_type == 'settings2' then
-		if m_selected == 2 or m_selected == 3 then
+	elseif menu_type == 'settings' and pagenum == 2 then
+		if m_selected == 2 then
 			menu_keypressed('left')
-		elseif m_selected == 4 then
-			menu_enable('characters')
+		else
+			savesettings()
+			menu_enable(menu_previous)
+		end
+		
+	elseif menu_type == 'settings2' then
+		if m_selected <= 4 then
+			menu_keypressed('left')
 		elseif m_selected == 5 then
+			menu_enable('characters')
+		elseif m_selected == 6 then
 			savesettings()
 			menu_enable(menu_previous)
 		end
@@ -344,7 +384,7 @@ function menu_keypressed(key)
 		menu_previous = nil
 		
 	elseif key == 'left' or key == 'cpadleft' then
-		if menu_type == 'settings' and m_selected <= 5 then
+		if menu_type == 'settings' and m_selected <= 5 and pagenum == 1 then
 			if cpick == 'Textbox Location' then
 				if settings.textloc == 'Bottom' then
 					settings.textloc = 'Top'
@@ -369,7 +409,16 @@ function menu_keypressed(key)
 				end
 			end
 			
-		elseif menu_type == 'settings2' and m_selected <= 3 then
+		elseif menu_type == 'settings' and m_selected <= 2 and pagenum == 2 then
+			if cpick == 'Char. Animations' then
+				if settings.animh == 0 then
+					settings.animh = 1
+				else
+					settings.animh = 0
+				end
+			end
+			
+		elseif menu_type == 'settings2' and m_selected <= 4 then
 			if cpick == 'Textbox Location' then
 				if settings.textloc == 'Bottom' then
 					settings.textloc = 'Top'
@@ -382,15 +431,17 @@ function menu_keypressed(key)
 				else
 					settings.dtym = 0
 				end
+			elseif cpick == 'Char. Animations' then
+				if settings.animh == 0 then
+					settings.animh = 1
+				else
+					settings.animh = 0
+				end
 			end
-			
-		elseif (menu_type == 'savegame' or menu_type == 'loadgame') and pagenum > 1 then
-			pagenum = pagenum - 1
-			menu_enable(menu_type)
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
-		if menu_type == 'settings' and m_selected <= 5 then
+		if menu_type == 'settings' and m_selected <= 5 and pagenum == 1 then
 			if cpick == 'Textbox Location' then
 				menu_keypressed('left')
 			elseif cpick == 'Text Speed' then
@@ -405,9 +456,23 @@ function menu_keypressed(key)
 				menu_keypressed('left')
 			end
 			
-		elseif menu_type == 'settings2' and m_selected <= 3 then menu_keypressed('left')
+		elseif menu_type == 'settings' and m_selected <= 2 and pagenum == 2 then
+			if cpick == 'Char. Animations' then
+				menu_keypressed('left')
+			end
+			
+		elseif menu_type == 'settings2' and m_selected <= 4 then
+			menu_keypressed('left')
+		end
+	
+	elseif key == 'x' then
+		if (menu_type == 'savegame' or menu_type == 'loadgame' or menu_type == 'settings') and pagenum > 1 then
+			pagenum = pagenum - 1
+			menu_enable(menu_type)
+		end
 		
-		elseif (menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10 then
+	elseif key == 'y' then
+		if ((menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10) or (menu_type == 'settings' and pagenum < 2) then
 			pagenum = pagenum + 1
 			menu_enable(menu_type)
 		end
@@ -433,16 +498,16 @@ function menu_mousepressed()
 		m_select(9)
 	elseif menu_previous and mouseX>=16 and mouseX<=46 and mouseY>=220 and mouseY<=236 then
 		menu_keypressed('b')
-	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' then
+	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' and pagenum == 1 then
 		m_select(3)
 		menu_keypressed('left')
-	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' then
+	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' and pagenum == 1 then
 		m_select(4)
 		menu_keypressed('left')
-	elseif mouseX >= 184 and mouseX <= 201 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' then
+	elseif mouseX >= 184 and mouseX <= 201 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' and pagenum == 1 then
 		m_select(3)
 		menu_keypressed('right')
-	elseif mouseX >= 198 and mouseX <= 215 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' then
+	elseif mouseX >= 198 and mouseX <= 215 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' and pagenum == 1 then
 		m_select(4)
 		menu_keypressed('right')
 	end

@@ -27,38 +27,47 @@ function changeState(cstate,x)
 		state = 'game'
 		menu_enabled = false
 	elseif cstate == 'game' and x == 1 then --new game
+		hideAll()
 		if persistent.ptr == 0 then 
 			chapter = 0
+			if cl < 10000 then cl = 1 end
 		elseif persistent.ptr == 1 then
 			chapter = 10
+			cl = 1
 		else
 			chapter = 20
+			cl = 1
 		end
 		state = 'game'
 		menu_enabled = false
 	elseif cstate == 'game' and x == 2 then --load game
 		hideAll()
 		loadgame()
-		if data_ptr ~= persistent.ptr then --default to new game/title when loading a save from different act
-			changeState('title')
-			menutext = 'Save File '..savenumber..' could not be loaded.'
+		if audio1 == '4' then
+			alpha = 20
 		else
-			if audio1 == '4' then
-				alpha = 20
-			else
-				loadAll()
-				bgUpdate(bg1, true)
-				audioUpdate(audio1, true)
-				cgUpdate(cg1, true)
-			end
-			state = 'game'
-			poem_enabled = false
-			menu_enabled = false
+			loadAll()
+			bgUpdate(bg1, true)
+			audioUpdate(audio1, true)
+			cgUpdate(cg1, true)
 		end
+		state = 'game'
+		poem_enabled = false
+		menu_enabled = false
 	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
 		cl = cl + 2
 		state = 'game'
 		alpha = 255
+	elseif cstate == 'game' and x == 'autoload' then
+		hideAll()
+		loadgame('autoload')
+		loadAll()
+		bgUpdate(bg1, true)
+		audioUpdate(audio1, true)
+		cgUpdate(cg1, true)
+		state = 'game'
+		poem_enabled = false
+		menu_enabled = false
 	elseif cstate == 'newgame' then --first time newgame
 		cl = 10016
 		state = 'newgame'
