@@ -129,9 +129,7 @@ function poemgame()
 	nPoint = 0
 	yPoint = 0
 	
-	s_y = 100
-	n_y = 100
-	y_y = 100
+	s_y = 100; n_y = 100; y_y = 100; p_y = 100
 	y_velocity = 0
 	
 	math.randomseed(os.time())
@@ -344,7 +342,7 @@ function poemgamekeypressed(key)
 		menuselect()
 	end
 	
-	if key == 'a' then
+	if key == 'a' or key == 'lbutton' then
 		if xaload >= 35 then
 			if poemstate == 0 then
 				poemstate = nil

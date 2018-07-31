@@ -8,7 +8,7 @@ function ch30script()
 	audioUpdate('0')
 	event_initstart('ch23-30')
 	m "..."
-	if xaload == 0 then savegame() end
+	if xaload == 0 then savegame('autoload') end
 	elseif cl == 3 then
     m "Uh, can you hear me?"
 	elseif cl == 4 then

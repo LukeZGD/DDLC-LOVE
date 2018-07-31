@@ -783,7 +783,7 @@ function ch1_end_natsuki()
 	elseif cl == 1063 then
 		cw('mc',"I'm sure she appreciated it, Sayori.")
 	elseif cl == 1064 then
-		cw('s',"I pat Sayori on the shoulder.")
+		cw('bl',"I pat Sayori on the shoulder.")
 	elseif cl == 1065 then
 		hideSayori()
 		hideNatsuki()
