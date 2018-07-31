@@ -125,7 +125,7 @@ function ch2_y_end()
 			end
 		end
 		if cl >= 749 then
-			if Yuri_appeal >= 2 then
+			if appeal.y >= 2 then
 				if cl == 749 then
 					updateYuri('2','s')
 					cw('y',"You're good at a lot of things...")
@@ -563,7 +563,7 @@ function ch3_y_end()
 	if cl < 768 and cl ~= 666 then
 		scriptJump(768)
 	elseif cl >= 768 then
-		if Yuri_appeal >= 3 then
+		if appeal.y >= 3 then
 			ch3_y_end_special()
 		else
 			if cl == 768 then
@@ -581,7 +581,7 @@ function ch3_y_end()
 			elseif cl == 773 then
 				cw('y',"But I did my best to take a metaphorical approach to it.")
 			elseif cl >= 774 then
-				if readpoem.n == 0 or Natsuki_appeal >= 3 then
+				if readpoem.n == 0 or appeal.n >= 3 then
 					if cl == 774 then
 						cw('mc',"You say that like you didn't even want to write about it...")
 					elseif cl == 775 then
@@ -1486,7 +1486,7 @@ function ch2_n_end()
 	elseif cl == 794 then
 		cw('mc',"Even if her writing style is really different, I'm sure she'll appreciate the message in your poem.")
 	elseif cl >= 795 then
-		if Natsuki_appeal >= 2 then
+		if appeal.n >= 2 then
 			if cl == 795 then
 				updateNatsuki('4','h')
 				cw('n',"You know...")
@@ -2121,7 +2121,7 @@ function ch3_n_end()
 	if cl < 754 then
 		scriptJump(754)
 	elseif cl >= 754 then
-		if Natsuki_appeal >= 3 then
+		if appeal.n >= 3 then
 			ch3_n_end_special()
 		else
 			if cl == 754 then
@@ -2145,13 +2145,13 @@ function ch3_n_end()
 				updateNatsuki('2','j')
 				cw('n',"Kinda hard to write anything negative about the beach.")
 			elseif cl == 762 then
-				if readpoem.y == 0 or Yuri_appeal >= 3 then
+				if readpoem.y == 0 or appeal.y >= 3 then
 					cw('mc',"So you decided to write about the beach first, and then came up with the message later?")
 				else
 					cw('mc',"Well, Yuri's take on it was a little more solemn.")
 				end
 			elseif cl == 763 then
-				if readpoem.y == 0 or Yuri_appeal >= 3 then	
+				if readpoem.y == 0 or appeal.y >= 3 then	
 					updateNatsuki('2','c')
 					cw('n',"Yeah, well...")
 				else
@@ -2159,21 +2159,21 @@ function ch3_n_end()
 					cw('n',"Well, that's--")
 				end
 			elseif cl == 764 then
-				if readpoem.y == 0 or Yuri_appeal >= 3 then
+				if readpoem.y == 0 or appeal.y >= 3 then
 					cw('n',"It's only because of what happened yesterday.")
 				else
 					updateNatsuki('4','2c')
 					cw('n',"Jeez...she better not have said anything bad about mine!")
 				end
 			elseif cl == 765 then
-				if readpoem.y == 0 or Yuri_appeal >= 3 then
+				if readpoem.y == 0 or appeal.y >= 3 then
 					updateNatsuki('5','q')
 					cw('n',"I mean, after Yuri and I realized we kind of wrote about the same thing...")
 				else
 					cw('n',"After all, she was the one who wanted us to write about the same topic.")
 				end
 			elseif cl == 766 then
-				if readpoem.y == 0 or Yuri_appeal >= 3 then
+				if readpoem.y == 0 or appeal.y >= 3 then
 					cw('n',"She wanted to pick a topic and have us both write about it, or whatever.")
 				else
 					scriptJump(770)

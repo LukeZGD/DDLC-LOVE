@@ -946,10 +946,8 @@ function ch23_y_good()
 	elseif cl == 701 then
     y "I wrote it for you!"
 	elseif cl == 702 then
-	if xaload <= 3 then
-		event_end('yuri_eyes')
-		event_start('show_darkred')
-	end
+	event_end('yuri_eyes')
+	event_start('show_darkred')
 	updateYuri('1','b')
 	cw('y',"In case you couldn't tell, the poem is about "..gtext80)
 	elseif cl == 703 then

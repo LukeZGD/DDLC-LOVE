@@ -452,11 +452,11 @@ end
 function ch22_end()
 	if cl == 1446 then
 	hideAll()
+	audioUpdate('0')
 	fadeOut(4)
 	elseif cl == 1447 then
 	cl = 1446
 	elseif cl == 1448 then
-    audioUpdate('0')
 	bgUpdate('black')
 	menutext = 'You have unlocked a special poem.\nWould you like to read it?'
 	choices = {'Yes','No'}
