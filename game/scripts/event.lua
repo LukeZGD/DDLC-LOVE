@@ -9,88 +9,6 @@ local eventvar6 = 0
 local animframe
 local animtimer = 0
 
-function event_init(etype,arg1,arg2)
-	if xaload == 1 then
-		if etype == 's_kill' then --Sayo-nara.... load sprites
-			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
-			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
-			s_killzoom = love.graphics.newImage('images/cg/s_kill/s_killzoom.png')
-			s_kill_bg = love.graphics.newImage('images/cg/s_kill/s_kill_bg.png')
-			s_kill_bg2 = love.graphics.newImage('images/cg/s_kill/s_kill_bg2.png')
-			s_kill_bgzoom = love.graphics.newImage('images/cg/s_kill/s_kill_bgzoom.png')
-			splash_glitch = love.graphics.newImage('images/bg/splash-glitch.png')
-			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
-		elseif etype == 'endscreen' then
-			if arg1 == 'flipped' then
-				bgch = love.graphics.newImage('images/gui/endflipped.png')
-			else
-				bgch = love.graphics.newImage('images/gui/end.png')
-			end
-		elseif etype == 's_glitch' then
-			s_glitch1 = love.graphics.newImage('images/sayori/glitch1.png')
-			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
-		elseif etype == 'm_glitch1' then
-			ml = love.graphics.newImage('images/monika/g2.png')
-		elseif etype == 'n_glitch1' then
-			nl = love.graphics.newImage('images/natsuki/glitch1.png')
-		elseif etype == 'n_blackeyes' then
-			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
-		elseif etype == 'ny_argument' then
-			vignette = love.graphics.newImage('images/bg/vignette.png')
-			loadNoise()
-		elseif etype == 'ny_argument2' then
-			ml = love.graphics.newImage('images/monika/ac.png')
-		elseif etype == 'yuri_glitch' then
-			loadYuriGlitch()
-		elseif etype == 'show_vignette' then
-			loadVignette()
-		elseif etype == 'yuri_eyes' then
-			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
-			eyes2 = love.graphics.newImage('images/yuri/eyes2.png')
-		elseif etype == 'yuri_glitch_head' then
-			animframe1 = love.graphics.newImage('images/yuri/za.png')
-			animframe2 = love.graphics.newImage('images/yuri/zb.png')
-			animframe3 = love.graphics.newImage('images/yuri/zc.png')
-			animframe4 = love.graphics.newImage('images/yuri/zd.png')
-		elseif etype == 'yuri_ch23' then
-			bg_glitch = love.graphics.newImage('images/bg/glitch.png')
-			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
-			loadYuriGlitch()
-		elseif etype == 'm_ch23ex' then
-			ex3top = love.graphics.newImage('images/gui/ex3top.png')
-			ex3bottom = love.graphics.newImage('images/gui/ex3bottom.png')
-		elseif etype == 'just_monika' then
-			if arg1 == 'ch30' then
-				splash = love.graphics.newImage('images/bg/splash-glitch2.png')
-			else
-				splash = love.graphics.newImage('images/bg/splash.png')
-			end
-		elseif etype == 'natsuki_ch22' then
-			ghost_blood = love.graphics.newImage('images/natsuki/ghost_blood.png')
-			ghost3 = love.graphics.newImage('images/natsuki/ghost3.png')
-			ghost3_1 = love.graphics.newImage('images/natsuki/ghost3-1.png')
-			ghost3_2 = love.graphics.newImage('images/natsuki/ghost3-2.png')
-			ghost3_3 = love.graphics.newImage('images/natsuki/ghost3-3.png')
-		elseif etype == 'yuri_kill' then
-			stab1 = love.graphics.newImage('images/yuri/stab/1.png')
-			stab2 = love.graphics.newImage('images/yuri/stab/2.png')
-			stab3 = love.graphics.newImage('images/yuri/stab/3.png')
-			stab4 = love.graphics.newImage('images/yuri/stab/4.png')
-			stab5 = love.graphics.newImage('images/yuri/stab/5.png')
-			stab6 = love.graphics.newImage('images/yuri/stab/6.png')
-			stab6f = love.graphics.newImage('images/yuri/stab/6-full.png')
-		end
-		if arg1 == 'show_noise' then
-			loadNoise()
-			eventvar4 = 'show_noise'
-		elseif arg1 == 'show_vignette' then
-			loadVignette()
-		elseif arg1 == 'show_darkred' then
-			eventvar4 = 'show_darkred'
-		end
-	end
-end
-
 function loadNoise()
 	animframe1 = love.graphics.newImage('images/bg/noise1.png')
 	animframe2 = love.graphics.newImage('images/bg/noise2.png')
@@ -109,12 +27,9 @@ function loadYuriGlitch()
 	animframe4 = love.graphics.newImage('images/yuri/glitch4.png')
 end
 
-function event_initstart(etype,arg1,arg2)
-	event_init(etype,arg1,arg2)
-	if xaload > 1 then event_start(etype,arg1,arg2) end
-end
-
 function event_start(etype, arg1)
+	autotimer = 0
+	autoskip = 0
 	event_enabled = true
 	event_type = etype
 	if event_type == 's_kill_start' then
@@ -131,8 +46,10 @@ function event_start(etype, arg1)
 	elseif event_type == 'wipe' then
 		hideAll()
 		textbox_enabled = false
-		if arg1 then eventvar2 = arg1 
-		else eventvar2 = nil 
+		if arg1 then
+			eventvar2 = arg1
+		else
+			eventvar2 = nil
 		end
 	elseif event_type == 'black' then
 		textbox_enabled = true
@@ -192,6 +109,13 @@ function event_start(etype, arg1)
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
+	end
+	if arg1 == 'show_noise' then
+		eventvar4 = 'show_noise'
+	elseif arg1 == 'show_vignette' then
+		eventvar4 = 'show_vignette'
+	elseif arg1 == 'show_darkred' then
+		eventvar4 = 'show_darkred'
 	end
 end
 
@@ -318,7 +242,7 @@ function event_draw()
 		love.graphics.draw(bgch)
 		if eyes1 then love.graphics.draw(eyes1,-13) end
 		if eyes2 then love.graphics.draw(eyes2,eventvar2,eventvar3) end
-		if cl < 701 then
+		if cl <= 701 then
 			love.graphics.setColor(32,0,0,192)
 		else
 			love.graphics.setColor(0,0,0,192)
@@ -683,7 +607,7 @@ function event_update(dt)
 		end
 		if eventvar2 > -12 then eventvar2 = math.random(-14,-12) end
 		if cl >= 1439 then
-			if xaload > 450 and cl == 1442 then
+			if xaload > 125 and cl == 1442 then
 				event_end('yuri_eyes')
 			elseif xaload > 450 then
 				textbox_enabled = true
@@ -718,7 +642,13 @@ function event_update(dt)
 		end
 	end
 	
-	if event_type == 'show_darkred' then eventvar2 = math.min(eventvar2 + 0.1, 128) end
+	if event_type == 'show_darkred' then
+		if cl > 1000 then
+			eventvar2 = math.min(eventvar2 + 0.1, 128)
+		else
+			eventvar2 = 192
+		end
+	end
 	
 	if event_type == 'yuri_ch23' and textbox_enabled == false then
 		if event_timer >= 5.5 then 
@@ -848,6 +778,8 @@ function event_endnext()
 	cl = cl + 1
 	xaload = 0
 	unitimer = 0
+	collectgarbage()
+	collectgarbage()
 end
 
 function event_keypressed(key)
@@ -863,10 +795,6 @@ function event_end(arg1)
 	event_timer = 0
 	textbox_enabled = true
 	bgimg_disabled = false
-	
-	if event_type == 'wipe' then
-		eventvar2 = nil
-	end
 	
 	if arg1 == 's_kill' then
 		s_kill = nil

@@ -285,9 +285,10 @@ I don't want anything bad to happen to her. I'll make you cupcakes if I have to.
 please try to do something.
 
 As for Monika... I don't know why, but she's been really dismissive about this. It's like
-she just wants us to ignore it. So I'm mad at her right now, and that's why I'm coming to
-you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you a
-really good poem, okay? I'm counting on you. Thanks for reading.]]
+she just wants us to ignore it. So I'm mad at her right now, and that's why I'm
+coming to you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just
+pretend like I gave you a really good poem, okay? I'm counting on you.
+Thanks for reading.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[

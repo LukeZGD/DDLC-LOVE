@@ -916,7 +916,6 @@ function yuri_kill()
 	elseif cl == 3481 then
 	event_end()
 	console_enabled = false
-	settings.textspd = 50
 	persistent.ptr = 3
 	data_ptr = 3
 	chapter = 30

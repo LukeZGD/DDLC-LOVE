@@ -1,5 +1,6 @@
 local skipspeed = 4
 local audiotell = 0
+local skip_rbtn = false
 
 function drawGame()
 	if autotimer > 0 or autoskip > 0 then
@@ -40,7 +41,11 @@ function drawGame()
 	if autotimer > 0 then 
 		love.graphics.print('Auto-Forward On', 2, 20)
 	elseif autoskip > 0 then
-		love.graphics.print('Skipping >>>', 2, 20)
+		if skip_rbtn then
+			love.graphics.print('Skipping >>> (R)', 2, 20)
+		else
+			love.graphics.print('Skipping >>>', 2, 20)
+		end
 	end
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
@@ -76,13 +81,26 @@ function updateGame(dt)
 	--skipping
 	if global_os ~= 'HorizonNX' and state ~= 'newgame' and event_enabled ~= true then
 		if love.keyboard.isDown('x') then
-			game_skip()
+			if autoskip < 1 then autoskip = 1 end
 		elseif mouseDown and mouseX>=240 and mouseX<=270 then
 			if mouseY<=16 or mouseY>=220 then
-				game_skip()
+				if autoskip < 1 then autoskip = 1 end
 			end
-		elseif mouseDown == false and autoskip > 0 then
-			game_keyreleased('x')
+		elseif mouseDown == false and autoskip > 0 and skip_rbtn == false then
+			autoskip = 0
+		end
+	end
+	
+	if menu_enabled == false and cl ~= 666 then
+		if autoskip > 0 and autoskip < skipspeed then
+			autoskip = autoskip + 1
+		elseif autoskip >= skipspeed then
+			autotimer = 0
+			cl = cl + 1
+			xaload = 0
+			collectgarbage()
+			collectgarbage()
+			autoskip = 1
 		end
 	end
 	
@@ -116,6 +134,17 @@ function game_keypressed(key)
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
+	elseif key == 'rbutton' or key == 'r' then
+		sfx1:play()
+		--[[
+		if autoskip < 1 then
+			autoskip = 1
+			skip_rbtn = true
+		else
+			autoskip = 0
+			skip_rbtn = false
+		end
+		]]
 	else
 		newgame_keypressed(key)
 	end
@@ -129,29 +158,6 @@ function newgame_keypressed(key)
 		unitimer = 0
 		collectgarbage()
 		collectgarbage()
-	end
-end
-
-function game_keyreleased(key)
-	if key == 'x' then --skip disable
-		autoskip = 0
-	end
-end
-
-function game_skip()
-	if menu_enabled == false and cl ~= 666 then
-		if autoskip < 1 then
-			autoskip = 1
-		elseif autoskip > 0 and autoskip < skipspeed then
-			autoskip = autoskip + 1
-		elseif autoskip >= skipspeed then
-			autotimer = 0
-			cl = cl + 1
-			xaload = 0
-			collectgarbage()
-			collectgarbage()
-			autoskip = 1
-		end
 	end
 end
 

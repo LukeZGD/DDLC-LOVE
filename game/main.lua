@@ -9,7 +9,7 @@ require 'scripts.script'
 --end
 
 function love.load() 
-	dversion = 'v0.2.0'
+	dversion = 'v0.2.1'
 	dvertype = 'Release'
 	
 	love.graphics.setBackgroundColor(0,0,0)	
@@ -143,11 +143,8 @@ function love.keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
-end
-
-function love.keyreleased(key)
-	if state == 'game' then
-		game_keyreleased(key)
+	if key == 'lbutton' or key == 'l' then
+		love.keypressed('a')
 	end
 end
 
