@@ -2063,9 +2063,12 @@ function ch2_n_good_sharedwithch3()
 	elseif cl == 746 then
 		cw('n',"Never mind.")
 	elseif cl == 747 then
-		if readpoem.m == 0 then
+		if readpoem.m == 0 and xaload == 1 then
 			poemsread = poemsread + 1
 			readpoem.m = 1
+			for i = 1, #choices do
+				if choices[i] == 'Monika' then table.remove(choices, i) end
+			end
 		end
         if poemsread >= 3 then
             cw('bl',"Well, I guess Natsuki has my poem now.")
