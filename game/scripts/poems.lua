@@ -20,7 +20,8 @@ The Raccoon
 
 It happened in the dead of night while I was slicing bread for a guilty snack.
 My attention was caught by the scuttering of a raccoon outside my window.
-That was, I believe, the first time I noticed my strange tendencies as an unordinary human.
+That was, I believe, the first time I noticed my strange tendencies as an unordinary
+human.
 I gave the raccoon a piece of bread, my subconscious well aware of the consequences.
 Well aware that a raccoon that is fed will always come back for more.
 The enticing beauty of my cutting knife was the symptom.
@@ -287,8 +288,8 @@ please try to do something.
 As for Monika... I don't know why, but she's been really dismissive about this. It's like
 she just wants us to ignore it. So I'm mad at her right now, and that's why I'm
 coming to you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just
-pretend like I gave you a really good poem, okay? I'm counting on you.
-Thanks for reading.]]
+pretend like I gave you a really good poem, okay? I'm counting on you. Thanks
+for reading.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[
@@ -543,7 +544,8 @@ And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 				poembg = love.graphics.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				poembg = love.graphics.newImage('images/bg/poem1.png')
+				poembg = love.graphics.newImage('images/bg/poemxp.png')
+				--poembg = love.graphics.newImage('images/bg/poem1.png')
 				audioUpdate('5_yuri2')
 			else
 				audioUpdate('5_yuri')

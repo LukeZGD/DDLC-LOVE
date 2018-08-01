@@ -332,17 +332,15 @@ function hideMonika()
 end
 
 function hideAll()
-	if x == nil then
-		s_Set.a = ''
-		s_Set.b = ''
-		y_Set.a = ''
-		y_Set.b = ''
-		n_Set.a = ''
-		n_Set.b = ''
-		m_Set.a = ''
-		m_Set.b = ''
-		unloadAll()
-	end
+	s_Set.a = ''
+	s_Set.b = ''
+	y_Set.a = ''
+	y_Set.b = ''
+	n_Set.a = ''
+	n_Set.b = ''
+	m_Set.a = ''
+	m_Set.b = ''
+	unloadAll()
 end
 
 function drawSayori(a,b)

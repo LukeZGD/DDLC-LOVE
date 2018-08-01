@@ -1328,6 +1328,8 @@ function ch2script()
 			choicepick = 's'
 			ch2_end_sayori()
 		end
+		choices = {''}
+		
 	elseif cl == 1973 then
 		cw('bl',"Then again, the festival is only a few days away...")
 	elseif cl == 1974 then
