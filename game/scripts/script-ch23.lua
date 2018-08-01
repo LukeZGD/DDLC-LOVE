@@ -917,12 +917,10 @@ function yuri_kill()
 	event_end()
 	console_enabled = false
 	persistent.ptr = 3
-	data_ptr = 3
 	chapter = 30
 	cl = 1
 	savepersistent()
 	savegame('autoload')
-	savesettings()
-	changeState('game',2)
+	changeState('game','autoload')
 	end
 end
