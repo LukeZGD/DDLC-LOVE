@@ -179,8 +179,7 @@ function poeminitialize(y)
 	else
 		choices = {'Natsuki','Yuri','Monika'}
 	end
-	cl = 666
-	xaload = -1
+	scriptJump(666)
 	autotimer = 0
 	autoskip = 0
 end
