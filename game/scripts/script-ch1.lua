@@ -480,6 +480,7 @@ function ch1script()
 			choicepick = 'Sayori'
 			ch1_end_sayori()
 		end
+		choices = {''}
 		
 	elseif cl == 1092 then
 		updateMonika('4','b',80)
@@ -1050,6 +1051,7 @@ function ch1_end_yuri()
 	elseif cl == 1074 then
 		cw('y',"Y-Yeah.")
 	elseif cl == 1075 then
+		hideAll()
 		scriptJump(1092)
 	end
 end

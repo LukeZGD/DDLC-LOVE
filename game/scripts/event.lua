@@ -254,7 +254,7 @@ function event_draw()
 	
 	if event_type == 'faint_effect' then
 		love.graphics.setColor(255,255,255,alpha)
-		love.graphics.draw(bgch)
+		if bgch then love.graphics.draw(bgch) end
 		drawNatsuki(n_Set.a,n_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
 		drawMonika(m_Set.a,m_Set.b)
@@ -302,6 +302,7 @@ function event_draw()
 	end
 	
 	if event_type == 'm_ch23ex' then
+		love.graphics.setColor(255,255,255,255)
 		if event_timer > 1 then
 			love.graphics.draw(ex3top)
 		end
@@ -486,7 +487,7 @@ function event_update(dt)
 		if posX <= -80 then posX = 0 end
 		if posY <= -80 then posY = 0 end
 		
-		if event_timer >= 21.11 then
+		if event_timer >= 21.05 then
 			audioUpdate('d')
 			textbox_enabled = true
 			
@@ -521,6 +522,7 @@ function event_update(dt)
 	if event_type == 's_glitch' then
 		if event_timer > 7 then
 			persistent.ptr = 2
+			sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 			savepersistent()
 			chapter = 20
 			cl = 1
@@ -609,7 +611,7 @@ function event_update(dt)
 		if cl >= 1439 then
 			if xaload > 125 and cl == 1442 then
 				event_end('yuri_eyes')
-			elseif xaload > 450 then
+			elseif xaload > 125 then
 				textbox_enabled = true
 			else
 				textbox_enabled = false

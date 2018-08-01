@@ -28,15 +28,16 @@ function changeState(cstate,x)
 		menu_enabled = false
 	elseif cstate == 'game' and x == 1 then --new game
 		hideAll()
+		cl = 1
 		if persistent.ptr == 0 then 
 			chapter = 0
-			if cl < 10000 then cl = 1 end
+			if persistent.chr.m == 0 then
+				cl = 10001
+			end
 		elseif persistent.ptr == 1 then
 			chapter = 10
-			cl = 1
 		else
 			chapter = 20
-			cl = 1
 		end
 		state = 'game'
 		menu_enabled = false

@@ -190,17 +190,15 @@ function menu_confirm()
 	if menu_type == 'title' then --title screen options
 		menu_previous = 'title'
 		
+		--set player name to MC if not on 3DS
 		if global_os ~= 'Horizon' then
 			player = 'MC'
 		end
 		
 		if m_selected == 2 then --new game
-			if persistent.chr.m == 0 and persistent.ptr == 0 then --set up early act 1 end
-				menu_enabled = false
-				changeState('game',1)
-			elseif player == '' and global_os == 'Horizon' then --keyboard input for player name
+			if player == '' and global_os == 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
-			elseif global_os ~= 'Horizon' then --go straight to new game
+			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
 			end
 		
@@ -214,21 +212,18 @@ function menu_confirm()
 		
 		elseif m_selected == 5 then --help
 			menu_enable('help')
-			m_select()
 			
 		elseif m_selected == 6 then --quit
 			game_quit()
 		end
 		
-	elseif menu_type == 'loadgame' then --load game confirm 
-		if player ~= '' then
-			savenumber = savenum[m_selected-1]
-			if love.filesystem.isFile('save'..savenumber..'-'..persistent.ptr..'.sav') then
-				changeState('game',2)
-			else
-				menu_enable(menu_previous)
-				menutext = 'Save File '..savenumber..' does not exist.'
-			end
+	elseif menu_type == 'loadgame' then --load game confirm
+		savenumber = savenum[m_selected-1]
+		if love.filesystem.isFile('save'..savenumber..'-'..persistent.ptr..'.sav') then
+			changeState('game',2)
+		else
+			menu_enable(menu_previous)
+			menutext = 'Save File '..savenumber..' does not exist.'
 		end
 		
 	elseif menu_type == 'savegame' then  --save game confirm 
@@ -289,7 +284,7 @@ function menu_confirm()
 		end
 		
 	elseif menu_type == 'settings' and pagenum == 2 then
-		if m_selected == 2 then
+		if m_selected <= 3 then
 			menu_keypressed('left')
 		else
 			savesettings()
@@ -308,7 +303,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'characters' then
 		if m_selected == 2 then
-			if persistent.chr.m ~= 2 or (persistent.chr.m == 2 and chapter >= 30) then
+			if persistent.chr.m < 2 or (persistent.chr.m == 2 and chapter >= 30) then
 				persistent.chr.m = 0
 			end
 		elseif m_selected == 4 then
@@ -319,7 +314,9 @@ function menu_confirm()
 			if persistent.ptr == 0 then
 				persistent.chr.s = 1
 			end
-			persistent.chr.m = 1
+			if persistent.chr.m < 2 then
+				persistent.chr.m = 1
+			end
 		end
 		savepersistent()
 		menu_enable(menu_previous)

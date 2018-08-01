@@ -735,7 +735,7 @@ function ch3_y_end_special()
 		cw('mc',"I'd love to.")
 	elseif cl == 801 then
 		updateYuri('1','u')
-		cw('y',"Again, Yuri faintly smiles, as if she doesn't want me to notice.")
+		cw('bl',"Again, Yuri faintly smiles, as if she doesn't want me to notice.")
 	elseif cl == 802 then
 		cw('y',"You always...")
 	elseif cl == 803 then
@@ -834,7 +834,7 @@ function ch3_y_bad()
 		elseif cl == 697 then
 			cw('mc',"But some things are just worth taking at face value.")
 		elseif cl == 698 then
-			updateYuri('4','b')
+			updateYuri('4','b2')
 			cw('y',"I just...")
 		elseif cl == 699 then
 			cw('y',"I've gotten so used to it...")
@@ -4248,24 +4248,23 @@ end
 
 function ch3_m_end()
 	if cl == 730 then
-	elseif cl == 731 then
 		updateMonika('1','a')
 		cw('m',"Anyway...!")
-	elseif cl == 732 then
+	elseif cl == 731 then
 		cw('m',"I'll share my poem with you now, alright?")
-	elseif cl == 733 then
+	elseif cl == 732 then
 		cw('m',"Er...")
-	elseif cl == 734 then
+	elseif cl == 733 then
 		cw('mc',"Alright...")
-	elseif cl == 735 then
+	elseif cl == 734 then
 		poem('poem_m3','monika')
-	elseif cl == 736 then
+	elseif cl == 735 then
 		poem('poem_m3-a','monika',1)
-	elseif cl == 737 then
+	elseif cl == 736 then
 		poem('poem_m3-b','monika',1)
-	elseif cl == 738 then
+	elseif cl == 737 then
 		poem('poem_m3-c','monika',1)
-	elseif cl == 739 then
+	elseif cl == 738 then
 		scriptJump(740)
 	elseif cl == 740 then
 		poem_disable()

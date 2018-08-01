@@ -2,6 +2,7 @@ local m_chance = math.random(0, 2)
 appeal = {s=0,n=0,y=0}
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
+poemwinner = {'','',''}
 savevalue = ''
 
 function ch20script()
