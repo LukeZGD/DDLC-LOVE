@@ -465,7 +465,7 @@ function ch22_end()
 	if choicepick == 'Yes' then
 		changeState('poem_special',sp[2])
 	else
-		scriptJump(1449)
+		scriptJump(1450)
 	end
 	
 	elseif cl == 1450 then

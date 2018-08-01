@@ -1,3 +1,6 @@
+local help_monika
+local help_sayori
+
 function ch3script()
 	if cl == 1977 then
 		bgUpdate('club')
@@ -163,8 +166,9 @@ function ch3script()
 		cw('mc',"If you say so.")
 	elseif cl == 2042 then
 		hideSayori()
-	elseif cl == 2043 then
 		cw('bl',"I worriedly glance at Sayori before turning back toward everyone else.")
+	elseif cl == 2043 then
+		scriptJump(2044)
 	elseif cl == 2044 then
 		cw('bl',"But the conversation has already dispersed, with everyone back at their usual activities.")
 	elseif cl == 2045 then
@@ -1089,6 +1093,7 @@ function ch3_end()
         elseif choicepick == "Sayori..." then
             ch3_end_sayori()
 		end
+		choices = {''}
 	
 	elseif cl == 2386 then
 		hideAll()

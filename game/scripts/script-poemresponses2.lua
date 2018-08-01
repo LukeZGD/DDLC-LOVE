@@ -852,6 +852,7 @@ function ch23_y_good()
 	if cl == 670 then
 	updateYuri('1','d')
     y "Finally..."
+	poemwinner = {'','',''}
 	elseif cl == 671 then
 	updateYuri('3','y5')
     y "Ahaha..."
@@ -937,9 +938,11 @@ function ch23_y_good()
 	yuri_3 = true
 	poem('','yuri')
 	elseif cl == 698 then
-	poem('','yuri',2)
+	--poem('','yuri',2)
+	poem('','yuri',1)
 	elseif cl == 699 then
-	poem('','yuri',3)
+	--poem('','yuri',3)
+	poem('','yuri',1)
 	elseif cl == 700 then
 	poem_disable(-1)
 	y "Do you like it??"
@@ -1222,7 +1225,7 @@ function ch23_m_end()
 			savepersistent()
 		end
 	elseif cl == 739 then
-		event_start('m_ch23ex')
+		if xaload < 3 then event_start('m_ch23ex') end
 		audioUpdate('0')
 	elseif cl == 740 then
 		cw('m',"Jeez! That really startled me!",'fast')

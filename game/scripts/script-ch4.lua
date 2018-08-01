@@ -1,8 +1,8 @@
 function ch4script()
 	if cl >= 2397 then
 		scriptJump(1)
+		audioUpdate('6',true)
 	elseif cl == 1 then
-		audioUpdate('6')
 		bgUpdate('residential')
 		cw('bl',"It's already Sunday.")
 	elseif cl > 1 and cl < 10 then
@@ -355,7 +355,7 @@ function ch4script()
 		cw('mc',"That's what I'll do.")
 	elseif cl == 146 then
 		updateSayori('1b','d')
-		cw('mc',"No, "..player..".")
+		cw('s',"No, "..player..".")
 	elseif cl == 147 then
 		cw('s',"There's nothing.")
 	elseif cl == 148 then
@@ -368,7 +368,7 @@ function ch4script()
 	elseif cl == 151 then
 		cw('s',"I finally showed you what a horrible person I am.")
 	elseif cl == 152 then
-		cw('s',"Tears streak down Sayori's face.")
+		cw('bl',"Tears streak down Sayori's face.")
 	elseif cl == 153 then
 		updateSayori('1b','v')
 		cw('s',"I made you join the literature club because I was selfish.")
@@ -429,7 +429,7 @@ function ch4script()
 	elseif cl == 179 then
 		cw('s',"I...")
 	elseif cl == 180 then
-		cw('s',"Sayori barely manages to speak between her sobs.")
+		cw('bl',"Sayori barely manages to speak between her sobs.")
 	elseif cl == 181 then
 		cw('bl',"I don't know if I'm doing the right thing.")
 	elseif cl == 182 then
@@ -1605,7 +1605,7 @@ function ch4_exclusive_yuri()
 	elseif cl == 321 then
 		cw('bl',"Yuri rummages through her bag.")
 	elseif cl == 322 then
-		cw('bl',"She pulls out a few candles and a wooden cylinder-shaped object.")
+		cw('bl',"She pulls out a few candles and a wooden cylinder-   shaped object.")
 	elseif cl == 323 then
 		cw('y',"I did some shopping on the way here, so I happen to have these in my bag.")
 	elseif cl == 324 then
@@ -2618,7 +2618,7 @@ function ch4_end()
 	elseif cl == 767 then
 		cw('mc',"I don't want you to hurt anymore.")
 	elseif cl == 768 then
-		cw('mc',"I slide my hand down Sayori's arm and squeeze her hand in my own.")
+		cw('bl',"I slide my hand down Sayori's arm and squeeze her hand in my own.")
 	elseif cl == 769 then
 		cw('mc',"Do you remember how I said I always know what's best for you?")
 	elseif cl == 770 then
