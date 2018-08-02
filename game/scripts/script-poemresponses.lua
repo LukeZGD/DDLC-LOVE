@@ -1,13 +1,5 @@
 function poemresponses()
 	if cl == 666 then
-		if xaload == 2 and poemsread == 0 then
-			if persistent.ptr == 0 then
-				script_poemresponsesx = require 'scripts.script-poemresponses1'
-			else
-				script_poemresponsesx = require 'scripts.script-poemresponses2'
-			end
-		end
-		
 		audioUpdate('5')
 		--set up menutext
 		if poemsread == 0 then
