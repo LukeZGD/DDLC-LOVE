@@ -6,7 +6,7 @@ function drawLoad()
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',0,0,400,240)
 	love.graphics.setColor(255,255,255)
-	love.graphics.print(err)
+	love.graphics.print(err,5,5)
 	drawBottomScreen()
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',-40,0,400,240)
@@ -45,7 +45,6 @@ function updateLoad()
 		end
 		
 	elseif l_timer == 99 then
-		l_timer = 99
 		local file = love.filesystem.isFile('persistent')
 		if file then
 			checkLoad()
@@ -54,7 +53,6 @@ function updateLoad()
 		end
 	elseif l_timer == 100 then
 		love.graphics.setBackgroundColor(255,255,255)
-		l_timer = 100
 		alpha = math.max(alpha - 5, 0)
 		if alpha == 0 then
 			changeState('splash')
@@ -69,7 +67,7 @@ function checkLoad()
 	
 	local ghostmenu_chance = math.random(0, 63)
 	if persistent.playthrough or settings.animh == nil then
-		err = 'Error!\nOld save files detected, and are not compatible with this version.\nPlease delete all save files and try again.\n\nPress Y to quit'
+		err = 'Error!\nOld save data detected, and it is not compatible with this version.\n\nDeleting save data: Delete everything in here\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then

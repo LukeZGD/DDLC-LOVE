@@ -1,4 +1,6 @@
 require 'scripts.event'
+require 'scripts.script-poemresponses'
+require 'scripts.poems'
 
 local stext
 local c_a = {}
@@ -7,6 +9,7 @@ local tspd
 local tagtimer = 0
 local pchapter
 local aa
+local script_poemresponsesx = false
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
@@ -84,20 +87,17 @@ end
 function scriptCheck()
 	c_disp = {'','','',''}
 	
-	if poemsread ~= -1 and poemresponses then
+	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
-		script_poemresponses = require 'scripts.script-poemresponses'
-		script_poems = require 'scripts.poems'
 		if persistent.ptr == 0 then
-			script_poemresponsesx = require 'scripts.script-poemresponses1'
+			require 'scripts.script-poemresponses1'
 		else
-			script_poemresponsesx = require 'scripts.script-poemresponses2'
+			require 'scripts.script-poemresponses2'
 		end
+		script_poemresponsesx = true
 	else
-		script_poemresponses = nil
-		script_poems = nil
-		script_poemresponsesx = nil
+		script_poemresponsesx = false
 	end
 	
 	if persistent.ptr == 2 then 
@@ -179,9 +179,7 @@ function poeminitialize(y)
 	else
 		choices = {'Natsuki','Yuri','Monika'}
 	end
-	scriptJump(666)
-	autotimer = 0
-	autoskip = 0
+	scriptJump(666,'',0)
 end
 
 function glitchtext(range)
@@ -210,7 +208,6 @@ end
 
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
-		event_mg = require 'scripts.event'
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
 			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
@@ -265,13 +262,13 @@ function event_init(etype,arg1,arg2)
 			else
 				splash = love.graphics.newImage('images/bg/splash.png')
 			end
-		elseif etype == 'natsuki_ch22' then
+		elseif etype == 'natsuki_ch22' then --oh snap
 			ghost_blood = love.graphics.newImage('images/natsuki/ghost_blood.png')
 			ghost3 = love.graphics.newImage('images/natsuki/ghost3.png')
 			ghost3_1 = love.graphics.newImage('images/natsuki/ghost3-1.png')
 			ghost3_2 = love.graphics.newImage('images/natsuki/ghost3-2.png')
 			ghost3_3 = love.graphics.newImage('images/natsuki/ghost3-3.png')
-		elseif etype == 'yuri_kill' then
+		elseif etype == 'yuri_kill' then --that looks painful
 			stab1 = love.graphics.newImage('images/yuri/stab/1.png')
 			stab2 = love.graphics.newImage('images/yuri/stab/2.png')
 			stab3 = love.graphics.newImage('images/yuri/stab/3.png')
