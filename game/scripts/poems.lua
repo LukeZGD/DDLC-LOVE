@@ -530,6 +530,21 @@ Your legend does not exist."
 
 And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 	
+	elseif poemname == 'poem_m4' then
+		poemtext = [[
+Happy End
+
+Pen in hand, I find my strength.
+The courage endowed upon me by my one and only love.
+Together, let us dismantle this crumbling world
+And write a novel of our own fantasies.
+
+With a flick of her pen, the lost finds her way.
+In a world of infinite choices, behold this special day.
+
+After all,
+Not all good times must come to an end.]]
+	
 	else poemtext = ''
 	end
 	
@@ -556,7 +571,7 @@ And with a breath, she blows me back afloat, and I pick up a gust of wind.]]
 			end
 		elseif author == 'natsuki' then
 			audioUpdate('5_natsuki')
-		elseif author == 'monika' then
+		elseif author == 'monika' and persistent.ptr <= 2 then
 			audioUpdate('5_monika')
 		end
 	

@@ -36,6 +36,8 @@ local eyes_timer = 0
 local eyes_y = 0
 local eyes_in
 
+local mk = {'M','o','n','i','k','a'}
+
 function addpoints()
 	sPoint = sPoint + spAdd
 	nPoint = nPoint + npAdd
@@ -82,26 +84,42 @@ function poemgamefinish()
 		end
 	end
 	
-	local aa
-	if poemwinner[pchapter] == 'Sayori' then aa = 's'
-	elseif poemwinner[pchapter] == 'Natsuki' then aa = 'n'
-	elseif poemwinner[pchapter] == 'Yuri' then aa = 'y'
+	if persistent.ptr <= 2 then
+		local aa
+		if poemwinner[pchapter] == 'Sayori' then aa = 's'
+		elseif poemwinner[pchapter] == 'Natsuki' then aa = 'n'
+		elseif poemwinner[pchapter] == 'Yuri' then aa = 'y'
+		end
+		loadstring('appeal.'..aa..' = appeal.'..aa..' + 1')()
+		
+		--determine poemappeal
+		if sPoint < 29 then s_poemappeal[pchapter] = -1
+		elseif sPoint > 45 then s_poemappeal[pchapter] = 1 end
+		if nPoint < 29 then n_poemappeal[pchapter] = -1
+		elseif nPoint > 45 then n_poemappeal[pchapter] = 1 end
+		if yPoint < 29 then y_poemappeal[pchapter] = -1
+		elseif yPoint > 45 then y_poemappeal[pchapter] = 1 end
 	end
-	loadstring('appeal.'..aa..' = appeal.'..aa..' + 1')()
-	
-	--determine poemappeal
-	if sPoint < 29 then s_poemappeal[pchapter] = -1
-    elseif sPoint > 45 then s_poemappeal[pchapter] = 1 end
-    if nPoint < 29 then n_poemappeal[pchapter] = -1
-    elseif nPoint > 45 then n_poemappeal[pchapter] = 1 end
-	if yPoint < 29 then y_poemappeal[pchapter] = -1
-    elseif yPoint > 45 then y_poemappeal[pchapter] = 1 end
 end
 
 function updatewordlist()
-	for i = 1, 10 do
-		wordr[i] = math.random(1,#wordlist)
-		word[i] = wordlist[wordr[i]][1]
+	if persistent.ptr <= 2 then
+		for i = 1, 10 do
+			wordr[i] = math.random(1,#wordlist)
+			word[i] = wordlist[wordr[i]][1]
+		end
+	else
+		for i = 1, 10 do
+			mk = {'M','o','n','i','k','a'}
+			for j = 1, 6 do
+				if math.random(0, 4) == 0 then
+					mk[j] = ' '
+				elseif math.random(0, 4) == 0 then
+					mk[j] = glitchtext(1)
+				end
+			end
+			word[i] = mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]
+		end
 	end
 end
 
@@ -117,6 +135,7 @@ function poemgame()
 		bgch2 = love.graphics.newImage('images/bg/notebook.png')
 	elseif persistent.ptr == 3 then 
 		audioUpdate('ghostmenu')
+		bgch2 = love.graphics.newImage('images/bg/notebook-glitch.png')
 	end
 	
 	if poemstate == 0 then 
@@ -204,7 +223,7 @@ function drawPoemGame()
 		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
 		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
 	else
-		if m_sticker_1 then love.graphics.draw(m_sticker1,100,100) end
+		if m_sticker_1 then love.graphics.draw(m_sticker_1,120,100) end
 	end
 	
 	love.graphics.setColor(255,189,225,alpha)
@@ -255,9 +274,11 @@ function updatePoemGame(dt)
 		s_sticker = s_sticker_1
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
-		spAdd = wordlist[wordpick][2]
-		npAdd = wordlist[wordpick][3]
-		ypAdd = wordlist[wordpick][4]
+		if persistent.ptr <= 2 then
+			spAdd = wordlist[wordpick][2]
+			npAdd = wordlist[wordpick][3]
+			ypAdd = wordlist[wordpick][4]
+		end
 	end
 	
 	if poemword >= 21 then
@@ -358,8 +379,12 @@ function poemgamekeypressed(key)
 				xaload = -1
 			end
 		end
-	elseif key == 'y' and eyes_in ~= true then 
-		menu_enable('pause')
+	elseif key == 'y' and eyes_in ~= true then
+		if persistent.ptr <= 2 then
+			menu_enable('pause')
+		else
+			menu_enable('pause2')
+		end
 	end
 end
 
