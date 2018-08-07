@@ -369,8 +369,8 @@ function event_draw()
 	
 	if event_type == 'ch23-30' then
 		if bgch then love.graphics.draw(bgch) end
+		if cgch then love.graphics.draw(cgch) end
 		if xaload > 0 then
-			if cg1 ~= '' then love.graphics.draw(cgch,0,0) end
 			drawSayori(s_Set.a,s_Set.b)
 			drawYuri(y_Set.a,y_Set.b)
 			drawNatsuki(n_Set.a,n_Set.b)
@@ -393,6 +393,10 @@ function event_draw()
 			love.graphics.setColor(255,255,255,128)
 			love.graphics.rectangle('fill',0,0,400,240)
 		end
+		
+		love.graphics.setColor(255,255,255,255)
+		if waittime then love.graphics.print('waittime = '..waittime) end
+		if monikatopic then love.graphics.print('monikatopic = '..monikatopic,0,20) end
 	end
 	
 	drawBottomScreen()

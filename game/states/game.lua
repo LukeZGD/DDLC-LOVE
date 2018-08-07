@@ -11,9 +11,9 @@ function drawGame()
 	
 	drawTopScreen()
 	love.graphics.setColor(255,255,255,alpha)
-	if bgch then love.graphics.draw(bgch,0,0) end
+	if bgch then love.graphics.draw(bgch) end
+	if cgch then love.graphics.draw(cgch) end
 	if xaload > 0 then
-		if cg1 ~= '' and cgch then love.graphics.draw(cgch,0,0) end
 		drawSayori(s_Set.a,s_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
 		drawNatsuki(n_Set.a,n_Set.b)

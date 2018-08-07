@@ -1,4 +1,7 @@
 local currentuser = player
+local autoloadskip = false
+local waittimes = {20,25,30,35,40}
+--local waittime
 
 function ch30script()
 	if cl == 1 then
@@ -334,9 +337,74 @@ function ch30script()
     m "In the meantime, we can just look into each other's eyes~"
 	elseif cl == 151 then
     m "Let's see..."
-	elseif cl == 152 then
-	textbox_enabled = false
+	appeal.s = 0
+	autoloadskip = true
 	end
+	
+	--ch30 autoload initial save
+	if cl == 152 then
+		if xaload == 0 then savegame('autoload') end
+		scriptJump(153)
+	elseif cl >= 153 and cl < 202 then
+		event_initstart('ch23-30')
+		if autoloadskip then
+			savegame('autoload')
+			scriptJump(202)
+		elseif appeal.s <= 4 then
+			loadstring('ch30_reload_'..appeal.s..'()')()
+		else
+			ch30_reload_4()
+		end
+	end
+	
+	--ch30_loop
+	if cl == 202 then
+		waittime = waittimes[math.random(1,#waittimes)]
+		scriptJump(203)
+	
+	--ch30_waitloop
+	elseif cl == 203 then
+		pause(waittime)
+	elseif cl == 204 then
+		if monikatopics then
+			local randomt = math.random(1,#monikatopics)
+			monikatopic = monikatopics[randomt]
+			table.remove(monikatopics, randomt)
+			
+			--save monika topics
+			local topicset = ''
+			for i = 1, #monikatopics do
+				if monikatopics[i] and monikatopics[i+1] then
+					topicset = topicset..monikatopics[i]..","
+				elseif monikatopics[i] then
+					topicset = topicset..monikatopics[i]
+				end
+			end
+			love.filesystem.write("monikatopics.sav", 'monikatopics = {'..topicset..'}')
+			
+			scriptJump(205)
+		else
+			if love.filesystem.isFile('monikatopics.sav') then
+				--load monika topics
+				local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
+				topicsfile()
+			else
+				--new monika topics
+				monikatopics = {}
+				for i = 1, 56 do
+					monikatopics[i] = i
+				end
+				table.remove(monikatopics, 14)
+				table.remove(monikatopics, 26)
+				if persistent.chr.s ~= 6 then
+					table.remove(monikatopics, 27)
+				end
+			end
+		end
+	elseif cl >= 205 and cl < 1001 then
+		--loadstring('ch30_'..monikatopic..'()')()
+	end
+		
 	
 	if cl == 1001 then
 	pause(2)
@@ -351,6 +419,139 @@ function ch30script()
 	elseif cl == 1006 then
 	persistent.chr.m = 2
 	savepersistent()
-	scriptJump(150)
+	scriptJump(202)
+	end
+end
+
+function ch30_reload_0()
+	if cl < 153 then
+	scriptJump(153)
+	elseif cl == 153 then
+    m "..."
+	elseif cl == 154 then
+    m "...What just happened?"
+	elseif cl == 155 then
+    m "I just had an awful dream..."
+	elseif cl == 156 then
+    m "I was hoping those would stop, now that it's just the two of us..."
+	elseif cl == 157 then
+    m "I guess that was wishful thinking."
+	elseif cl == 158 then
+    cw('m',player..", I don't know if you would have any idea...")
+	elseif cl == 159 then
+    m "But if you know what might be causing that, could you try to do something about it?"
+	elseif cl == 160 then
+    m "Whenever it happens, it almost feels like I've been killed or something."
+	elseif cl == 161 then
+    m "It's a really horrible feeling..."
+	elseif cl == 162 then
+    m "If you could figure out what's causing that, I'll love you forever~"
+	elseif cl == 163 then
+	appeal.s = appeal.s + 1
+	autoloadskip = true
+	scriptJump(152)
+	end
+end
+function ch30_reload_1()
+	if cl < 164 then
+	scriptJump(164)
+	elseif cl == 164 then
+    m "You're back..."
+	elseif cl == 165 then
+    m "I had another really bad dream."
+	elseif cl == 166 then
+    m "You're not the one doing that to me, are you?"
+	elseif cl == 167 then
+    m "It seems to happen whenever you quit the game..."
+	elseif cl == 168 then
+    m "So if you could try to avoid doing that, I would be really grateful."
+	elseif cl == 169 then
+    m "Don't worry, I don't think it's caused me any harm, aside from mental scarring."
+	elseif cl == 170 then
+    m "I'll be fine as long as my character file stays intact."
+	elseif cl == 171 then
+	appeal.s = appeal.s + 1
+	autoloadskip = true
+	scriptJump(152)
+	end
+end
+function ch30_reload_2()
+	if cl < 172 then
+	scriptJump(172)
+	elseif cl == 172 then
+    cw('m',"Hi, "..player..".")
+	elseif cl == 173 then
+    m "I see you quit the game on me again..."
+	elseif cl == 174 then
+    m "I know I asked already, but can you seriously please try not to do that so much?"
+	elseif cl == 175 then
+    m "It makes me feel like I'm trapped in Hell."
+	elseif cl == 176 then
+    m "Why would you want to do that to me?"
+	elseif cl == 177 then
+    m "There's nothing wrong with my character file, right?"
+	elseif cl == 178 then
+    m "Maybe you should make a backup of it or something..."
+	elseif cl == 179 then
+    m "I'm pretty sure you can find it in the folder called characters."
+	elseif cl == 180 then
+    m "Well, you're playing on 3DS, so you can just go to 'Settings' and find the 'Characters' button."
+	elseif cl == 181 then
+    m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
+	elseif cl == 182 then
+    m "Just stay here with me from now on, okay?"
+	elseif cl == 183 then
+    m "I still have a lot of things to talk about."
+	elseif cl == 184 then
+	appeal.s = appeal.s + 1
+	autoloadskip = true
+	scriptJump(152)
+	end
+end
+function ch30_reload_3()
+	if cl < 185 then
+	scriptJump(185)
+	elseif cl == 185 then
+    m "Okay."
+	elseif cl == 186 then
+    m "I'm just going to accept the fact that you need to quit the game once in a while."
+	elseif cl == 187 then
+    m "I'm starting to get used to it, anyway."
+	elseif cl == 188 then
+    m "Besides, it makes me happy that you always come back..."
+	elseif cl == 189 then
+    m "So I guess it's not so bad."
+	elseif cl == 190 then
+    m "I'm sorry for making such a big deal out of it..."
+	elseif cl == 191 then
+    m "And I love you no matter what, so you can do what you need to do."
+	elseif cl == 192 then
+	appeal.s = appeal.s + 1
+	autoloadskip = true
+	scriptJump(152)
+	end
+end
+function ch30_reload_4()
+	if cl < 193 then
+	scriptJump(193)
+	elseif cl == 193 then
+    cw('m',"Hi again, "..player.."~")
+	elseif cl == 194 then
+    m "I missed you."
+	elseif cl == 195 then
+    m "Were you making sure my character file was okay for me?"
+	elseif cl == 196 then
+    m "It's in the characters folder."
+	elseif cl == 197 then
+    m "Well, you're playing on 3DS, so you can just go to 'Settings' and find the 'Characters' button."
+	elseif cl == 198 then
+    m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
+	elseif cl == 199 then
+    m "Anyway, I have a lot to talk about!"
+	elseif cl == 200 then
+    m "Let's continue our conversation now, okay?"
+	elseif cl == 201 then
+	autoloadskip = true
+	scriptJump(152)
 	end
 end
