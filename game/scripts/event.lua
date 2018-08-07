@@ -106,6 +106,17 @@ function event_start(etype, arg1)
 		eventvar3 = 0.025
 		bgimg_disabled = true
 		textbox_enabled = false
+	elseif event_type == 'monika_end' then
+		eventvar1 = 200
+		eventvar2 = math.random(1,8)*50
+		eventvar3 = math.random(1,8)*50
+		eventvar5 = 0
+		bgimg_disabled = false
+		textbox_enabled = false
+		if arg1 == 2 then
+			event_timer = 0.69
+			eventvar4 = 'end2'
+		end
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
@@ -369,7 +380,7 @@ function event_draw()
 	
 	if event_type == 'ch23-30' then
 		if bgch then love.graphics.draw(bgch) end
-		if cgch then love.graphics.draw(cgch) end
+		if cgch and cg1 ~= '' then love.graphics.draw(cgch) end
 		if xaload > 0 then
 			drawSayori(s_Set.a,s_Set.b)
 			drawYuri(y_Set.a,y_Set.b)
@@ -397,6 +408,32 @@ function event_draw()
 		love.graphics.setColor(255,255,255,255)
 		if waittime then love.graphics.print('waittime = '..waittime) end
 		if monikatopic then love.graphics.print('monikatopic = '..monikatopic,0,20) end
+	end
+	
+	if event_type == 'monika_end' then
+		if bgch then love.graphics.draw(bgch) end
+		love.graphics.setColor(255,255,255,255)
+		if eventvar4 ~= 'end2' then
+			love.graphics.rectangle('fill',eventvar2,eventvar2/2,24,24)
+			love.graphics.rectangle('fill',eventvar3,eventvar3/2,24,24)
+			love.graphics.rectangle('fill',eventvar3-eventvar2,eventvar2/2,24,24)
+			love.graphics.rectangle('fill',eventvar3-eventvar2,eventvar3/2,24,24)
+			love.graphics.rectangle('fill',eventvar2-eventvar3,eventvar2/2,24,24)
+			love.graphics.rectangle('fill',eventvar2-eventvar3,eventvar3/2,24,24)
+		end
+		
+		if console_enabled and console_font then
+			love.graphics.setColor(51,51,51,191)
+			love.graphics.rectangle('fill',0,0,320,60)
+			love.graphics.setColor(255,255,255)
+			love.graphics.setFont(console_font)
+			love.graphics.print('> '..console_text1,0,0)
+			love.graphics.print(console_text2,5,15)
+			love.graphics.print(console_text3,5,30)
+		end
+		
+		love.graphics.setColor(255,255,255,eventvar1)
+		drawanimframe()
 	end
 	
 	drawBottomScreen()
@@ -773,6 +810,26 @@ function event_update(dt)
 			scriptJump(1050)
 		end
 	end
+	
+	if event_type == 'monika_end' then
+		eventvar5 = eventvar5 + dt
+		if eventvar5 >= 0.25 then
+			eventvar2 = math.random(1,8)*50
+			eventvar3 = math.random(1,8)*50
+			eventvar5 = 0
+		end
+		if event_timer >= 0.73 then
+			eventvar1 = math.max(eventvar1 - 2, 0)
+		elseif event_timer >= 0.7 and event_timer <= 0.73 then
+			eventvar1 = 200
+		elseif event_timer >= 0.38 then
+			eventvar1 = math.max(eventvar1 - 6, 10)
+		elseif event_timer >= 0.35 and event_timer <= 0.38 then
+			eventvar1 = 200
+		else
+			eventvar1 = math.max(eventvar1 - 6, 10)
+		end
+	end
 end
 
 function event_next()
@@ -855,6 +912,9 @@ function event_end(arg1)
 		stab5 = nil
 		stab6 = nil
 		stab6f = nil
+		event_endnext()
+	elseif arg1 == 'monika_end' then
+		unloadanimframe()
 		event_endnext()
 	end
 end

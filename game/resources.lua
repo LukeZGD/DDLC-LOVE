@@ -11,8 +11,10 @@ function changeState(cstate,x)
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
-		if persistent.ptr > 0 then
+		if persistent.ptr == 2 then
 			titlebg = love.graphics.newImage('images/gui/bg2.png')
+		elseif persistent.ptr == 4 then
+			titlebg = love.graphics.newImage('images/gui/bg3.png')
 		else
 			titlebg = love.graphics.newImage('images/gui/bg.png')
 		end
@@ -34,10 +36,8 @@ function changeState(cstate,x)
 			if persistent.chr.m == 0 then
 				cl = 10001
 			end
-		elseif persistent.ptr == 1 then
-			chapter = 10
 		else
-			chapter = 20
+			chapter = persistent.ptr * 10
 		end
 		state = 'game'
 		menu_enabled = false

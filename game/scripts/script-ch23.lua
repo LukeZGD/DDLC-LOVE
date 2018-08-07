@@ -879,13 +879,13 @@ function yuri_kill()
     updateConsole("os.remove(\"characters/yuri.chr\")")
 	pause(2)
 	elseif cl == 3468 then
-    updateConsole('', "yuri.chr deleted successfully.")
+    updateConsole('_', "yuri.chr deleted successfully.")
 	pause(1)
 	elseif cl == 3469 then
 	updateConsole("os.remove(\"characters/natsuki.chr\")","yuri.chr deleted successfully.")
 	pause(2)
 	elseif cl == 3470 then
-    updateConsole('', "natsuki.chr deleted successfully.","yuri.chr deleted successfully.")
+    updateConsole('_', "natsuki.chr deleted successfully.","yuri.chr deleted successfully.")
 	pause(1)
 	elseif cl == 3471 then
 	updateMonika('2','a')

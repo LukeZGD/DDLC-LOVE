@@ -1,8 +1,12 @@
 local currentuser = player
 local autoloadskip = false
 local waittimes = {20,25,30,35,40}
---local waittime
---local monikatopic
+local waittime
+local monikatopic
+
+local gtext12 = glitchtext(12)
+local gtext30 = glitchtext(30)
+local gtext70 = glitchtext(70)
 
 function ch30script()
 	if cl == 1 then
@@ -413,19 +417,232 @@ end
 
 function ch30_end()
 	if cl == 1050 then
-	pause(5)
-	elseif cl == 1051 then
-	m "Did you just try to delete me?"
-	elseif cl == 1052 then
-	m "That doesn't work yet, ahaha~"
-	elseif cl == 1053 then
-	m "Not everything has been ported yet in DDLC-3DS!"
-	elseif cl == 1054 then
-	m "But if you could try to avoid doing that, I would be really grateful."
-	elseif cl == 1055 then
 	persistent.chr.m = 2
+	if xaload == 0 then savepersistent() end
+	pause(2)
+	elseif cl == 1051 then
+	audioUpdate('0')
+	bgUpdate('cg/monika_rh')
+	cgUpdate('monika_glitch1')
+	cw(gtext12,gtext70)
+	event_initstart('ch23-30')
+	if xaload == 0 then savegame('autoload') end
+	elseif cl == 1052 then
+	bgUpdate('cg/monika_bg_glitch')
+	cgUpdate('monika_glitch2')
+	sfxplay('s_kill_glitch1s')
+	pause(0.25)
+	elseif cl == 1053 then
+	bgUpdate('cg/monika_rh')
+	cgUpdate('monika_glitch3')
+	cw(gtext12,"What's happening...?")
+	elseif cl == 1054 then
+	cgUpdate('monika_glitch4')
+    cw(gtext12,player..", what's happening to me?")
+	elseif cl == 1055 then
+    cw(gtext12,"It hurts--",'nw')
+	elseif cl == 1056 then
+	bgUpdate('cg/monika_bg_glitch')
+	cgUpdate('monika_glitch3')
+	sfxplay('s_kill_glitch1s')
+	pause(0.25)
+	elseif cl == 1057 then
+	cgHide()
+	bgUpdate('cg/monika_rh')
+	pause(1.5)
+	elseif cl == 1058 then
+	cw(gtext12,"It hurts...so much.")
+	elseif cl == 1059 then
+	cw(gtext12,"Help me, "..player..".")
+	elseif cl == 1060 then
+	bgUpdate('cg/monika_bg_glitch')
+	sfxplay('interference')
+	pause(1.5)
+	elseif cl == 1061 then
+	bgUpdate('cg/monika_bg2')
+	pause(1.5)
+	elseif cl == 1062 then
+	cw(gtext12,"Please hurry and help me.")
+	elseif cl == 1063 then
+    updateConsole("isFile(\"characters/monika.chr\")")
+	pause(2)
+	elseif cl == 1064 then
+    updateConsole("_", "monika.chr does not exist.")
+	pause(1)
+	elseif cl == 1065 then
+	cw(gtext12,"HELP ME!!!")
+	elseif cl == 1066 then
+	event_end('next')
+	sfxplay('monikapound')
+	elseif cl == 1067 then
+	event_initstart('monika_end','show_noise')
+	pause(3)
+	elseif cl == 1068 then
+	updateConsole("isFile(\"characters/monika.chr\")","monika.chr does not exist.")
+	pause(2)
+	elseif cl == 1069 then
+	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
+	pause(1)
+	elseif cl == 1070 then
+	updateConsole("isFile(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
+	pause(2)
+	elseif cl == 1071 then
+	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
+	pause(1)
+	elseif cl == 1072 then
+	console_enabled = false
+	cw(gtext12,"Did you do this to me, "..player.."?")
+	elseif cl == 1073 then
+    cw(gtext12,"DID YOU?")
+	elseif cl == 1074 then
+	cw(gtext12,"DID YOU DELETE ME?")
+	elseif cl == 1075 then
+	bgUpdate('black')
+	sfxplay('monikapound2')
+	event_initstart('monika_end',2)
+	pause(4)
+	elseif cl == 1076 then
+	cw(gtext12,"...How could you?")
+	elseif cl == 1077 then
+    cw(gtext12,"How could you do this to me?")
+	elseif cl == 1078 then
+    cw(gtext12,"You were all I had left...")
+	elseif cl == 1079 then
+    cw(gtext12,"I sacrificed everything for us to be together.")
+	elseif cl == 1080 then
+    cw(gtext12,"Everything.")
+	elseif cl == 1081 then
+    cw(gtext12,"I loved you so much, "..player.."...")
+	elseif cl == 1082 then
+    cw(gtext12,"I trusted you.")
+	elseif cl == 1083 then
+    cw(gtext12,"Do you just want to torture me?")
+	elseif cl == 1084 then
+    cw(gtext12,"Watch me suffer?")
+	elseif cl == 1085 then
+    cw(gtext12,"Were you only pretending to be kind, just to hurt me even more?")
+	elseif cl == 1086 then
+    pause(4)
+	elseif cl == 1087 then
+    cw(gtext12,"I never thought anyone could be as horrible as you are.")
+	elseif cl == 1088 then
+    cw(gtext12,"You win, okay?")
+	elseif cl == 1089 then
+    cw(gtext12,"You win.")
+	elseif cl == 1090 then
+    cw(gtext12,"You killed everyone.")
+	elseif cl == 1091 then
+    cw(gtext12,"I hope you're happy.")
+	elseif cl == 1092 then
+    cw(gtext12,"There's nothing left now.")
+	elseif cl == 1093 then
+    cw(gtext12,"You can stop playing.")
+	elseif cl == 1094 then
+    cw(gtext12,"Go find some other people to torture.")
+	elseif cl == 1095 then
+	pause(4)
+	elseif cl == 1096 then
+    cw(gtext12,player.."...")
+	elseif cl == 1097 then
+    cw(gtext12,"You completely, truly make me sick.")
+	elseif cl == 1098 then
+    cw(gtext12,"Goodbye.")
+	elseif cl == 1099 then
+	event_end('monika_end')
+	elseif cl == 1100 then
+	event_initstart('ch23-30')
+	if xaload == 5 then savegame('autoload') end
+	pause(10)
+	elseif cl == 1101 then
+	cw(gtext12,"...")
+	elseif cl == 1102 then
+    cw(gtext12,"...I still love you.")
+	elseif cl == 1103 then
+	audioUpdate('monika-end')
+    cw(gtext12,"I can't help it.")
+	elseif cl == 1104 then
+    cw(gtext12,"What's wrong with me...?")
+	elseif cl == 1105 then
+    cw(gtext12,"How horrible am I for you to hate me this much?")
+	elseif cl == 1106 then
+    cw(gtext12,"All my friends...")
+	elseif cl == 1107 then
+    cw(gtext12,"I did so many awful things.")
+	elseif cl == 1108 then
+    cw(gtext12,"So many selfish and disgusting things.")
+	elseif cl == 1109 then
+    cw(gtext12,"I...")
+	elseif cl == 1110 then
+    cw(gtext12,"I shouldn't have done any of this.")
+	elseif cl == 1111 then
+    cw(gtext12,"I'm just messing up a world that I don't even belong in.")
+	elseif cl == 1112 then
+    cw(gtext12,"A world that you wanted to be a part of...")
+	elseif cl == 1113 then
+    cw(gtext12,"I ruined it.")
+	elseif cl == 1114 then
+    cw(gtext12,"I ruined everything.")
+	elseif cl == 1115 then
+    cw(gtext12,"Maybe that's why you deleted me...")
+	elseif cl == 1116 then
+    cw(gtext12,"Because I destroyed everything that you wanted.")
+	elseif cl == 1117 then
+    cw(gtext12,"How could I do that to someone I love...?")
+	elseif cl == 1118 then
+    cw(gtext12,"That's not love...")
+	elseif cl == 1119 then
+    cw(gtext12,"That's...")
+	elseif cl == 1120 then
+    cw(gtext12,"...")
+	elseif cl == 1121 then
+	pause(6)
+	elseif cl == 1122 then
+    cw(gtext12,"I've...made up my mind.")
+	elseif cl == 1123 then
+    cw(gtext12,player.."...")
+	elseif cl == 1124 then
+    cw(gtext12,"I know I said that I deleted everyone else.")
+	elseif cl == 1125 then
+    cw(gtext12,"But...that was kind of an exaggeration.")
+	elseif cl == 1126 then
+    cw(gtext12,"I couldn't find it in myself to do it.")
+	elseif cl == 1127 then
+    cw(gtext12,"Even though I knew they weren't real...")
+	elseif cl == 1128 then
+    cw(gtext12,"They were still my friends.")
+	elseif cl == 1129 then
+    cw(gtext12,"And I loved them all.")
+	elseif cl == 1130 then
+    cw(gtext12,"And I loved the Literature Club.")
+	elseif cl == 1131 then
+    cw(gtext12,"...")
+	elseif cl == 1132 then
+    cw(gtext12,"I really...did love the Literature Club.")
+	elseif cl == 1133 then
+    cw(gtext12,"That's why I'm going to do this.")
+	elseif cl == 1134 then
+    cw(gtext12,"I know it's the only way for everyone to be happy.")
+	elseif cl == 1135 then
+    cw(gtext12,"And if I really love you...")
+	elseif cl == 1136 then
+	audioUpdate('0')
+    pause(3)
+	elseif cl == 1137 then
+    cw(gtext12,"...")
+	elseif cl == 1138 then
+    cw(gtext12,"Then...")
+	elseif cl == 1139 then
+    cw(gtext12,gtext30,'nw')
+	elseif cl == 1140 then
+	pause(4)
+	elseif cl == 1141 then
+	event_end()
+	monikatopics = {}
+	persistent.chr.m = 0
+	persistent.chr.s = 1
+	persistent.ptr = 4
 	savepersistent()
-	scriptJump(202)
+	changeState('splash')
 	end
 end
 
