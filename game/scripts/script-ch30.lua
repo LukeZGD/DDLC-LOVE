@@ -8,6 +8,9 @@ local gtext12 = glitchtext(12)
 local gtext30 = glitchtext(30)
 local gtext70 = glitchtext(70)
 
+poemwinner = {'','',''}
+savevalue = ''
+
 function ch30script()
 	if cl == 1 then
 	bgUpdate('black')
@@ -424,9 +427,9 @@ function ch30_end()
 	audioUpdate('0')
 	bgUpdate('cg/monika_rh')
 	cgUpdate('monika_glitch1')
+	if xaload == 0 then savegame('autoload') end
 	cw(gtext12,gtext70)
 	event_initstart('ch23-30')
-	if xaload == 0 then savegame('autoload') end
 	elseif cl == 1052 then
 	bgUpdate('cg/monika_bg_glitch')
 	cgUpdate('monika_glitch2')

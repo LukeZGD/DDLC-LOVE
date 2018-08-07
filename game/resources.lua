@@ -11,12 +11,12 @@ function changeState(cstate,x)
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
-		if persistent.ptr == 2 then
+		if persistent.ptr == 0 then
+			titlebg = love.graphics.newImage('images/gui/bg.png')
+		elseif persistent.ptr <= 2 then
 			titlebg = love.graphics.newImage('images/gui/bg2.png')
 		elseif persistent.ptr == 4 then
 			titlebg = love.graphics.newImage('images/gui/bg3.png')
-		else
-			titlebg = love.graphics.newImage('images/gui/bg.png')
 		end
 		states =  require 'states.splash'
 		poem_enabled = false
