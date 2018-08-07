@@ -12,7 +12,7 @@ function drawGame()
 	drawTopScreen()
 	love.graphics.setColor(255,255,255,alpha)
 	if bgch then love.graphics.draw(bgch) end
-	if cgch then love.graphics.draw(cgch) end
+	if cgch and cg1 ~= '' then love.graphics.draw(cgch) end
 	if xaload > 0 then
 		drawSayori(s_Set.a,s_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
