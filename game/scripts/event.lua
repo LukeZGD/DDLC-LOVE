@@ -770,7 +770,7 @@ function event_update(dt)
 	
 	if event_type == 'ch23-30' then
 		if persistent.chr.m == 0 and cl < 1001 then
-			scriptJump(1001)
+			scriptJump(1050)
 		end
 	end
 end
