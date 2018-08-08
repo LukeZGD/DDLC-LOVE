@@ -60,6 +60,8 @@ function love.draw()
 		drawSplashspec()
 	elseif state == 'poem_special' then
 		drawpoem_special()
+	elseif state == 'credits' then
+		drawCredits()
 	end
 	
 	if global_os ~= 'Horizon' then
@@ -122,6 +124,8 @@ function love.update(dt)
 		updatepoem_special(dt)
 	elseif state == 's_kill_early' or state == 'ghostmenu' then
 		updateSplashspec(dt)
+	elseif state == 'credits' then
+		updateCredits(dt)
 	end
 end
 

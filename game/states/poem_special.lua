@@ -72,11 +72,19 @@ function drawpoem_special()
 	if poemsp.bottomimg then
 		love.graphics.draw(poemsp.bottomimg, poemsp.bottomX)
 	end
+	if p_confirm == 1 and p_number >= 12 then
+		love.graphics.draw(background_Image, posX, posY)
+		love.graphics.setColor(255,189,225)
+		love.graphics.rectangle('fill', 16, 45, 30, 16)
+		love.graphics.setColor(0,0,0)
+		love.graphics.print("Error: Script file is missing or corrupt.\nPlease reinstall the game.",16, 12)
+		love.graphics.print('OK',17,45)
+	end
 end
 
 function updatepoem_special(dt)
 	xaload = xaload + 1
-	if p_confirm == 1 then
+	if p_confirm == 1 and p_number <= 11 then
 		if p_alpha <= 0 then
 			poemsp.topimg = nil
 			poemsp.bottomimg = nil
@@ -86,14 +94,17 @@ function updatepoem_special(dt)
 		else
 			p_alpha = math.max(p_alpha - 3, 0)
 		end
+	elseif p_confirm == 2 then
+		game_quit()
 	else
 		p_alpha = math.min(p_alpha + 5, 255)
 	end
+	if xaload == 200 then audioUpdate('0') end
 end
 
 function poem_special_keypressed(key)
 	if key == 'a' then
-		p_confirm = 1
+		p_confirm = p_confirm + 1
 		if p_number == 2 then
 			xaload = 0
 			sfxplay('giggle')
