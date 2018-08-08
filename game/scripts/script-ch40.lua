@@ -18,5 +18,7 @@ function ch40script()
     bl "We used to walk to school together every day..."
 	elseif cl == 8 then
     bl "...And recently, we've picked up that habit once again."
+	elseif cl == 9 then
+	changeState('credits')
     end
 end

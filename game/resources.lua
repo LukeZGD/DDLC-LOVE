@@ -109,6 +109,9 @@ function changeState(cstate,x)
 	elseif cstate == 'poem_special' then
 		states = require 'states.poem_special'
 		poem_special_i(x)
+	elseif cstate == 'credits' then
+		states = require 'states.credits'
+		loadCredits()
 	end
 	
 	--load game state and scripts
