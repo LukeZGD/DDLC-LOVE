@@ -503,6 +503,7 @@ function ch30_end()
 	bgUpdate('black')
 	sfxplay('monikapound2')
 	event_initstart('monika_end',2)
+	if xaload == 5 then textbox = love.graphics.newImage('images/gui/textbox_monika.png') end
 	pause(4)
 	elseif cl == 1076 then
 	cw(gtext12,"...How could you?")
@@ -554,7 +555,10 @@ function ch30_end()
 	event_end('monika_end')
 	elseif cl == 1100 then
 	event_initstart('ch23-30')
-	if xaload == 5 then savegame('autoload') end
+	if xaload == 5 then 
+		savegame('autoload')
+		textbox = love.graphics.newImage('images/gui/textbox_monika.png')
+	end
 	pause(10)
 	elseif cl == 1101 then
 	cw(gtext12,"...")
@@ -641,6 +645,7 @@ function ch30_end()
 	elseif cl == 1141 then
 	event_end()
 	monikatopics = {}
+	textbox = love.graphics.newImage('images/gui/textbox.png')
 	persistent.chr.m = 0
 	persistent.chr.s = 1
 	persistent.ptr = 4
