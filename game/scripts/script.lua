@@ -276,6 +276,12 @@ function event_init(etype,arg1,arg2)
 			stab5 = love.graphics.newImage('images/yuri/stab/5.png')
 			stab6 = love.graphics.newImage('images/yuri/stab/6.png')
 			stab6f = love.graphics.newImage('images/yuri/stab/6-full.png')
+		elseif etype == 'beforecredits' then
+			end_glitch1 = love.graphics.newImage('images/bg/end-glitch1.png')
+			end_glitch2 = love.graphics.newImage('images/bg/end-glitch2.png')
+			end_glitch3 = love.graphics.newImage('images/bg/end-glitch3.png')
+			loadNoise()
+			loadVignette()
 		end
 		if arg1 == 'show_noise' then
 			loadNoise()
