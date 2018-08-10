@@ -322,7 +322,7 @@ function ch3script()
 		cw('bl',"But there's nothing I can do besides wait for Monika.")
 	elseif cl == 2113 then
 		scriptJump(1)
-	elseif cl < 1977 then
+	elseif cl < 666 then
 		if appeal.n == 0 and appeal.y == 0 then
 			ch3_start_none()
 		elseif appeal.n > 1 then
