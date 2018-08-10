@@ -68,15 +68,20 @@ function drawpoem_special()
 	if poemsp.topimg then
 		love.graphics.draw(poemsp.topimg, poemsp.topX)
 	end
+	if p_confirm == 1 and p_number >= 12 then
+		love.graphics.setColor(255,255,255,128)
+		love.graphics.rectangle('fill',0,0,400,240)
+	end
 	drawBottomScreen()
 	if poemsp.bottomimg then
 		love.graphics.draw(poemsp.bottomimg, poemsp.bottomX)
 	end
 	if p_confirm == 1 and p_number >= 12 then
+		love.graphics.setColor(255,255,255,255)
 		love.graphics.draw(background_Image, posX, posY)
-		love.graphics.setColor(255,189,225)
+		love.graphics.setColor(255,189,225,255)
 		love.graphics.rectangle('fill', 16, 45, 30, 16)
-		love.graphics.setColor(0,0,0)
+		love.graphics.setColor(0,0,0,255)
 		love.graphics.print("Error: Script file is missing or corrupt.\nPlease reinstall the game.",16, 12)
 		love.graphics.print('OK',17,45)
 	end
@@ -99,7 +104,7 @@ function updatepoem_special(dt)
 	else
 		p_alpha = math.min(p_alpha + 5, 255)
 	end
-	if xaload == 200 then audioUpdate('0') end
+	if xaload == 500 then audioUpdate('0') end
 end
 
 function poem_special_keypressed(key)

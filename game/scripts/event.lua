@@ -117,6 +117,12 @@ function event_start(etype, arg1)
 			event_timer = 0.69
 			eventvar4 = 'end2'
 		end
+	elseif event_type == 'beforecredits' then
+		eventvar1 = 0
+		eventvar2 = nil
+		eventvar3 = 0
+		bgimg_disabled = true
+		textbox_enabled = false
 	else
 		bgimg_disabled = false
 		textbox_enabled = true
@@ -245,10 +251,21 @@ function event_draw()
 		love.graphics.draw(bgch)
 		love.graphics.draw(vignette)
 	elseif event_type == 'show_dark' then
-		love.graphics.draw(bgch)
+		if bg1 ~= 'cg/monika_bg_glitch' and bgch then love.graphics.draw(bgch) end
 		drawYuri(y_Set.a,y_Set.b)
-		love.graphics.setColor(0,0,0,192)
+		if chapter == 40 then
+			love.graphics.setColor(0,0,0,128)
+		else
+			love.graphics.setColor(0,0,0,192)
+		end
 		love.graphics.rectangle('fill',0,0,400,240)
+		love.graphics.setColor(255,255,255,255)
+		if bg1 == 'cg/monika_bg_glitch' and bgch then love.graphics.draw(bgch) end
+		drawSayori(s_Set.a,s_Set.b)
+		if menu_enabled then
+			love.graphics.setColor(255,255,255,128)
+			love.graphics.rectangle('fill',0,0,400,240)
+		end
 	elseif event_type == 'yuri_eyes' then
 		love.graphics.draw(bgch)
 		if eyes1 then love.graphics.draw(eyes1,-13) end
@@ -434,6 +451,13 @@ function event_draw()
 		
 		love.graphics.setColor(255,255,255,eventvar1)
 		drawanimframe()
+	end
+	
+	if event_type == 'beforecredits' then
+		love.graphics.setColor(255,255,255,eventvar1)
+		love.graphics.draw(vignette)
+		drawanimframe()
+		if eventvar2 then love.graphics.draw(eventvar2,0,eventvar3) end
 	end
 	
 	drawBottomScreen()
@@ -829,6 +853,19 @@ function event_update(dt)
 		else
 			eventvar1 = math.max(eventvar1 - 6, 10)
 		end
+	end
+	
+	if event_type == 'beforecredits' then
+		eventvar1 = math.min(eventvar1 + 2, 128)
+		eventvar1 = math.random(eventvar1 - 1, eventvar1 + 1)
+		
+		if event_timer > 10 and event_timer <= 20 then eventvar2 = end_glitch1
+		elseif event_timer > 22.5 and event_timer <= 25 then eventvar2 = end_glitch2
+		elseif event_timer > 28 then eventvar2 = end_glitch3
+		end
+		
+		eventvar3 = eventvar3 - 2
+		if eventvar3 <= -160 then eventvar3 = 0 end
 	end
 end
 
