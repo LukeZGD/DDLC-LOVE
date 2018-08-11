@@ -1,7 +1,3 @@
-require 'scripts.event'
-require 'scripts.script-poemresponses'
-require 'scripts.poems'
-
 local stext
 local c_a = {}
 local c_a1 = {}
@@ -90,6 +86,8 @@ function scriptCheck()
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
+		require 'scripts.script-poemresponses'
+		require 'scripts.poems'
 		if persistent.ptr == 0 then
 			require 'scripts.script-poemresponses1'
 		else
@@ -208,6 +206,14 @@ end
 
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
+		require 'scripts.event'
+		if persistent.ptr == 0 then
+			require 'scripts.event-1'
+		elseif persistent.ptr <= 2 then
+			require 'scripts.event-2'
+		else
+			require 'scripts.event-3'
+		end
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
 			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
@@ -294,4 +300,84 @@ end
 function event_initstart(etype,arg1,arg2)
 	event_init(etype,arg1,arg2)
 	if xaload == 2 then event_start(etype,arg1,arg2) end
+end
+
+function event_endnext()
+	cl = cl + 1
+	xaload = 0
+	unitimer = 0
+	collectgarbage()
+	collectgarbage()
+end
+
+function event_end(arg1)
+	event_enabled = false
+	event_timer = 0
+	textbox_enabled = true
+	bgimg_disabled = false
+	
+	if arg1 == 's_kill' then
+		s_kill = nil
+		s_kill2 = nil
+		s_kill_bg = nil
+		s_kill_bg2 = nil
+		s_kill_bgzoom = nil
+		splash_glitch = nil
+		exception = nil
+		posX = -40
+		posY = 0
+	elseif arg1 == 'next' then
+		event_endnext()
+	elseif arg1 == 's_glitch' then
+		s_glitch1 = nil
+		s_glitch2 = nil
+	elseif arg1 == 'n_blackeyes' then
+		n_blackeyes = nil
+		event_endnext()
+	elseif arg1 == 'ny_argument2' then
+		vignette = nil
+		unloadanimframe()
+		event_endnext()
+	elseif arg1 == 'yuri_glitch' then
+		unloadanimframe()
+		event_endnext()
+	elseif arg1 == 'show_vignette' then
+		vignette = nil
+	elseif arg1 == 'yuri_eyes' then
+		eyes1 = nil
+		eyes2 = nil
+		event_endnext()
+	elseif arg1 == 'yuri_ch23' then
+		eyes1 = nil
+		bg_glitch = nil
+		unloadanimframe()
+	elseif arg1 == 'm_ch23ex' then
+		ex3top = nil
+		ex3bottom = nil
+	elseif arg1 == 'natsuki_ch22' then
+		ghost3 = nil
+		ghost3_1 = nil
+		ghost3_2 = nil
+		ghost3_3 = nil
+		ghost_blood = nil
+		event_endnext()
+	elseif arg1 == 'yuri_kill' then
+		stab1 = nil
+		stab2 = nil
+		stab3 = nil
+		stab4 = nil
+		stab5 = nil
+		stab6 = nil
+		stab6f = nil
+		event_endnext()
+	elseif arg1 == 'monika_end' then
+		unloadanimframe()
+		event_endnext()
+	elseif arg1 == 'beforecredits' then
+		end_glitch1 = nil
+		end_glitch2 = nil
+		end_glitch3 = nil
+		unloadanimframe()
+		event_endnext()
+	end
 end

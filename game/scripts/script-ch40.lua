@@ -266,7 +266,7 @@ function ch40script()
 	elseif cl == 107 then
     n "...Ta-daa!"
 	elseif cl == 108 then
-	updateSayori('4','m')
+	updateSayori('4','m',10)
     s "Uwooooah!"
 	elseif cl == 109 then
     bl "Natsuki lifts the foil off the tray to reveal a dozen white, fluffy cupcakes decorated to look like little cats."
@@ -667,23 +667,21 @@ function ch40script()
 	elseif cl == 502 then
 	event_initstart('beforecredits')
 	audioUpdate('end-voice')
-	pause(40)
+	pause(41)
 	elseif cl == 503 then
-	event_end('next')
+	event_end('beforecredits')
 	elseif cl == 504 then
 	event_initstart('ch23-30')
-	pause(0.5)
-	elseif cl == 505 then
 	bgimg_disabled = true
 	textbox_enabled = false
 	updateConsole("love.audio.play(\"ddlc.ogg\")")
 	pause(2)
-	elseif cl == 506 then
+	elseif cl == 505 then
 	updateConsole("_","Playing audio \"ddlc.ogg\"...")
 	pause(2)
-	elseif cl == 507 then
-	event_end()
+	elseif cl == 506 then
 	console_enabled = false
+	event_end()
 	changeState('credits')
 	elseif cl == 508 then
 	audioUpdate('0')
