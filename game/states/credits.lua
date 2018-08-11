@@ -71,16 +71,16 @@ function drawCredits()
 		love.graphics.print(player,281,2570 - c_timer2)
 		love.graphics.setColor(255,185,230)
 		love.graphics.setFont(rifficfont)
-		love.graphics.print("Concept and Game Design",20,285 - c_timer2)
+		love.graphics.print("Concept and Game Design",5,285 - c_timer2)
 		love.graphics.print("Character Art",260,515 - c_timer2)
 		love.graphics.print("Background Art",58,745 - c_timer2)
 		love.graphics.print("Writing",280,975 - c_timer2)
 		love.graphics.print("Music",77,1205 - c_timer2)
 		love.graphics.print("Vocals",280,1435 - c_timer2)
-		love.graphics.print("Special Thanks",58,1660 - c_timer2)
-		love.graphics.print("Special Thanks",258,1890 - c_timer2)
-		love.graphics.print("Special Thanks",58,2300 - c_timer2)
-		love.graphics.print("Special Thanks",258,2530 - c_timer2)
+		love.graphics.print("Special Thanks",52,1660 - c_timer2)
+		love.graphics.print("Special Thanks",252,1890 - c_timer2)
+		love.graphics.print("Special Thanks",52,2300 - c_timer2)
+		love.graphics.print("Special Thanks",252,2530 - c_timer2)
 	else
 		love.graphics.draw(splashw)
 		love.graphics.setFont(font)
@@ -88,15 +88,7 @@ function drawCredits()
 		love.graphics.print('Unofficial port by LukeeGD',2,220)
 	end
 	
-	if console_enabled and console_font then
-		love.graphics.setColor(51,51,51,191)
-		love.graphics.rectangle('fill',0,0,320,60)
-		love.graphics.setColor(255,255,255)
-		love.graphics.setFont(console_font)
-		love.graphics.print('> '..console_text1,0,0)
-		love.graphics.print(console_text2,5,15)
-		love.graphics.print(console_text3,5,30)
-	end
+	drawConsole()
 	
 	drawBottomScreen()
 	love.graphics.setColor(0,0,0)
@@ -115,7 +107,7 @@ function updateCredits(dt)
 	if c_timer >= 10.3 and c_timer <= 11.4 then
 		ra1 = math.min(ra1 + 1.25, 135)
 	elseif c_timer >= 11.7 and c_timer <= 13.55 then
-		ra1 = math.min(ra1 + 1.25, 220)
+		ra1 = math.min(ra1 + 1.25, 215)
 	elseif c_timer >= 13.7 and c_timer <= 16 then
 		ra1 = math.min(ra1 + 1.25, 400)
 	elseif c_timer >= 19.4 and c_timer <= 20.65 then
@@ -129,7 +121,7 @@ function updateCredits(dt)
 	elseif c_timer >= 30.1 and c_timer <= 32.4 then
 		ra3 = math.min(ra3 + 1.25, 400)
 	elseif c_timer >= 32.8 and c_timer <= 34.2 then
-		ra4 = math.min(ra4 + 1.25, 175)
+		ra4 = math.min(ra4 + 1.25, 170)
 	elseif c_timer >= 34.3 and c_timer <= 37 then
 		ra4 = math.min(ra4 + 1.25, 400)
 	elseif c_timer >= 37.5 and c_timer <= 39.1 then
@@ -137,7 +129,7 @@ function updateCredits(dt)
 	elseif c_timer >= 39.2 and c_timer <= 41.7 then
 		ra5 = math.min(ra5 + 1.25, 400)
 	elseif c_timer >= 42 and c_timer < 43.3 then
-		ra6 = math.min(ra6 + 1.25, 170)
+		ra6 = math.min(ra6 + 1.25, 165)
 	elseif c_timer >= 43.4 and c_timer < 50 then
 		ra6 = math.min(ra6 + 1.25, 400)
 	end
