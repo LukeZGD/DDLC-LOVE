@@ -4,10 +4,6 @@ require 'saveload'
 require 'menu'
 require 'scripts.script'
 
---Uncomment out the lines below to run in yuzu without sharedfont
---function love.graphics.print()
---end
-
 function love.load() 
 	dversion = 'v0.3.0'
 	dvertype = 'Test'
@@ -161,9 +157,6 @@ function love.gamepadpressed(joy, button)
 		button = 'right'
 	end
 	love.keypressed(button)
-end
-function love.gamepadreleased(joy, button)
-	love.keyreleased(button)
 end
 
 function love.textinput(text)

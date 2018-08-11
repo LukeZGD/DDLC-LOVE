@@ -37,12 +37,6 @@ function updateLoad()
 		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
 		guicheck = love.graphics.newImage('images/gui/check.png')
 		guicheckwhite = love.graphics.newImage('images/gui/checkwhite.png')
-		if global_os == 'HorizonNX' then
-			for i = 0, 9, 1 do
-				num = i
-				loadstring("number_"..num.." = love.graphics.newImage('fonts/numbers/'..num..'.png')")()
-			end
-		end
 		
 	elseif l_timer == 99 then
 		local file = love.filesystem.isFile('persistent')
@@ -67,7 +61,7 @@ function checkLoad()
 	
 	local ghostmenu_chance = math.random(0, 63)
 	if persistent.playthrough or settings.animh == nil then
-		err = 'Error!\nOld save data detected, and it is not compatible with this version.\n\nDeleting save data: Delete everything in here\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit'
+		err = 'Error!\nOld save data detected, and it is not compatible with this version.\nPlease delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
