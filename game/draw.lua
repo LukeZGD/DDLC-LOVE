@@ -131,6 +131,18 @@ function drawNumbers()
 	love.graphics.print(cl,2,2)
 end
 
+function drawConsole()
+	if console_enabled and console_font then
+		love.graphics.setColor(51,51,51,191)
+		love.graphics.rectangle('fill',0,0,320,60)
+		love.graphics.setColor(255,255,255)
+		love.graphics.setFont(console_font)
+		love.graphics.print('> '..console_text1,0,0)
+		love.graphics.print(console_text2,5,15)
+		love.graphics.print(console_text3,5,30)
+	end
+end
+
 function updateSayori(a,b,px,py)
 	if b == nil then b = '' end
 	s_Set.a = a
@@ -370,7 +382,7 @@ function drawNatsuki(a,b)
 		if n_a then love.graphics.draw(n_a, nxh, nyh) end
 	end
 	
-	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' or a=='f_1' or a=='f_1b' then
+	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
 		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
 		if nr then love.graphics.draw(nr, n_Set.x, n_Set.y) end
 	elseif a~='' then

@@ -89,7 +89,7 @@ end
 
 function updatepoem_special(dt)
 	xaload = xaload + 1
-	if p_confirm == 1 and p_number <= 11 then
+	if p_confirm >= 1 and p_number <= 11 then
 		if p_alpha <= 0 then
 			poemsp.topimg = nil
 			poemsp.bottomimg = nil
@@ -99,7 +99,7 @@ function updatepoem_special(dt)
 		else
 			p_alpha = math.max(p_alpha - 3, 0)
 		end
-	elseif p_confirm == 2 then
+	elseif p_confirm >= 2 and p_number >= 12 then
 		game_quit()
 	else
 		p_alpha = math.min(p_alpha + 5, 255)
