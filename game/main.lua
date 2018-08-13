@@ -6,7 +6,7 @@ require 'scripts.script'
 
 function love.load() 
 	dversion = 'v0.3.0'
-	dvertype = 'Test'
+	dvertype = 'Release'
 	
 	love.graphics.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()

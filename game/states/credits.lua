@@ -1,4 +1,4 @@
-local c_timer = 0
+local c_timer = 200
 local c_timer2
 local ra1 = 100
 local ra2 = 92
@@ -7,19 +7,23 @@ local ra4 = 98
 local ra5 = 126
 local ra6 = 110
 
-function loadCredits()
-	logo = love.graphics.newImage('images/gui/logo.png')
-	
-	halogenfont = love.graphics.newFont('fonts/Halogen',12)
-	rifficfont = love.graphics.newFont('fonts/RifficFree-Bold',12)
-	
+function loadCredits(x)
+	if x ~= 1 then
+		logo = love.graphics.newImage('images/gui/logo.png')
+		
+		halogenfont = love.graphics.newFont('fonts/Halogen',12)
+		rifficfont = love.graphics.newFont('fonts/RifficFree-Bold',12)
+		
+		audioUpdate('credits')
+		c_timer = 0
+	end
 	alpha = 255
 	state = 'credits'
-	audioUpdate('credits')
 end
 
 function drawCredits()
 	drawTopScreen()
+	love.graphics.setBackgroundColor(0,0,0)
 	love.graphics.setColor(255,255,255,alpha)
 	
 	if c_timer < 51 then
@@ -81,7 +85,7 @@ function drawCredits()
 		love.graphics.print("Special Thanks",252,1890 - c_timer2)
 		love.graphics.print("Special Thanks",52,2300 - c_timer2)
 		love.graphics.print("Special Thanks",252,2530 - c_timer2)
-	else
+	elseif c_timer < 200 then
 		love.graphics.draw(splashw)
 		love.graphics.setFont(font)
 		love.graphics.print('DDLC-3DS',2,205)
@@ -149,7 +153,7 @@ function updateCredits(dt)
 		alpha = math.min(alpha + 3, 255)
 	elseif c_timer >= 172 and c_timer < 175 then
 		alpha = math.max(alpha - 3, 0)
-	elseif c_timer >= 175.5 then
+	elseif c_timer >= 175.5 and c_timer < 200 then
 		if appeal.s == 9 then
 			persistent.chr.m = 2
 			cl = 509
@@ -248,5 +252,18 @@ function updateCredits(dt)
 		updateConsole("_","script.lua deleted successfully.","menu.lua deleted successfully.")
 	elseif c_timer >= 165 then
 		console_enabled = false
+	end
+	
+	if c_timer >= 200 and c_timer < 201.5 then
+		updateConsole("ddlc=love.audio.newSource(\"ddlc.ogg\")")
+	elseif c_timer >= 201.5 and c_timer < 202.5 then
+		updateConsole("_")
+	elseif c_timer >= 202.5 and c_timer < 203.5 then
+		updateConsole("love.audio.play(ddlc)")
+	elseif c_timer >= 203.5 and c_timer < 205 then
+		updateConsole("_","Playing audio \"ddlc.ogg\"...")
+	elseif c_timer >= 205 then
+		console_enabled = false
+		changeState('credits')
 	end
 end

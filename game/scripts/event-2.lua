@@ -1,11 +1,4 @@
 function event_draw_2()
-	if event_type == 's_glitch' then
-		if event_timer < 3.5 then
-			love.graphics.draw(bgch)
-			love.graphics.draw(eventvar2, 80)
-		end
-	end
-	
 	if event_type == 'm_glitch1' then
 		love.graphics.draw(bgch)
 		love.graphics.draw(ml,100)
@@ -195,29 +188,7 @@ function event_draw_2()
 	end
 end
 
-function event_update_2()
-	--s_glitch
-	if event_type == 's_glitch' then
-		if event_timer > 7 then
-			persistent.ptr = 2
-			sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-			savepersistent()
-			chapter = 20
-			cl = 1
-			changeState('game',1)
-			event_end('s_glitch')
-		elseif event_timer < 2 then
-			eventvar1 = math.random(1, 16)
-			if eventvar1 <= 8 then
-				eventvar2 = s_glitch2
-			else
-				eventvar2 = s_glitch1
-			end
-		end
-		posX = -40
-		posY = 0
-	end
-	
+function event_update_2(dt)
 	--m_glitch
 	if event_type == 'm_glitch1' then
 		if event_timer > 0.8 then
