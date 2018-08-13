@@ -4,7 +4,7 @@ local faint_effect = math.random(0,2)
 function ch22script()
 	if cl == 1077 then
 	bgUpdate('club_day2')
-	audioUpdate('6')
+	if xaload == 1 then audioUpdate('6',true) end
     bl "Another day passes, and it's time for the club meeting already."
 	elseif cl == 1078 then
 	bl "I've gotten a little more comfortable here over the past couple days."
@@ -361,6 +361,7 @@ function ch22script()
 						y "Come on, we're going over there."
 					elseif cl == 1218 then
 						style_edited = false
+						hideAll()
 						audioUpdate('0')
 						bgUpdate('black')
 						pause(2)
@@ -470,7 +471,7 @@ function ch22_end()
 	
 	elseif cl == 1450 then
 	if faint_effect == 0 then
-		event_start('faint_effect')
+		event_initstart('faint_effect')
 		audioUpdate('3g3')
 	else
 		audioUpdate('3')

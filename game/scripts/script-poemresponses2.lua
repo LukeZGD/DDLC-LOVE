@@ -950,7 +950,7 @@ function ch23_y_good()
     y "I wrote it for you!"
 	elseif cl == 702 then
 	event_end('yuri_eyes')
-	event_start('show_darkred')
+	event_start('show_darkred','')
 	updateYuri('1','b')
 	cw('y',"In case you couldn't tell, the poem is about "..gtext80)
 	elseif cl == 703 then

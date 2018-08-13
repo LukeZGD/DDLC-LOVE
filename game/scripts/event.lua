@@ -130,6 +130,8 @@ function event_start(etype, arg1)
 		eventvar4 = 'show_vignette'
 	elseif arg1 == 'show_darkred' then
 		eventvar4 = 'show_darkred'
+	elseif arg1 == '' then
+		eventvar4 = ''
 	end
 end
 
@@ -137,9 +139,9 @@ function event_draw()
 	drawTopScreen()
 	love.graphics.setColor(255,255,255)
 	
-	if persistent.ptr == 0 then
+	if persistent.ptr <= 1 then
 		event_draw_1()
-	elseif persistent.ptr <= 2 then
+	elseif persistent.ptr == 2 then
 		event_draw_2()
 	else
 		event_draw_3()
@@ -269,35 +271,15 @@ function unloadanimframe()
 	animframe4 = nil
 end
 
-function updateConsole(text,text2,text3)
-	if console_font == nil then console_font = love.graphics.newFont('fonts/F25_Bank_Printer') end
-	if console_enabled ~= true then console_enabled = true end
-	console_text1 = dripText(text,30,myTextStartTime)
-	if text2 then console_text2 = text2 else console_text2 = '' end
-	if text3 then console_text3 = text3 else console_text3 = '' end
-end
-
-function drawConsole()
-	if console_enabled and console_font then
-		love.graphics.setColor(51,51,51,191)
-		love.graphics.rectangle('fill',0,0,320,60)
-		love.graphics.setColor(255,255,255)
-		love.graphics.setFont(console_font)
-		love.graphics.print('> '..console_text1,0,0)
-		love.graphics.print(console_text2,5,15)
-		love.graphics.print(console_text3,5,30)
-	end
-end
-
 function event_update(dt)
 	event_timer = event_timer + dt
 	
-	if persistent.ptr == 0 then
-		event_update_1()
-	elseif persistent.ptr <= 2 then
-		event_update_2()
+	if persistent.ptr <= 1 then
+		event_update_1(dt)
+	elseif persistent.ptr == 2 then
+		event_update_2(dt)
 	else
-		event_update_3()
+		event_update_3(dt)
 	end
 	
 	--wipe timers

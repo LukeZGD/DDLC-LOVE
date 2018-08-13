@@ -402,8 +402,10 @@ function ch5script()
 	elseif cl == 160 then
     bl "Never..."
 	elseif cl == 161 then
-	event_initstart('endscreen')
+	event_end('next')
 	elseif cl == 162 then
+	event_initstart('endscreen')
+	elseif cl == 163 then
 	changeState('title')
 	end
 end

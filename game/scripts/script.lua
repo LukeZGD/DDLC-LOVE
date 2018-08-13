@@ -131,12 +131,10 @@ function y (say) return cw('y',say) end
 function m (say) return cw('m',say) end
 
 function pause(t)
-	if event_enabled == true then textbox_enabled = false end
 	autotimer = 0
 	local dt = love.timer.getDelta()
 	tagtimer = tagtimer + dt
-	if tagtimer > t then
-		textbox_enabled = true
+	if tagtimer >= t then
 		scriptJump(cl+1)
 		tagtimer = 0
 	end
@@ -380,4 +378,12 @@ function event_end(arg1)
 		unloadanimframe()
 		event_endnext()
 	end
+end
+
+function updateConsole(text,text2,text3)
+	if console_font == nil then console_font = love.graphics.newFont('fonts/F25_Bank_Printer') end
+	if console_enabled ~= true then console_enabled = true end
+	console_text1 = dripText(text,30,myTextStartTime)
+	if text2 then console_text2 = text2 else console_text2 = '' end
+	if text3 then console_text3 = text3 else console_text3 = '' end
 end

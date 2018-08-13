@@ -644,13 +644,13 @@ function ch40script()
 	elseif cl == 253 then
 	updateSayori('1','a')
     s "There's actually something else."
-	if xaload == 0 then
-		for i = 1, 9 do
-			if persistent.clear[i] == 1 then appeal.s = appeal.s + 1 end
-		end
-	end
 	
 	elseif cl >= 254 and cl < 500 then
+		if xaload == 0 and cl == 254 then
+			for i = 1, 9 do
+				if persistent.clear[i] == 1 then appeal.s = appeal.s + 1 end
+			end
+		end
 		if appeal.s == 9 then
 			ch40_clearall()
 		else
@@ -671,18 +671,8 @@ function ch40script()
 	elseif cl == 503 then
 	event_end('beforecredits')
 	elseif cl == 504 then
-	event_initstart('ch23-30')
-	bgimg_disabled = true
-	textbox_enabled = false
-	updateConsole("love.audio.play(\"ddlc.ogg\")")
-	pause(2)
-	elseif cl == 505 then
-	updateConsole("_","Playing audio \"ddlc.ogg\"...")
-	pause(2)
-	elseif cl == 506 then
-	console_enabled = false
-	event_end()
-	changeState('credits')
+	audioUpdate('0')
+	changeState('credits',1)
 	elseif cl == 508 then
 	audioUpdate('0')
 	changeState('poem_special',12)
