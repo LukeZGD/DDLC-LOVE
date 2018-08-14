@@ -140,11 +140,11 @@ function event_draw()
 	love.graphics.setColor(255,255,255)
 	
 	if persistent.ptr <= 1 then
-		event_draw_1()
+		if event_draw_1 then event_draw_1() end
 	elseif persistent.ptr == 2 then
-		event_draw_2()
+		if event_draw_2 then event_draw_2() end
 	else
-		event_draw_3()
+		if event_draw_3 then event_draw_3() end
 	end
 	
 	if event_type == 'wipe' then
@@ -275,11 +275,11 @@ function event_update(dt)
 	event_timer = event_timer + dt
 	
 	if persistent.ptr <= 1 then
-		event_update_1(dt)
+		if event_update_1 then event_update_1(dt) end
 	elseif persistent.ptr == 2 then
-		event_update_2(dt)
+		if event_update_2 then event_update_2(dt) end
 	else
-		event_update_3(dt)
+		if event_update_3 then event_update_3(dt) end
 	end
 	
 	--wipe timers
