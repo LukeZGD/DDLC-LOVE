@@ -205,9 +205,9 @@ end
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
 		require 'scripts.event'
-		if persistent.ptr == 0 then
+		if persistent.ptr <= 1 then
 			require 'scripts.event-1'
-		elseif persistent.ptr <= 2 then
+		elseif persistent.ptr == 2 then
 			require 'scripts.event-2'
 		else
 			require 'scripts.event-3'
