@@ -96,6 +96,6 @@ end
 function loadpersistent()
 	local pfile = loadstring(love.filesystem.read('persistent'))
 	local settingsfile = loadstring(love.filesystem.read('settings.sav'))
-	pfile()
-	settingsfile()
+	if pfile then pfile() end
+	if settingsfile then settingsfile() end
 end

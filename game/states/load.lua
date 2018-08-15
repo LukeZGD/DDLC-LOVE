@@ -7,6 +7,7 @@ function drawLoad()
 	love.graphics.rectangle('fill',0,0,400,240)
 	love.graphics.setColor(255,255,255)
 	love.graphics.print(err,5,5)
+	if err ~= '' then love.graphics.print('Please delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit',5,35) end
 	drawBottomScreen()
 	love.graphics.setColor(0,0,0,alpha)
 	love.graphics.rectangle('fill',-40,0,400,240)
@@ -61,7 +62,7 @@ function checkLoad()
 	
 	local ghostmenu_chance = math.random(0, 63)
 	if persistent.playthrough or settings.animh == nil then
-		err = 'Error!\nOld save data detected, and it is not compatible with this version.\nPlease delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit'
+		err = 'Error!\nOld save data detected, and it is not compatible with this version.'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
