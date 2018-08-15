@@ -42,6 +42,7 @@ function menu_enable(m)
 	elseif menu_type == 'title' then
 		menutext = 'Main Menu'
 		itemnames = {'New Game','Load Game','Settings','Help','Quit'}
+		if persistent.ptr == 1 then itemnames[1] = glitchtext(10) end
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
@@ -201,6 +202,7 @@ function menu_confirm()
 			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
 			end
+			menu_previous = nil
 		
 		elseif m_selected == 3 then --load game
 			pagenum = 1
@@ -296,14 +298,14 @@ function menu_confirm()
 			menu_keypressed('left')
 		elseif m_selected == 5 then
 			menu_enable('characters')
-		elseif m_selected == 6 then
+		else
 			savesettings()
 			menu_enable(menu_previous)
 		end
 		
 	elseif menu_type == 'characters' then
 		if m_selected == 2 then
-			if persistent.chr.m < 2 or (persistent.chr.m == 2 and chapter >= 30) then
+			if persistent.chr.m < 2 or (persistent.chr.m == 2 and chapter == 30) then
 				persistent.chr.m = 0
 			end
 		elseif m_selected == 4 then
