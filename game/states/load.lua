@@ -7,7 +7,7 @@ function drawLoad()
 	lg.rectangle('fill',0,0,400,240)
 	lg.setColor(255,255,255)
 	lg.print(err,5,5)
-	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit',5,35) end
+	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> '..savedir..'\n\nPress Y to quit',5,35) end
 	drawBottomScreen()
 	lg.setColor(0,0,0,alpha)
 	lg.rectangle('fill',-40,0,400,240)
@@ -37,7 +37,6 @@ function updateLoad()
 		textbox = lg.newImage('images/gui/textbox.png')
 		background_Image = lg.newImage('images/bg/menu_bg.png')
 		guicheck = lg.newImage('images/gui/check.png')
-		guicheckwhite = lg.newImage('images/gui/checkwhite.png')
 		
 	elseif l_timer == 99 then
 		local file = love.filesystem.isFile('persistent')
@@ -58,6 +57,13 @@ end
 function checkLoad()
 	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
 		loadpersistent()
+	end
+	if global_os == 'Horizon' then
+		savedir = 'sdmc:/3ds/data/LovePotion/DDLC-3DS/'
+	elseif global_os == 'HorizonNX' then
+		savedir = 'sdmc:/switch/DDLC-3DS/'
+	else
+		savedir = '%appdata%\\LOVE\\DDLC-3DS\\'
 	end
 	
 	local ghostmenu_chance = math.random(0, 63)

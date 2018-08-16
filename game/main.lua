@@ -14,6 +14,7 @@ function love.load()
 	autoskip = 0
 	unitimer = 0
 	uniduration = 0.3
+	sectimer = 0
 	xaload = 0
 	alpha = 255
 	posX = -40
@@ -32,8 +33,6 @@ function love.load()
 	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
 		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
-		local windowicon = lg.newImage('images/gui/icon.png')
-		love.window.setIcon(windowicon:getData())
 	end
 	
 	changeState('load')
@@ -70,6 +69,9 @@ function love.draw()
 end
 
 function love.update(dt)
+	sectimer = sectimer + dt
+	if sectimer >= 1 then sectimer = 0 end
+	
 	--moving background (3DS only)
 	if global_os == 'Horizon' then
 		posX = posX - 0.25
@@ -122,6 +124,9 @@ function love.update(dt)
 		updateSplashspec(dt)
 	elseif state == 'credits' then
 		updateCredits(dt)
+	end
+	if menu_enabled then
+		menu_update(dt)
 	end
 end
 

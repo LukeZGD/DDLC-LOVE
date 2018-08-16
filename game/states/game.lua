@@ -1,5 +1,6 @@
 local skipspeed = 4
 local audiotell = 0
+local bgalpha = 255
 
 function drawGame()
 	if autotimer > 0 or autoskip > 0 then
@@ -11,6 +12,12 @@ function drawGame()
 	drawTopScreen()
 	lg.setColor(255,255,255,alpha)
 	if bgch then lg.draw(bgch) end
+	if bgch2 and menu_enabled ~= true then
+		lg.setColor(255,255,255,bgalpha)
+		lg.draw(bgch2)
+	end
+	
+	lg.setColor(255,255,255,alpha)
 	if cgch and cg1 ~= '' then lg.draw(cgch) end
 	if xaload > 0 then
 		drawSayori(s_Set.a,s_Set.b)
@@ -22,7 +29,7 @@ function drawGame()
 	if poem_enabled then drawPoem()	end
 	
 	if menu_enabled and menu_type ~= 'choice' then
-		lg.setColor(255,255,255,128)
+		lg.setColor(255,255,255,menu_alpha/2)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	
@@ -37,14 +44,20 @@ function drawGame()
 	
 	lg.setColor(0,0,0)
 	lg.setFont(font)
-	if autotimer > 0 then 
+	if autotimer > 0 then
 		lg.print('Auto-Forward On', 2, 20)
 	elseif autoskip > 0 then
-		if skip_rbtn then
-			lg.print('Skipping >>> (R)', 2, 20)
+		local skiptext
+		if sectimer >= 0.75 then
+			skiptext = 'Skipping >>>'
+		elseif sectimer >= 0.5 then
+			skiptext = 'Skipping >>'
+		elseif sectimer >= 0.25 then
+			skiptext = 'Skipping >'
 		else
-			lg.print('Skipping >>>', 2, 20)
+			skiptext = 'Skipping'
 		end
+		lg.print(skiptext, 2, 20)
 	end
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
@@ -65,6 +78,14 @@ function updateGame(dt)
 	if autotimer == 0 and autoskip == 0 then
 		scriptCheck()
 		timerCheck()
+	end
+	
+	if bgch2 then
+		bgalpha = math.max(bgalpha - 15, 0)
+		if bgalpha == 0 then
+			bgch2 = nil
+			bgalpha = 255
+		end
 	end
 	
 	--auto next script

@@ -14,6 +14,7 @@ local splash_messages = {
     "Don't forget to backup Monika's character file.";
 	}
 local random_msg = math.random(1, #splash_messages)
+local running
 
 local s_timer = 0
 
@@ -21,11 +22,19 @@ function drawSplash()
 	if state == 'splash1' then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
-		lg.setColor(255, 255, 255, alpha)
-		lg.draw(splash, 0, 0, 0)
-		lg.setColor(0, 0, 0, alpha)
+		lg.setColor(255,255,255,alpha)
+		lg.draw(splash,0,0,0)
+		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
-		lg.print('Made with LovePotion/LOVE 0.10.2',0,220)
+		if global_os == 'Horizon' then
+			running = 'LovePotion 3DS 1.0.9'
+		elseif global_os == 'HorizonNX' then
+			running = 'LovePotion Switch 1.0.1'
+		else
+			local major, minor, revision, codename = love.getVersion()
+			running = string.format('LOVE %d.%d.%d', major, minor, revision)
+		end
+		lg.print('Running in '..running,0,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
