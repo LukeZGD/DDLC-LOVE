@@ -341,13 +341,9 @@ end
 
 function m_select(arg)
 	if arg then m_selected = arg end
-	if m_selected <= 5 then
-		if menu_type == 'choice' then 
-			choicepick = choices[m_selected-1] 
-		else
-			cpick = itemnames[m_selected-1]
-		end
-	end
+	if m_selected <= 5 and menu_type == 'choice' then 
+		choicepick = choices[m_selected-1]
+	elseif menu_type ~= 'choice' then cpick = itemnames[m_selected-1] end
 	cX = 2
 	cY = 22+(25*(m_selected-1))
 end

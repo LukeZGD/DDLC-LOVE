@@ -1,11 +1,11 @@
 function changeState(cstate,x)
 	unloadAll('stuff')
-	if cstate == 'load' then
-		states = require 'states.load'
-		state = 'load'
-	elseif cstate == 'splash' then
+	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
+		states = require('states.'..cstate)
+	end
+	state = cstate
+	if cstate == 'splash' then
 		splash = love.graphics.newImage('images/bg/splash.png')
-		states = require 'states.splash'
 		alpha = 0
 		state = 'splash1'
 		audioUpdate('1')
@@ -18,61 +18,27 @@ function changeState(cstate,x)
 		elseif persistent.ptr == 4 then
 			titlebg = love.graphics.newImage('images/gui/bg3.png')
 		end
-		states =  require 'states.splash'
 		poem_enabled = false
 		state = 'title'
 		audioUpdate('1')
 		menu_enable('title')
 		y_timer = 0
 		titlebg_ypos = -240
-	elseif cstate == 'game' and x == 0 then
-		state = 'game'
-		menu_enabled = false
 	elseif cstate == 'game' and x == 1 then --new game
-		hideAll()
 		cl = 1
-		if persistent.ptr == 0 then 
-			chapter = 0
-			if persistent.chr.m == 0 then
-				cl = 10001
-			end
-		else
-			chapter = persistent.ptr * 10
+		chapter = persistent.ptr * 10
+		if persistent.ptr == 0 and persistent.chr.m == 0 then
+			cl = 10001
 		end
-		state = 'game'
-		menu_enabled = false
 	elseif cstate == 'game' and x == 2 then --load game
-		hideAll()
 		loadgame()
-		if audio1 == '4' then
-			alpha = 20
-		else
-			loadAll()
-			bgUpdate(bg1, true)
-			audioUpdate(audio1, true)
-			cgUpdate(cg1, true)
-		end
-		state = 'game'
-		poem_enabled = false
-		menu_enabled = false
 	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
 		cl = cl + 2
-		state = 'game'
-		alpha = 255
 	elseif cstate == 'game' and x == 'autoload' then
-		hideAll()
 		loadgame('autoload')
-		loadAll()
-		bgUpdate(bg1, true)
-		audioUpdate(audio1, true)
-		cgUpdate(cg1, true)
-		state = 'game'
-		poem_enabled = false
-		menu_enabled = false
 	elseif cstate == 'newgame' then --first time newgame
+		states = require 'states.game'
 		cl = 10016
-		state = 'newgame'
-		alpha = 255
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		poemfont = love.graphics.newFont('fonts/Halogen',12)
 		if persistent.ptr <= 2 then
@@ -89,62 +55,42 @@ function changeState(cstate,x)
 		else
 			m_sticker_1 = love.graphics.newImage('images/gui/poemgame/m_sticker_1.png')
 		end
-		states = require 'states.poemgame'
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
 		states = require 'states.splash'
 		endbg = love.graphics.newImage('images/gui/end.png')
 		s_killearly = love.graphics.newImage('images/cg/s_kill/s_kill_early.png')
-		state = 's_kill_early'
 		audioUpdate('s_kill_early')
 		alpha = 0
 	elseif cstate == 'ghostmenu' then
 		states = require 'states.splash'
 		endbg = love.graphics.newImage('images/gui/end.png')
 		titlebg = love.graphics.newImage('images/gui/bg_ghost.png')
-		state = 'ghostmenu'
 		audioUpdate('ghostmenu')
 		alpha = 0
 	elseif cstate == 'poem_special' then
-		states = require 'states.poem_special'
 		poem_special_i(x)
 	elseif cstate == 'credits' then
-		states = require 'states.credits'
 		loadCredits(x)
 	end
 	
 	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then	
-		states = require 'states.game'
-		xaload = -1
-		if chapter == 0 then
-			script_main = require 'scripts.script-ch0'
-		elseif chapter == 1 then
-			script_main = require 'scripts.script-ch1'
-		elseif chapter == 2 then
-			script_main = require 'scripts.script-ch2'
-		elseif chapter == 3 then
-			script_main = require 'scripts.script-ch3'
-		elseif chapter == 4 then
-			script_main = require 'scripts.script-ch4'
-		elseif chapter == 5 then
-			script_main = require 'scripts.script-ch5'
-		elseif chapter == 10 then
-			script_main = require 'scripts.script-ch10'
-		elseif chapter == 20 then
-			script_main = require 'scripts.script-ch20'
-		elseif chapter == 21 then
-			script_main = require 'scripts.script-ch21'
-		elseif chapter == 22 then
-			script_main = require 'scripts.script-ch22'
-		elseif chapter == 23 then
-			script_main = require 'scripts.script-ch23'
-		elseif chapter == 30 then
-			script_main = require 'scripts.script-ch30'
-		elseif chapter == 40 then
-			script_main = require 'scripts.script-ch40'
+		hideAll()
+		if audio1 == '4' then
+			alpha = 20
+		else
+			alpha = 255
+			loadAll()
+			bgUpdate(bg1, true)
+			audioUpdate(audio1, true)
+			cgUpdate(cg1, true)
 		end
+		poem_enabled = false
+		menu_enabled = false
+		xaload = -1
+		script_main = require('scripts.script-ch'..chapter)
 		if persistent.ptr == 0 then
 			if poemwinner[chapter] == 'Sayori' then
 				script_exclusive = require 'scripts.script-exclusives-sayori'
@@ -204,28 +150,24 @@ function cgUpdate(cgx, forceload) --cg changes
 	cg1 = cgx
 end
 
-function audioUpdate(audiox, forceload, looping) --audio changes
+function audioUpdate(audiox, forceload) --audio changes
 	if audio1 ~= audiox or forceload then
-		audioStop()
+		if ddlct ~= nil then ddlct:stop() end
+		ddlct = nil
 		if audiox ~= '' and audiox ~= '0' then
 			ddlct = love.audio.newSource('audio/bgm/'..audiox..'.ogg', 'stream')
-			if looping == nil or looping == true then
-				ddlct:setLooping(true)
-			else
-				ddlct:setLooping(false)
-			end
+			ddlct:setLooping(true)
 			ddlct:play()
 		end
 	end
 	audio1 = audiox
 end
 
-function sfxplay(sfx, sfxtype) --sfx stuff
+function sfxplay(sfx) --sfx stuff
 	if xaload == 0 then
 		sfxp = nil
 		if sfx ~= '' then
-			if sfxtype == nil then sfxtype = 'static' end
-			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', sfxtype)
+			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', 'static')
 		end
 		sfxp:play()
 	end
@@ -238,10 +180,6 @@ function unloadbg()
 	titlebg = nil
 end
 
-function audioStop()
-	if ddlct ~= nil then ddlct:stop() end
-	ddlct = nil
-end
 
 function loadSayori()
 	if s_Set.a=='1' then

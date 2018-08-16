@@ -10,7 +10,7 @@ settings = {textspd=125,textloc='Bottom',dtym=0,autospd=4,animh=0}
 --default save values
 cl = 1
 bg1 = ''
-audio1 = 2
+audio1 = '0'
 cg1 = ''
 ct = ''
 s_Set = {a='',b='',x=-200,y=0}
@@ -85,9 +85,17 @@ function savesettings()
 end
 
 function savepersistent()
+	local pset = ''
+	for i = 1, #persistent.clear do
+		if persistent.clear[i] and persistent.clear[i+1] then
+			pset = pset..persistent.clear[i]..","
+		elseif choices[i] then
+			pset = pset..persistent.clear[i]
+		end
+	end
 	local spfile = "player='"..player.."'\
 persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
-clear={"..persistent.clear[1]..","..persistent.clear[2]..","..persistent.clear[3]..","..persistent.clear[4]..","..persistent.clear[5]..","..persistent.clear[6]..","..persistent.clear[7]..","..persistent.clear[8]..","..persistent.clear[9].."}};\
+clear={"..pset.."}};\
 sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 	
 	love.filesystem.write('persistent', spfile)

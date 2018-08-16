@@ -1,6 +1,5 @@
 local skipspeed = 4
 local audiotell = 0
-local skip_rbtn = false
 
 function drawGame()
 	if autotimer > 0 or autoskip > 0 then
@@ -50,9 +49,9 @@ function drawGame()
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
 		love.graphics.setColor(255,189,225,alpha)
-		love.graphics.rectangle('fill', 47, 2, 40, 16 ) 
-		love.graphics.rectangle('fill', 139, 2, 32, 16 ) 
-		love.graphics.rectangle('fill', 237, 2, 32, 16 ) 
+		love.graphics.rectangle('fill',47,2,40,16) 
+		love.graphics.rectangle('fill',139,2,32,16) 
+		love.graphics.rectangle('fill',237,2,32,16) 
 		love.graphics.setColor(0,0,0,alpha)
 		love.graphics.print('Menu',51,2,0,1,1)
 		love.graphics.print('Auto',142,2,0,1,1)
@@ -86,7 +85,7 @@ function updateGame(dt)
 			if mouseY<=16 or mouseY>=220 then
 				if autoskip < 1 then autoskip = 1 end
 			end
-		elseif mouseDown == false and autoskip > 0 and skip_rbtn == false then
+		elseif mouseDown == false and autoskip > 0 then
 			autoskip = 0
 		end
 	end
@@ -134,17 +133,6 @@ function game_keypressed(key)
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
-	elseif key == 'rbutton' or key == 'r' then
-		sfx1:play()
-		--[[
-		if autoskip < 1 then
-			autoskip = 1
-			skip_rbtn = true
-		else
-			autoskip = 0
-			skip_rbtn = false
-		end
-		]]
 	else
 		newgame_keypressed(key)
 	end
