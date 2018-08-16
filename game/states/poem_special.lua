@@ -56,17 +56,13 @@ function drawpoem_special()
 	drawTopScreen()
 	lg.setBackgroundColor(0,0,0)
 	lg.setColor(255,255,255,p_alpha)
-	if poemsp.topimg then
-		lg.draw(poemsp.topimg, poemsp.topX)
-	end
+	lg.draw(poemsp.topimg, poemsp.topX)
 	if p_confirm == 1 and p_number >= 12 then
 		lg.setColor(255,255,255,128)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	drawBottomScreen()
-	if poemsp.bottomimg then
-		lg.draw(poemsp.bottomimg, poemsp.bottomX)
-	end
+	lg.draw(poemsp.bottomimg, poemsp.bottomX)
 	if p_confirm == 1 and p_number >= 12 then
 		lg.setColor(255,255,255,255)
 		lg.draw(background_Image, posX, posY)

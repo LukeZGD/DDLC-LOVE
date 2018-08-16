@@ -39,6 +39,14 @@ function lg.setColor(...)
 	lgsetColor(args[1],args[2],args[3],args[4])
 end
 
+local lgdraw = lg.draw
+function lg.draw(drawable, ...)
+	local args = {...}
+	if drawable then
+		lgdraw(drawable,args[1],args[2],args[3],args[4],args[5])
+	end
+end
+
 function dripText(text,charactersPerSecond,startTime)
 	currentTime = love.timer.getTime()
 	if (currentTime <= startTime) or startTime == 0 then return '' end
@@ -53,7 +61,7 @@ function easeQuadOut(t,b,c,d)
 end
 
 function fadeOut(x)
-	alpha = math.max(alpha - 3, 0)
+	alpha = math.max(alpha - 2.5, 0)
 	--fade out to poemgame
 	if x == 1 then
 		if alpha == 0 then
@@ -270,61 +278,53 @@ function hideAll()
 end
 
 function drawSayori()
+	lg.draw(sl, s_Set.x, s_Set.y)
 	if s_Set.a=='1' or s_Set.a=='1b' or s_Set.a=='2' or s_Set.a=='2b' or s_Set.a=='3' or s_Set.a=='3b' or s_Set.a=='4' or s_Set.a=='4b' then
-		if sl then lg.draw(sl, s_Set.x, s_Set.y) end
-		if sr then lg.draw(sr, s_Set.x, s_Set.y) end
-	elseif a~='' then
-		if sl then lg.draw(sl, s_Set.x, s_Set.y) end
+		lg.draw(sr, s_Set.x, s_Set.y)
 	end
 	
-	if b~='' then
+	if s_Set.b~='' then
 		if s_a then lg.draw(s_a, s_Set.x, s_Set.y) end
 	end
 end
 
 function drawYuri()
+	lg.draw(yl, y_Set.x, y_Set.y)
 	if y_Set.a=='1' or y_Set.a=='1b' or y_Set.a=='2' or y_Set.a=='2b' or y_Set.a=='3' or y_Set.a=='3b' then
-		if yl then lg.draw(yl, y_Set.x, y_Set.y) end
-		if yr then lg.draw(yr, y_Set.x, y_Set.y) end
-	elseif a~='' then
-		if yl then lg.draw(yl, y_Set.x, y_Set.y) end
+		lg.draw(yr, y_Set.x, y_Set.y)
 	end
-
+	
 	if y_Set.b~='' then
-		if y_a then lg.draw(y_a, y_Set.x, y_Set.y) end
+		lg.draw(y_a, y_Set.x, y_Set.y)
 	end
 end
 
 function drawNatsuki()
-	if a=='5' or a=='5b' then --set natsuki's head x and y pos
+	if n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
 		nxh = n_Set.x + 4
 		nyh = n_Set.y + 6
 	else
 		nxh = n_Set.x
 		nyh = n_Set.y
 	end
-
-	if b~='' then
-		if n_a then lg.draw(n_a, nxh, nyh) end
+	
+	if n_Set.b~='' then
+		lg.draw(n_a, nxh, nyh)
 	end
 	
+	lg.draw(nl, n_Set.x, n_Set.y)
 	if n_Set.a=='1' or n_Set.a=='1b' or n_Set.a=='2' or n_Set.a=='2b' or n_Set.a=='3' or n_Set.a=='3b' or n_Set.a=='4' or n_Set.a=='4b' then
-		if nl then lg.draw(nl, n_Set.x, n_Set.y) end
-		if nr then lg.draw(nr, n_Set.x, n_Set.y) end
-	elseif a~='' then
-		if nl then lg.draw(nl, n_Set.x, n_Set.y) end
+		lg.draw(nr, n_Set.x, n_Set.y)
 	end
 end
 
 function drawMonika()
+	lg.draw(ml, m_Set.x, m_Set.y)
 	if m_Set.a=='1' or m_Set.a=='2' or m_Set.a=='3' or m_Set.a=='4' then
-		if ml then lg.draw(ml, m_Set.x, m_Set.y) end
-		if mr then lg.draw(mr, m_Set.x, m_Set.y) end
-	elseif a~='' then
-		if ml then lg.draw(ml, m_Set.x, m_Set.y) end
+		lg.draw(mr, m_Set.x, m_Set.y)
 	end
 	
-	if m_Set.b~='' then
-		if m_a then lg.draw(m_a, m_Set.x, m_Set.y) end
+	if m_Set.b ~= '' then
+		lg.draw(m_a, m_Set.x, m_Set.y)
 	end
 end

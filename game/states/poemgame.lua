@@ -12,13 +12,13 @@ local npAdd
 local ypAdd
 local pchapter
 
-local s_sticker = s_sticker_1
-local n_sticker = n_sticker_1
-local y_sticker = y_sticker_1
+local s_sticker
+local n_sticker
+local y_sticker
 
-local s_y = 100
-local n_y = 100
-local y_y = 100
+local s_y
+local n_y
+local y_y
 
 local p_y = 100
 local ground = 100
@@ -148,6 +148,9 @@ function poemgame()
 	nPoint = 0
 	yPoint = 0
 	
+	s_sticker = s_sticker_1
+	n_sticker = n_sticker_1
+	y_sticker = y_sticker_1
 	s_y = 100; n_y = 100; y_y = 100; p_y = 100
 	y_velocity = 0
 	
@@ -169,7 +172,7 @@ function drawPoemGame()
 	drawTopScreen()
 	lg.setBackgroundColor(0,0,0)
 	lg.setColor(255,255,255,alpha)
-	if bgch2 then lg.draw(bgch2, 0, 0) end
+	lg.draw(bgch2, 0, 0)
 	
 	lg.setColor(0,0,0)
 	lg.draw(guicheck,cursorX,cursorY)
@@ -216,14 +219,14 @@ function drawPoemGame()
 	lg.draw(background_Image, posX, posY)
 	
 	if persistent.ptr == 0 then
-		if s_sticker_1 and s_sticker_2 then lg.draw(s_sticker,50,s_y) end
-		if n_sticker_1 and n_sticker_2 then lg.draw(n_sticker,110,n_y) end
-		if y_sticker_1 and y_sticker_2 then lg.draw(y_sticker,190,y_y) end
+		lg.draw(s_sticker,50,s_y)
+		lg.draw(n_sticker,110,n_y)
+		lg.draw(y_sticker,190,y_y)
 	elseif persistent.ptr == 2 then
-		if n_sticker_1 and n_sticker_2 then lg.draw(n_sticker,110,n_y) end
-		if y_sticker_1 and y_sticker_2 then lg.draw(y_sticker,190,y_y) end
+		lg.draw(n_sticker,110,n_y)
+		lg.draw(y_sticker,190,y_y)
 	else
-		if m_sticker_1 then lg.draw(m_sticker_1,120,100) end
+		lg.draw(m_sticker_1,120,100)
 	end
 	
 	lg.setColor(255,189,225,alpha)
@@ -242,14 +245,14 @@ end
 function updatePoemGame(dt)
 	xaload = xaload + 1
 	
-	if xaload <= 35 then
+	if xaload <= 35 and poemword > 0 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
 		if spAdd == nil then spAdd = 0 end
 		if npAdd == nil then npAdd = 0 end
 		if ypAdd == nil then ypAdd = 0 end
-		if persistent.ptr == 0 and poemword > 0 then
+		if persistent.ptr == 0 then
 			if spAdd == 3 then
 				s_sticker = s_sticker_2
 				s_y = p_y

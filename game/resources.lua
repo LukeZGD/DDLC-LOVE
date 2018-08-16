@@ -1,14 +1,15 @@
 function changeState(cstate,x)
 	unloadAll('stuff')
 	menu_alpha = 0
+	menu_previous = nil
+	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
 		states = require('states.'..cstate)
 	end
-	state = cstate
+	
 	if cstate == 'splash' then
 		splash = lg.newImage('images/bg/splash.png')
 		alpha = 0
-		state = 'splash1'
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
@@ -20,7 +21,6 @@ function changeState(cstate,x)
 			titlebg = lg.newImage('images/gui/bg3.png')
 		end
 		poem_enabled = false
-		state = 'title'
 		audioUpdate('1')
 		menu_enable('title')
 		y_timer = 0
@@ -79,7 +79,7 @@ function changeState(cstate,x)
 	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then	
 		hideAll()
-		if audio1 == '4' then
+		if audio1 == '4' and x == 2 then
 			alpha = 20
 		else
 			alpha = 255
@@ -109,7 +109,8 @@ function changeState(cstate,x)
 		end
 		unloadAll('poemgame')
 	end
-	menu_previous = nil
+	
+	state = cstate
 end
 
 function timerCheck()
@@ -134,7 +135,7 @@ function bgUpdate(bgx, forceload) --background changes
 	end
 	
 	if xaload == 0 or forceload then
-		if bgx ~= 'black' and bgx ~= '' then
+		if bgx ~= '' then
 			if autoskip == 0 and forceload ~= true then bgch2 = bgch end
 			bgch = nil
 			bgch = lg.newImage('images/bg/'..bgx..'.png')
