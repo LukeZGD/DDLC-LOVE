@@ -6,12 +6,12 @@ function drawGame()
 		scriptCheck()
 		timerCheck()
 	end
-	love.graphics.setBackgroundColor(0,0,0)
+	lg.setBackgroundColor(0,0,0)
 	
 	drawTopScreen()
-	love.graphics.setColor(255,255,255,alpha)
-	if bgch then love.graphics.draw(bgch) end
-	if cgch and cg1 ~= '' then love.graphics.draw(cgch) end
+	lg.setColor(255,255,255,alpha)
+	if bgch then lg.draw(bgch) end
+	if cgch and cg1 ~= '' then lg.draw(cgch) end
 	if xaload > 0 then
 		drawSayori(s_Set.a,s_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
@@ -22,40 +22,40 @@ function drawGame()
 	if poem_enabled then drawPoem()	end
 	
 	if menu_enabled and menu_type ~= 'choice' then
-		love.graphics.setColor(255,255,255,128)
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255,128)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	drawBottomScreen()
-	love.graphics.setColor(255,255,255,alpha)
-	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
-	love.graphics.setFont(font)
+	lg.setColor(255,255,255,alpha)
+	if bgimg_disabled ~= true then lg.draw(background_Image, posX, posY) end
+	lg.setFont(font)
 	if textbox_enabled then
 		drawNumbers()
 		drawTextBox()
 	end
 	
-	love.graphics.setColor(0,0,0)
-	love.graphics.setFont(font)
+	lg.setColor(0,0,0)
+	lg.setFont(font)
 	if autotimer > 0 then 
-		love.graphics.print('Auto-Forward On', 2, 20)
+		lg.print('Auto-Forward On', 2, 20)
 	elseif autoskip > 0 then
 		if skip_rbtn then
-			love.graphics.print('Skipping >>> (R)', 2, 20)
+			lg.print('Skipping >>> (R)', 2, 20)
 		else
-			love.graphics.print('Skipping >>>', 2, 20)
+			lg.print('Skipping >>>', 2, 20)
 		end
 	end
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
-		love.graphics.setColor(255,189,225,alpha)
-		love.graphics.rectangle('fill',47,2,40,16) 
-		love.graphics.rectangle('fill',139,2,32,16) 
-		love.graphics.rectangle('fill',237,2,32,16) 
-		love.graphics.setColor(0,0,0,alpha)
-		love.graphics.print('Menu',51,2,0,1,1)
-		love.graphics.print('Auto',142,2,0,1,1)
-		love.graphics.print('Skip',241,2,0,1,1) 
+		lg.setColor(255,189,225,alpha)
+		lg.rectangle('fill',47,2,40,16) 
+		lg.rectangle('fill',139,2,32,16) 
+		lg.rectangle('fill',237,2,32,16) 
+		lg.setColor(0,0,0,alpha)
+		lg.print('Menu',51,2,0,1,1)
+		lg.print('Auto',142,2,0,1,1)
+		lg.print('Skip',241,2,0,1,1) 
 	end
 	if settings.dtym == 1 then drawdatetime() end
 	if menu_enabled then menu_draw() end

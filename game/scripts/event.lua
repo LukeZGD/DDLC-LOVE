@@ -7,21 +7,21 @@ eventvar5 = 0
 animtimer = 0
 
 function loadNoise()
-	animframe1 = love.graphics.newImage('images/bg/noise1.png')
-	animframe2 = love.graphics.newImage('images/bg/noise2.png')
-	animframe3 = love.graphics.newImage('images/bg/noise3.png')
-	animframe4 = love.graphics.newImage('images/bg/noise4.png')
+	animframe1 = lg.newImage('images/bg/noise1.png')
+	animframe2 = lg.newImage('images/bg/noise2.png')
+	animframe3 = lg.newImage('images/bg/noise3.png')
+	animframe4 = lg.newImage('images/bg/noise4.png')
 end
 
 function loadVignette()
-	vignette = love.graphics.newImage('images/bg/vignette.png')
+	vignette = lg.newImage('images/bg/vignette.png')
 end
 
 function loadYuriGlitch()
-	animframe1 = love.graphics.newImage('images/yuri/glitch1.png')
-	animframe2 = love.graphics.newImage('images/yuri/glitch2.png')
-	animframe3 = love.graphics.newImage('images/yuri/glitch3.png')
-	animframe4 = love.graphics.newImage('images/yuri/glitch4.png')
+	animframe1 = lg.newImage('images/yuri/glitch1.png')
+	animframe2 = lg.newImage('images/yuri/glitch2.png')
+	animframe3 = lg.newImage('images/yuri/glitch3.png')
+	animframe4 = lg.newImage('images/yuri/glitch4.png')
 end
 
 function event_start(etype, arg1)
@@ -137,7 +137,7 @@ end
 
 function event_draw()
 	drawTopScreen()
-	love.graphics.setColor(255,255,255)
+	lg.setColor(255,255,255)
 	
 	if persistent.ptr <= 1 then
 		if event_draw_1 then event_draw_1() end
@@ -148,48 +148,48 @@ function event_draw()
 	end
 	
 	if event_type == 'wipe' then
-		if bgch then love.graphics.draw(bgch) end
-		love.graphics.setColor(0,0,0,eventvar1)
-		love.graphics.rectangle('fill',0,0,400,240)
+		if bgch then lg.draw(bgch) end
+		lg.setColor(0,0,0,eventvar1)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	if event_type == 'endscreen' then
-		love.graphics.setColor(255,255,255,eventvar1)
-		love.graphics.draw(bgch)
+		lg.setColor(255,255,255,eventvar1)
+		lg.draw(bgch)
 	end
 	
 	if event_type == 'show_dark' then
-		if bg1 ~= 'cg/monika_bg_glitch' and bgch then love.graphics.draw(bgch) end
+		if bg1 ~= 'cg/monika_bg_glitch' and bgch then lg.draw(bgch) end
 		drawYuri(y_Set.a,y_Set.b)
 		if chapter == 40 then
-			love.graphics.setColor(0,0,0,128)
+			lg.setColor(0,0,0,128)
 		else
-			love.graphics.setColor(0,0,0,192)
+			lg.setColor(0,0,0,192)
 		end
-		love.graphics.rectangle('fill',0,0,400,240)
-		love.graphics.setColor(255,255,255,255)
-		if bg1 == 'cg/monika_bg_glitch' and bgch then love.graphics.draw(bgch) end
+		lg.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255,255)
+		if bg1 == 'cg/monika_bg_glitch' and bgch then lg.draw(bgch) end
 		drawSayori(s_Set.a,s_Set.b)
 		if menu_enabled then
-			love.graphics.setColor(255,255,255,128)
-			love.graphics.rectangle('fill',0,0,400,240)
+			lg.setColor(255,255,255,128)
+			lg.rectangle('fill',0,0,400,240)
 		end
 	end
 	
 	if event_type == 'just_monika' then
-		love.graphics.setBackgroundColor(255,255,255)
+		lg.setBackgroundColor(255,255,255)
 		if event_timer < 3.75 then
-			love.graphics.setColor(255,255,255,alpha)
-			love.graphics.draw(splash)
+			lg.setColor(255,255,255,alpha)
+			lg.draw(splash)
 		else
-			love.graphics.setColor(0,0,0,alpha)
-			love.graphics.print('Just Monika.', 170, 100)
+			lg.setColor(0,0,0,alpha)
+			lg.print('Just Monika.', 170, 100)
 		end
 	end
 	
 	if event_type == 'ch23-30' then
-		if bgch then love.graphics.draw(bgch) end
-		if cgch and cg1 ~= '' then love.graphics.draw(cgch) end
+		if bgch then lg.draw(bgch) end
+		if cgch and cg1 ~= '' then lg.draw(cgch) end
 		if xaload > 0 then
 			drawSayori(s_Set.a,s_Set.b)
 			drawYuri(y_Set.a,y_Set.b)
@@ -202,39 +202,39 @@ function event_draw()
 		if poem_enabled then drawPoem()	end
 		
 		if menu_enabled and menu_type ~= 'choice' then
-			love.graphics.setColor(255,255,255,128)
-			love.graphics.rectangle('fill',0,0,400,240)
+			lg.setColor(255,255,255,128)
+			lg.rectangle('fill',0,0,400,240)
 		end
 		
-		love.graphics.setColor(255,255,255,255)
+		lg.setColor(255,255,255,255)
 	end
 	
 	drawBottomScreen()
-	love.graphics.setColor(255,255,255,255)
+	lg.setColor(255,255,255,255)
 	
 	if event_type == 'm_ch23ex' and event_timer > 1 then
-		love.graphics.draw(ex3bottom)
+		lg.draw(ex3bottom)
 	end
 	
 	if bgimg_disabled ~= true then
-		love.graphics.draw(background_Image, posX, posY)
-		love.graphics.setColor(0,0,0)
+		lg.draw(background_Image, posX, posY)
+		lg.setColor(0,0,0)
 	end
 	
-	love.graphics.setFont(font)
+	lg.setFont(font)
 	if textbox_enabled then
 		drawNumbers()
 		drawTextBox()	
 	end
-	--love.graphics.print(event_timer,2,220)
+	--lg.print(event_timer,2,220)
 	
 	if event_type == 'm_onlayer_front' or event_type == 'ny_argument2' then
-		love.graphics.setColor(255,255,255)
+		lg.setColor(255,255,255)
 		drawMonika(m_Set.a,m_Set.b)
 		textbox_enabled = true
 	elseif event_type == 'yuri_ch23_2' then
 		drawTopScreen()
-		love.graphics.setColor(255,255,255,eventvar2)
+		lg.setColor(255,255,255,eventvar2)
 		drawMonika(m_Set.a,m_Set.b)
 		drawBottomScreen()
 	end
@@ -247,7 +247,7 @@ function drawanimframe(x,y)
 	if x == nil then x = 0 end
 	if y == nil then y = 0 end
 	if animframe then
-		love.graphics.draw(animframe,x,y)
+		lg.draw(animframe,x,y)
 	end
 	local dt = love.timer.getDelta()
 	animtimer = animtimer + dt

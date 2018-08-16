@@ -11,40 +11,40 @@ function poem_special_i(poem)
 	poemsp.topX = 0
 	poemsp.bottomX = 0
 	if p_number == 1 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special1.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special1.png')
 		poemsp.topX = 40
 	elseif p_number == 2 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special2.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special2.png')
 	elseif p_number == 3 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special3.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special3.png')
 	elseif p_number == 4 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special4.png')
-		poemsp.bottomimg = love.graphics.newImage('images/poem_special/poem_special4-2.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special4.png')
+		poemsp.bottomimg = lg.newImage('images/poem_special/poem_special4-2.png')
 	elseif p_number == 5 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special5a.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special5a.png')
 	elseif p_number == 6 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special6.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special6.png')
 	elseif p_number == 7 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special7a.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special7a.png')
 		poemsp.topX = 120
 	elseif p_number == 8 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special8.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special8.png')
 	elseif p_number == 9 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special9.png')
-		poemsp.bottomimg = love.graphics.newImage('images/poem_special/poem_special9-2.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special9.png')
+		poemsp.bottomimg = lg.newImage('images/poem_special/poem_special9-2.png')
 		poemsp.bottomX = -10
 	elseif p_number == 10 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special10.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special10.png')
 	elseif p_number == 11 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special11.png')
-		poemsp.bottomimg = love.graphics.newImage('images/poem_special/poem_special11-2.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_special11.png')
+		poemsp.bottomimg = lg.newImage('images/poem_special/poem_special11-2.png')
 		poemsp.bottomX = -10
 	elseif p_number == 12 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_end.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_end.png')
 		poemsp.topX = 40
 	elseif p_number == 13 then
-		poemsp.topimg = love.graphics.newImage('images/poem_special/poem_end_clearall1.png')
-		poemsp.bottomimg = love.graphics.newImage('images/poem_special/poem_end_clearall2.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_end_clearall1.png')
+		poemsp.bottomimg = lg.newImage('images/poem_special/poem_end_clearall2.png')
 		poemsp.topX = 40
 	end
 	state = 'poem_special'
@@ -54,27 +54,27 @@ end
 
 function drawpoem_special()
 	drawTopScreen()
-	love.graphics.setBackgroundColor(0,0,0)
-	love.graphics.setColor(255,255,255,p_alpha)
+	lg.setBackgroundColor(0,0,0)
+	lg.setColor(255,255,255,p_alpha)
 	if poemsp.topimg then
-		love.graphics.draw(poemsp.topimg, poemsp.topX)
+		lg.draw(poemsp.topimg, poemsp.topX)
 	end
 	if p_confirm == 1 and p_number >= 12 then
-		love.graphics.setColor(255,255,255,128)
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255,128)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	drawBottomScreen()
 	if poemsp.bottomimg then
-		love.graphics.draw(poemsp.bottomimg, poemsp.bottomX)
+		lg.draw(poemsp.bottomimg, poemsp.bottomX)
 	end
 	if p_confirm == 1 and p_number >= 12 then
-		love.graphics.setColor(255,255,255,255)
-		love.graphics.draw(background_Image, posX, posY)
-		love.graphics.setColor(255,189,225,255)
-		love.graphics.rectangle('fill', 16, 45, 30, 16)
-		love.graphics.setColor(0,0,0,255)
-		love.graphics.print("Error: Script file is missing or corrupt.\nPlease reinstall the game.",16, 12)
-		love.graphics.print('OK',17,45)
+		lg.setColor(255,255,255,255)
+		lg.draw(background_Image, posX, posY)
+		lg.setColor(255,189,225,255)
+		lg.rectangle('fill', 16, 45, 30, 16)
+		lg.setColor(0,0,0,255)
+		lg.print("Error: Script file is missing or corrupt.\nPlease reinstall the game.",16, 12)
+		lg.print('OK',17,45)
 	end
 end
 
@@ -105,9 +105,9 @@ function poem_special_keypressed(key)
 			xaload = 0
 			sfxplay('giggle')
 		elseif p_number == 5 then
-			poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special5b.png')
+			poemsp.topimg = lg.newImage('images/poem_special/poem_special5b.png')
 		elseif p_number == 7 then
-			poemsp.topimg = love.graphics.newImage('images/poem_special/poem_special7b.png')
+			poemsp.topimg = lg.newImage('images/poem_special/poem_special7b.png')
 		end
 	end
 end
