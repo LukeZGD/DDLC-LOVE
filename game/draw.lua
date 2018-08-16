@@ -1,23 +1,24 @@
+lg = love.graphics
 local drawbottom
 local xps = {}
 local yps = {}
 
 function drawTopScreen()
 	if drawbottom == 1 then
-		love.graphics.pop()
+		lg.pop()
 		drawbottom = 0
 	elseif global_os == 'Horizon' then
-		love.graphics.setScreen('top')
+		lg.setScreen('top')
 	end
 end
 
 function drawBottomScreen()
 	if global_os ~= 'Horizon' then
-		love.graphics.push()
-		love.graphics.translate((400 - 320) / 2, 240)
+		lg.push()
+		lg.translate((400 - 320) / 2, 240)
 		drawbottom = 1
 	else
-		love.graphics.setScreen('bottom')
+		lg.setScreen('bottom')
 	end
 end
 
@@ -67,7 +68,7 @@ function cgHide()
 end
 
 function drawdatetime()
-	love.graphics.print(os.date("%Y-%m-%d %H:%M"),205,220)
+	lg.print(os.date("%Y-%m-%d %H:%M"),205,220)
 end
 
 function drawTextBox()
@@ -80,17 +81,17 @@ function drawTextBox()
 		yps = {c={66,82,98,114},ct=42,textbox=62,namebox=42}
 	end
 	
-	if style_edited then love.graphics.setFont(deffont) end
+	if style_edited then lg.setFont(deffont) end
 	
 	if (menu_enabled ~= true and poem_enabled ~= true) or (event_enabled and textbox_enabled) then
-		love.graphics.setColor(255,255,255,alpha)
-		if ct ~= '' then love.graphics.draw(namebox, xps.namebox, yps.namebox) end
-		love.graphics.draw(textbox, xps.textbox, yps.textbox)
-		love.graphics.setColor(0,0,0,alpha)
-		love.graphics.print(ct,xps.ct,yps.ct)
+		lg.setColor(255,255,255,alpha)
+		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
+		lg.draw(textbox, xps.textbox, yps.textbox)
+		lg.setColor(0,0,0,alpha)
+		lg.print(ct,xps.ct,yps.ct)
 		if c_disp then
 			for i = 1, 4 do
-				love.graphics.print(c_disp[i],xps.c,yps.c[i])
+				lg.print(c_disp[i],xps.c,yps.c[i])
 			end
 		end
 	end
@@ -99,33 +100,33 @@ end
 
 function drawPoem()
 	if poembg then
-		love.graphics.draw(poembg, 40, 0)
+		lg.draw(poembg, 40, 0)
 	else
-		love.graphics.setColor(243,243,243)
-		love.graphics.rectangle('fill',40,0,320,240)
+		lg.setColor(243,243,243)
+		lg.rectangle('fill',40,0,320,240)
 	end
-	love.graphics.setColor(0,0,0)
-	love.graphics.print(poemtext, 45, 6)
+	lg.setColor(0,0,0)
+	lg.print(poemtext, 45, 6)
 end
 
 function drawNumbers()
 	if bgimg_disabled then 
-		love.graphics.setColor(255,255,255,255)
+		lg.setColor(255,255,255,255)
 	else
-		love.graphics.setColor(0,0,0,255)
+		lg.setColor(0,0,0,255)
 	end
-	love.graphics.print(cl,2,2)
+	lg.print(cl,2,2)
 end
 
 function drawConsole()
 	if console_enabled and console_font then
-		love.graphics.setColor(51,51,51,191)
-		love.graphics.rectangle('fill',0,0,320,60)
-		love.graphics.setColor(255,255,255)
-		love.graphics.setFont(console_font)
-		love.graphics.print('> '..console_text1,0,0)
-		love.graphics.print(console_text2,5,15)
-		love.graphics.print(console_text3,5,30)
+		lg.setColor(51,51,51,191)
+		lg.rectangle('fill',0,0,320,60)
+		lg.setColor(255,255,255)
+		lg.setFont(console_font)
+		lg.print('> '..console_text1,0,0)
+		lg.print(console_text2,5,15)
+		lg.print(console_text3,5,30)
 	end
 end
 
@@ -243,27 +244,27 @@ end
 
 function drawSayori(a,b)
 	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
-		if sl then love.graphics.draw(sl, s_Set.x, s_Set.y) end
-		if sr then love.graphics.draw(sr, s_Set.x, s_Set.y) end
+		if sl then lg.draw(sl, s_Set.x, s_Set.y) end
+		if sr then lg.draw(sr, s_Set.x, s_Set.y) end
 	elseif a~='' then
-		if sl then love.graphics.draw(sl, s_Set.x, s_Set.y) end
+		if sl then lg.draw(sl, s_Set.x, s_Set.y) end
 	end
 	
 	if b~='' then
-		if s_a then love.graphics.draw(s_a, s_Set.x, s_Set.y) end
+		if s_a then lg.draw(s_a, s_Set.x, s_Set.y) end
 	end
 end
 
 function drawYuri(a,b)
 	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' then
-		if yl then love.graphics.draw(yl, y_Set.x, y_Set.y) end
-		if yr then love.graphics.draw(yr, y_Set.x, y_Set.y) end
+		if yl then lg.draw(yl, y_Set.x, y_Set.y) end
+		if yr then lg.draw(yr, y_Set.x, y_Set.y) end
 	elseif a~='' then
-		if yl then love.graphics.draw(yl, y_Set.x, y_Set.y) end
+		if yl then lg.draw(yl, y_Set.x, y_Set.y) end
 	end
 
 	if b~='' then
-		if y_a then love.graphics.draw(y_a, y_Set.x, y_Set.y) end
+		if y_a then lg.draw(y_a, y_Set.x, y_Set.y) end
 	end
 end
 
@@ -277,26 +278,26 @@ function drawNatsuki(a,b)
 	end
 
 	if b~='' then
-		if n_a then love.graphics.draw(n_a, nxh, nyh) end
+		if n_a then lg.draw(n_a, nxh, nyh) end
 	end
 	
 	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
-		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
-		if nr then love.graphics.draw(nr, n_Set.x, n_Set.y) end
+		if nl then lg.draw(nl, n_Set.x, n_Set.y) end
+		if nr then lg.draw(nr, n_Set.x, n_Set.y) end
 	elseif a~='' then
-		if nl then love.graphics.draw(nl, n_Set.x, n_Set.y) end
+		if nl then lg.draw(nl, n_Set.x, n_Set.y) end
 	end
 end
 
 function drawMonika(a,b)
 	if a=='1' or a=='2' or a=='3' or a=='4' then
-		if ml then love.graphics.draw(ml, m_Set.x, m_Set.y) end
-		if mr then love.graphics.draw(mr, m_Set.x, m_Set.y) end
+		if ml then lg.draw(ml, m_Set.x, m_Set.y) end
+		if mr then lg.draw(mr, m_Set.x, m_Set.y) end
 	elseif a~='' then
-		if ml then love.graphics.draw(ml, m_Set.x, m_Set.y) end
+		if ml then lg.draw(ml, m_Set.x, m_Set.y) end
 	end
 	
 	if b~='' then
-		if m_a then love.graphics.draw(m_a, m_Set.x, m_Set.y) end
+		if m_a then lg.draw(m_a, m_Set.x, m_Set.y) end
 	end
 end

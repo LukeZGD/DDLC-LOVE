@@ -1,30 +1,30 @@
 function event_draw_1()
 	--s_kill draw
 	if event_type == 's_kill' then
-		love.graphics.draw(s_kill_bg)
-		love.graphics.draw(s_kill, 75-event_timer, 0)
+		lg.draw(s_kill_bg)
+		lg.draw(s_kill, 75-event_timer, 0)
 	elseif event_type == 's_kill2' then
-		love.graphics.draw(s_kill_bg2)
-		love.graphics.draw(s_kill2, 75, 0)
+		lg.draw(s_kill_bg2)
+		lg.draw(s_kill2, 75, 0)
 	elseif event_type == 's_killzoom' then
-		love.graphics.draw(s_kill_bgzoom)
-		love.graphics.draw(s_killzoom, eventvar2)
+		lg.draw(s_kill_bgzoom)
+		lg.draw(s_killzoom, eventvar2)
 		if event_timer >= 10 then
-			love.graphics.setColor(255,255,255,64)
-			love.graphics.draw(exception)
+			lg.setColor(255,255,255,64)
+			lg.draw(exception)
 		elseif event_timer >= 5.75 then
-			love.graphics.setColor(255,255,255,128)
-			love.graphics.draw(background_Image, posX, posY)
+			lg.setColor(255,255,255,128)
+			lg.draw(background_Image, posX, posY)
 		elseif event_timer >= 3.75 then
-			love.graphics.setColor(255,255,255,eventvar3)
-			love.graphics.draw(splash_glitch)
+			lg.setColor(255,255,255,eventvar3)
+			lg.draw(splash_glitch)
 		end
 	end
 	
 	if event_type == 's_glitch' then
 		if event_timer < 3.5 then
-			love.graphics.draw(bgch)
-			love.graphics.draw(eventvar2, 80)
+			lg.draw(bgch)
+			lg.draw(eventvar2, 80)
 		end
 	end
 end

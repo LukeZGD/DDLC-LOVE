@@ -551,16 +551,16 @@ Not all good times must come to an end.]]
 	if continue == nil then continue = 0 end
 	
 	if xaload == 0 and continue > 1 then
-		poembg = love.graphics.newImage('images/bg/poem'..continue..'.png')
+		poembg = lg.newImage('images/bg/poem'..continue..'.png')
 	elseif xaload == 0 and continue < 1 then
 		sfxplay('pageflip')
 		if author == 'yuri' then
 			if yuri_2 then
-				poembg = love.graphics.newImage('images/bg/poem_y1.png')
+				poembg = lg.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				poembg = love.graphics.newImage('images/bg/poemxp.png')
-				--poembg = love.graphics.newImage('images/bg/poem1.png')
+				poembg = lg.newImage('images/bg/poemxp.png')
+				--poembg = lg.newImage('images/bg/poem1.png')
 				audioUpdate('5_yuri2')
 			else
 				audioUpdate('5_yuri')
@@ -578,16 +578,16 @@ Not all good times must come to an end.]]
 	elseif xaload > 0 then
 		--[[
 		if author == 'yuri' and yuri_3 ~= true then
-			love.graphics.setFont(y1)
+			lg.setFont(y1)
 		elseif author == 'sayori' then
-			love.graphics.setFont(s1)
+			lg.setFont(s1)
 		elseif author == 'natsuki' then
-			love.graphics.setFont(n1)
+			lg.setFont(n1)
 		elseif author == 'monika' then
-			love.graphics.setFont(m1)
+			lg.setFont(m1)
 		end
 		]]
-		love.graphics.setFont(m1)
+		lg.setFont(m1)
 	end
 end
 

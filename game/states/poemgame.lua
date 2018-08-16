@@ -132,14 +132,14 @@ function poemgame()
 	xaload = 0
 	if persistent.ptr <= 2 then 
 		audioUpdate('4',true)
-		bgch2 = love.graphics.newImage('images/bg/notebook.png')
+		bgch2 = lg.newImage('images/bg/notebook.png')
 	elseif persistent.ptr == 3 then 
 		audioUpdate('ghostmenu')
-		bgch2 = love.graphics.newImage('images/bg/notebook-glitch.png')
+		bgch2 = lg.newImage('images/bg/notebook-glitch.png')
 	end
 	
 	if poemstate == 0 then 
-		poemtime = love.graphics.newImage('images/gui/poemgame/poemtime.png')
+		poemtime = lg.newImage('images/gui/poemgame/poemtime.png')
 	end
 	
 	poemword = 1
@@ -167,75 +167,75 @@ end
 
 function drawPoemGame()
 	drawTopScreen()
-	love.graphics.setBackgroundColor(0,0,0)
-	love.graphics.setColor(255,255,255,alpha)
-	if bgch2 then love.graphics.draw(bgch2, 0, 0) end
+	lg.setBackgroundColor(0,0,0)
+	lg.setColor(255,255,255,alpha)
+	if bgch2 then lg.draw(bgch2, 0, 0) end
 	
-	love.graphics.setColor(0,0,0)
-	love.graphics.draw(guicheck,cursorX,cursorY)
-	if poemfont then love.graphics.setFont(poemfont) end
+	lg.setColor(0,0,0)
+	lg.draw(guicheck,cursorX,cursorY)
+	if poemfont then lg.setFont(poemfont) end
 	if poemword <= 20 then
-		love.graphics.print(progress .. '/20',245,25)
+		lg.print(progress .. '/20',245,25)
 	else
-		love.graphics.print('20/20',245,25)
+		lg.print('20/20',245,25)
 	end
-	love.graphics.print(word[1],117,45)
-	love.graphics.print(word[2],117,81)
-	love.graphics.print(word[3],117,117)
-	love.graphics.print(word[4],117,152)
-	love.graphics.print(word[5],117,187)
-	love.graphics.print(word[6],200,45)
-	love.graphics.print(word[7],200,81)
-	love.graphics.print(word[8],200,117)
-	love.graphics.print(word[9],200,152)
-	love.graphics.print(word[10],200,187)
+	lg.print(word[1],117,45)
+	lg.print(word[2],117,81)
+	lg.print(word[3],117,117)
+	lg.print(word[4],117,152)
+	lg.print(word[5],117,187)
+	lg.print(word[6],200,45)
+	lg.print(word[7],200,81)
+	lg.print(word[8],200,117)
+	lg.print(word[9],200,152)
+	lg.print(word[10],200,187)
 	
 	if poemstate == 0 then
-		love.graphics.setColor(255,255,255,alpha)
-		love.graphics.draw(poemtime,0,0)
+		lg.setColor(255,255,255,alpha)
+		lg.draw(poemtime,0,0)
 	end
 	
 	if menu_enabled then
-		love.graphics.setColor(255,255,255,128)
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255,128)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	if eyes_in then
-		love.graphics.setColor(0,0,0)
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(0,0,0)
+		lg.rectangle('fill',0,0,400,240)
 		if eyes_timer <= 2.2 then
-			love.graphics.setColor(255,255,255)
-			love.graphics.draw(eyes,110,eyes_y)
-			love.graphics.draw(eyes,110,eyes_y+240)
-			love.graphics.draw(eyes,110,eyes_y+480)
+			lg.setColor(255,255,255)
+			lg.draw(eyes,110,eyes_y)
+			lg.draw(eyes,110,eyes_y+240)
+			lg.draw(eyes,110,eyes_y+480)
 		end
 	end
 	
 	drawBottomScreen()
-	love.graphics.setColor(255,255,255,alpha)
-	love.graphics.draw(background_Image, posX, posY)
+	lg.setColor(255,255,255,alpha)
+	lg.draw(background_Image, posX, posY)
 	
 	if persistent.ptr == 0 then
-		if s_sticker_1 and s_sticker_2 then love.graphics.draw(s_sticker,50,s_y) end
-		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
-		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
+		if s_sticker_1 and s_sticker_2 then lg.draw(s_sticker,50,s_y) end
+		if n_sticker_1 and n_sticker_2 then lg.draw(n_sticker,110,n_y) end
+		if y_sticker_1 and y_sticker_2 then lg.draw(y_sticker,190,y_y) end
 	elseif persistent.ptr == 2 then
-		if n_sticker_1 and n_sticker_2 then love.graphics.draw(n_sticker,110,n_y) end
-		if y_sticker_1 and y_sticker_2 then love.graphics.draw(y_sticker,190,y_y) end
+		if n_sticker_1 and n_sticker_2 then lg.draw(n_sticker,110,n_y) end
+		if y_sticker_1 and y_sticker_2 then lg.draw(y_sticker,190,y_y) end
 	else
-		if m_sticker_1 then love.graphics.draw(m_sticker_1,120,100) end
+		if m_sticker_1 then lg.draw(m_sticker_1,120,100) end
 	end
 	
-	love.graphics.setColor(255,189,225,alpha)
-	love.graphics.rectangle('fill', 135,2,40,16) 
-	love.graphics.setColor(0,0,0)
-	love.graphics.setFont(font)
-	love.graphics.print('Menu',139,2)
+	lg.setColor(255,189,225,alpha)
+	lg.rectangle('fill', 135,2,40,16) 
+	lg.setColor(0,0,0)
+	lg.setFont(font)
+	lg.print('Menu',139,2)
 	
 	if menu_enabled then menu_draw() end
 	
 	if eyes_in then
-		love.graphics.rectangle('fill',-40,0,400,240)
+		lg.rectangle('fill',-40,0,400,240)
 	end
 end
 

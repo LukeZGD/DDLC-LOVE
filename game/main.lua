@@ -8,7 +8,7 @@ function love.load()
 	dversion = 'v0.3.1'
 	dvertype = 'Test'
 	
-	love.graphics.setBackgroundColor(0,0,0)	
+	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
@@ -32,7 +32,7 @@ function love.load()
 	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
 		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
-		local windowicon = love.graphics.newImage('images/gui/icon.png')
+		local windowicon = lg.newImage('images/gui/icon.png')
 		love.window.setIcon(windowicon:getData())
 	end
 	
@@ -40,7 +40,7 @@ function love.load()
 end
 
 function love.draw() 
-	if global_os ~= 'Horizon' then love.graphics.scale(1.5, 1.5) end
+	if global_os ~= 'Horizon' then lg.scale(1.5, 1.5) end
 	
 	if event_enabled then
 		event_draw()
@@ -61,11 +61,11 @@ function love.draw()
 	end
 	
 	if global_os ~= 'Horizon' then
-		love.graphics.setColor(0,0,0)
+		lg.setColor(0,0,0)
 		drawTopScreen()
-		love.graphics.rectangle('fill', 400, 0, 880, 720 )
+		lg.rectangle('fill', 400, 0, 880, 720 )
 		drawBottomScreen()
-		love.graphics.rectangle('fill', -40, 240, 400, 240 )
+		lg.rectangle('fill', -40, 240, 400, 240 )
 	end
 end
 

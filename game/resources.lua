@@ -5,18 +5,18 @@ function changeState(cstate,x)
 	end
 	state = cstate
 	if cstate == 'splash' then
-		splash = love.graphics.newImage('images/bg/splash.png')
+		splash = lg.newImage('images/bg/splash.png')
 		alpha = 0
 		state = 'splash1'
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
 		if persistent.ptr == 0 then
-			titlebg = love.graphics.newImage('images/gui/bg.png')
+			titlebg = lg.newImage('images/gui/bg.png')
 		elseif persistent.ptr <= 2 then
-			titlebg = love.graphics.newImage('images/gui/bg2.png')
+			titlebg = lg.newImage('images/gui/bg2.png')
 		elseif persistent.ptr == 4 then
-			titlebg = love.graphics.newImage('images/gui/bg3.png')
+			titlebg = lg.newImage('images/gui/bg3.png')
 		end
 		poem_enabled = false
 		state = 'title'
@@ -40,33 +40,33 @@ function changeState(cstate,x)
 		states = require 'states.game'
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
-		poemfont = love.graphics.newFont('fonts/Halogen',12)
+		poemfont = lg.newFont('fonts/Halogen',12)
 		if persistent.ptr <= 2 then
 			if persistent.ptr == 0 then
-				s_sticker_1 = love.graphics.newImage('images/gui/poemgame/s_sticker_1.png')
-				s_sticker_2 = love.graphics.newImage('images/gui/poemgame/s_sticker_2.png')
+				s_sticker_1 = lg.newImage('images/gui/poemgame/s_sticker_1.png')
+				s_sticker_2 = lg.newImage('images/gui/poemgame/s_sticker_2.png')
 			else
-				eyes = love.graphics.newImage('images/bg/eyes.png')
+				eyes = lg.newImage('images/bg/eyes.png')
 			end
-			y_sticker_1 = love.graphics.newImage('images/gui/poemgame/y_sticker_1.png')
-			y_sticker_2 = love.graphics.newImage('images/gui/poemgame/y_sticker_2.png')
-			n_sticker_1 = love.graphics.newImage('images/gui/poemgame/n_sticker_1.png')
-			n_sticker_2 = love.graphics.newImage('images/gui/poemgame/n_sticker_2.png')
+			y_sticker_1 = lg.newImage('images/gui/poemgame/y_sticker_1.png')
+			y_sticker_2 = lg.newImage('images/gui/poemgame/y_sticker_2.png')
+			n_sticker_1 = lg.newImage('images/gui/poemgame/n_sticker_1.png')
+			n_sticker_2 = lg.newImage('images/gui/poemgame/n_sticker_2.png')
 		else
-			m_sticker_1 = love.graphics.newImage('images/gui/poemgame/m_sticker_1.png')
+			m_sticker_1 = lg.newImage('images/gui/poemgame/m_sticker_1.png')
 		end
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
 		states = require 'states.splash'
-		endbg = love.graphics.newImage('images/gui/end.png')
-		s_killearly = love.graphics.newImage('images/cg/s_kill/s_kill_early.png')
+		endbg = lg.newImage('images/gui/end.png')
+		s_killearly = lg.newImage('images/cg/s_kill/s_kill_early.png')
 		audioUpdate('s_kill_early')
 		alpha = 0
 	elseif cstate == 'ghostmenu' then
 		states = require 'states.splash'
-		endbg = love.graphics.newImage('images/gui/end.png')
-		titlebg = love.graphics.newImage('images/gui/bg_ghost.png')
+		endbg = lg.newImage('images/gui/end.png')
+		titlebg = lg.newImage('images/gui/bg_ghost.png')
 		audioUpdate('ghostmenu')
 		alpha = 0
 	elseif cstate == 'poem_special' then
@@ -135,7 +135,7 @@ function bgUpdate(bgx, forceload) --background changes
 	if xaload == 0 or forceload then
 		unloadbg()
 		if bgx ~= 'black' and bgx ~= '' then
-			bgch = love.graphics.newImage('images/bg/'..bgx..'.png')
+			bgch = lg.newImage('images/bg/'..bgx..'.png')
 		end
 	end	
 	bg1 = bgx
@@ -144,7 +144,7 @@ end
 function cgUpdate(cgx, forceload) --cg changes
 	if cg1 ~= cgx or forceload then
 		if cgx ~= '' then
-			cgch = love.graphics.newImage('images/cg/'..cgx..'.png')
+			cgch = lg.newImage('images/cg/'..cgx..'.png')
 		end
 	end	
 	cg1 = cgx
@@ -183,44 +183,44 @@ end
 
 function loadSayori()
 	if s_Set.a=='1' then
-		sl = love.graphics.newImage('images/sayori/1l.png') 
-		sr = love.graphics.newImage('images/sayori/1r.png') 
+		sl = lg.newImage('images/sayori/1l.png') 
+		sr = lg.newImage('images/sayori/1r.png') 
 	elseif s_Set.a=='2' then
-		sl = love.graphics.newImage('images/sayori/1l.png') 
-		sr = love.graphics.newImage('images/sayori/2r.png') 
+		sl = lg.newImage('images/sayori/1l.png') 
+		sr = lg.newImage('images/sayori/2r.png') 
 	elseif s_Set.a=='3' then
-		sl = love.graphics.newImage('images/sayori/2l.png') 
-		sr = love.graphics.newImage('images/sayori/1r.png') 
+		sl = lg.newImage('images/sayori/2l.png') 
+		sr = lg.newImage('images/sayori/1r.png') 
 	elseif s_Set.a=='4' then
-		sl = love.graphics.newImage('images/sayori/2l.png') 
-		sr = love.graphics.newImage('images/sayori/2r.png') 
+		sl = lg.newImage('images/sayori/2l.png') 
+		sr = lg.newImage('images/sayori/2r.png') 
 	
 	elseif s_Set.a=='1b' then
-		sl = love.graphics.newImage('images/sayori/1bl.png')
-		sr = love.graphics.newImage('images/sayori/1br.png')
+		sl = lg.newImage('images/sayori/1bl.png')
+		sr = lg.newImage('images/sayori/1br.png')
 	elseif s_Set.a=='2b' then
-		sl = love.graphics.newImage('images/sayori/1bl.png') 
-		sr = love.graphics.newImage('images/sayori/2br.png') 
+		sl = lg.newImage('images/sayori/1bl.png') 
+		sr = lg.newImage('images/sayori/2br.png') 
 	elseif s_Set.a=='3b' then
-		sr = love.graphics.newImage('images/sayori/2bl.png') 
-		sr = love.graphics.newImage('images/sayori/1br.png') 
+		sr = lg.newImage('images/sayori/2bl.png') 
+		sr = lg.newImage('images/sayori/1br.png') 
 	elseif s_Set.a=='4b' then
-		sl = love.graphics.newImage('images/sayori/2bl.png') 
-		sr = love.graphics.newImage('images/sayori/2br.png') 
+		sl = lg.newImage('images/sayori/2bl.png') 
+		sr = lg.newImage('images/sayori/2br.png') 
 	
 	elseif s_Set.a=='5a' then
-		sl = love.graphics.newImage('images/sayori/3a.png') 
+		sl = lg.newImage('images/sayori/3a.png') 
 	elseif s_Set.a=='5b' then
-		sl = love.graphics.newImage('images/sayori/3b.png') 
+		sl = lg.newImage('images/sayori/3b.png') 
 	elseif s_Set.a=='5c' then
-		sl = love.graphics.newImage('images/sayori/3c.png')  
+		sl = lg.newImage('images/sayori/3c.png')  
 	elseif s_Set.a=='5d' then
-		sl = love.graphics.newImage('images/sayori/3d.png') 
+		sl = lg.newImage('images/sayori/3d.png') 
 	elseif s_Set.a~='' then
-		sl = love.graphics.newImage('images/sayori/'..s_Set.a..'.png')
+		sl = lg.newImage('images/sayori/'..s_Set.a..'.png')
 	end
 	
-	if s_Set.b~='' then s_a = love.graphics.newImage('images/sayori/'..s_Set.b..'.png') end
+	if s_Set.b~='' then s_a = lg.newImage('images/sayori/'..s_Set.b..'.png') end
 end
 
 function unloadSayori()
@@ -231,34 +231,34 @@ end
 
 function loadYuri()	
 	if y_Set.a=='1' then
-		yl = love.graphics.newImage('images/yuri/1l.png') 
-		yr = love.graphics.newImage('images/yuri/1r.png') 
+		yl = lg.newImage('images/yuri/1l.png') 
+		yr = lg.newImage('images/yuri/1r.png') 
 	elseif y_Set.a=='2' then
-		yl = love.graphics.newImage('images/yuri/1l.png') 
-		yr = love.graphics.newImage('images/yuri/2r.png') 
+		yl = lg.newImage('images/yuri/1l.png') 
+		yr = lg.newImage('images/yuri/2r.png') 
 	elseif y_Set.a=='3' then
-		yl = love.graphics.newImage('images/yuri/2l.png') 
-		yr = love.graphics.newImage('images/yuri/2r.png') 
+		yl = lg.newImage('images/yuri/2l.png') 
+		yr = lg.newImage('images/yuri/2r.png') 
 		
 	elseif y_Set.a=='1b' then
-		yl = love.graphics.newImage('images/yuri/1bl.png') 
-		yr = love.graphics.newImage('images/yuri/1br.png') 
+		yl = lg.newImage('images/yuri/1bl.png') 
+		yr = lg.newImage('images/yuri/1br.png') 
 	elseif y_Set.a=='2b' then
-		yl = love.graphics.newImage('images/yuri/1bl.png')
-		yr = love.graphics.newImage('images/yuri/2br.png') 
+		yl = lg.newImage('images/yuri/1bl.png')
+		yr = lg.newImage('images/yuri/2br.png') 
 	elseif y_Set.a=='3b' then
-		yl = love.graphics.newImage('images/yuri/2bl.png') 
-		yr = love.graphics.newImage('images/yuri/2br.png') 
+		yl = lg.newImage('images/yuri/2bl.png') 
+		yr = lg.newImage('images/yuri/2br.png') 
 	
 	elseif y_Set.a=='4' then
-		yl = love.graphics.newImage('images/yuri/3.png') 
+		yl = lg.newImage('images/yuri/3.png') 
 	elseif y_Set.a=='4b' then
-		yl = love.graphics.newImage('images/yuri/3b.png')
+		yl = lg.newImage('images/yuri/3b.png')
 	elseif y_Set.a~='' then
-		yl = love.graphics.newImage('images/yuri/'..y_Set.a..'.png')
+		yl = lg.newImage('images/yuri/'..y_Set.a..'.png')
 	end
 	
-	if y_Set.b ~= '' then y_a = love.graphics.newImage('images/yuri/'..y_Set.b..'.png') end
+	if y_Set.b ~= '' then y_a = lg.newImage('images/yuri/'..y_Set.b..'.png') end
 end
 
 function unloadYuri()
@@ -269,41 +269,41 @@ end
 
 function loadNatsuki()
 	if n_Set.b~='' then
-		n_a = love.graphics.newImage('images/natsuki/'..n_Set.b..'.png')
+		n_a = lg.newImage('images/natsuki/'..n_Set.b..'.png')
 	end
 	
 	if n_Set.a=='1' then
-		nl = love.graphics.newImage('images/natsuki/1l.png') 
-		nr = love.graphics.newImage('images/natsuki/1r.png') 
+		nl = lg.newImage('images/natsuki/1l.png') 
+		nr = lg.newImage('images/natsuki/1r.png') 
 	elseif n_Set.a=='2' then
-		nl = love.graphics.newImage('images/natsuki/1l.png') 
-		nr = love.graphics.newImage('images/natsuki/2r.png') 
+		nl = lg.newImage('images/natsuki/1l.png') 
+		nr = lg.newImage('images/natsuki/2r.png') 
 	elseif n_Set.a=='3' then
-		nl = love.graphics.newImage('images/natsuki/2l.png') 
-		nr = love.graphics.newImage('images/natsuki/1r.png') 
+		nl = lg.newImage('images/natsuki/2l.png') 
+		nr = lg.newImage('images/natsuki/1r.png') 
 	elseif n_Set.a=='4' then
-		nl = love.graphics.newImage('images/natsuki/2l.png') 
-		nr = love.graphics.newImage('images/natsuki/2r.png') 
+		nl = lg.newImage('images/natsuki/2l.png') 
+		nr = lg.newImage('images/natsuki/2r.png') 
 		
 	elseif n_Set.a=='1b' then
-		nl = love.graphics.newImage('images/natsuki/1bl.png') 
-		nr = love.graphics.newImage('images/natsuki/1br.png') 
+		nl = lg.newImage('images/natsuki/1bl.png') 
+		nr = lg.newImage('images/natsuki/1br.png') 
 	elseif n_Set.a=='2b' then
-		nl = love.graphics.newImage('images/natsuki/1bl.png') 
-		nr = love.graphics.newImage('images/natsuki/2br.png') 
+		nl = lg.newImage('images/natsuki/1bl.png') 
+		nr = lg.newImage('images/natsuki/2br.png') 
 	elseif n_Set.a=='3b' then
-		nl = love.graphics.newImage('images/natsuki/2bl.png') 
-		nr = love.graphics.newImage('images/natsuki/1br.png') 
+		nl = lg.newImage('images/natsuki/2bl.png') 
+		nr = lg.newImage('images/natsuki/1br.png') 
 	elseif n_Set.a=='4b' then
-		nl = love.graphics.newImage('images/natsuki/2bl.png') 
-		nr = love.graphics.newImage('images/natsuki/2br.png') 
+		nl = lg.newImage('images/natsuki/2bl.png') 
+		nr = lg.newImage('images/natsuki/2br.png') 
 		
 	elseif n_Set.a=='5' then
-		nl = love.graphics.newImage('images/natsuki/3.png') 
+		nl = lg.newImage('images/natsuki/3.png') 
 	elseif n_Set.a=='5b' then
-		nl = love.graphics.newImage('images/natsuki/3b.png') 
+		nl = lg.newImage('images/natsuki/3b.png') 
 	elseif n_Set.a~='' then
-		nl = love.graphics.newImage('images/natsuki/'..n_Set.a..'.png')   
+		nl = lg.newImage('images/natsuki/'..n_Set.a..'.png')   
 	end
 end
 
@@ -315,27 +315,27 @@ end
 
 function loadMonika()
 	if m_Set.a=='5a' then
-		ml = love.graphics.newImage('images/monika/3a.png') 
+		ml = lg.newImage('images/monika/3a.png') 
 	elseif m_Set.a=='5b' then
-		ml = love.graphics.newImage('images/monika/3b.png') 
+		ml = lg.newImage('images/monika/3b.png') 
 	elseif m_Set.a=='1' then
-		ml = love.graphics.newImage('images/monika/1l.png')
-		mr = love.graphics.newImage('images/monika/1r.png')
+		ml = lg.newImage('images/monika/1l.png')
+		mr = lg.newImage('images/monika/1r.png')
 	elseif m_Set.a=='2' then
-		ml = love.graphics.newImage('images/monika/1l.png')
-		mr = love.graphics.newImage('images/monika/2r.png')
+		ml = lg.newImage('images/monika/1l.png')
+		mr = lg.newImage('images/monika/2r.png')
 	elseif m_Set.a=='3' then
-		ml = love.graphics.newImage('images/monika/2l.png')
-		mr = love.graphics.newImage('images/monika/1r.png')
+		ml = lg.newImage('images/monika/2l.png')
+		mr = lg.newImage('images/monika/1r.png')
 	elseif m_Set.a=='4' then
-		ml = love.graphics.newImage('images/monika/2l.png')
-		mr = love.graphics.newImage('images/monika/2r.png')
+		ml = lg.newImage('images/monika/2l.png')
+		mr = lg.newImage('images/monika/2r.png')
 	elseif m_Set.a~='' then
-		ml = love.graphics.newImage('images/monika/'..m_Set.a..'.png')
+		ml = lg.newImage('images/monika/'..m_Set.a..'.png')
 	end
 	
 	if m_Set.b~='' then
-		m_a = love.graphics.newImage('images/monika/'..m_Set.b..'.png') 
+		m_a = lg.newImage('images/monika/'..m_Set.b..'.png') 
 	end
 end
 
