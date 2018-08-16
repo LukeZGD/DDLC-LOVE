@@ -1,96 +1,96 @@
 function event_draw_2()
 	if event_type == 'm_glitch1' then
-		love.graphics.draw(bgch)
-		love.graphics.draw(ml,100)
+		lg.draw(bgch)
+		lg.draw(ml,100)
 	end
 	
 	if event_type == 'n_glitch1' then
-		love.graphics.draw(bgch)
+		lg.draw(bgch)
 		drawMonika(m_Set.a,m_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
-		love.graphics.draw(nl,200,n_Set.y)
+		lg.draw(nl,200,n_Set.y)
 	end
 	
 	if event_type == 'm_onlayer_front' then
-		love.graphics.draw(bgch)
+		lg.draw(bgch)
 		drawYuri(y_Set.a,y_Set.b)
 		drawNatsuki(n_Set.a,n_Set.b)
 	end
 	
 	if event_type == 'n_rects_ghost' then
-		love.graphics.draw(bgch)
-		love.graphics.setColor(0,0,0)
-		love.graphics.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
-		love.graphics.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
-		love.graphics.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
-		love.graphics.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
-		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
-		love.graphics.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
+		lg.draw(bgch)
+		lg.setColor(0,0,0)
+		lg.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
+		lg.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
+		lg.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
+		lg.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
+		lg.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
+		lg.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
 		textbox_enabled = true
 	end
 	
 	if event_type == 'n_blackeyes' then
-		love.graphics.draw(bgch)
+		lg.draw(bgch)
 		if event_timer > 2 then
-			love.graphics.draw(n_blackeyes, 80)
+			lg.draw(n_blackeyes, 80)
 		else
 			drawNatsuki(n_Set.a,n_Set.b)
 		end
 	end
 	
 	if event_type == 'ny_argument' then
-		love.graphics.draw(bgch)
+		lg.draw(bgch)
 		drawYuri(y_Set.a,y_Set.b)
 		drawNatsuki(n_Set.a,n_Set.b)
 		if eventvar3 and eventvar4 then
 			if event_timer > eventvar3[eventvar5] and event_timer < eventvar4[eventvar5] then
-				love.graphics.draw(vignette)
+				lg.draw(vignette)
 			end
 		end
-		love.graphics.setColor(255,255,255,eventvar1)
-		love.graphics.draw(vignette)
-		love.graphics.setColor(255,255,255,eventvar2)
+		lg.setColor(255,255,255,eventvar1)
+		lg.draw(vignette)
+		lg.setColor(255,255,255,eventvar2)
 		drawanimframe()
 	end
 	
 	if event_type == 'ny_argument2' then
 		drawanimframe()
 		if cl <= 1008 and ml then
-			love.graphics.draw(ml)
+			lg.draw(ml)
 		end
 	end
 	
 	if event_type == 'yuri_glitch' then
-		love.graphics.draw(bgch)
+		lg.draw(bgch)
 		drawMonika(m_Set.a,m_Set.b)
 		drawanimframe(80)
 	end
 	
 	if event_type == 'show_vignette' then
-		love.graphics.draw(bgch)
-		love.graphics.draw(vignette)
+		lg.draw(bgch)
+		lg.draw(vignette)
 	elseif event_type == 'yuri_eyes' then
-		love.graphics.draw(bgch)
-		if eyes1 then love.graphics.draw(eyes1,-13) end
-		if eyes2 then love.graphics.draw(eyes2,eventvar2,eventvar3) end
+		lg.draw(bgch)
+		if eyes1 then lg.draw(eyes1,-13) end
+		if eyes2 then lg.draw(eyes2,eventvar2,eventvar3) end
 		if cl <= 701 then
-			love.graphics.setColor(32,0,0,192)
+			lg.setColor(32,0,0,192)
 		else
-			love.graphics.setColor(0,0,0,192)
+			lg.setColor(0,0,0,192)
 		end
-		love.graphics.rectangle('fill',0,0,400,240)
-		love.graphics.setColor(255,255,255)
+		lg.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255)
 		if poem_enabled then drawPoem()	end
 	end
 	
 	if event_type == 'faint_effect' then
-		love.graphics.setColor(255,255,255,alpha)
-		if bgch then love.graphics.draw(bgch) end
+		lg.setColor(255,255,255,alpha)
+		if bgch then lg.draw(bgch) end
 		drawNatsuki(n_Set.a,n_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
 		drawMonika(m_Set.a,m_Set.b)
-		love.graphics.setColor(128,0,0,eventvar1)
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(128,0,0,eventvar1)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	if event_type == 'yuri_glitch_head' then
@@ -102,40 +102,40 @@ function event_draw_2()
 	end
 	
 	if event_type == 'show_darkred' then
-		love.graphics.setColor(255,255,255,alpha)
-		love.graphics.draw(bgch)
+		lg.setColor(255,255,255,alpha)
+		lg.draw(bgch)
 		drawYuri(y_Set.a,y_Set.b)
-		love.graphics.setColor(32,0,0,eventvar2)
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(32,0,0,eventvar2)
+		lg.rectangle('fill',0,0,400,240)
 		if eventvar4 == 'show_noise' then
-			love.graphics.setColor(255,255,255,eventvar2/8)
+			lg.setColor(255,255,255,eventvar2/8)
 			drawanimframe()
 		end
-		love.graphics.setColor(255,255,255,alpha)
+		lg.setColor(255,255,255,alpha)
 		drawMonika(m_Set.a,m_Set.b)
 	end
 	
 	if event_type == 'yuri_ch23' then
 		if event_timer >= 5.5 then
-			love.graphics.draw(bg_glitch)
+			lg.draw(bg_glitch)
 			drawanimframe(80)
 		elseif event_timer >= 4.5 then
-			love.graphics.draw(bgch)
-			love.graphics.draw(eyes1,-13)
+			lg.draw(bgch)
+			lg.draw(eyes1,-13)
 		end
 	end
 	
 	if event_type == 'yuri_ch23_2' then
-		love.graphics.draw(bgch,eventvar1)
+		lg.draw(bgch,eventvar1)
 		drawYuri(y_Set.a,y_Set.b)
-		love.graphics.setColor(0,0,0,128+(eventvar1*4))
-		love.graphics.rectangle('fill',0,0,400,240)
+		lg.setColor(0,0,0,128+(eventvar1*4))
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	if event_type == 'm_ch23ex' then
-		love.graphics.setColor(255,255,255,255)
+		lg.setColor(255,255,255,255)
 		if event_timer > 1 then
-			love.graphics.draw(ex3top)
+			lg.draw(ex3top)
 		end
 		if event_timer > 4 then
 			drawMonika(m_Set.a,m_Set.b)
@@ -143,46 +143,46 @@ function event_draw_2()
 	end
 	
 	if event_type == 'natsuki_ch22' then
-		love.graphics.draw(bgch)
+		lg.draw(bgch)
 		if cl < 726 then
 			drawNatsuki(n_Set.a,n_Set.b)
 			if cl < 725 then
-				love.graphics.setColor(255,255,255,eventvar3)
-				love.graphics.draw(ghost_blood,80)
-				love.graphics.setColor(0,0,0,eventvar2)
-				love.graphics.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
-				love.graphics.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
-				love.graphics.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
-				love.graphics.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
-				love.graphics.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
-				love.graphics.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
+				lg.setColor(255,255,255,eventvar3)
+				lg.draw(ghost_blood,80)
+				lg.setColor(0,0,0,eventvar2)
+				lg.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
+				lg.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
+				lg.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
+				lg.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
+				lg.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
+				lg.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
 			end
 		end
-		love.graphics.setColor(32,0,0,eventvar1)
-		love.graphics.rectangle('fill',0,0,400,240)
-		love.graphics.setColor(255,255,255)
+		lg.setColor(32,0,0,eventvar1)
+		lg.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255)
 		if cl == 726 then
 			if event_timer < 1 then
-				love.graphics.draw(nl,80)
+				lg.draw(nl,80)
 			elseif event_timer < 1.5 then
-				love.graphics.draw(ghost3,80)
+				lg.draw(ghost3,80)
 			elseif event_timer < 1.5625 then
-				love.graphics.draw(ghost3_1,80)
+				lg.draw(ghost3_1,80)
 			elseif event_timer < 1.625 then
-				love.graphics.draw(ghost3_2,80)
+				lg.draw(ghost3_2,80)
 			elseif event_timer < 1.6875 then
-				love.graphics.draw(ghost3_3,80)
+				lg.draw(ghost3_3,80)
 			end
 		end
 	end
 	
 	if event_type == 'yuri_kill' then
 		if event_timer < 9.5 then
-			love.graphics.draw(bgch)
+			lg.draw(bgch)
 			if event_timer < 1.43 then
 				drawYuri(y_Set.a,y_Set.b)
 			else
-				love.graphics.draw(eventvar1,80,eventvar2)
+				lg.draw(eventvar1,80,eventvar2)
 			end
 		end
 	end

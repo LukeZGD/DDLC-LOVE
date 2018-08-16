@@ -20,31 +20,31 @@ local s_timer = 0
 function drawSplash()
 	if state == 'splash1' then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
-		love.graphics.setBackgroundColor(255,255,255)
-		love.graphics.setColor(255, 255, 255, alpha)
-		love.graphics.draw(splash, 0, 0, 0)
-		love.graphics.setColor(0, 0, 0, alpha)
-		love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
-		love.graphics.print('Made with LovePotion/LOVE 0.10.2',0,220)
+		lg.setBackgroundColor(255,255,255)
+		lg.setColor(255, 255, 255, alpha)
+		lg.draw(splash, 0, 0, 0)
+		lg.setColor(0, 0, 0, alpha)
+		lg.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
+		lg.print('Made with LovePotion/LOVE 0.10.2',0,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
-		love.graphics.setColor(0,0,0, alpha)
+		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
-			love.graphics.print(splash_messages[random_msg], 95, 100)
+			lg.print(splash_messages[random_msg], 95, 100)
 		else
-			love.graphics.print('This game is not suitable for children', 95, 100)
-			love.graphics.print('  or those who are easily disturbed.', 95, 116)
+			lg.print('This game is not suitable for children', 95, 100)
+			lg.print('  or those who are easily disturbed.', 95, 116)
 		end
 		
 	elseif state == 'title' then --title (Title Screen)
 		drawTopScreen()
-		love.graphics.setBackgroundColor(255,255,255)
-		love.graphics.setColor(255,255,255,alpha)
-		love.graphics.draw(background_Image, posX, posY)
-		love.graphics.draw(titlebg, 0, titlebg_ypos-240)
-		love.graphics.setColor(64,64,64,alpha)
-		love.graphics.print('Unofficial port by LukeeGD',240,5)
+		lg.setBackgroundColor(255,255,255)
+		lg.setColor(255,255,255,alpha)
+		lg.draw(background_Image, posX, posY)
+		lg.draw(titlebg, 0, titlebg_ypos-240)
+		lg.setColor(64,64,64,alpha)
+		lg.print('Unofficial port by LukeeGD',240,5)
 		drawBottomScreen()
 		menu_draw()
 	end
@@ -89,23 +89,23 @@ end
 
 function drawSplashspec(spec)
 	drawTopScreen()
-	love.graphics.setColor(255,255,255,alpha)
+	lg.setColor(255,255,255,alpha)
 	if s_timer > 3.1 then
 		if state == 's_kill_early' then
-			love.graphics.setBackgroundColor(245,245,245)
-			love.graphics.draw(s_killearly,72,0)
-			love.graphics.setColor(200,200,200)
-			love.graphics.setFont(m1)
-			if s_timer > 600 then love.graphics.print('Now everyone can be happy.',200,100) end
+			lg.setBackgroundColor(245,245,245)
+			lg.draw(s_killearly,72,0)
+			lg.setColor(200,200,200)
+			lg.setFont(m1)
+			if s_timer > 600 then lg.print('Now everyone can be happy.',200,100) end
 		elseif state == 'ghostmenu' then
-			love.graphics.draw(titlebg)
+			lg.draw(titlebg)
 		end
 	else
-		love.graphics.draw(endbg)
+		lg.draw(endbg)
 	end
 	drawBottomScreen()
-	love.graphics.setColor(0,0,0)
-	love.graphics.rectangle('fill',-40,0,400,240)
+	lg.setColor(0,0,0)
+	lg.rectangle('fill',-40,0,400,240)
 end
 
 function updateSplashspec(dt)

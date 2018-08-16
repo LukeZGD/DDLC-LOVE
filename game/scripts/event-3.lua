@@ -1,27 +1,27 @@
 function event_draw_3()
 	if event_type == 'monika_end' then
-		if bgch then love.graphics.draw(bgch) end
-		love.graphics.setColor(255,255,255,255)
+		if bgch then lg.draw(bgch) end
+		lg.setColor(255,255,255,255)
 		if eventvar4 ~= 'end2' then
-			love.graphics.rectangle('fill',eventvar2,eventvar2/2,24,24)
-			love.graphics.rectangle('fill',eventvar3,eventvar3/2,24,24)
-			love.graphics.rectangle('fill',eventvar3-eventvar2,eventvar2/2,24,24)
-			love.graphics.rectangle('fill',eventvar3-eventvar2,eventvar3/2,24,24)
-			love.graphics.rectangle('fill',eventvar2-eventvar3,eventvar2/2,24,24)
-			love.graphics.rectangle('fill',eventvar2-eventvar3,eventvar3/2,24,24)
+			lg.rectangle('fill',eventvar2,eventvar2/2,24,24)
+			lg.rectangle('fill',eventvar3,eventvar3/2,24,24)
+			lg.rectangle('fill',eventvar3-eventvar2,eventvar2/2,24,24)
+			lg.rectangle('fill',eventvar3-eventvar2,eventvar3/2,24,24)
+			lg.rectangle('fill',eventvar2-eventvar3,eventvar2/2,24,24)
+			lg.rectangle('fill',eventvar2-eventvar3,eventvar3/2,24,24)
 		end
 		
 		drawConsole()
 		
-		love.graphics.setColor(255,255,255,eventvar1)
+		lg.setColor(255,255,255,eventvar1)
 		drawanimframe()
 	end
 	
 	if event_type == 'beforecredits' then
-		love.graphics.setColor(255,255,255,eventvar1)
-		love.graphics.draw(vignette)
+		lg.setColor(255,255,255,eventvar1)
+		lg.draw(vignette)
 		drawanimframe()
-		if eventvar2 then love.graphics.draw(eventvar2,0,eventvar3) end
+		if eventvar2 then lg.draw(eventvar2,0,eventvar3) end
 	end
 end
 

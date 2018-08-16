@@ -3,14 +3,14 @@ local err = ''
 
 function drawLoad()
 	drawTopScreen()
-	love.graphics.setColor(0,0,0,alpha)
-	love.graphics.rectangle('fill',0,0,400,240)
-	love.graphics.setColor(255,255,255)
-	love.graphics.print(err,5,5)
-	if err ~= '' then love.graphics.print('Please delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit',5,35) end
+	lg.setColor(0,0,0,alpha)
+	lg.rectangle('fill',0,0,400,240)
+	lg.setColor(255,255,255)
+	lg.print(err,5,5)
+	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit',5,35) end
 	drawBottomScreen()
-	love.graphics.setColor(0,0,0,alpha)
-	love.graphics.rectangle('fill',-40,0,400,240)
+	lg.setColor(0,0,0,alpha)
+	lg.rectangle('fill',-40,0,400,240)
 end
 
 function updateLoad()
@@ -20,12 +20,12 @@ function updateLoad()
 	
 	--loading assets
 	if l_timer == 95 then
-		font = love.graphics.newFont('fonts/Aller_Rg',12)
-		love.graphics.setFont(font)
+		font = lg.newFont('fonts/Aller_Rg',12)
+		lg.setFont(font)
 	
 	elseif l_timer == 96 then
-		m1 = love.graphics.newFont('fonts/m1',12)
-		deffont = love.graphics.newFont()
+		m1 = lg.newFont('fonts/m1',12)
+		deffont = lg.newFont()
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
@@ -33,11 +33,11 @@ function updateLoad()
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
-		namebox = love.graphics.newImage('images/gui/namebox.png')
-		textbox = love.graphics.newImage('images/gui/textbox.png')
-		background_Image = love.graphics.newImage('images/bg/menu_bg.png')
-		guicheck = love.graphics.newImage('images/gui/check.png')
-		guicheckwhite = love.graphics.newImage('images/gui/checkwhite.png')
+		namebox = lg.newImage('images/gui/namebox.png')
+		textbox = lg.newImage('images/gui/textbox.png')
+		background_Image = lg.newImage('images/bg/menu_bg.png')
+		guicheck = lg.newImage('images/gui/check.png')
+		guicheckwhite = lg.newImage('images/gui/checkwhite.png')
 		
 	elseif l_timer == 99 then
 		local file = love.filesystem.isFile('persistent')
@@ -47,7 +47,7 @@ function updateLoad()
 			changeState('newgame')
 		end
 	elseif l_timer == 100 then
-		love.graphics.setBackgroundColor(255,255,255)
+		lg.setBackgroundColor(255,255,255)
 		alpha = math.max(alpha - 5, 0)
 		if alpha == 0 then
 			changeState('splash')

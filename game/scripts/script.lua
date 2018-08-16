@@ -213,77 +213,77 @@ function event_init(etype,arg1,arg2)
 			require 'scripts.event-3'
 		end
 		if etype == 's_kill' then --Sayo-nara.... load sprites
-			s_kill = love.graphics.newImage('images/cg/s_kill/s_kill.png')
-			s_kill2 = love.graphics.newImage('images/cg/s_kill/s_kill2.png')
-			s_killzoom = love.graphics.newImage('images/cg/s_kill/s_killzoom.png')
-			s_kill_bg = love.graphics.newImage('images/cg/s_kill/s_kill_bg.png')
-			s_kill_bg2 = love.graphics.newImage('images/cg/s_kill/s_kill_bg2.png')
-			s_kill_bgzoom = love.graphics.newImage('images/cg/s_kill/s_kill_bgzoom.png')
-			splash_glitch = love.graphics.newImage('images/bg/splash-glitch.png')
-			exception = love.graphics.newImage('images/cg/s_kill/ex2.png')
+			s_kill = lg.newImage('images/cg/s_kill/s_kill.png')
+			s_kill2 = lg.newImage('images/cg/s_kill/s_kill2.png')
+			s_killzoom = lg.newImage('images/cg/s_kill/s_killzoom.png')
+			s_kill_bg = lg.newImage('images/cg/s_kill/s_kill_bg.png')
+			s_kill_bg2 = lg.newImage('images/cg/s_kill/s_kill_bg2.png')
+			s_kill_bgzoom = lg.newImage('images/cg/s_kill/s_kill_bgzoom.png')
+			splash_glitch = lg.newImage('images/bg/splash-glitch.png')
+			exception = lg.newImage('images/cg/s_kill/ex2.png')
 		elseif etype == 'endscreen' then
 			if arg1 == 'flipped' then
-				bgch = love.graphics.newImage('images/gui/endflipped.png')
+				bgch = lg.newImage('images/gui/endflipped.png')
 			else
-				bgch = love.graphics.newImage('images/gui/end.png')
+				bgch = lg.newImage('images/gui/end.png')
 			end
 		elseif etype == 's_glitch' then
-			s_glitch1 = love.graphics.newImage('images/sayori/glitch1.png')
-			s_glitch2 = love.graphics.newImage('images/sayori/glitch2.png')
+			s_glitch1 = lg.newImage('images/sayori/glitch1.png')
+			s_glitch2 = lg.newImage('images/sayori/glitch2.png')
 		elseif etype == 'm_glitch1' then
-			ml = love.graphics.newImage('images/monika/g2.png')
+			ml = lg.newImage('images/monika/g2.png')
 		elseif etype == 'n_glitch1' then
-			nl = love.graphics.newImage('images/natsuki/glitch1.png')
+			nl = lg.newImage('images/natsuki/glitch1.png')
 		elseif etype == 'n_blackeyes' then
-			n_blackeyes = love.graphics.newImage('images/natsuki/blackeyes.png')
+			n_blackeyes = lg.newImage('images/natsuki/blackeyes.png')
 		elseif etype == 'ny_argument' then
-			vignette = love.graphics.newImage('images/bg/vignette.png')
+			vignette = lg.newImage('images/bg/vignette.png')
 			loadNoise()
 		elseif etype == 'ny_argument2' then
-			ml = love.graphics.newImage('images/monika/ac.png')
+			ml = lg.newImage('images/monika/ac.png')
 		elseif etype == 'yuri_glitch' then
 			loadYuriGlitch()
 		elseif etype == 'show_vignette' then
 			loadVignette()
 		elseif etype == 'yuri_eyes' then
-			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
-			eyes2 = love.graphics.newImage('images/yuri/eyes2.png')
+			eyes1 = lg.newImage('images/yuri/eyes1.png')
+			eyes2 = lg.newImage('images/yuri/eyes2.png')
 		elseif etype == 'yuri_glitch_head' then
-			animframe1 = love.graphics.newImage('images/yuri/za.png')
-			animframe2 = love.graphics.newImage('images/yuri/zb.png')
-			animframe3 = love.graphics.newImage('images/yuri/zc.png')
-			animframe4 = love.graphics.newImage('images/yuri/zd.png')
+			animframe1 = lg.newImage('images/yuri/za.png')
+			animframe2 = lg.newImage('images/yuri/zb.png')
+			animframe3 = lg.newImage('images/yuri/zc.png')
+			animframe4 = lg.newImage('images/yuri/zd.png')
 		elseif etype == 'yuri_ch23' then
-			bg_glitch = love.graphics.newImage('images/bg/glitch.png')
-			eyes1 = love.graphics.newImage('images/yuri/eyes1.png')
+			bg_glitch = lg.newImage('images/bg/glitch.png')
+			eyes1 = lg.newImage('images/yuri/eyes1.png')
 			loadYuriGlitch()
 		elseif etype == 'm_ch23ex' then
-			ex3top = love.graphics.newImage('images/gui/ex3top.png')
-			ex3bottom = love.graphics.newImage('images/gui/ex3bottom.png')
+			ex3top = lg.newImage('images/gui/ex3top.png')
+			ex3bottom = lg.newImage('images/gui/ex3bottom.png')
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
-				splash = love.graphics.newImage('images/bg/splash-glitch2.png')
+				splash = lg.newImage('images/bg/splash-glitch2.png')
 			else
-				splash = love.graphics.newImage('images/bg/splash.png')
+				splash = lg.newImage('images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap
-			ghost_blood = love.graphics.newImage('images/natsuki/ghost_blood.png')
-			ghost3 = love.graphics.newImage('images/natsuki/ghost3.png')
-			ghost3_1 = love.graphics.newImage('images/natsuki/ghost3-1.png')
-			ghost3_2 = love.graphics.newImage('images/natsuki/ghost3-2.png')
-			ghost3_3 = love.graphics.newImage('images/natsuki/ghost3-3.png')
+			ghost_blood = lg.newImage('images/natsuki/ghost_blood.png')
+			ghost3 = lg.newImage('images/natsuki/ghost3.png')
+			ghost3_1 = lg.newImage('images/natsuki/ghost3-1.png')
+			ghost3_2 = lg.newImage('images/natsuki/ghost3-2.png')
+			ghost3_3 = lg.newImage('images/natsuki/ghost3-3.png')
 		elseif etype == 'yuri_kill' then --that looks painful
-			stab1 = love.graphics.newImage('images/yuri/stab/1.png')
-			stab2 = love.graphics.newImage('images/yuri/stab/2.png')
-			stab3 = love.graphics.newImage('images/yuri/stab/3.png')
-			stab4 = love.graphics.newImage('images/yuri/stab/4.png')
-			stab5 = love.graphics.newImage('images/yuri/stab/5.png')
-			stab6 = love.graphics.newImage('images/yuri/stab/6.png')
-			stab6f = love.graphics.newImage('images/yuri/stab/6-full.png')
+			stab1 = lg.newImage('images/yuri/stab/1.png')
+			stab2 = lg.newImage('images/yuri/stab/2.png')
+			stab3 = lg.newImage('images/yuri/stab/3.png')
+			stab4 = lg.newImage('images/yuri/stab/4.png')
+			stab5 = lg.newImage('images/yuri/stab/5.png')
+			stab6 = lg.newImage('images/yuri/stab/6.png')
+			stab6f = lg.newImage('images/yuri/stab/6-full.png')
 		elseif etype == 'beforecredits' then
-			end_glitch1 = love.graphics.newImage('images/bg/end-glitch1.png')
-			end_glitch2 = love.graphics.newImage('images/bg/end-glitch2.png')
-			end_glitch3 = love.graphics.newImage('images/bg/end-glitch3.png')
+			end_glitch1 = lg.newImage('images/bg/end-glitch1.png')
+			end_glitch2 = lg.newImage('images/bg/end-glitch2.png')
+			end_glitch3 = lg.newImage('images/bg/end-glitch3.png')
 			loadNoise()
 			loadVignette()
 		end
@@ -381,7 +381,7 @@ function event_end(arg1)
 end
 
 function updateConsole(text,text2,text3)
-	if console_font == nil then console_font = love.graphics.newFont('fonts/F25_Bank_Printer') end
+	if console_font == nil then console_font = lg.newFont('fonts/F25_Bank_Printer') end
 	if console_enabled ~= true then console_enabled = true end
 	console_text1 = dripText(text,30,myTextStartTime)
 	if text2 then console_text2 = text2 else console_text2 = '' end

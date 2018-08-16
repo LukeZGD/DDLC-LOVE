@@ -90,8 +90,8 @@ end
 function menu_draw()
 	xaload = xaload + 1
 	
-	love.graphics.setColor(255, 255, 255, alpha)
-	if bgimg_disabled ~= true then love.graphics.draw(background_Image, posX, posY) end
+	lg.setColor(255, 255, 255, alpha)
+	if bgimg_disabled ~= true then lg.draw(background_Image, posX, posY) end
 	if menu_type == 'choice' then
 		for i = 1, #choices do
 			getcompare[i] = font:getWidth(choices[i])
@@ -103,64 +103,64 @@ function menu_draw()
 	end
 	rectwidth = math.max(unpack(getcompare)) + 5
 	
-	love.graphics.setColor(255, 189, 225, alpha)
+	lg.setColor(255, 189, 225, alpha)
 	for i = 1, 8 do
-		if menu_items >= i+1 then love.graphics.rectangle('fill',16, 20+(25*i),rectwidth,16) end
+		if menu_items >= i+1 then lg.rectangle('fill',16, 20+(25*i),rectwidth,16) end
 	end
-	if menu_previous then love.graphics.rectangle('fill', 16, 220, 30, 16) end
+	if menu_previous then lg.rectangle('fill', 16, 220, 30, 16) end
 	
 	if bgimg_disabled then
-		love.graphics.setColor(255,255,255)
-		love.graphics.draw(guicheckwhite,cX,cY)
+		lg.setColor(255,255,255)
+		lg.draw(guicheckwhite,cX,cY)
 	else
-		love.graphics.setColor(0,0,0) 
-		love.graphics.draw(guicheck,cX,cY)
+		lg.setColor(0,0,0) 
+		lg.draw(guicheck,cX,cY)
 	end
-	love.graphics.print(menutext,16, 12)
+	lg.print(menutext,16, 12)
 	
-	love.graphics.setColor(0,0,0)
+	lg.setColor(0,0,0)
 	for i = 1, 8 do
-		if menu_items >= i+1 and menu_type == 'choice' then love.graphics.print(choices[i],17,20+(25*i))
-		elseif menu_items >= i+1 then love.graphics.print(itemnames[i],17,20+(25*i)) end
+		if menu_items >= i+1 and menu_type == 'choice' then lg.print(choices[i],17,20+(25*i))
+		elseif menu_items >= i+1 then lg.print(itemnames[i],17,20+(25*i)) end
 	end
-	if menu_previous then love.graphics.print('Back',17, 220) end
+	if menu_previous then lg.print('Back',17, 220) end
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
 		if menu_type == 'settings' and pagenum == 1 then
-			love.graphics.print('Page 1 of 2',220,12)
-			love.graphics.print('(<) X | Y (>)',223,27)
-			love.graphics.print(settings.textloc..' Screen',140, 45)
-			love.graphics.print(settings.textspd, 157, 70)
-			love.graphics.print('(<)',140,70)
-			love.graphics.print('(>)',184,70)
-			love.graphics.print(settings.autospd..' sec.',157, 95)
-			love.graphics.print('(<)',140,95)
-			love.graphics.print('(>)',198,95)
-			love.graphics.print(settings.dtym,140, 120)
+			lg.print('Page 1 of 2',220,12)
+			lg.print('(<) X | Y (>)',223,27)
+			lg.print(settings.textloc..' Screen',140, 45)
+			lg.print(settings.textspd, 157, 70)
+			lg.print('(<)',140,70)
+			lg.print('(>)',184,70)
+			lg.print(settings.autospd..' sec.',157, 95)
+			lg.print('(<)',140,95)
+			lg.print('(>)',198,95)
+			lg.print(settings.dtym,140, 120)
 			
 		elseif menu_type == 'settings' and pagenum == 2 then
-			love.graphics.print('Page 2 of 2',220,12)
-			love.graphics.print('(<) X | Y (>)',223,27)
-			love.graphics.print(settings.animh, 140, 45)
+			lg.print('Page 2 of 2',220,12)
+			lg.print('(<) X | Y (>)',223,27)
+			lg.print(settings.animh, 140, 45)
 			
 		elseif menu_type == 'settings2' then
-			love.graphics.print(settings.textloc..' Screen',140, 45)
-			love.graphics.print(settings.dtym,140, 70)
-			love.graphics.print(settings.animh, 140, 95)
+			lg.print(settings.textloc..' Screen',140, 45)
+			lg.print(settings.dtym,140, 70)
+			lg.print(settings.animh, 140, 95)
 		end
-		love.graphics.print('Press (<) and (>) to change settings.',16,188)
-		love.graphics.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
+		lg.print('Press (<) and (>) to change settings.',16,188)
+		lg.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		love.graphics.print('Page '..pagenum..' of 10',220,12)
-		love.graphics.print('(<) X | Y (>)',230,27)
+		lg.print('Page '..pagenum..' of 10',220,12)
+		lg.print('(<) X | Y (>)',230,27)
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
-				love.graphics.setColor(0,255,0)
-				love.graphics.rectangle('fill',95,25+(25*i),6,6)
+				lg.setColor(0,255,0)
+				lg.rectangle('fill',95,25+(25*i),6,6)
 			else
-				love.graphics.setColor(255,0,0)
-				love.graphics.rectangle('fill',95,25+(25*i),6,6)
+				lg.setColor(255,0,0)
+				lg.rectangle('fill',95,25+(25*i),6,6)
 			end
 		end
 		
@@ -168,20 +168,20 @@ function menu_draw()
 		if settings.dtym == 1 then drawdatetime() end
 		
 	elseif menu_type == 'help' then
-		love.graphics.setColor(255,189,225)
-		love.graphics.rectangle('fill',14,30,260,110)
-		love.graphics.rectangle('fill',14,150,260,16)
-		love.graphics.rectangle('fill',14,180,260,30)
-		love.graphics.setColor(0,0,0)
-		love.graphics.print('Key Bindings:',16,30)
-		love.graphics.print('A, L Trigger - Advances through the game,',16,45)
-		love.graphics.print('activates menu choices',90,60)
-		love.graphics.print('B - Exit Menu, AutoForward On/Off',16,80)
-		love.graphics.print('X - (Menu) Previous Page, (Hold) Skip',16,100)
-		love.graphics.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
-		love.graphics.print('Managing files: Go to Settings > Characters',16,150)
-		love.graphics.print('Deleting save data: Delete everything in here',16,180)
-		love.graphics.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
+		lg.setColor(255,189,225)
+		lg.rectangle('fill',14,30,260,110)
+		lg.rectangle('fill',14,150,260,16)
+		lg.rectangle('fill',14,180,260,30)
+		lg.setColor(0,0,0)
+		lg.print('Key Bindings:',16,30)
+		lg.print('A, L Trigger - Advances through the game,',16,45)
+		lg.print('activates menu choices',90,60)
+		lg.print('B - Exit Menu, AutoForward On/Off',16,80)
+		lg.print('X - (Menu) Previous Page, (Hold) Skip',16,100)
+		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
+		lg.print('Managing files: Go to Settings > Characters',16,150)
+		lg.print('Deleting save data: Delete everything in here',16,180)
+		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
 	end	
 end
 
