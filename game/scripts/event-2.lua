@@ -219,20 +219,8 @@ function event_update_2(dt)
 	
 	if event_type == 'ny_argument' then
 		eventvar1 = math.min(eventvar1 + 0.15, 255)
-		if cl == 1000 then
-			eventvar2 = 60
-		elseif cl == 1001 then
-			eventvar2 = 80
-		elseif cl == 1002 then
-			eventvar2 = 100
-		elseif cl == 1003 then
-			eventvar2 = 120
-		elseif cl == 1004 then
-			eventvar2 = 140
-		elseif cl == 1005 then
-			eventvar2 = 160
-		elseif cl == 1006 then
-			eventvar2 = 180
+		if cl >= 1000 then
+			eventvar2 = 60+(20*(cl-1000))
 		elseif event_timer > 36 then
 			eventvar2 = 40
 		elseif event_timer > 26 then
@@ -258,10 +246,9 @@ function event_update_2(dt)
 		end
 		if eventvar2 > -12 then eventvar2 = math.random(-14,-12) end
 		if cl >= 1439 then
-			if xaload > 125 and cl == 1442 then
-				event_end('yuri_eyes')
-			elseif xaload > 125 then
+			if xaload > 125 then
 				textbox_enabled = true
+				if cl == 1442 then event_end('yuri_eyes') end
 			else
 				textbox_enabled = false
 			end
@@ -314,42 +301,9 @@ function event_update_2(dt)
 			eventvar1 = math.random(-1,1)
 			eventvar3 = 0
 		end
-		if cl == 1764 then eventvar2 = 6.375
-		elseif cl == 1768 then eventvar2 = 9.5625
-		elseif cl == 1769 then eventvar2 = 12.75
-		elseif cl == 1770 then eventvar2 = 15.9375
-		elseif cl == 1771 then eventvar2 = 19.125
-		elseif cl == 1772 then eventvar2 = 22.3125
-		elseif cl == 1773 then eventvar2 = 25.5
-		elseif cl == 1774 then eventvar2 = 28.6875
-		elseif cl == 1775 then eventvar2 = 31.875
-		elseif cl == 1776 then eventvar2 = 38.25
-		elseif cl == 1777 then eventvar2 = 44.625
-		elseif cl == 1778 then eventvar2 = 51
-		elseif cl == 1779 then eventvar2 = 57.375
-		elseif cl == 1780 then eventvar2 = 63.75
-		elseif cl == 1781 then eventvar2 = 70.125
-		elseif cl == 1782 then eventvar2 = 76.5
-		elseif cl == 1783 then eventvar2 = 82.875
-		elseif cl == 1784 then eventvar2 = 89.25
-		elseif cl == 1785 then eventvar2 = 95.625
-		elseif cl == 1786 then eventvar2 = 102
-		elseif cl == 1787 then eventvar2 = 108.375
-		elseif cl == 1788 then eventvar2 = 114.75
-		elseif cl == 1789 then eventvar2 = 121.125
-		elseif cl == 1790 then eventvar2 = 127.5
-		elseif cl == 1791 then eventvar2 = 133.875
-		elseif cl == 1792 then eventvar2 = 141
-		elseif cl == 1793 then eventvar2 = 147
-		elseif cl == 1794 then eventvar2 = 155
-		elseif cl == 1795 then eventvar2 = 160
-		elseif cl == 1796 then eventvar2 = 172
-		elseif cl == 1797 then eventvar2 = 185
-		elseif cl == 1798 then eventvar2 = 198
-		elseif cl == 1799 then eventvar2 = 210
-		elseif cl == 1800 then eventvar2 = 223
-		elseif cl == 1801 then eventvar2 = 235
-		elseif cl == 1802 then eventvar2 = 255
+		if cl == 1764 then eventvar2 = 2
+		elseif cl >= 1768 and cl <= 1775 then eventvar2 = cl-1764
+		elseif cl >= 1776 and cl <= 1802 then eventvar2 = 9.7*(cl-1775)
 		end
 	end
 	

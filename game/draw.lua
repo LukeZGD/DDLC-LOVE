@@ -2,6 +2,8 @@ lg = love.graphics
 local drawbottom
 local xps = {}
 local yps = {}
+local nxh
+local nyh
 
 function drawTopScreen()
 	if drawbottom == 1 then
@@ -20,6 +22,21 @@ function drawBottomScreen()
 	else
 		lg.setScreen('bottom')
 	end
+end
+
+--compatiblity for LOVE 11 and above
+local lgsetColor = lg.setColor
+function lg.setColor(...)
+	local args = {...}
+	local ver = love.getVersion()
+	if ver >= 11 then
+		for i = 1, #args do
+			if args[i] > 0 then
+				args[i] = args[i] / 255
+			end
+		end
+	end
+	lgsetColor(args[1],args[2],args[3],args[4])
 end
 
 function dripText(text,charactersPerSecond,startTime)
@@ -68,7 +85,13 @@ function cgHide()
 end
 
 function drawdatetime()
-	lg.print(os.date("%Y-%m-%d %H:%M"),205,220)
+	local tym
+	if sectimer <= 0.5 then
+		tym = os.date("%Y-%m-%d %H:%M")
+	else
+		tym = os.date("%Y-%m-%d %H %M")
+	end
+	lg.print(tym,205,220)
 end
 
 function drawTextBox()
@@ -235,15 +258,19 @@ function hideMonika()
 end
 
 function hideAll()
-	s_Set = {a='',b='',x=-200,y=0}
-	y_Set = {a='',b='',x=-200,y=0}
-	n_Set = {a='',b='',x=-200,y=0}
-	m_Set = {a='',b='',x=-200,y=0}
+	s_Set.a = ''
+	s_Set.b = ''
+	y_Set.a = ''
+	y_Set.b = ''
+	n_Set.a = ''
+	n_Set.b = ''
+	m_Set.a = ''
+	m_Set.b = ''
 	unloadAll()
 end
 
-function drawSayori(a,b)
-	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
+function drawSayori()
+	if s_Set.a=='1' or s_Set.a=='1b' or s_Set.a=='2' or s_Set.a=='2b' or s_Set.a=='3' or s_Set.a=='3b' or s_Set.a=='4' or s_Set.a=='4b' then
 		if sl then lg.draw(sl, s_Set.x, s_Set.y) end
 		if sr then lg.draw(sr, s_Set.x, s_Set.y) end
 	elseif a~='' then
@@ -255,20 +282,20 @@ function drawSayori(a,b)
 	end
 end
 
-function drawYuri(a,b)
-	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' then
+function drawYuri()
+	if y_Set.a=='1' or y_Set.a=='1b' or y_Set.a=='2' or y_Set.a=='2b' or y_Set.a=='3' or y_Set.a=='3b' then
 		if yl then lg.draw(yl, y_Set.x, y_Set.y) end
 		if yr then lg.draw(yr, y_Set.x, y_Set.y) end
 	elseif a~='' then
 		if yl then lg.draw(yl, y_Set.x, y_Set.y) end
 	end
 
-	if b~='' then
+	if y_Set.b~='' then
 		if y_a then lg.draw(y_a, y_Set.x, y_Set.y) end
 	end
 end
 
-function drawNatsuki(a,b)
+function drawNatsuki()
 	if a=='5' or a=='5b' then --set natsuki's head x and y pos
 		nxh = n_Set.x + 4
 		nyh = n_Set.y + 6
@@ -281,7 +308,7 @@ function drawNatsuki(a,b)
 		if n_a then lg.draw(n_a, nxh, nyh) end
 	end
 	
-	if a=='1' or a=='1b' or a=='2' or a=='2b' or a=='3' or a=='3b' or a=='4' or a=='4b' then
+	if n_Set.a=='1' or n_Set.a=='1b' or n_Set.a=='2' or n_Set.a=='2b' or n_Set.a=='3' or n_Set.a=='3b' or n_Set.a=='4' or n_Set.a=='4b' then
 		if nl then lg.draw(nl, n_Set.x, n_Set.y) end
 		if nr then lg.draw(nr, n_Set.x, n_Set.y) end
 	elseif a~='' then
@@ -289,15 +316,15 @@ function drawNatsuki(a,b)
 	end
 end
 
-function drawMonika(a,b)
-	if a=='1' or a=='2' or a=='3' or a=='4' then
+function drawMonika()
+	if m_Set.a=='1' or m_Set.a=='2' or m_Set.a=='3' or m_Set.a=='4' then
 		if ml then lg.draw(ml, m_Set.x, m_Set.y) end
 		if mr then lg.draw(mr, m_Set.x, m_Set.y) end
 	elseif a~='' then
 		if ml then lg.draw(ml, m_Set.x, m_Set.y) end
 	end
 	
-	if b~='' then
+	if m_Set.b~='' then
 		if m_a then lg.draw(m_a, m_Set.x, m_Set.y) end
 	end
 end

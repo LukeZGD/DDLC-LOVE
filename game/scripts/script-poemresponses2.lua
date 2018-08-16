@@ -1125,7 +1125,6 @@ function ch22_m_end()
 	poem('poem_m22-c','monika',1)
 	elseif cl == 737 then
 	poem_disable()
-	textbox_enabled = false
 	audioUpdate('0')
 	pause(2.5)
 	elseif cl == 738 then
