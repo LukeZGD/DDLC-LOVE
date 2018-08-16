@@ -71,8 +71,8 @@ function event_draw_2()
 		lg.draw(vignette)
 	elseif event_type == 'yuri_eyes' then
 		lg.draw(bgch)
-		if eyes1 then lg.draw(eyes1,-13) end
-		if eyes2 then lg.draw(eyes2,eventvar2,eventvar3) end
+		lg.draw(eyes1,-13)
+		lg.draw(eyes2,eventvar2,eventvar3)
 		if cl <= 701 then
 			lg.setColor(32,0,0,192)
 		else
@@ -85,7 +85,7 @@ function event_draw_2()
 	
 	if event_type == 'faint_effect' then
 		lg.setColor(255,255,255,alpha)
-		if bgch then lg.draw(bgch) end
+		lg.draw(bgch)
 		drawNatsuki(n_Set.a,n_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
 		drawMonika(m_Set.a,m_Set.b)

@@ -1,6 +1,6 @@
 function event_draw_3()
 	if event_type == 'monika_end' then
-		if bgch then lg.draw(bgch) end
+		lg.draw(bgch)
 		lg.setColor(255,255,255,255)
 		if eventvar4 ~= 'end2' then
 			lg.rectangle('fill',eventvar2,eventvar2/2,24,24)

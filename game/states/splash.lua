@@ -19,7 +19,7 @@ local running
 local s_timer = 0
 
 function drawSplash()
-	if state == 'splash1' then --splash1 (Team Salvato Splash Screen)
+	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
@@ -63,7 +63,7 @@ function updateSplash(dt)
 	--splash screen s_timer
 	s_timer = s_timer + dt
 	
-	if state == 'splash1' then 	
+	if state == 'splash' then 	
 	--team salvato splash
 		if s_timer <= 3 then
 			alpha = math.min(alpha+7.75,255)

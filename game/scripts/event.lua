@@ -146,7 +146,7 @@ function event_draw()
 	end
 	
 	if event_type == 'wipe' then
-		if bgch then lg.draw(bgch) end
+		lg.draw(bgch)
 		lg.setColor(0,0,0,eventvar1)
 		lg.rectangle('fill',0,0,400,240)
 	end
@@ -157,7 +157,7 @@ function event_draw()
 	end
 	
 	if event_type == 'show_dark' then
-		if bg1 ~= 'cg/monika_bg_glitch' and bgch then lg.draw(bgch) end
+		if bg1 ~= 'cg/monika_bg_glitch' then lg.draw(bgch) end
 		drawYuri()
 		if chapter == 40 then
 			lg.setColor(0,0,0,128)
@@ -166,7 +166,7 @@ function event_draw()
 		end
 		lg.rectangle('fill',0,0,400,240)
 		lg.setColor(255,255,255,255)
-		if bg1 == 'cg/monika_bg_glitch' and bgch then lg.draw(bgch) end
+		if bg1 == 'cg/monika_bg_glitch' then lg.draw(bgch) end
 		if cl < 271 then drawSayori() end
 		if menu_enabled then
 			lg.setColor(255,255,255,128)
@@ -186,8 +186,8 @@ function event_draw()
 	end
 	
 	if event_type == 'ch23-30' then
-		if bgch then lg.draw(bgch) end
-		if cgch and cg1 ~= '' then lg.draw(cgch) end
+		lg.draw(bgch)
+		if cg1 ~= '' then lg.draw(cgch) end
 		if xaload > 0 then
 			drawSayori()
 			drawYuri()
