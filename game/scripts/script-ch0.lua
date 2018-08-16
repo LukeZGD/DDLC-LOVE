@@ -213,8 +213,8 @@ function ch0script()
     elseif cl == 90 then 
 		cw('Girl 1',"Sayori always says nice things about you.")
 	elseif cl == 91 then
-		updateNatsuki('4','c',20)
-		updateYuri('1','a',140)
+		updateNatsuki('4','c',10)
+		updateYuri('1','a',150)
 		cw('Girl 2',"Seriously? You brought a boy?")
 	elseif cl == 92 then 
 		cw('Girl 2',"Way to kill the atmosphere.")

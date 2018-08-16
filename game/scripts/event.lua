@@ -4,13 +4,12 @@ eventvar2 = 0
 eventvar3 = 0
 eventvar4 = 0
 eventvar5 = 0
-animtimer = 0
+sectimer = 0
 
 function loadNoise()
-	animframe1 = lg.newImage('images/bg/noise1.png')
-	animframe2 = lg.newImage('images/bg/noise2.png')
-	animframe3 = lg.newImage('images/bg/noise3.png')
-	animframe4 = lg.newImage('images/bg/noise4.png')
+	for i = 1, 4 do
+		loadstring('animframe'..i..' = lg.newImage("images/bg/noise'..i..'.png")')()
+	end
 end
 
 function loadVignette()
@@ -18,10 +17,9 @@ function loadVignette()
 end
 
 function loadYuriGlitch()
-	animframe1 = lg.newImage('images/yuri/glitch1.png')
-	animframe2 = lg.newImage('images/yuri/glitch2.png')
-	animframe3 = lg.newImage('images/yuri/glitch3.png')
-	animframe4 = lg.newImage('images/yuri/glitch4.png')
+	for i = 1, 4 do
+		loadstring('animframe'..i..' = lg.newImage("images/yuri/glitch'..i..'.png")')()
+	end
 end
 
 function event_start(etype, arg1)
@@ -160,7 +158,7 @@ function event_draw()
 	
 	if event_type == 'show_dark' then
 		if bg1 ~= 'cg/monika_bg_glitch' and bgch then lg.draw(bgch) end
-		drawYuri(y_Set.a,y_Set.b)
+		drawYuri()
 		if chapter == 40 then
 			lg.setColor(0,0,0,128)
 		else
@@ -169,7 +167,7 @@ function event_draw()
 		lg.rectangle('fill',0,0,400,240)
 		lg.setColor(255,255,255,255)
 		if bg1 == 'cg/monika_bg_glitch' and bgch then lg.draw(bgch) end
-		drawSayori(s_Set.a,s_Set.b)
+		if cl < 271 then drawSayori() end
 		if menu_enabled then
 			lg.setColor(255,255,255,128)
 			lg.rectangle('fill',0,0,400,240)
@@ -191,10 +189,10 @@ function event_draw()
 		if bgch then lg.draw(bgch) end
 		if cgch and cg1 ~= '' then lg.draw(cgch) end
 		if xaload > 0 then
-			drawSayori(s_Set.a,s_Set.b)
-			drawYuri(y_Set.a,y_Set.b)
-			drawNatsuki(n_Set.a,n_Set.b)
-			drawMonika(m_Set.a,m_Set.b)
+			drawSayori()
+			drawYuri()
+			drawNatsuki()
+			drawMonika()
 		end
 		
 		drawConsole()
@@ -226,20 +224,23 @@ function event_draw()
 		drawNumbers()
 		drawTextBox()	
 	end
-	--lg.print(event_timer,2,220)
 	
 	if event_type == 'm_onlayer_front' or event_type == 'ny_argument2' then
 		lg.setColor(255,255,255)
-		drawMonika(m_Set.a,m_Set.b)
+		drawMonika()
 		textbox_enabled = true
 	elseif event_type == 'yuri_ch23_2' then
 		drawTopScreen()
 		lg.setColor(255,255,255,eventvar2)
-		drawMonika(m_Set.a,m_Set.b)
+		drawMonika()
+		drawBottomScreen()
+	elseif event_type == 'show_dark' and cl >= 271 and chapter == 40 then
+		drawTopScreen()
+		lg.setColor(255,255,255,255)
+		drawSayori()
 		drawBottomScreen()
 	end
 	
-	if settings.dtym == 1 and event_type == 'ch23-30' then drawdatetime() end
 	if menu_enabled then menu_draw() end
 end
 
@@ -250,14 +251,11 @@ function drawanimframe(x,y)
 		lg.draw(animframe,x,y)
 	end
 	local dt = love.timer.getDelta()
-	animtimer = animtimer + dt
-	if animtimer > 1 then
-		animtimer = 0
-	elseif animtimer > 0.75 and animframe4 then
+	if sectimer > 0.75 and animframe4 then
 		animframe = animframe4
-	elseif animtimer > 0.5 and animframe3 then
+	elseif sectimer > 0.5 and animframe3 then
 		animframe = animframe3
-	elseif animtimer > 0.25 and animframe2 then
+	elseif sectimer > 0.25 and animframe2 then
 		animframe = animframe2
 	elseif animframe1 then
 		animframe = animframe1

@@ -9,7 +9,7 @@ sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 settings = {textspd=125,textloc='Bottom',dtym=0,autospd=4,animh=0}
 --default save values
 cl = 1
-bg1 = ''
+bg1 = 'black'
 audio1 = '0'
 cg1 = ''
 ct = ''
@@ -89,7 +89,7 @@ function savepersistent()
 	for i = 1, #persistent.clear do
 		if persistent.clear[i] and persistent.clear[i+1] then
 			pset = pset..persistent.clear[i]..","
-		elseif choices[i] then
+		elseif persistent.clear[i] then
 			pset = pset..persistent.clear[i]
 		end
 	end

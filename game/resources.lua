@@ -1,5 +1,6 @@
 function changeState(cstate,x)
 	unloadAll('stuff')
+	menu_alpha = 0
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
 		states = require('states.'..cstate)
 	end
@@ -133,8 +134,9 @@ function bgUpdate(bgx, forceload) --background changes
 	end
 	
 	if xaload == 0 or forceload then
-		unloadbg()
 		if bgx ~= 'black' and bgx ~= '' then
+			if autoskip == 0 and forceload ~= true then bgch2 = bgch end
+			bgch = nil
 			bgch = lg.newImage('images/bg/'..bgx..'.png')
 		end
 	end	
@@ -172,14 +174,6 @@ function sfxplay(sfx) --sfx stuff
 		sfxp:play()
 	end
 end
-
-function unloadbg()
-	splash = nil
-	bgch = nil
-	bgch2 = nil
-	titlebg = nil
-end
-
 
 function loadSayori()
 	if s_Set.a=='1' then

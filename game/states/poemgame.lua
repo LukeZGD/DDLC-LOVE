@@ -196,7 +196,7 @@ function drawPoemGame()
 	end
 	
 	if menu_enabled then
-		lg.setColor(255,255,255,128)
+		lg.setColor(255,255,255,menu_alpha/2)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	

@@ -9,12 +9,15 @@ local itemnames = {}
 local saveindicator = {}
 local chch
 local cpick
+local menu_fadeout
+menu_alpha = 0
 
 function menu_enable(m)
 	menu_enabled = true
 	menu_type = m
 	
 	if menu_type == 'savegame' or menu_type == 'loadgame' then
+		itemnames = {}
 		for i = 1, 6 do
 			if pagenum > 1 then	
 				chch = ((pagenum-1)*6)+i
@@ -33,6 +36,10 @@ function menu_enable(m)
 	
 	if menu_type == 'mainyesno' then
 		menutext = 'Are you sure you want to return to the main menu?\nThis will lose unsaved progress.'
+		itemnames = {'Yes','No'}
+		
+	elseif menu_type == 'quityesno' then
+		menutext = 'Are you sure you want to quit the game?'
 		itemnames = {'Yes','No'}
 		
 	elseif menu_type == 'help' then
@@ -60,11 +67,7 @@ function menu_enable(m)
 		menutext = 'Characters'
 		itemnames = {'Delete monika.chr','Delete natsuki.chr','Delete sayori.chr','Delete yuri.chr','Restore all'}
 	
-	elseif menu_type == 'pause' then
-		menutext = 'Game Menu'
-		itemnames = {'Save Game','Load Game','Main Menu','Settings','Help','Return'}
-	
-	elseif menu_type == 'pause2' then
+	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		menutext = 'Game Menu'
 		itemnames = {'Save Game','Load Game','Main Menu','Settings','Help','Quit','Return'}
 	
@@ -88,10 +91,8 @@ function menu_enable(m)
 end
 
 function menu_draw()
-	xaload = xaload + 1
-	
-	lg.setColor(255, 255, 255, alpha)
-	if bgimg_disabled ~= true then lg.draw(background_Image, posX, posY) end
+	lg.setColor(255,255,255,menu_alpha)
+	lg.draw(background_Image, posX, posY)
 	if menu_type == 'choice' then
 		for i = 1, #choices do
 			getcompare[i] = font:getWidth(choices[i])
@@ -103,22 +104,15 @@ function menu_draw()
 	end
 	rectwidth = math.max(unpack(getcompare)) + 5
 	
-	lg.setColor(255, 189, 225, alpha)
+	lg.setColor(255,189,225,menu_alpha)
 	for i = 1, 8 do
 		if menu_items >= i+1 then lg.rectangle('fill',16, 20+(25*i),rectwidth,16) end
 	end
 	if menu_previous then lg.rectangle('fill', 16, 220, 30, 16) end
 	
-	if bgimg_disabled then
-		lg.setColor(255,255,255)
-		lg.draw(guicheckwhite,cX,cY)
-	else
-		lg.setColor(0,0,0) 
-		lg.draw(guicheck,cX,cY)
-	end
+	lg.setColor(0,0,0,menu_alpha)
+	lg.draw(guicheck,cX,cY)
 	lg.print(menutext,16, 12)
-	
-	lg.setColor(0,0,0)
 	for i = 1, 8 do
 		if menu_items >= i+1 and menu_type == 'choice' then lg.print(choices[i],17,20+(25*i))
 		elseif menu_items >= i+1 then lg.print(itemnames[i],17,20+(25*i)) end
@@ -157,11 +151,10 @@ function menu_draw()
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
 				lg.setColor(0,255,0)
-				lg.rectangle('fill',95,25+(25*i),6,6)
 			else
 				lg.setColor(255,0,0)
-				lg.rectangle('fill',95,25+(25*i),6,6)
 			end
+			lg.rectangle('fill',95,25+(25*i),6,6)
 		end
 		
 	elseif menu_type == 'choice' then
@@ -181,8 +174,24 @@ function menu_draw()
 		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
 		lg.print('Managing files: Go to Settings > Characters',16,150)
 		lg.print('Deleting save data: Delete everything in here',16,180)
-		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
+		lg.print('> '..savedir,16,195)
+		
+	elseif menu_type == 'pause' or menu_type == 'pause2' then
+		if settings.dtym == 1 then drawdatetime() end
 	end	
+end
+
+function menu_update(dt)
+	if menu_fadeout then
+		menu_alpha = math.max(menu_alpha - 15, 0)
+		if menu_alpha == 0 then
+			menu_enabled = false
+			menu_previous = nil
+			menu_fadeout = false
+		end
+	else
+		menu_alpha = math.min(menu_alpha + 15, 255)
+	end
 end
 
 function menu_confirm()
@@ -233,46 +242,47 @@ function menu_confirm()
 		savegame()
 		menu_enable(menu_previous)
 	
-	elseif menu_type == 'pause' then --pause menu options
-		menu_previous = 'pause'
-		if m_selected == 2 then
-			pagenum = 1
-			menu_enable('savegame')
-		elseif m_selected == 3 then
-			pagenum = 1
-			menu_enable('loadgame')
-		elseif m_selected == 4 then
-			menu_enable('mainyesno')
-		elseif m_selected == 5 then
-			pagenum = 1
-			menu_enable('settings')
+	elseif menu_type == 'pause' or menu_type == 'pause2' then --pause menu options
+		menu_previous = menu_type
+		if m_selected <= 5 and menu_type == 'pause' then
+			if m_selected == 2 then
+				pagenum = 1
+				menu_enable('savegame')
+			elseif m_selected == 3 then
+				pagenum = 1
+				menu_enable('loadgame')
+			elseif m_selected == 4 then
+				menu_enable('mainyesno')
+			elseif m_selected == 5 then
+				pagenum = 1
+				menu_enable('settings')
+			end
+		elseif m_selected <= 5 and menu_type == 'pause2' then
+			if m_selected == 2 and chapter == 30 then
+				menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
+			elseif m_selected == 5 then
+				menu_enable('settings2')
+			end
 		elseif m_selected == 6 then
 			menu_enable('help')
 		elseif m_selected == 7 then
-			menu_enabled = false
-			menu_previous = nil
+			menu_enable('quityesno')
+		elseif m_selected == 8 then
+			menu_fadeout = true
 		end
 		
-	elseif menu_type == 'pause2' then --pause menu options
-		if m_selected >= 5 then menu_previous = 'pause2' end
-		if m_selected == 2 and chapter == 30 then
-			menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
-		elseif m_selected == 5 then
-			menu_enable('settings2')
-		elseif m_selected == 6 then
-			menu_enable('help')
-		elseif m_selected == 7 then
-			game_quit()
-		elseif m_selected == 8 then
-			menu_enabled = false
-			menu_previous = nil
-		end
-	
 	elseif menu_type == 'mainyesno' then
 		if m_selected == 2 then
 			changeState('title')
 		elseif m_selected == 3 then
 			menu_enable('pause')
+		end
+		
+	elseif menu_type == 'quityesno' then
+		if m_selected == 2 then
+			game_quit()
+		elseif m_selected == 3 then
+			menu_enable(menu_previous)
 		end
 		
 	elseif menu_type == 'settings' and pagenum == 1 then
@@ -326,16 +336,12 @@ function menu_confirm()
 	elseif menu_type == 'choice' then
 		if choicepick ~= '' then
 			scriptJump(cl+1)
-			menu_type = nil
-			menu_enabled = false
-			menu_previous = nil
+			menu_fadeout = true
 		end
 		
 	elseif menu_type == 'dialog' then
 		scriptJump(cl+1)
-		menu_type = nil
-		menu_enabled = false
-		menu_previous = nil
+		menu_fadeout = true
 	end
 end
 
@@ -372,7 +378,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'b' then
 		if menu_type == 'pause' or menu_type == 'pause2' then
-			menu_enabled = false
+			menu_fadeout = true
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'pause2' and menu_type ~= 'choice' then
 			menu_enable(menu_previous)
 		end
