@@ -44,20 +44,20 @@ function drawCredits()
 	elseif c_timer < 60 then
 		lg.draw(logo,145,70)
 	elseif c_timer < 165 then
-		if nats1 then lg.draw(nats1, 180, 250 - c_timer2) end
-		if nats2 then lg.draw(nats2, 20, 480 - c_timer2) end
-		if yuri1 then lg.draw(yuri1, 180, 710 - c_timer2) end
-		if yuri2 then lg.draw(yuri2, 20, 940 - c_timer2) end
-		if nats3 then lg.draw(nats3, 180, 1170 - c_timer2) end
-		if yuri3 then lg.draw(yuri3, 20, 1400 - c_timer2) end
-		if sayo1 then lg.draw(sayo1, 180, 1630 - c_timer2) end
-		if sayo2 then lg.draw(sayo2, 20, 1860 - c_timer2) end
-		if s_sticker_1 then lg.draw(s_sticker_1, 45, 2060 - c_timer2) end
-		if n_sticker_1 then lg.draw(n_sticker_1, 115, 2060 - c_timer2) end
-		if y_sticker_1 then lg.draw(y_sticker_1, 200, 2060 - c_timer2) end
-		if m_sticker_1 then lg.draw(m_sticker_1, 275, 2060 - c_timer2) end
-		if sayo3 then lg.draw(sayo3, 180, 2270 - c_timer2) end
-		if moni1 then lg.draw(moni1, 20, 2500 - c_timer2) end
+		lg.draw(nats1, 180, 250 - c_timer2)
+		lg.draw(nats2, 20, 480 - c_timer2)
+		lg.draw(yuri1, 180, 710 - c_timer2)
+		lg.draw(yuri2, 20, 940 - c_timer2)
+		lg.draw(nats3, 180, 1170 - c_timer2)
+		lg.draw(yuri3, 20, 1400 - c_timer2)
+		lg.draw(sayo1, 180, 1630 - c_timer2)
+		lg.draw(sayo2, 20, 1860 - c_timer2)
+		lg.draw(s_sticker_1, 45, 2060 - c_timer2)
+		lg.draw(n_sticker_1, 115, 2060 - c_timer2)
+		lg.draw(y_sticker_1, 200, 2060 - c_timer2)
+		lg.draw(m_sticker_1, 275, 2060 - c_timer2)
+		lg.draw(sayo3, 180, 2270 - c_timer2)
+		lg.draw(moni1, 20, 2500 - c_timer2)
 		lg.setFont(halogenfont)
 		lg.print("Dan Salvato",60,310 - c_timer2)
 		lg.print("Satchely",280,540 - c_timer2)

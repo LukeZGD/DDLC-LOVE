@@ -45,7 +45,7 @@ function love.draw()
 		event_draw()
 	elseif state == 'load' then
 		drawLoad()
-	elseif state == 'splash1' or state == 'splash2' or state == 'title' then --title (Title Screen)
+	elseif state == 'splash' or state == 'splash2' or state == 'title' then --title (Title Screen)
 		drawSplash()
 	elseif state == 'game' or state == 'newgame' then --game (Ingame)
 		drawGame()
@@ -94,7 +94,7 @@ function love.update(dt)
 	--this acts as love.mousepressed
 	if mouseDown and mousereleased ~= 1 then
 		if menu_enabled ~= true then
-			if state == 'splash1' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
+			if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
 				love.keypressed('a')
 			elseif state == 'game' then
 				game_mousepressed()
@@ -112,7 +112,7 @@ function love.update(dt)
 	--update depending on gamestate
 	if state == 'load' then
 		updateLoad(dt)
-	elseif state == 'splash1' or state == 'splash2' or state == 'title' then
+	elseif state == 'splash' or state == 'splash2' or state == 'title' then
 		updateSplash(dt)
 	elseif state == 'game' or state == 'newgame' then
 		updateGame(dt)
@@ -132,7 +132,7 @@ end
 
 function love.keypressed(key)
 	if menu_enabled ~= true then
-		if state == 'splash1' or state == 'splash2' then
+		if state == 'splash' or state == 'splash2' then
 			splash_keypressed(key)
 		elseif state == 'game' then
 			game_keypressed(key)

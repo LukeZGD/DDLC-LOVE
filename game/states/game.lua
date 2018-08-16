@@ -11,19 +11,19 @@ function drawGame()
 	
 	drawTopScreen()
 	lg.setColor(255,255,255,alpha)
-	if bgch then lg.draw(bgch) end
+	lg.draw(bgch)
 	if bgch2 and menu_enabled ~= true then
 		lg.setColor(255,255,255,bgalpha)
 		lg.draw(bgch2)
 	end
 	
 	lg.setColor(255,255,255,alpha)
-	if cgch and cg1 ~= '' then lg.draw(cgch) end
+	if cg1 ~= '' then lg.draw(cgch) end
 	if xaload > 0 then
-		drawSayori(s_Set.a,s_Set.b)
-		drawYuri(y_Set.a,y_Set.b)
-		drawNatsuki(n_Set.a,n_Set.b)
-		drawMonika(m_Set.a,m_Set.b)
+		drawSayori()
+		drawYuri()
+		drawNatsuki()
+		drawMonika()
 	end
 	
 	if poem_enabled then drawPoem()	end
