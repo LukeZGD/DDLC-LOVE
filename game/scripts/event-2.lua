@@ -20,12 +20,12 @@ function event_draw_2()
 	if event_type == 'n_rects_ghost' then
 		lg.draw(bgch)
 		lg.setColor(0,0,0)
-		lg.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
-		lg.rectangle('fill',math.random(262,272),math.random(100,110),math.random(18,28),math.random(18,28))
-		lg.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
-		lg.rectangle('fill',math.random(220,230),math.random(127,137),math.random(15,25),math.random(15,25))
-		lg.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
-		lg.rectangle('fill',math.random(247,257),math.random(140,150),math.random(15,25),math.random(10,20))
+		lg.rectangle('fill',love.math.random(262,272),love.math.random(100,110),love.math.random(18,28),love.math.random(18,28))
+		lg.rectangle('fill',love.math.random(262,272),love.math.random(100,110),love.math.random(18,28),love.math.random(18,28))
+		lg.rectangle('fill',love.math.random(220,230),love.math.random(127,137),love.math.random(15,25),love.math.random(15,25))
+		lg.rectangle('fill',love.math.random(220,230),love.math.random(127,137),love.math.random(15,25),love.math.random(15,25))
+		lg.rectangle('fill',love.math.random(247,257),love.math.random(140,150),love.math.random(15,25),love.math.random(10,20))
+		lg.rectangle('fill',love.math.random(247,257),love.math.random(140,150),love.math.random(15,25),love.math.random(10,20))
 		textbox_enabled = true
 	end
 	
@@ -150,12 +150,12 @@ function event_draw_2()
 				lg.setColor(255,255,255,eventvar3)
 				lg.draw(ghost_blood,80)
 				lg.setColor(0,0,0,eventvar2)
-				lg.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
-				lg.rectangle('fill',math.random(176,180),math.random(80,84),math.random(6,10),math.random(6,10))
-				lg.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
-				lg.rectangle('fill',math.random(196,200),math.random(80,84),math.random(6,10),math.random(6,10))
-				lg.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
-				lg.rectangle('fill',math.random(186,190),math.random(100,104),math.random(5,9),math.random(5,9))
+				lg.rectangle('fill',love.math.random(176,180),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
+				lg.rectangle('fill',love.math.random(176,180),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
+				lg.rectangle('fill',love.math.random(196,200),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
+				lg.rectangle('fill',love.math.random(196,200),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
+				lg.rectangle('fill',love.math.random(186,190),love.math.random(100,104),love.math.random(5,9),love.math.random(5,9))
+				lg.rectangle('fill',love.math.random(186,190),love.math.random(100,104),love.math.random(5,9),love.math.random(5,9))
 			end
 		end
 		lg.setColor(32,0,0,eventvar1)
@@ -241,10 +241,10 @@ function event_update_2(dt)
 		eventvar1 = eventvar1 + dt
 		if eventvar1 >= 2 then
 			eventvar1 = 0
-			eventvar2 = math.random(-14,-12)
-			eventvar3 = math.random(0,1)
+			eventvar2 = love.math.random(-14,-12)
+			eventvar3 = love.math.random(0,1)
 		end
-		if eventvar2 > -12 then eventvar2 = math.random(-14,-12) end
+		if eventvar2 > -12 then eventvar2 = love.math.random(-14,-12) end
 		if cl >= 1439 then
 			if xaload > 125 then
 				textbox_enabled = true
@@ -297,8 +297,8 @@ function event_update_2(dt)
 	
 	if event_type == 'yuri_ch23_2' then
 		eventvar3 = eventvar3 + dt
-		if eventvar3 >= math.random(0.5,2) then
-			eventvar1 = math.random(-1,1)
+		if eventvar3 >= love.math.random(0.5,2) then
+			eventvar1 = love.math.random(-1,1)
 			eventvar3 = 0
 		end
 		if cl == 1764 then eventvar2 = 2

@@ -5,7 +5,7 @@ persistent = {
 	clear={0,0,0,0,0,0,0,0,0};
 	chr={m=1,s=1};
 }
-sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
+sp = {love.math.random(1, 11),love.math.random(1, 11),love.math.random(1, 11)}
 settings = {textspd=125,textloc='Bottom',dtym=0,autospd=4,animh=0}
 --default save values
 cl = 1
