@@ -114,8 +114,8 @@ function menu_draw()
 	lg.draw(guicheck,cX,cY)
 	lg.print(menutext,16, 12)
 	for i = 1, 8 do
-		if menu_items >= i+1 and menu_type == 'choice' then lg.print(choices[i],17,20+(25*i))
-		elseif menu_items >= i+1 then lg.print(itemnames[i],17,20+(25*i)) end
+		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],17,20+(25*i))
+		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],17,20+(25*i)) end
 	end
 	if menu_previous then lg.print('Back',17, 220) end
 	
