@@ -1,5 +1,5 @@
-local y_chance = math.random(0,2)
-local faint_effect = math.random(0,2)
+local y_chance = love.math.random(0,2)
+local faint_effect = love.math.random(0,2)
 
 function ch22script()
 	if cl == 1077 then
