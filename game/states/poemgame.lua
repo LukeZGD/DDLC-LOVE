@@ -31,7 +31,7 @@ local cursorX
 local cursorY
 local wordpick
 
-local eyes_chance = math.random(0,5)
+local eyes_chance = love.math.random(0,5)
 local eyes_timer = 0
 local eyes_y = 0
 local eyes_in
@@ -105,16 +105,16 @@ end
 function updatewordlist()
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr[i] = math.random(1,#wordlist)
+			wordr[i] = love.math.random(1,#wordlist)
 			word[i] = wordlist[wordr[i]][1]
 		end
 	else
 		for i = 1, 10 do
 			mk = {'M','o','n','i','k','a'}
 			for j = 1, 6 do
-				if math.random(0, 4) == 0 then
+				if love.math.random(0, 4) == 0 then
 					mk[j] = ' '
-				elseif math.random(0, 4) == 0 then
+				elseif love.math.random(0, 4) == 0 then
 					mk[j] = glitchtext(1)
 				end
 			end
@@ -154,12 +154,9 @@ function poemgame()
 	s_y = 100; n_y = 100; y_y = 100; p_y = 100
 	y_velocity = 0
 	
-	math.randomseed(os.time())
-	math.random()
-	math.random()
-	math.random()
+	love.math.setRandomSeed(os.time())
 	
-	eyes_chance = math.random(0,5)
+	eyes_chance = love.math.random(0,5)
 	eyes_in = false
 	
 	poemwords()

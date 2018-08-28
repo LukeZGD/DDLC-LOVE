@@ -1,4 +1,4 @@
-local l_timer = 94
+local l_timer = 0
 local err = ''
 
 function drawLoad()
@@ -6,6 +6,7 @@ function drawLoad()
 	lg.setColor(0,0,0,alpha)
 	lg.rectangle('fill',0,0,400,240)
 	lg.setColor(255,255,255)
+	lg.print(l_timer)
 	lg.print(err,5,5)
 	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> '..savedir..'\n\nPress Y to quit',5,35) end
 	drawBottomScreen()
@@ -39,7 +40,7 @@ function updateLoad()
 		guicheck = lg.newImage('images/gui/check.png')
 		
 	elseif l_timer == 99 then
-		local file = love.filesystem.isFile('persistent')
+		local file = love.filesystem.getInfo('persistent')
 		if file then
 			checkLoad()
 		else
@@ -55,7 +56,7 @@ function updateLoad()
 end
 
 function checkLoad()
-	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
+	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
 		loadpersistent()
 	end
 	if global_os == 'Horizon' then
