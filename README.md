@@ -15,13 +15,13 @@ This is intended to be only for 3DS systems, but it is also working on other pla
 
 You can reset the save data and start over by deleting all of the files on that folder. This is also mentioned in the help menu.
 
-New 3DS/2DS users should disable L2 Cache before playing this.
+New 3DS/2DS users should disable L2 Cache before playing this. (?)
 
 ### Building (3DS):
-- You cannot build DDLC-3DS on your own. you have to add it to LovePotion 1.1.0-beta1, replace the makefile and meta files, and compile it with the game folder.
+- Instructions are in [here](https://github.com/TurtleP/LovePotion/tree/examples)
 
 ### Running:
-- 3DSX - Download the source code (zip) from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases), then extract the folder with the .3dsx and the game folder in the 3ds folder of your SD card. You can now run this with the homebrew launcher. (This is only tested in Rosalina homebrew launcher, may or may not work in *hax)
+- 3DSX - Download the zip from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases), then extract the folder with the .3dsx and the game folder in the 3ds folder of your SD card. You can now run this with the homebrew launcher. (This is only tested in Rosalina homebrew launcher, it may not work in *hax)
 
 - CIA - Install the .cia file from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases) using any CIA installer of your choice.
 
