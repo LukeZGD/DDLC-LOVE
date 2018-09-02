@@ -23,10 +23,7 @@ function love.load()
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	math.randomseed(os.time())
-	math.random()
-	math.random()
-	math.random()
+	love.math.setRandomSeed(os.time())
 	
 	--os detection
 	global_os, g_system = love.system.getOS()
@@ -62,36 +59,10 @@ function love.update(dt)
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
-	posX = posX - 0.25
-	posY = posY - 0.25
-	if posX <= -80 then posX = 0 end
-	if posY <= -80 then posY = 0 end
-
-	mouseDown = love.mouse.isDown(1)
-	mouseX = love.mouse.getX()
-	mouseY = love.mouse.getY()
-	if global_os ~= 'Horizon' then
-		mouseX = mouseX / 1.5 - 40
-		mouseY = mouseY / 1.5 - 240
-	end
-	
-	--this acts as love.mousepressed
-	if mouseDown and mousereleased ~= 1 then
-		if menu_enabled ~= true then
-			if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
-				love.keypressed('a')
-			elseif state == 'game' then
-				game_mousepressed()
-			elseif state == 'poemgame' then
-				poemgamemousepressed()
-			end
-		elseif menu_enabled then
-			menu_mousepressed()
-		end
-		mousereleased = 1
-	elseif mouseDown == false then
-		mousereleased = nil
-	end
+	posX = posX - 0.625
+	posY = posY - 0.625
+	if posX <= -200 then posX = 0 end
+	if posY <= -200 then posY = 0 end
 	
 	--update depending on gamestate
 	if state == 'load' then
@@ -134,7 +105,6 @@ function love.keypressed(key)
 	end
 end
 
---For the Switch
 function love.gamepadpressed(joy, button)
 	if button == 'dpup' then
 		button = 'up'
@@ -147,7 +117,6 @@ function love.gamepadpressed(joy, button)
 	end
 	love.keypressed(button)
 end
-
 function love.textinput(text)
 	if global_os == 'Horizon' then
 		if text ~= '' then 

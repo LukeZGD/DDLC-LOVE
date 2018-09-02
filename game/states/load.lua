@@ -35,11 +35,12 @@ function updateLoad()
 		--splash, title screen, gui elements, sfx
 		namebox = lg.newImage('images/gui/namebox.png')
 		textbox = lg.newImage('images/gui/textbox.png')
-		background_Image = lg.newImage('images/bg/menu_bg.png')
+		background_Image = lg.newImage('images/gui/menu_bg.png')
 		guicheck = lg.newImage('images/gui/check.png')
+		sidebar = lg.newImage('images/gui/sidebar.png')
 		
 	elseif l_timer == 99 then
-		local file = love.filesystem.isFile('persistent')
+		local file = love.filesystem.getInfo('persistent')
 		if file then
 			checkLoad()
 		else
@@ -55,7 +56,7 @@ function updateLoad()
 end
 
 function checkLoad()
-	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
+	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
 		loadpersistent()
 	end
 	if global_os == 'Horizon' then

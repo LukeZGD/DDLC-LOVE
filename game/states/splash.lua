@@ -20,43 +20,38 @@ local s_timer = 0
 
 function drawSplash()
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
-		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
-		if global_os == 'Horizon' then
-			running = 'LovePotion 3DS 1.0.9'
-		elseif global_os == 'HorizonNX' then
+		if global_os == 'HorizonNX' or g_system == 'Switch' then
 			running = 'LovePotion Switch 1.0.1'
 		else
-			local major, minor, revision, codename = love.getVersion()
+			local major, minor, revision = love.getVersion()
 			running = string.format('LOVE %d.%d.%d', major, minor, revision)
 		end
 		lg.print('Running in '..running,0,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
-		drawTopScreen()
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
 			lg.print(splash_messages[random_msg], 95, 100)
 		else
-			lg.print('This game is not suitable for children', 95, 100)
-			lg.print('  or those who are easily disturbed.', 95, 116)
+			lg.print('This game is not suitable for children', 440, 300)
+			lg.print('  or those who are easily disturbed.', 450, 330)
 		end
 		
 	elseif state == 'title' then --title (Title Screen)
-		drawTopScreen()
-		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(background_Image, posX, posY)
-		lg.draw(titlebg, 0, titlebg_ypos-240)
+		lg.draw(titlebg, 0, 720-titlebg_ypos)
+		lg.draw(sidebar,-720+titlebg_ypos,0)
 		lg.setColor(64,64,64,alpha)
-		lg.print('Unofficial port by LukeeGD',240,5)
-		drawBottomScreen()
+		lg.print('Unofficial port by LukeeGD',980,10)
 		menu_draw()
 	end
+	lg.setColor(0,0,0,255)
 end
 
 function updateSplash(dt)
@@ -83,10 +78,10 @@ function updateSplash(dt)
 	--fade in title screen
 	elseif state == 'title' then
 		alpha = math.min(alpha+5,255)
-		if y_timer < 1 then
+		if y_timer < 1.5 then
 			y_timer = y_timer + dt
 		end
-		titlebg_ypos = easeQuadOut(y_timer,0,240,1)
+		titlebg_ypos = easeQuadOut(y_timer,0,720,1.5)
 	end
 end
 

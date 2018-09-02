@@ -51,7 +51,7 @@ function cw(p1, stext, tag)
 	
 	--word wrap
 	slen = string.len(textx)
-	c_a1 = {45,95,145}
+	c_a1 = {70,140,210}
 	if style_edited then c_a1 = {35,65,95} end
 	
 	for i = 1, 3 do

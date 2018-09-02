@@ -6,22 +6,9 @@ local nxh
 local nyh
 
 function drawTopScreen()
-	if drawbottom == 1 then
-		lg.pop()
-		drawbottom = 0
-	elseif global_os == 'Horizon' then
-		lg.setScreen('top')
-	end
 end
 
 function drawBottomScreen()
-	if global_os ~= 'Horizon' then
-		lg.push()
-		lg.translate((400 - 320) / 2, 240)
-		drawbottom = 1
-	else
-		lg.setScreen('bottom')
-	end
 end
 
 --compatiblity for LOVE 11 and above
@@ -103,14 +90,8 @@ function drawdatetime()
 end
 
 function drawTextBox()
-	if settings.textloc == 'Top' then
-		xps = {c=48,ct=63,textbox=40,namebox=52}
-		yps = {c={166,182,198,214},ct=142,textbox=162,namebox=142}
-		drawTopScreen()
-	else
-		xps = {c=8,ct=23,textbox=0,namebox=12}
-		yps = {c={66,82,98,114},ct=42,textbox=62,namebox=42}
-	end
+	xps = {c=250,ct=270,textbox=230,namebox=250}
+	yps = {c={585,615,645,675},ct=532,textbox=565,namebox=526}
 	
 	if style_edited then lg.setFont(deffont) end
 	
@@ -140,15 +121,6 @@ function drawPoem()
 	lg.print(poemtext, 45, 6)
 end
 
-function drawNumbers()
-	if bgimg_disabled then 
-		lg.setColor(255,255,255,255)
-	else
-		lg.setColor(0,0,0,255)
-	end
-	lg.print(cl,2,2)
-end
-
 function drawConsole()
 	if console_enabled and console_font then
 		lg.setColor(51,51,51,191)
@@ -166,13 +138,8 @@ function updateSayori(a,b,px,py)
 	s_Set.a = a
 	s_Set.b = b
 	if xaload == 0 then loadSayori() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if s_Set.x < px then
-			s_Set.x = math.min(s_Set.x + 24, px)
-		elseif s_Set.x > px then
-			s_Set.x = math.max(s_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px and xaload > 0 then
+		px = math.floor(px*3.2)
 		s_Set.x = px
 	end
 	if py ~= nil then s_Set.y = py end
@@ -183,13 +150,8 @@ function updateYuri(a,b,px,py)
 	y_Set.a = a 
 	y_Set.b = b
 	if xaload == 0 then loadYuri() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if y_Set.x < px then
-			y_Set.x = math.min(y_Set.x + 24, px)
-		elseif y_Set.x > px then
-			y_Set.x = math.max(y_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px and xaload > 0 then
+		px = math.floor(px*3.2)
 		y_Set.x = px
 	end
 	if py ~= nil then y_Set.y = py end
@@ -200,13 +162,8 @@ function updateNatsuki(a,b,px,py)
 	n_Set.a = a
 	n_Set.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if n_Set.x < px then
-			n_Set.x = math.min(n_Set.x + 24, px)
-		elseif n_Set.x > px then
-			n_Set.x = math.max(n_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px and xaload > 0 then
+		px = math.floor(px*3.2)
 		n_Set.x = px
 	end
 	if py ~= nil then n_Set.y = py end
@@ -217,51 +174,38 @@ function updateMonika(a,b,px,py)
 	m_Set.a = a
 	m_Set.b = b
 	if xaload == 0 then loadMonika() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if m_Set.x < px then
-			m_Set.x = math.min(m_Set.x + 24, px)
-		elseif m_Set.x > px then
-			m_Set.x = math.max(m_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px and xaload > 0 then
+		px = math.floor(px*3.2)
 		m_Set.x = px
 	end
 	if py ~= nil then m_Set.y = py end
 end
 
 function hideSayori()
-	if s_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		s_Set = {a='',b='',x=-200,y=0}
+	if s_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
+		s_Set = {a='',b='',x=-400,y=0}
 		if sl then unloadSayori() end
-	elseif xaload > 0 then
-		s_Set.x = math.max(s_Set.x - 24, -200)
 	end
 end
 
 function hideYuri()
-	if y_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		y_Set = {a='',b='',x=-200,y=0}
+	if y_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
+		y_Set = {a='',b='',x=-400,y=0}
 		if yl then unloadYuri() end
-	elseif xaload > 0 then
-		y_Set.x = math.max(y_Set.x - 24, -200)
 	end
 end
 
 function hideNatsuki()
-	if n_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		n_Set = {a='',b='',x=-200,y=0}
+	if n_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
+		n_Set = {a='',b='',x=-400,y=0}
 		if nl then unloadNatsuki() end
-	elseif xaload > 0 then
-		n_Set.x = math.max(n_Set.x - 24, -200)
 	end
 end
 
 function hideMonika()
-	if m_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		m_Set = {a='',b='',x=-200,y=0}
+	if m_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
+		m_Set = {a='',b='',x=-400,y=0}
 		if ml then unloadMonika() end
-	elseif xaload > 0 then
-		m_Set.x = math.max(m_Set.x - 24, -200)
 	end
 end
 
@@ -301,8 +245,8 @@ end
 
 function drawNatsuki()
 	if n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
-		nxh = n_Set.x + 4
-		nyh = n_Set.y + 6
+		nxh = n_Set.x + 7
+		nyh = n_Set.y + 18
 	else
 		nxh = n_Set.x
 		nyh = n_Set.y

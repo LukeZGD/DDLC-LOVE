@@ -26,7 +26,7 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
-			if love.filesystem.isFile('save'..chch..'-'..persistent.ptr..'.sav') then
+			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
 				saveindicator[i] = 1
 			else
 				saveindicator[i] = 0
@@ -45,11 +45,6 @@ function menu_enable(m)
 	elseif menu_type == 'help' then
 		menutext = 'Help'
 		itemnames = {}
-		
-	elseif menu_type == 'title' then
-		menutext = 'Main Menu'
-		itemnames = {'New Game','Load Game','Settings','Help','Quit'}
-		if persistent.ptr == 1 then itemnames[1] = glitchtext(10) end
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
@@ -92,32 +87,39 @@ end
 
 function menu_draw()
 	lg.setColor(255,255,255,menu_alpha)
-	lg.draw(background_Image, posX, posY)
-	if menu_type == 'choice' then
-		for i = 1, #choices do
-			getcompare[i] = font:getWidth(choices[i])
-		end
-	else
-		for i = 1, #itemnames do
-			getcompare[i] = font:getWidth(itemnames[i])
-		end
-	end
-	rectwidth = math.max(unpack(getcompare)) + 5
 	
-	lg.setColor(255,189,225,menu_alpha)
-	for i = 1, 8 do
-		if menu_items >= i+1 then lg.rectangle('fill',16, 20+(25*i),rectwidth,16) end
+	if menu_type == 'title' then
+	
+	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
+	
+	else
+		if menu_type == 'choice' then
+			for i = 1, #choices do
+				getcompare[i] = font:getWidth(choices[i])
+			end
+		else
+			for i = 1, #itemnames do
+				getcompare[i] = font:getWidth(itemnames[i])
+			end
+		end
+		rectwidth = math.max(unpack(getcompare)) + 5
+		
+		lg.setColor(255,189,225,menu_alpha)
+		for i = 1, 8 do
+			if menu_items >= i+1 then lg.rectangle('fill',16, 20+(35*i),rectwidth,16) end
+		end
 	end
-	if menu_previous then lg.rectangle('fill', 16, 220, 30, 16) end
 	
 	lg.setColor(0,0,0,menu_alpha)
 	lg.draw(guicheck,cX,cY)
-	lg.print(menutext,16, 12)
-	for i = 1, 8 do
-		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],17,20+(25*i))
-		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],17,20+(25*i)) end
+	if menutext then lg.print(menutext,16, 12) end
+	
+	if menu_type ~= 'title' then
+		for i = 1, 8 do
+			if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],17,20+(35*i))
+			elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],17,20+(35*i)) end
+		end
 	end
-	if menu_previous then lg.print('Back',17, 220) end
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
 		if menu_type == 'settings' and pagenum == 1 then
@@ -154,7 +156,7 @@ function menu_draw()
 			else
 				lg.setColor(255,0,0)
 			end
-			lg.rectangle('fill',95,25+(25*i),6,6)
+			lg.rectangle('fill',95,25+(35*i),6,6)
 		end
 		
 	elseif menu_type == 'choice' then
@@ -201,12 +203,12 @@ function menu_confirm()
 		menu_previous = 'title'
 		
 		--set player name to MC if not on 3DS
-		if global_os ~= 'Horizon' then
+		--if global_os ~= 'Horizon' then
 			player = 'MC'
-		end
+		--end
 		
 		if m_selected == 2 then --new game
-			if player == '' and global_os == 'Horizon' then --keyboard input for player name
+			if player == '' and global_os ~= 'Horizon' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
 			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
@@ -230,7 +232,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'loadgame' then --load game confirm
 		savenumber = savenum[m_selected-1]
-		if love.filesystem.isFile('save'..savenumber..'-'..persistent.ptr..'.sav') then
+		if love.filesystem.getInfo('save'..savenumber..'-'..persistent.ptr..'.sav') then
 			changeState('game',2)
 		else
 			menu_enable(menu_previous)
@@ -351,7 +353,7 @@ function m_select(arg)
 		choicepick = choices[m_selected-1]
 	elseif menu_type ~= 'choice' then cpick = itemnames[m_selected-1] end
 	cX = 2
-	cY = 22+(25*(m_selected-1))
+	cY = 22+(35*(m_selected-1))
 end
 
 function menu_keypressed(key)
@@ -477,43 +479,5 @@ function menu_keypressed(key)
 			pagenum = pagenum + 1
 			menu_enable(menu_type)
 		end
-	end
-end
-
-function menu_mousepressed()
-	if menu_items >= 2 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=45 and mouseY<=61 then
-		m_select(2)
-	elseif menu_items >= 3 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=70 and mouseY<=86 then
-		m_select(3)
-	elseif menu_items >= 4 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=95 and mouseY<=111 then
-		m_select(4)
-	elseif menu_items >= 5 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=120 and mouseY<=136 then
-		m_select(5)
-	elseif menu_items >= 6 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=145 and mouseY<=161 then
-		m_select(6)
-	elseif menu_items >= 7 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=170 and mouseY<=186 then
-		m_select(7)
-	elseif menu_items >= 8 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=195 and mouseY<=211 then
-		m_select(8)
-	elseif menu_items >= 9 and mouseX>=16 and mouseX<=rectwidth+16 and mouseY>=220 and mouseY<=236 then
-		m_select(9)
-	elseif menu_previous and mouseX>=16 and mouseX<=46 and mouseY>=220 and mouseY<=236 then
-		menu_keypressed('b')
-	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' and pagenum == 1 then
-		m_select(3)
-		menu_keypressed('left')
-	elseif mouseX >= 140 and mouseX <= 157 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' and pagenum == 1 then
-		m_select(4)
-		menu_keypressed('left')
-	elseif mouseX >= 184 and mouseX <= 201 and mouseY >= 70 and mouseY <= 90 and menu_type == 'settings' and pagenum == 1 then
-		m_select(3)
-		menu_keypressed('right')
-	elseif mouseX >= 198 and mouseX <= 215 and mouseY >= 95 and mouseY <= 115 and menu_type == 'settings' and pagenum == 1 then
-		m_select(4)
-		menu_keypressed('right')
-	end
-	
-	if mouseX <= rectwidth and mouseY <= 211 then
-		menu_keypressed('a')
 	end
 end

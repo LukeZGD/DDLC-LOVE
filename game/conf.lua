@@ -1,3 +1,4 @@
 function love.conf(t)
-	t.identity = 'DDLC-3DS'
+	t.identity = 'DDLC-Switch'
+	t.version = '11.1'
 end
