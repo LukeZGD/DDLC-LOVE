@@ -20,18 +20,18 @@ local s_y
 local n_y
 local y_y
 
-local p_y = 100
-local ground = 100
+local p_y = 500
+local ground = 500
 local y_velocity = 0
-local jump_height = -300
-local gravity = -2250
+local jump_height = -900
+local gravity = -6750
 
 local menuselected = 1
 local cursorX
 local cursorY
 local wordpick
 
-local eyes_chance = math.random(0,5)
+local eyes_chance = love.math.random(0,5)
 local eyes_timer = 0
 local eyes_y = 0
 local eyes_in
@@ -105,16 +105,16 @@ end
 function updatewordlist()
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr[i] = math.random(1,#wordlist)
+			wordr[i] = love.math.random(1,#wordlist)
 			word[i] = wordlist[wordr[i]][1]
 		end
 	else
 		for i = 1, 10 do
 			mk = {'M','o','n','i','k','a'}
 			for j = 1, 6 do
-				if math.random(0, 4) == 0 then
+				if love.math.random(0, 4) == 0 then
 					mk[j] = ' '
-				elseif math.random(0, 4) == 0 then
+				elseif love.math.random(0, 4) == 0 then
 					mk[j] = glitchtext(1)
 				end
 			end
@@ -151,15 +151,10 @@ function poemgame()
 	s_sticker = s_sticker_1
 	n_sticker = n_sticker_1
 	y_sticker = y_sticker_1
-	s_y = 100; n_y = 100; y_y = 100; p_y = 100
+	s_y = 500; n_y = 500; y_y = 500; p_y = 500
 	y_velocity = 0
 	
-	math.randomseed(os.time())
-	math.random()
-	math.random()
-	math.random()
-	
-	eyes_chance = math.random(0,5)
+	eyes_chance = love.math.random(0,5)
 	eyes_in = false
 	
 	poemwords()
@@ -176,36 +171,26 @@ function drawPoemGame()
 	
 	lg.setColor(0,0,0)
 	lg.draw(guicheck,cursorX,cursorY)
-	if poemfont then lg.setFont(poemfont) end
+	lg.setFont(halogenfont)
 	if poemword <= 20 then
-		lg.print(progress .. '/20',245,25)
+		lg.print(progress .. '/20',800,70)
 	else
-		lg.print('20/20',245,25)
+		lg.print('20/20',800,70)
 	end
-	lg.print(word[1],117,45)
-	lg.print(word[2],117,81)
-	lg.print(word[3],117,117)
-	lg.print(word[4],117,152)
-	lg.print(word[5],117,187)
-	lg.print(word[6],200,45)
-	lg.print(word[7],200,81)
-	lg.print(word[8],200,117)
-	lg.print(word[9],200,152)
-	lg.print(word[10],200,187)
-	
-	if poemstate == 0 then
-		lg.setColor(255,255,255,alpha)
-		lg.draw(poemtime,0,0)
-	end
-	
-	if menu_enabled then
-		lg.setColor(255,255,255,menu_alpha/2)
-		lg.rectangle('fill',0,0,400,240)
-	end
+	lg.print(word[1],455,160)
+	lg.print(word[2],455,250)
+	lg.print(word[3],455,345)
+	lg.print(word[4],455,435)
+	lg.print(word[5],455,525)
+	lg.print(word[6],675,160)
+	lg.print(word[7],675,250)
+	lg.print(word[8],675,345)
+	lg.print(word[9],675,435)
+	lg.print(word[10],675,525)
 	
 	if eyes_in then
 		lg.setColor(0,0,0)
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 		if eyes_timer <= 2.2 then
 			lg.setColor(255,255,255)
 			lg.draw(eyes,110,eyes_y)
@@ -214,32 +199,27 @@ function drawPoemGame()
 		end
 	end
 	
-	drawBottomScreen()
 	lg.setColor(255,255,255,alpha)
-	lg.draw(background_Image, posX, posY)
-	
 	if persistent.ptr == 0 then
-		lg.draw(s_sticker,50,s_y)
-		lg.draw(n_sticker,110,n_y)
-		lg.draw(y_sticker,190,y_y)
+		lg.draw(s_sticker,30,s_y)
+		lg.draw(n_sticker,130,n_y)
+		lg.draw(y_sticker,250,y_y)
 	elseif persistent.ptr == 2 then
-		lg.draw(n_sticker,110,n_y)
-		lg.draw(y_sticker,190,y_y)
+		lg.draw(n_sticker,130,n_y)
+		lg.draw(y_sticker,250,y_y)
 	else
-		lg.draw(m_sticker_1,120,100)
+		lg.draw(m_sticker_1,130,500)
 	end
 	
-	lg.setColor(255,189,225,alpha)
-	lg.rectangle('fill', 135,2,40,16) 
-	lg.setColor(0,0,0)
+	if poemstate == 0 then
+		lg.setColor(255,255,255,alpha)
+		lg.draw(poemtime,0,0)
+	end
+	
 	lg.setFont(font)
-	lg.print('Menu',139,2)
-	
+	lg.setColor(0,0,0)
+	lg.print(love.mouse.getX()..', '..love.mouse.getY())
 	if menu_enabled then menu_draw() end
-	
-	if eyes_in then
-		lg.rectangle('fill',-40,0,400,240)
-	end
 end
 
 function updatePoemGame(dt)
@@ -273,7 +253,7 @@ function updatePoemGame(dt)
 			end
 		end
 	else
-		s_y = 100; n_y = 100; y_y = 100; p_y = 100
+		s_y = 500; n_y = 500; y_y = 500; p_y = 500
 		s_sticker = s_sticker_1
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
@@ -319,20 +299,20 @@ end
 function menuselect()
 	wordpick = wordr[menuselected]
 	if menuselected <= 5 then
-		cursorX = 106
+		cursorX = 430
 	else
-		cursorX = 189
+		cursorX = 650
 	end
 	if menuselected == 1 or menuselected == 6 then
-		cursorY = 43
+		cursorY = 160
 	elseif menuselected == 2 or menuselected == 7 then
-		cursorY = 79
+		cursorY = 250
 	elseif menuselected == 3 or menuselected == 8 then
-		cursorY = 115
+		cursorY = 345
 	elseif menuselected == 4 or menuselected == 9 then
-		cursorY = 150
+		cursorY = 435
 	elseif menuselected == 5 or menuselected == 10 then
-		cursorY = 186
+		cursorY = 525
 	end
 end
 

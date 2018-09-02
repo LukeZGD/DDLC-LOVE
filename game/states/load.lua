@@ -17,16 +17,16 @@ function updateLoad()
 	
 	--loading assets
 	if l_timer == 95 then
-		font = lg.newFont('fonts/Aller_Rg.ttf',22)
-		lg.setFont(font)
 		m1 = lg.newFont('fonts/m1.ttf',22)
 		y1 = lg.newFont('fonts/y1.ttf',22)
-	
+		font = lg.newFont('fonts/Aller_Rg.ttf',22)
+		lg.setFont(font)
+		
 	elseif l_timer == 96 then
 		s1 = lg.newFont('fonts/s1.ttf',22)
 		n1 = lg.newFont('fonts/n1.ttf',22)
-		deffont = lg.newFont()
-		halogenfont = lg.newFont('fonts/Halogen.ttf',22)
+		deffont = lg.newFont('fonts/VerilySerifMono.ttf',23)
+		halogenfont = lg.newFont('fonts/Halogen.ttf',28)
 		rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24)
 		
 	elseif l_timer == 97 then
@@ -67,7 +67,7 @@ function checkLoad()
 		savedir = '%appdata%\\LOVE\\DDLC-Switch\\'
 	end
 	
-	local ghostmenu_chance = math.random(0, 63)
+	local ghostmenu_chance = love.math.random(0, 63)
 	if settings.textloc then
 		err = 'Error!\nDDLC-3DS save data detected, and it is not compatible with DDLC-Switch.'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then

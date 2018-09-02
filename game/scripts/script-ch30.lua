@@ -367,7 +367,7 @@ function ch30script()
 	
 	--ch30_loop
 	if cl == 202 then
-		waittime = waittimes[math.random(1,#waittimes)]
+		waittime = waittimes[love.math.random(1,#waittimes)]
 		scriptJump(203)
 	
 	--ch30_waitloop
@@ -375,7 +375,7 @@ function ch30script()
 		pause(waittime)
 	elseif cl == 204 then
 		if monikatopics then
-			local randomt = math.random(1,#monikatopics)
+			local randomt = love.math.random(1,#monikatopics)
 			monikatopic = monikatopics[randomt]
 			table.remove(monikatopics, randomt)
 			

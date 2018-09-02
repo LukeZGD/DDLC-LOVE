@@ -80,7 +80,7 @@ function loadgame(x)
 end
 
 function savesettings()
-	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',dtym="..settings.dtym..",autospd="..settings.autospd..",animh="..settings.animh.."}"
+	local settingsfile = "settings={textspd="..settings.textspd..",autospd="..settings.autospd.."}"
 	love.filesystem.write("settings.sav", settingsfile)
 end
 

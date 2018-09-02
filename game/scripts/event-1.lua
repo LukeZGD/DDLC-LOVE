@@ -62,14 +62,14 @@ function event_update_1(dt)
 	if event_type == 's_glitch' then
 		if event_timer > 7 then
 			persistent.ptr = 2
-			sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
+			sp = {love.math.random(1, 11),love.math.random(1, 11),love.math.random(1, 11)}
 			savepersistent()
 			chapter = 20
 			cl = 1
 			changeState('game',1)
 			event_end('s_glitch')
 		elseif event_timer < 2 then
-			eventvar1 = math.random(1, 16)
+			eventvar1 = love.math.random(1, 16)
 			if eventvar1 <= 8 then
 				eventvar2 = s_glitch2
 			else
