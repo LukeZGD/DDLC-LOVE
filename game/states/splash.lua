@@ -1,4 +1,4 @@
-local random_msgchance = love.math.random(0, 3)
+local random_msgchance = math.random(0, 3)
 local splash_messages = {
 	"You are my sunshine,\nMy only sunshine",
     "I missed you.",
@@ -13,7 +13,7 @@ local splash_messages = {
     "This game is not suitable for children\nor those who are easily dismembered.",
     "Don't forget to backup Monika's character file.";
 	}
-local random_msg = love.math.random(1, #splash_messages)
+local random_msg = math.random(1, #splash_messages)
 local running
 
 local s_timer = 0
@@ -27,7 +27,7 @@ function drawSplash()
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
 		if global_os == 'Horizon' then
-			running = 'LovePotion 3DS 1.1.0-beta1'
+			running = 'LovePotion 3DS 1.0.9'
 		elseif global_os == 'HorizonNX' then
 			running = 'LovePotion Switch 1.0.1'
 		else

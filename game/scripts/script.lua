@@ -186,7 +186,7 @@ function glitchtext(range)
 				   '0','1','2','3','4','5','6','7','8','9'}
 	
 	for i = 1, range do
-		aaa = love.math.random(1, #chars)
+		aaa = math.random(1, #chars)
 		gtextstring = gtextstring..chars[aaa]
 	end
 	
