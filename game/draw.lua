@@ -79,16 +79,6 @@ function cgHide()
 	cgch = nil
 end
 
-function drawdatetime()
-	local tym
-	if sectimer <= 0.5 then
-		tym = os.date("%Y-%m-%d %H:%M")
-	else
-		tym = os.date("%Y-%m-%d %H %M")
-	end
-	lg.print(tym,205,220)
-end
-
 function drawTextBox()
 	xps = {c=250,ct=270,textbox=230,namebox=250}
 	yps = {c={585,615,645,675},ct=532,textbox=565,namebox=526}

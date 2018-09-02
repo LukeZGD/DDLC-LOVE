@@ -27,18 +27,13 @@ function drawGame()
 	
 	if poem_enabled then drawPoem()	end
 	
-	if menu_enabled and menu_type ~= 'choice' then
-		lg.setColor(255,255,255,menu_alpha/2)
-		lg.rectangle('fill',0,0,400,240)
-	end
-	
 	lg.setColor(255,255,255,alpha)
 	drawTextBox()
-	lg.print(cl,2,2)
 	
 	lg.setColor(255,255,255)
 	lg.setFont(font)
 	
+	lg.print(cl,2,2)
 	if autotimer > 0 then
 		lg.print('Auto-Forward On', 2, 20)
 	elseif autoskip > 0 then
@@ -67,7 +62,6 @@ function drawGame()
 		lg.print('Skip',241,2,0,1,1) 
 		]]
 	end
-	if settings.dtym == 1 then drawdatetime() end
 	if menu_enabled then menu_draw() end
 end
 
