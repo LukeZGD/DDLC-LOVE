@@ -24,31 +24,32 @@ function drawSplash()
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
-		lg.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
+		lg.print('DDLC-3DS '..dversion..' '..dvertype,15,650)
 		if global_os == 'HorizonNX' or g_system == 'Switch' then
 			running = 'LovePotion Switch 1.0.1'
 		else
 			local major, minor, revision = love.getVersion()
 			running = string.format('LOVE %d.%d.%d', major, minor, revision)
 		end
-		lg.print('Running in '..running,0,220)
+		lg.print('Running in '..running,15,680)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
-			lg.print(splash_messages[random_msg], 95, 100)
+			lg.print(splash_messages[random_msg], 440, 100)
 		else
 			lg.print('This game is not suitable for children', 440, 300)
-			lg.print('  or those who are easily disturbed.', 450, 330)
+			lg.print('  or those who are easily disturbed.', 447, 330)
 		end
 		
 	elseif state == 'title' then --title (Title Screen)
+		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(background_Image, posX, posY)
 		lg.draw(titlebg, 0, 720-titlebg_ypos)
 		lg.draw(sidebar,-720+titlebg_ypos,0)
 		lg.setColor(64,64,64,alpha)
-		lg.print('Unofficial port by LukeeGD',980,10)
+		lg.print('Unofficial port by LukeeGD',985,10)
 		menu_draw()
 	end
 	lg.setColor(0,0,0,255)

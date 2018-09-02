@@ -35,7 +35,7 @@ function menu_enable(m)
 	end
 	
 	if menu_type == 'mainyesno' then
-		menutext = 'Are you sure you want to return to the main menu?\nThis will lose unsaved progress.'
+		menutext = 'Are you sure you want to return to the main menu? This will lose unsaved progress.'
 		itemnames = {'Yes','No'}
 		
 	elseif menu_type == 'quityesno' then
@@ -45,18 +45,18 @@ function menu_enable(m)
 	elseif menu_type == 'help' then
 		menutext = 'Help'
 		itemnames = {}
+	
+	elseif menu_type == 'title' then
+		menutext = ''
+		itemnames = {'','','','',''}
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		if pagenum == 1 then
-			itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Show Date&Time','Characters','Save Settings'}
-		elseif pagenum == 2 then
-			itemnames = {'Char. Animations','Save Settings'}
-		end
+		itemnames = {'Text Speed','Auto-Forward Time','Characters','Save Settings'}
 		
 	elseif menu_type == 'settings2' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Show Date&Time','Char. Animations','Characters','Save Settings'}
+		itemnames = {'Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
@@ -89,78 +89,68 @@ function menu_draw()
 	lg.setColor(255,255,255,menu_alpha)
 	
 	if menu_type == 'title' then
-	
-	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-	
+		lg.setColor(0,0,0,alpha)
+		lg.draw(guicheck,-670+titlebg_ypos,(cY/1.2)+280)
+		
+	elseif menu_type == 'choice' then
+		lg.setColor(255,189,225,menu_alpha)
+		lg.rectangle('fill',200,200,200,200)
+		for i = 1, #choices do
+			getcompare[i] = font:getWidth(choices[i])
+		end
+		lg.setColor(0,0,0,menu_alpha)
+		lg.draw(guicheck,cX,cY)
+		
 	else
-		if menu_type == 'choice' then
-			for i = 1, #choices do
-				getcompare[i] = font:getWidth(choices[i])
-			end
-		else
-			for i = 1, #itemnames do
-				getcompare[i] = font:getWidth(itemnames[i])
-			end
+		lg.setColor(255,255,255,menu_alpha)
+		lg.draw(background_Image,posX,posY)
+		lg.setColor(255,189,225,menu_alpha)
+		lg.rectangle('fill',100,50,1080,620)
+		lg.setColor(255,230,244,menu_alpha)
+		lg.rectangle('fill',120,70,1040,580)
+		for i = 1, #itemnames do
+			getcompare[i] = font:getWidth(itemnames[i])
 		end
 		rectwidth = math.max(unpack(getcompare)) + 5
 		
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
-			if menu_items >= i+1 then lg.rectangle('fill',16, 20+(35*i),rectwidth,16) end
+			if menu_items >= i+1 then lg.rectangle('fill',160, 110+(50*i),rectwidth,32) end
 		end
+		lg.setColor(0,0,0,menu_alpha)
+		lg.draw(guicheck,cX,cY)
 	end
 	
-	lg.setColor(0,0,0,menu_alpha)
-	lg.draw(guicheck,cX,cY)
-	if menutext then lg.print(menutext,16, 12) end
+	if menutext then lg.print(menutext,140,90) end
 	
-	if menu_type ~= 'title' then
-		for i = 1, 8 do
-			if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],17,20+(35*i))
-			elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],17,20+(35*i)) end
-		end
+	for i = 1, 8 do
+		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],160,110+(50*i))
+		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],160,110+(50*i)) end
 	end
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
-		if menu_type == 'settings' and pagenum == 1 then
-			lg.print('Page 1 of 2',220,12)
-			lg.print('(<) X | Y (>)',223,27)
-			lg.print(settings.textloc..' Screen',140, 45)
-			lg.print(settings.textspd, 157, 70)
-			lg.print('(<)',140,70)
-			lg.print('(>)',184,70)
-			lg.print(settings.autospd..' sec.',157, 95)
-			lg.print('(<)',140,95)
-			lg.print('(>)',198,95)
-			lg.print(settings.dtym,140, 120)
-			
-		elseif menu_type == 'settings' and pagenum == 2 then
-			lg.print('Page 2 of 2',220,12)
-			lg.print('(<) X | Y (>)',223,27)
-			lg.print(settings.animh, 140, 45)
-			
-		elseif menu_type == 'settings2' then
-			lg.print(settings.textloc..' Screen',140, 45)
-			lg.print(settings.dtym,140, 70)
-			lg.print(settings.animh, 140, 95)
+		if menu_type == 'settings' then
+			lg.print(settings.textspd, 410, 160)
+			lg.print('(<)',380,160)
+			lg.print('(>)',460,160)
+			lg.print(settings.autospd..' sec.',410, 210)
+			lg.print('(<)',380,210)
+			lg.print('(>)',480,210)
 		end
-		lg.print('Press (<) and (>) to change settings.',16,188)
-		lg.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
+		lg.print('Press (<) and (>) to change settings.',140,580)
+		lg.print('DDLC-3DS '..dversion..' '..dvertype,140,610)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		lg.print('Page '..pagenum..' of 10',220,12)
-		lg.print('(<) X | Y (>)',230,27)
+		lg.print('- Page '..pagenum..' of 10',257,90)
+		lg.print('(<) X | Y (>)',290,120)
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
 				lg.setColor(0,255,0)
 			else
 				lg.setColor(255,0,0)
 			end
-			lg.rectangle('fill',95,25+(35*i),6,6)
+			lg.rectangle('fill',290,120+(50*i),9,9)
 		end
-		
-	elseif menu_type == 'choice' then
-		if settings.dtym == 1 then drawdatetime() end
 		
 	elseif menu_type == 'help' then
 		lg.setColor(255,189,225)
@@ -287,28 +277,18 @@ function menu_confirm()
 			menu_enable(menu_previous)
 		end
 		
-	elseif menu_type == 'settings' and pagenum == 1 then
-		if m_selected == 2 or m_selected == 5 then
-			menu_keypressed('left')
-		elseif m_selected == 6 then
-			menu_enable('characters')
-		elseif m_selected == 7 then
-			savesettings()
-			menu_enable(menu_previous)
-		end
-		
-	elseif menu_type == 'settings' and pagenum == 2 then
+	elseif menu_type == 'settings' then
 		if m_selected <= 3 then
 			menu_keypressed('left')
-		else
+		elseif m_selected == 4 then
+			menu_enable('characters')
+		elseif m_selected == 5 then
 			savesettings()
 			menu_enable(menu_previous)
 		end
 		
 	elseif menu_type == 'settings2' then
-		if m_selected <= 4 then
-			menu_keypressed('left')
-		elseif m_selected == 5 then
+		if m_selected == 2 then
 			menu_enable('characters')
 		else
 			savesettings()
@@ -352,8 +332,8 @@ function m_select(arg)
 	if m_selected <= 5 and menu_type == 'choice' then 
 		choicepick = choices[m_selected-1]
 	elseif menu_type ~= 'choice' then cpick = itemnames[m_selected-1] end
-	cX = 2
-	cY = 22+(35*(m_selected-1))
+	cX = 135
+	cY = 110+(50*(m_selected-1))
 end
 
 function menu_keypressed(key)
@@ -387,14 +367,8 @@ function menu_keypressed(key)
 		menu_previous = nil
 		
 	elseif key == 'left' or key == 'cpadleft' then
-		if menu_type == 'settings' and m_selected <= 5 and pagenum == 1 then
-			if cpick == 'Textbox Location' then
-				if settings.textloc == 'Bottom' then
-					settings.textloc = 'Top'
-				else
-					settings.textloc = 'Bottom'
-				end
-			elseif cpick == 'Text Speed' then
+		if menu_type == 'settings' and m_selected <= 3 then
+			if cpick == 'Text Speed' then
 				if settings.textspd > 250 then
 					settings.textspd = 250
 				elseif settings.textspd > 50 then
@@ -404,50 +378,12 @@ function menu_keypressed(key)
 				if settings.autospd > 1 then
 					settings.autospd = settings.autospd - 1
 				end
-			elseif cpick == 'Show Date&Time' then
-				if settings.dtym == 0 then
-					settings.dtym = 1
-				else
-					settings.dtym = 0
-				end
-			end
-			
-		elseif menu_type == 'settings' and m_selected <= 2 and pagenum == 2 then
-			if cpick == 'Char. Animations' then
-				if settings.animh == 0 then
-					settings.animh = 1
-				else
-					settings.animh = 0
-				end
-			end
-			
-		elseif menu_type == 'settings2' and m_selected <= 4 then
-			if cpick == 'Textbox Location' then
-				if settings.textloc == 'Bottom' then
-					settings.textloc = 'Top'
-				else
-					settings.textloc = 'Bottom'
-				end
-			elseif cpick == 'Show Date&Time' then
-				if settings.dtym == 0 then
-					settings.dtym = 1
-				else
-					settings.dtym = 0
-				end
-			elseif cpick == 'Char. Animations' then
-				if settings.animh == 0 then
-					settings.animh = 1
-				else
-					settings.animh = 0
-				end
 			end
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
-		if menu_type == 'settings' and m_selected <= 5 and pagenum == 1 then
-			if cpick == 'Textbox Location' then
-				menu_keypressed('left')
-			elseif cpick == 'Text Speed' then
+		if menu_type == 'settings' and m_selected <= 3 then
+			if cpick == 'Text Speed' then
 				if settings.textspd < 250 then
 					settings.textspd = settings.textspd + 25
 				end
@@ -455,17 +391,7 @@ function menu_keypressed(key)
 				if settings.autospd < 15 then
 					settings.autospd = settings.autospd + 1
 				end
-			elseif cpick == 'Show Date&Time' then
-				menu_keypressed('left')
 			end
-			
-		elseif menu_type == 'settings' and m_selected <= 2 and pagenum == 2 then
-			if cpick == 'Char. Animations' then
-				menu_keypressed('left')
-			end
-			
-		elseif menu_type == 'settings2' and m_selected <= 4 then
-			menu_keypressed('left')
 		end
 	
 	elseif key == 'x' then
