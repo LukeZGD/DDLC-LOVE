@@ -94,12 +94,21 @@ function menu_draw()
 		
 	elseif menu_type == 'choice' then
 		lg.setColor(255,189,225,menu_alpha)
-		lg.rectangle('fill',200,200,200,200)
+		lg.rectangle('fill',400,180,480,360)
+		lg.setColor(255,230,244,menu_alpha)
+		lg.rectangle('fill',410,190,460,340)
 		for i = 1, #choices do
 			getcompare[i] = font:getWidth(choices[i])
 		end
+		rectwidth = math.max(unpack(getcompare)) + 5
+		
+		lg.setColor(255,189,225,menu_alpha)
+		for i = 1, 8 do
+			if menu_items >= i+1 then lg.rectangle('fill',440, 200+(50*i),rectwidth,32) end
+		end
 		lg.setColor(0,0,0,menu_alpha)
-		lg.draw(guicheck,cX,cY)
+		lg.draw(guicheck,410,200+(50*(m_selected-1)))
+		lg.print(menutext,440,205)
 		
 	else
 		lg.setColor(255,255,255,menu_alpha)
@@ -119,12 +128,11 @@ function menu_draw()
 		end
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(guicheck,cX,cY)
+		lg.print(menutext,140,90)
 	end
 	
-	if menutext then lg.print(menutext,140,90) end
-	
 	for i = 1, 8 do
-		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],160,110+(50*i))
+		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],440,200+(50*i))
 		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],160,110+(50*i)) end
 	end
 	
@@ -138,7 +146,7 @@ function menu_draw()
 			lg.print('(>)',480,210)
 		end
 		lg.print('Press (<) and (>) to change settings.',140,580)
-		lg.print('DDLC-3DS '..dversion..' '..dvertype,140,610)
+		lg.print('DDLC-Switch '..dversion..' '..dvertype,140,610)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		lg.print('- Page '..pagenum..' of 10',257,90)
@@ -153,20 +161,14 @@ function menu_draw()
 		end
 		
 	elseif menu_type == 'help' then
-		lg.setColor(255,189,225)
-		lg.rectangle('fill',14,30,260,110)
-		lg.rectangle('fill',14,150,260,16)
-		lg.rectangle('fill',14,180,260,30)
 		lg.setColor(0,0,0)
-		lg.print('Key Bindings:',16,30)
-		lg.print('A, L Trigger - Advances through the game,',16,45)
-		lg.print('activates menu choices',90,60)
-		lg.print('B - Exit Menu, AutoForward On/Off',16,80)
-		lg.print('X - (Menu) Previous Page, (Hold) Skip',16,100)
-		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
-		lg.print('Managing files: Go to Settings > Characters',16,150)
-		lg.print('Deleting save data: Delete everything in here',16,180)
-		lg.print('> '..savedir,16,195)
+		lg.print('Key Bindings:',160,120)
+		lg.print('A, L Trigger - Advances through the game, activates menu choices',160,160)
+		lg.print('B - Exit Menu, AutoForward On/Off',160,190)
+		lg.print('X - (Menu) Previous Page, (Hold) Skip',160,220)
+		lg.print('Y - (Menu) Next Page, Enter Game Menu',160,250)
+		lg.print('Managing files: Go to Settings > Characters',160,300)
+		lg.print('Deleting save data: Delete everything in here > '..savedir,160,330)
 		
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		if settings.dtym == 1 then drawdatetime() end
@@ -224,9 +226,6 @@ function menu_confirm()
 		savenumber = savenum[m_selected-1]
 		if love.filesystem.getInfo('save'..savenumber..'-'..persistent.ptr..'.sav') then
 			changeState('game',2)
-		else
-			menu_enable(menu_previous)
-			menutext = 'Save File '..savenumber..' does not exist.'
 		end
 		
 	elseif menu_type == 'savegame' then  --save game confirm 

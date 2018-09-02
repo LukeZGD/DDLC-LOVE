@@ -30,12 +30,12 @@ function drawGame()
 	lg.setColor(255,255,255,alpha)
 	drawTextBox()
 	
-	lg.setColor(255,255,255)
+	lg.setColor(0,0,0)
 	lg.setFont(font)
 	
-	lg.print(cl,2,2)
+	lg.print(cl,5,5)
 	if autotimer > 0 then
-		lg.print('Auto-Forward On', 2, 20)
+		lg.print('Auto-Forward On', 5, 35)
 	elseif autoskip > 0 then
 		local skiptext
 		if sectimer >= 0.75 then
@@ -47,20 +47,7 @@ function drawGame()
 		else
 			skiptext = 'Skipping'
 		end
-		lg.print(skiptext, 2, 20)
-	end
-	
-	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
-		--[[
-		lg.setColor(255,189,225,alpha)
-		lg.rectangle('fill',47,2,40,16) 
-		lg.rectangle('fill',139,2,32,16) 
-		lg.rectangle('fill',237,2,32,16) 
-		lg.setColor(0,0,0,alpha)
-		lg.print('Menu',51,2,0,1,1)
-		lg.print('Auto',142,2,0,1,1)
-		lg.print('Skip',241,2,0,1,1) 
-		]]
+		lg.print(skiptext, 5, 35)
 	end
 	if menu_enabled then menu_draw() end
 end
@@ -90,13 +77,13 @@ function updateGame(dt)
 	end
 	
 	--skipping
-	--[[
-	if love.keyboard.isDown('x') then
-		if autoskip < 1 then autoskip = 1 end
-	elseif autoskip > 0 then
-		autoskip = 0
+	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' then
+		if love.keyboard.isDown('x') then
+			if autoskip < 1 then autoskip = 1 end
+		elseif autoskip > 0 then
+			autoskip = 0
+		end
 	end
-	]]
 	
 	if menu_enabled == false and cl ~= 666 then
 		if autoskip > 0 and autoskip < skipspeed then

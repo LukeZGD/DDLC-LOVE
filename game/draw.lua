@@ -5,12 +5,6 @@ local yps = {}
 local nxh
 local nyh
 
-function drawTopScreen()
-end
-
-function drawBottomScreen()
-end
-
 --compatiblity for LOVE 11 and above
 local lgsetColor = lg.setColor
 function lg.setColor(...)
@@ -97,7 +91,6 @@ function drawTextBox()
 			end
 		end
 	end
-	if settings.textloc == 'Top' then drawBottomScreen() end
 end
 
 function drawPoem()
@@ -124,79 +117,71 @@ function drawConsole()
 end
 
 function updateSayori(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	s_Set.a = a
 	s_Set.b = b
 	if xaload == 0 then loadSayori() end
-	if px and xaload > 0 then
+	if px then
 		px = math.floor(px*3.2)
 		s_Set.x = px
 	end
-	if py ~= nil then s_Set.y = py end
+	if py then s_Set.y = py end
 end
 
 function updateYuri(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	y_Set.a = a 
 	y_Set.b = b
 	if xaload == 0 then loadYuri() end
-	if px and xaload > 0 then
+	if px then
 		px = math.floor(px*3.2)
 		y_Set.x = px
 	end
-	if py ~= nil then y_Set.y = py end
+	if py then y_Set.y = py end
 end
 
 function updateNatsuki(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	n_Set.a = a
 	n_Set.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px and xaload > 0 then
+	if px then
 		px = math.floor(px*3.2)
 		n_Set.x = px
 	end
-	if py ~= nil then n_Set.y = py end
+	if py then n_Set.y = py end
 end
 
 function updateMonika(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	m_Set.a = a
 	m_Set.b = b
 	if xaload == 0 then loadMonika() end
-	if px and xaload > 0 then
+	if px then
 		px = math.floor(px*3.2)
 		m_Set.x = px
 	end
-	if py ~= nil then m_Set.y = py end
+	if py then m_Set.y = py end
 end
 
 function hideSayori()
-	if s_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
-		s_Set = {a='',b='',x=-400,y=0}
-		if sl then unloadSayori() end
-	end
+	s_Set = {a='',b='',x=-400,y=0}
+	if sl then unloadSayori() end
 end
 
 function hideYuri()
-	if y_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
-		y_Set = {a='',b='',x=-400,y=0}
-		if yl then unloadYuri() end
-	end
+	y_Set = {a='',b='',x=-400,y=0}
+	if yl then unloadYuri() end
 end
 
 function hideNatsuki()
-	if n_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
-		n_Set = {a='',b='',x=-400,y=0}
-		if nl then unloadNatsuki() end
-	end
+	n_Set = {a='',b='',x=-400,y=0}
+	if nl then unloadNatsuki() end
 end
 
 function hideMonika()
-	if m_Set.x <= -400 or autoskip > 0 or settings.animh == 0 then
-		m_Set = {a='',b='',x=-400,y=0}
-		if ml then unloadMonika() end
-	end
+	m_Set = {a='',b='',x=-400,y=0}
+	if ml then unloadMonika() end
 end
 
 function hideAll()

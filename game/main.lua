@@ -6,7 +6,7 @@ require 'scripts.script'
 
 function love.load() 
 	dversion = 'v0.3.2'
-	dvertype = 'Switch Test'
+	dvertype = 'Test'
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()

@@ -1,4 +1,4 @@
-local gtextg = glitchtext(math.random(8,80))
+local gtextg = glitchtext(love.math.random(8,80))
 local gtext10 = glitchtext(10)
 
 function ch23script()
@@ -765,7 +765,7 @@ function ch23_end()
 end
 
 function yuri_kill()
-	if xaload == 0 then gtextg = glitchtext(math.random(8,80)) end
+	if xaload == 0 then gtextg = glitchtext(love.math.random(8,80)) end
 	
 	--yuri_kill_2
 	if cl <= 3440 then

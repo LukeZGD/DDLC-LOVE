@@ -95,7 +95,7 @@ end
 	
 function poemresponse_sayori()
 	if cl <= 669 then
-		s_Set.x = 80
+		s_Set.x = 256
 		updateSayori('1','a')
 	end
 	
@@ -111,7 +111,7 @@ end
 
 function poemresponse_natsuki()
     if cl <= 669 then
-		n_Set.x = 80
+		n_Set.x = 256
 		updateNatsuki('1','c')
 	end
 	
@@ -135,7 +135,7 @@ end
 
 function poemresponse_yuri()
 	if cl <= 669 then
-		y_Set.x = 80
+		y_Set.x = 256
 		updateYuri('1','a')
 	end
 	
@@ -159,7 +159,7 @@ end
 
 function poemresponse_monika()
 	if cl <= 669 then 
-		m_Set.x = 80
+		m_Set.x = 256
 		updateMonika('1','a') 
 	end
 	
@@ -610,7 +610,7 @@ function ch1_n_end()
 	end
 end
 
-local n_blackeyeschance = math.random(0,2)
+local n_blackeyeschance = love.math.random(0,2)
 
 function ch1_n_bad()
 	if cl == 670 then

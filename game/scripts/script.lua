@@ -1,6 +1,6 @@
 local stext
 local c_a = {}
-local c_a1 = {}
+local c_a1 = {70,140,210}
 local tspd
 local tagtimer = 0
 local pchapter
@@ -51,8 +51,6 @@ function cw(p1, stext, tag)
 	
 	--word wrap
 	slen = string.len(textx)
-	c_a1 = {70,140,210}
-	if style_edited then c_a1 = {35,65,95} end
 	
 	for i = 1, 3 do
 		c_a[i] = string.find(stext, '%s', c_a1[i])
@@ -186,7 +184,7 @@ function glitchtext(range)
 				   '0','1','2','3','4','5','6','7','8','9'}
 	
 	for i = 1, range do
-		aaa = math.random(1, #chars)
+		aaa = love.math.random(1, #chars)
 		gtextstring = gtextstring..chars[aaa]
 	end
 	
