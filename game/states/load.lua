@@ -20,11 +20,11 @@ function updateLoad()
 	
 	--loading assets
 	if l_timer == 95 then
-		font = lg.newFont('fonts/Aller_Rg',12)
+		font = lg.newFont('fonts/Aller_Rg.ttf',22)
 		lg.setFont(font)
 	
 	elseif l_timer == 96 then
-		m1 = lg.newFont('fonts/m1',12)
+		m1 = lg.newFont('fonts/m1.ttf',22)
 		deffont = lg.newFont()
 		
 	elseif l_timer == 97 then

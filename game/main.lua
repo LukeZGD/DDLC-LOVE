@@ -5,8 +5,8 @@ require 'menu'
 require 'scripts.script'
 
 function love.load() 
-	dversion = 'v0.3.1'
-	dvertype = 'Release'
+	dversion = 'v0.3.2'
+	dvertype = 'Switch Test'
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
@@ -29,18 +29,16 @@ function love.load()
 	math.random()
 	
 	--os detection
-	global_os = love.system.getOS()
-	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
-		love.window.setMode(600, 720) 
-		love.window.setTitle('DDLC-3DS')
+	global_os, g_system = love.system.getOS()
+	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' then
+		love.window.setMode(1280, 720)
+		love.window.setTitle('DDLC-Switch')
 	end
 	
 	changeState('load')
 end
 
-function love.draw() 
-	if global_os ~= 'Horizon' then lg.scale(1.5, 1.5) end
-	
+function love.draw()
 	if event_enabled then
 		event_draw()
 	elseif state == 'load' then
@@ -58,37 +56,23 @@ function love.draw()
 	elseif state == 'credits' then
 		drawCredits()
 	end
-	
-	if global_os ~= 'Horizon' then
-		lg.setColor(0,0,0)
-		drawTopScreen()
-		lg.rectangle('fill', 400, 0, 880, 720 )
-		drawBottomScreen()
-		lg.rectangle('fill', -40, 240, 400, 240 )
-	end
 end
 
 function love.update(dt)
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
-	--moving background (3DS only)
-	if global_os == 'Horizon' then
-		posX = posX - 0.25
-		posY = posY - 0.25
-		if posX <= -80 then posX = 0 end
-		if posY <= -80 then posY = 0 end
-	end
+	posX = posX - 0.25
+	posY = posY - 0.25
+	if posX <= -80 then posX = 0 end
+	if posY <= -80 then posY = 0 end
 
-	--touch(3DS only)/mouse checks
-	if global_os ~= 'HorizonNX' then
-		mouseDown = love.mouse.isDown(1)
-		mouseX = love.mouse.getX()
-		mouseY = love.mouse.getY()
-		if global_os ~= 'Horizon' then
-			mouseX = mouseX / 1.5 - 40
-			mouseY = mouseY / 1.5 - 240
-		end
+	mouseDown = love.mouse.isDown(1)
+	mouseX = love.mouse.getX()
+	mouseY = love.mouse.getY()
+	if global_os ~= 'Horizon' then
+		mouseX = mouseX / 1.5 - 40
+		mouseY = mouseY / 1.5 - 240
 	end
 	
 	--this acts as love.mousepressed
