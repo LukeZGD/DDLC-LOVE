@@ -1,6 +1,6 @@
 local gtext = glitchtext(48)
 local s_name = glitchtext(12)
-local gs = love.math.random(0,2)
+local gs = math.random(0,2)
 
 function ch10script()
 	if cl > 150 then

@@ -26,7 +26,7 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
-			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
+			if love.filesystem.isFile('save'..chch..'-'..persistent.ptr..'.sav') then
 				saveindicator[i] = 1
 			else
 				saveindicator[i] = 0
@@ -230,7 +230,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'loadgame' then --load game confirm
 		savenumber = savenum[m_selected-1]
-		if love.filesystem.getInfo('save'..savenumber..'-'..persistent.ptr..'.sav') then
+		if love.filesystem.isFile('save'..savenumber..'-'..persistent.ptr..'.sav') then
 			changeState('game',2)
 		else
 			menu_enable(menu_previous)

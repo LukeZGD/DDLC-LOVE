@@ -1,4 +1,4 @@
-local m_chance = love.math.random(0, 2)
+local m_chance = math.random(0, 2)
 appeal = {s=0,n=0,y=0}
 n_poemappeal = {0,0,0}
 y_poemappeal = {0,0,0}
@@ -199,8 +199,8 @@ function ch20script()
 		updateMonika('3','b',-40,0)
 	elseif m_chance == 0 then
 		updateMonika('g1')
-		m_Set.x = love.math.random(-40, -20)
-		m_Set.y = love.math.random(0, 20)
+		m_Set.x = math.random(-40, -20)
+		m_Set.y = math.random(0, 20)
 	end
 	bgUpdate('club_day2')	
 	audioUpdate('3')
