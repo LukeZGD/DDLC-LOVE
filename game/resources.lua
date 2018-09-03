@@ -134,20 +134,18 @@ function bgUpdate(bgx, forceload) --background changes
 	end
 	
 	if xaload == 0 or forceload then
-		if bgx ~= '' then
-			if autoskip == 0 and forceload ~= true then bgch2 = bgch end
-			bgch = nil
-			bgch = lg.newImage('images/bg/'..bgx..'.png')
-		end
+		if autoskip == 0 and forceload ~= true then bgch2 = bgch end
+		bgch = nil
+		bgch = lg.newImage('images/bg/'..bgx..'.png')
 	end	
 	bg1 = bgx
 end
 
 function cgUpdate(cgx, forceload) --cg changes
 	if cg1 ~= cgx or forceload then
-		if cgx ~= '' then
-			cgch = lg.newImage('images/cg/'..cgx..'.png')
-		end
+		if autoskip == 0 and forceload ~= true then cgch2 = cgch end
+		cgch = nil
+		cgch = lg.newImage('images/cg/'..cgx..'.png')
 	end	
 	cg1 = cgx
 end

@@ -1,6 +1,7 @@
 local skipspeed = 4
 local audiotell = 0
 local bgalpha = 255
+local cgalpha = 255
 
 function drawGame()
 	if autotimer > 0 or autoskip > 0 then
@@ -11,13 +12,13 @@ function drawGame()
 	
 	lg.setColor(255,255,255,alpha)
 	lg.draw(bgch)
-	if bgch2 and menu_enabled ~= true then
-		lg.setColor(255,255,255,bgalpha)
-		lg.draw(bgch2)
-	end
+	lg.draw(cgch)
+	lg.setColor(255,255,255,bgalpha)
+	lg.draw(bgch2)
+	lg.setColor(255,255,255,cgalpha)
+	lg.draw(cgch2)
 	
 	lg.setColor(255,255,255,alpha)
-	if cg1 ~= '' then lg.draw(cgch) end
 	if xaload > 0 then
 		drawSayori()
 		drawYuri()
@@ -61,8 +62,16 @@ function updateGame(dt)
 	if bgch2 then
 		bgalpha = math.max(bgalpha - 15, 0)
 		if bgalpha == 0 then
-			bgch2 = nil
 			bgalpha = 255
+			bgch2 = nil
+		end
+	end
+	
+	if cgch2 then
+		cgalpha = math.max(cgalpha - 15, 0)
+		if cgalpha == 0 then
+			cgalpha = 255
+			cgch2 = nil
 		end
 	end
 	
