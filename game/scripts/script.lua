@@ -129,12 +129,14 @@ function y (say) return cw('y',say) end
 function m (say) return cw('m',say) end
 
 function pause(t)
+	if event_enabled then textbox_enabled = false end
 	autotimer = 0
 	local dt = love.timer.getDelta()
 	tagtimer = tagtimer + dt
 	if tagtimer >= t then
 		scriptJump(cl+1)
 		tagtimer = 0
+		textbox_enabled = true
 	end
 end
 
