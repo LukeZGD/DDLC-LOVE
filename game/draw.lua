@@ -69,8 +69,7 @@ function fadeOut(x)
 end
 
 function cgHide()
-	cg1 = ''
-	cgch = nil
+	cgUpdate('blank')
 end
 
 function drawTextBox()
@@ -94,14 +93,9 @@ function drawTextBox()
 end
 
 function drawPoem()
-	if poembg then
-		lg.draw(poembg, 40, 0)
-	else
-		lg.setColor(243,243,243)
-		lg.rectangle('fill',40,0,320,240)
-	end
+	if poembg then lg.draw(poembg, 240, 0) end
 	lg.setColor(0,0,0)
-	lg.print(poemtext, 45, 6)
+	lg.print(poemtext, 250, 25)
 end
 
 function drawConsole()

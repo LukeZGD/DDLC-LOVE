@@ -3,7 +3,7 @@ A Doki Doki Literature Club port for the Nintendo Switch! Programmed in Lua, run
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
-This is intended to be only for Switch systems, but it should also work on other platforms that support LOVE 11.
+This is for Switch systems, but it also works on other platforms that support LÖVE 11.
 
 **Locations of save files:**
 

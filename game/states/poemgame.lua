@@ -164,7 +164,6 @@ function poemgame()
 end
 
 function drawPoemGame()
-	drawTopScreen()
 	lg.setBackgroundColor(0,0,0)
 	lg.setColor(255,255,255,alpha)
 	lg.draw(bgch2, 0, 0)

@@ -303,9 +303,8 @@ Making me rub the sleepy from my eyes.
 Are you asking me to come out and play?
 Are you trusting me to wish away a rainy day?
 I look above. The sky is blue.
-It's a secret, but I trust you too.]]
-	elseif poemname == 'poem_s1-a' then
-		poemtext = [[
+It's a secret, but I trust you too.
+
 If it wasn't for you, I could sleep forever.
 But I'm not mad.
 
@@ -399,9 +398,8 @@ I peer inside for a clue.
 No! I can't see. I reel, blind, like a film left out in the sun.
 But it's too late. My retinas.
 Already scorched with a permanent copy of the meaningless image.
-It's just a little hole. It wasn't too bright.]]
-	elseif poemname == 'poem_m1-a' then
-		poemtext = [[
+It's just a little hole. It wasn't too bright.
+
 It was too deep.
 Stretching forever into everything.
 A hole of infinite choices.
@@ -554,13 +552,13 @@ Not all good times must come to an end.]]
 		poembg = lg.newImage('images/bg/poem'..continue..'.png')
 	elseif xaload == 0 and continue < 1 then
 		sfxplay('pageflip')
+		poembg = lg.newImage('images/bg/poem.png')
 		if author == 'yuri' then
 			if yuri_2 then
 				poembg = lg.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				poembg = lg.newImage('images/bg/poemxp.png')
-				--poembg = lg.newImage('images/bg/poem1.png')
+				poembg = lg.newImage('images/bg/poem1.png')
 				audioUpdate('5_yuri2')
 			else
 				audioUpdate('5_yuri')
@@ -576,8 +574,7 @@ Not all good times must come to an end.]]
 		end
 	
 	elseif xaload > 0 then
-		--[[
-		if author == 'yuri' and yuri_3 ~= true then
+		if author == 'yuri' then
 			lg.setFont(y1)
 		elseif author == 'sayori' then
 			lg.setFont(s1)
@@ -586,8 +583,6 @@ Not all good times must come to an end.]]
 		elseif author == 'monika' then
 			lg.setFont(m1)
 		end
-		]]
-		lg.setFont(m1)
 	end
 end
 

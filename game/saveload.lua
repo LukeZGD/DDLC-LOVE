@@ -11,7 +11,7 @@ settings = {textspd=125,autospd=4}
 cl = 1
 bg1 = 'black'
 audio1 = '0'
-cg1 = ''
+cg1 = 'blank'
 ct = ''
 s_Set = {a='',b='',x=-200,y=0}
 y_Set = {a='',b='',x=-200,y=0}
