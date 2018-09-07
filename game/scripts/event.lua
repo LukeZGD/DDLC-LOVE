@@ -29,9 +29,7 @@ function event_start(etype, arg1)
 	event_type = etype
 	if event_type == 's_kill_start' then
 		textbox_enabled = true
-		bgimg_disabled = true
 	elseif string.sub(event_type,1,6) == 's_kill' then
-		bgimg_disabled = true
 		textbox_enabled = false
 		if event_type == 's_kill' then
 			audioUpdate('s_kill')
@@ -48,13 +46,11 @@ function event_start(etype, arg1)
 		end
 	elseif event_type == 'black' then
 		textbox_enabled = true
-		bgimg_disabled = true
 	elseif event_type == 'endscreen' then
 		hideAll()
 		textbox_enabled = false
 		audioUpdate('0')
 	elseif event_type == 's_glitch' or event_type == 'm_glitch1' or event_type == 'n_glitch1' then
-		bgimg_disabled = false
 		textbox_enabled = false
 	elseif event_type == 'ny_argument' then
 		eventvar1 = 0
@@ -62,34 +58,27 @@ function event_start(etype, arg1)
 		eventvar3 = {2.0,3.6,5.2,6.8,8.3,9.90,11.5,13.1,14.7,16.3,17.90,19.45,21.1,22.7,24.2,25.8}
 		eventvar4 = {2.5,4.1,5.7,7.3,8.8,10.3,12.0,13.5,15.1,16.7,18.25,19.85,21.5,23.0,24.6,26.2}
 		eventvar5 = 1
-		bgimg_disabled = false
 		textbox_enabled = true
 	elseif event_type == 'yuri_eyes' then
-		bgimg_disabled = false
 		textbox_enabled = false
 		eventvar1 = 2
 		eventvar2 = -13
 		eventvar3 = 0
 	elseif event_type == 'faint_effect' then
 		eventvar1 = 192
-		bgimg_disabled = false
 		textbox_enabled = true
 	elseif event_type == 'yuri_glitch_head' then
 		eventvar1 = arg1
-		bgimg_disabled = false
 		textbox_enabled = true
 	elseif event_type == 'show_darkred' then
 		eventvar2 = 1
-		bgimg_disabled = false
 		textbox_enabled = true
 	elseif event_type == 'yuri_ch23_2' or event_type == 'natsuki_ch22' then
 		eventvar1 = 0
 		eventvar2 = 0
 		eventvar3 = 0
-		bgimg_disabled = false
 		textbox_enabled = true
 	elseif event_type == 'yuri_ch23' or event_type == 'm_ch23ex' or event_type == 'just_monika' then
-		bgimg_disabled = true
 		textbox_enabled = false
 		if event_type == 'just_monika' then 
 			alpha = 0
@@ -99,14 +88,12 @@ function event_start(etype, arg1)
 		eventvar1 = stab1
 		eventvar2 = 0
 		eventvar3 = 0.025
-		bgimg_disabled = true
 		textbox_enabled = false
 	elseif event_type == 'monika_end' then
 		eventvar1 = 200
 		eventvar2 = love.math.random(1,8)*50
 		eventvar3 = love.math.random(1,8)*50
 		eventvar5 = 0
-		bgimg_disabled = false
 		textbox_enabled = false
 		if arg1 == 2 then
 			event_timer = 0.69
@@ -116,10 +103,8 @@ function event_start(etype, arg1)
 		eventvar1 = 0
 		eventvar2 = nil
 		eventvar3 = 0
-		bgimg_disabled = true
 		textbox_enabled = false
 	else
-		bgimg_disabled = false
 		textbox_enabled = true
 	end
 	if arg1 == 'show_noise' then
@@ -134,7 +119,6 @@ function event_start(etype, arg1)
 end
 
 function event_draw()
-	drawTopScreen()
 	lg.setColor(255,255,255)
 	
 	if persistent.ptr <= 1 then
@@ -148,7 +132,7 @@ function event_draw()
 	if event_type == 'wipe' then
 		lg.draw(bgch)
 		lg.setColor(0,0,0,eventvar1)
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 	end
 	
 	if event_type == 'endscreen' then
@@ -164,13 +148,13 @@ function event_draw()
 		else
 			lg.setColor(0,0,0,192)
 		end
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 		lg.setColor(255,255,255,255)
 		if bg1 == 'cg/monika_bg_glitch' then lg.draw(bgch) end
 		if cl < 271 then drawSayori() end
 		if menu_enabled then
 			lg.setColor(255,255,255,128)
-			lg.rectangle('fill',0,0,400,240)
+			lg.rectangle('fill',0,0,1280,720)
 		end
 	end
 	
@@ -181,47 +165,27 @@ function event_draw()
 			lg.draw(splash)
 		else
 			lg.setColor(0,0,0,alpha)
-			lg.print('Just Monika.', 170, 100)
+			lg.print('Just Monika.', 544, 300)
 		end
 	end
 	
 	if event_type == 'ch23-30' then
 		lg.draw(bgch)
-		if cg1 ~= '' then lg.draw(cgch) end
+		lg.draw(cgch)
 		if xaload > 0 then
 			drawSayori()
 			drawYuri()
 			drawNatsuki()
 			drawMonika()
 		end
-		
 		drawConsole()
-		
 		if poem_enabled then drawPoem()	end
-		
-		if menu_enabled and menu_type ~= 'choice' then
-			lg.setColor(255,255,255,128)
-			lg.rectangle('fill',0,0,400,240)
-		end
-		
-		lg.setColor(255,255,255,255)
 	end
 	
-	drawBottomScreen()
 	lg.setColor(255,255,255,255)
-	
-	if event_type == 'm_ch23ex' and event_timer > 1 then
-		lg.draw(ex3bottom)
-	end
-	
-	if bgimg_disabled ~= true then
-		lg.draw(background_Image, posX, posY)
-		lg.setColor(0,0,0)
-	end
-	
 	lg.setFont(font)
 	if textbox_enabled then
-		drawNumbers()
+		lg.print(cl,5,5)
 		drawTextBox()	
 	end
 	
@@ -233,12 +197,10 @@ function event_draw()
 		drawTopScreen()
 		lg.setColor(255,255,255,eventvar2)
 		drawMonika()
-		drawBottomScreen()
 	elseif event_type == 'show_dark' and cl >= 271 and chapter == 40 then
 		drawTopScreen()
 		lg.setColor(255,255,255,255)
 		drawSayori()
-		drawBottomScreen()
 	end
 	
 	if menu_enabled then menu_draw() end

@@ -17,7 +17,7 @@ function love.load()
 	sectimer = 0
 	xaload = 0
 	alpha = 255
-	posX = -40
+	posX = 0
 	posY = 0
 	menu_enabled = false
 	textbox_enabled = true

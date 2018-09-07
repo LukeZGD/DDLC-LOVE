@@ -1,14 +1,14 @@
 function event_draw_2()
 	if event_type == 'm_glitch1' then
 		lg.draw(bgch)
-		lg.draw(ml,100)
+		lg.draw(ml,320)
 	end
 	
 	if event_type == 'n_glitch1' then
 		lg.draw(bgch)
 		drawMonika(m_Set.a,m_Set.b)
 		drawYuri(y_Set.a,y_Set.b)
-		lg.draw(nl,200,n_Set.y)
+		lg.draw(nl,640,n_Set.y)
 	end
 	
 	if event_type == 'm_onlayer_front' then
@@ -20,19 +20,19 @@ function event_draw_2()
 	if event_type == 'n_rects_ghost' then
 		lg.draw(bgch)
 		lg.setColor(0,0,0)
-		lg.rectangle('fill',love.math.random(262,272),love.math.random(100,110),love.math.random(18,28),love.math.random(18,28))
-		lg.rectangle('fill',love.math.random(262,272),love.math.random(100,110),love.math.random(18,28),love.math.random(18,28))
-		lg.rectangle('fill',love.math.random(220,230),love.math.random(127,137),love.math.random(15,25),love.math.random(15,25))
-		lg.rectangle('fill',love.math.random(220,230),love.math.random(127,137),love.math.random(15,25),love.math.random(15,25))
-		lg.rectangle('fill',love.math.random(247,257),love.math.random(140,150),love.math.random(15,25),love.math.random(10,20))
-		lg.rectangle('fill',love.math.random(247,257),love.math.random(140,150),love.math.random(15,25),love.math.random(10,20))
+		lg.rectangle('fill',love.math.random(838,870),love.math.random(300,330),love.math.random(58,90),love.math.random(18,84))
+		lg.rectangle('fill',love.math.random(838,870),love.math.random(300,330),love.math.random(58,90),love.math.random(18,84))
+		lg.rectangle('fill',love.math.random(704,736),love.math.random(381,411),love.math.random(48,80),love.math.random(15,75))
+		lg.rectangle('fill',love.math.random(704,736),love.math.random(381,411),love.math.random(48,80),love.math.random(15,75))
+		lg.rectangle('fill',love.math.random(790,822),love.math.random(420,450),love.math.random(48,80),love.math.random(10,60))
+		lg.rectangle('fill',love.math.random(790,822),love.math.random(420,450),love.math.random(48,80),love.math.random(10,60))
 		textbox_enabled = true
 	end
 	
 	if event_type == 'n_blackeyes' then
 		lg.draw(bgch)
 		if event_timer > 2 then
-			lg.draw(n_blackeyes, 80)
+			lg.draw(n_blackeyes, 256)
 		else
 			drawNatsuki(n_Set.a,n_Set.b)
 		end
@@ -63,7 +63,7 @@ function event_draw_2()
 	if event_type == 'yuri_glitch' then
 		lg.draw(bgch)
 		drawMonika(m_Set.a,m_Set.b)
-		drawanimframe(80)
+		drawanimframe(256)
 	end
 	
 	if event_type == 'show_vignette' then
@@ -71,14 +71,14 @@ function event_draw_2()
 		lg.draw(vignette)
 	elseif event_type == 'yuri_eyes' then
 		lg.draw(bgch)
-		lg.draw(eyes1,-13)
+		lg.draw(eyes1,-38)
 		lg.draw(eyes2,eventvar2,eventvar3)
 		if cl <= 701 then
 			lg.setColor(32,0,0,192)
 		else
 			lg.setColor(0,0,0,192)
 		end
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 		lg.setColor(255,255,255)
 		if poem_enabled then drawPoem()	end
 	end
@@ -86,18 +86,18 @@ function event_draw_2()
 	if event_type == 'faint_effect' then
 		lg.setColor(255,255,255,alpha)
 		lg.draw(bgch)
-		drawNatsuki(n_Set.a,n_Set.b)
-		drawYuri(y_Set.a,y_Set.b)
-		drawMonika(m_Set.a,m_Set.b)
+		drawNatsuki()
+		drawYuri()
+		drawMonika()
 		lg.setColor(128,0,0,eventvar1)
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 	end
 	
 	if event_type == 'yuri_glitch_head' then
 		if eventvar1 == 2 then
-			drawanimframe(220,10)
+			drawanimframe(704,30)
 		else
-			drawanimframe(180)
+			drawanimframe(576)
 		end
 	end
 	
@@ -106,7 +106,7 @@ function event_draw_2()
 		lg.draw(bgch)
 		drawYuri(y_Set.a,y_Set.b)
 		lg.setColor(32,0,0,eventvar2)
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 		if eventvar4 == 'show_noise' then
 			lg.setColor(255,255,255,eventvar2/8)
 			drawanimframe()
@@ -118,10 +118,10 @@ function event_draw_2()
 	if event_type == 'yuri_ch23' then
 		if event_timer >= 5.5 then
 			lg.draw(bg_glitch)
-			drawanimframe(80)
+			drawanimframe(256)
 		elseif event_timer >= 4.5 then
 			lg.draw(bgch)
-			lg.draw(eyes1,-13)
+			lg.draw(eyes1,-42)
 		end
 	end
 	
@@ -129,7 +129,7 @@ function event_draw_2()
 		lg.draw(bgch,eventvar1)
 		drawYuri(y_Set.a,y_Set.b)
 		lg.setColor(0,0,0,128+(eventvar1*4))
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 	end
 	
 	if event_type == 'm_ch23ex' then
@@ -148,8 +148,9 @@ function event_draw_2()
 			drawNatsuki(n_Set.a,n_Set.b)
 			if cl < 725 then
 				lg.setColor(255,255,255,eventvar3)
-				lg.draw(ghost_blood,80)
+				lg.draw(ghost_blood,256)
 				lg.setColor(0,0,0,eventvar2)
+				--multiply x and y!
 				lg.rectangle('fill',love.math.random(176,180),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
 				lg.rectangle('fill',love.math.random(176,180),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
 				lg.rectangle('fill',love.math.random(196,200),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
@@ -159,19 +160,19 @@ function event_draw_2()
 			end
 		end
 		lg.setColor(32,0,0,eventvar1)
-		lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,1280,720)
 		lg.setColor(255,255,255)
 		if cl == 726 then
 			if event_timer < 1 then
-				lg.draw(nl,80)
+				lg.draw(nl,256)
 			elseif event_timer < 1.5 then
-				lg.draw(ghost3,80)
+				lg.draw(ghost3,256)
 			elseif event_timer < 1.5625 then
-				lg.draw(ghost3_1,80)
+				lg.draw(ghost3_1,256)
 			elseif event_timer < 1.625 then
-				lg.draw(ghost3_2,80)
+				lg.draw(ghost3_2,256)
 			elseif event_timer < 1.6875 then
-				lg.draw(ghost3_3,80)
+				lg.draw(ghost3_3,256)
 			end
 		end
 	end
@@ -180,9 +181,9 @@ function event_draw_2()
 		if event_timer < 9.5 then
 			lg.draw(bgch)
 			if event_timer < 1.43 then
-				drawYuri(y_Set.a,y_Set.b)
+				drawYuri()
 			else
-				lg.draw(eventvar1,80,eventvar2)
+				lg.draw(eventvar1,256,eventvar2)
 			end
 		end
 	end
@@ -194,14 +195,14 @@ function event_update_2(dt)
 		if event_timer > 0.8 then
 			event_end('next')
 		end
-		posX = -40
+		posX = 0
 		posY = 0
 	end
 	
 	if event_type == 'n_glitch1' then
-		n_Set.y = math.max(n_Set.y - 7, 0)
+		n_Set.y = math.max(n_Set.y - 21, 0)
 		if n_Set.y <= 0 then
-			n_Set.y = 50
+			n_Set.y = 150
 		end
 		if event_timer >= 0.75 then
 			event_end('next')
@@ -241,10 +242,10 @@ function event_update_2(dt)
 		eventvar1 = eventvar1 + dt
 		if eventvar1 >= 2 then
 			eventvar1 = 0
-			eventvar2 = love.math.random(-14,-12)
-			eventvar3 = love.math.random(0,1)
+			eventvar2 = love.math.random(-45,-38)
+			eventvar3 = love.math.random(0,3)
 		end
-		if eventvar2 > -12 then eventvar2 = love.math.random(-14,-12) end
+		if eventvar2 > -12 then eventvar2 = love.math.random(-45,-38) end
 		if cl >= 1439 then
 			if xaload > 125 then
 				textbox_enabled = true
@@ -345,7 +346,7 @@ function event_update_2(dt)
 		elseif event_timer > 6.13 and event_timer <= 9 then
 			eventvar1 = stab6f
 		elseif event_timer > 9 and event_timer <= 12 then
-			eventvar3 = eventvar3 * 1.25
+			eventvar3 = eventvar3 * 3.75
 			eventvar2 = eventvar2 + eventvar3
 			eventvar1 = stab6
 		elseif event_timer > 12 then

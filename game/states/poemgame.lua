@@ -217,7 +217,6 @@ function drawPoemGame()
 	
 	lg.setFont(font)
 	lg.setColor(0,0,0)
-	lg.print(love.mouse.getX()..', '..love.mouse.getY())
 	if menu_enabled then menu_draw() end
 end
 

@@ -93,7 +93,12 @@ function drawTextBox()
 end
 
 function drawPoem()
-	if poembg then lg.draw(poembg, 240, 0) end
+	if poembg then
+		lg.draw(poembg, 240, 0)
+	else
+		lg.setColor(243,243,243)
+		lg.rectangle('fill',240,0,800,720)
+	end
 	lg.setColor(0,0,0)
 	lg.print(poemtext, 250, 25)
 end

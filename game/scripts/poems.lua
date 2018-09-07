@@ -20,20 +20,20 @@ The Raccoon
 
 It happened in the dead of night while I was slicing bread for a guilty snack.
 My attention was caught by the scuttering of a raccoon outside my window.
-That was, I believe, the first time I noticed my strange tendencies as an unordinary
-human.
+That was, I believe, the first time I noticed my strange tendencies as an unordinary human.
 I gave the raccoon a piece of bread, my subconscious well aware of the consequences.
 Well aware that a raccoon that is fed will always come back for more.
 The enticing beauty of my cutting knife was the symptom.
 The bread, my hungry curiosity.
-The raccoon, an urge.]]
-	elseif poemname == 'poem_y2-a' then
-		poemtext = [[
+The raccoon, an urge.
+
 The moon increments its phase and reflects that much more light off of my cutting knife.
 The very same light that glistens in the eyes of my raccoon friend.
 I slice the bread, fresh and soft. The raccoon becomes excited.
-Or perhaps I'm merely projecting my emotions onto the newly-satisfied animal.
+Or perhaps I'm merely projecting my emotions onto the newly-satisfied animal.]]
 
+	elseif poemname == 'poem_y2-a' then
+		poemtext = [[
 The raccoon has taken to following me.
 You could say that we've gotten quite used to each other.
 The raccoon becomes hungry more and more frequently, so my bread is always handy.
@@ -50,16 +50,15 @@ Where the womb of Earth chaotically meets the surface.
 Under a clear blue sky, an expanse of bliss--
 But beneath gray rolling clouds, an endless enigma.
 The easiest world to get lost in
-Is one where everything can be found.]]
-	elseif poemname == 'poem_y3-a' then
-		poemtext = [[
+Is one where everything can be found.
+
 One can only build a sand castle where the sand is wet.
 But where the sand is wet, the tide comes.
 Will it gently lick at your foundations until you give in?
 Or will a sudden wave send you crashing down in the blink of an eye?
 Either way, the outcome is the same.
 Yet we still build sand castles.]]
-	elseif poemname == 'poem_y3-b' then
+	elseif poemname == 'poem_y3-a' then
 		poemtext = [[
 I stand where the foam wraps around my ankles.
 Where my toes squish into the sand.
@@ -82,11 +81,12 @@ My heart pounds. The silhouette grows. Closer. Closer.
 I open my umbrella, casting a shadow to shield me from visibility.
 But I am too late.
 He steps into the streetlight. I gasp and drop my umbrella.
-The light flickers. My heart pounds. He raises his arm.]]
+The light flickers. My heart pounds. He raises his arm.
+
+Time stops.]]
+	
 	elseif poemname == 'poem_y3b-a' then
 		poemtext = [[
-Time stops.
-
 The only indication of movement is the amber light flickering against
 his outstretched arm.
 The flickering light is in rhythm with the pounding of my heart.
@@ -111,13 +111,11 @@ Exponential gearbox. A sky of exploding stars. God disproving the existence of G
 A wheel rotating in six dimensions. Forty gears and a ticking clock. A clock that
 ticks one second for every rotation of the planet. A clock that ticks forty times
 every time it ticks every second time. A bolthead of holy stakes tied to the existence
-of a docked ship to another world. A kaleidoscope of blood written in clocks.]]
-	elseif poemname == 'poem_y22-a' then
-		poemtext = [[
-A time-devouring prayer connecting a sky of forty gears and open human eyes in all
-directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal.
-Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing
-human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.]]
+of a docked ship to another world. A kaleidoscope of blood written in clocks.A time-
+devouring prayer connecting a sky of forty gears and open human eyes in all directions.
+Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal. Breathing snakes.
+Breathing God. Breathing blood. Breathing holy stakes. Breathing human eyes. Breathing
+time. Breathing prayer. Breathing sky. Breathing wheel.]]
 
 	elseif poemname == 'poem_n1' then
 		poemtext = [[
@@ -143,25 +141,24 @@ That's why I'm not friends with her.
 
 Amy has a cute singing voice.
 I heard her singing my favorite love song.
-Every time she sang the chorus, my heart would pound to the rhythm of
-the words.
+Every time she sang the chorus, my heart would pound
+to the rhythm of the words.
 But she likes spiders.
-That's why I'm not friends with her.]]
-	elseif poemname == 'poem_n2-a' then
-		poemtext = [[
+That's why I'm not friends with her.
+
 One time, I hurt my leg really bad.
 Amy helped me up and took me to the nurse.
 I tried not to let her touch me.
 She likes spiders, so her hands are probably gross.
-That's why I'm not friends with her.
-
+That's why I'm not friends with her.]]
+	elseif poemname == 'poem_n2-a' then
+		poemtext = [[
 Amy has a lot of friends.
 I always see her talking to people.
 She probably talks about spiders.
 What if her friends start to like spiders too?
-That's why I'm not friends with her.]]
-	elseif poemname == 'poem_n2-b' then
-		poemtext = [[
+That's why I'm not friends with her.
+
 It doesn't matter if she has other hobbies.
 It doesn't matter if she keeps it private.
 It doesn't matter if it doesn't hurt anyone.
@@ -203,20 +200,19 @@ A beach for us to go.
 A shore reaching beyond your sight
 A sea that sparkles with brilliant light
 The walls in your mind will melt away
-Before the sunny glow.]]
-	elseif poemname == 'poem_n3-a' then
-		poemtext = [[
+Before the sunny glow.
+
 I'll be the beach that washes your worries away
 I'll be the beach that you daydream about each day
 I'll be the beach that makes your heart leap
-In a way you thought had left you long ago.
-
+In a way you thought had left you long ago.]]
+	elseif poemname == 'poem_n3-a' then
+		poemtext = [[
 Let's bury your heavy thoughts in a pile of sand
 Bathe in sunbeams and hold my hand
 Wash your insecurities in the salty sea
-And let me see you shine.]]
-	elseif poemname == 'poem_n3-b' then
-		poemtext = [[
+And let me see you shine.
+	
 Let's leave your memories in a footprint trail
 Set you free in my windy sail
 And remember the reasons you're wonderful
@@ -225,9 +221,8 @@ When you press your lips to mine.
 I'll be the beach that washes your worries away
 I'll be the beach that you daydream about each day
 I'll be the beach that makes your heart leap
-In a way you thought had left you long ago.]]
-	elseif poemname == 'poem_n3-c' then
-		poemtext = [[
+In a way you thought had left you long ago.
+
 But if you let me by your side
 Your own beach, your own escape
 You'll learn to love yourself again.]]
@@ -255,9 +250,8 @@ Because you sit with me.
 I believe in myself with all of my heart.
 But what do I do when it's torn all apart?
 My faith is a little bit stronger
-Because you trusted me.]]
-	elseif poemname == 'poem_n3b-b' then
-		poemtext = [[
+Because you trusted me.
+	
 My pen always puts my feelings to the test.
 I'm not a good writer, but my best is my best.
 My poems are a little bit dearer
@@ -267,29 +261,33 @@ Because you, because you, because you.]]
 	
 	elseif poemname == 'poem_n23' then
 		poemtext = [[
-I don't know how else to bring this up. But there's been something I've been worried
-about. Yuri has been acting kind of strange lately. You've only been here a few days,
-so you may not know what I mean. But she's not normally like this. She's always been
-quiet and polite and attentive...things like that.
+I don't know how else to bring this up. But there's been
+something I've been worried about. Yuri has been acting kind
+of strange lately. You've only been here a few days, so you
+may not know what I mean. But she's not normally like this.
+She's always been quiet and polite and attentive...things like
+that.
 
-Okay... This is really embarrassing, but I'm forcing myself to suck it up. The truth is,
-I'm REALLY worried about her. But if I try talking to her, she'll just get mad at me
-again. I don't know what to do. I think you're the only person that she'll listen to.
-I don't know why. But please try to do something. Maybe you can convince her to talk to
-a therapist.]]
-	elseif poemname == 'poem_n23-a' then
+Okay... This is really embarrassing, but I'm forcing myself to
+suck it up. The truth is, I'm REALLY worried about her. But if
+I try talking to her, she'll just get mad at me again. I don't
+know what to do. I think you're the only person that she'll
+listen to. I don't know why. But please try to do something.
+Maybe you can convince her to talk to a therapist.]]
+elseif poemname == 'poem_n23-a' then
 		poemtext = [[
-I've always wanted to try being better friends with Yuri, and it really hurts me to see 
-this happening. I know I'm going to hate myself later for admitting that, but right now 
-I don't care. I just feel so helpless. So please see if you can do something to help. 
-I don't want anything bad to happen to her. I'll make you cupcakes if I have to. Just
-please try to do something.
-
-As for Monika... I don't know why, but she's been really dismissive about this. It's like
-she just wants us to ignore it. So I'm mad at her right now, and that's why I'm
-coming to you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just
-pretend like I gave you a really good poem, okay? I'm counting on you. Thanks
-for reading.]]
+I've always wanted to try being better friends with Yuri, and it
+really hurts me to see this happening. I know I'm going to hate
+myself later for admitting that, but right now I don't care. I
+just feel so helpless. So please see if you can do something to help. 
+I don't want anything bad to happen to her. I'll make you cupcakes
+if I have to. Just please try to do something.
+		
+As for Monika... I don't know why, but she's been really dismissive
+about this. It's like she just wants us to ignore it. So I'm mad at
+her right now, and that's why I'm coming to you about this. DON'T
+LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you a really
+good poem, okay? I'm counting on you. Thanks for reading.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[
@@ -321,36 +319,39 @@ I reach inside with my thumb and forefinger and pluck one out.
 It's warm and tingly.
 But there's no time to waste! I put it in a bottle to keep it safe.
 And I put the bottle on the shelf with all of the other bottles.
-Happy thoughts, happy thoughts, happy thoughts in bottles, all in a row.]]
-	elseif poemname == 'poem_s2-a' then
-		poemtext = [[
+Happy thoughts, happy thoughts, happy thoughts in bottles, all in a row.
+
 My collection makes me lots of friends.
 Each bottle a starlight to make amends.
 Sometimes my friend feels a certain way.
-Down comes a bottle to save the day.
-
+Down comes a bottle to save the day.]]
+	
+	elseif poemname == 'poem_s2-a' then
+		poemtext = [[
+		
 Night after night, more dreams.
 Friend after friend, more bottles.
 Deeper and deeper my fingers go.
 Like exploring a dark cave, discovering the secrets hiding in the nooks and crannies.
 Digging and digging.
-Scraping and scraping.]]
-	elseif poemname == 'poem_s2-b' then
-		poemtext = [[
+Scraping and scraping.
+
 I blow dust off my bottle caps.
 It doesn't feel like time elapsed.
 My empty shelf could use some more.
-My friends look through my locked front door.
-
+My friends look through my locked front door.]]
+	
+	elseif poemname == 'poem_s2-b' then
+		poemtext = [[
+		
 Finally, all done. I open up, and in come my friends.
 In they come, in such a hurry. Do they want my bottles that much?
 I frantically pull them from the shelf, one after the other.
 Holding them out to each and every friend.
 Each and every bottle.
 But every time I let one go, it shatters against the tile between my feet.
-Happy thoughts, happy thoughts, happy thoughts in shards, all over the floor.]]
-	elseif poemname == 'poem_s2-c' then
-		poemtext = [[
+Happy thoughts, happy thoughts, happy thoughts in shards, all over the floor.
+
 They were supposed to be for my friends, my friends who aren't smiling.
 They're all shouting, pleading. Something.
 But all I hear is echo, echo, echo, echo, echo
@@ -369,19 +370,28 @@ Get out of my head. Get out of my head. Get out of my head. Get out of my head. 
 out of my head. Get out of my head. Get out of my head. Get out of my head. Get out
 of my head. Get out of my head. Get out of my head. Get out of my head. Get out of
 my head. Get out of my head. Get out of my head. Get out of my head. Get out of my
-head. Get out of my head. Get out of]]
-	elseif poemname == 'poem_s3-a' then
-		poemtext = [[
+head. Get out of my head. Get out of
+
 Get.
 Out.
 Of.
 My.
-Head.
-
+Head.]]
+	elseif poemname == 'poem_s3-a' then
+		poemtext = [[
 Get out of my head before I do what I know is best for you.
 Get out of my head before I listen to everything she said to me.
 Get out of my head before I show you how much I love you.
 Get out of my head before I finish writing this poem.
+
+
+
+
+
+
+
+
+
 
 
 But a poem is never actually finished.
@@ -421,9 +431,9 @@ The room begins to crinkle.
 Closing in on me.
 The air I breathe dissipates before it reaches my lungs.
 I panic. There must be a way out.
-It's right there. He's right there.]]
-	elseif poemname == 'poem_m21-a' then
-		poemtext = "Swallowing my fears, I brandish my pen."
+It's right there. He's right there.
+
+Swallowing my fears, I brandish my pen.]]
 
 	elseif poemname == 'poem_m2' then
 		poemtext = [[
@@ -436,22 +446,16 @@ Red, green, blue
 An endless
 cacophony
 Of meaningless
-noise]]
-	elseif poemname == 'poem_m2-a' then
-		poemtext = [[
+noise
+
 The noise, it won't stop.
 Violent, grating waveforms
 Squeaking, screeching, piercing
 Sine, cosine, tangent
     Like playing a chalkboard on a turntable
-        Like playing a vinyl on a pizza crust
-An endless
-poem
-Of meaningless]]
-	elseif poemname == 'poem_m2-b' then
-		poemtext = ""
-	elseif poemname == 'poem_m2-c' then
-		poemtext = "\n\n\n\n\n\n\n\n\nLoad Me"
+        Like playing a vinyl on a pizza crust]]
+	elseif poemname == 'poem_m2-a' then
+		poemtext = "An endless\npoem\nOf meaningless\n\n\n\n\n\n\n\n\n\n\n\n\n\nLoad Me"
 	
 	elseif poemname == 'poem_m22' then
 		poemtext = [[
@@ -464,20 +468,16 @@ Red, green, blue
 An  ndless
 CACOPHONY
 Of meaningless
-noise]]
-	elseif poemname == 'poem_m22-a' then
-		poemtext = [[
+noise
+
 The noise, it won't STOP.
 Viol nt, grating w vef rms
 Sq e king, screech ng, piercing
 SINE, COSINE, TANGENT
     Like play ng a ch lkboard on a t rntable
-        Like playing a KNIFE on a BREATHING RIBCAGE
- n  ndl ss
-p  m
-Of m  n ngl ss]]
-	elseif poemname == 'poem_m22-c' then
-		poemtext = "\n\n\n\n\n\n\n\n\nDelete Her"
+        Like playing a KNIFE on a BREATHING RIBCAGE]]
+	elseif poemname == 'poem_m22-a' then
+		poemtext = " n  ndl ss\np  m\nOf m  n ngl ss\n\n\n\n\n\n\n\n\n\n\n\n\n\nDelete Her"
 	
 	elseif poemname == 'poem_m3' then
 		poemtext = [[
@@ -488,24 +488,23 @@ The Lady who Knows Everything.
 A beautiful lady who has found every answer,
 All meaning,
 All purpose,
-And all that was ever sought.]]
-	elseif poemname == 'poem_m3-a' then
-		poemtext = [[
+And all that was ever sought.
+
 And here I am,
 
 
               a feather
 
 
-Lost adrift the sky, victim of the currents of the wind.
-
+Lost adrift the sky, victim of the currents of the wind.]]
+	elseif poemname == 'poem_m3-a' then
+		poemtext = [[
 Day after day, I search.
 I search with little hope, knowing legends don't exist.
 But when all else has failed me,
 When all others have turned away,
-The legend is all that remains - the last dim star glimmering in the twilit sky.]]
-	elseif poemname == 'poem_m3-b' then
-		poemtext = [[
+The legend is all that remains - the last dim star glimmering in the twilit sky.
+
 Until one day, the wind ceases to blow.
 I fall.
 And I fall and fall, and fall even more.
@@ -515,7 +514,7 @@ A dry quill, expressionless.
 But a hand catches me between the thumb and forefinger.
 The hand of a beautiful lady.
 I look at her eyes and find no end to her gaze.]]
-	elseif poemname == 'poem_m3-c' then
+	elseif poemname == 'poem_m3-b' then
 		poemtext = [[
 The Lady who Knows Everything knows what I am thinking.
 Before I can speak, she responds in a hollow voice.
