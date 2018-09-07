@@ -6,7 +6,7 @@ persistent = {
 	chr={m=1,s=1};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=125,autospd=4}
+settings = {textspd=100,autospd=4}
 --default save values
 cl = 1
 bg1 = 'black'

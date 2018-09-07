@@ -49,6 +49,9 @@ function cw(p1, stext, tag)
 	end
 	textx = dripText(stext,tspd,myTextStartTime)
 	
+	if textx == stext then gui_ctc_t = true
+	else gui_ctc_t = false end
+	
 	--word wrap
 	slen = string.len(textx)
 	

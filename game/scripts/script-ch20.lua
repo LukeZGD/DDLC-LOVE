@@ -19,7 +19,7 @@ function ch20script()
 	elseif cl == 5 then
     bl "But I have no motivation to join any clubs."
 	elseif cl == 6 then
-    bl "I'm perfectly content just getting by on the average while spending my free time on games and  anime."
+    bl "I'm perfectly content just getting by on the average while spending my free time on games and anime."
 	elseif cl == 7 then
     bl "There's always the anime club, but it's not like there would be any girls in it anyway..."
 	elseif cl == 8 then
@@ -260,7 +260,7 @@ function ch20script()
     updateYuri('4','a2')
     y "I-It's nice to meet you..."
 	elseif cl == 101 then
-	bl "Yuri, who appears comparably more mature and timid, seems to have a hard time keeping up with  someone like Natsuki."
+	bl "Yuri, who appears comparably more mature and timid, seems to have a hard time keeping up with someone like Natsuki."
     elseif cl == 102 then
     mc "Yeah... It's nice to meet both of you."
     elseif cl == 103 then
