@@ -108,7 +108,7 @@ function menu_draw()
 		end
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(guicheck,410,200+(50*(m_selected-1)))
-		lg.print(menutext,440,205)
+		lg.print(menutext,440,195)
 		
 	else
 		lg.setColor(255,255,255,menu_alpha)

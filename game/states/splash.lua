@@ -26,7 +26,7 @@ function drawSplash()
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-Switch '..dversion..' '..dvertype,15,650)
 		if global_os == 'HorizonNX' or g_system == 'Switch' then
-			running = 'LovePotion Switch 1.0.1'
+			running = 'LovePotion Switch'
 		else
 			local major, minor, revision = love.getVersion()
 			running = string.format('LOVE %d.%d.%d', major, minor, revision)
@@ -36,7 +36,7 @@ function drawSplash()
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
-			lg.print(splash_messages[random_msg], 440, 100)
+			lg.print(splash_messages[random_msg], 440, 300)
 		else
 			lg.print('This game is not suitable for children', 440, 300)
 			lg.print('  or those who are easily disturbed.', 447, 330)
@@ -93,24 +93,20 @@ function splash_keypressed(key)
 end
 
 function drawSplashspec(spec)
-	drawTopScreen()
 	lg.setColor(255,255,255,alpha)
 	if s_timer > 3.1 then
 		if state == 's_kill_early' then
 			lg.setBackgroundColor(245,245,245)
-			lg.draw(s_killearly,72,0)
+			lg.draw(s_killearly,230,0)
 			lg.setColor(200,200,200)
 			lg.setFont(m1)
-			if s_timer > 600 then lg.print('Now everyone can be happy.',200,100) end
+			if s_timer > 600 then lg.print('Now everyone can be happy.',640,300) end
 		elseif state == 'ghostmenu' then
 			lg.draw(titlebg)
 		end
 	else
 		lg.draw(endbg)
 	end
-	drawBottomScreen()
-	lg.setColor(0,0,0)
-	lg.rectangle('fill',-40,0,400,240)
 end
 
 function updateSplashspec(dt)
