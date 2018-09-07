@@ -1,7 +1,8 @@
 lg = love.graphics
 local drawbottom
-local xps = {}
-local yps = {}
+local xps = {c=250,ct=270,textbox=230,namebox=250}
+local yps = {c={585,615,645,675},ct=532,textbox=565,namebox=526}
+local gui_ctc_x = 1010
 local nxh
 local nyh
 
@@ -73,8 +74,11 @@ function cgHide()
 end
 
 function drawTextBox()
-	xps = {c=250,ct=270,textbox=230,namebox=250}
-	yps = {c={585,615,645,675},ct=532,textbox=565,namebox=526}
+	if sectimer >= 0.5 then
+		gui_ctc_x = math.max(gui_ctc_x - 0.1, 1010)
+	else
+		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1015)
+	end
 	
 	if style_edited then lg.setFont(deffont) end
 	
@@ -82,6 +86,7 @@ function drawTextBox()
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
+		if gui_ctc_t then lg.draw(gui_ctc, gui_ctc_x, 685) end
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
 		if c_disp then

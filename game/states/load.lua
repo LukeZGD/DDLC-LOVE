@@ -39,6 +39,8 @@ function updateLoad()
 		textbox = lg.newImage('images/gui/textbox.png')
 		background_Image = lg.newImage('images/gui/menu_bg.png')
 		guicheck = lg.newImage('images/gui/check.png')
+		gui_ctc = lg.newImage('images/gui/ctc.png')
+		gui_skip = lg.newImage('images/gui/skip.png')
 		sidebar = lg.newImage('images/gui/sidebar.png')
 		
 	elseif l_timer == 99 then
