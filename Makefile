@@ -10,14 +10,15 @@ ifeq ($(strip $(DEVKITARM)),)
 $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
 
-ifeq ($(strip $(LOVEPOTION_3DS)),)
-
-export ERR_MSG := \
-$nPlease set LOVEPOTION_3DS in your environment.\
-$nThis should be the path to your Love Potion projects.\
-$nDo *NOT* save the *.elf file anywhere else.\
-$nexport LOVEPOTION_3DS=<path to>/LovePotion.elf
-$(error $(ERR_MSG))
+ifeq ($(UNAME), Linux)
+	makerom    := $(TOPDIR)/tools/linux/makerom
+	bannertool := $(TOPDIR)/tools/linux/bannertool
+else ifeq ($(UNAME), Darwin)
+	makerom    := $(TOPDIR)/tools/osx/makerom
+	bannertool := $(TOPDIR)/tools/osx/bannertool
+else
+	makerom    := $(TOPDIR)/tools/windows/makerom.exe
+	bannertool := $(TOPDIR)/tools/windows/bannertool.exe
 endif
 
 TOPDIR ?= $(CURDIR)
@@ -39,12 +40,12 @@ include $(DEVKITARM)/3ds_rules
 TARGET          := $(notdir $(CURDIR))
 BUILD           := $(TOPDIR)
 
-ROMFS           := game
+ROMFS           := game/
 
 APP_TITLE       := DDLC-3DS
 APP_AUTHOR      := LukeeGD
 APP_TITLEID     := 0xDDFC
-APP_VERSION     := 0.4
+APP_VERSION     := 0.3.2
 APP_DESCRIPTION := An unofficial DDLC port for the 3DS!
 
 ICON            := icon.png
