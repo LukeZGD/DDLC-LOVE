@@ -10,15 +10,17 @@ ifeq ($(strip $(DEVKITARM)),)
 $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
 
+LOVEPOTION_3DS := $(CURDIR)/LovePotion.elf
+
 ifeq ($(UNAME), Linux)
-	makerom    := $(TOPDIR)/tools/linux/makerom
-	bannertool := $(TOPDIR)/tools/linux/bannertool
+	makerom    := $(CURDIR)/tools/linux/makerom
+	bannertool := $(CURDIR)/tools/linux/bannertool
 else ifeq ($(UNAME), Darwin)
-	makerom    := $(TOPDIR)/tools/osx/makerom
-	bannertool := $(TOPDIR)/tools/osx/bannertool
+	makerom    := $(CURDIR)/tools/osx/makerom
+	bannertool := $(CURDIR)/tools/osx/bannertool
 else
-	makerom    := $(TOPDIR)/tools/windows/makerom.exe
-	bannertool := $(TOPDIR)/tools/windows/bannertool.exe
+	makerom    := $(CURDIR)/tools/windows/makerom.exe
+	bannertool := $(CURDIR)/tools/windows/bannertool.exe
 endif
 
 TOPDIR ?= $(CURDIR)
