@@ -126,7 +126,7 @@ end
 
 function bgUpdate(bgx, forceload) --background changes
 	if bgx == 'club_day2' then
-		local bgclub_day = love.math.random(1, 6)
+		local bgclub_day = math.random(1, 6)
 		if bgclub_day == 6 then
 			bgx = 'club-skill'
 		else
