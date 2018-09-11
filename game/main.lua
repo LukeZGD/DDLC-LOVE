@@ -5,8 +5,8 @@ require 'menu'
 require 'scripts.script'
 
 function love.load() 
-	dversion = 'v0.4.0'
-	dvertype = 'Test'
+	dversion = 'v0.3.1'
+	dvertype = 'Release'
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
@@ -19,10 +19,14 @@ function love.load()
 	alpha = 255
 	posX = -40
 	posY = 0
-	mouseX = 0; mouseY = 0
 	menu_enabled = false
 	textbox_enabled = true
 	bgimg_disabled = false
+	
+	math.randomseed(os.time())
+	math.random()
+	math.random()
+	math.random()
 	
 	--os detection
 	global_os = love.system.getOS()
@@ -75,19 +79,34 @@ function love.update(dt)
 		if posX <= -80 then posX = 0 end
 		if posY <= -80 then posY = 0 end
 	end
-	
+
 	--touch(3DS only)/mouse checks
-	if global_os == 'Horizon' or global_os == 'HorizonNX' then
-		--mouseX, mouseY = love.touch.getPosition()
-	else
+	if global_os ~= 'HorizonNX' then
 		mouseDown = love.mouse.isDown(1)
 		mouseX = love.mouse.getX()
 		mouseY = love.mouse.getY()
+		if global_os ~= 'Horizon' then
+			mouseX = mouseX / 1.5 - 40
+			mouseY = mouseY / 1.5 - 240
+		end
 	end
 	
-	if global_os ~= 'Horizon' then
-		mouseX = mouseX / 1.5 - 40
-		mouseY = mouseY / 1.5 - 240
+	--this acts as love.mousepressed
+	if mouseDown and mousereleased ~= 1 then
+		if menu_enabled ~= true then
+			if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
+				love.keypressed('a')
+			elseif state == 'game' then
+				game_mousepressed()
+			elseif state == 'poemgame' then
+				poemgamemousepressed()
+			end
+		elseif menu_enabled then
+			menu_mousepressed()
+		end
+		mousereleased = 1
+	elseif mouseDown == false then
+		mousereleased = nil
 	end
 	
 	--update depending on gamestate
@@ -131,21 +150,7 @@ function love.keypressed(key)
 	end
 end
 
-function love.mousepressed(x,y,button)
-	if menu_enabled ~= true then
-		if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
-			love.keypressed('a')
-		elseif state == 'game' then
-			game_mousepressed(x,y)
-		elseif state == 'poemgame' then
-			poemgamemousepressed(x,y)
-		end
-	elseif menu_enabled then
-		menu_mousepressed(x,y)
-	end
-end
-
---For LovePotion
+--For the Switch
 function love.gamepadpressed(joy, button)
 	if button == 'dpup' then
 		button = 'up'
@@ -157,11 +162,6 @@ function love.gamepadpressed(joy, button)
 		button = 'right'
 	end
 	love.keypressed(button)
-end
-
-function love.touchpressed(id,x,y,dx,dy,pressure)
-	mouseX, mouseY = x, y
-	love.mousepressed(x,y)
 end
 
 function love.textinput(text)

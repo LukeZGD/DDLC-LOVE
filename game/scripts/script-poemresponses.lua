@@ -610,7 +610,7 @@ function ch1_n_end()
 	end
 end
 
-local n_blackeyeschance = love.math.random(0,2)
+local n_blackeyeschance = math.random(0,2)
 
 function ch1_n_bad()
 	if cl == 670 then
