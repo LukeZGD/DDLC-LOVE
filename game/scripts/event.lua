@@ -194,11 +194,9 @@ function event_draw()
 		drawMonika()
 		textbox_enabled = true
 	elseif event_type == 'yuri_ch23_2' then
-		drawTopScreen()
 		lg.setColor(255,255,255,eventvar2)
 		drawMonika()
 	elseif event_type == 'show_dark' and cl >= 271 and chapter == 40 then
-		drawTopScreen()
 		lg.setColor(255,255,255,255)
 		drawSayori()
 	end

@@ -1,6 +1,6 @@
 local stext
 local c_a = {}
-local c_a1 = {70,140,210}
+local c_a1 = {}
 local tspd
 local tagtimer = 0
 local pchapter
@@ -54,6 +54,8 @@ function cw(p1, stext, tag)
 	
 	--word wrap
 	slen = string.len(textx)
+	c_a1 = {70,140,210}
+	if style_edited then c_a1 = {52,104,156} end
 	
 	for i = 1, 3 do
 		c_a[i] = string.find(stext, '%s', c_a1[i])
@@ -262,7 +264,6 @@ function event_init(etype,arg1,arg2)
 			loadYuriGlitch()
 		elseif etype == 'm_ch23ex' then
 			ex3top = lg.newImage('images/gui/ex3top.png')
-			ex3bottom = lg.newImage('images/gui/ex3bottom.png')
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('images/bg/splash-glitch2.png')
@@ -384,7 +385,7 @@ function event_end(arg1)
 end
 
 function updateConsole(text,text2,text3)
-	if console_font == nil then console_font = lg.newFont('fonts/F25_Bank_Printer') end
+	if console_font == nil then console_font = lg.newFont('fonts/F25_Bank_Printer.ttf',18) end
 	if console_enabled ~= true then console_enabled = true end
 	console_text1 = dripText(text,30,myTextStartTime)
 	if text2 then console_text2 = text2 else console_text2 = '' end

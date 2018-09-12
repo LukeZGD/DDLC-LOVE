@@ -20,12 +20,12 @@ function event_draw_2()
 	if event_type == 'n_rects_ghost' then
 		lg.draw(bgch)
 		lg.setColor(0,0,0)
-		lg.rectangle('fill',love.math.random(838,870),love.math.random(300,330),love.math.random(58,90),love.math.random(18,84))
-		lg.rectangle('fill',love.math.random(838,870),love.math.random(300,330),love.math.random(58,90),love.math.random(18,84))
-		lg.rectangle('fill',love.math.random(704,736),love.math.random(381,411),love.math.random(48,80),love.math.random(15,75))
-		lg.rectangle('fill',love.math.random(704,736),love.math.random(381,411),love.math.random(48,80),love.math.random(15,75))
-		lg.rectangle('fill',love.math.random(790,822),love.math.random(420,450),love.math.random(48,80),love.math.random(10,60))
-		lg.rectangle('fill',love.math.random(790,822),love.math.random(420,450),love.math.random(48,80),love.math.random(10,60))
+		lg.rectangle('fill',love.math.random(838,870),love.math.random(300,330),love.math.random(58,90),love.math.random(58,84))
+		lg.rectangle('fill',love.math.random(838,870),love.math.random(300,330),love.math.random(58,90),love.math.random(58,84))
+		lg.rectangle('fill',love.math.random(704,736),love.math.random(381,411),love.math.random(48,80),love.math.random(48,75))
+		lg.rectangle('fill',love.math.random(704,736),love.math.random(381,411),love.math.random(48,80),love.math.random(48,75))
+		lg.rectangle('fill',love.math.random(790,822),love.math.random(420,450),love.math.random(48,80),love.math.random(32,60))
+		lg.rectangle('fill',love.math.random(790,822),love.math.random(420,450),love.math.random(48,80),love.math.random(32,60))
 		textbox_enabled = true
 	end
 	
@@ -95,9 +95,9 @@ function event_draw_2()
 	
 	if event_type == 'yuri_glitch_head' then
 		if eventvar1 == 2 then
-			drawanimframe(704,30)
+			drawanimframe(850,140)
 		else
-			drawanimframe(576)
+			drawanimframe(750,100)
 		end
 	end
 	
@@ -150,13 +150,12 @@ function event_draw_2()
 				lg.setColor(255,255,255,eventvar3)
 				lg.draw(ghost_blood,256)
 				lg.setColor(0,0,0,eventvar2)
-				--multiply x and y!
-				lg.rectangle('fill',love.math.random(176,180),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
-				lg.rectangle('fill',love.math.random(176,180),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
-				lg.rectangle('fill',love.math.random(196,200),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
-				lg.rectangle('fill',love.math.random(196,200),love.math.random(80,84),love.math.random(6,10),love.math.random(6,10))
-				lg.rectangle('fill',love.math.random(186,190),love.math.random(100,104),love.math.random(5,9),love.math.random(5,9))
-				lg.rectangle('fill',love.math.random(186,190),love.math.random(100,104),love.math.random(5,9),love.math.random(5,9))
+				lg.rectangle('fill',love.math.random(535,555),love.math.random(245,257),love.math.random(19,32),love.math.random(18,30))
+				lg.rectangle('fill',love.math.random(535,555),love.math.random(245,257),love.math.random(19,32),love.math.random(18,30))
+				lg.rectangle('fill',love.math.random(600,620),love.math.random(245,257),love.math.random(19,32),love.math.random(18,30))
+				lg.rectangle('fill',love.math.random(600,620),love.math.random(245,257),love.math.random(19,32),love.math.random(18,30))
+				lg.rectangle('fill',love.math.random(578,592),love.math.random(300,313),love.math.random(16,29),love.math.random(15,27))
+				lg.rectangle('fill',love.math.random(578,592),love.math.random(300,313),love.math.random(16,29),love.math.random(15,27))
 			end
 		end
 		lg.setColor(32,0,0,eventvar1)
@@ -317,7 +316,7 @@ function event_update_2(dt)
 	
 	if event_type == 'natsuki_ch22' then
 		eventvar1 = math.min(eventvar1 + 0.1, 128)
-		eventvar2 = math.min(eventvar2 + 0.05, 192)
+		eventvar2 = math.min(eventvar2 + 0.03, 192)
 		if cl == 726 and textbox_enabled then
 			event_timer = 0
 			textbox_enabled = false
@@ -346,7 +345,7 @@ function event_update_2(dt)
 		elseif event_timer > 6.13 and event_timer <= 9 then
 			eventvar1 = stab6f
 		elseif event_timer > 9 and event_timer <= 12 then
-			eventvar3 = eventvar3 * 3.75
+			eventvar3 = eventvar3 * 1.3
 			eventvar2 = eventvar2 + eventvar3
 			eventvar1 = stab6
 		elseif event_timer > 12 then

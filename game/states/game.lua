@@ -87,15 +87,6 @@ function updateGame(dt)
 		autotimer = 0.01
 	end
 	
-	--skipping
-	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' then
-		if love.keyboard.isDown('x') then
-			if autoskip < 1 then autoskip = 1 end
-		elseif autoskip > 0 then
-			autoskip = 0
-		end
-	end
-	
 	if menu_enabled == false and cl ~= 666 then
 		if autoskip > 0 and autoskip < skipspeed then
 			autoskip = autoskip + 1
@@ -139,6 +130,10 @@ function game_keypressed(key)
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif key == 'x' then
 		sfx1:play()
+		if not event_enabled then
+			if autoskip < 1 then autoskip = 1
+			elseif autoskip > 0 then autoskip = 0 end
+		end
 	else
 		newgame_keypressed(key)
 	end
