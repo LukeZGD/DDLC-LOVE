@@ -443,13 +443,13 @@ function ch21script(dt)
 	audioUpdate('0')
 	sfxplay('s_kill_glitch1s')
 	event_initstart('ny_argument2')
-	
+	m_Set.x = 0
 	style_edited = false
 	m "..."
     elseif cl == 1008 then
     m "..."
 	elseif cl == 1009 then
-	updateMonika('1','m',30)
+	updateMonika('1','m',80)
     m "Um..."
     elseif cl == 1010 then
     cw('m',"Hey, "..player.."...")
@@ -462,7 +462,6 @@ function ch21script(dt)
 	event_end('ny_argument2')
 	bgUpdate('corridor')
 	updateMonika('1','n')
-	m_Set.x = 80
 	m "Sorry about that..."
 	elseif cl == 1014 then
     m "They really shouldn't have tried to get you involved."

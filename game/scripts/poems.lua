@@ -101,21 +101,19 @@ Ghosts are blue-green. My heart is amber.]]
 		poemtext = [[
 Wheel
 
-A rotating wheel. Turning an axle. Grinding. Bolthead. Linear gearbox. Falling sky.
-Seven holy stakes. A docked ship. A portal to another world. A thin rope tied to a
-thick rope. A torn harness. Parabolic gearbox. Expanding universe. Time controlled
-by slipping cogwheels. Existence of God. Swimming with open water in all directions.
-Drowning. A prayer written in blood. A prayer written in time-devouring snakes with
-human eyes. A thread connecting all living human eyes. A kaleidoscope of holy stakes.
-Exponential gearbox. A sky of exploding stars. God disproving the existence of God.
-A wheel rotating in six dimensions. Forty gears and a ticking clock. A clock that
-ticks one second for every rotation of the planet. A clock that ticks forty times
-every time it ticks every second time. A bolthead of holy stakes tied to the existence
-of a docked ship to another world. A kaleidoscope of blood written in clocks.A time-
-devouring prayer connecting a sky of forty gears and open human eyes in all directions.
-Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal. Breathing snakes.
-Breathing God. Breathing blood. Breathing holy stakes. Breathing human eyes. Breathing
-time. Breathing prayer. Breathing sky. Breathing wheel.]]
+A rotating wheel. Turning an axle. Grinding. Bolthead. Linear gearbox. Falling sky. Seven holy stakes.
+A docked ship. A portal to another world. A thin rope tied to a thick rope. A torn harness.
+Parabolic gearbox. Expanding universe. Time controlled by slipping cogwheels. Existence of God.
+Swimming with open water in all directions. Drowning. A prayer written in blood. A prayer written
+in time-devouring snakes with human eyes. A thread connecting all living human eyes. A kaleidoscope
+of holy stakes. Exponential gearbox. A sky of exploding stars. God disproving the existence of God.
+A wheel rotating in six dimensions. Forty gears and a ticking clock. A clock that ticks one second
+for every rotation of the planet. A clock that ticks forty times every time it ticks every second
+time. A bolthead of holy stakes tied to the existence of a docked ship to another world. A
+kaleidoscope of blood written in clocks. A time-devouring prayer connecting a sky of forty gears
+and open human eyes in all directions. Breathing gearbox. Breathing bolthead. Breathing ship.
+Breathing portal. Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing
+human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.]]
 
 	elseif poemname == 'poem_n1' then
 		poemtext = [[
@@ -261,6 +259,8 @@ Because you, because you, because you.]]
 	
 	elseif poemname == 'poem_n23' then
 		poemtext = [[
+		
+		
 I don't know how else to bring this up. But there's been
 something I've been worried about. Yuri has been acting kind
 of strange lately. You've only been here a few days, so you
@@ -276,18 +276,21 @@ listen to. I don't know why. But please try to do something.
 Maybe you can convince her to talk to a therapist.]]
 elseif poemname == 'poem_n23-a' then
 		poemtext = [[
+		
+		
 I've always wanted to try being better friends with Yuri, and it
 really hurts me to see this happening. I know I'm going to hate
 myself later for admitting that, but right now I don't care. I
-just feel so helpless. So please see if you can do something to help. 
-I don't want anything bad to happen to her. I'll make you cupcakes
-if I have to. Just please try to do something.
+just feel so helpless. So please see if you can do something to
+help. I don't want anything bad to happen to her. I'll make you
+cupcakes if I have to. Just please try to do something.
 		
-As for Monika... I don't know why, but she's been really dismissive
-about this. It's like she just wants us to ignore it. So I'm mad at
-her right now, and that's why I'm coming to you about this. DON'T
-LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you a really
-good poem, okay? I'm counting on you. Thanks for reading.]]
+As for Monika... I don't know why, but she's been really
+dismissive about this. It's like she just wants us to ignore it.
+So I'm mad at her right now, and that's why I'm coming to
+you about this. DON'T LET HER KNOW I WROTE THIS!!!! Just 
+pretend like I gave you a really good poem, okay? I'm counting
+on you. Thanks for reading.]]
 	
 	elseif poemname == 'poem_s1' then
 		poemtext = [[

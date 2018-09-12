@@ -794,7 +794,7 @@ function ch22_y_end()
     yuri_2 = true
 	poem('poem_y22','yuri')
 	elseif cl == 701 then
-	poem('poem_y22-a','yuri',1)
+	scriptJump(702)
 	elseif cl == 702 then
 	poem_disable(0)
 	updateYuri('2','q')
@@ -938,11 +938,9 @@ function ch23_y_good()
 	yuri_3 = true
 	poem('','yuri')
 	elseif cl == 698 then
-	--poem('','yuri',2)
-	poem('','yuri',1)
+	poem('','yuri',2)
 	elseif cl == 699 then
-	--poem('','yuri',3)
-	poem('','yuri',1)
+	poem('','yuri',3)
 	elseif cl == 700 then
 	poem_disable(-1)
 	y "Do you like it??"
@@ -1058,7 +1056,7 @@ function ch21_m_end()
 	elseif cl == 737 then
 	poem('poem_m21','monika')
 	elseif cl == 738 then
-	poem('poem_m21-a','monika',1)
+	scriptJump(739)
 	elseif cl >= 739 then
 	ch1_m_end2()
 	end
@@ -1120,9 +1118,7 @@ function ch22_m_end()
 	elseif cl == 734 then
 	poem('poem_m22-a','monika',1)
 	elseif cl == 735 then
-	poem('poem_m2-b','monika',1)
-	elseif cl == 736 then
-	poem('poem_m22-c','monika',1)
+	scriptJump(737)
 	elseif cl == 737 then
 	poem_disable()
 	audioUpdate('0')

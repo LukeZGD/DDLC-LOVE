@@ -73,7 +73,7 @@ function menu_enable(m)
 		menutext = 'Load Game'
 		
 	elseif menu_type == 'dialog' then
-		itemnames = {'OK'}
+		itemnames = {''}
 	end
 	
 	if menu_type == 'choice' then
@@ -109,6 +109,20 @@ function menu_draw()
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(guicheck,410,200+(50*(m_selected-1)))
 		lg.print(menutext,440,195)
+		
+	elseif menu_type == 'dialog' then
+		lg.setColor(255,255,255,menu_alpha/2)
+		lg.rectangle('fill',0,0,1280,720)
+		lg.setColor(255,189,225,menu_alpha)
+		lg.rectangle('fill',400,180,480,360)
+		lg.setColor(255,230,244,menu_alpha)
+		lg.rectangle('fill',410,190,460,340)
+		lg.setColor(255,189,225,menu_alpha)
+		lg.rectangle('fill',440,250,35,32)
+		lg.setColor(0,0,0,menu_alpha)
+		lg.draw(guicheck,410,250)
+		lg.print(menutext,440,195)
+		lg.print('OK',440,250)
 		
 	else
 		lg.setColor(255,255,255,menu_alpha)
@@ -165,7 +179,7 @@ function menu_draw()
 		lg.print('Key Bindings:',160,120)
 		lg.print('A, L Trigger - Advances through the game, activates menu choices',160,160)
 		lg.print('B - Exit Menu, AutoForward On/Off',160,190)
-		lg.print('X - (Menu) Previous Page, (Hold) Skip',160,220)
+		lg.print('X - (Menu) Previous Page, Skipping On/Off',160,220)
 		lg.print('Y - (Menu) Next Page, Enter Game Menu',160,250)
 		lg.print('Managing files: Go to Settings > Characters',160,300)
 		lg.print('Deleting save data: Delete everything in here > '..savedir,160,330)
