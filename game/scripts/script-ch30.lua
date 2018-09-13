@@ -392,7 +392,7 @@ function ch30script()
 			
 			scriptJump(205)
 		else
-			if love.filesystem.isFile('monikatopics.sav') then
+			if love.filesystem.getInfo('monikatopics.sav') then
 				--load monika topics
 				local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
 				topicsfile()
@@ -467,7 +467,7 @@ function ch30_end()
 	elseif cl == 1062 then
 	cw(gtext12,"Please hurry and help me.")
 	elseif cl == 1063 then
-    updateConsole("isFile(\"characters/monika.chr\")")
+    updateConsole("getInfo(\"characters/monika.chr\")")
 	pause(2)
 	elseif cl == 1064 then
     updateConsole("_", "monika.chr does not exist.")
@@ -481,13 +481,13 @@ function ch30_end()
 	event_initstart('monika_end','show_noise')
 	pause(3)
 	elseif cl == 1068 then
-	updateConsole("isFile(\"characters/monika.chr\")","monika.chr does not exist.")
+	updateConsole("getInfo(\"characters/monika.chr\")","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1069 then
 	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
 	pause(1)
 	elseif cl == 1070 then
-	updateConsole("isFile(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole("getInfo(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1071 then
 	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")

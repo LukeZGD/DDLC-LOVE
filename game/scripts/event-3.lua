@@ -3,12 +3,12 @@ function event_draw_3()
 		lg.draw(bgch)
 		lg.setColor(255,255,255,255)
 		if eventvar4 ~= 'end2' then
-			lg.rectangle('fill',eventvar2,eventvar2/2,24,24)
-			lg.rectangle('fill',eventvar3,eventvar3/2,24,24)
-			lg.rectangle('fill',eventvar3-eventvar2,eventvar2/2,24,24)
-			lg.rectangle('fill',eventvar3-eventvar2,eventvar3/2,24,24)
-			lg.rectangle('fill',eventvar2-eventvar3,eventvar2/2,24,24)
-			lg.rectangle('fill',eventvar2-eventvar3,eventvar3/2,24,24)
+			lg.rectangle('fill',eventvar2,eventvar2/2,64,64)
+			lg.rectangle('fill',eventvar3,eventvar3/2,64,64)
+			lg.rectangle('fill',eventvar3-eventvar2,eventvar2/2,64,64)
+			lg.rectangle('fill',eventvar3-eventvar2,eventvar3/2,64,64)
+			lg.rectangle('fill',eventvar2-eventvar3,eventvar2/2,64,64)
+			lg.rectangle('fill',eventvar2-eventvar3,eventvar3/2,64,64)
 		end
 		
 		drawConsole()
@@ -29,8 +29,8 @@ function event_update_3(dt)
 	if event_type == 'monika_end' then
 		eventvar5 = eventvar5 + dt
 		if eventvar5 >= 0.25 then
-			eventvar2 = love.math.random(1,8)*50
-			eventvar3 = love.math.random(1,8)*50
+			eventvar2 = love.math.random(1,8)*150
+			eventvar3 = love.math.random(1,8)*150
 			eventvar5 = 0
 		end
 		if event_timer >= 0.73 then
