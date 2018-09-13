@@ -82,7 +82,7 @@ function drawTextBox()
 	
 	if style_edited then lg.setFont(deffont) end
 	
-	if (menu_enabled ~= true and poem_enabled ~= true) or (event_enabled and textbox_enabled) then
+	if not menu_enabled and (not poem_enabled or (event_enabled and textbox_enabled)) then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
