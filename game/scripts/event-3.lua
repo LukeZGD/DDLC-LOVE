@@ -48,14 +48,13 @@ function event_update_3(dt)
 	
 	if event_type == 'beforecredits' then
 		eventvar1 = math.min(eventvar1 + 2, 128)
-		eventvar1 = love.math.random(eventvar1 - 1, eventvar1 + 1)
 		
 		if event_timer > 10 and event_timer <= 20 then eventvar2 = end_glitch1
 		elseif event_timer > 22.5 and event_timer <= 25 then eventvar2 = end_glitch2
 		elseif event_timer > 28 then eventvar2 = end_glitch3
 		end
 		
-		eventvar3 = eventvar3 - 2
-		if eventvar3 <= -160 then eventvar3 = 0 end
+		eventvar3 = eventvar3 - 6
+		if eventvar3 <= -640 then eventvar3 = 0 end
 	end
 end

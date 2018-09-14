@@ -644,6 +644,7 @@ function ch40script()
 	elseif cl == 253 then
 	updateSayori('1','a')
     s "There's actually something else."
+	changeState('credits',1)
 	
 	elseif cl >= 254 and cl < 500 then
 		if xaload == 0 and cl == 254 then
@@ -753,7 +754,7 @@ function ch40_clearnormal()
 	menutext = 'No...'
 	choice_enable('dialog')
 	elseif cl == 279 then
-	updateSayori('end-glitch1','',25)
+	updateSayori('end-glitch1','',100)
     s "...Eh?"
 	elseif cl == 280 then
     s "W-What's happening...?"
@@ -761,7 +762,7 @@ function ch40_clearnormal()
 	menutext = "I won't let you hurt him."
 	choice_enable('dialog')
 	elseif cl == 282 then
-	updateSayori('end-glitch2','',25)
+	updateSayori('end-glitch2','',100)
     s "Who..."
 	elseif cl == 283 then
     s "I-It hurts--"
