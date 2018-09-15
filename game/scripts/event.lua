@@ -183,7 +183,7 @@ function event_draw()
 	end
 	
 	lg.setColor(255,255,255,255)
-	lg.setFont(font)
+	lg.setFont(allerfont)
 	if textbox_enabled then
 		lg.print(cl,5,5)
 		drawTextBox()	
