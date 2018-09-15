@@ -101,7 +101,7 @@ function menu_draw()
 			--getcompare[i] = allerfont:getWidth(choices[i])
 		end
 		--rectwidth = math.max(unpack(getcompare)) + 5
-		rectwidth = 430
+		rectwidth = 400
 		
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do

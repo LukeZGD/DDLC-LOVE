@@ -1,5 +1,4 @@
 function changeState(cstate,x)
-	unloadAll('stuff')
 	menu_alpha = 0
 	menu_previous = nil
 	
@@ -367,10 +366,5 @@ function unloadAll(x)
 		natsukisticker1 = nil
 		natsukisticker2 = nil
 		eyes = nil
-	elseif x == 'stuff' then
-		states = nil
-		script_main = nil
-		script_exclusive = nil
-		eventscript = nil
 	end
 end
