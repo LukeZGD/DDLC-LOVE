@@ -98,9 +98,10 @@ function menu_draw()
 		lg.setColor(255,230,244,menu_alpha)
 		lg.rectangle('fill',410,190,460,340)
 		for i = 1, #choices do
-			getcompare[i] = allerfont:getWidth(choices[i])
+			--getcompare[i] = allerfont:getWidth(choices[i])
 		end
-		rectwidth = math.max(unpack(getcompare)) + 5
+		--rectwidth = math.max(unpack(getcompare)) + 5
+		rectwidth = 430
 		
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
@@ -132,9 +133,10 @@ function menu_draw()
 		lg.setColor(255,230,244,menu_alpha)
 		lg.rectangle('fill',120,70,1040,580)
 		for i = 1, #itemnames do
-			getcompare[i] = allerfont:getWidth(itemnames[i])
+			--getcompare[i] = allerfont:getWidth(itemnames[i])
 		end
-		rectwidth = math.max(unpack(getcompare)) + 5
+		--rectwidth = math.max(unpack(getcompare)) + 5
+		rectwidth = 200
 		
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
