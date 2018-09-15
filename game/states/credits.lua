@@ -83,7 +83,7 @@ function drawCredits()
 		lg.print("Special Thanks",806,7590 - c_timer2)
 	elseif c_timer < 200 then
 		lg.draw(splashw)
-		lg.setFont(font)
+		lg.setFont(allerfont)
 		lg.print('DDLC-3DS',5,615)
 		lg.print('Unofficial port by LukeeGD',5,660)
 	end

@@ -89,12 +89,12 @@ function scriptCheck()
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
-		require 'scripts.script-poemresponses'
-		require 'scripts.poems'
+		require 'scripts/script-poemresponses'
+		require 'scripts/poems'
 		if persistent.ptr == 0 then
-			require 'scripts.script-poemresponses1'
+			require 'scripts/script-poemresponses1'
 		else
-			require 'scripts.script-poemresponses2'
+			require 'scripts/script-poemresponses2'
 		end
 		script_poemresponsesx = true
 	else
@@ -209,13 +209,13 @@ end
 
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
-		require 'scripts.event'
+		require 'scripts/event'
 		if persistent.ptr <= 1 then
-			require 'scripts.event-1'
+			require 'scripts/event-1'
 		elseif persistent.ptr == 2 then
-			require 'scripts.event-2'
+			require 'scripts/event-2'
 		else
-			require 'scripts.event-3'
+			require 'scripts/event-3'
 		end
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = lg.newImage('images/cg/s_kill/s_kill.png')

@@ -2,7 +2,7 @@ require 'draw'
 require 'resources'
 require 'saveload'
 require 'menu'
-require 'scripts.script'
+require 'scripts/script'
 
 function love.load() 
 	dversion = 'v0.3.2'
@@ -27,7 +27,7 @@ function love.load()
 	
 	--os detection
 	global_os, g_system = love.system.getOS()
-	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' then
+	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' then
 		love.window.setMode(1280, 720)
 		love.window.setTitle('DDLC-Switch')
 	end

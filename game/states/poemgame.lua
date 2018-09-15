@@ -1,4 +1,4 @@
-require 'scripts.poemwords'
+require 'scripts/poemwords'
 
 local poemword = 1
 local progress = '1'
@@ -215,7 +215,7 @@ function drawPoemGame()
 		lg.draw(poemtime,0,0)
 	end
 	
-	lg.setFont(font)
+	lg.setFont(allerfont)
 	lg.setColor(0,0,0)
 	if menu_enabled then menu_draw() end
 end

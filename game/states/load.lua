@@ -19,8 +19,8 @@ function updateLoad()
 	if l_timer == 95 then
 		m1 = lg.newFont('fonts/m1.ttf',28)
 		y1 = lg.newFont('fonts/y1.ttf',30)
-		font = lg.newFont('fonts/Aller_Rg.ttf',22)
-		lg.setFont(font)
+		allerfont = lg.newFont('fonts/Aller_Rg.ttf',22)
+		lg.setFont(allerfont)
 		
 	elseif l_timer == 96 then
 		s1 = lg.newFont('fonts/s1.ttf',32)
