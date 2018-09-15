@@ -300,7 +300,7 @@ function ch30script()
 	elseif cl == 131 then
 		if xaload == 0 then
 			sfxplay('pageflip')
-			script_poems = require 'scripts/poems'
+			require 'scripts/poems'
 		else
 			poem('poem_m4', 'monika')
 		end

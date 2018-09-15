@@ -4,7 +4,7 @@ function changeState(cstate,x)
 	menu_previous = nil
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
-		states = require('states/'..cstate)
+		require('states/'..cstate)
 	end
 	
 	if cstate == 'splash' then
@@ -38,7 +38,7 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 'autoload' then
 		loadgame('autoload')
 	elseif cstate == 'newgame' then --first time newgame
-		states = require 'states/game'
+		require 'states/game'
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		if persistent.ptr <= 2 then
@@ -58,13 +58,13 @@ function changeState(cstate,x)
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
-		states = require 'states/splash'
+		require 'states/splash'
 		endbg = lg.newImage('images/gui/end.png')
 		s_killearly = lg.newImage('images/cg/s_kill/s_kill_early.png')
 		audioUpdate('s_kill_early')
 		alpha = 0
 	elseif cstate == 'ghostmenu' then
-		states = require 'states/splash'
+		require 'states/splash'
 		endbg = lg.newImage('images/gui/end.png')
 		titlebg = lg.newImage('images/gui/bg_ghost.png')
 		audioUpdate('ghostmenu')
@@ -90,20 +90,20 @@ function changeState(cstate,x)
 		poem_enabled = false
 		menu_enabled = false
 		xaload = -1
-		script_main = require('scripts/script-ch'..chapter)
+		require('scripts/script-ch'..chapter)
 		if persistent.ptr == 0 then
 			if poemwinner[chapter] == 'Sayori' then
-				script_exclusive = require 'scripts/script-exclusives-sayori'
+				require 'scripts/script-exclusives-sayori'
 			elseif poemwinner[chapter] == 'Natsuki' then
-				script_exclusive = require 'scripts/script-exclusives-natsuki'
+				require 'scripts/script-exclusives-natsuki'
 			elseif poemwinner[chapter] == 'Yuri' then
-				script_exclusive = require 'scripts/script-exclusives-yuri'
+				require 'scripts/script-exclusives-yuri'
 			end
 		elseif persistent.ptr == 2 and chapter > 20 then
 			if poemwinner[chapter-20] == 'Natsuki' and chapter == 21 then
-				script_exclusive = require 'scripts/script-exclusives2-natsuki'
+				require 'scripts/script-exclusives2-natsuki'
 			elseif poemwinner[chapter-20] == 'Yuri' or chapter > 21 then
-				script_exclusive = require 'scripts/script-exclusives2-yuri'
+				require 'scripts/script-exclusives2-yuri'
 			end
 		end
 		unloadAll('poemgame')

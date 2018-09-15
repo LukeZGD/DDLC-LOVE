@@ -4,10 +4,6 @@ local bgalpha = 255
 local cgalpha = 255
 
 function drawGame()
-	if autotimer > 0 or autoskip > 0 then
-		scriptCheck()
-		timerCheck()
-	end
 	lg.setBackgroundColor(0,0,0)
 	
 	lg.setColor(255,255,255,alpha)
@@ -19,12 +15,10 @@ function drawGame()
 	lg.draw(cgch2)
 	
 	lg.setColor(255,255,255,alpha)
-	if xaload > 0 then
-		drawSayori()
-		drawYuri()
-		drawNatsuki()
-		drawMonika()
-	end
+	drawSayori()
+	drawYuri()
+	drawNatsuki()
+	drawMonika()
 	
 	if poem_enabled then drawPoem()	end
 	
@@ -56,10 +50,8 @@ function drawGame()
 end
 
 function updateGame(dt)
-	if autotimer == 0 and autoskip == 0 then
-		scriptCheck()
-		timerCheck()
-	end
+	scriptCheck()
+	timerCheck()
 	
 	if bgch2 then
 		bgalpha = math.max(bgalpha - 15, 0)
