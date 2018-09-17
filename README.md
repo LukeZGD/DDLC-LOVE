@@ -17,7 +17,7 @@ You can reset the save data and start over by deleting all of the save files. Th
 ### Building:
 - Switch - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
 
-- PS Vita - Use the ONEmakerGUI included with ONEluav4R1
+- PS Vita - Switch and PS Vita versions share the same code. To build the PS Vita version, replace the existing audio, fonts, and images folders with the ones in the "PSVita Assets" folder, and also include script.lua and LOVE-OneLua folder with the game folder. Use the ONEmakerGUI included with ONEluav4R1 to build a .vpk
 
 ### Running:
 - Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))

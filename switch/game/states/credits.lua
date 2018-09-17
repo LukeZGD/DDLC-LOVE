@@ -245,13 +245,13 @@ function updateCredits(dt)
 	end
 	
 	if c_timer >= 200 and c_timer < 201.5 then
-		updateConsole("ddlc=love.audio.newSource(\"ddlc.ogg\")")
+		updateConsole("ddlc=love.audio.newSource(\"ddlc"..audio_ext.."\")")
 	elseif c_timer >= 201.5 and c_timer < 202.5 then
 		updateConsole("_")
 	elseif c_timer >= 202.5 and c_timer < 203.5 then
 		updateConsole("love.audio.play(ddlc)")
 	elseif c_timer >= 203.5 and c_timer < 205 then
-		updateConsole("_","Playing audio \"ddlc.ogg\"...")
+		updateConsole("_","Playing audio \"ddlc"..audio_ext.."\"...")
 	elseif c_timer >= 205 then
 		console_enabled = false
 		changeState('credits')
