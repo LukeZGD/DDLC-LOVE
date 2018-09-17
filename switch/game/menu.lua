@@ -106,7 +106,7 @@ function menu_draw()
 		
 	elseif menu_type == 'dialog' then
 		lg.setColor(255,255,255,menu_alpha/2)
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(255,189,225,menu_alpha)
 		lg.rectangle('fill',400,180,480,360)
 		lg.setColor(255,230,244,menu_alpha)

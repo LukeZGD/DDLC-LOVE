@@ -3,7 +3,7 @@ local err = ''
 
 function drawLoad()
 	lg.setColor(0,0,0,alpha)
-	lg.rectangle('fill',0,0,1280,720)
+	lg.rectangle('fill',0,0,1280,725)
 	lg.setColor(255,255,255)
 	lg.print(err,10,10)
 	

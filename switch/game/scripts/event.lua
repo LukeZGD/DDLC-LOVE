@@ -132,7 +132,7 @@ function event_draw()
 	if event_type == 'wipe' then
 		lg.draw(bgch)
 		lg.setColor(0,0,0,eventvar1)
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 	end
 	
 	if event_type == 'endscreen' then
@@ -148,13 +148,13 @@ function event_draw()
 		else
 			lg.setColor(0,0,0,192)
 		end
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(255,255,255,255)
 		if bg1 == 'cg/monika_bg_glitch' then lg.draw(bgch) end
 		if cl < 271 then drawSayori() end
 		if menu_enabled then
 			lg.setColor(255,255,255,128)
-			lg.rectangle('fill',0,0,1280,720)
+			lg.rectangle('fill',0,0,1280,725)
 		end
 	end
 	
