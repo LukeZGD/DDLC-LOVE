@@ -1,0 +1,90 @@
+local l_timer = 94
+local err = ''
+
+function drawLoad()
+	lg.setColor(0,0,0,alpha)
+	lg.rectangle('fill',0,0,1280,720)
+	lg.setColor(255,255,255)
+	lg.print(err,10,10)
+	
+	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> '..savedir..'\n\nPress Y to quit',10,70) end
+end
+
+function updateLoad()
+	if l_timer < 99 then
+		l_timer = l_timer + 1
+	end
+	
+	--loading assets
+	if l_timer == 95 then
+		m1 = lg.newFont('fonts/m1.ttf',28)
+		y1 = lg.newFont('fonts/y1.ttf',30)
+		allerfont = lg.newFont('fonts/Aller_Rg.ttf',22)
+		lg.setFont(allerfont)
+		
+	elseif l_timer == 96 then
+		s1 = lg.newFont('fonts/s1.ttf',32)
+		n1 = lg.newFont('fonts/n1.ttf',28)
+		deffont = lg.newFont('fonts/VerilySerifMono.ttf',23)
+		halogenfont = lg.newFont('fonts/Halogen.ttf',28)
+		rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24)
+		
+	elseif l_timer == 97 then
+		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
+		sfx2 = love.audio.newSource('audio/sfx/hover.ogg', 'static')
+		
+	elseif l_timer == 98 then
+		--splash, title screen, gui elements, sfx
+		namebox = lg.newImage('images/gui/namebox.png')
+		textbox = lg.newImage('images/gui/textbox.png')
+		background_Image = lg.newImage('images/gui/menu_bg.png')
+		guicheck = lg.newImage('images/gui/check.png')
+		gui_ctc = lg.newImage('images/gui/ctc.png')
+		gui_skip = lg.newImage('images/gui/skip.png')
+		sidebar = lg.newImage('images/gui/sidebar.png')
+		
+	elseif l_timer == 99 then
+		local file = love.filesystem.getInfo('persistent')
+		if file then
+			checkLoad()
+		else
+			changeState('newgame')
+		end
+	elseif l_timer == 100 then
+		lg.setBackgroundColor(255,255,255)
+		alpha = math.max(alpha - 5, 0)
+		if alpha == 0 then
+			changeState('splash')
+		end
+	end
+end
+
+function checkLoad()
+	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
+		loadpersistent()
+	end
+	if global_os == 'HorizonNX' or g_system == 'Switch' then
+		savedir = 'sdmc:/switch/DDLC-LOVE/'
+	elseif global_os == 'Vita' then
+		savedir = 'ux0:/data/DDLC-LOVE/savedata/'
+	elseif global_os == 'PSP' then
+		savedir = 'Saved Data Utility'
+	else
+		savedir = '%appdata%\\LOVE\\DDLC-LOVE\\'
+	end
+	
+	local ghostmenu_chance = love.math.random(0, 63)
+	if settings.textloc then
+		err = 'Error!\nDDLC-3DS save data detected, and it is not compatible with DDLC-LOVE.'
+	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
+		changeState('s_kill_early')
+	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
+		changeState('ghostmenu')
+		persistent.chr.s = 2
+		savepersistent()
+	elseif persistent.chr.m == 2 then
+		changeState('game','autoload')
+	else
+		l_timer = 100
+	end
+end

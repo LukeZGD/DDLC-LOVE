@@ -1,25 +1,32 @@
-# DDLC-Switch
-A Doki Doki Literature Club port for the Nintendo Switch! Programmed in Lua, running under the LovePotion framework.
+# DDLC-LOVE
+A Doki Doki Literature Club port for the Nintendo Switch, PSP, and PS Vita! Programmed in Lua, running under the LovePotion framework (Switch) / LOVE-OneLua and OneLua interpreter (PSP and PS Vita)
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
-
-This is for Switch systems, but it also works on other platforms that support LÖVE 11.
 
 **Locations of save files:**
 
 | Platform | Location                            |
 |----------|-------------------------------------|
-| Switch   | sdmc:/switch/DDLC-3DS/              |
-| Windows  | %appdata%\LOVE\DDLC-3DS\            |
+| Switch   | sdmc:/switch/DDLC-LOVE/             |
+| PSP      | Saved Data Utility                  |
+| PS Vita  | ux0:/data/DDLC-LOVE/savedata/       |
+| Windows  | %appdata%\LOVE\DDLC-LOVE\           |
 
-You can reset the save data and start over by deleting all of the files on that folder. This is also mentioned in the help menu.
+You can reset the save data and start over by deleting all of the save files. This is also mentioned in the help menu.
 
-### Building (LovePotion):
-- Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
+### Building:
+- Switch - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
+
+- PS Vita - Use the ONEmakerGUI included with ONEluav4R1
 
 ### Running:
 - Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))
 
+- PSP - Download the zip from the releases, and extract the folder with EBOOT.PBP to ms0:/PSP/GAME/
+
+- PS Vita - Install the vpk from the releases.
+
 - PC - Drag the game folder to LÖVE 11.1
 
 **Credits to TurtleP for LovePotion!**
+**Credits to the OneLua team for OneLua!**
