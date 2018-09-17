@@ -2,7 +2,6 @@ local menu_items
 local cX
 local cY
 local getcompare = {}
-local rectwidth
 local pagenum = 1
 local savenum = {}
 local itemnames = {}
@@ -97,15 +96,9 @@ function menu_draw()
 		lg.rectangle('fill',400,180,480,360)
 		lg.setColor(255,230,244,menu_alpha)
 		lg.rectangle('fill',410,190,460,340)
-		for i = 1, #choices do
-			--getcompare[i] = allerfont:getWidth(choices[i])
-		end
-		--rectwidth = math.max(unpack(getcompare)) + 5
-		rectwidth = 400
-		
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
-			if menu_items >= i+1 then lg.rectangle('fill',440, 200+(50*i),rectwidth,32) end
+			if menu_items >= i+1 then lg.rectangle('fill',440, 200+(50*i),400,32) end
 		end
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(guicheck,410,200+(50*(m_selected-1)))
@@ -132,15 +125,9 @@ function menu_draw()
 		lg.rectangle('fill',100,50,1080,620)
 		lg.setColor(255,230,244,menu_alpha)
 		lg.rectangle('fill',120,70,1040,580)
-		for i = 1, #itemnames do
-			--getcompare[i] = allerfont:getWidth(itemnames[i])
-		end
-		--rectwidth = math.max(unpack(getcompare)) + 5
-		rectwidth = 200
-		
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
-			if menu_items >= i+1 then lg.rectangle('fill',160, 110+(50*i),rectwidth,32) end
+			if menu_items >= i+1 then lg.rectangle('fill',160, 110+(50*i),200,32) end
 		end
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(guicheck,cX,cY)

@@ -30,8 +30,8 @@ function updateLoad()
 		rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24)
 		
 	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('audio/sfx/select'..audioext, 'static')
-		sfx2 = love.audio.newSource('audio/sfx/hover'..audioext, 'static')
+		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext, 'static')
+		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext, 'static')
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
