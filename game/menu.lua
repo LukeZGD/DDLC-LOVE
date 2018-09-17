@@ -162,7 +162,7 @@ function menu_draw()
 			lg.print('(>)',480,210)
 		end
 		lg.print('Press (<) and (>) to change settings.',140,580)
-		lg.print('DDLC-Switch '..dversion..' '..dvertype,140,610)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,140,610)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		lg.print('- Page '..pagenum..' of 10',257,90)

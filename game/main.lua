@@ -27,9 +27,9 @@ function love.load()
 	
 	--os detection
 	global_os, g_system = love.system.getOS()
-	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' then
+	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' and global_os ~= 'PSP' then
 		love.window.setMode(1280, 720)
-		love.window.setTitle('DDLC-Switch')
+		love.window.setTitle('DDLC-LOVE')
 	end
 	
 	changeState('load')

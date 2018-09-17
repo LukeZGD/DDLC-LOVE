@@ -24,9 +24,11 @@ function drawSplash()
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
-		lg.print('DDLC-Switch '..dversion..' '..dvertype,15,650)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,650)
 		if global_os == 'HorizonNX' or g_system == 'Switch' then
 			running = 'LovePotion Switch'
+		elseif global_os == 'Vita' or global_os == 'PSP' then
+			running = 'LOVE-OneLua '..global_os
 		else
 			local major, minor, revision = love.getVersion()
 			running = string.format('LOVE %d.%d.%d', major, minor, revision)
