@@ -1,6 +1,7 @@
-local audio_ext = '.ogg'
-if global_os == 'Vita' then
+audio_ext = '.ogg'
+if global_os == 'PSP' then
 	audio_ext = '.mp3'
+end
 
 function changeState(cstate,x)
 	menu_alpha = 0
