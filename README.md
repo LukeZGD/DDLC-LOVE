@@ -1,5 +1,8 @@
 # DDLC-3DS
+
 A Doki Doki Literature Club port for the Nintendo 3DS! Programmed in Lua, running under the LovePotion framework.
+
+**DDLC-LOVE, a DDLC port for the Switch, PSP, and PS Vita, will be found in the ddlclove branch of this repo.**
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
