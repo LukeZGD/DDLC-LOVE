@@ -187,17 +187,6 @@ function drawPoemGame()
 	lg.print(word[9],675,435)
 	lg.print(word[10],675,525)
 	
-	if eyes_in then
-		lg.setColor(0,0,0)
-		lg.rectangle('fill',0,0,1280,720)
-		if eyes_timer <= 2.2 then
-			lg.setColor(255,255,255)
-			lg.draw(eyes,110,eyes_y)
-			lg.draw(eyes,110,eyes_y+240)
-			lg.draw(eyes,110,eyes_y+480)
-		end
-	end
-	
 	lg.setColor(255,255,255,alpha)
 	if persistent.ptr == 0 then
 		lg.draw(s_sticker,30,s_y)
@@ -213,6 +202,15 @@ function drawPoemGame()
 	if poemstate == 0 then
 		lg.setColor(255,255,255,alpha)
 		lg.draw(poemtime,0,0)
+	elseif eyes_in then
+		lg.setColor(0,0,0)
+		lg.rectangle('fill',0,0,1280,720)
+		if eyes_timer <= 2.2 then
+			lg.setColor(255,255,255)
+			lg.draw(eyes,352,eyes_y)
+			lg.draw(eyes,352,eyes_y+720)
+			lg.draw(eyes,352,eyes_y+1280)
+		end
 	end
 	
 	lg.setFont(allerfont)

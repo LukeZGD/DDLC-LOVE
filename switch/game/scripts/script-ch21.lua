@@ -1,20 +1,20 @@
 local y_gtimer = 0
 local gtext = glitchtext(20)
 
-function yuri_glitch2()
+function yuri_glitch2(x)
 	local dt = love.timer.getDelta()
 	y_gtimer = y_gtimer + dt
 	if y_gtimer > 1.2 and y_gtimer < 1.25 then
-		updateYuri('1','a')
+		updateYuri('1','a',x)
 		xaload = -1
 	elseif y_gtimer > 0.9 and y_gtimer < 0.95  then
-		updateYuri('0a')
+		updateYuri('0a','',x)
 		xaload = -1
 	elseif y_gtimer > 0.6 and y_gtimer < 0.65 then
-		updateYuri('0b')
+		updateYuri('0b','',x)
 		xaload = -1
 	elseif y_gtimer < 0.1 then
-		updateYuri('0a')
+		updateYuri('0a','',x)
 		xaload = -1
 	end
 end
@@ -43,8 +43,7 @@ function ch21script(dt)
 	elseif cl == 304 then
     bl "I was the last to come in, so everyone else is already hanging out."
 	elseif cl == 305 then
-	yuri_glitch2()
-	y_Set.x = 80
+	yuri_glitch2(80)
 	cw('y',"Thanks for keeping your promise, "..player..".")
 	elseif cl == 306 then
 	y_gtimer = 0
@@ -56,7 +55,6 @@ function ch21script(dt)
 	elseif cl == 308 then
 	event_initstart('n_glitch1')
     elseif cl == 309 then
-	n_Set.x = 200
 	updateNatsuki('4','e',200,0)
     n "Oh, come on! Like he deserves any slack."
 	elseif cl == 310 then

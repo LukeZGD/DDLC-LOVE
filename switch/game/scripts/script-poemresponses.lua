@@ -70,7 +70,6 @@ function poemfinish(a)
 	
 	poemsread = poemsread + 1
 	hideAll()
-	s_Set.x = -200; n_Set.x = -200; y_Set.x = -200; m_Set.x = -200
 	if poemsread == 4 or (poemsread == 3 and persistent.ptr == 2) then
 		--poem finish, jump to script depending on chapter
 		poemsread = -1
@@ -95,8 +94,7 @@ end
 	
 function poemresponse_sayori()
 	if cl <= 669 then
-		s_Set.x = 256
-		updateSayori('1','a')
+		updateSayori('1','a',80)
 	end
 	
 	poemopinion = "med"
@@ -111,8 +109,7 @@ end
 
 function poemresponse_natsuki()
     if cl <= 669 then
-		n_Set.x = 256
-		updateNatsuki('1','c')
+		updateNatsuki('1','c',80)
 	end
 	
     poemopinion = "med"
@@ -135,8 +132,7 @@ end
 
 function poemresponse_yuri()
 	if cl <= 669 then
-		y_Set.x = 256
-		updateYuri('1','a')
+		updateYuri('1','a',80)
 	end
 	
     poemopinion = "med"
@@ -159,8 +155,7 @@ end
 
 function poemresponse_monika()
 	if cl <= 669 then 
-		m_Set.x = 256
-		updateMonika('1','a') 
+		updateMonika('1','a',80) 
 	end
 	
 	loadstring("ch"..chapter.."_m_start()")()

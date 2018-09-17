@@ -890,8 +890,7 @@ function ch0script()
 		bgUpdate('residential')
 		audioUpdate('2')
 		hideAll()
-		updateSayori('1','b')
-		s_Set.x = 80
+		updateSayori('1','b',80)
 		cw('s',"...")
 	elseif cl == 10002 then 
 		cw('s',"...")
