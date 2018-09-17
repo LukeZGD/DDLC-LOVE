@@ -64,14 +64,18 @@ function checkLoad()
 		loadpersistent()
 	end
 	if global_os == 'HorizonNX' or g_system == 'Switch' then
-		savedir = 'sdmc:/switch/DDLC-Switch/'
+		savedir = 'sdmc:/switch/DDLC-LOVE/'
+	elseif global_os == 'Vita' then
+		savedir = 'ux0:/data/DDLC-LOVE/savedata/'
+	elseif global_os == 'PSP' then
+		savedir = 'Saved Data Utility'
 	else
-		savedir = '%appdata%\\LOVE\\DDLC-Switch\\'
+		savedir = '%appdata%\\LOVE\\DDLC-LOVE\\'
 	end
 	
 	local ghostmenu_chance = love.math.random(0, 63)
 	if settings.textloc then
-		err = 'Error!\nDDLC-3DS save data detected, and it is not compatible with DDLC-Switch.'
+		err = 'Error!\nDDLC-3DS save data detected, and it is not compatible with DDLC-LOVE.'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then

@@ -141,11 +141,3 @@ function newgame_keypressed(key)
 		collectgarbage()
 	end
 end
-
-function game_mousepressed()
-	if mouseX>=50 and mouseX<=80 and mouseY<=18 then game_keypressed('y')
-	elseif mouseX>=142 and mouseX<=172 and mouseY<=18 then game_keypressed('b')
-	elseif mouseX>=240 and mouseX<=270 and mouseY<=18 then game_keypressed('x')
-	else game_keypressed('a')
-	end
-end

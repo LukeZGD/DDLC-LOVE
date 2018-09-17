@@ -1,11 +1,11 @@
 local c_timer = 200
 local c_timer2
-local ra1 = 320
-local ra2 = 294
-local ra3 = 384
-local ra4 = 314
-local ra5 = 403
-local ra6 = 352
+local ra1 = 440
+local ra2 = 415
+local ra3 = 485
+local ra4 = 435
+local ra5 = 488
+local ra6 = 460
 
 function loadCredits(x)
 	if x ~= 1 then
@@ -24,107 +24,106 @@ function drawCredits()
 	
 	if c_timer < 51 then
 		lg.setFont(m1)
-		lg.print("Every day, I imagine a future where I can be with you",320,165)
-		lg.print("In my hand is a pen that will write a poem of me and you",294,225)
-		lg.print("The ink flows down into a dark puddle",384,285)
-		lg.print("Just move your hand - write the way into his heart!",314,345)
-		lg.print("But in this world of infinite choices",403,405)
-		lg.print("What will it take just to find that special day?",352,465)
+		lg.print("Every day, I imagine a future where I can be with you",440,200)
+		lg.print("In my hand is a pen that will write a poem of me and you",415,250)
+		lg.print("The ink flows down into a dark puddle",485,300)
+		lg.print("Just move your hand - write the way into his heart!",435,350)
+		lg.print("But in this world of infinite choices",488,400)
+		lg.print("What will it take just to find that special day?",460,450)
 		lg.setColor(0,0,0)
-		lg.rectangle('fill',ra1,165,960,60)
-		lg.rectangle('fill',ra2,225,960,60)
-		lg.rectangle('fill',ra3,285,960,60)
-		lg.rectangle('fill',ra4,345,960,60)
-		lg.rectangle('fill',ra5,405,960,60)
-		lg.rectangle('fill',ra6,465,960,60)
+		lg.rectangle('fill',ra1,200,960,60)
+		lg.rectangle('fill',ra2,250,960,60)
+		lg.rectangle('fill',ra3,300,960,60)
+		lg.rectangle('fill',ra4,350,960,60)
+		lg.rectangle('fill',ra5,400,960,60)
+		lg.rectangle('fill',ra6,450,960,60)
 	elseif c_timer < 60 then
 		lg.draw(logo,145,70)
 	elseif c_timer < 165 then
-		lg.draw(nats1, 576, 750 - c_timer2)
-		lg.draw(nats2, 64, 1536 - c_timer2)
-		lg.draw(yuri1, 576, 2130 - c_timer2)
-		lg.draw(yuri2, 64, 2820 - c_timer2)
-		lg.draw(nats3, 576, 3510 - c_timer2)
-		lg.draw(yuri3, 64, 4200 - c_timer2)
-		lg.draw(sayo1, 576, 4890 - c_timer2)
-		lg.draw(sayo2, 64, 5580 - c_timer2)
-		lg.draw(s_sticker_1, 144, 6180 - c_timer2)
-		lg.draw(n_sticker_1, 368, 6180 - c_timer2)
-		lg.draw(y_sticker_1, 640, 6180 - c_timer2)
-		lg.draw(m_sticker_1, 880, 6180 - c_timer2)
-		lg.draw(sayo3, 576, 6810 - c_timer2)
-		lg.draw(moni1, 20, 7500 - c_timer2)
+		lg.draw(nats1, 600, 750 - c_timer2)
+		lg.draw(nats2, 80, 1536 - c_timer2)
+		lg.draw(yuri1, 600, 2130 - c_timer2)
+		lg.draw(yuri2, 80, 2820 - c_timer2)
+		lg.draw(nats3, 600, 3510 - c_timer2)
+		lg.draw(yuri3, 80, 4200 - c_timer2)
+		lg.draw(sayo1, 600, 4890 - c_timer2)
+		lg.draw(sayo2, 80, 5580 - c_timer2)
+		lg.draw(s_sticker_1, 400, 6180 - c_timer2)
+		lg.draw(n_sticker_1, 530, 6180 - c_timer2)
+		lg.draw(y_sticker_1, 700, 6180 - c_timer2)
+		lg.draw(m_sticker_1, 850, 6180 - c_timer2)
+		lg.draw(sayo3, 600, 6810 - c_timer2)
+		lg.draw(moni1, 80, 7500 - c_timer2)
 		lg.setFont(halogenfont)
-		lg.print("Dan Salvato",192,930 - c_timer2)
-		lg.print("Satchely",896,1620 - c_timer2)
+		lg.print("Dan Salvato",225,930 - c_timer2)
+		lg.print("Satchely",920,1620 - c_timer2)
 		lg.print("Velinquent",243,2310 - c_timer2)
-		lg.print("Dan Salvato",864,3000 - c_timer2)
-		lg.print("Dan Salvato",192,3690 - c_timer2)
-		lg.print("Jillian Ashcraft",835,4380 - c_timer2)
+		lg.print("Dan Salvato",870,3000 - c_timer2)
+		lg.print("Dan Salvato",210,3690 - c_timer2)
+		lg.print("Jillian Ashcraft",870,4380 - c_timer2)
 		lg.print("Masha Gutin",224,5055 - c_timer2)
-		lg.print("Kagefumi",250,5100 - c_timer2)
-		lg.print("David Evelyn",858,5745 - c_timer2)
-		lg.print("Corey Shin",874,5790 - c_timer2)
-		lg.print("Alecia Bardachino",186,6975 - c_timer2)
-		lg.print("Matt Naples",218,7020 - c_timer2)
+		lg.print("Kagefumi",240,5100 - c_timer2)
+		lg.print("David Evelyn",865,5745 - c_timer2)
+		lg.print("Corey Shin",875,5790 - c_timer2)
+		lg.print("Alecia Bardachino",200,6975 - c_timer2)
+		lg.print("Matt Naples",215,7020 - c_timer2)
 		lg.print("Monika",893,7665 - c_timer2)
 		lg.print(player,900,7710 - c_timer2)
 		lg.setColor(255,185,230)
 		lg.setFont(rifficfont)
 		lg.print("Concept and Game Design",144,855 - c_timer2)
-		lg.print("Character Art",832,1545 - c_timer2)
-		lg.print("Background Art",187,2235 - c_timer2)
-		lg.print("Writing",896,2925 - c_timer2)
+		lg.print("Character Art",880,1545 - c_timer2)
+		lg.print("Background Art",200,2235 - c_timer2)
+		lg.print("Writing",890,2925 - c_timer2)
 		lg.print("Music",246,3615 - c_timer2)
-		lg.print("Vocals",896,4305 - c_timer2)
-		lg.print("Special Thanks",166,4980 - c_timer2)
-		lg.print("Special Thanks",806,5670 - c_timer2)
-		lg.print("Special Thanks",166,6900 - c_timer2)
-		lg.print("Special Thanks",806,7590 - c_timer2)
+		lg.print("Vocals",920,4305 - c_timer2)
+		lg.print("Special Thanks",210,4980 - c_timer2)
+		lg.print("Special Thanks",860,5670 - c_timer2)
+		lg.print("Special Thanks",210,6900 - c_timer2)
+		lg.print("Special Thanks",860,7590 - c_timer2)
 	elseif c_timer < 200 then
 		lg.draw(splashw)
 		lg.setFont(allerfont)
-		lg.print('DDLC-3DS',5,615)
+		lg.print('DDLC-LOVE',5,615)
 		lg.print('Unofficial port by LukeeGD',5,660)
 	end
 	
 	lg.setColor(255,255,255)
-	lg.print(c_timer)
+	lg.setFont(allerfont)
+	lg.print(math.floor(c_timer).." "..love.mouse.getX()..","..love.mouse.getY())
 	drawConsole()
 end
 
 function updateCredits(dt)
 	c_timer = c_timer + dt
 	c_timer2 = (c_timer - 60) * 75
-	
-	
 	--lyrics part stuff
 	if c_timer >= 10.3 and c_timer <= 11.4 then
-		ra1 = math.min(ra1 + 3, 1000)
+		ra1 = math.min(ra1 + 3, 505)
 	elseif c_timer >= 11.7 and c_timer <= 13.55 then
-		ra1 = math.min(ra1 + 3, 1000)
+		ra1 = math.min(ra1 + 3, 683)
 	elseif c_timer >= 13.7 and c_timer <= 16 then
 		ra1 = math.min(ra1 + 3, 1000)
 	elseif c_timer >= 19.4 and c_timer <= 20.65 then
-		ra2 = math.min(ra2 + 3, 1000)
+		ra2 = math.min(ra2 + 3, 495)
 	elseif c_timer >= 20.8 and c_timer <= 23 then
-		ra2 = math.min(ra2 + 3, 1000)
+		ra2 = math.min(ra2 + 3, 730)
 	elseif c_timer >= 23.2 and c_timer <= 26 then
 		ra2 = math.min(ra2 + 3, 1000)
 	elseif c_timer >= 28.3 and c_timer <= 30 then
-		ra3 = math.min(ra3 + 3, 1000)
+		ra3 = math.min(ra3 + 3, 615)
 	elseif c_timer >= 30.1 and c_timer <= 32.4 then
 		ra3 = math.min(ra3 + 3, 1000)
 	elseif c_timer >= 32.8 and c_timer <= 34.2 then
-		ra4 = math.min(ra4 + 3, 1000)
+		ra4 = math.min(ra4 + 3, 580)
 	elseif c_timer >= 34.3 and c_timer <= 37 then
 		ra4 = math.min(ra4 + 3, 1000)
 	elseif c_timer >= 37.5 and c_timer <= 39.1 then
-		ra5 = math.min(ra5 + 3, 1000)
+		ra5 = math.min(ra5 + 3, 615)
 	elseif c_timer >= 39.2 and c_timer <= 41.7 then
 		ra5 = math.min(ra5 + 3, 1000)
 	elseif c_timer >= 42 and c_timer < 43.3 then
-		ra6 = math.min(ra6 + 3, 1000)
+		ra6 = math.min(ra6 + 3, 580)
 	elseif c_timer >= 43.4 and c_timer < 50 then
 		ra6 = math.min(ra6 + 3, 1000)
 	end

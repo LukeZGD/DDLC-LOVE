@@ -367,10 +367,4 @@ function poemgamekeypressed(key)
 			menu_enable('pause2')
 		end
 	end
-end
-
-function poemgamemousepressed()
-	if mouseX>=135 and mouseX<=165 and mouseY<=18 then
-		poemgamekeypressed('y')
-	end
-end		
+end	
