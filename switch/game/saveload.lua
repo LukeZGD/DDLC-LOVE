@@ -13,10 +13,10 @@ bg1 = 'black'
 audio1 = '0'
 cg1 = 'blank'
 ct = ''
-s_Set = {a='',b='',x=-200,y=0}
-y_Set = {a='',b='',x=-200,y=0}
-n_Set = {a='',b='',x=-200,y=0}
-m_Set = {a='',b='',x=-200,y=0}
+s_Set = {a='',b='',x=-200,y=4}
+y_Set = {a='',b='',x=-200,y=4}
+n_Set = {a='',b='',x=-200,y=4}
+m_Set = {a='',b='',x=-200,y=4}
 chapter = 0
 readpoem = {s=0,n=0,y=0,m=0}
 choices = {'','','',''}
