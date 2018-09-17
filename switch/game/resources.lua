@@ -1,3 +1,7 @@
+local audio_ext = '.ogg'
+if global_os == 'Vita' then
+	audio_ext = '.mp3'
+
 function changeState(cstate,x)
 	menu_alpha = 0
 	menu_previous = nil
@@ -151,7 +155,7 @@ function audioUpdate(audiox, forceload) --audio changes
 		if ddlct ~= nil then ddlct:stop() end
 		ddlct = nil
 		if audiox ~= '' and audiox ~= '0' then
-			ddlct = love.audio.newSource('audio/bgm/'..audiox..'.ogg', 'stream')
+			ddlct = love.audio.newSource('audio/bgm/'..audiox..audio_ext, 'stream')
 			ddlct:setLooping(true)
 			ddlct:play()
 		end
@@ -163,7 +167,7 @@ function sfxplay(sfx) --sfx stuff
 	if xaload == 0 then
 		sfxp = nil
 		if sfx ~= '' then
-			sfxp = love.audio.newSource('audio/sfx/'..sfx..'.ogg', 'static')
+			sfxp = love.audio.newSource('audio/sfx/'..sfx..audio_ext, 'static')
 		end
 		sfxp:play()
 	end
