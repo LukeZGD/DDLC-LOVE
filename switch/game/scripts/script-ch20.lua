@@ -40,8 +40,7 @@ function ch20script()
 	elseif cl == 15 then
 	event_initstart('m_glitch1')
 	elseif cl == 16 then
-	m_Set.x = 256
-	updateMonika('1','a')
+	updateMonika('1','a',80)
 	sfxplay('s_kill_glitch1s')
 	mc "...Monika?"
 	elseif cl == 17 then

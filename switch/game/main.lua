@@ -5,15 +5,13 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.3.2'
+	dversion = 'v0.4.0'
 	dvertype = 'Test'
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
-	unitimer = 0
-	uniduration = 0.3
 	sectimer = 0
 	xaload = 0
 	alpha = 255

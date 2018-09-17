@@ -1045,8 +1045,7 @@ function Yuri_exclusive2_2_ch23()
 	audioUpdate('g1')
 	cw('y',gtext80,'nw')
 	elseif cl == 1725 then
-	updateYuri('2','n')
-	y_Set.x = 80
+	updateYuri('2','n',80)
 	event_end('yuri_ch23')
 	audioUpdate('0')
 	y "Um..."

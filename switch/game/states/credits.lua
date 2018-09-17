@@ -38,7 +38,7 @@ function drawCredits()
 		lg.rectangle('fill',ra5,400,960,60)
 		lg.rectangle('fill',ra6,450,960,60)
 	elseif c_timer < 60 then
-		lg.draw(logo,145,70)
+		lg.draw(logo,384,325)
 	elseif c_timer < 165 then
 		lg.draw(nats1, 600, 750 - c_timer2)
 		lg.draw(nats2, 80, 1536 - c_timer2)

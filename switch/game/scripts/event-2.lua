@@ -6,15 +6,15 @@ function event_draw_2()
 	
 	if event_type == 'n_glitch1' then
 		lg.draw(bgch)
-		drawMonika(m_Set.a,m_Set.b)
-		drawYuri(y_Set.a,y_Set.b)
+		drawMonika()
+		drawYuri()
 		lg.draw(nl,640,n_Set.y)
 	end
 	
 	if event_type == 'm_onlayer_front' then
 		lg.draw(bgch)
-		drawYuri(y_Set.a,y_Set.b)
-		drawNatsuki(n_Set.a,n_Set.b)
+		drawYuri()
+		drawNatsuki()
 	end
 	
 	if event_type == 'n_rects_ghost' then
@@ -34,14 +34,14 @@ function event_draw_2()
 		if event_timer > 2 then
 			lg.draw(n_blackeyes, 256)
 		else
-			drawNatsuki(n_Set.a,n_Set.b)
+			drawNatsuki()
 		end
 	end
 	
 	if event_type == 'ny_argument' then
 		lg.draw(bgch)
-		drawYuri(y_Set.a,y_Set.b)
-		drawNatsuki(n_Set.a,n_Set.b)
+		drawYuri()
+		drawNatsuki()
 		if eventvar3 and eventvar4 then
 			if event_timer > eventvar3[eventvar5] and event_timer < eventvar4[eventvar5] then
 				lg.draw(vignette)
@@ -62,7 +62,7 @@ function event_draw_2()
 	
 	if event_type == 'yuri_glitch' then
 		lg.draw(bgch)
-		drawMonika(m_Set.a,m_Set.b)
+		drawMonika()
 		drawanimframe(256)
 	end
 	
@@ -104,7 +104,7 @@ function event_draw_2()
 	if event_type == 'show_darkred' then
 		lg.setColor(255,255,255,alpha)
 		lg.draw(bgch)
-		drawYuri(y_Set.a,y_Set.b)
+		drawYuri()
 		lg.setColor(32,0,0,eventvar2)
 		lg.rectangle('fill',0,0,1280,720)
 		if eventvar4 == 'show_noise' then
@@ -112,7 +112,7 @@ function event_draw_2()
 			drawanimframe()
 		end
 		lg.setColor(255,255,255,alpha)
-		drawMonika(m_Set.a,m_Set.b)
+		drawMonika()
 	end
 	
 	if event_type == 'yuri_ch23' then
@@ -127,7 +127,7 @@ function event_draw_2()
 	
 	if event_type == 'yuri_ch23_2' then
 		lg.draw(bgch,eventvar1)
-		drawYuri(y_Set.a,y_Set.b)
+		drawYuri()
 		lg.setColor(0,0,0,128+(eventvar1*4))
 		lg.rectangle('fill',0,0,1280,720)
 	end
@@ -138,14 +138,14 @@ function event_draw_2()
 			lg.draw(ex3top)
 		end
 		if event_timer > 4 then
-			drawMonika(m_Set.a,m_Set.b)
+			drawMonika()
 		end
 	end
 	
 	if event_type == 'natsuki_ch22' then
 		lg.draw(bgch)
 		if cl < 726 then
-			drawNatsuki(n_Set.a,n_Set.b)
+			drawNatsuki()
 			if cl < 725 then
 				lg.setColor(255,255,255,eventvar3)
 				lg.draw(ghost_blood,256)
@@ -269,7 +269,6 @@ function event_update_2(dt)
 	end
 	
 	if event_type == 'yuri_glitch_head' then
-		if unitimer < uniduration then event_timer = 0 end
 		if eventvar1 == 2 and cl == 1560 and event_timer <= 1.3 then
 			if event_timer >= 0.5 and event_timer <= 0.53 then
 				xaload = 0
