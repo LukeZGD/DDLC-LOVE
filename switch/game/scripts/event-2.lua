@@ -78,7 +78,7 @@ function event_draw_2()
 		else
 			lg.setColor(0,0,0,192)
 		end
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(255,255,255)
 		if poem_enabled then drawPoem()	end
 	end
@@ -90,7 +90,7 @@ function event_draw_2()
 		drawYuri()
 		drawMonika()
 		lg.setColor(128,0,0,eventvar1)
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 	end
 	
 	if event_type == 'yuri_glitch_head' then
@@ -106,7 +106,7 @@ function event_draw_2()
 		lg.draw(bgch)
 		drawYuri()
 		lg.setColor(32,0,0,eventvar2)
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 		if eventvar4 == 'show_noise' then
 			lg.setColor(255,255,255,eventvar2/8)
 			drawanimframe()
@@ -129,7 +129,7 @@ function event_draw_2()
 		lg.draw(bgch,eventvar1)
 		drawYuri()
 		lg.setColor(0,0,0,128+(eventvar1*4))
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 	end
 	
 	if event_type == 'm_ch23ex' then
@@ -159,7 +159,7 @@ function event_draw_2()
 			end
 		end
 		lg.setColor(32,0,0,eventvar1)
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(255,255,255)
 		if cl == 726 then
 			if event_timer < 1 then

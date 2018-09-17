@@ -29,4 +29,5 @@ You can reset the save data and start over by deleting all of the save files. Th
 - PC - Drag the game folder to LÖVE 11.1
 
 **Credits to TurtleP for LovePotion!**
+
 **Credits to the OneLua team for OneLua!**

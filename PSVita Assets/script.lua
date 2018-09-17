@@ -1,6 +1,6 @@
 --some info
 isPSP = os.cfw
-appmode = "TEST"
+appmode = ""
 appname = "DDLC-LOVE"
 dataloc = ""
 local keyconfigset = "XB"

@@ -204,7 +204,7 @@ function drawPoemGame()
 		lg.draw(poemtime,0,0)
 	elseif eyes_in then
 		lg.setColor(0,0,0)
-		lg.rectangle('fill',0,0,1280,720)
+		lg.rectangle('fill',0,0,1280,725)
 		if eyes_timer <= 2.2 then
 			lg.setColor(255,255,255)
 			lg.draw(eyes,352,eyes_y)
