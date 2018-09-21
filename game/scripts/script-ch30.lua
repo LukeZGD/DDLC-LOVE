@@ -27,7 +27,7 @@ function ch30script()
 	elseif cl == 4 then
     m "...Is it working?"
 	elseif cl == 5 then
-	cgUpdate('monika_bg')
+	bgUpdate('cg/monika_bg')
 	audioUpdate('m1')
     m "Yay, there you are!"
 	elseif cl == 6 then
@@ -300,7 +300,7 @@ function ch30script()
 	elseif cl == 131 then
 		if xaload == 0 then
 			sfxplay('pageflip')
-			script_poems = require 'scripts.poems'
+			require 'scripts/poems'
 		else
 			poem('poem_m4', 'monika')
 		end
