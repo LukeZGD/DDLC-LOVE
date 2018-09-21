@@ -2,18 +2,16 @@ require 'draw'
 require 'resources'
 require 'saveload'
 require 'menu'
-require 'scripts.script'
+require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.3.2'
+	dversion = 'v0.4.0'
 	dvertype = 'Test'
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
-	unitimer = 0
-	uniduration = 0.3
 	sectimer = 0
 	xaload = 0
 	alpha = 255
@@ -30,7 +28,7 @@ function love.load()
 	
 	--os detection
 	global_os = love.system.getOS()
-	if global_os ~= 'Horizon' and global_os ~= 'HorizonNX' then 
+	if global_os ~= 'Horizon' then 
 		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
 	end
@@ -58,14 +56,6 @@ function love.draw()
 	elseif state == 'credits' then
 		drawCredits()
 	end
-	
-	if global_os ~= 'Horizon' then
-		lg.setColor(0,0,0)
-		drawTopScreen()
-		lg.rectangle('fill', 400, 0, 880, 720 )
-		drawBottomScreen()
-		lg.rectangle('fill', -40, 240, 400, 240 )
-	end
 end
 
 function love.update(dt)
@@ -81,14 +71,12 @@ function love.update(dt)
 	end
 
 	--touch(3DS only)/mouse checks
-	if global_os ~= 'HorizonNX' then
-		mouseDown = love.mouse.isDown(1)
-		mouseX = love.mouse.getX()
-		mouseY = love.mouse.getY()
-		if global_os ~= 'Horizon' then
-			mouseX = mouseX / 1.5 - 40
-			mouseY = mouseY / 1.5 - 240
-		end
+	mouseDown = love.mouse.isDown(1)
+	mouseX = love.mouse.getX()
+	mouseY = love.mouse.getY()
+	if global_os ~= 'Horizon' then
+		mouseX = mouseX / 1.5 - 40
+		mouseY = mouseY / 1.5 - 240
 	end
 	
 	--this acts as love.mousepressed
@@ -148,20 +136,6 @@ function love.keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
-end
-
---For the Switch
-function love.gamepadpressed(joy, button)
-	if button == 'dpup' then
-		button = 'up'
-	elseif button == 'dpdown' then
-		button = 'down'
-	elseif button == 'dpleft' then
-		button = 'left'
-	elseif button == 'dpright' then
-		button = 'right'
-	end
-	love.keypressed(button)
 end
 
 function love.textinput(text)

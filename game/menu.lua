@@ -53,15 +53,11 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		if pagenum == 1 then
-			itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Show Date&Time','Characters','Save Settings'}
-		elseif pagenum == 2 then
-			itemnames = {'Char. Animations','Save Settings'}
-		end
+		itemnames = {'Textbox Location','Text Speed','Auto-Forward Time','Characters','Save Settings'}
 		
 	elseif menu_type == 'settings2' then
 		menutext = 'Settings'
-		itemnames = {'Textbox Location','Show Date&Time','Char. Animations','Characters','Save Settings'}
+		itemnames = {'Textbox Location','Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
@@ -120,9 +116,7 @@ function menu_draw()
 	if menu_previous then lg.print('Back',17, 220) end
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
-		if menu_type == 'settings' and pagenum == 1 then
-			lg.print('Page 1 of 2',220,12)
-			lg.print('(<) X | Y (>)',223,27)
+		if menu_type == 'settings' then
 			lg.print(settings.textloc..' Screen',140, 45)
 			lg.print(settings.textspd, 157, 70)
 			lg.print('(<)',140,70)
@@ -130,12 +124,6 @@ function menu_draw()
 			lg.print(settings.autospd..' sec.',157, 95)
 			lg.print('(<)',140,95)
 			lg.print('(>)',198,95)
-			lg.print(settings.dtym,140, 120)
-			
-		elseif menu_type == 'settings' and pagenum == 2 then
-			lg.print('Page 2 of 2',220,12)
-			lg.print('(<) X | Y (>)',223,27)
-			lg.print(settings.animh, 140, 45)
 			
 		elseif menu_type == 'settings2' then
 			lg.print(settings.textloc..' Screen',140, 45)
@@ -285,28 +273,20 @@ function menu_confirm()
 			menu_enable(menu_previous)
 		end
 		
-	elseif menu_type == 'settings' and pagenum == 1 then
-		if m_selected == 2 or m_selected == 5 then
+	elseif menu_type == 'settings' then
+		if m_selected == 2 then
 			menu_keypressed('left')
-		elseif m_selected == 6 then
+		elseif m_selected == 5 then
 			menu_enable('characters')
-		elseif m_selected == 7 then
-			savesettings()
-			menu_enable(menu_previous)
-		end
-		
-	elseif menu_type == 'settings' and pagenum == 2 then
-		if m_selected <= 3 then
-			menu_keypressed('left')
-		else
+		elseif m_selected == 6 then
 			savesettings()
 			menu_enable(menu_previous)
 		end
 		
 	elseif menu_type == 'settings2' then
-		if m_selected <= 4 then
+		if m_selected == 2 then
 			menu_keypressed('left')
-		elseif m_selected == 5 then
+		elseif m_selected == 3 then
 			menu_enable('characters')
 		else
 			savesettings()
@@ -385,7 +365,7 @@ function menu_keypressed(key)
 		menu_previous = nil
 		
 	elseif key == 'left' or key == 'cpadleft' then
-		if menu_type == 'settings' and m_selected <= 5 and pagenum == 1 then
+		if menu_type == 'settings' and m_selected <= 4 then
 			if cpick == 'Textbox Location' then
 				if settings.textloc == 'Bottom' then
 					settings.textloc = 'Top'
@@ -402,47 +382,20 @@ function menu_keypressed(key)
 				if settings.autospd > 1 then
 					settings.autospd = settings.autospd - 1
 				end
-			elseif cpick == 'Show Date&Time' then
-				if settings.dtym == 0 then
-					settings.dtym = 1
-				else
-					settings.dtym = 0
-				end
 			end
 			
-		elseif menu_type == 'settings' and m_selected <= 2 and pagenum == 2 then
-			if cpick == 'Char. Animations' then
-				if settings.animh == 0 then
-					settings.animh = 1
-				else
-					settings.animh = 0
-				end
-			end
-			
-		elseif menu_type == 'settings2' and m_selected <= 4 then
+		elseif menu_type == 'settings2' and m_selected <= 2 then
 			if cpick == 'Textbox Location' then
 				if settings.textloc == 'Bottom' then
 					settings.textloc = 'Top'
 				else
 					settings.textloc = 'Bottom'
 				end
-			elseif cpick == 'Show Date&Time' then
-				if settings.dtym == 0 then
-					settings.dtym = 1
-				else
-					settings.dtym = 0
-				end
-			elseif cpick == 'Char. Animations' then
-				if settings.animh == 0 then
-					settings.animh = 1
-				else
-					settings.animh = 0
-				end
 			end
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
-		if menu_type == 'settings' and m_selected <= 5 and pagenum == 1 then
+		if menu_type == 'settings' and m_selected <= 4 then
 			if cpick == 'Textbox Location' then
 				menu_keypressed('left')
 			elseif cpick == 'Text Speed' then
@@ -453,16 +406,9 @@ function menu_keypressed(key)
 				if settings.autospd < 15 then
 					settings.autospd = settings.autospd + 1
 				end
-			elseif cpick == 'Show Date&Time' then
-				menu_keypressed('left')
 			end
 			
-		elseif menu_type == 'settings' and m_selected <= 2 and pagenum == 2 then
-			if cpick == 'Char. Animations' then
-				menu_keypressed('left')
-			end
-			
-		elseif menu_type == 'settings2' and m_selected <= 4 then
+		elseif menu_type == 'settings2' and m_selected <= 2 then
 			menu_keypressed('left')
 		end
 	
@@ -473,7 +419,7 @@ function menu_keypressed(key)
 		end
 		
 	elseif key == 'y' then
-		if ((menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10) or (menu_type == 'settings' and pagenum < 2) then
+		if (menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10 then
 			pagenum = pagenum + 1
 			menu_enable(menu_type)
 		end
