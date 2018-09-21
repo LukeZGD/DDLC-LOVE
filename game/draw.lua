@@ -92,16 +92,6 @@ function cgHide()
 	cgch = nil
 end
 
-function drawdatetime()
-	local tym
-	if sectimer <= 0.5 then
-		tym = os.date("%Y-%m-%d %H:%M")
-	else
-		tym = os.date("%Y-%m-%d %H %M")
-	end
-	lg.print(tym,205,220)
-end
-
 function drawTextBox()
 	if settings.textloc == 'Top' then
 		xps = {c=48,ct=63,textbox=40,namebox=52}
@@ -114,7 +104,7 @@ function drawTextBox()
 	
 	if style_edited then lg.setFont(deffont) end
 	
-	if (menu_enabled ~= true and poem_enabled ~= true) or (event_enabled and textbox_enabled) then
+	if not menu_enabled and (not poem_enabled or (event_enabled and textbox_enabled)) then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
@@ -162,107 +152,67 @@ function drawConsole()
 end
 
 function updateSayori(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	s_Set.a = a
 	s_Set.b = b
 	if xaload == 0 then loadSayori() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if s_Set.x < px then
-			s_Set.x = math.min(s_Set.x + 24, px)
-		elseif s_Set.x > px then
-			s_Set.x = math.max(s_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px then
 		s_Set.x = px
 	end
-	if py ~= nil then s_Set.y = py end
+	if py then s_Set.y = py end
 end
 
 function updateYuri(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	y_Set.a = a 
 	y_Set.b = b
 	if xaload == 0 then loadYuri() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if y_Set.x < px then
-			y_Set.x = math.min(y_Set.x + 24, px)
-		elseif y_Set.x > px then
-			y_Set.x = math.max(y_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px then
 		y_Set.x = px
 	end
-	if py ~= nil then y_Set.y = py end
+	if py then y_Set.y = py end
 end
 
 function updateNatsuki(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	n_Set.a = a
 	n_Set.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if n_Set.x < px then
-			n_Set.x = math.min(n_Set.x + 24, px)
-		elseif n_Set.x > px then
-			n_Set.x = math.max(n_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px then
 		n_Set.x = px
 	end
-	if py ~= nil then n_Set.y = py end
+	if py then n_Set.y = py end
 end
 
 function updateMonika(a,b,px,py)
-	if b == nil then b = '' end
+	if not b then b = '' end
 	m_Set.a = a
 	m_Set.b = b
 	if xaload == 0 then loadMonika() end
-	if px and autoskip < 1 and xaload > 0 and settings.animh == 1 then
-		if m_Set.x < px then
-			m_Set.x = math.min(m_Set.x + 24, px)
-		elseif m_Set.x > px then
-			m_Set.x = math.max(m_Set.x - 24, px)
-		end
-	elseif px and xaload > 0 then
+	if px then
 		m_Set.x = px
 	end
-	if py ~= nil then m_Set.y = py end
+	if py then m_Set.y = py end
 end
 
 function hideSayori()
-	if s_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		s_Set = {a='',b='',x=-200,y=0}
-		if sl then unloadSayori() end
-	elseif xaload > 0 then
-		s_Set.x = math.max(s_Set.x - 24, -200)
-	end
+	s_Set = {a='',b='',x=-200,y=0}
+	if sl then unloadSayori() end
 end
 
 function hideYuri()
-	if y_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		y_Set = {a='',b='',x=-200,y=0}
-		if yl then unloadYuri() end
-	elseif xaload > 0 then
-		y_Set.x = math.max(y_Set.x - 24, -200)
-	end
+	y_Set = {a='',b='',x=-200,y=0}
+	if yl then unloadYuri() end
 end
 
 function hideNatsuki()
-	if n_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		n_Set = {a='',b='',x=-200,y=0}
-		if nl then unloadNatsuki() end
-	elseif xaload > 0 then
-		n_Set.x = math.max(n_Set.x - 24, -200)
-	end
+	n_Set = {a='',b='',x=-200,y=0}
+	if nl then unloadNatsuki() end
 end
 
 function hideMonika()
-	if m_Set.x <= -200 or autoskip > 0 or settings.animh == 0 then
-		m_Set = {a='',b='',x=-200,y=0}
-		if ml then unloadMonika() end
-	elseif xaload > 0 then
-		m_Set.x = math.max(m_Set.x - 24, -200)
-	end
+	m_Set = {a='',b='',x=-200,y=0}
+	if ml then unloadMonika() end
 end
 
 function hideAll()

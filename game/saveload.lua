@@ -6,7 +6,7 @@ persistent = {
 	chr={m=1,s=1};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=125,textloc='Bottom',dtym=0,autospd=4,animh=0}
+settings = {textspd=125,textloc='Bottom',autospd=4}
 --default save values
 cl = 1
 bg1 = 'black'
@@ -80,7 +80,7 @@ function loadgame(x)
 end
 
 function savesettings()
-	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',dtym="..settings.dtym..",autospd="..settings.autospd..",animh="..settings.animh.."}"
+	local settingsfile = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc..",autospd="..settings.autospd.."}"
 	love.filesystem.write("settings.sav", settingsfile)
 end
 

@@ -501,6 +501,7 @@ function ch22_end()
 	updateYuri('2','g',200)
 	y "That's a concern of mine as well."
 	elseif cl == 1459 then
+	updateYuri('2','g',200)
 	y "I don't really do well with last-minute preparations..."
 	elseif cl == 1460 then
 	updateMonika('1','b')

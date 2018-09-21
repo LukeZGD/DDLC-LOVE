@@ -639,8 +639,7 @@ function Yuri_exclusive2_2_ch22()
 	elseif cl == 1283 then
     mc "Yuri...?"
 	elseif cl == 1284 then
-	updateYuri('cuts')
-	y_Set.x = 80
+	updateYuri('cuts','',80)
     y "Kya--!"
 	elseif cl == 1285 then
 	event_initstart('show_vignette')
@@ -839,7 +838,7 @@ function Yuri_exclusive2_2_ch22()
 	elseif cl == 1363 then
     bl "Our bodies are even closer to each other."
 	elseif cl == 1364 then
-	updateYuri('2','b')
+	updateYuri('2','b',80)
     y "I can't see too well..."
 	elseif cl == 1365 then
     mc "--!"
@@ -1046,8 +1045,7 @@ function Yuri_exclusive2_2_ch23()
 	audioUpdate('g1')
 	cw('y',gtext80,'nw')
 	elseif cl == 1725 then
-	updateYuri('2','n')
-	y_Set.x = 80
+	updateYuri('2','n',80)
 	event_end('yuri_ch23')
 	audioUpdate('0')
 	y "Um..."

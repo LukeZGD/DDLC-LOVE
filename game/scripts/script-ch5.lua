@@ -160,7 +160,7 @@ function ch5script()
 	elseif cl == 62 then
 		if xaload == 0 then
 			sfxplay('pageflip')
-			script_poems = require 'scripts.poems'
+			require 'scripts/poems'
 		else
 			poem('poem_s3', 'sayori')
 		end

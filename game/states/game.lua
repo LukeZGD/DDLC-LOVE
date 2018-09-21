@@ -160,7 +160,7 @@ function game_keypressed(key)
 end
 
 function newgame_keypressed(key)
-	if (key == 'a' or key == 'lbutton') and unitimer >= uniduration then 
+	if (key == 'a' or key == 'lbutton') then 
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0

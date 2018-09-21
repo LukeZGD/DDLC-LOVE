@@ -116,10 +116,8 @@ function scriptCheck()
 		Yuri_exclusive2_2_ch22()
 	elseif persistent.ptr == 0 and cl == 652 and chapter >= 2 and chapter ~= 4 then
 		poeminitialize()
-	elseif script_main then
-		loadstring('ch'..chapter..'script()')()
 	else
-		changeState('game',0)
+		loadstring('ch'..chapter..'script()')()
 	end
 end	
 
