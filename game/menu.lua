@@ -163,6 +163,7 @@ function menu_draw()
 		lg.print('Managing files: Go to Settings > Characters',16,150)
 		lg.print('Deleting save data: Delete everything in here',16,180)
 		if savedir then lg.print('> '..savedir,16,195) end
+	end
 end
 
 function menu_update(dt)
