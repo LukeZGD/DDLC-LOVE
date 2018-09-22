@@ -164,12 +164,18 @@ function menu_draw()
 		end
 		
 	elseif menu_type == 'help' then
+		local keys = {}
+		if global_os == 'Vita' then
+			keys = {'Cross','Circle','Square','Triangle'}
+		else
+			keys = {'A','B','X','Y'}
+		end
 		lg.setColor(0,0,0)
 		lg.print('Key Bindings:',160,120)
-		lg.print('A, L Trigger - Advances through the game, activates menu choices',160,160)
-		lg.print('B - Exit Menu, AutoForward On/Off',160,190)
-		lg.print('X - (Menu) Previous Page, Skipping On/Off',160,220)
-		lg.print('Y - (Menu) Next Page, Enter Game Menu',160,250)
+		lg.print(keys[1]..', L Trigger - Advances through the game, activates menu choices',160,160)
+		lg.print(keys[2]..' - Exit Menu, AutoForward On/Off',160,190)
+		lg.print(keys[3]..' - (Menu) Previous Page, Skipping On/Off',160,220)
+		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
 		lg.print('Managing files: Go to Settings > Characters',160,300)
 		lg.print('Deleting save data: Delete everything in here > '..savedir,160,330)
 		
@@ -197,13 +203,12 @@ function menu_confirm()
 	if menu_type == 'title' then --title screen options
 		menu_previous = 'title'
 		
-		--set player name to MC if not on 3DS
-		--if global_os ~= 'Horizon' then
+		if global_os == 'HorizonNX' or g_system == 'Switch' then
 			player = 'MC'
-		--end
+		end
 		
 		if m_selected == 2 then --new game
-			if player == '' and global_os ~= 'Horizon' then --keyboard input for player name
+			if player == '' and global_os == 'Vita' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
 			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
@@ -358,7 +363,7 @@ function menu_keypressed(key)
 		m_select()
 		
 	elseif key == 'a' then
-		if alpha == 255 then menu_confirm() end
+		menu_confirm()
 		
 	elseif key == 'b' then
 		if menu_type == 'pause' or menu_type == 'pause2' then

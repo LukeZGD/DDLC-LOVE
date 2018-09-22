@@ -6,7 +6,7 @@ require 'scripts/script'
 
 function love.load() 
 	dversion = 'v0.4.0'
-	dvertype = 'Test'
+	dvertype = 'Release'
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
@@ -25,7 +25,7 @@ function love.load()
 	
 	--os detection
 	global_os, g_system = love.system.getOS()
-	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' and global_os ~= 'PSP' then
+	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' then
 		love.window.setMode(1280, 720)
 		love.window.setTitle('DDLC-LOVE')
 	end
