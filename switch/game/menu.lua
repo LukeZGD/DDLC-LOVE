@@ -203,13 +203,14 @@ function menu_confirm()
 	if menu_type == 'title' then --title screen options
 		menu_previous = 'title'
 		
-		if global_os == 'HorizonNX' or g_system == 'Switch' then
-			player = 'MC'
-		end
-		
 		if m_selected == 2 then --new game
-			if player == '' and global_os == 'Vita' then --keyboard input for player name
-				love.keyboard.setTextInput(true)
+			if player == '' then --keyboard input for player name
+				if global_os == 'Vita' then
+					love.keyboard.setTextInput(true)
+				else
+					require 'ingamekeys'
+					ingamekeys = true
+				end
 			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
 			end

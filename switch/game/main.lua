@@ -8,7 +8,8 @@ function love.load()
 	dversion = 'v0.4.0'
 	dvertype = 'Release'
 	
-	lg.setBackgroundColor(0,0,0)	
+	love.keyboard.setTextInput(false)
+	lg.setBackgroundColor(0,0,0)
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
 	autoskip = 0
@@ -98,6 +99,8 @@ function love.keypressed(key)
 		elseif (state == 'load' or state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
 			game_quit()
 		end
+	elseif ingamekeys then
+		ingamekeys_keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
@@ -116,15 +119,13 @@ function love.gamepadpressed(joy, button)
 	love.keypressed(button)
 end
 function love.textinput(text)
-	if global_os == 'Horizon' then
-		if text ~= '' then 
-			player = text
-			savepersistent()
-			cl = 1
-			changeState('game',1)
-		else
-			changeState('title')
-		end
+	if text ~= '' then 
+		player = text
+		savepersistent()
+		cl = 1
+		changeState('game',1)
+	else
+		changeState('title')
 	end
 end
 
