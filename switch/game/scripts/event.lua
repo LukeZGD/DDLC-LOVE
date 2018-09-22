@@ -91,8 +91,8 @@ function event_start(etype, arg1)
 		textbox_enabled = false
 	elseif event_type == 'monika_end' then
 		eventvar1 = 200
-		eventvar2 = love.math.random(1,8)*50
-		eventvar3 = love.math.random(1,8)*50
+		eventvar2 = math.random(1,8)*50
+		eventvar3 = math.random(1,8)*50
 		eventvar5 = 0
 		textbox_enabled = false
 		if arg1 == 2 then

@@ -29,8 +29,8 @@ function event_update_3(dt)
 	if event_type == 'monika_end' then
 		eventvar5 = eventvar5 + dt
 		if eventvar5 >= 0.25 then
-			eventvar2 = love.math.random(1,8)*150
-			eventvar3 = love.math.random(1,8)*150
+			eventvar2 = math.random(1,8)*150
+			eventvar3 = math.random(1,8)*150
 			eventvar5 = 0
 		end
 		if event_timer >= 0.73 then

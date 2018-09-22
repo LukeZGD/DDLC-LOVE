@@ -644,7 +644,6 @@ function ch40script()
 	elseif cl == 253 then
 	updateSayori('1','a')
     s "There's actually something else."
-	changeState('credits',1)
 	
 	elseif cl >= 254 and cl < 500 then
 		if xaload == 0 and cl == 254 then
