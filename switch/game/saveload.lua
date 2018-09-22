@@ -71,12 +71,20 @@ end
 
 function loadgame(x)
 	local savfile
-	if x == 'autoload' then
-		savfile = loadstring(love.filesystem.read("save-autoload.sav"))
+	if global_os == 'Vita' then
+		if x == 'autoload' then
+			love.filesystem.load("save-autoload.sav")
+		else
+			love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
+		end
 	else
-		savfile = loadstring(love.filesystem.read("save"..savenumber.."-"..persistent.ptr..".sav"))
+		if x == 'autoload' then
+			savfile = loadstring(love.filesystem.read("save-autoload.sav"))
+		else
+			savfile = loadstring(love.filesystem.read("save"..savenumber.."-"..persistent.ptr..".sav"))
+		end
+		savfile()
 	end
-	savfile()
 end
 
 function savesettings()
@@ -102,8 +110,13 @@ sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 end
 
 function loadpersistent()
-	local pfile = loadstring(love.filesystem.read('persistent'))
-	local settingsfile = loadstring(love.filesystem.read('settings.sav'))
-	if pfile then pfile() end
-	if settingsfile then settingsfile() end
+	if global_os == 'Vita' then
+		love.filesystem.load('persistent')
+		love.filesystem.load('settings.sav')
+	else
+		local pfile = loadstring(love.filesystem.read('persistent'))
+		local settingsfile = loadstring(love.filesystem.read('settings.sav'))
+		if pfile then pfile() end
+		if settingsfile then settingsfile() end
+	end
 end

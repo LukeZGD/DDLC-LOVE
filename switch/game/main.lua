@@ -8,7 +8,6 @@ function love.load()
 	dversion = 'v0.4.0'
 	dvertype = 'Release'
 	
-	love.keyboard.setTextInput(false)
 	lg.setBackgroundColor(0,0,0)
 	myTextStartTime = love.timer.getTime()
 	autotimer = 0
@@ -29,6 +28,7 @@ function love.load()
 	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' then
 		love.window.setMode(1280, 720)
 		love.window.setTitle('DDLC-LOVE')
+		love.keyboard.setTextInput(false)
 	end
 	
 	changeState('load')
