@@ -60,14 +60,12 @@ function checkLoad()
 	end
 	if global_os == 'Horizon' then
 		savedir = 'sdmc:/3ds/data/LovePotion/DDLC-3DS/'
-	elseif global_os == 'HorizonNX' then
-		savedir = 'sdmc:/switch/DDLC-3DS/'
 	else
 		savedir = '%appdata%\\LOVE\\DDLC-3DS\\'
 	end
 	
 	local ghostmenu_chance = math.random(0, 63)
-	if persistent.playthrough or settings.animh == nil then
+	if persistent.playthrough or settings.dtym then
 		err = 'Error!\nOld save data detected, and it is not compatible with this version.'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
