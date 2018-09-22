@@ -53,6 +53,7 @@ function drawSplash()
 		lg.setColor(64,64,64,alpha)
 		lg.print('Unofficial port by LukeeGD',985,10)
 		menu_draw()
+		if ingamekeys then ingamekeys_draw() end
 	end
 	lg.setColor(0,0,0,255)
 end

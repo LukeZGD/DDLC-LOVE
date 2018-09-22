@@ -32,6 +32,7 @@ function updateLoad()
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext, 'static')
 		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext, 'static')
+		keysbox = lg.newImage("images/gui/box.png")
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
