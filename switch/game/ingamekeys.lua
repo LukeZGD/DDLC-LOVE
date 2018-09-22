@@ -44,7 +44,7 @@ function ingamekeys_draw()
 		end
 	end
 	lg.draw(keysbox,(keycursorX*50)+282,(keycursorY*50)+250)
-	lg.print("L Trigger - Toggle Caps Lock",290,500)
+	lg.print("Y - Toggle Caps Lock",290,500)
 end
 
 function ingamekeys_keypressed(key)
@@ -80,7 +80,7 @@ function ingamekeys_keypressed(key)
 		end
 	elseif key == 'b' then
 		textinput = string.sub(textinput,1,string.len(textinput)-1)
-	elseif key == 'l' or key == 'lbutton' then
+	elseif key == 'y' then
 		caps = not caps
 	end
 end
