@@ -1,4 +1,4 @@
-function poem(poemname, author, continue)
+function poem(poemname, author, cont)
 	poem_enabled = true
 
 	if poemname == 'poem_y1' then
@@ -548,11 +548,11 @@ Not all good times must come to an end.]]
 	else poemtext = ''
 	end
 	
-	if continue == nil then continue = 0 end
+	if cont == nil then cont = 0 end
 	
-	if xaload == 0 and continue > 1 then
-		poembg = lg.newImage('images/bg/poem'..continue..'.png')
-	elseif xaload == 0 and continue < 1 then
+	if xaload == 0 and cont > 1 then
+		poembg = lg.newImage('images/bg/poem'..cont..'.png')
+	elseif xaload == 0 and cont < 1 then
 		sfxplay('pageflip')
 		poembg = lg.newImage('images/bg/poem.png')
 		if author == 'yuri' then
