@@ -169,22 +169,22 @@ function updateMonika(a,b,px,py)
 end
 
 function hideSayori()
-	s_Set = {a='',b='',x=-400,y=0}
+	s_Set = {a='',b='',x=-400,y=4}
 	if sl then unloadSayori() end
 end
 
 function hideYuri()
-	y_Set = {a='',b='',x=-400,y=0}
+	y_Set = {a='',b='',x=-400,y=4}
 	if yl then unloadYuri() end
 end
 
 function hideNatsuki()
-	n_Set = {a='',b='',x=-400,y=0}
+	n_Set = {a='',b='',x=-400,y=4}
 	if nl then unloadNatsuki() end
 end
 
 function hideMonika()
-	m_Set = {a='',b='',x=-400,y=0}
+	m_Set = {a='',b='',x=-400,y=4}
 	if ml then unloadMonika() end
 end
 
