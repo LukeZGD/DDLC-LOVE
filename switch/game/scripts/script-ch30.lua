@@ -394,8 +394,12 @@ function ch30script()
 		else
 			if love.filesystem.getInfo('monikatopics.sav') then
 				--load monika topics
-				local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
-				topicsfile()
+				if global_os == 'Vita' then
+					love.filesystem.load('monikatopics.sav')
+				else
+					local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
+					topicsfile()
+				end
 			else
 				--new monika topics
 				monikatopics = {}
