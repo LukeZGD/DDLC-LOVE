@@ -90,7 +90,6 @@ function drawCredits()
 	
 	lg.setColor(255,255,255)
 	lg.setFont(allerfont)
-	lg.print(math.floor(c_timer).." "..love.mouse.getX()..","..love.mouse.getY())
 	drawConsole()
 end
 

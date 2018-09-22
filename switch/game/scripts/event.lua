@@ -172,12 +172,10 @@ function event_draw()
 	if event_type == 'ch23-30' then
 		lg.draw(bgch)
 		lg.draw(cgch)
-		if xaload > 0 then
-			drawSayori()
-			drawYuri()
-			drawNatsuki()
-			drawMonika()
-		end
+		drawSayori()
+		drawYuri()
+		drawNatsuki()
+		drawMonika()
 		drawConsole()
 		if poem_enabled then drawPoem()	end
 	end
@@ -185,7 +183,7 @@ function event_draw()
 	lg.setColor(255,255,255,255)
 	lg.setFont(allerfont)
 	if textbox_enabled then
-		lg.print(cl,5,5)
+		lg.print(cl,5,690)
 		drawTextBox()	
 	end
 	
