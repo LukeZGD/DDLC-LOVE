@@ -162,11 +162,7 @@ function menu_draw()
 		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
 		lg.print('Managing files: Go to Settings > Characters',16,150)
 		lg.print('Deleting save data: Delete everything in here',16,180)
-		lg.print('> '..savedir,16,195)
-		
-	elseif menu_type == 'pause' or menu_type == 'pause2' then
-		if settings.dtym == 1 then drawdatetime() end
-	end	
+		if savedir then lg.print('> '..savedir,16,195) end
 end
 
 function menu_update(dt)
