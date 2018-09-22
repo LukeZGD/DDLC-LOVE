@@ -1121,8 +1121,12 @@ function ch22_m_end()
 	scriptJump(737)
 	elseif cl == 737 then
 	poem_disable()
-	audioUpdate('0')
-	pause(2.5)
+	if global_os == 'Vita' or global_os == 'PSP' then
+		scriptJump(738)
+	else
+		audioUpdate('0')
+		pause(2.5)
+	end
 	elseif cl == 738 then
 	audioUpdate('5')
 	updateMonika('5a')

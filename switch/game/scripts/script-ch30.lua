@@ -49,10 +49,14 @@ function ch30script()
 	elseif cl == 14 then
     m "Or..."
 	elseif cl == 15 then
-	if global_os == 'Horizon' and xaload <= 2 then
+	if (global_os == 'HorizonNX' or g_system == 'Switch' or global_os == 'Vita' or global_os == 'PSP') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
-    cw('m',"...Do you actually go by "..currentuser.." or something?")
+    if currentuser then
+		cw('m',"...Do you actually go by "..currentuser.." or something?")
+	else
+		cw('m',"...I can't get your name for some reason.. Anyway!")
+	end
 	elseif cl == 16 then
     m "Now that I think about it, I don't really know anything about the real you."
 	elseif cl == 17 then
