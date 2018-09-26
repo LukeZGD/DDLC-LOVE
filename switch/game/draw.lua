@@ -207,7 +207,7 @@ function drawSayori()
 	end
 	
 	if s_Set.b~='' then
-		if s_a then lg.draw(s_a, s_Set.x, s_Set.y) end
+		if s_a then lg.draw(s_a, s_Set.x, s_Set.y+1) end
 	end
 end
 
@@ -218,7 +218,7 @@ function drawYuri()
 	end
 	
 	if y_Set.b~='' then
-		lg.draw(y_a, y_Set.x, y_Set.y)
+		lg.draw(y_a, y_Set.x, y_Set.y+1)
 	end
 end
 
@@ -232,7 +232,7 @@ function drawNatsuki()
 	end
 	
 	if n_Set.b~='' then
-		lg.draw(n_a, nxh, nyh)
+		lg.draw(n_a, nxh, nyh+1)
 	end
 	
 	lg.draw(nl, n_Set.x, n_Set.y)
@@ -248,6 +248,6 @@ function drawMonika()
 	end
 	
 	if m_Set.b ~= '' then
-		lg.draw(m_a, m_Set.x, m_Set.y)
+		lg.draw(m_a, m_Set.x, m_Set.y+1)
 	end
 end

@@ -245,7 +245,7 @@ function ch30script()
 	elseif cl == 105 then
     m "It kind of freaked me out, how easy it was."
 	elseif cl == 106 then
-    m "Well, you're playing on 3DS, so it was actually a bit less difficult..."
+    cw('m',"Well, you're playing on "..global_os..", so it was actually a bit less difficult...")
 	elseif cl == 107 then
     m "I had to go to 'Settings' and find the 'Characters' button..."
 	elseif cl == 108 then
@@ -734,7 +734,7 @@ function ch30_reload_2()
 	elseif cl == 179 then
     m "I'm pretty sure you can find it in the folder called characters."
 	elseif cl == 180 then
-    m "Well, you're playing on 3DS, so you can just go to 'Settings' and find the 'Characters' button."
+    cw('m',"Well, you're playing on "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
 	elseif cl == 181 then
     m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
 	elseif cl == 182 then
@@ -782,7 +782,7 @@ function ch30_reload_4()
 	elseif cl == 196 then
     m "It's in the characters folder."
 	elseif cl == 197 then
-    m "Well, you're playing on 3DS, so you can just go to 'Settings' and find the 'Characters' button."
+    cw('m',"Well, you're playing on "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
 	elseif cl == 198 then
     m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
 	elseif cl == 199 then
