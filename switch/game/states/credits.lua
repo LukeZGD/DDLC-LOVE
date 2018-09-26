@@ -9,7 +9,7 @@ local ra6 = 460
 
 function loadCredits(x)
 	if x ~= 1 then
-		logo = lg.newImage('images/gui/logo.png')
+		logo = lg.newImage('images/cg/credits/ddlc.png')
 		
 		audioUpdate('credits')
 		c_timer = 0
@@ -38,7 +38,7 @@ function drawCredits()
 		lg.rectangle('fill',ra5,400,960,60)
 		lg.rectangle('fill',ra6,450,960,60)
 	elseif c_timer < 60 then
-		lg.draw(logo,384,325)
+		lg.draw(logo)
 	elseif c_timer < 165 then
 		lg.draw(nats1, 600, 750 - c_timer2)
 		lg.draw(nats2, 80, 1536 - c_timer2)

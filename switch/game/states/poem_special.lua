@@ -17,7 +17,7 @@ function poem_special_i(poem)
 	elseif p_number == 12 then
 		poemsp.topimg = lg.newImage('images/poem_special/poem_end.png')
 	elseif p_number == 13 then
-		poemsp.topimg = lg.newImage('images/poem_special/poem_end_clearall1.png')
+		poemsp.topimg = lg.newImage('images/poem_special/poem_end_clearall.png')
 		poemsp.topX = 0
 	else
 		poemsp.topimg = lg.newImage('images/poem_special/poem_special'..p_number..'.png')
