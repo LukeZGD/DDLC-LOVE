@@ -269,7 +269,7 @@ function event_update_2(dt)
 	end
 	
 	if event_type == 'yuri_glitch_head' then
-		if unitimer < uniduration then event_timer = 0 end
+		if xaload < 5 then event_timer = 0 end
 		if eventvar1 == 2 and cl == 1560 and event_timer <= 1.3 then
 			if event_timer >= 0.5 and event_timer <= 0.53 then
 				xaload = 0
