@@ -164,7 +164,6 @@ function newgame_keypressed(key)
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
-		unitimer = 0
 		collectgarbage()
 		collectgarbage()
 	end

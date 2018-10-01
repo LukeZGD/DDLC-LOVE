@@ -142,7 +142,6 @@ end
 
 function scriptJump(nu, fu, au)
 	xaload = -1
-	unitimer = 0
 	if nu then cl = nu end
 	if au then
 		autotimer = au
@@ -303,7 +302,6 @@ end
 function event_endnext()
 	cl = cl + 1
 	xaload = 0
-	unitimer = 0
 	collectgarbage()
 	collectgarbage()
 end
