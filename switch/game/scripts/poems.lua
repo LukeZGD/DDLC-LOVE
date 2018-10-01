@@ -551,7 +551,7 @@ Not all good times must come to an end.]]
 	if cont == nil then cont = 0 end
 	
 	if xaload == 0 and cont > 1 then
-		poembg = lg.newImage('images/bg/poem'..cont..'.png')
+		--poembg = lg.newImage('images/bg/poem'..cont..'.png')
 	elseif xaload == 0 and cont < 1 then
 		sfxplay('pageflip')
 		poembg = lg.newImage('images/bg/poem.png')
@@ -560,7 +560,7 @@ Not all good times must come to an end.]]
 				poembg = lg.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				poembg = lg.newImage('images/bg/poem1.png')
+				--poembg = lg.newImage('images/bg/poem1.png')
 				audioUpdate('5_yuri2')
 			else
 				audioUpdate('5_yuri')
