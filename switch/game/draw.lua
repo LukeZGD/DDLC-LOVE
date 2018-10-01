@@ -100,6 +100,9 @@ end
 function drawPoem()
 	if poembg then
 		lg.draw(poembg, 240, 0)
+	elseif yuri_3 then
+		lg.setColor(255,0,0,192)
+		lg.rectangle('fill',240,0,800,720)
 	else
 		lg.setColor(243,243,243)
 		lg.rectangle('fill',240,0,800,720)
