@@ -55,7 +55,11 @@ function ch21script(dt)
 	elseif cl == 308 then
 	event_initstart('n_glitch1')
     elseif cl == 309 then
-	updateNatsuki('4','e',200,4)
+	if is3DS then
+		updateNatsuki('4','e',200,0)
+	else
+		updateNatsuki('4','e',200,4)
+	end
     n "Oh, come on! Like he deserves any slack."
 	elseif cl == 310 then
     n "You already had to be dragged here by Monika."
