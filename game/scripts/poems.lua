@@ -595,9 +595,9 @@ end
 function poem_disable(x)
 	poem_enabled = false
 	poembg = nil
-	if x==nil or x==1 then
+	if not x or x == 1 then
 		audioUpdate('5')
-	elseif x==0 then
+	elseif x == 0 then
 		audioUpdate('0')
 	end
 end
