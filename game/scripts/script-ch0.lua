@@ -930,7 +930,7 @@ function ch0script()
 	--NEW GAME
 	if cl == 10016 then 
 		bgUpdate('warning')
-		cw('bl','This is an unofficial port of Doki Doki Literature Club. If you are using a New 3DS/2DS, turn off L2 cache.')
+		cw('bl','This is an unofficial port of Doki Doki Literature Club.')
 	elseif cl == 10017 then
 		cw('bl','This port, or the original game is not suitable for children or those who are easily disturbed.')
 	elseif cl == 10018 then

@@ -6,6 +6,7 @@ local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
+is3DS = true
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
