@@ -329,7 +329,12 @@ function ch23script()
 	updateYuri('2','u')
     y "Um... Thank you for understanding, Monika."
 	elseif cl == 1721 then
-	event_initstart('wipe','club_day2')
+	if global_os == 'Vita' or global_os == 'PSP' then
+		hideAll()
+		scriptJump(1722)
+	else
+		event_initstart('wipe','club_day2')
+	end
 	elseif cl == 1722 then
     if poemwinner[3] == "Natsuki" then
         poemwinner[3] = "Yuri"

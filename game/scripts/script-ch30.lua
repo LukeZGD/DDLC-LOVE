@@ -8,6 +8,12 @@ local gtext12 = glitchtext(12)
 local gtext30 = glitchtext(30)
 local gtext70 = glitchtext(70)
 
+local zfile = 'getInfo'
+local zzfile
+if is3DS then
+	zfile = 'isFile'
+end
+
 poemwinner = {'','',''}
 savevalue = ''
 
@@ -49,10 +55,14 @@ function ch30script()
 	elseif cl == 14 then
     m "Or..."
 	elseif cl == 15 then
-	if global_os == 'Horizon' and xaload <= 2 then
+	if (global_os == 'Horizon' or global_os == 'HorizonNX' or g_system == 'Switch' or global_os == 'Vita' or global_os == 'PSP') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
-    cw('m',"...Do you actually go by "..currentuser.." or something?")
+    if currentuser then
+		cw('m',"...Do you actually go by "..currentuser.." or something?")
+	else
+		cw('m',"...I can't get your name for some reason.. Anyway!")
+	end
 	elseif cl == 16 then
     m "Now that I think about it, I don't really know anything about the real you."
 	elseif cl == 17 then
@@ -241,7 +251,7 @@ function ch30script()
 	elseif cl == 105 then
     m "It kind of freaked me out, how easy it was."
 	elseif cl == 106 then
-    m "Well, you're playing on 3DS, so it was actually a bit less difficult..."
+    cw('m',"Well, you're playing on "..global_os..", so it was actually a bit less difficult...")
 	elseif cl == 107 then
     m "I had to go to 'Settings' and find the 'Characters' button..."
 	elseif cl == 108 then
@@ -392,10 +402,19 @@ function ch30script()
 			
 			scriptJump(205)
 		else
-			if love.filesystem.isFile('monikatopics.sav') then
+			if is3DS then
+				zzfile = love.filesystem.isFile('monikatopics.sav')
+			else
+				zzfile = love.filesystem.getInfo('monikatopics.sav')
+			end
+			if zzfile then
 				--load monika topics
-				local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
-				topicsfile()
+				if global_os == 'Vita' then
+					love.filesystem.load('monikatopics.sav')
+				else
+					local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
+					topicsfile()
+				end
 			else
 				--new monika topics
 				monikatopics = {}
@@ -467,7 +486,7 @@ function ch30_end()
 	elseif cl == 1062 then
 	cw(gtext12,"Please hurry and help me.")
 	elseif cl == 1063 then
-    updateConsole("isFile(\"characters/monika.chr\")")
+    updateConsole(zfile.."(\"characters/monika.chr\")")
 	pause(2)
 	elseif cl == 1064 then
     updateConsole("_", "monika.chr does not exist.")
@@ -481,13 +500,13 @@ function ch30_end()
 	event_initstart('monika_end','show_noise')
 	pause(3)
 	elseif cl == 1068 then
-	updateConsole("isFile(\"characters/monika.chr\")","monika.chr does not exist.")
+	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1069 then
 	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
 	pause(1)
 	elseif cl == 1070 then
-	updateConsole("isFile(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1071 then
 	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
@@ -726,7 +745,7 @@ function ch30_reload_2()
 	elseif cl == 179 then
     m "I'm pretty sure you can find it in the folder called characters."
 	elseif cl == 180 then
-    m "Well, you're playing on 3DS, so you can just go to 'Settings' and find the 'Characters' button."
+    cw('m',"Well, you're playing on "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
 	elseif cl == 181 then
     m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
 	elseif cl == 182 then
@@ -774,7 +793,7 @@ function ch30_reload_4()
 	elseif cl == 196 then
     m "It's in the characters folder."
 	elseif cl == 197 then
-    m "Well, you're playing on 3DS, so you can just go to 'Settings' and find the 'Characters' button."
+    cw('m',"Well, you're playing on "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
 	elseif cl == 198 then
     m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
 	elseif cl == 199 then

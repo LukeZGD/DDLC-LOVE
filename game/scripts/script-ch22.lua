@@ -758,7 +758,12 @@ function ch22_end()
 	audioUpdate('9g')
     y "Nobody would cry if she killed herself."
 	elseif cl == 1560 then
-	audioUpdate('0')
+	if global_os == 'Vita' or global_os == 'PSP' then
+		scriptJump(1561)
+		event_end()
+	else
+		audioUpdate('0')
+	end
 	elseif cl == 1561 then
 	audioUpdate('9')
 	updateYuri('2','l')
