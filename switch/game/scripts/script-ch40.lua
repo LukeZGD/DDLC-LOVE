@@ -1,4 +1,8 @@
 local gtext120 = glitchtext(120)
+local endx = 25
+if is3DS then
+	endx = 100
+end
 appeal = {s=0,n=0,y=0}
 
 function ch40script()
@@ -753,7 +757,7 @@ function ch40_clearnormal()
 	menutext = 'No...'
 	choice_enable('dialog')
 	elseif cl == 279 then
-	updateSayori('end-glitch1','',100)
+	updateSayori('end-glitch1','',endx)
     s "...Eh?"
 	elseif cl == 280 then
     s "W-What's happening...?"
@@ -761,7 +765,7 @@ function ch40_clearnormal()
 	menutext = "I won't let you hurt him."
 	choice_enable('dialog')
 	elseif cl == 282 then
-	updateSayori('end-glitch2','',100)
+	updateSayori('end-glitch2','',endx)
     s "Who..."
 	elseif cl == 283 then
     s "I-It hurts--"

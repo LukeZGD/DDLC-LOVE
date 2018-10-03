@@ -6,6 +6,10 @@ local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
+local is3DS = false
+if global_os == 'Horizon' and g_system ~= 'Switch' then
+	is3DS = true
+end
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
