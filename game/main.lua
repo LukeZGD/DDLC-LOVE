@@ -5,7 +5,7 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.4.0'
+	dversion = 'v0.4.2'
 	dvertype = 'Release'
 	
 	lg.setBackgroundColor(0,0,0)	
@@ -31,6 +31,7 @@ function love.load()
 	if global_os ~= 'Horizon' then 
 		love.window.setMode(600, 720) 
 		love.window.setTitle('DDLC-3DS')
+		love.keyboard.setTextInput(false)
 	end
 	
 	changeState('load')
@@ -139,15 +140,13 @@ function love.keypressed(key)
 end
 
 function love.textinput(text)
-	if global_os == 'Horizon' then
-		if text ~= '' then 
-			player = text
-			savepersistent()
-			cl = 1
-			changeState('game',1)
-		else
-			changeState('title')
-		end
+	if text ~= '' then 
+		player = text
+		savepersistent()
+		cl = 1
+		changeState('game',1)
+	else
+		changeState('title')
 	end
 end
 

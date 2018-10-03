@@ -162,20 +162,20 @@ function menu_draw()
 		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
 		lg.print('Managing files: Go to Settings > Characters',16,150)
 		lg.print('Deleting save data: Delete everything in here',16,180)
-		if savedir then lg.print('> '..savedir,16,195) end
+		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
 	end
 end
 
 function menu_update(dt)
 	if menu_fadeout then
-		menu_alpha = math.max(menu_alpha - 15, 0)
+		menu_alpha = math.max(menu_alpha - dt*1000, 0)
 		if menu_alpha == 0 then
 			menu_enabled = false
 			menu_previous = nil
 			menu_fadeout = false
 		end
 	else
-		menu_alpha = math.min(menu_alpha + 15, 255)
+		menu_alpha = math.min(menu_alpha + dt*1000, 255)
 	end
 end
 
