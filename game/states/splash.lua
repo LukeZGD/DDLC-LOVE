@@ -26,15 +26,7 @@ function drawSplash()
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-3DS '..dversion..' '..dvertype,0,205)
-		if global_os == 'Horizon' then
-			running = 'LovePotion 3DS 1.0.9'
-		elseif global_os == 'HorizonNX' then
-			running = 'LovePotion Switch 1.0.1'
-		else
-			local major, minor, revision, codename = love.getVersion()
-			running = string.format('LOVE %d.%d.%d', major, minor, revision)
-		end
-		lg.print('Running in '..running,0,220)
+		lg.print('Running in LOVE / LovePotion',0,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
