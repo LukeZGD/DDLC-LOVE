@@ -447,7 +447,11 @@ function ch21script(dt)
     elseif cl == 1008 then
     m "..."
 	elseif cl == 1009 then
-	updateMonika('1','m',80)
+	if is3DS then
+		updateMonika('1','m',30)
+	else
+		updateMonika('1','m',80)
+	end
     m "Um..."
     elseif cl == 1010 then
     cw('m',"Hey, "..player.."...")
@@ -459,7 +463,7 @@ function ch21script(dt)
 	elseif cl == 1013 then
 	event_end('ny_argument2')
 	bgUpdate('corridor')
-	updateMonika('1','n')
+	updateMonika('1','n',80)
 	m "Sorry about that..."
 	elseif cl == 1014 then
     m "They really shouldn't have tried to get you involved."

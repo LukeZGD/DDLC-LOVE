@@ -8,6 +8,12 @@ local gtext12 = glitchtext(12)
 local gtext30 = glitchtext(30)
 local gtext70 = glitchtext(70)
 
+local zfile = 'getInfo'
+local zzfile
+if is3DS then
+	zfile = 'isFile'
+end
+
 poemwinner = {'','',''}
 savevalue = ''
 
@@ -49,7 +55,7 @@ function ch30script()
 	elseif cl == 14 then
     m "Or..."
 	elseif cl == 15 then
-	if (global_os == 'HorizonNX' or g_system == 'Switch' or global_os == 'Vita' or global_os == 'PSP') and xaload <= 2 then
+	if (global_os == 'Horizon' or global_os == 'HorizonNX' or g_system == 'Switch' or global_os == 'Vita' or global_os == 'PSP') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
     if currentuser then
@@ -396,7 +402,12 @@ function ch30script()
 			
 			scriptJump(205)
 		else
-			if love.filesystem.getInfo('monikatopics.sav') then
+			if is3DS then
+				zzfile = love.filesystem.isFile('monikatopics.sav')
+			else
+				zzfile = love.filesystem.getInfo('monikatopics.sav')
+			end
+			if zzfile then
 				--load monika topics
 				if global_os == 'Vita' then
 					love.filesystem.load('monikatopics.sav')
@@ -475,7 +486,7 @@ function ch30_end()
 	elseif cl == 1062 then
 	cw(gtext12,"Please hurry and help me.")
 	elseif cl == 1063 then
-    updateConsole("getInfo(\"characters/monika.chr\")")
+    updateConsole(zfile.."(\"characters/monika.chr\")")
 	pause(2)
 	elseif cl == 1064 then
     updateConsole("_", "monika.chr does not exist.")
@@ -489,13 +500,13 @@ function ch30_end()
 	event_initstart('monika_end','show_noise')
 	pause(3)
 	elseif cl == 1068 then
-	updateConsole("getInfo(\"characters/monika.chr\")","monika.chr does not exist.")
+	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1069 then
 	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
 	pause(1)
 	elseif cl == 1070 then
-	updateConsole("getInfo(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1071 then
 	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
