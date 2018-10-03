@@ -570,8 +570,10 @@ function ch3_y_end()
 				poem('poem_y3','yuri')
 			elseif cl == 769 then
 				poem('poem_y3-a','yuri',1)
-			elseif cl == 770 then
+			elseif cl == 770 and is3DS then
 				poem('poem_y3-b','yuri',1)
+			elseif cl == 770 then
+				scriptJump(771)
 			elseif cl == 771 then
 				poem_disable()
 				updateYuri('2','v')
@@ -1363,8 +1365,10 @@ function ch2_n_end()
 		poem('poem_n2','natsuki')
 	elseif cl == 761 then
 		poem('poem_n2-a','natsuki',1)
-	elseif cl == 762 then
+	elseif cl == 762 and is3DS then
 		poem('poem_n2-b','natsuki',1)
+	elseif cl == 762 then
+		scriptJump(763)
 	elseif cl == 763 then
 		poem_disable()
 		updateNatsuki('2','a')
@@ -2132,6 +2136,8 @@ function ch3_n_end()
 			elseif cl == 761 then
 				poem('poem_n3-a','natsuki',1)
 			elseif cl == 762 then
+				scriptJump(764)
+			elseif cl == 762 and is3DS then
 				poem('poem_n3-b','natsuki',1)
 			elseif cl == 763 then
 				poem('poem_n3-c','natsuki',1)
@@ -2222,8 +2228,10 @@ function ch3_n_end_special()
 		poem('poem_n3b','natsuki')
 	elseif cl == 761 then
 		poem('poem_n3b-a','natsuki',1)
-	elseif cl == 762 then
+	elseif cl == 762 and is3DS then
 		poem('poem_n3b-b','natsuki',1)
+	elseif cl == 762 or cl == 763 then
+		scriptJump(764)
 	elseif cl == 764 then
 		poem_disable()
 		updateNatsuki('1','q')
@@ -2935,8 +2943,10 @@ function ch1_s_shared()
         cw('mc',"We'll see about that.")
 	elseif cl == 724 then
 		poem('poem_s1','sayori')
-	elseif cl == 725 then
+	elseif cl == 725 and is3DS then
 		poem('poem_s1-a','sayori',1)
+	elseif cl == 725 then
+		scriptJump(726)
 	elseif cl == 726 then
 		poem_disable()
 		cw('mc',"Sayori...")
@@ -3231,8 +3241,10 @@ function ch2_s_end()
 		poem('poem_s2-a','sayori',1)
 	elseif cl == 756 then
 		poem('poem_s2-b','sayori',1)
-	elseif cl == 757 then
+	elseif cl == 757 and is3DS then
 		poem('poem_s2-c','sayori',1)
+	elseif cl == 757 then
+		scriptJump(758)
 	elseif cl == 758 then
 		poem_disable()
 		cw('mc',"Holy crap...")
@@ -4151,8 +4163,10 @@ function ch1_m_end()
 		cw('mc',"Well, let's read it, then.")
 	elseif cl == 748 then
 		poem('poem_m1','monika')
-	elseif cl == 749 then
+	elseif cl == 749 and is3DS then
 		poem('poem_m1-a','monika',1)
+	elseif cl == 749 then
+		scriptJump(750)
 	elseif cl >= 750 then
 		ch1_m_end2()
 	end
@@ -4173,6 +4187,8 @@ function ch2_m_end()
 	elseif cl == 735 then
 		poem('poem_m2-a','monika',1)
 	elseif cl == 736 then
+		scriptJump(738)
+	elseif cl == 736 and is3DS then
 		poem('poem_m2-b','monika',1)
 	elseif cl == 737 then
 		poem('poem_m2-c','monika',1)
@@ -4265,9 +4281,9 @@ function ch3_m_end()
 		poem('poem_m3-a','monika',1)
 	elseif cl == 736 then
 		poem('poem_m3-b','monika',1)
-	elseif cl == 737 then
+	elseif cl == 737 and is3DS then
 		poem('poem_m3-c','monika',1)
-	elseif cl == 738 then
+	elseif cl == 737 or cl == 738 then
 		scriptJump(740)
 	elseif cl == 740 then
 		poem_disable()

@@ -793,8 +793,10 @@ function ch22_y_end()
 	elseif cl == 700 then
     yuri_2 = true
 	poem('poem_y22','yuri')
-	elseif cl == 701 then
+	elseif cl == 701 and is3DS then
 	poem('poem_y22-a','yuri',1)
+	elseif cl == 701 then
+	scriptJump(702)
 	elseif cl == 702 then
 	poem_disable(0)
 	updateYuri('2','q')
@@ -1057,8 +1059,10 @@ function ch21_m_end()
     mc "Well, let's read it, then."
 	elseif cl == 737 then
 	poem('poem_m21','monika')
-	elseif cl == 738 then
+	elseif cl == 738 and is3DS then
 	poem('poem_m21-a','monika',1)
+	elseif cl == 738 then
+	scriptJump(739)
 	elseif cl >= 739 then
 	ch1_m_end2()
 	end
@@ -1120,13 +1124,19 @@ function ch22_m_end()
 	elseif cl == 734 then
 	poem('poem_m22-a','monika',1)
 	elseif cl == 735 then
+	scriptJump(737)
+	elseif cl == 735 and is3DS then
 	poem('poem_m2-b','monika',1)
 	elseif cl == 736 then
 	poem('poem_m22-c','monika',1)
 	elseif cl == 737 then
 	poem_disable()
-	audioUpdate('0')
-	pause(2.5)
+	if global_os == 'Vita' or global_os == 'PSP' then
+		scriptJump(738)
+	else
+		audioUpdate('0')
+		pause(2.5)
+	end
 	elseif cl == 738 then
 	audioUpdate('5')
 	updateMonika('5a')

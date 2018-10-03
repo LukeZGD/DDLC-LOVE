@@ -559,7 +559,7 @@ Not all good times must come to an end.]]
 				poembg = lg.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				poembg = lg.newImage('images/bg/poemxp.png')
+				if is3DS then poembg = lg.newImage('images/bg/poemxp.png') end
 				--poembg = lg.newImage('images/bg/poem1.png')
 				audioUpdate('5_yuri2')
 			else
@@ -576,18 +576,19 @@ Not all good times must come to an end.]]
 		end
 	
 	elseif xaload > 0 then
-		--[[
-		if author == 'yuri' and yuri_3 ~= true then
-			lg.setFont(y1)
-		elseif author == 'sayori' then
-			lg.setFont(s1)
-		elseif author == 'natsuki' then
-			lg.setFont(n1)
-		elseif author == 'monika' then
+		if is3DS then
 			lg.setFont(m1)
+		else
+			if author == 'yuri' and yuri_3 ~= true then
+				lg.setFont(y1)
+			elseif author == 'sayori' then
+				lg.setFont(s1)
+			elseif author == 'natsuki' then
+				lg.setFont(n1)
+			elseif author == 'monika' then
+				lg.setFont(m1)
+			end
 		end
-		]]
-		lg.setFont(m1)
 	end
 end
 
