@@ -25,7 +25,7 @@ function love.load()
 	
 	--os detection
 	global_os, g_system = love.system.getOS()
-	if global_os ~= 'HorizonNX' and g_system ~= 'Switch' and global_os ~= 'Vita' then
+	if g_system ~= 'Switch' and global_os ~= 'Vita' then
 		love.window.setMode(1280, 720)
 		love.window.setTitle('DDLC-LOVE')
 		love.keyboard.setTextInput(false)

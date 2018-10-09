@@ -7,7 +7,7 @@ function drawLoad()
 	lg.setColor(255,255,255)
 	lg.print(err,10,10)
 	
-	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> '..savedir..'\n\nPress Y to quit',10,70) end
+	if err ~= '' and savedir then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> '..savedir..'\n\nPress Y to quit',10,70) end
 end
 
 function updateLoad()
@@ -64,7 +64,7 @@ function checkLoad()
 	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
 		loadpersistent()
 	end
-	if global_os == 'HorizonNX' or g_system == 'Switch' then
+	if g_system == 'Switch' then
 		savedir = 'sdmc:/switch/DDLC-LOVE/'
 	elseif global_os == 'Vita' then
 		savedir = 'ux0:/data/DDLC-LOVE/savedata/'

@@ -153,7 +153,6 @@ function menu_draw()
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		lg.print('- Page '..pagenum..' of 10',257,90)
-		lg.print('(<) X | Y (>)',290,120)
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
 				lg.setColor(0,255,0)
@@ -177,7 +176,7 @@ function menu_draw()
 		lg.print(keys[3]..' - (Menu) Previous Page, Skipping On/Off',160,220)
 		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
 		lg.print('Managing files: Go to Settings > Characters',160,300)
-		if savedir then lg.print('Deleting save data: Delete everything in here > '..savedir,160,330) end
+		lg.print('Deleting save data: Delete save files and persistent in here:\nSwitch: sdmc:/switch/DDLC-LOVE/\nPS Vita: ux0:/data/DDLC-LOVE/savedata/',160,330)
 	end	
 end
 

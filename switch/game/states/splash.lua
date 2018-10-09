@@ -15,7 +15,6 @@ local splash_messages = {
 	}
 local random_msg = love.math.random(1, #splash_messages)
 local running
-
 local s_timer = 0
 
 function drawSplash()
@@ -25,7 +24,7 @@ function drawSplash()
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,650)
-		if global_os == 'HorizonNX' or g_system == 'Switch' then
+		if g_system == 'Switch' then
 			running = 'LovePotion Switch'
 		elseif global_os == 'Vita' or global_os == 'PSP' then
 			running = 'LOVE-OneLua '..global_os
@@ -90,7 +89,7 @@ function updateSplash(dt)
 end
 
 function splash_keypressed(key)
-	if (key == 'a' or key == 'start') then
+	if key == 'a' then
 		changeState('title')
 	end
 end
