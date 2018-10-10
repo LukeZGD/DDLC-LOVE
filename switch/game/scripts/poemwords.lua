@@ -1,12 +1,12 @@
---File format: word,spoint,npoint,ypoint
+--File format: word,sPoint,nPoint,yPoint
 function poemwords()
 
 wordlist = {
 
 --Sayori's winning words
-{'happiness', 3, 2, 1}, 
-{'sadness', 3, 1, 2},
-{'death', 3, 1, 2}, 
+{'happiness',3,2,1}, 
+{'sadness',3,1,2},
+{'death',3,1,2}, 
 {'tragedy',3,1,2},
 {'alone',3,1,2},
 {'love',3,2,1},
