@@ -758,7 +758,7 @@ function ch22_end()
 	audioUpdate('9g')
     y "Nobody would cry if she killed herself."
 	elseif cl == 1560 then
-	if global_os == 'Vita' or global_os == 'PSP' then
+	if global_os == 'LOVE-OneLua' then
 		scriptJump(1561)
 		event_end()
 	else
