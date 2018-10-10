@@ -71,7 +71,7 @@ end
 
 function loadgame(x)
 	local savfile
-	if global_os == 'Vita' then
+	if global_os == 'LOVE-OneLua' then
 		if x == 'autoload' then
 			love.filesystem.load("save-autoload.sav")
 		else
@@ -110,7 +110,7 @@ sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 end
 
 function loadpersistent()
-	if global_os == 'Vita' then
+	if global_os == 'LOVE-OneLua' then
 		love.filesystem.load('persistent')
 		love.filesystem.load('settings.sav')
 	else
