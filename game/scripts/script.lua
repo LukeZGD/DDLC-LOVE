@@ -69,6 +69,15 @@ function cw(p1, stext, tag)
 		end
 	end
 	
+	if menu_history then
+		c_disp[1] = string.sub(stext, 1, c_a[1])
+		for i = 2, 4 do
+			if slen >= c_a[i-1] then
+				c_disp[i] = string.sub(stext, c_a[i-1]+1, c_a[i])
+			end
+		end
+	end
+	
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)
 		if tagtimer >= (settings.textspd + slen) / 4 then
