@@ -5,8 +5,8 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.4.1'
-	dvertype = 'Release'
+	dversion = 'v0.5.0'
+	dvertype = 'Test'
 	
 	lg.setBackgroundColor(0,0,0)
 	myTextStartTime = love.timer.getTime()

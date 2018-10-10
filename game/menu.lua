@@ -180,17 +180,19 @@ function menu_draw()
 		lg.print(keys[3]..' - (Menu) Previous Page, Skipping On/Off',160,220)
 		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
 		lg.print('Managing files: Go to Settings > Characters',160,300)
-		lg.print('Deleting save data: Delete save files and persistent in here:\nSwitch: sdmc:/switch/DDLC-LOVE/\nPS Vita: ux0:/data/DDLC-LOVE/savedata/',160,330)
+		lg.print('Deleting save data: Delete save files and persistent in here:\nSwitch: sdmc:/switch/DDLC-LOVE/\nPS Vita: ux0:/data/DDLC-LOVE/savedata/\nPSP: ms0:/data/DDLC-LOVE/savedata/',160,330)
 		
 	elseif menu_type == 'history' then
 		lg.setColor(0,0,0)
 		lg.print(cl,160,120)
 		local c_disp_y = {185,215,245,275}
 		lg.print(ct,250,150)
-		if c_disp then
+		if c_disp and global_os == 'LOVE-OneLua' then
 			for i = 1, 4 do
 				lg.print(c_disp[i],250,c_disp_y[i])
 			end
+		else
+			lg.printf(textx,250,185,775)
 		end
 	end	
 end

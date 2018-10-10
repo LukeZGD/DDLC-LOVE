@@ -32,32 +32,28 @@ function love.graphics.draw(drawable,x,y)
 end
 
 function love.graphics.newFont(setfont, setsize)
-	if not isPSP then
-		if setfont then
-			setfont = font.load(dataloc.."game/"..setfont)
-		else
-			setfont = defaultfont
-		end
-		if not setsize then setsize = 12 end
-		
-		local table = {
-			font = setfont;
-			size = setsize;
-			}
-		return table
+	if not isPSP and setfont then
+		setfont = font.load(dataloc.."game/"..setfont)
+	else
+		setfont = defaultfont
 	end
+	if not setsize then setsize = 12 end
+		
+	local table = {
+		font = setfont;
+		size = setsize;
+		}
+	return table
 end
 
 function love.graphics.setFont(setfont,setsize)
-	if not isPSP then
-		if setfont then
-			current.font = setfont
-		else
-			current.font = defaultfont
-		end
-		if setsize then
-			current.font.size = setsize
-		end
+	if not isPSP and setfont then
+		current.font = setfont
+	else
+		current.font = defaultfont
+	end
+	if setsize then
+		current.font.size = setsize
 	end
 end
 
