@@ -89,10 +89,12 @@ function drawTextBox()
 		if gui_ctc_t then lg.draw(gui_ctc, gui_ctc_x, 685) end
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
-		if c_disp then
+		if c_disp and global_os == 'LOVE-OneLua' then
 			for i = 1, 4 do
 				lg.print(c_disp[i],xps.c,yps.c[i])
 			end
+		else
+			lg.printf(textx,250,590,775)
 		end
 	end
 end
