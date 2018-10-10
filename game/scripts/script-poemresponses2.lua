@@ -1119,7 +1119,7 @@ function ch22_m_end()
 	scriptJump(737)
 	elseif cl == 737 then
 	poem_disable()
-	if global_os == 'Vita' or global_os == 'PSP' then
+	if global_os == 'LOVE-OneLua' then
 		scriptJump(738)
 	else
 		audioUpdate('0')
