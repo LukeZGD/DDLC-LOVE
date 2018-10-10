@@ -329,7 +329,7 @@ function ch23script()
 	updateYuri('2','u')
     y "Um... Thank you for understanding, Monika."
 	elseif cl == 1721 then
-	if global_os == 'Vita' or global_os == 'PSP' then
+	if global_os == 'LOVE-OneLua' then
 		hideAll()
 		scriptJump(1722)
 	else
