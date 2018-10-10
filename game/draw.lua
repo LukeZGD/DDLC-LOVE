@@ -130,7 +130,7 @@ function drawPoem()
 	if poemtext then
 		for i = 1, #poemtext do
 			if poemtext[i] then
-				lg.print(poemtext[i],35+(poem_scroll.x*10),(poem_scroll.y*8)+(i*14))
+				lg.print(poemtext[i],35+(poem_scroll.x*10),(poem_scroll.y*8)+(i*14)-14)
 			end
 		end
 	end
