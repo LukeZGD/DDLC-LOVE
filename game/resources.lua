@@ -1,5 +1,5 @@
 audio_ext = '.ogg'
-if global_os == 'PSP' then
+if isPSP then
 	audio_ext = '.mp3'
 end
 

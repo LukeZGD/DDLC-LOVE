@@ -164,7 +164,7 @@ function menu_draw()
 		
 	elseif menu_type == 'help' then
 		local keys = {}
-		if global_os == 'Vita' then
+		if global_os == 'LOVE-OneLua' then
 			keys = {'Cross','Circle','Square','Triangle'}
 		else
 			keys = {'A','B','X','Y'}
@@ -201,7 +201,7 @@ function menu_confirm()
 		
 		if m_selected == 2 then --new game
 			if player == '' then --keyboard input for player name
-				if global_os == 'Vita' then
+				if global_os == 'LOVE-OneLua' then
 					love.keyboard.setTextInput(true)
 				else
 					require 'ingamekeys'

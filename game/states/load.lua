@@ -66,10 +66,10 @@ function checkLoad()
 	end
 	if g_system == 'Switch' then
 		savedir = 'sdmc:/switch/DDLC-LOVE/'
-	elseif global_os == 'Vita' then
+	elseif g_system == 'Vita' then
 		savedir = 'ux0:/data/DDLC-LOVE/savedata/'
-	elseif global_os == 'PSP' then
-		savedir = 'Saved Data Utility'
+	elseif g_system == 'PSP' then
+		savedir = 'ms0:/data/DDLC-LOVE/savedata/'
 	else
 		savedir = '%appdata%\\LOVE\\DDLC-LOVE\\'
 	end

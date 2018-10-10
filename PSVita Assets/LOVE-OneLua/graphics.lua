@@ -24,8 +24,9 @@ function love.graphics.draw(drawable,x,y)
 	if not x then x = 0 end
 	if not y then y = 0 end
 	
-	--scale 1280x720 to 960x540 (vita)
+	--scale 1280x720 to 960x540(vita) or 480x270(psp)
 	x = x * 0.75; y = y * 0.75
+	--x = x * 0.375; y = y * 0.375
 	
 	if drawable then image.blit(drawable,x,y,color.a(current.color)) end
 end
@@ -65,9 +66,11 @@ function love.graphics.print(text,x,y)
 	if not x then x = 0 end
 	if not y then y = 0 end
 	
-	--scale 1280x720 to 960x540 (vita)
+	--scale 1280x720 to 960x540(vita) or 480x270(psp)
 	x = x * 0.75; y = y * 0.75
 	fontsize = fontsize*0.75
+	--x = x * 0.375; y = y * 0.375
+	--fontsize = fontsize*0.6
 	
 	if text then screen.print(current.font.font,x,y,text,fontsize,current.color) end
 end
@@ -82,8 +85,9 @@ function love.graphics.setBackgroundColor(r,g,b)
 end
 
 function love.graphics.rectangle(mode, x, y, w, h)
-	--scale 1280x720 to 960x540 (vita)
+	--scale 1280x720 to 960x540(vita) or 480x270(psp)
 	x = x * 0.75; y = y * 0.75; w = w * 0.75; h = h * 0.75
+	--x = x * 0.375; y = y * 0.375; w = w * 0.375; h = h * 0.375
 	
 	if mode == "fill" then
 		draw.fillrect(x, y, w, h, current.color)
