@@ -8,7 +8,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 | Platform | Location                            |
 |----------|-------------------------------------|
 | Switch   | sdmc:/switch/DDLC-LOVE/             |
-| PSP      | Saved Data Utility                  |
+| PSP      | ms0:/data/DDLC-LOVE/savedata/       |
 | PS Vita  | ux0:/data/DDLC-LOVE/savedata/       |
 | Windows  | %appdata%\LOVE\DDLC-LOVE\           |
 
@@ -17,7 +17,9 @@ You can reset the save data and start over by deleting all of the save files. Th
 ### Building:
 - Switch - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
 
-- PS Vita - Switch and PS Vita versions share the same code. To build the PS Vita version, replace the existing images folder with the one in the "PSVita Assets" folder, and also include script.lua and LOVE-OneLua folder beside the game folder. Use the ONEmakerGUI included with ONEluav4R1 to build a .vpk
+- PS Vita - All 3 versions share the same code. To build the PS Vita version, Put the entire game folder in the "PSVita Assets" folder, but do not overwrite files. Also include script.lua and LOVE-OneLua folder beside the game folder. Use the ONEmakerGUI included with ONEluav4R1 to build a .vpk
+
+- PSP - No need for building, but files need to be copied (same instructions like the PS Vita version, but for the PSP Assets)
 
 ### Running:
 - Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))
