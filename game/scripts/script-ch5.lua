@@ -165,7 +165,7 @@ function ch5script()
 			poem('poem_s3', 'sayori')
 		end
 	elseif cl == 63 then
-		poem('poem_s3-a', 'sayori', 1)
+		scriptJump(64)
 	elseif cl == 64 then
 		poem_disable(0)
 	mc "Ah--"

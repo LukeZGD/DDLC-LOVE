@@ -81,7 +81,7 @@ function updateGame(dt)
 	end
 	
 	if bgch2 then
-		bgalpha = math.max(bgalpha - 15, 0)
+		bgalpha = math.max(bgalpha - dt*1000, 0)
 		if bgalpha == 0 then
 			bgch2 = nil
 			bgalpha = 255
@@ -144,6 +144,17 @@ end
 function game_keypressed(key)
 	if event_enabled then
 		event_keypressed(key)
+	elseif poem_enabled and poem_scroll then
+		if key == 'up' and poem_scroll.y < 1 then
+			poem_scroll.y = poem_scroll.y + 3
+		elseif key == 'down' then
+			poem_scroll.y = poem_scroll.y - 3
+		elseif key == 'left' and poem_scroll.x < 1 then
+			poem_scroll.x = poem_scroll.x + 3
+		elseif key == 'right' then
+			poem_scroll.x = poem_scroll.x - 3
+		end
+		newgame_keypressed(key)
 	elseif key == 'y' then --pause menu
 		autotimer = 0
 		if persistent.chr.m == 2 then menu_enable('pause2')

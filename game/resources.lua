@@ -3,7 +3,7 @@ function changeState(cstate,x)
 	menu_previous = nil
 	
 	for i = 1, 40 do
-		loadstring('ch'..i..'script = nil')()
+		--loadstring('ch'..i..'script = nil')()
 	end
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
