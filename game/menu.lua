@@ -63,7 +63,7 @@ function menu_enable(m)
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		menutext = 'Game Menu'
-		itemnames = {'Save Game','Load Game','Main Menu','Settings','Help','Quit','Return'}
+		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help','Quit','Return'}
 	
 	elseif menu_type == 'savegame' then
 		menutext = 'Save Game'
@@ -73,6 +73,10 @@ function menu_enable(m)
 		
 	elseif menu_type == 'dialog' then
 		itemnames = {''}
+		
+	elseif menu_type == 'history' then
+		menutext = 'History'
+		itemnames = {}
 	end
 	
 	if menu_type == 'choice' then
@@ -177,6 +181,17 @@ function menu_draw()
 		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
 		lg.print('Managing files: Go to Settings > Characters',160,300)
 		lg.print('Deleting save data: Delete save files and persistent in here:\nSwitch: sdmc:/switch/DDLC-LOVE/\nPS Vita: ux0:/data/DDLC-LOVE/savedata/',160,330)
+		
+	elseif menu_type == 'history' then
+		lg.setColor(0,0,0)
+		lg.print(cl,160,120)
+		local c_disp_y = {185,215,245,275}
+		lg.print(ct,250,150)
+		if c_disp then
+			for i = 1, 4 do
+				lg.print(c_disp[i],250,c_disp_y[i])
+			end
+		end
 	end	
 end
 
@@ -240,30 +255,33 @@ function menu_confirm()
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then --pause menu options
 		menu_previous = menu_type
-		if m_selected <= 5 and menu_type == 'pause' then
+		if m_selected <= 6 and menu_type == 'pause' then
 			if m_selected == 2 then
-				pagenum = 1
-				menu_enable('savegame')
+				menu_history = {cl,ct}
+				menu_enable('history')
 			elseif m_selected == 3 then
 				pagenum = 1
-				menu_enable('loadgame')
+				menu_enable('savegame')
 			elseif m_selected == 4 then
-				menu_enable('mainyesno')
+				pagenum = 1
+				menu_enable('loadgame')
 			elseif m_selected == 5 then
+				menu_enable('mainyesno')
+			elseif m_selected == 6 then
 				pagenum = 1
 				menu_enable('settings')
 			end
-		elseif m_selected <= 5 and menu_type == 'pause2' then
-			if m_selected == 2 and chapter == 30 then
+		elseif m_selected <= 6 and menu_type == 'pause2' then
+			if m_selected == 3 and chapter == 30 then
 				menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
-			elseif m_selected == 5 then
+			elseif m_selected == 6 then
 				menu_enable('settings2')
 			end
-		elseif m_selected == 6 then
-			menu_enable('help')
 		elseif m_selected == 7 then
-			menu_enable('quityesno')
+			menu_enable('help')
 		elseif m_selected == 8 then
+			menu_enable('quityesno')
+		elseif m_selected == 9 then
 			menu_fadeout = true
 		end
 		
@@ -363,6 +381,11 @@ function menu_keypressed(key)
 		menu_confirm()
 		
 	elseif key == 'b' then
+		if menu_history then
+			cl = menu_history[1]
+			ct = menu_history[2]
+			menu_history = nil
+		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'pause2' and menu_type ~= 'choice' then
@@ -383,6 +406,10 @@ function menu_keypressed(key)
 					settings.autospd = settings.autospd - 1
 				end
 			end
+		elseif menu_type == 'history' then
+			if cl > 1 and cl >= (menu_history[1] - 30) then
+				cl = cl - 1
+			end
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
@@ -395,6 +422,10 @@ function menu_keypressed(key)
 				if settings.autospd < 15 then
 					settings.autospd = settings.autospd + 1
 				end
+			end
+		elseif menu_type == 'history' then
+			if cl < menu_history[1] then
+				cl = cl + 1
 			end
 		end
 	
