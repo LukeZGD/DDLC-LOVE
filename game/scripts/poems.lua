@@ -118,6 +118,9 @@ function poem(poemname)
 			'directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal.',
 			'Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing',
 			'human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.'}
+			
+	elseif poemname == 'poem_y23' then
+		author = 'yuri'
 
 	elseif poemname == 'poem_n1' then
 		author = 'natsuki'
@@ -175,22 +178,22 @@ function poem(poemname)
 	elseif poemname == 'poem_n2b' then
 		author = 'natsuki'
 		poemtext = {[[
-			T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
+T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
 
-			SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
-			cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
-			ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
-			biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
-			b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
-			IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
-			dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
-			ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
-			dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
-			bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
-			biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
-			YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
-			Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
-			b3AgbXlzZWxmLg==]]};
+SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
+cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
+ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
+biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
+b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
+IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
+dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
+ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
+dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
+bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
+biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
+YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
+Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
+b3AgbXlzZWxmLg==]]};
 	
 	elseif poemname == 'poem_n3' then
 		author = 'natsuki'
@@ -522,19 +525,19 @@ function poem(poemname)
 	
 	elseif poemname == 'poem_m4' then
 		author = 'monika'
-		poemtext = {[[
-			Happy End
+		poemtext = {
+			'Happy End','',
 
-			Pen in hand, I find my strength.
-			The courage endowed upon me by my one and only love.
-			Together, let us dismantle this crumbling world
-			And write a novel of our own fantasies.
+			'Pen in hand, I find my strength.'
+			'The courage endowed upon me by my one and only love.'
+			'Together, let us dismantle this crumbling world'
+			'And write a novel of our own fantasies.','',
 
-			With a flick of her pen, the lost finds her way.
-			In a world of infinite choices, behold this special day.
+			'With a flick of her pen, the lost finds her way.'
+			'In a world of infinite choices, behold this special day.','',
 
-			After all,
-			Not all good times must come to an end.]]};
+			'After all,'
+			'Not all good times must come to an end.'};
 	
 	else poemtext = {''}
 	end
@@ -564,18 +567,14 @@ function poem(poemname)
 		end
 	
 	elseif xaload > 0 then
-		if is3DS then
+		if is3DS or author == 'monika' then
 			lg.setFont(m1)
-		else
-			if author == 'yuri' and yuri_3 ~= true then
-				lg.setFont(y1)
-			elseif author == 'sayori' then
-				lg.setFont(s1)
-			elseif author == 'natsuki' then
-				lg.setFont(n1)
-			elseif author == 'monika' then
-				lg.setFont(m1)
-			end
+		elseif author == 'yuri' and not yuri_3 then
+			lg.setFont(y1)
+		elseif author == 'sayori' then
+			lg.setFont(s1)
+		elseif author == 'natsuki' then
+			lg.setFont(n1)
 		end
 	end
 end
