@@ -93,7 +93,7 @@ function drawTextBox()
 			for i = 1, 4 do
 				lg.print(c_disp[i],xps.c,yps.c[i])
 			end
-		else
+		elseif textx then
 			lg.printf(textx,250,590,775)
 		end
 	end

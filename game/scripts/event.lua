@@ -37,6 +37,7 @@ function event_start(etype, arg1)
 			eventvar2 = 0
 		end
 	elseif event_type == 'wipe' then
+		eventvar1 = 0
 		hideAll()
 		textbox_enabled = false
 		if arg1 then
@@ -86,7 +87,7 @@ function event_start(etype, arg1)
 		end
 	elseif event_type == 'yuri_kill' then
 		eventvar1 = stab1
-		eventvar2 = 0
+		eventvar2 = 4
 		eventvar3 = 0.025
 		textbox_enabled = false
 	elseif event_type == 'monika_end' then
@@ -99,7 +100,7 @@ function event_start(etype, arg1)
 			event_timer = 0.69
 			eventvar4 = 'end2'
 		end
-	elseif event_type == 'beforecredits' then
+	elseif event_type == 'beforecredits' or event_type == 'sayori_gs' then
 		eventvar1 = 0
 		eventvar2 = nil
 		eventvar3 = 0
@@ -289,6 +290,7 @@ function event_keypressed(key)
 	if ((textbox_enabled and event_type ~= 'show_vignette') or (event_type == 'yuri_eyes' and cl < 700)) and (key == 'a' or key == 'lbutton') then
 		newgame_keypressed('a')
 	elseif key == 'y' and event_type == 'ch23-30' then
+		menu_mchance = 50
 		menu_enable('pause2')
 	end
 end

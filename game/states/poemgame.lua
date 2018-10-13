@@ -261,7 +261,9 @@ function updatePoemGame(dt)
 	end
 	
 	if poemword >= 21 then
-		if persistent.ptr == 2 and eyes_chance == 0 then
+		if persistent.ptr == 2 and eyes_chance == 0 and persistent.act2[1] < 1 then
+			persistent.act2[1] = 1
+			savepersistent()
 			audioUpdate('0')
 			sfxplay('eyes')
 			eyes_in = true

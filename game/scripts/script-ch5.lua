@@ -162,7 +162,7 @@ function ch5script()
 			sfxplay('pageflip')
 			require 'scripts/poems'
 		else
-			poem('poem_s3', 'sayori')
+			poem('poem_s3')
 		end
 	elseif cl == 63 then
 		scriptJump(64)

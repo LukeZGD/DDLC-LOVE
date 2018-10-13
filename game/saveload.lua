@@ -4,6 +4,7 @@ persistent = {
 	ptr=0;
 	clear={0,0,0,0,0,0,0,0,0};
 	chr={m=1,s=1};
+	act2={0,0};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 settings = {textspd=100,autospd=4}
@@ -103,6 +104,7 @@ function savepersistent()
 	end
 	local spfile = "player='"..player.."'\
 persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
+act2={"..persistent.act2[1]..","..persistent.act2[2].."},\
 clear={"..pset.."}};\
 sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 	

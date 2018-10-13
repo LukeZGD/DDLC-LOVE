@@ -304,7 +304,7 @@ function ch1_y_shared()
 	elseif cl == 731 then
 		cw('bl',"...After all, isn't this supposed to be a literature club?")
 	elseif cl == 732 then
-		poem("poem_y1","yuri")
+		poem("poem_y1")
 	elseif cl == 733 then
 		poem_disable()
 		updateYuri('3','t')
@@ -530,7 +530,7 @@ function ch1_n_end()
 	if cl < 705 and cl ~= 666 then
 		scriptJump(705)
 	elseif cl == 705 then
-		poem('poem_n1','natsuki')
+		poem('poem_n1')
 	elseif cl == 706 then
 		poem_disable()
 		updateNatsuki('2','q')

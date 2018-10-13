@@ -212,7 +212,7 @@ function ch22_n_end()
 		if cl < 700 then
 		scriptJump(700)
 		elseif cl == 700 then
-		poem('poem_n2','natsuki')
+		poem('poem_n2')
 		elseif cl == 701 then
 		scriptJump(703)
 		elseif cl == 703 then
@@ -286,7 +286,7 @@ function ch22_n_end2()
 	if cl < 700 then
 	scriptJump(700)
 	elseif cl == 700 then
-	poem('poem_n2b','natsuki')
+	poem('poem_n2b')
 	elseif cl == 701 then
 	poem_disable(-1)
 	style_edited = true
@@ -573,7 +573,7 @@ function ch23_n_end()
 	if cl < 700 then
 	scriptJump(700)
 	elseif cl == 700 then
-	poem('poem_n23','natsuki')
+	poem('poem_n23')
 	elseif cl == 701 then
 	scriptJump(702)
 	elseif cl == 702 then
@@ -790,7 +790,7 @@ function ch22_y_end()
 	scriptJump(700)
 	elseif cl == 700 then
     yuri_2 = true
-	poem('poem_y22','yuri')
+	poem('poem_y22')
 	elseif cl == 701 then
 	scriptJump(702)
 	elseif cl == 702 then
@@ -934,13 +934,7 @@ function ch23_y_good()
 	elseif cl == 697 then
 	event_start('yuri_eyes')
 	yuri_3 = true
-	poem('','yuri')
-	elseif cl == 698 then
-	--poem('','yuri',2)
-	poem('','yuri',1)
-	elseif cl == 699 then
-	--poem('','yuri',3)
-	poem('','yuri',1)
+	poem('')
 	elseif cl == 700 then
 	poem_disable(-1)
 	y "Do you like it??"
@@ -1054,7 +1048,7 @@ function ch21_m_end()
 	elseif cl == 736 then
     mc "Well, let's read it, then."
 	elseif cl == 737 then
-	poem('poem_m21','monika')
+	poem('poem_m21')
 	elseif cl == 738 then
 	scriptJump(739)
 	elseif cl >= 739 then
@@ -1114,7 +1108,7 @@ function ch22_m_end()
 	elseif cl == 732 then
     m "I like the way this one turned out, so I hope you do too~"
 	elseif cl == 733 then
-	poem('poem_m22','monika')
+	poem('poem_m22')
 	elseif cl == 734 then
 	scriptJump(737)
 	elseif cl == 737 then

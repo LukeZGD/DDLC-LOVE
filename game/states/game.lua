@@ -124,6 +124,7 @@ function game_keypressed(key)
 		end
 		newgame_keypressed(key)
 	elseif key == 'y' then --pause menu
+		menu_mchance = math.random(1,50)
 		autotimer = 0
 		if persistent.chr.m == 2 then menu_enable('pause2')
 		else menu_enable('pause')

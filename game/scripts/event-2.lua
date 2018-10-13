@@ -186,6 +186,14 @@ function event_draw_2()
 			end
 		end
 	end
+	
+	if event_type == 'sayori_gs' then
+		if event_timer < 4 then
+			lg.draw(sayori_gs1)
+		elseif event_timer < 7 then
+			lg.draw(sayori_gs2)
+		end
+	end
 end
 
 function event_update_2(dt)
@@ -352,6 +360,14 @@ function event_update_2(dt)
 			eventvar1 = stab6
 		elseif event_timer > 12 then
 			event_end('yuri_kill')
+		end
+	end
+	
+	if event_type == 'sayori_gs' then
+		if event_timer > 4 and event_timer < 4.1 then
+			eventvar1 = sayori_gs2
+		elseif event_timer > 8  then
+			event_end('next')
 		end
 	end
 end

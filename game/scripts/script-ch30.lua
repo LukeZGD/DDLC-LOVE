@@ -312,7 +312,7 @@ function ch30script()
 			sfxplay('pageflip')
 			require 'scripts/poems'
 		else
-			poem('poem_m4', 'monika')
+			poem('poem_m4')
 		end
 	elseif cl == 132 then
 	poem_disable(-1)

@@ -2,7 +2,7 @@ function ch2_y_end()
 	if cl < 714 then
 		scriptJump(714)
 	elseif cl == 714 then
-		poem('poem_y2','yuri')
+		poem('poem_y2')
 	elseif cl == 715 then
 		scriptJump(716)
 	elseif cl == 716 then
@@ -567,7 +567,7 @@ function ch3_y_end()
 			ch3_y_end_special()
 		else
 			if cl == 768 then
-				poem('poem_y3','yuri')
+				poem('poem_y3')
 			elseif cl == 769 then
 				scriptJump(771)
 			elseif cl == 771 then
@@ -656,7 +656,7 @@ end
 
 function ch3_y_end_special()
 	if cl == 768 then
-		poem('poem_y3b','yuri')
+		poem('poem_y3b')
 	elseif cl == 769 then
 		scriptJump(770)
 	elseif cl == 770 then
@@ -1358,7 +1358,7 @@ function ch2_n_end()
 	if cl < 760 and cl ~= 666 then
 		scriptJump(760)
 	elseif cl == 760 then
-		poem('poem_n2','natsuki')
+		poem('poem_n2')
 	elseif cl == 761 then
 		scriptJump(763)
 	elseif cl == 763 then
@@ -2124,7 +2124,7 @@ function ch3_n_end()
 			ch3_n_end_special()
 		else
 			if cl == 760 then
-				poem('poem_n3','natsuki')
+				poem('poem_n3')
 			elseif cl == 761 then
 				scriptJump(764)
 			elseif cl == 764 then
@@ -2211,7 +2211,7 @@ function ch3_n_end_special()
 	if cl < 760 then
 		scriptJump(760)
 	elseif cl == 760 then
-		poem('poem_n3b','natsuki')
+		poem('poem_n3b')
 	elseif cl == 761 then
 		scriptJump(764)
 	elseif cl == 764 then
@@ -2924,7 +2924,7 @@ function ch1_s_shared()
 	elseif cl == 723 then
         cw('mc',"We'll see about that.")
 	elseif cl == 724 then
-		poem('poem_s1','sayori')
+		poem('poem_s1')
 	elseif cl == 725 then
 		scriptJump(726)
 	elseif cl == 726 then
@@ -3216,7 +3216,7 @@ function ch2_s_end()
 	if cl < 754 and cl ~= 666 then
 		scriptJump(754)
 	elseif cl == 754 then
-		poem('poem_s2','sayori')
+		poem('poem_s2')
 	elseif cl == 755 then
 		scriptJump(758)
 	elseif cl == 758 then
@@ -4136,7 +4136,7 @@ function ch1_m_end()
 	elseif cl == 747 then
 		cw('mc',"Well, let's read it, then.")
 	elseif cl == 748 then
-		poem('poem_m1','monika')
+		poem('poem_m1')
 	elseif cl == 749 then
 		scriptJump(750)
 	elseif cl >= 750 then
@@ -4155,7 +4155,7 @@ function ch2_m_end()
 	elseif cl == 733 then
 		cw('mc',"Alright, let's take a look.")
 	elseif cl == 734 then
-		poem('poem_m2','monika')
+		poem('poem_m2')
 	elseif cl == 735 then
 		scriptJump(738)
 	elseif cl == 738 then
@@ -4242,7 +4242,7 @@ function ch3_m_end()
 	elseif cl == 733 then
 		cw('mc',"Alright...")
 	elseif cl == 734 then
-		poem('poem_m3','monika')
+		poem('poem_m3')
 	elseif cl == 735 then
 		scriptJump(740)
 	elseif cl == 740 then

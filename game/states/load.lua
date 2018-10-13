@@ -24,7 +24,7 @@ function updateLoad()
 		
 	elseif l_timer == 96 then
 		s1 = lg.newFont('fonts/s1.ttf',32)
-		n1 = lg.newFont('fonts/n1.ttf',28)
+		n1 = lg.newFont('fonts/n1.ttf',26)
 		deffont = lg.newFont('fonts/VerilySerifMono.ttf',23)
 		halogenfont = lg.newFont('fonts/Halogen.ttf',28)
 		rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24)
@@ -33,6 +33,7 @@ function updateLoad()
 		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext, 'static')
 		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext, 'static')
 		keysbox = lg.newImage("images/gui/box.png")
+		menu_bg_m = lg.newImage("images/bg/Menu_bg_m.png")
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
@@ -75,8 +76,8 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = love.math.random(0, 63)
-	if settings.textloc then
-		err = 'Error!\nDDLC-3DS save data detected, and it is not compatible with DDLC-LOVE.'
+	if settings.textloc or not persistent.act2 then
+		err = 'Error!\nOld save data detected, and it is not compatible with this version of DDLC-LOVE.'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
