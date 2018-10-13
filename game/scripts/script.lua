@@ -94,6 +94,7 @@ end
 
 function scriptCheck()
 	c_disp = {'','','',''}
+	textx = ''
 	
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
@@ -296,6 +297,9 @@ function event_init(etype,arg1,arg2)
 			end_glitch3 = lg.newImage('images/bg/end-glitch3.png')
 			loadNoise()
 			loadVignette()
+		elseif etype == 'sayori_gs' then
+			sayori_gs1 = lg.newImage('images/bg/GlitchSayoriScreen1.png')
+			sayori_gs2 = lg.newImage('images/bg/GlitchSayoriScreen2.png')
 		end
 		if arg1 == 'show_noise' then
 			loadNoise()

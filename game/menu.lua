@@ -9,6 +9,7 @@ local saveindicator = {}
 local chch
 local cpick
 local menu_fadeout
+local menu_mtimer = 0
 menu_alpha = 0
 
 function menu_enable(m)
@@ -194,7 +195,12 @@ function menu_draw()
 		else
 			lg.printf(textx,250,185,775)
 		end
-	end	
+	end
+	
+	if persistent.act2[2] < 1 and menu_mchance == 50 and persistent.ptr == 2 then
+		lg.setColor(255,255,255,255)
+		lg.draw(menu_bg_m)
+	end
 end
 
 function menu_update(dt)
@@ -207,6 +213,14 @@ function menu_update(dt)
 		end
 	else
 		menu_alpha = math.min(menu_alpha + 15, 255)
+	end
+	
+	if persistent.act2[2] < 1 and menu_mchance == 50 and persistent.ptr == 2 then
+		menu_mtimer = menu_mtimer + dt
+		if menu_mtimer > 0.5 then
+			persistent.act2[2] = 1
+			savepersistent()
+		end
 	end
 end
 
@@ -409,7 +423,7 @@ function menu_keypressed(key)
 				end
 			end
 		elseif menu_type == 'history' then
-			if cl > 1 and cl >= (menu_history[1] - 30) then
+			if cl > 1 and cl >= (menu_history[1] - 50) then
 				cl = cl - 1
 			end
 		end

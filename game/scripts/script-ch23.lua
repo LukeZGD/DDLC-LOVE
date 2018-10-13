@@ -1,8 +1,21 @@
 local gtextg = glitchtext(math.random(8,80))
 local gtext10 = glitchtext(10)
+local sgschance = 16
 
 function ch23script()
+	if cl == 1951 then
+		event_initstart("sayori_gs")
+		audioUpdate('0')
+		sfxplay('gnid')
+	elseif cl == 1952 then
+		persistent.act2[1] = 1
+		savepersistent()
+		scriptJump(1631)
+	end
 	if cl == 1631 then
+	if (g_system == 'Switch' or global_os == 'LOVE-OneLua') and sgschance == 16 and persistent.act2[1] < 1 then
+		scriptJump(1951)
+	end
 	audioUpdate('6')
 	bgUpdate('club_day2')
 	updateYuri('2','y5',80)
