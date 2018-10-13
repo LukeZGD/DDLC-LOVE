@@ -934,7 +934,7 @@ function ch23_y_good()
 	elseif cl == 697 then
 	event_start('yuri_eyes')
 	yuri_3 = true
-	poem('')
+	poem('poem_y23')
 	elseif cl == 700 then
 	poem_disable(-1)
 	y "Do you like it??"
