@@ -55,7 +55,7 @@ function ch30script()
 	elseif cl == 14 then
     m "Or..."
 	elseif cl == 15 then
-	if (global_os == 'Horizon' or g_system == 'Switch' or global_os == 'LOVE-OneLua') and xaload <= 2 then
+	if (global_os == 'Horizon' or global_os == 'LOVE-OneLua') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
     if currentuser then
@@ -312,7 +312,7 @@ function ch30script()
 			sfxplay('pageflip')
 			require 'scripts/poems'
 		else
-			poem('poem_m4', 'monika')
+			poem('poem_m4')
 		end
 	elseif cl == 132 then
 	poem_disable(-1)
