@@ -20,7 +20,8 @@ function poem(poemname, author, cont)
 			
 			'It happened in the dead of night while I was slicing bread for a guilty snack.',
 			'My attention was caught by the scuttering of a raccoon outside my window.',
-			'That was, I believe, the first time I noticed my strange tendencies as an unordinary human.',
+			'That was, I believe, the first time I noticed my strange tendencies as an unordinary',
+			'human.',
 			'I gave the raccoon a piece of bread, my subconscious well aware of the consequences.',
 			'Well aware that a raccoon that is fed will always come back for more.',
 			'The enticing beauty of my cutting knife was the symptom.',
@@ -81,7 +82,8 @@ function poem(poemname, author, cont)
 			
 			'Time stops.','',
 
-			'The only indication of movement is the amber light flickering against his outstretched arm.',
+			'The only indication of movement is the amber light flickering against',
+			'his outstretched arm.',
 			'The flickering light is in rhythm with the pounding of my heart.',
 			'Teasing me for succumbing to this forbidden emotion.',
 			'Have you ever heard of a ghost feeling warmth before?',
@@ -134,7 +136,8 @@ function poem(poemname, author, cont)
 
 			'Amy has a cute singing voice.',
 			'I heard her singing my favorite love song.',
-			'Every time she sang the chorus, my heart would pound to the rhythm of the words.',
+			'Every time she sang the chorus, my heart would pound to the rhythm of',
+			'the words.',
 			'But she likes spiders.',
 			'That\'s why I\'m not friends with her.','',
 			
@@ -162,22 +165,22 @@ function poem(poemname, author, cont)
 	
 	elseif poemname == 'poem_n2b' then
 		poemtext = {[[
-T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
+			T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
 
-SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
-cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
-ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
-biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
-b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
-IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
-dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
-ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
-dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
-bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
-biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
-YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
-Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
-b3AgbXlzZWxmLg==]]};
+			SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
+			cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
+			ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
+			biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
+			b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
+			IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
+			dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
+			ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
+			dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
+			bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
+			biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
+			YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
+			Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
+			b3AgbXlzZWxmLg==]]};
 	
 	elseif poemname == 'poem_n3' then
 		poemtext = {
@@ -496,18 +499,18 @@ b3AgbXlzZWxmLg==]]};
 	
 	elseif poemname == 'poem_m4' then
 		poemtext = {[[
-		Happy End
+			Happy End
 
-		Pen in hand, I find my strength.
-		The courage endowed upon me by my one and only love.
-		Together, let us dismantle this crumbling world
-		And write a novel of our own fantasies.
+			Pen in hand, I find my strength.
+			The courage endowed upon me by my one and only love.
+			Together, let us dismantle this crumbling world
+			And write a novel of our own fantasies.
 
-		With a flick of her pen, the lost finds her way.
-		In a world of infinite choices, behold this special day.
+			With a flick of her pen, the lost finds her way.
+			In a world of infinite choices, behold this special day.
 
-		After all,
-		Not all good times must come to an end.]]};
+			After all,
+			Not all good times must come to an end.]]};
 	
 	else poemtext = {''}
 	end
