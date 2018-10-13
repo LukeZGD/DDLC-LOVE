@@ -35,6 +35,8 @@ function drawSplash()
 		lg.print('Running in '..running,15,680)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
+		lg.setColor(255,255,255,255)
+		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
 			lg.print(splash_messages[random_msg], 440, 300)
