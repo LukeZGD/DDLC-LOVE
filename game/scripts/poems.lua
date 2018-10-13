@@ -121,6 +121,7 @@ function poem(poemname)
 			
 	elseif poemname == 'poem_y23' then
 		author = 'yuri'
+		poemtext = {''}
 
 	elseif poemname == 'poem_n1' then
 		author = 'natsuki'
@@ -528,15 +529,15 @@ b3AgbXlzZWxmLg==]]};
 		poemtext = {
 			'Happy End','',
 
-			'Pen in hand, I find my strength.'
-			'The courage endowed upon me by my one and only love.'
-			'Together, let us dismantle this crumbling world'
+			'Pen in hand, I find my strength.',
+			'The courage endowed upon me by my one and only love.',
+			'Together, let us dismantle this crumbling world',
 			'And write a novel of our own fantasies.','',
 
-			'With a flick of her pen, the lost finds her way.'
+			'With a flick of her pen, the lost finds her way.',
 			'In a world of infinite choices, behold this special day.','',
 
-			'After all,'
+			'After all,',
 			'Not all good times must come to an end.'};
 	
 	else poemtext = {''}
