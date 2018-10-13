@@ -65,7 +65,7 @@ function menu_enable(m)
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		menutext = 'Game Menu'
-		itemnames = {'Save Game','Load Game','Main Menu','Settings','Help','Quit','Return'}
+		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help','Quit'}
 	
 	elseif menu_type == 'savegame' then
 		menutext = 'Save Game'
@@ -163,6 +163,18 @@ function menu_draw()
 		lg.print('Managing files: Go to Settings > Characters',16,150)
 		lg.print('Deleting save data: Delete everything in here',16,180)
 		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
+		
+	elseif menu_type == 'history' then
+		lg.setColor(255,230,244,255)
+		lg.rectangle('fill',0,0,320,240)
+		lg.setColor(0,0,0)
+		lg.print("History\n"..cl..'\n'..ct,16, 12)
+		if c_disp then
+			local ypc = {66,82,98,114}
+			for i = 1, 4 do
+				lg.print(c_disp[i],8,ypc[i])
+			end
+		end
 	end
 end
 
@@ -231,29 +243,30 @@ function menu_confirm()
 		menu_previous = menu_type
 		if m_selected <= 5 and menu_type == 'pause' then
 			if m_selected == 2 then
-				pagenum = 1
-				menu_enable('savegame')
+				menu_history = {cl,ct}
+				menu_enable('history')
 			elseif m_selected == 3 then
 				pagenum = 1
-				menu_enable('loadgame')
+				menu_enable('savegame')
 			elseif m_selected == 4 then
-				menu_enable('mainyesno')
+				pagenum = 1
+				menu_enable('loadgame')
 			elseif m_selected == 5 then
+				menu_enable('mainyesno')
+			elseif m_selected == 6 then
 				pagenum = 1
 				menu_enable('settings')
 			end
 		elseif m_selected <= 5 and menu_type == 'pause2' then
-			if m_selected == 2 and chapter == 30 then
+			if m_selected == 3 and chapter == 30 then
 				menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
-			elseif m_selected == 5 then
+			elseif m_selected == 6 then
 				menu_enable('settings2')
 			end
-		elseif m_selected == 6 then
-			menu_enable('help')
 		elseif m_selected == 7 then
-			menu_enable('quityesno')
+			menu_enable('help')
 		elseif m_selected == 8 then
-			menu_fadeout = true
+			menu_enable('quityesno')
 		end
 		
 	elseif menu_type == 'mainyesno' then
@@ -354,6 +367,11 @@ function menu_keypressed(key)
 		if alpha == 255 then menu_confirm() end
 		
 	elseif key == 'b' then
+		if menu_history then
+			cl = menu_history[1]
+			ct = menu_history[2]
+			menu_history = nil
+		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'pause2' and menu_type ~= 'choice' then
@@ -389,6 +407,11 @@ function menu_keypressed(key)
 					settings.textloc = 'Bottom'
 				end
 			end
+			
+		elseif menu_type == 'history' then
+			if cl > 1 and cl >= (menu_history[1] - 50) then
+				cl = cl - 1
+			end
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
@@ -407,6 +430,11 @@ function menu_keypressed(key)
 			
 		elseif menu_type == 'settings2' and m_selected <= 2 then
 			menu_keypressed('left')
+			
+		elseif menu_type == 'history' then
+			if cl < menu_history[1] then
+				cl = cl + 1
+			end
 		end
 	
 	elseif key == 'x' then
