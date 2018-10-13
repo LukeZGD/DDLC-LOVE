@@ -1,7 +1,10 @@
-function poem(poemname, author, cont)
+local author = ''
+
+function poem(poemname)
 	poem_enabled = true
 
 	if poemname == 'poem_y1' then
+		author = 'yuri'
 		poemtext = {
 			'Ghost Under the Light','',
 			
@@ -15,12 +18,14 @@ function poem(poemname, author, cont)
 			'I flicker back.'};
 
 	elseif poemname == 'poem_y2' then
+		author = 'yuri'
 		poemtext = {
 			'The Raccoon','',
 			
 			'It happened in the dead of night while I was slicing bread for a guilty snack.',
 			'My attention was caught by the scuttering of a raccoon outside my window.',
-			'That was, I believe, the first time I noticed my strange tendencies as an unordinary human.',
+			'That was, I believe, the first time I noticed my strange tendencies as an unordinary',
+			'human.',
 			'I gave the raccoon a piece of bread, my subconscious well aware of the consequences.',
 			'Well aware that a raccoon that is fed will always come back for more.',
 			'The enticing beauty of my cutting knife was the symptom.',
@@ -40,6 +45,7 @@ function poem(poemname, author, cont)
 			'And I feed myself again.'}
 	
 	elseif poemname == 'poem_y3' then
+		author = 'yuri'
 		poemtext = {
 			'Beach','',
 			'A marvel millions of years in the making.',
@@ -66,6 +72,7 @@ function poem(poemname, author, cont)
 			'Drift forward, and I return to Earth forevermore.'};
 
 	elseif poemname == 'poem_y3b' then
+		author = 'yuri'
 		poemtext = {
 			'Ghost Under the Light pt. 2','',
 
@@ -81,7 +88,8 @@ function poem(poemname, author, cont)
 			
 			'Time stops.','',
 
-			'The only indication of movement is the amber light flickering against his outstretched arm.',
+			'The only indication of movement is the amber light flickering against',
+			'his outstretched arm.',
 			'The flickering light is in rhythm with the pounding of my heart.',
 			'Teasing me for succumbing to this forbidden emotion.',
 			'Have you ever heard of a ghost feeling warmth before?',
@@ -91,6 +99,7 @@ function poem(poemname, author, cont)
 			'Ghosts are blue-green. My heart is amber.'};
 
 	elseif poemname == 'poem_y22' then
+		author = 'yuri'
 		poemtext = {
 			'Wheel','',
 
@@ -111,6 +120,7 @@ function poem(poemname, author, cont)
 			'human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.'}
 
 	elseif poemname == 'poem_n1' then
+		author = 'natsuki'
 		poemtext = {
 			'Eagles Can Fly','',
 
@@ -124,6 +134,7 @@ function poem(poemname, author, cont)
 			'But that\'s about it.'};
 	
 	elseif poemname == 'poem_n2' then
+		author = 'natsuki'
 		poemtext = {
 			'Amy Likes Spiders','',
 
@@ -134,7 +145,8 @@ function poem(poemname, author, cont)
 
 			'Amy has a cute singing voice.',
 			'I heard her singing my favorite love song.',
-			'Every time she sang the chorus, my heart would pound to the rhythm of the words.',
+			'Every time she sang the chorus, my heart would pound to the',
+			'rhythm of the words.',
 			'But she likes spiders.',
 			'That\'s why I\'m not friends with her.','',
 			
@@ -161,25 +173,27 @@ function poem(poemname, author, cont)
 			'And I\'m gonna tell everyone.'};
 	
 	elseif poemname == 'poem_n2b' then
+		author = 'natsuki'
 		poemtext = {[[
-T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
+			T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
 
-SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
-cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
-ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
-biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
-b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
-IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
-dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
-ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
-dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
-bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
-biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
-YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
-Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
-b3AgbXlzZWxmLg==]]};
+			SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
+			cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
+			ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
+			biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
+			b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
+			IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
+			dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
+			ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
+			dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
+			bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
+			biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
+			YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
+			Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
+			b3AgbXlzZWxmLg==]]};
 	
 	elseif poemname == 'poem_n3' then
+		author = 'natsuki'
 		poemtext = {
 			'I\'ll Be Your Beach','',
 
@@ -218,6 +232,7 @@ b3AgbXlzZWxmLg==]]};
 			'You\'ll learn to love yourself again.'};
 
 	elseif poemname == 'poem_n3b' then
+		author = 'natsuki'
 		poemtext = {
 			'Because You','',
 
@@ -249,31 +264,36 @@ b3AgbXlzZWxmLg==]]};
 			'Because you, because you, because you.'};
 	
 	elseif poemname == 'poem_n23' then
+		author = 'natsuki'
 		poemtext = {
-			'I don\'t know how else to bring this up. But there\'s been something I\'ve been worried',
-			'about. Yuri has been acting kind of strange lately. You\'ve only been here a few days,',
-			'so you may not know what I mean. But she\'s not normally like this. She\'s always been',
-			'quiet and polite and attentive...things like that.','',
+			'I don\'t know how else to bring this up. But there\'s been something',
+			'I\'ve been worried about. Yuri has been acting kind of strange lately.',
+			'You\'ve only been here a few days, so you may not know what I',
+			'mean. But she\'s not normally like this. She\'s always been quiet',
+			'and polite and attentive...things like that.','',
 
-			'Okay... This is really embarrassing, but I\'m forcing myself to suck it up. The truth is,',
-			'I\'m REALLY worried about her. But if I try talking to her, she\'ll just get mad at me',
-			'again. I don\'t know what to do. I think you\'re the only person that she\'ll listen to.',
-			'I don\'t know why. But please try to do something. Maybe you can convince her to talk to',
-			'a therapist.','',
+			'Okay... This is really embarrassing, but I\'m forcing myself to suck it',
+			'up. The truth is, I\'m REALLY worried about her. But if I try talking',
+			'to her, she\'ll just get mad at me again. I don\'t know what to do.',
+			'I think you\'re the only person that she\'ll listen to. I don\'t know',
+			'why. But please try to do something. Maybe you can convince her to',
+			'talk to a therapist.','',
 			
-			'I\'ve always wanted to try being better friends with Yuri, and it really hurts me to see ',
-			'this happening. I know I\'m going to hate myself later for admitting that, but right now ',
-			'I don\'t care. I just feel so helpless. So please see if you can do something to help. ',
-			'I don\'t want anything bad to happen to her. I\'ll make you cupcakes if I have to. Just',
-			'please try to do something.','',
+			'I\'ve always wanted to try being better friends with Yuri, and it',
+			'really hurts me to see this happening. I know I\'m going to hate',
+			'myself later for admitting that, but right now I don\'t care. I just',
+			'feel so helpless. So please see if you can do something to help.',
+			'I don\'t want anything bad to happen to her. I\'ll make you cupcakes',
+			'if I have to. Just please try to do something.','',
 
-			'As for Monika... I don\'t know why, but she\'s been really dismissive about this. It\'s like',
-			'she just wants us to ignore it. So I\'m mad at her right now, and that\'s why I\'m',
-			'coming to you about this. DON\'T LET HER KNOW I WROTE THIS!!!! Just',
-			'pretend like I gave you a really good poem, okay? I\'m counting on you. Thanks',
-			'for reading.'};
+			'As for Monika... I don\'t know why, but she\'s been really dismissive',
+			'about this. It\'s like she just wants us to ignore it. So I\'m mad at',
+			'her right now, and that\'s why I\'m coming to you about this.',
+			'DON\'T LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you',
+			'a really good poem, okay? I\'m counting on you. Thanks for reading.'};
 	
 	elseif poemname == 'poem_s1' then
+		author = 'sayori'
 		poemtext = {
 			'Dear Sunshine','',
 
@@ -293,6 +313,7 @@ b3AgbXlzZWxmLg==]]};
 			'I want breakfast.'};
 	
 	elseif poemname == 'poem_s2' then
+		author = 'sayori'
 		poemtext = {
 			'Bottles','',
 
@@ -336,6 +357,7 @@ b3AgbXlzZWxmLg==]]};
 			'Inside my head.'};
 	
 	elseif poemname == 'poem_s3' then
+		author = 'sayori'
 		poemtext = {
 			'%','',
 
@@ -365,6 +387,7 @@ b3AgbXlzZWxmLg==]]};
 			'It just stops moving.'};
 	
 	elseif poemname == 'poem_m1' then
+		author = 'monika'
 		poemtext = {
 			'Hole in Wall','',
 
@@ -403,6 +426,7 @@ b3AgbXlzZWxmLg==]]};
 			'Swallowing my fears, I brandish my pen.'};
 
 	elseif poemname == 'poem_m2' then
+		author = 'monika'
 		poemtext = {
 			'Save Me','',
 
@@ -426,6 +450,7 @@ b3AgbXlzZWxmLg==]]};
 			'Of meaningless','','','','','','','','','','','','','','','Load Me'};
 	
 	elseif poemname == 'poem_m22' then
+		author = 'monika'
 		poemtext = {
 			'Save Me',
 
@@ -449,6 +474,7 @@ b3AgbXlzZWxmLg==]]};
 			'Of m  n ngl ss','','','','','','','','','','','','','','','Delete Her'};
 	
 	elseif poemname == 'poem_m3' then
+		author = 'monika'
 		poemtext = {
 			'The Lady who Knows Everything','',
 
@@ -495,28 +521,25 @@ b3AgbXlzZWxmLg==]]};
 			'And with a breath, she blows me back afloat, and I pick up a gust of wind.'};
 	
 	elseif poemname == 'poem_m4' then
+		author = 'monika'
 		poemtext = {[[
-		Happy End
+			Happy End
 
-		Pen in hand, I find my strength.
-		The courage endowed upon me by my one and only love.
-		Together, let us dismantle this crumbling world
-		And write a novel of our own fantasies.
+			Pen in hand, I find my strength.
+			The courage endowed upon me by my one and only love.
+			Together, let us dismantle this crumbling world
+			And write a novel of our own fantasies.
 
-		With a flick of her pen, the lost finds her way.
-		In a world of infinite choices, behold this special day.
+			With a flick of her pen, the lost finds her way.
+			In a world of infinite choices, behold this special day.
 
-		After all,
-		Not all good times must come to an end.]]};
+			After all,
+			Not all good times must come to an end.]]};
 	
 	else poemtext = {''}
 	end
 	
-	if cont == nil then cont = 0 end
-	
-	if xaload == 0 and cont > 1 then
-		poembg = lg.newImage('images/bg/poem'..cont..'.png')
-	elseif xaload == 0 and cont < 1 then
+	if xaload == 0 then
 		poem_scroll = {x=1,y=1}
 		sfxplay('pageflip')
 		if author == 'yuri' then
