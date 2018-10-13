@@ -307,7 +307,10 @@ function event_update_2(dt)
 	end
 	
 	if event_type == 'm_ch23ex' and textbox_enabled == false then
-		if event_timer >= 4 then 
+		if event_timer > 1 and event_timer < 1.03 then
+			xaload = 0
+			sfxplay('error')
+		elseif event_timer >= 4 then 
 			textbox_enabled = true
 			newgame_keypressed('a')
 		end
