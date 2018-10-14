@@ -200,12 +200,12 @@ function drawPoemGame()
 	
 	if menu_enabled then
 		lg.setColor(255,255,255,menu_alpha/2)
-		--lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	if eyes_in then
 		lg.setColor(0,0,0)
-		--lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,400,240)
 		if eyes_timer <= 2.2 then
 			lg.setColor(255,255,255)
 			lg.draw(eyes,110,eyes_y)
@@ -230,7 +230,7 @@ function drawPoemGame()
 	end
 	
 	lg.setColor(255,189,225,alpha)
-	--lg.rectangle('fill', 135,2,40,16) 
+	lg.rectangle('fill', 135,2,40,16) 
 	lg.setColor(0,0,0)
 	lg.setFont(font)
 	lg.print('Menu',139,2)
@@ -238,7 +238,7 @@ function drawPoemGame()
 	if menu_enabled then menu_draw() end
 	
 	if eyes_in then
-		--lg.rectangle('fill',-40,0,400,240)
+		lg.rectangle('fill',-40,0,400,240)
 	end
 end
 

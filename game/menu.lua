@@ -102,9 +102,9 @@ function menu_draw()
 	
 	lg.setColor(255,189,225,menu_alpha)
 	for i = 1, 8 do
-		--if menu_items >= i+1 then lg.rectangle('fill',16, 20+(25*i),rectwidth,16)end
+		if menu_items >= i+1 then lg.rectangle('fill',16, 20+(25*i),rectwidth,16) end
 	end
-	--if menu_previous then lg.rectangle('fill', 16, 220, 30, 16) end
+	if menu_previous then lg.rectangle('fill', 16, 220, 30, 16) end
 	
 	lg.setColor(0,0,0,menu_alpha)
 	lg.draw(guicheck,cX,cY)
@@ -142,7 +142,7 @@ function menu_draw()
 			else
 				lg.setColor(255,0,0)
 			end
-			--lg.rectangle('fill',95,25+(25*i),6,6)
+			lg.rectangle('fill',95,25+(25*i),6,6)
 		end
 		
 	elseif menu_type == 'choice' then
@@ -150,9 +150,9 @@ function menu_draw()
 		
 	elseif menu_type == 'help' then
 		lg.setColor(255,189,225)
-		--lg.rectangle('fill',14,30,260,110)
-		--lg.rectangle('fill',14,150,260,16)
-		--lg.rectangle('fill',14,180,260,30)
+		lg.rectangle('fill',14,30,260,110)
+		lg.rectangle('fill',14,150,260,16)
+		lg.rectangle('fill',14,180,260,30)
 		lg.setColor(0,0,0)
 		lg.print('Key Bindings:',16,30)
 		lg.print('A, L Trigger - Advances through the game,',16,45)
@@ -166,7 +166,7 @@ function menu_draw()
 		
 	elseif menu_type == 'history' then
 		lg.setColor(255,230,244,255)
-		--lg.rectangle('fill',0,0,320,240)
+		lg.rectangle('fill',0,0,320,240)
 		lg.setColor(0,0,0)
 		lg.print("History\n"..cl..'\n'..ct,16, 12)
 		if c_disp then
