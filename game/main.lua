@@ -72,6 +72,7 @@ function love.update(dt)
 	end
 
 	--touch(3DS only)/mouse checks
+	--[[
 	mouseDown = love.mouse.isDown(1)
 	mouseX = love.mouse.getX()
 	mouseY = love.mouse.getY()
@@ -79,6 +80,7 @@ function love.update(dt)
 		mouseX = mouseX / 1.5 - 40
 		mouseY = mouseY / 1.5 - 240
 	end
+	]]
 	
 	--this acts as love.mousepressed
 	if mouseDown and mousereleased ~= 1 then
