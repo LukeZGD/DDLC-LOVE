@@ -30,7 +30,7 @@ function drawGame()
 	
 	if menu_enabled and menu_type ~= 'choice' then
 		lg.setColor(255,255,255,menu_alpha/2)
-		--lg.rectangle('fill',0,0,400,240)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	drawBottomScreen()
@@ -62,9 +62,9 @@ function drawGame()
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
 		lg.setColor(255,189,225,alpha)
-		--lg.rectangle('fill',47,2,40,16) 
-		--lg.rectangle('fill',139,2,32,16) 
-		--lg.rectangle('fill',237,2,32,16) 
+		lg.rectangle('fill',47,2,40,16) 
+		lg.rectangle('fill',139,2,32,16) 
+		lg.rectangle('fill',237,2,32,16) 
 		lg.setColor(0,0,0,alpha)
 		lg.print('Menu',51,2,0,1,1)
 		lg.print('Auto',142,2,0,1,1)

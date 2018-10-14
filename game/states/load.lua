@@ -4,13 +4,13 @@ local err = ''
 function drawLoad()
 	drawTopScreen()
 	lg.setColor(0,0,0,alpha)
-	--lg.rectangle('fill',0,0,400,240)
+	lg.rectangle('fill',0,0,400,240)
 	lg.setColor(255,255,255)
 	lg.print(err,5,5)
 	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit',5,35) end
 	drawBottomScreen()
 	lg.setColor(0,0,0,alpha)
-	--lg.rectangle('fill',-40,0,400,240)
+	lg.rectangle('fill',-40,0,400,240)
 end
 
 function updateLoad()
