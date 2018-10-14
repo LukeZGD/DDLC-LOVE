@@ -141,6 +141,19 @@ function love.keypressed(key)
 	end
 end
 
+function love.gamepadpressed(joy, button)
+	if button == 'dpup' then
+		button = 'up'
+	elseif button == 'dpdown' then
+		button = 'down'
+	elseif button == 'dpleft' then
+		button = 'left'
+	elseif button == 'dpright' then
+		button = 'right'
+	end
+	love.keypressed(button)
+end
+
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
