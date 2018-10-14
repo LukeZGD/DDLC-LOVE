@@ -5,7 +5,7 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.5.0'
+	dversion = 'v0.5.0-1'
 	dvertype = 'Release'
 	
 	lg.setBackgroundColor(0,0,0)
