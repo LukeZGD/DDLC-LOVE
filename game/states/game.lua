@@ -70,7 +70,6 @@ function drawGame()
 		lg.print('Auto',142,2,0,1,1)
 		lg.print('Skip',241,2,0,1,1) 
 	end
-	if settings.dtym == 1 then drawdatetime() end
 	if menu_enabled then menu_draw() end
 end
 
