@@ -137,9 +137,9 @@ function game_keypressed(key)
 		elseif key == 'down' then
 			poem_scroll.y = poem_scroll.y - 3
 		elseif key == 'left' and poem_scroll.x < 1 then
-			poem_scroll.x = poem_scroll.x + 3
+			--poem_scroll.x = poem_scroll.x + 3
 		elseif key == 'right' then
-			poem_scroll.x = poem_scroll.x - 3
+			--poem_scroll.x = poem_scroll.x - 3
 		end
 		newgame_keypressed(key)
 	elseif key == 'y' then --pause menu
