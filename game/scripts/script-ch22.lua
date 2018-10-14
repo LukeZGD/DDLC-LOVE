@@ -758,12 +758,8 @@ function ch22_end()
 	audioUpdate('9g')
     y "Nobody would cry if she killed herself."
 	elseif cl == 1560 then
-	if global_os == 'LOVE-OneLua' then
-		scriptJump(1561)
-		event_end()
-	else
-		audioUpdate('0')
-	end
+	scriptJump(1561)
+	event_end()
 	elseif cl == 1561 then
 	audioUpdate('9')
 	updateYuri('2','l')
