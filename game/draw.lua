@@ -124,7 +124,7 @@ function drawPoem()
 		lg.draw(poembg, 40, 0)
 	else
 		lg.setColor(243,243,243)
-		lg.rectangle('fill',40,0,320,240)
+		--lg.rectangle('fill',40,0,320,240)
 	end
 	lg.setColor(0,0,0)
 	if poemtext then
@@ -148,7 +148,7 @@ end
 function drawConsole()
 	if console_enabled and console_font then
 		lg.setColor(51,51,51,191)
-		lg.rectangle('fill',0,0,320,60)
+		--lg.rectangle('fill',0,0,320,60)
 		lg.setColor(255,255,255)
 		lg.setFont(console_font)
 		lg.print('> '..console_text1,0,0)

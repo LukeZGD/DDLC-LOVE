@@ -106,7 +106,7 @@ function drawSplashspec(spec)
 	end
 	drawBottomScreen()
 	lg.setColor(0,0,0)
-	lg.rectangle('fill',-40,0,400,240)
+	--lg.rectangle('fill',-40,0,400,240)
 end
 
 function updateSplashspec(dt)
