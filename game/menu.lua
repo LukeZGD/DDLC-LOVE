@@ -127,8 +127,6 @@ function menu_draw()
 			
 		elseif menu_type == 'settings2' then
 			lg.print(settings.textloc..' Screen',140, 45)
-			lg.print(settings.dtym,140, 70)
-			lg.print(settings.animh, 140, 95)
 		end
 		lg.print('Press (<) and (>) to change settings.',16,188)
 		lg.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
