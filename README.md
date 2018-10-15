@@ -3,6 +3,10 @@ A Doki Doki Literature Club port for the Nintendo Switch, PSP, and PS Vita! Prog
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
+**Some notes:**
+- DDLC-LOVE might not run properly on SX OS.
+- DDLC-LOVE will not run on PSP 1000 systems. It does not have enough memory for it.
+
 **Locations of save files:**
 
 | Platform | Location                            |
