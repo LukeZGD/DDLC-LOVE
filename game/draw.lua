@@ -110,7 +110,7 @@ function drawPoem()
 		lg.rectangle('fill',240,0,800,720)
 	end
 	lg.setColor(0,0,0)
-	if poemtext then
+	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
 			if poemtext[i] then
 				lg.print(poemtext[i],250+(poem_scroll.x*30)-30,((poem_scroll.y*24)+(i*30))-25)
