@@ -544,7 +544,6 @@ b3AgbXlzZWxmLg==]]};
 	end
 	
 	if xaload == 0 then
-		poem_scroll = {x=1,y=1}
 		sfxplay('pageflip')
 		if author == 'yuri' then
 			if yuri_2 then
@@ -568,6 +567,7 @@ b3AgbXlzZWxmLg==]]};
 		end
 	
 	elseif xaload > 0 then
+		if not poem_scroll then poem_scroll = {x=1,y=1} end
 		if is3DS or author == 'monika' then
 			lg.setFont(m1)
 		elseif author == 'yuri' and not yuri_3 then
