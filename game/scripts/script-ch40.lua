@@ -1,7 +1,7 @@
 local gtext120 = glitchtext(120)
-local endx = 25
+local endx = 100
 if is3DS then
-	endx = 100
+	endx = 25
 end
 appeal = {s=0,n=0,y=0}
 
