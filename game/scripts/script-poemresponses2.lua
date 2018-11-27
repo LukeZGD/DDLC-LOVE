@@ -75,7 +75,7 @@ function ch22_n_bad()
 		elseif cl == 676 then
         mc "I'm still figuring this all out."
 		elseif cl >= 677 then
-        ch22_n_med_shared2()
+        ch22_n_med_shared()
 		end
 	end
 end
