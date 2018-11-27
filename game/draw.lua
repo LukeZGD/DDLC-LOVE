@@ -90,10 +90,30 @@ function drawTextBox()
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
 		if c_disp and global_os == 'LOVE-OneLua' then
+			lg.setColor(0,0,0,alpha)
+			for i = 1, 4 do
+				lg.print(c_disp[i],xps.c+1.25,yps.c[i])
+			end
+			for i = 1, 4 do
+				lg.print(c_disp[i],xps.c,yps.c[i]+1.25)
+			end
+			for i = 1, 4 do
+				lg.print(c_disp[i],xps.c-1.25,yps.c[i])
+			end
+			for i = 1, 4 do
+				lg.print(c_disp[i],xps.c,yps.c[i]-1.25)
+			end
+			lg.setColor(255,255,255,alpha)
 			for i = 1, 4 do
 				lg.print(c_disp[i],xps.c,yps.c[i])
 			end
 		elseif textx then
+			lg.setColor(0,0,0,alpha)
+			lg.printf(textx,248.75,590,775)
+			lg.printf(textx,250,588.75,775)
+			lg.printf(textx,251.25,590,775)
+			lg.printf(textx,250,591.25,775)
+			lg.setColor(255,255,255,alpha)
 			lg.printf(textx,250,590,775)
 		end
 	end
