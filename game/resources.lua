@@ -158,7 +158,6 @@ function audioUpdate(audiox, forceload) --audio changes
 		if audiox ~= '' and audiox ~= '0' then
 			ddlct = love.audio.newSource('audio/bgm/'..audiox..audio_ext, 'stream')
 			ddlct:setLooping(true)
-			ddlct:setVolume(settings.bgmvol)
 			ddlct:play()
 		end
 	end
@@ -171,7 +170,6 @@ function sfxplay(sfx) --sfx stuff
 		if sfx ~= '' then
 			sfxp = love.audio.newSource('audio/sfx/'..sfx..audio_ext, 'static')
 		end
-		sfxp:setVolume(settings.sfxvol)
 		sfxp:play()
 	end
 end

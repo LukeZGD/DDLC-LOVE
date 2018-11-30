@@ -64,12 +64,6 @@ end
 function checkLoad()
 	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
 		loadpersistent()
-		if not settings.bgmvol then
-			settings = {textspd=100,autospd=4,bgmvol=0.7,sfxvol=0.7}
-			savesettings()
-		end
-		sfx1:setVolume(settings.sfxvol)
-		sfx2:setVolume(settings.sfxvol)
 	end
 	if g_system == 'Switch' then
 		savedir = 'sdmc:/switch/DDLC-LOVE/'
