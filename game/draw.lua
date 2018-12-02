@@ -94,18 +94,20 @@ function drawTextBox()
 			for i = 1, 4 do
 				lg.print(c_disp[i],xps.c+1.25,yps.c[i])
 			end
-			for i = 1, 4 do
-				lg.print(c_disp[i],xps.c,yps.c[i]+1.25)
-			end
-			for i = 1, 4 do
-				lg.print(c_disp[i],xps.c-1.25,yps.c[i])
-			end
-			for i = 1, 4 do
-				lg.print(c_disp[i],xps.c,yps.c[i]-1.25)
-			end
-			lg.setColor(255,255,255,alpha)
-			for i = 1, 4 do
-				lg.print(c_disp[i],xps.c,yps.c[i])
+			if g_system ~= 'PSP' then
+				for i = 1, 4 do
+					lg.print(c_disp[i],xps.c,yps.c[i]+1.25)
+				end
+				for i = 1, 4 do
+					lg.print(c_disp[i],xps.c-1.25,yps.c[i])
+				end
+				for i = 1, 4 do
+					lg.print(c_disp[i],xps.c,yps.c[i]-1.25)
+				end
+				lg.setColor(255,255,255,alpha)
+				for i = 1, 4 do
+					lg.print(c_disp[i],xps.c,yps.c[i])
+				end
 			end
 		elseif textx then
 			lg.setColor(0,0,0,alpha)
