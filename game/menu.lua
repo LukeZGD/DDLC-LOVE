@@ -52,11 +52,11 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		menutext = 'Settings'
-		itemnames = {'Text Speed','Auto-Forward Time','Music Volume','Sound Volume','Characters','Save Settings'}
+		itemnames = {'Text Speed','Auto-Forward Time','Master Volume','Music Volume','Sound Volume','Characters','Save Settings'}
 		
 	elseif menu_type == 'settings2' then
 		menutext = 'Settings'
-		itemnames = {'Music Volume','Sound Volume','Characters','Save Settings'}
+		itemnames = {'Master Volume','Music Volume','Sound Volume','Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
 		menutext = 'Characters'
@@ -152,12 +152,15 @@ function menu_draw()
 			lg.print(settings.autospd..' sec.',410, 210)
 			lg.print('(<)',380,210)
 			lg.print('(>)',480,210)
-			lg.print(settings.bgmvol*100, 410, 260)
+			lg.print(settings.masvol, 410, 260)
 			lg.print('(<)',380,260)
 			lg.print('(>)',460,260)
-			lg.print(settings.sfxvol*100, 410, 310)
+			lg.print(settings.bgmvol, 410, 310)
 			lg.print('(<)',380,310)
 			lg.print('(>)',460,310)
+			lg.print(settings.sfxvol, 410, 360)
+			lg.print('(<)',380,360)
+			lg.print('(>)',460,360)
 		end
 		lg.print('Press (<) and (>) to change settings.',140,580)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,140,610)
@@ -322,28 +325,22 @@ function menu_confirm()
 		end
 		
 	elseif menu_type == 'settings' then
-		if m_selected <= 5 then
+		if m_selected <= 6 then
 			menu_keypressed('left')
-		elseif m_selected == 6 then
-			menu_enable('characters')
 		elseif m_selected == 7 then
+			menu_enable('characters')
+		elseif m_selected == 8 then
 			savesettings()
-			ddlct:setVolume(settings.bgmvol)
-			sfx1:setVolume(settings.sfxvol)
-			sfx2:setVolume(settings.sfxvol)
 			menu_enable(menu_previous)
 		end
 		
 	elseif menu_type == 'settings2' then
-		if m_selected <= 3 then
+		if m_selected <= 4 then
 			menu_keypressed('left')
-		elseif m_selected == 4 then
-			menu_enable('characters')
 		elseif m_selected == 5 then
+			menu_enable('characters')
+		elseif m_selected == 6 then
 			savesettings()
-			ddlct:setVolume(settings.bgmvol)
-			sfx1:setVolume(settings.sfxvol)
-			sfx2:setVolume(settings.sfxvol)
 			menu_enable(menu_previous)
 		end
 		
@@ -389,7 +386,7 @@ function m_select(arg)
 end
 
 function menu_keypressed(key)
-	if key == 'down' or key == 'cpaddown' then
+	if key == 'down' then
 		sfx2:play()
 		if m_selected <= menu_items-1 then
 			m_selected = m_selected + 1
@@ -398,7 +395,7 @@ function menu_keypressed(key)
 		end
 		m_select()
 		
-	elseif key == 'up' or key == 'cpadup' then
+	elseif key == 'up' then
 		sfx2:play()
 		if m_selected >= 3 then
 			m_selected = m_selected - 1
@@ -423,7 +420,7 @@ function menu_keypressed(key)
 		end
 		menu_previous = nil
 		
-	elseif key == 'left' or key == 'cpadleft' then
+	elseif key == 'left' then
 		if menu_type == 'settings' and m_selected <= 5 then
 			if cpick == 'Text Speed' then
 				if settings.textspd > 250 then
@@ -433,45 +430,55 @@ function menu_keypressed(key)
 				end
 			elseif cpick == 'Auto-Forward Time' and settings.autospd > 1 then
 				settings.autospd = settings.autospd - 1
+			elseif cpick == 'Master Volume' and settings.masvol > 0 then
+				settings.masvol = settings.masvol - 10
 			elseif cpick == 'Music Volume' and settings.bgmvol > 0 then
-				settings.bgmvol = settings.bgmvol - 0.1
+				settings.bgmvol = settings.bgmvol - 10
 			elseif cpick == 'Sound Volume' and settings.sfxvol > 0 then
-				settings.sfxvol = settings.sfxvol - 0.1
+				settings.sfxvol = settings.sfxvol - 10
 			end
 		elseif menu_type == 'settings2' and m_selected <= 3 then
-			if cpick == 'Music Volume' and settings.bgmvol > 0 then
-				settings.bgmvol = settings.bgmvol - 0.1
-			elseif cpick == 'Sound Volume' and settings.sfxvol > 0 then
-				settings.sfxvol = settings.sfxvol - 0.1
+			if cpick == 'Master Volume' and settings.masvol < 100 then
+				settings.masvol = settings.masvol + 10
+			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
+				settings.bgmvol = settings.bgmvol + 10
+			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
+				settings.sfxvol = settings.sfxvol + 10
 			end
 		elseif menu_type == 'history' then
 			if cl > 1 and cl >= (menu_history[1] - 50) then
 				cl = cl - 1
 			end
 		end
+		game_setvolume()
 		
-	elseif key == 'right' or key == 'cpadright' then
+	elseif key == 'right' then
 		if menu_type == 'settings' and m_selected <= 5 then
 			if cpick == 'Text Speed' and settings.textspd < 250 then
 				settings.textspd = settings.textspd + 25
 			elseif cpick == 'Auto-Forward Time' and settings.autospd < 15 then
 				settings.autospd = settings.autospd + 1
-			elseif cpick == 'Music Volume' and settings.bgmvol < 1 then
-				settings.bgmvol = settings.bgmvol + 0.1
-			elseif cpick == 'Sound Volume' and settings.sfxvol < 1 then
-				settings.sfxvol = settings.sfxvol + 0.1
+			elseif cpick == 'Master Volume' and settings.masvol < 100 then
+				settings.masvol = settings.masvol + 10
+			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
+				settings.bgmvol = settings.bgmvol + 10
+			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
+				settings.sfxvol = settings.sfxvol + 10
 			end
 		elseif menu_type == 'settings2' and m_selected <= 3 then
-			if cpick == 'Music Volume' and settings.bgmvol < 1 then
-				settings.bgmvol = settings.bgmvol + 0.1
-			elseif cpick == 'Sound Volume' and settings.sfxvol < 1 then
-				settings.sfxvol = settings.sfxvol + 0.1
+			if cpick == 'Master Volume' and settings.masvol < 100 then
+				settings.masvol = settings.masvol + 10
+			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
+				settings.bgmvol = settings.bgmvol + 10
+			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
+				settings.sfxvol = settings.sfxvol + 10
 			end
 		elseif menu_type == 'history' then
 			if cl < menu_history[1] then
 				cl = cl + 1
 			end
 		end
+		game_setvolume()
 	
 	elseif key == 'x' then
 		if (menu_type == 'savegame' or menu_type == 'loadgame' or menu_type == 'settings') and pagenum > 1 then

@@ -153,13 +153,15 @@ end
 
 function audioUpdate(audiox, forceload) --audio changes
 	if audio1 ~= audiox or forceload then
-		if ddlct ~= nil then ddlct:stop() end
-		ddlct = nil
+		if audio_bgm ~= nil then audio_bgm:stop() end
+		audio_bgm = nil
 		if audiox ~= '' and audiox ~= '0' then
-			ddlct = love.audio.newSource('audio/bgm/'..audiox..audio_ext, 'stream')
-			ddlct:setLooping(true)
-			ddlct:setVolume(settings.bgmvol)
-			ddlct:play()
+			audio_bgm = love.audio.newSource('audio/bgm/'..audiox..audio_ext, 'stream')
+			audio_bgm:setLooping(true)
+			if g_system ~= 'Switch' then
+				audio_bgm:setVolume(settings.bgmvol)
+			end
+			audio_bgm:play()
 		end
 	end
 	audio1 = audiox
@@ -171,7 +173,9 @@ function sfxplay(sfx) --sfx stuff
 		if sfx ~= '' then
 			sfxp = love.audio.newSource('audio/sfx/'..sfx..audio_ext, 'static')
 		end
-		sfxp:setVolume(settings.sfxvol)
+		if g_system ~= 'Switch' then
+			sfxp:setVolume(settings.sfxvol)
+		end
 		sfxp:play()
 	end
 end

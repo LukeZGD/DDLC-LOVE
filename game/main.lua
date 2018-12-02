@@ -118,6 +118,7 @@ function love.gamepadpressed(joy, button)
 	end
 	love.keypressed(button)
 end
+
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
@@ -136,4 +137,23 @@ function game_quit()
 	collectgarbage()
 	collectgarbage()
 	love.event.quit()
+end
+
+function game_setvolume()
+	if g_system == 'Switch' then
+		love.audio.setVolume(settings.masvol/100)
+	elseif global_os == 'LOVE-OneLua' then
+		if audio_bgm then
+			audio_bgm:setVolume(settings.bgmvol/100)
+		end
+		sfx1:setVolume(settings.sfxvol/100)
+		sfx2:setVolume(settings.sfxvol/100)
+	else
+		love.audio.setVolume(settings.masvol/100)
+		if audio_bgm then
+			audio_bgm:setVolume(settings.bgmvol/100)
+		end
+		sfx1:setVolume(settings.sfxvol/100)
+		sfx2:setVolume(settings.sfxvol/100)
+	end
 end
