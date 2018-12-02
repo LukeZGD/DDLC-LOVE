@@ -7,7 +7,7 @@ persistent = {
 	act2={0,0};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=100,autospd=4}
+settings = {textspd=100,autospd=4,bgmvol=0.7,sfxvol=0.7}
 --default save values
 cl = 1
 bg1 = 'black'
@@ -89,7 +89,7 @@ function loadgame(x)
 end
 
 function savesettings()
-	local settingsfile = "settings={textspd="..settings.textspd..",autospd="..settings.autospd.."}"
+	local settingsfile = "settings={textspd="..settings.textspd..",autospd="..settings.autospd..",bgmvol="..settings.bgmvol..",sfxvol="..settings.sfxvol.."}"
 	love.filesystem.write("settings.sav", settingsfile)
 end
 
