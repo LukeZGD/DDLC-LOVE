@@ -1,13 +1,13 @@
 local l_timer = 94
 local err = ''
+local savedir
+local errtime = 0
 
 function drawLoad()
 	lg.setColor(0,0,0,alpha)
 	lg.rectangle('fill',0,0,1280,725)
 	lg.setColor(255,255,255)
 	lg.print(err,10,10)
-	
-	if err ~= '' and savedir then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> '..savedir..'\n\nPress Y to quit',10,70) end
 end
 
 function updateLoad()
@@ -85,9 +85,18 @@ function checkLoad()
 		savedir = '%appdata%\\LOVE\\DDLC-LOVE\\'
 	end
 	
+	os_timecheck = nil
+	
+	
 	local ghostmenu_chance = love.math.random(0, 63)
-	if settings.textloc or not persistent.act2 then
-		err = 'Error!\nOld save data detected, and it is not compatible with this version of DDLC-LOVE.'
+	if not persistent.act2 then
+		err = [[
+		Error!
+		Old save data detected, and it is not compatible with this version of DDLC-LOVE.
+		Please delete all save data and try again.
+		
+		Delete persistent and save files in here:
+		> ]]..savedir..'\n\nPress Y to quit'
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
@@ -96,7 +105,28 @@ function checkLoad()
 		savepersistent()
 	elseif persistent.chr.m == 2 then
 		changeState('game','autoload')
+	elseif os_timecheck then
+		love.math.setRandomSeed(os.time())
+		l_timer = 100
 	else
+		err = [[
+		Warning!
+		os.time() returned nil
+		
+		Your device might have never been online, or this is just a bug that I won't be able to fix
+		The game will still launch, but some stuff that rely on random might be broken
+		
+		Press A to continue
+		Press Y to quit
+		]]
+		errtime = 1
+	end
+end
+
+function loadkeypressed(key)
+	if key == 'y' then
+		love.event.quit()
+	elseif key == 'a' and errtime == 1 then
 		l_timer = 100
 	end
 end
