@@ -21,8 +21,6 @@ function love.load()
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	love.math.setRandomSeed(os.time())
-	
 	--os detection
 	global_os, g_system = love.system.getOS()
 	if g_system ~= 'Switch' and global_os ~= 'LOVE-OneLua' then
@@ -96,8 +94,10 @@ function love.keypressed(key)
 			poemgamekeypressed(key)
 		elseif state == 'poem_special' then
 			poem_special_keypressed(key)
-		elseif (state == 'load' or state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
-			game_quit()
+		elseif state == 'load' then
+			loadkeypressed(key)
+		elseif (state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
+			love.event.quit()
 		end
 	elseif ingamekeys then
 		ingamekeys_keypressed(key)
@@ -131,11 +131,6 @@ function love.textinput(text)
 end
 
 function game_quit()
-	unloadAll('characters')
-	unloadAll('stuff')
-	unloadAll('poemgame')
-	collectgarbage()
-	collectgarbage()
 	love.event.quit()
 end
 

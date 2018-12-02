@@ -55,7 +55,7 @@ function updatepoem_special(dt)
 			p_alpha = math.max(p_alpha - 3, 0)
 		end
 	elseif p_confirm >= 2 and p_number >= 12 then
-		game_quit()
+		love.event.quit()
 	else
 		p_alpha = math.min(p_alpha + 5, 255)
 	end
