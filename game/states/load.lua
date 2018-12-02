@@ -62,15 +62,19 @@ function updateLoad()
 end
 
 function checkLoad()
-	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
+	if love.filesystem.getInfo('persistent') then
 		loadpersistent()
-		if not settings.bgmvol then
-			settings = {textspd=100,autospd=4,bgmvol=0.7,sfxvol=0.7}
+	end
+	
+	if love.filesystem.getInfo('settings.sav') then
+		loadsettings()
+		if not settings.masvol then
+			settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70}
 			savesettings()
 		end
-		sfx1:setVolume(settings.sfxvol)
-		sfx2:setVolume(settings.sfxvol)
+		game_setvolume()
 	end
+	
 	if g_system == 'Switch' then
 		savedir = 'sdmc:/switch/DDLC-LOVE/'
 	elseif g_system == 'Vita' then
