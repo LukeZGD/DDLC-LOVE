@@ -7,7 +7,7 @@ persistent = {
 	act2={0,0};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=100,autospd=4,bgmvol=0.7,sfxvol=0.7}
+settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70}
 --default save values
 cl = 1
 bg1 = 'black'
@@ -93,6 +93,15 @@ function savesettings()
 	love.filesystem.write("settings.sav", settingsfile)
 end
 
+function loadsettings()
+	if global_os == 'LOVE-OneLua' then
+		love.filesystem.load('settings.sav')
+	else
+		local settingsfile = loadstring(love.filesystem.read('settings.sav'))
+		if settingsfile then settingsfile() end
+	end
+end
+
 function savepersistent()
 	local pset = ''
 	for i = 1, #persistent.clear do
@@ -114,11 +123,8 @@ end
 function loadpersistent()
 	if global_os == 'LOVE-OneLua' then
 		love.filesystem.load('persistent')
-		love.filesystem.load('settings.sav')
 	else
 		local pfile = loadstring(love.filesystem.read('persistent'))
-		local settingsfile = loadstring(love.filesystem.read('settings.sav'))
 		if pfile then pfile() end
-		if settingsfile then settingsfile() end
 	end
 end
