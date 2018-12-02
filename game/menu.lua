@@ -264,7 +264,7 @@ function menu_confirm()
 			menu_enable('help')
 			
 		elseif m_selected == 6 then --quit
-			game_quit()
+			love.event.quit()
 		end
 		
 	elseif menu_type == 'loadgame' then --load game confirm
@@ -319,7 +319,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'quityesno' then
 		if m_selected == 2 then
-			game_quit()
+			love.event.quit()
 		elseif m_selected == 3 then
 			menu_enable(menu_previous)
 		end
