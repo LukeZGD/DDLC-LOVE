@@ -888,7 +888,6 @@ function ch23_y_good()
 	elseif cl == 684 then
     y "It's okay to be feeling this way, right?"
 	elseif cl == 685 then
-	local dt = love.timer.getDelta()
 	y_timer = y_timer + dt
 	if y_timer > 0.4 and y_timer < 0.43 then
 		xaload = 0

@@ -86,7 +86,11 @@ function menu_enable(m)
 		menu_items = #itemnames + 1
 	end
 	
-	m_select(2)
+	if player ~= '' and menu_type == 'title' then
+		m_select(3)
+	else
+		m_select(2)
+	end
 end
 
 function menu_draw()
@@ -194,6 +198,7 @@ function menu_draw()
 		
 	elseif menu_type == 'history' then
 		lg.setColor(0,0,0)
+		--[[
 		lg.print(cl,160,120)
 		local c_disp_y = {185,215,245,275}
 		lg.print(ct,250,150)
@@ -204,6 +209,7 @@ function menu_draw()
 		else
 			lg.printf(textx,250,185,775)
 		end
+		]]
 	end
 	
 	if persistent.act2[2] < 1 and menu_mchance == 50 and persistent.ptr == 2 then
@@ -282,7 +288,6 @@ function menu_confirm()
 		menu_previous = menu_type
 		if m_selected <= 6 and menu_type == 'pause' then
 			if m_selected == 2 then
-				menu_history = {cl,ct}
 				menu_enable('history')
 			elseif m_selected == 3 then
 				pagenum = 1
@@ -408,11 +413,6 @@ function menu_keypressed(key)
 		menu_confirm()
 		
 	elseif key == 'b' then
-		if menu_history then
-			cl = menu_history[1]
-			ct = menu_history[2]
-			menu_history = nil
-		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'pause2' and menu_type ~= 'choice' then
@@ -446,9 +446,7 @@ function menu_keypressed(key)
 				settings.sfxvol = settings.sfxvol + 10
 			end
 		elseif menu_type == 'history' then
-			if cl > 1 and cl >= (menu_history[1] - 50) then
-				cl = cl - 1
-			end
+			
 		end
 		game_setvolume()
 		

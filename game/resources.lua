@@ -17,18 +17,29 @@ function changeState(cstate,x)
 		audioUpdate('1')
 	elseif cstate == 'title' then
 		alpha = 0
+		
 		if persistent.ptr == 0 then
-			titlebg = lg.newImage('images/gui/bg.png')
-		elseif persistent.ptr <= 2 then
-			titlebg = lg.newImage('images/gui/bg2.png')
-		elseif persistent.ptr == 4 then
-			titlebg = lg.newImage('images/gui/bg3.png')
+			menu_art_s = lg.newImage("images/gui/menu_art_s.png")
+		else
+			menu_art_s = lg.newImage("images/gui/menu_art_s_break.png")
 		end
+		
+		if persistent.ptr == 4 then
+			menu_art_m = lg.newImage("images/cg/blank.png")
+		else
+			menu_art_m = lg.newImage("images/gui/menu_art_m.png")
+		end
+		
+		menu_art_n = lg.newImage("images/gui/menu_art_n.png")
+		menu_art_y = lg.newImage("images/gui/menu_art_y.png")
 		poem_enabled = false
 		audioUpdate('1')
 		menu_enable('title')
 		y_timer = 0
 		titlebg_ypos = -240
+		tlp = {yx=525,nx=670,sx=470,mx=680,yy=720,ny=720,sy=720,my=720,scale=0.75}
+		stmr = {0,0,0}
+		
 	elseif cstate == 'game' and x == 1 then --new game
 		cl = 1
 		chapter = persistent.ptr * 10
@@ -70,7 +81,13 @@ function changeState(cstate,x)
 	elseif cstate == 'ghostmenu' then
 		require 'states/splash'
 		endbg = lg.newImage('images/gui/end.png')
-		titlebg = lg.newImage('images/gui/bg_ghost.png')
+		menu_art_m = lg.newImage("images/gui/menu_art_m_ghost.png")
+		menu_art_s = lg.newImage("images/gui/menu_art_s_ghost.png")
+		menu_art_n = lg.newImage("images/gui/menu_art_n_ghost.png")
+		menu_art_y = lg.newImage("images/gui/menu_art_y_ghost.png")
+		y_timer = 0.7
+		tlp = {yx=525,nx=670,sx=470,mx=680,yy=720,ny=720,sy=720,my=720,scale=0.75}
+		stmr = {0,0,0}
 		audioUpdate('ghostmenu')
 		alpha = 0
 	elseif cstate == 'poem_special' then
@@ -117,7 +134,6 @@ function changeState(cstate,x)
 end
 
 function timerCheck()
-	local dt = love.timer.getDelta()
 	if xaload == 0 then
 		myTextStartTime = love.timer.getTime()
 	end
