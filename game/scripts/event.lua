@@ -209,7 +209,6 @@ function drawanimframe(x,y)
 	if animframe then
 		lg.draw(animframe,x,y)
 	end
-	local dt = love.timer.getDelta()
 	if sectimer > 0.75 and animframe4 then
 		animframe = animframe4
 	elseif sectimer > 0.5 and animframe3 then

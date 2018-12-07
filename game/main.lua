@@ -5,8 +5,8 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.5.1'
-	dvertype = 'Release'
+	dversion = 'v1.0.0'
+	dvertype = 'Test'
 	
 	lg.setBackgroundColor(0,0,0)
 	myTextStartTime = love.timer.getTime()
@@ -52,7 +52,8 @@ function love.draw()
 	end
 end
 
-function love.update(dt)
+function love.update()
+	dt = love.timer.getDelta()
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	

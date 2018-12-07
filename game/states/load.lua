@@ -32,15 +32,19 @@ function updateLoad()
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext, 'static')
 		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext, 'static')
-		keysbox = lg.newImage("images/gui/box.png")
-		menu_bg_m = lg.newImage("images/bg/Menu_bg_m.png")
+		keysbox = lg.newImage("images/gui/button/box.png")
+		menu_bg_m = lg.newImage("images/gui/menu_bg_m.png")
+		gui_mmenu = lg.newImage("images/gui/overlay/main_menu.png")
+		gui_gmenu = lg.newImage("images/gui/overlay/game_menu.png")
+		gui_mainbuttons = lg.newImage("images/gui/mainbuttons.png")
+		gui_newgame = lg.newImage("images/gui/newgame.png")
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
 		namebox = lg.newImage('images/gui/namebox.png')
 		textbox = lg.newImage('images/gui/textbox.png')
 		background_Image = lg.newImage('images/gui/menu_bg.png')
-		guicheck = lg.newImage('images/gui/check.png')
+		guicheck = lg.newImage('images/gui/button/check_selected_foreground.png')
 		gui_ctc = lg.newImage('images/gui/ctc.png')
 		gui_skip = lg.newImage('images/gui/skip.png')
 		sidebar = lg.newImage('images/gui/sidebar.png')
@@ -85,7 +89,7 @@ function checkLoad()
 		savedir = '%appdata%\\LOVE\\DDLC-LOVE\\'
 	end
 	
-	os_timecheck = nil
+	os_timecheck = os.time()
 	
 	
 	local ghostmenu_chance = love.math.random(0, 63)
