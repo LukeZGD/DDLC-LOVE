@@ -4,7 +4,6 @@ local gtext200 = glitchtext(200)
 local y_gtimer = 0
 
 function yuri_dragon()
-	local dt = love.timer.getDelta()
 	y_gtimer = y_gtimer + dt
 	if y_gtimer > 0.55 and y_gtimer < 0.6 then
 		updateYuri('3','a')

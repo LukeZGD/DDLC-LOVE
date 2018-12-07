@@ -42,6 +42,25 @@ function easeQuadOut(t,b,c,d)
 	return -(c) * t*(t-2) + b
 end
 
+function easeQuadInOut(t,b,c,d)
+	t = t/(d/2)
+	if (t < 1) then
+		return c/2*t*t + b
+	else
+		return -c/2 * ((t-1) * (t-3) - 1) + b
+	end
+end
+	
+function easeCubicInOut(t,b,c,d)
+	t = t/(d/2)
+	if (t < 1) then
+		return c/2*t*t*t + b
+	else
+		t = t - 2
+		return c/2*(t*t*t + 2) + b
+	end
+end
+
 function fadeOut(x)
 	alpha = math.max(alpha - 2.5, 0)
 	--fade out to poemgame

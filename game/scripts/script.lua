@@ -69,6 +69,7 @@ function cw(p1, stext, tag)
 		end
 	end
 	
+	--[[
 	if menu_history then
 		c_disp[1] = string.sub(stext, 1, c_a[1])
 		for i = 2, 4 do
@@ -77,6 +78,7 @@ function cw(p1, stext, tag)
 			end
 		end
 	end
+	]]
 	
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)
@@ -144,7 +146,6 @@ function m (say) return cw('m',say) end
 function pause(t)
 	if event_enabled then textbox_enabled = false end
 	autotimer = 0
-	local dt = love.timer.getDelta()
 	tagtimer = tagtimer + dt
 	if tagtimer >= t then
 		scriptJump(cl+1)

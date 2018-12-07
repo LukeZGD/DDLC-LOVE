@@ -2,7 +2,6 @@ local y_gtimer = 0
 local gtext = glitchtext(20)
 
 function yuri_glitch2(x)
-	local dt = love.timer.getDelta()
 	y_gtimer = y_gtimer + dt
 	if y_gtimer > 1.2 and y_gtimer < 1.25 then
 		updateYuri('1','a',x)
