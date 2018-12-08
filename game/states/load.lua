@@ -32,22 +32,29 @@ function updateLoad()
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext, 'static')
 		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext, 'static')
-		keysbox = lg.newImage("images/gui/button/box.png")
 		menu_bg_m = lg.newImage("images/gui/menu_bg_m.png")
-		gui_mmenu = lg.newImage("images/gui/overlay/main_menu.png")
-		gui_gmenu = lg.newImage("images/gui/overlay/game_menu.png")
-		gui_mainbuttons = lg.newImage("images/gui/mainbuttons.png")
-		gui_newgame = lg.newImage("images/gui/newgame.png")
+		gui = {}
+		gui.keysbox = lg.newImage("images/gui/button/box.png")
+		gui.mmenu = lg.newImage("images/gui/overlay/main_menu.png")
+		gui.gmenu = lg.newImage("images/gui/overlay/game_menu.png")
+		gui.mainbuttons = lg.newImage("images/gui/overlay/mainbuttons.png")
+		gui.gamebuttons = lg.newImage("images/gui/overlay/gamebuttons.png")
+		gui.newgame = lg.newImage("images/gui/overlay/newgame.png")
+		gui.history = lg.newImage("images/gui/overlay/history.png")
+		gui.gamemenu = lg.newImage("images/gui/overlay/gamemenu.png")
+		gui.load = lg.newImage("images/gui/overlay/load.png")
+		gui.save = lg.newImage("images/gui/overlay/save.png")
+		gui.settings = lg.newImage("images/gui/overlay/settings.png")
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
 		namebox = lg.newImage('images/gui/namebox.png')
 		textbox = lg.newImage('images/gui/textbox.png')
 		background_Image = lg.newImage('images/gui/menu_bg.png')
-		guicheck = lg.newImage('images/gui/button/check_selected_foreground.png')
-		gui_ctc = lg.newImage('images/gui/ctc.png')
-		gui_skip = lg.newImage('images/gui/skip.png')
-		sidebar = lg.newImage('images/gui/sidebar.png')
+		gui.check = lg.newImage('images/gui/button/check_selected_foreground.png')
+		gui.ctc = lg.newImage('images/gui/ctc.png')
+		gui.skip = lg.newImage('images/gui/skip.png')
+		gui.sidebar = lg.newImage('images/gui/overlay/sidebar.png')
 		
 	elseif l_timer == 99 then
 		local file = love.filesystem.getInfo('persistent')

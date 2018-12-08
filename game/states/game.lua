@@ -28,9 +28,9 @@ function drawGame()
 	lg.setColor(255,255,255,alpha)
 	lg.print(cl,5,690)
 	if autotimer > 0 then
-		lg.draw(gui_skip,0,27)
+		lg.draw(gui.skip,0,27)
 		lg.setColor(0,0,0)
-		lg.print('Auto-Forward On', 5, 35)
+		outlineText('Auto-Forward On',5,35)
 	elseif autoskip > 0 then
 		local skiptext
 		if sectimer >= 0.75 then
@@ -42,9 +42,9 @@ function drawGame()
 		else
 			skiptext = 'Skipping'
 		end
-		lg.draw(gui_skip,0,27)
+		lg.draw(gui.skip,0,27)
 		lg.setColor(0,0,0)
-		lg.print(skiptext, 5, 35)
+		outlineText(skiptext,5,35)
 	end
 	if menu_enabled then menu_draw() end
 end

@@ -169,7 +169,7 @@ function drawPoemGame()
 	lg.draw(bgch2, 0, 0)
 	
 	lg.setColor(0,0,0)
-	lg.draw(guicheck,cursorX,cursorY)
+	lg.draw(gui.check,cursorX,cursorY)
 	lg.setFont(halogenfont)
 	if poemword <= 20 then
 		lg.print(progress .. '/20',800,70)
