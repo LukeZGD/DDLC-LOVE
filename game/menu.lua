@@ -64,7 +64,7 @@ function menu_enable(m)
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		menutext = 'Game Menu'
-		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help','Quit','Return'}
+		itemnames = {'','','','','','','',''}
 	
 	elseif menu_type == 'savegame' then
 		menutext = 'Save Game'
@@ -97,8 +97,7 @@ function menu_draw()
 	lg.setColor(255,255,255,menu_alpha)
 	
 	if menu_type == 'title' then
-		lg.setColor(0,0,0,alpha)
-		lg.draw(guicheck,-670+titlebg_ypos,(cY/1.2)+280)
+		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
 	elseif menu_type == 'choice' then
 		lg.setColor(255,189,225,menu_alpha)
@@ -110,7 +109,7 @@ function menu_draw()
 			if menu_items >= i+1 then lg.rectangle('fill',440, 200+(50*i),400,32) end
 		end
 		lg.setColor(0,0,0,menu_alpha)
-		lg.draw(guicheck,410,200+(50*(m_selected-1)))
+		lg.draw(gui.check,410,200+(50*(m_selected-1)))
 		lg.print(menutext,440,195)
 		
 	elseif menu_type == 'dialog' then
@@ -123,61 +122,94 @@ function menu_draw()
 		lg.setColor(255,189,225,menu_alpha)
 		lg.rectangle('fill',440,250,35,32)
 		lg.setColor(0,0,0,menu_alpha)
-		lg.draw(guicheck,410,250)
+		lg.draw(gui.check,410,250)
 		lg.print(menutext,440,195)
 		lg.print('OK',440,250)
 		
-	else
+	elseif menu_type == 'pause' or menu_type == 'pause2' then
+		lg.draw(gui.gmenu)
+		lg.draw(gui.gamebuttons)
+		lg.draw(gui.gamemenu)
+		lg.draw(gui.check,50,(cY/1.2)+240)
+		
+	elseif menu_type == 'help' then
 		lg.setColor(255,255,255,menu_alpha)
 		lg.draw(background_Image,posX,posY)
 		lg.setColor(255,189,225,menu_alpha)
 		lg.rectangle('fill',100,50,1080,620)
 		lg.setColor(255,230,244,menu_alpha)
 		lg.rectangle('fill',120,70,1040,580)
+		lg.setColor(0,0,0,menu_alpha)
+		lg.print(menutext,140,90)
+		
+	else
+		lg.setColor(255,255,255,menu_alpha)
+		lg.draw(background_Image,posX,posY)
+		lg.draw(gui.mmenu)
+		if menu_previous == 'pause' or menu_previous == 'pause2' then
+			lg.draw(gui.gamebuttons)
+		elseif menu_previous == 'title' then
+			lg.draw(gui.mainbuttons)
+			lg.draw(gui.newgame)
+		end
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
-			if menu_items >= i+1 then lg.rectangle('fill',160, 110+(50*i),200,32) end
+			if menu_items >= i+1 then lg.rectangle('fill',360, 110+(50*i),200,32) end
 		end
 		lg.setColor(0,0,0,menu_alpha)
-		lg.draw(guicheck,cX,cY)
-		lg.print(menutext,140,90)
+		lg.draw(gui.check,cX+200,cY)
+		if menu_type == 'mainyesno' then
+			lg.print(menutext,340,90)
+		end
 	end
 	
+	lg.setColor(255,255,255,menu_alpha)
+	if menu_type == 'history' then
+		lg.draw(gui.history)
+	elseif menu_type == 'loadgame' then
+		lg.draw(gui.load)
+	elseif menu_type == 'savegame' then
+		lg.draw(gui.save)
+	elseif menu_type == 'settings' then
+		lg.draw(gui.settings)
+	end
+	
+	lg.setColor(0,0,0,menu_alpha)
 	for i = 1, 8 do
 		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],440,200+(50*i))
-		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],160,110+(50*i)) end
+		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],360,110+(50*i)) end
 	end
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
 		if menu_type == 'settings' then
-			lg.print(settings.textspd, 410, 160)
-			lg.print('(<)',380,160)
-			lg.print('(>)',460,160)
-			lg.print(settings.autospd..' sec.',410, 210)
-			lg.print('(<)',380,210)
-			lg.print('(>)',480,210)
-			lg.print(settings.masvol, 410, 260)
-			lg.print('(<)',380,260)
-			lg.print('(>)',460,260)
-			lg.print(settings.bgmvol, 410, 310)
-			lg.print('(<)',380,310)
-			lg.print('(>)',460,310)
-			lg.print(settings.sfxvol, 410, 360)
-			lg.print('(<)',380,360)
-			lg.print('(>)',460,360)
+			lg.print(settings.textspd, 610, 160)
+			lg.print('(<)',580,160)
+			lg.print('(>)',660,160)
+			lg.print(settings.autospd..' sec.',610, 210)
+			lg.print('(<)',580,210)
+			lg.print('(>)',680,210)
+			lg.print(settings.masvol, 610, 260)
+			lg.print('(<)',580,260)
+			lg.print('(>)',660,260)
+			lg.print(settings.bgmvol, 610, 310)
+			lg.print('(<)',580,310)
+			lg.print('(>)',660,310)
+			lg.print(settings.sfxvol, 610, 360)
+			lg.print('(<)',580,360)
+			lg.print('(>)',660,360)
 		end
-		lg.print('Press (<) and (>) to change settings.',140,580)
-		lg.print('DDLC-LOVE '..dversion..' '..dvertype,140,610)
+		lg.print('Press (<) and (>) to change settings.',340,580)
+		lg.print(dversion..'\n'..dvertype,1200,660)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		lg.print('- Page '..pagenum..' of 10',257,90)
+		lg.print('Page '..pagenum..' of 10',340,90)
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
 				lg.setColor(0,255,0)
 			else
 				lg.setColor(255,0,0)
 			end
-			lg.rectangle('fill',290,120+(50*i),9,9)
+			lg.rectangle('fill',490,120+(50*i),9,9)
 		end
 		
 	elseif menu_type == 'help' then

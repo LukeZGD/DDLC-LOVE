@@ -29,6 +29,18 @@ function lg.draw(drawable, ...)
 	end
 end
 
+function outlineText(text,x,y,type)
+	lg.setColor(0,0,0,alpha)
+	if not isPSP then
+		lg.print(text,x-1.25,y)
+		lg.print(text,x,y-1.25)
+		lg.print(text,x+1.25,y)
+		lg.print(text,x,y+1.25)
+		lg.setColor(255,255,255,alpha)
+	end
+	lg.print(text,x,y)
+end
+
 function dripText(text,charactersPerSecond,startTime)
 	currentTime = love.timer.getTime()
 	if (currentTime <= startTime) or startTime == 0 then return '' end
@@ -105,31 +117,16 @@ function drawTextBox()
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
-		if gui_ctc_t then lg.draw(gui_ctc, gui_ctc_x, 685) end
+		if gui_ctc_t then lg.draw(gui.ctc, gui_ctc_x, 685) end
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
+		
 		if c_disp and global_os == 'LOVE-OneLua' then
-			lg.setColor(0,0,0,alpha)
 			for i = 1, 4 do
-				lg.print(c_disp[i],xps.c+1.25,yps.c[i])
+				outlineText(c_disp[i],xps.c,yps.c[i])
 			end
-			if g_system ~= 'PSP' then
-				for i = 1, 4 do
-					lg.print(c_disp[i],xps.c,yps.c[i]+1.25)
-				end
-				for i = 1, 4 do
-					lg.print(c_disp[i],xps.c-1.25,yps.c[i])
-				end
-				for i = 1, 4 do
-					lg.print(c_disp[i],xps.c,yps.c[i]-1.25)
-				end
-				lg.setColor(255,255,255,alpha)
-				for i = 1, 4 do
-					lg.print(c_disp[i],xps.c,yps.c[i])
-				end
-			end
+			
 		elseif textx then
-			lg.setColor(0,0,0,alpha)
 			lg.printf(textx,248.75,590,775)
 			lg.printf(textx,250,588.75,775)
 			lg.printf(textx,251.25,590,775)
