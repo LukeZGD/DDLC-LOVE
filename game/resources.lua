@@ -74,9 +74,12 @@ function changeState(cstate,x)
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
 		require 'states/splash'
+		require 'scripts/event'
+		loadNoise()
 		endbg = lg.newImage('images/gui/end.png')
 		s_killearly = lg.newImage('images/cg/s_kill/s_kill_early.png')
 		audioUpdate('s_kill_early')
+		y_timer = 0
 		alpha = 0
 	elseif cstate == 'ghostmenu' then
 		require 'states/splash'
