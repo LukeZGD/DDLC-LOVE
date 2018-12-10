@@ -16,6 +16,7 @@ local splash_messages = {
 local random_msg = love.math.random(1, #splash_messages)
 local running
 local s_timer = 0
+local s_kille = {x=280,y=-5}
 
 function drawSplash()
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
@@ -104,9 +105,11 @@ function drawSplashspec(spec)
 	if s_timer > 3.1 then
 		lg.setBackgroundColor(230,230,230)
 		if state == 's_kill_early' then
-			lg.draw(s_killearly,230,0)
-			lg.setColor(200,200,200)
-			lg.setFont(m1)
+			lg.draw(s_killearly,s_kille.x,s_kille.y)
+			lg.setColor(255,255,255,32)
+			drawanimframe()
+			lg.setColor(160,160,160)
+			lg.setFont(s1)
 			if s_timer > 600 then lg.print('Now everyone can be happy.',640,300) end
 		elseif state == 'ghostmenu' then
 			drawSplashChar()
@@ -121,11 +124,26 @@ function updateSplashspec(dt)
 	if s_timer > 3.1 then
 		alpha = math.min(alpha + 4, 255)
 		y_timer = y_timer + dt
-		updateSplashChar()
+		if state == 'ghostmenu' then
+			updateSplashChar()
+		end
 	elseif s_timer > 3 then
 		alpha = 0
 	elseif s_timer <= 3 then
 		alpha = math.min(alpha + 4, 255)
+	end
+	
+	if y_timer > 0.5 and state == 's_kill_early' then
+		if love.math.random(1,2) == 1 and s_kille.x < 285 then
+			s_kille.x = s_kille.x + 1
+		elseif love.math.random(1,2) == 1 and s_kille.x > 275 then
+			s_kille.x = s_kille.x - 1
+		elseif love.math.random(1,2) == 1 and s_kille.y > -5 then
+			s_kille.y = s_kille.y - 1
+		elseif love.math.random(1,2) == 1 and s_kille.y < -3 then
+			s_kille.y = s_kille.y + 1
+		end
+		y_timer = 0
 	end
 end
 
