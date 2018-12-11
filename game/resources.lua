@@ -1,5 +1,5 @@
 audio_ext = '.ogg'
-if lv1lua.isPSP then
+if g_system == 'PSP' then
 	audio_ext = '.mp3'
 end
 
