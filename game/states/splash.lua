@@ -156,25 +156,25 @@ end
 
 function updateSplashChar()
 	if y_timer > 0.75 then
-		if stmr[1] <= 1 then
-			postempY = easeQuadInOut(stmr[1],0,8,1)
-		elseif stmr[1] <= 2 then
-			postempY = 8 - easeQuadInOut(stmr[1]-1,0,8,1)
+		if z_timer[1] <= 1 then
+			postempY = easeQuadInOut(z_timer[1],0,8,1)
+		elseif z_timer[1] <= 2 then
+			postempY = 8 - easeQuadInOut(z_timer[1]-1,0,8,1)
 		end
-		tlp.yx = 525 - easeQuadInOut(stmr[1],0,67,2)
-		tlp.nx = 670 - easeQuadInOut(stmr[1],0,38,2)
-		tlp.sx = 470 - easeQuadInOut(stmr[1],0,101,2)
-		tlp.mx = 680 + easeQuadInOut(stmr[1],0,20,2)
-		tlp.yy = 720 - easeQuadInOut(stmr[1],0,705,2)
-		tlp.ny = 800 - easeQuadInOut(stmr[1],0,728,2)
-		tlp.sy = 880 - easeQuadInOut(stmr[1],0,747,2)
-		tlp.my = 960 - easeQuadInOut(stmr[1],0,851,2)
-		if stmr[1] > 0.75 and stmr[1] < 2 then
-			stmr[2] = stmr[2] + dt
-			tlp.scale = 0.75 + easeQuadInOut(stmr[2],0,0.25,1.25)
+		tlp.yx = 525 - easeQuadInOut(z_timer[1],0,67,2)
+		tlp.nx = 670 - easeQuadInOut(z_timer[1],0,38,2)
+		tlp.sx = 470 - easeQuadInOut(z_timer[1],0,101,2)
+		tlp.mx = 680 + easeQuadInOut(z_timer[1],0,20,2)
+		tlp.yy = 720 - easeQuadInOut(z_timer[1],0,705,2)
+		tlp.ny = 800 - easeQuadInOut(z_timer[1],0,728,2)
+		tlp.sy = 880 - easeQuadInOut(z_timer[1],0,747,2)
+		tlp.my = 960 - easeQuadInOut(z_timer[1],0,851,2)
+		if z_timer[1] > 0.75 and z_timer[1] < 2 then
+			z_timer[2] = z_timer[2] + dt
+			tlp.scale = 0.75 + easeQuadInOut(z_timer[2],0,0.25,1.25)
 		end
-		if stmr[1] <= 2 then
-			stmr[1] = stmr[1] + dt
+		if z_timer[1] <= 2 then
+			z_timer[1] = z_timer[1] + dt
 			posY = posY - postempY
 		end
 	end
