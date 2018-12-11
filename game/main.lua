@@ -1,3 +1,4 @@
+global_os, g_system = love.system.getOS()
 require 'draw'
 require 'resources'
 require 'saveload'
@@ -21,8 +22,7 @@ function love.load()
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	--os detection
-	global_os, g_system = love.system.getOS()
+	--for pc stuff
 	if g_system ~= 'Switch' and global_os ~= 'LOVE-OneLua' then
 		love.window.setMode(1280, 720)
 		love.window.setTitle('DDLC-LOVE')
