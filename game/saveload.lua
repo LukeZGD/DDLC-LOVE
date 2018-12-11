@@ -88,6 +88,20 @@ function loadgame(x)
 	end
 end
 
+function savedatainfo(save)
+	local datainfo = "save"..save.."={bg1='"..bg1.."',date='"..os.date("%Y-%m-%d %H:%M").."'}"
+	love.filesystem.write("save"..savenumber.."-"..persistent.ptr.."_data.sav", datainfo)
+end
+
+function loaddatainfo(save)
+	if global_os == 'LOVE-OneLua' then
+		love.filesystem.load("save"..save.."-"..persistent.ptr.."_data.sav")
+	else
+		local datainfo = loadstring(love.filesystem.read("save"..save.."-"..persistent.ptr.."_data.sav"))
+		if datainfo then datainfo("save"..save.."-"..persistent.ptr.."_data.sav") end
+	end
+end
+
 function savesettings()
 	local settingsfile = "settings={textspd="..settings.textspd..",autospd="..settings.autospd..",bgmvol="..settings.bgmvol..",sfxvol="..settings.sfxvol.."}"
 	love.filesystem.write("settings.sav", settingsfile)

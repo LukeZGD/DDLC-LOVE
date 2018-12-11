@@ -5,11 +5,14 @@ local getcompare = {}
 local pagenum = 1
 local savenum = {}
 local itemnames = {}
-local saveindicator = {}
 local chch
 local cpick
 local menu_fadeout
 local menu_mtimer = 0
+local save_oset = {x={366,652,938},y={250,485}}
+local save_date = {}
+local save_bpic = {}
+local save_hoverpos = {}
 menu_alpha = 0
 
 function menu_enable(m)
@@ -17,23 +20,29 @@ function menu_enable(m)
 	menu_type = m
 	
 	if menu_type == 'savegame' or menu_type == 'loadgame' then
-		itemnames = {}
+		save_bpic = {}
 		for i = 1, 6 do
 			if pagenum > 1 then	
 				chch = ((pagenum-1)*6)+i
 			else
 				chch = i
 			end
-			savenum[i] = chch
-			itemnames[i] = 'Save File '..chch
-			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
-				saveindicator[i] = 1
-			else
-				saveindicator[i] = 0
+			if chch < 10 then
+				chch = '0'..chch
 			end
+			savenum[i] = chch
+			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
+				loaddatainfo(chch)
+				save_date[i] = loadstring('return save'..chch..'.date')()
+				save_bpic[i] = lg.newImage('images/bg/'..loadstring('return save'..chch..'.bg1')()..'.png')
+			else
+				save_date[i] = 'empty slot'
+			end
+			
 		end
 	end
 	
+	menutext = ''
 	if menu_type == 'mainyesno' then
 		menutext = 'Are you sure you want to return to the main menu? This will lose unsaved progress.'
 		itemnames = {'Yes','No'}
@@ -41,42 +50,29 @@ function menu_enable(m)
 	elseif menu_type == 'quityesno' then
 		menutext = 'Are you sure you want to quit the game?'
 		itemnames = {'Yes','No'}
-		
-	elseif menu_type == 'help' then
-		menutext = 'Help'
-		itemnames = {}
 	
 	elseif menu_type == 'title' then
-		menutext = ''
 		itemnames = {'','','','',''}
 		
 	elseif menu_type == 'settings' then
-		menutext = 'Settings'
 		itemnames = {'Text Speed','Auto-Forward Time','Master Volume','Music Volume','Sound Volume','Characters','Save Settings'}
 		
 	elseif menu_type == 'settings2' then
-		menutext = 'Settings'
 		itemnames = {'Master Volume','Music Volume','Sound Volume','Characters','Save Settings'}
 	
 	elseif menu_type == 'characters' then
-		menutext = 'Characters'
 		itemnames = {'Delete monika.chr','Delete natsuki.chr','Delete sayori.chr','Delete yuri.chr','Restore all'}
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
-		menutext = 'Game Menu'
 		itemnames = {'','','','','','','',''}
-	
-	elseif menu_type == 'savegame' then
-		menutext = 'Save Game'
-	
-	elseif menu_type == 'loadgame' then
-		menutext = 'Load Game'
 		
-	elseif menu_type == 'dialog' then
+	elseif menu_type == 'dialog' then 
 		itemnames = {''}
 		
-	elseif menu_type == 'history' then
-		menutext = 'History'
+	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
+		itemnames = {'','','','','',''}
+		
+	elseif menu_type == 'help' or menu_type == 'history' then
 		itemnames = {}
 	end
 	
@@ -142,6 +138,43 @@ function menu_draw()
 		lg.setColor(0,0,0,menu_alpha)
 		lg.print(menutext,140,90)
 		
+	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
+		lg.setColor(255,255,255,menu_alpha)
+		lg.draw(background_Image,posX,posY)
+		lg.draw(gui.mmenu)
+		if menu_previous == 'pause' or menu_previous == 'pause2' then
+			lg.draw(gui.gamebuttons)
+		elseif menu_previous == 'title' then
+			lg.draw(gui.mainbuttons)
+			lg.draw(gui.newgame)
+		end
+		
+		if m_selected >= 2 and m_selected <= 4 then
+			save_hoverpos.x = save_oset.x[m_selected-1]
+			save_hoverpos.y = save_oset.y[1]
+		else
+			save_hoverpos.x = save_oset.x[m_selected-4]
+			save_hoverpos.y = save_oset.y[2]
+		end
+		lg.draw(gui.slothover,save_hoverpos.x,save_hoverpos.y-50)
+		
+		for i = 1, 6 do
+			local apx={x=0,y=0}
+			if i >= 1 and i <= 3 then
+				apx.x = save_oset.x[i]
+				apx.y = save_oset.y[1]
+			else
+				apx.x = save_oset.x[i-3]
+				apx.y = save_oset.y[2]
+			end
+			lg.setColor(255,255,255,menu_alpha)
+			lg.draw(gui.slotidle,apx.x,apx.y-50)
+			lg.draw(save_bpic[i],apx.x+10,apx.y-40,0,0.2,0.2)
+			lg.setColor(0,0,0,menu_alpha)
+			lg.print(savenum[i]..': '..save_date[i],(apx.x+10),(apx.y+110))
+		end
+		lg.print('Page '..pagenum,751,138)		
+		
 	else
 		lg.setColor(255,255,255,menu_alpha)
 		lg.draw(background_Image,posX,posY)
@@ -158,9 +191,7 @@ function menu_draw()
 		end
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(gui.check,cX+200,cY)
-		if menu_type == 'mainyesno' then
-			lg.print(menutext,340,90)
-		end
+		lg.print(menutext,340,90)
 	end
 	
 	lg.setColor(255,255,255,menu_alpha)
@@ -200,17 +231,6 @@ function menu_draw()
 		end
 		lg.print('Press (<) and (>) to change settings.',340,580)
 		lg.print(dversion..'\n'..dvertype,1200,660)
-		
-	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		lg.print('Page '..pagenum..' of 10',340,90)
-		for i = 1, 6 do
-			if saveindicator[i] == 1 then
-				lg.setColor(0,255,0)
-			else
-				lg.setColor(255,0,0)
-			end
-			lg.rectangle('fill',490,120+(50*i),9,9)
-		end
 		
 	elseif menu_type == 'help' then
 		local keys = {}
@@ -314,6 +334,7 @@ function menu_confirm()
 	elseif menu_type == 'savegame' then  --save game confirm 
 		savenumber = savenum[m_selected-1]
 		savegame()
+		savedatainfo(savenumber)
 		menu_enable(menu_previous)
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then --pause menu options
@@ -425,7 +446,9 @@ end
 function menu_keypressed(key)
 	if key == 'down' then
 		sfx2:play()
-		if m_selected <= menu_items-1 then
+		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected <= 4 then
+			m_selected = m_selected + 3
+		elseif m_selected <= menu_items-1 then
 			m_selected = m_selected + 1
 		else
 			m_selected = 2
@@ -434,7 +457,9 @@ function menu_keypressed(key)
 		
 	elseif key == 'up' then
 		sfx2:play()
-		if m_selected >= 3 then
+		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected >= 5 and m_selected <= 7 then
+			m_selected = m_selected - 3
+		elseif m_selected >= 3 then
 			m_selected = m_selected - 1
 		else
 			m_selected = menu_items
@@ -453,7 +478,11 @@ function menu_keypressed(key)
 		menu_previous = nil
 		
 	elseif key == 'left' then
-		if menu_type == 'settings' and m_selected <= 5 then
+		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected > 2 then
+			sfx2:play()
+			m_selected = m_selected - 1
+			m_select()
+		elseif menu_type == 'settings' and m_selected <= 5 then
 			if cpick == 'Text Speed' then
 				if settings.textspd > 250 then
 					settings.textspd = 250
@@ -483,7 +512,11 @@ function menu_keypressed(key)
 		game_setvolume()
 		
 	elseif key == 'right' then
-		if menu_type == 'settings' and m_selected <= 5 then
+		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected < 7 then
+			sfx2:play()
+			m_selected = m_selected + 1
+			m_select()
+		elseif menu_type == 'settings' and m_selected <= 5 then
 			if cpick == 'Text Speed' and settings.textspd < 250 then
 				settings.textspd = settings.textspd + 25
 			elseif cpick == 'Auto-Forward Time' and settings.autospd < 15 then

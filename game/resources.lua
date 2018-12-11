@@ -24,6 +24,12 @@ function changeState(cstate,x)
 			menu_art_s = lg.newImage("images/gui/menu_art_s_break.png")
 		end
 		
+		if persistent.ptr == 1 then
+			gui.newgame = lg.newImage("images/gui/overlay/newgame1.png")
+		else
+			gui.newgame = lg.newImage("images/gui/overlay/newgame.png")
+		end
+		
 		if persistent.ptr == 4 then
 			menu_art_m = lg.newImage("images/cg/blank.png")
 		else
