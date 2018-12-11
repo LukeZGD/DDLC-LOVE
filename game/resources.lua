@@ -44,7 +44,7 @@ function changeState(cstate,x)
 		y_timer = 0
 		titlebg_ypos = -240
 		tlp = {yx=525,nx=670,sx=470,mx=680,yy=720,ny=720,sy=720,my=720,scale=0.75}
-		stmr = {0,0,0}
+		z_timer = {0,0}
 		
 	elseif cstate == 'game' and x == 1 then --new game
 		cl = 1
@@ -96,7 +96,7 @@ function changeState(cstate,x)
 		menu_art_y = lg.newImage("images/gui/menu_art_y_ghost.png")
 		y_timer = 0.7
 		tlp = {yx=525,nx=670,sx=470,mx=680,yy=720,ny=720,sy=720,my=720,scale=0.75}
-		stmr = {0,0,0}
+		z_timer = {0,0}
 		audioUpdate('ghostmenu')
 		alpha = 0
 	elseif cstate == 'poem_special' then
