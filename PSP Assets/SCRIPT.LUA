@@ -1,18 +1,18 @@
 --some info
-isPSP = os.cfw
-appmode = ""
-appname = "DDLC-LOVE"
-dataloc = ""
-local keyconfigset = "XB"
+lv1lua.isPSP = os.cfw
+lv1lua.appmode = ""
+lv1lua.appname = "DDLC-LOVE"
+lv1lua.dataloc = ""
+local lv1lua.keyconfset = "XB"
 
-if appmode == "TEST" and not isPSP then
-	dataloc = "ux0:/data/"..appname.."/"
+if lv1lua.appmode == "TEST" and not lv1lua.isPSP then
+	lv1lua.dataloc = "ux0:/data/"..lv1lua.appname.."/"
 end
 
-if keyconfigset == "PS" then
-	keyconfig = {"square","cross","triangle","square","l","r"}
-elseif keyconfigset == "Nintendo" then
-	keyconfig = {"a","b","x","y","lbutton","rbutton"}
+if lv1lua.keyconfset == "PS" then
+	lv1lua.keyconf = {"circle","cross","triangle","square","l","r"}
+elseif lv1lua.keyconfset == "Nintendo" then
+	lv1lua.keyconf = {"a","b","x","y","lbutton","rbutton"}
 	--[[
 	Nintendo Key Config
 	a = circle
@@ -22,8 +22,8 @@ elseif keyconfigset == "Nintendo" then
 	lbutton = l trigger
 	rbutton = r trigger
 	]]
-elseif keyconfigset == "XB" then
-	keyconfig = {"b","a","y","x","lbutton","rbutton"}
+elseif lv1lua.keyconfset == "XB" then
+	lv1lua.keyconf = {"b","a","y","x","lbutton","rbutton"}
 	--[[
 	Xbox Controller Key Config
 	b = circle
@@ -46,15 +46,16 @@ love.filesystem = {}
 love.keyboard = {}
 
 --modules and stuff
-dofile(dataloc.."LOVE-OneLua/graphics.lua")
-dofile(dataloc.."LOVE-OneLua/timer.lua")
-dofile(dataloc.."LOVE-OneLua/audio.lua")
-dofile(dataloc.."LOVE-OneLua/event.lua")
-dofile(dataloc.."LOVE-OneLua/math.lua")
-dofile(dataloc.."LOVE-OneLua/system.lua")
-dofile(dataloc.."LOVE-OneLua/filesystem.lua")
-dofile(dataloc.."LOVE-OneLua/keyboard.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/graphics.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/timer.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/audio.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/event.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/math.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/system.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/filesystem.lua")
+dofile(lv1lua.dataloc.."LOVE-OneLua/keyboard.lua")
 
+--return LOVE 0.10.2
 function love.getVersion()
 	return 0, 10, 2
 end
@@ -62,21 +63,23 @@ end
 --require replacement?
 function require(param)
 	if string.sub(param, -4) == ".lua" then
-		param = dataloc.."game/"..param
+		param = lv1lua.dataloc.."game/"..param
 	else
-		--param = string.gsub(param, "/.", "//")
-		param = dataloc.."game/"..param..".lua"
+		param = lv1lua.dataloc.."game/"..param..".lua"
 	end
 	dofile(param)
 end
 
 --START!
-dofile(dataloc.."game/main.lua")
-love.load()
+love.math.setRandomSeed(os.time())
+dofile(lv1lua.dataloc.."game/main.lua")
+if love.load then
+	love.load()
+end
 
 --gamepadpressed or keypressed stuff
-local joy = nil
 local mask = {"up", "down", "left", "right", "cross", "circle", "square", "triangle", "r", "l", "start", "select"}
+
 if not love.keypressed and love.gamepadpressed then
 	function love.keypressed(key)
 		love.gamepadpressed(joy,button)
@@ -84,6 +87,7 @@ if not love.keypressed and love.gamepadpressed then
 elseif not love.keypressed then
 	love.keypressed = function() end
 end
+
 if not love.keyreleased and love.gamepadreleased then
 	function love.keyreleased(key)
 		love.gamepadreleased(joy,button)
@@ -95,13 +99,17 @@ end
 --Main loop
 while true do
 	--Draw
-	love.draw()
+	if love.draw then
+		love.draw()
+	end
 	screen.flip()
 	
 	--Update
 	if tmr:time() >= 16 then
 		dt = tmr:time() / 1000
-		love.update(dt)
+		if love.update then
+			love.update(dt)
+		end
 		tmr:reset(); tmr:start()
 	end
 	
@@ -109,32 +117,32 @@ while true do
 	buttons.read()
 	for i=1,#mask do
 		if buttons[mask[i]] and mask[i] == "circle" then
-			love.keypressed(keyconfig[1])
+			love.keypressed(lv1lua.keyconf[1])
 		elseif buttons[mask[i]] and mask[i] == "cross" then
-			love.keypressed(keyconfig[2])
+			love.keypressed(lv1lua.keyconf[2])
 		elseif buttons[mask[i]] and mask[i] == "triangle" then
-			love.keypressed(keyconfig[3])
+			love.keypressed(lv1lua.keyconf[3])
 		elseif buttons[mask[i]] and mask[i] == "square" then
-			love.keypressed(keyconfig[4])
+			love.keypressed(lv1lua.keyconf[4])
 		elseif buttons[mask[i]] and mask[i] == "l" then
-			love.keypressed(keyconfig[5])
+			love.keypressed(lv1lua.keyconf[5])
 		elseif buttons[mask[i]] and mask[i] == "r" then
-			love.keypressed(keyconfig[6])
+			love.keypressed(lv1lua.keyconf[6])
 		elseif buttons[mask[i]] then
 			love.keypressed(mask[i])
 		end
 		if buttons.released[mask[i]] and mask[i] == "circle" then
-			love.keyreleased(keyconfig[1])
+			love.keyreleased(lv1lua.keyconf[1])
 		elseif buttons.released[mask[i]] and mask[i] == "cross" then
-			love.keyreleased(keyconfig[2])
+			love.keyreleased(lv1lua.keyconf[2])
 		elseif buttons.released[mask[i]] and mask[i] == "triangle" then
-			love.keyreleased(keyconfig[3])
+			love.keyreleased(lv1lua.keyconf[3])
 		elseif buttons.released[mask[i]] and mask[i] == "square" then
-			love.keyreleased(keyconfig[4])
+			love.keyreleased(lv1lua.keyconf[4])
 		elseif buttons.released[mask[i]] and mask[i] == "l" then
-			love.keyreleased(keyconfig[5])
+			love.keyreleased(lv1lua.keyconf[5])
 		elseif buttons.released[mask[i]] and mask[i] == "r" then
-			love.keyreleased(keyconfig[6])
+			love.keyreleased(lv1lua.keyconf[6])
 		elseif buttons.released[mask[i]] then
 			love.keyreleased(mask[i])
 		end
