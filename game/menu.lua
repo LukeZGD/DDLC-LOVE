@@ -13,13 +13,14 @@ local save_oset = {x={366,652,938},y={250,485}}
 local save_date = {}
 local save_bpic = {}
 local save_hoverpos = {}
+local sxp = 0
 menu_alpha = 0
 
 function menu_enable(m)
 	menu_enabled = true
 	menu_type = m
 	
-	if menu_type == 'savegame' or menu_type == 'loadgame' then
+	if menu_type == 'savegame' or menu_type == 'loadgame' or menu_type == 'title' then
 		save_bpic = {}
 		for i = 1, 6 do
 			if pagenum > 1 then	
@@ -34,7 +35,9 @@ function menu_enable(m)
 			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
 				loaddatainfo(chch)
 				save_date[i] = loadstring('return save'..chch..'.date')()
-				save_bpic[i] = lg.newImage('images/bg/'..loadstring('return save'..chch..'.bg1')()..'.png')
+				if menu_type ~= 'title' then
+					save_bpic[i] = lg.newImage('images/bg/save/'..loadstring('return save'..chch..'.bg1')()..'.png')
+				end
 			else
 				save_date[i] = 'empty slot'
 			end
@@ -82,7 +85,14 @@ function menu_enable(m)
 		menu_items = #itemnames + 1
 	end
 	
-	if player ~= '' and menu_type == 'title' then
+	sxp = 0
+	for i = 1, #save_date do
+		if save_date[i] ~= 'empty slot' then
+			sxp = sxp + 1
+		end
+	end
+	
+	if sxp > 0 and menu_type == 'title' then
 		m_select(3)
 	else
 		m_select(2)
@@ -169,7 +179,7 @@ function menu_draw()
 			end
 			lg.setColor(255,255,255,menu_alpha)
 			lg.draw(gui.slotidle,apx.x,apx.y-50)
-			lg.draw(save_bpic[i],apx.x+10,apx.y-40,0,0.2,0.2)
+			lg.draw(save_bpic[i],apx.x+10,apx.y-40)
 			lg.setColor(0,0,0,menu_alpha)
 			lg.print(savenum[i]..': '..save_date[i],(apx.x+10),(apx.y+110))
 		end
