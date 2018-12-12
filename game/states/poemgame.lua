@@ -4,6 +4,7 @@ local poemword = 1
 local progress = '1'
 local word = {}
 local wordr = {}
+local currentword = {}
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0
@@ -103,10 +104,12 @@ function poemgamefinish()
 end
 
 function updatewordlist()
+	currentwordlist = wordlist
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr[i] = love.math.random(1,#wordlist)
-			word[i] = wordlist[wordr[i]][1]
+			wordr[i] = love.math.random(1,#currentwordlist)
+			word[i] = currentwordlist[wordr[i]][1]
+			table.remove(currentwordlist,wordr[i])
 		end
 	else
 		for i = 1, 10 do
@@ -130,8 +133,10 @@ function poemgame()
 	
 	state = 'poemgame'
 	xaload = 0
+	
 	if persistent.ptr <= 2 then 
 		audioUpdate('4',true)
+		bg1 = 'notebook'
 		bgch2 = lg.newImage('images/bg/notebook.png')
 	elseif persistent.ptr == 3 then 
 		audioUpdate('ghostmenu')
