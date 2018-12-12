@@ -31,7 +31,7 @@ end
 
 function outlineText(text,x,y,type)
 	lg.setColor(0,0,0,alpha)
-	if not lv1lua.isPSP then
+	if g_system ~= 'PSP' then
 		lg.print(text,x-1.25,y)
 		lg.print(text,x,y-1.25)
 		lg.print(text,x+1.25,y)
