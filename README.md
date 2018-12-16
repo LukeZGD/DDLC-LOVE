@@ -19,20 +19,20 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 You can reset the save data and start over by deleting all of the save files. This is also mentioned in the help menu.
 
 ### Building:
-- Switch - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
-
-- PS Vita - All 3 versions share the same code. To build the PS Vita version, Put the entire game folder in the "PSVita Assets" folder, but do not overwrite files. Also needs [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) beside the game folder (script.lua and the LOVE-OneLua folder). Use the ONEmakerGUI included with ONEluav4R1 for the PS Vita to build a .vpk
-
-- PSP - No need for building, but files need to be copied (same instructions like the PS Vita version, but for the PSP Assets). This also needs the EBOOT.PBP included with ONEluav4R1 for the PSP
+- All 3 versions share the same code, but they all have different processes for building.
+- **Switch** - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
+- **PS Vita and PSP (files setup)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files (except for "error.mp3", overwrite that one). [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
+- **PS Vita** - use the ONEmakerGUI included with ONEluav4R1 for the PS Vita to build a .vpk. 
+- **PSP** - EBOOT.PBP and oneFont.pgf are required. These are included with ONEluav4R1 for the PSP.
 
 ### Running:
-- Switch - [Running LovePotion (Switch)](https://github.com/TurtleP/LovePotion/wiki/Running-(Switch))
+- **Switch** - Copy the .nro to sdmc:/switch/ and run it with the homebrew menu. You may also convert the .nro to .nsp with [hacBrewPack](https://github.com/The-4n/hacBrewPack/releases) or other tools.
 
-- PSP - Download the zip from the releases, and extract the folder with EBOOT.PBP to ms0:/PSP/GAME/
+- **PSP** - Download the zip from the releases, and extract the folder with EBOOT.PBP to ms0:/PSP/GAME/
 
-- PS Vita - Install the vpk from the releases.
+- **PS Vita** - Install the vpk from the releases.
 
-- PC - Drag the game folder to LÖVE 11.1
+- **PC** - Drag the game folder to LÖVE 11.x
 
 **Credits to TurtleP for LovePotion!**
 
