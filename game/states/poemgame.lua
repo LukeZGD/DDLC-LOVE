@@ -3,8 +3,7 @@ require 'scripts/poemwords'
 local poemword = 1
 local progress = '1'
 local word = {}
-local wordr = {}
-local currentword = {}
+local wordr
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0
@@ -30,7 +29,6 @@ local gravity = -6750
 local menuselected = 1
 local cursorX
 local cursorY
-local wordpick
 
 local eyes_chance = love.math.random(0,5)
 local eyes_timer = 0
@@ -107,9 +105,9 @@ function updatewordlist()
 	currentwordlist = wordlist
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr[i] = love.math.random(1,#currentwordlist)
-			word[i] = currentwordlist[wordr[i]][1]
-			table.remove(currentwordlist,wordr[i])
+			wordr = love.math.random(1,#wordlist)
+			word[i] = wordlist[wordr]
+			table.remove(wordlist,wordr)
 		end
 	else
 		for i = 1, 10 do
@@ -121,7 +119,7 @@ function updatewordlist()
 					mk[j] = glitchtext(1)
 				end
 			end
-			word[i] = mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]
+			word[i] = {mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]}
 		end
 	end
 end
@@ -181,16 +179,19 @@ function drawPoemGame()
 	else
 		lg.print('20/20',800,70)
 	end
-	lg.print(word[1],455,160)
-	lg.print(word[2],455,250)
-	lg.print(word[3],455,345)
-	lg.print(word[4],455,435)
-	lg.print(word[5],455,525)
-	lg.print(word[6],675,160)
-	lg.print(word[7],675,250)
-	lg.print(word[8],675,345)
-	lg.print(word[9],675,435)
-	lg.print(word[10],675,525)
+	lg.print(word[1][1],455,160)
+	lg.print(word[2][1],455,250)
+	lg.print(word[3][1],455,345)
+	lg.print(word[4][1],455,435)
+	lg.print(word[5][1],455,525)
+	lg.print(word[6][1],675,160)
+	lg.print(word[7][1],675,250)
+	lg.print(word[8][1],675,345)
+	lg.print(word[9][1],675,435)
+	lg.print(word[10][1],675,525)
+	if spAdd and npAdd and ypAdd and dvertype == 'Test' then
+		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd,0,50)
+	end
 	
 	lg.setColor(255,255,255,alpha)
 	if persistent.ptr == 0 then
@@ -226,13 +227,13 @@ end
 function updatePoemGame(dt)
 	xaload = xaload + 1
 	
-	if xaload <= 35 and poemword > 0 then
+	if xaload <= 35 and poemword > 1 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
-		if spAdd == nil then spAdd = 0 end
-		if npAdd == nil then npAdd = 0 end
-		if ypAdd == nil then ypAdd = 0 end
+		if not spAdd then spAdd = 0 end
+		if not npAdd then npAdd = 0 end
+		if not ypAdd then ypAdd = 0 end
 		if persistent.ptr == 0 then
 			if spAdd == 3 then
 				s_sticker = s_sticker_2
@@ -259,9 +260,9 @@ function updatePoemGame(dt)
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
 		if persistent.ptr <= 2 then
-			spAdd = wordlist[wordpick][2]
-			npAdd = wordlist[wordpick][3]
-			ypAdd = wordlist[wordpick][4]
+			spAdd = word[menuselected][2]
+			npAdd = word[menuselected][3]
+			ypAdd = word[menuselected][4]
 		end
 	end
 	
@@ -300,7 +301,6 @@ function updatePoemGame(dt)
 end
 
 function menuselect()
-	wordpick = wordr[menuselected]
 	if menuselected <= 5 then
 		cursorX = 430
 	else
