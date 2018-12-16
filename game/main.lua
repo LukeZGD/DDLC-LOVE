@@ -149,12 +149,18 @@ function game_setvolume()
 		if audio_bgm then
 			audio_bgm:setVolume(settings.bgmvol/100)
 		end
+		if audio_bgmloop then
+			audio_bgmloop:setVolume(settings.bgmvol/100)
+		end
 		sfx1:setVolume(settings.sfxvol/100)
 		sfx2:setVolume(settings.sfxvol/100)
 	else
 		love.audio.setVolume(settings.masvol/100)
 		if audio_bgm then
 			audio_bgm:setVolume(settings.bgmvol/100)
+		end
+		if audio_bgmloop then
+			audio_bgmloop:setVolume(settings.bgmvol/100)
 		end
 		sfx1:setVolume(settings.sfxvol/100)
 		sfx2:setVolume(settings.sfxvol/100)
