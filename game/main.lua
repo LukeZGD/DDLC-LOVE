@@ -83,8 +83,8 @@ function love.update()
 	end
 	
 	--custom audio looping
-	if audio_bgm then
-		if not audio_bgm:isPlaying() then
+	if audio_bgm and audio_bgmloop then
+		if not audio_bgm:isPlaying() and not audio_bgmloop:isPlaying() then
 			audio_bgmloop:play()
 		end
 	end
