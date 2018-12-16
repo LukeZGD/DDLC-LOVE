@@ -1,5 +1,4 @@
 local skipspeed = 4
-local audiotell = 0
 local bgalpha = 255
 local cgalpha = 255
 
@@ -93,20 +92,6 @@ function updateGame(dt)
 	end
 	
 	if event_enabled then event_update(dt) end
-	
-	--custom audio looping
-	if audio1 == '7' and persistent.ptr == 2 then
-		audiotell = audiotell + dt
-		if audiotell > 4.1 then audioUpdate('7a') end
-	elseif audio1 == '7g' then
-		audiotell = audiotell + dt
-		if audiotell > 31.75 then audioUpdate('7g2') end
-	elseif audio1 == '3g' then
-		audiotell = audiotell + dt
-		if audiotell > 25.5 and audio1 ~= '3g2' then audioUpdate('3g2') end
-	else
-		audiotell = 0
-	end
 end
 
 function game_keypressed(key)
