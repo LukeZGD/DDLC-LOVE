@@ -81,6 +81,13 @@ function love.update()
 	if menu_enabled then
 		menu_update(dt)
 	end
+	
+	--custom audio looping
+	if audio_bgm then
+		if not audio_bgm:isPlaying() then
+			audio_bgmloop:play()
+		end
+	end
 end
 
 function love.keypressed(key)
