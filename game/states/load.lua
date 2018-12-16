@@ -98,7 +98,9 @@ function checkLoad()
 	end
 	
 	os_timecheck = os.time()
-	
+	if g_system == 'PSP' then
+		model = hw.getmodel()
+	end
 	
 	local ghostmenu_chance = love.math.random(0, 63)
 	if not persistent.act2 then
@@ -117,6 +119,12 @@ function checkLoad()
 		savepersistent()
 	elseif persistent.chr.m == 2 then
 		changeState('game','autoload')
+	elseif model == '1000' then
+		err = [[
+		Error!
+		PSP 1000 system detected. DDLC-LOVE will not run properly on this model because
+		of the lack of RAM. (32 MB on 1000, 64 MB on other models)
+		]]
 	elseif os_timecheck then
 		love.math.setRandomSeed(os.time())
 		l_timer = 100
@@ -125,8 +133,8 @@ function checkLoad()
 		Warning!
 		os.time() returned nil
 		
-		Your device might have never been online, or this is just a bug that I won't be able to fix
-		The game will still launch, but some stuff that rely on random might be broken
+		Your device might have never been online, or this is just a bug that I won't be able to fix.
+		The game will still launch, but some stuff that rely on random might be broken.
 		
 		Press A to continue
 		Press Y to quit
