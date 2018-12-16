@@ -50,7 +50,6 @@ function event_update_1(dt)
 		if posY <= -200 then posY = 0 end
 		
 		if event_timer >= 20.8 then
-			audioUpdate('d')
 			textbox_enabled = true
 			
 		elseif event_timer > 3.74 then
