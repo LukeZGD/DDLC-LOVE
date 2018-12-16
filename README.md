@@ -21,7 +21,7 @@ You can reset the save data and start over by deleting all of the save files. Th
 ### Building:
 - All 3 versions share the same code, but they all have different processes for building.
 - **Switch** - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
-- **PS Vita and PSP (files setup)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files (except for the audio folder, overwrite that one). [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
+- **PS Vita and PSP (files setup)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
 - **PS Vita** - use the ONEmakerGUI included with [ONEluav4R1 for the PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
 - **PSP** - EBOOT.PBP and oneFont.pgf are required to be beside the game folder. These are included with [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar).
 
