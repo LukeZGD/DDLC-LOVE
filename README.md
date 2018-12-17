@@ -23,7 +23,7 @@ You can reset the save data and start over by deleting all of the save files. Th
 - **Switch** - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
 - **PS Vita and PSP (files setup)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
 - **PS Vita** - use the ONEmakerGUI included with [ONEluav4R1 for the PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
-- **PSP** - EBOOT.PBP and oneFont.pgf are required to be beside the game folder. These are included with [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar).
+- **PSP** - oneFont.pgf is also required to be beside the game folder. This is included with [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar).
 
 ### Running:
 - **Switch** - Copy the .nro to sdmc:/switch/ and run it with the homebrew menu. You may also convert the .nro to .nsp with [hacBrewPack](https://github.com/The-4n/hacBrewPack) or other tools.
