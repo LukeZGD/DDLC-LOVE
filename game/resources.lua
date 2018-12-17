@@ -1,4 +1,4 @@
-local audio_wloop = {'1','2','3','4','4g','5','5_ghost','5_monika','5_natsuki','5_sayori','5_yuri','6','7g','8','10','d'}
+local audio_wloop = {'1','2','3','4','4g','5','5_monika','5_natsuki','5_sayori','5_yuri','6','7g','8','10','d','monika-end'}
 
 function changeState(cstate,x)
 	menu_alpha = 0
