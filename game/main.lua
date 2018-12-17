@@ -53,7 +53,12 @@ function love.draw()
 end
 
 function love.update()
-	dt = love.timer.getDelta()
+	local delta = love.timer.getDelta()
+	if delta > 0.6 then
+		dt = 0.0167 --this is for yuzu
+	else
+		dt = delta
+	end
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
