@@ -44,6 +44,7 @@ function updateLoad()
 		gui.load = lg.newImage("images/gui/overlay/load.png")
 		gui.save = lg.newImage("images/gui/overlay/save.png")
 		gui.settings = lg.newImage("images/gui/overlay/settings.png")
+		gui.setbuttons = lg.newImage("images/gui/overlay/setbuttons.png")
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
@@ -56,6 +57,8 @@ function updateLoad()
 		gui.sidebar = lg.newImage('images/gui/overlay/sidebar.png')
 		gui.slothover = lg.newImage('images/gui/button/slot_hover_background.png')
 		gui.slotidle = lg.newImage('images/gui/button/slot_idle_background.png')
+		gui.scrbarh = lg.newImage('images/gui/scrollbar/horizontal_poem_bar.png')
+		gui.scrhover = lg.newImage('images/gui/slider/horizontal_hover_thumb.png')		
 		
 	elseif l_timer == 99 then
 		local file = love.filesystem.getInfo('persistent')
