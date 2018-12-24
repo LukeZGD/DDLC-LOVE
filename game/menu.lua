@@ -47,7 +47,7 @@ function menu_enable(m)
 	
 	menutext = ''
 	if menu_type == 'mainyesno' then
-		menutext = 'Are you sure you want to return to the main menu? This will lose unsaved progress.'
+		menutext = 'Are you sure you want to return to the\nmain menu?'
 		itemnames = {'Yes','No'}
 		
 	elseif menu_type == 'quityesno' then
@@ -125,24 +125,45 @@ function menu_draw()
 	if menu_type == 'title' then
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
-	elseif menu_type == 'choice' then
-		menu_drawstuff('dialog')
+	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' then
+		if menu_type == 'choice' then
+			lg.setColor(255,255,255,255)
+			lg.draw(textbox,230,565)
+			outlineText(menutext,250,590)
+		else
+			lg.setColor(255,255,255,128)
+			lg.rectangle('fill',0,0,1280,725)
+			menu_drawstuff('dialog')
+			outlineText(menutext,440,195)
+		end
 		for i = 1, 8 do
-			if menu_items >= i+1 then lg.rectangle('fill',440, 200+(50*i),400,32) end
+			if menu_items >= i+1 then
+				lg.setColor(255,189,255,menu_alpha)
+				lg.rectangle('fill',435, 195+(50*i),410,42)
+				lg.setColor(255,230,244,menu_alpha)
+				lg.rectangle('fill',440, 200+(50*i),400,32)
+			end
 		end
 		lg.setColor(0,0,0,menu_alpha)
-		lg.draw(gui.check,410,200+(50*(m_selected-1)))
-		lg.print(menutext,440,195)
+		for i = 1, 8 do
+			if menu_items >= i+1 and menu_type == 'choice' and choices[i] then
+				lg.print(choices[i],440,200+(50*i))
+			elseif menu_items >= i+1 and itemnames[i] then
+				lg.print(itemnames[i],440,200+(50*i))
+			end
+		end
+		lg.setColor(255,255,255,menu_alpha/1.5)
+		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
 		
 	elseif menu_type == 'dialog' then
-		lg.setColor(255,255,255,menu_alpha/2)
+		lg.setColor(255,255,255,128)
 		lg.rectangle('fill',0,0,1280,725)
 		menu_drawstuff('dialog')
 		lg.rectangle('fill',440,250,35,32)
-		lg.setColor(0,0,0,menu_alpha)
-		lg.draw(gui.check,410,250)
+		lg.setColor(0,0,0,255)
 		lg.print(menutext,440,195)
 		lg.print('OK',440,250)
+		
 		
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		lg.draw(gui.gmenu)
@@ -248,9 +269,7 @@ function menu_draw()
 	
 	lg.setColor(0,0,0,menu_alpha)
 	for i = 1, 8 do
-		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then
-			lg.print(choices[i],440,200+(50*i))
-		elseif menu_items >= i+1 and itemnames[i] and menu_type ~= 'settings' and menu_type ~= 'settings2' then
+		if menu_items >= i+1 and itemnames[i] and menu_type == 'characters' then
 			lg.print(itemnames[i],360,110+(50*i))
 		end
 	end
