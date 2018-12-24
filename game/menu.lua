@@ -134,7 +134,8 @@ function menu_draw()
 			lg.setColor(255,255,255,128)
 			lg.rectangle('fill',0,0,1280,725)
 			menu_drawstuff('dialog')
-			outlineText(menutext,440,195)
+			lg.setColor(0,0,0)
+			lg.print(menutext,440,195)
 		end
 		for i = 1, 8 do
 			if menu_items >= i+1 then
@@ -152,7 +153,7 @@ function menu_draw()
 				lg.print(itemnames[i],440,200+(50*i))
 			end
 		end
-		lg.setColor(255,255,255,menu_alpha/1.5)
+		lg.setColor(255,255,255,menu_alpha/1.3)
 		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
 		
 	elseif menu_type == 'dialog' then
