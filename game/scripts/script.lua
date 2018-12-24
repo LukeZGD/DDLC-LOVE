@@ -234,6 +234,7 @@ function event_init(etype,arg1,arg2)
 			s_kill_bgzoom = lg.newImage('images/cg/s_kill/s_kill_bgzoom.png')
 			splash_glitch = lg.newImage('images/bg/splash-glitch.png')
 			exception = lg.newImage('images/cg/s_kill/ex2.png')
+			loadNoise()
 		elseif etype == 'endscreen' then
 			if arg1 == 'flipped' then
 				bgch = lg.newImage('images/gui/endflipped.png')
@@ -338,6 +339,7 @@ function event_end(arg1)
 		exception = nil
 		posX = -40
 		posY = 0
+		unloadanimframe()
 	elseif arg1 == 'next' then
 		event_endnext()
 	elseif arg1 == 's_glitch' then

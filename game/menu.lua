@@ -58,10 +58,10 @@ function menu_enable(m)
 		itemnames = {'','','','',''}
 		
 	elseif menu_type == 'settings' then
-		itemnames = {'Text Speed','Auto-Forward Time','Master Volume','Music Volume','Sound Volume','Characters','Save Settings'}
+		itemnames = {'Text Speed','Auto-Forward Time','Characters','Master Volume','Music Volume','Sound Volume'}
 		
 	elseif menu_type == 'settings2' then
-		itemnames = {'Master Volume','Music Volume','Sound Volume','Characters','Save Settings'}
+		itemnames = {'','','Characters','Master Volume','Music Volume','Sound Volume'}
 	
 	elseif menu_type == 'characters' then
 		itemnames = {'Delete monika.chr','Delete natsuki.chr','Delete sayori.chr','Delete yuri.chr','Restore all'}
@@ -99,6 +99,26 @@ function menu_enable(m)
 	end
 end
 
+function menu_drawstuff(a)
+	if a == 'dialog' then
+		lg.setColor(255,189,225,menu_alpha)
+		lg.rectangle('fill',400,180,480,360)
+		lg.setColor(255,230,244,menu_alpha)
+		lg.rectangle('fill',410,190,460,340)
+		lg.setColor(255,189,225,menu_alpha)
+	elseif a == 'overlay' then
+		lg.setColor(255,255,255,menu_alpha)
+		lg.draw(background_Image,posX,posY)
+		lg.draw(gui.mmenu)
+		if menu_previous == 'pause' or menu_previous == 'pause2' then
+			lg.draw(gui.gamebuttons)
+		elseif menu_previous == 'title' then
+			lg.draw(gui.mainbuttons)
+			lg.draw(gui.newgame)
+		end
+	end
+end
+
 function menu_draw()
 	lg.setColor(255,255,255,menu_alpha)
 	
@@ -106,11 +126,7 @@ function menu_draw()
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
 	elseif menu_type == 'choice' then
-		lg.setColor(255,189,225,menu_alpha)
-		lg.rectangle('fill',400,180,480,360)
-		lg.setColor(255,230,244,menu_alpha)
-		lg.rectangle('fill',410,190,460,340)
-		lg.setColor(255,189,225,menu_alpha)
+		menu_drawstuff('dialog')
 		for i = 1, 8 do
 			if menu_items >= i+1 then lg.rectangle('fill',440, 200+(50*i),400,32) end
 		end
@@ -121,11 +137,7 @@ function menu_draw()
 	elseif menu_type == 'dialog' then
 		lg.setColor(255,255,255,menu_alpha/2)
 		lg.rectangle('fill',0,0,1280,725)
-		lg.setColor(255,189,225,menu_alpha)
-		lg.rectangle('fill',400,180,480,360)
-		lg.setColor(255,230,244,menu_alpha)
-		lg.rectangle('fill',410,190,460,340)
-		lg.setColor(255,189,225,menu_alpha)
+		menu_drawstuff('dialog')
 		lg.rectangle('fill',440,250,35,32)
 		lg.setColor(0,0,0,menu_alpha)
 		lg.draw(gui.check,410,250)
@@ -149,16 +161,7 @@ function menu_draw()
 		lg.print(menutext,140,90)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		lg.setColor(255,255,255,menu_alpha)
-		lg.draw(background_Image,posX,posY)
-		lg.draw(gui.mmenu)
-		if menu_previous == 'pause' or menu_previous == 'pause2' then
-			lg.draw(gui.gamebuttons)
-		elseif menu_previous == 'title' then
-			lg.draw(gui.mainbuttons)
-			lg.draw(gui.newgame)
-		end
-		
+		menu_drawstuff('overlay')		
 		if m_selected >= 2 and m_selected <= 4 then
 			save_hoverpos.x = save_oset.x[m_selected-1]
 			save_hoverpos.y = save_oset.y[1]
@@ -183,18 +186,46 @@ function menu_draw()
 			lg.setColor(0,0,0,menu_alpha)
 			lg.print(savenum[i]..': '..save_date[i],(apx.x+10),(apx.y+110))
 		end
-		lg.print('Page '..pagenum,751,138)		
+		lg.print('Page '..pagenum,751,138)
+		
+	elseif menu_type == 'settings' or menu_type == 'settings2' then
+		menu_drawstuff('overlay')
+		lg.setColor(255,255,255)
+		lg.draw(gui.setbuttons)
+		local hv = {x=0,y=0}
+		if m_selected <= 4 then
+			hv.x = 340
+		else
+			hv.x = 790
+		end
+		if m_selected == 2 or m_selected == 5 then
+			hv.y = 344
+		elseif m_selected == 3 or m_selected == 6 then
+			hv.y = 412
+		elseif m_selected == 4 or m_selected == 7 then
+			hv.y = 480
+		end
+		lg.draw(gui.scrbarh,368,378,0,0.5,1)
+		lg.draw(gui.scrbarh,368,446,0,0.5,1)
+		lg.draw(gui.scrbarh,818,378,0,0.5,1)
+		lg.draw(gui.scrbarh,818,446,0,0.5,1)
+		lg.draw(gui.scrbarh,818,514,0,0.5,1)
+		lg.draw(gui.scrhover,((settings.textspd-50)*1.7)+368,378)
+		lg.draw(gui.scrhover,((settings.autospd-1)*24.29)+368,446)
+		lg.draw(gui.scrhover,(settings.masvol*3.4)+818,378)
+		lg.draw(gui.scrhover,(settings.bgmvol*3.4)+818,446)
+		lg.draw(gui.scrhover,(settings.sfxvol*3.4)+818,514)
+		lg.draw(gui.check,hv.x,hv.y)
+		lg.setColor(0,0,0)
+		lg.print(settings.textspd,525,340)
+		lg.print(settings.autospd..' sec',625,410)
+		lg.print(settings.masvol..'%',1020,340)
+		lg.print(settings.bgmvol..'%',1005,410)
+		lg.print(settings.sfxvol..'%',1010,480)
+		lg.print(dversion..'\n'..dvertype,1200,660)
 		
 	else
-		lg.setColor(255,255,255,menu_alpha)
-		lg.draw(background_Image,posX,posY)
-		lg.draw(gui.mmenu)
-		if menu_previous == 'pause' or menu_previous == 'pause2' then
-			lg.draw(gui.gamebuttons)
-		elseif menu_previous == 'title' then
-			lg.draw(gui.mainbuttons)
-			lg.draw(gui.newgame)
-		end
+		menu_drawstuff('overlay')
 		lg.setColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
 			if menu_items >= i+1 then lg.rectangle('fill',360, 110+(50*i),200,32) end
@@ -217,32 +248,14 @@ function menu_draw()
 	
 	lg.setColor(0,0,0,menu_alpha)
 	for i = 1, 8 do
-		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then lg.print(choices[i],440,200+(50*i))
-		elseif menu_items >= i+1 and itemnames[i] then lg.print(itemnames[i],360,110+(50*i)) end
+		if menu_items >= i+1 and menu_type == 'choice' and choices[i] then
+			lg.print(choices[i],440,200+(50*i))
+		elseif menu_items >= i+1 and itemnames[i] and menu_type ~= 'settings' and menu_type ~= 'settings2' then
+			lg.print(itemnames[i],360,110+(50*i))
+		end
 	end
 	
-	if menu_type == 'settings' or menu_type == 'settings2' then
-		if menu_type == 'settings' then
-			lg.print(settings.textspd, 610, 160)
-			lg.print('(<)',580,160)
-			lg.print('(>)',660,160)
-			lg.print(settings.autospd..' sec.',610, 210)
-			lg.print('(<)',580,210)
-			lg.print('(>)',680,210)
-			lg.print(settings.masvol, 610, 260)
-			lg.print('(<)',580,260)
-			lg.print('(>)',660,260)
-			lg.print(settings.bgmvol, 610, 310)
-			lg.print('(<)',580,310)
-			lg.print('(>)',660,310)
-			lg.print(settings.sfxvol, 610, 360)
-			lg.print('(<)',580,360)
-			lg.print('(>)',660,360)
-		end
-		lg.print('Press (<) and (>) to change settings.',340,580)
-		lg.print(dversion..'\n'..dvertype,1200,660)
-		
-	elseif menu_type == 'help' then
+	if menu_type == 'help' then
 		local keys = {}
 		if global_os == 'LOVE-OneLua' then
 			keys = {'Cross','Circle','Square','Triangle'}
@@ -392,24 +405,11 @@ function menu_confirm()
 			menu_enable(menu_previous)
 		end
 		
-	elseif menu_type == 'settings' then
-		if m_selected <= 6 then
+	elseif menu_type == 'settings' or menu_type == 'settings2' then
+		if m_selected <= 3 and m_selected >= 5 then
 			menu_keypressed('left')
-		elseif m_selected == 7 then
+		elseif m_selected == 4 then
 			menu_enable('characters')
-		elseif m_selected == 8 then
-			savesettings()
-			menu_enable(menu_previous)
-		end
-		
-	elseif menu_type == 'settings2' then
-		if m_selected <= 4 then
-			menu_keypressed('left')
-		elseif m_selected == 5 then
-			menu_enable('characters')
-		elseif m_selected == 6 then
-			savesettings()
-			menu_enable(menu_previous)
 		end
 		
 	elseif menu_type == 'characters' then
@@ -480,6 +480,9 @@ function menu_keypressed(key)
 		menu_confirm()
 		
 	elseif key == 'b' then
+		if menu_type == 'settings' or menu_type == 'settings2' then
+			savesettings()
+		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true
 		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'pause2' and menu_type ~= 'choice' then
