@@ -26,6 +26,8 @@ function lg.draw(drawable, ...)
 	local args = {...}
 	if drawable then
 		lgdraw(drawable,args[1],args[2],args[3],args[4],args[5])
+	elseif dvertype == 'Test' then
+		lg.print('NODRAW',args[1],args[2])
 	end
 end
 

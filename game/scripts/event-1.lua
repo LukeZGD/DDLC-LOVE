@@ -1,14 +1,26 @@
+local bgs = {x=-20,sx=1.1,ny=80,my=200}
+
 function event_draw_1()
 	--s_kill draw
 	if event_type == 's_kill' then
-		lg.draw(s_kill_bg)
-		lg.draw(s_kill, 225-(event_timer*1.6), 0)
+		lg.draw(s_kill_bg,bgs.x,bgs.x,0,bgs.sx,bgs.sx)
+		lg.draw(s_kill, 225-(event_timer*3), 0)
+		lg.setColor(0,0,0)
 	elseif event_type == 's_kill2' then
 		lg.draw(s_kill_bg2)
 		lg.draw(s_kill2, 225, 0)
 	elseif event_type == 's_killzoom' then
+		lg.setColor(255,255,255,255)
 		lg.draw(s_kill_bgzoom)
+		if event_timer >= 8.75 and event_timer < 10 then
+			bgs.ny = bgs.ny-love.math.random(-50,50)
+			bgs.my = bgs.my-love.math.random(-50,50)
+			lg.draw(menu_art_n,love.math.random(140,180),bgs.ny,0,0.6)
+			lg.draw(menu_art_m,love.math.random(240,280),bgs.my,0,0.5)
+			lg.draw(menu_art_y,love.math.random(950,1100),love.math.random(350,500),0,0.7)
+		end
 		lg.draw(s_killzoom, eventvar2)
+		
 		if event_timer >= 10 then
 			lg.setColor(255,255,255,92)
 			lg.draw(exception)
@@ -19,6 +31,9 @@ function event_draw_1()
 			lg.setColor(255,255,255,eventvar3)
 			lg.draw(splash_glitch)
 		end
+		lg.setColor(255,255,255,32)
+		drawanimframe()
+		lg.setColor(255,255,255,255)
 	end
 	
 	if event_type == 's_glitch' then
@@ -32,7 +47,12 @@ end
 function event_update_1(dt)
 	--s_kill timers
 	if event_type == 's_kill_start' and event_timer > 0.75 then event_next()
-	elseif event_type == 's_kill' and event_timer > 3.75 then event_next()
+	elseif event_type == 's_kill' then
+		bgs.x = math.min(bgs.x+0.075,0)
+		bgs.sx = math.max(bgs.sx-0.00025,1)
+		if event_timer > 3.75 then 
+			event_next()
+		end
 	elseif event_type == 's_kill2' and event_timer > 0.26 then event_next()
 	elseif event_type == 's_killzoom' then
 		eventvar1 = eventvar1 + 3.2
