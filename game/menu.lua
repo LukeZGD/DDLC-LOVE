@@ -515,7 +515,7 @@ function menu_keypressed(key)
 			sfx2:play()
 			m_selected = m_selected - 1
 			m_select()
-		elseif menu_type == 'settings' and m_selected <= 5 then
+		elseif menu_type == 'settings' then
 			if cpick == 'Text Speed' then
 				if settings.textspd > 250 then
 					settings.textspd = 250
@@ -531,7 +531,7 @@ function menu_keypressed(key)
 			elseif cpick == 'Sound Volume' and settings.sfxvol > 0 then
 				settings.sfxvol = settings.sfxvol - 10
 			end
-		elseif menu_type == 'settings2' and m_selected <= 3 then
+		elseif menu_type == 'settings2' then
 			if cpick == 'Master Volume' and settings.masvol < 100 then
 				settings.masvol = settings.masvol + 10
 			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
@@ -549,7 +549,7 @@ function menu_keypressed(key)
 			sfx2:play()
 			m_selected = m_selected + 1
 			m_select()
-		elseif menu_type == 'settings' and m_selected <= 5 then
+		elseif menu_type == 'settings' then
 			if cpick == 'Text Speed' and settings.textspd < 250 then
 				settings.textspd = settings.textspd + 25
 			elseif cpick == 'Auto-Forward Time' and settings.autospd < 15 then
@@ -561,7 +561,7 @@ function menu_keypressed(key)
 			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
 				settings.sfxvol = settings.sfxvol + 10
 			end
-		elseif menu_type == 'settings2' and m_selected <= 3 then
+		elseif menu_type == 'settings2' then
 			if cpick == 'Master Volume' and settings.masvol < 100 then
 				settings.masvol = settings.masvol + 10
 			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
