@@ -396,10 +396,11 @@ function event_end(arg1)
 	end
 end
 
-function updateConsole(text,text2,text3)
+function updateConsole(text,text2,text3,text4)
 	if console_font == nil then console_font = lg.newFont('fonts/F25_Bank_Printer.ttf',18) end
 	if console_enabled ~= true then console_enabled = true end
 	console_text1 = dripText(text,30,myTextStartTime)
 	if text2 then console_text2 = text2 else console_text2 = '' end
 	if text3 then console_text3 = text3 else console_text3 = '' end
+	if text4 then console_text4 = text3 else console_text4 = '' end
 end

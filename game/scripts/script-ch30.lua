@@ -509,7 +509,7 @@ function ch30_end()
 	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
 	pause(2)
 	elseif cl == 1071 then
-	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.","monika.chr does not exist.")
 	pause(1)
 	elseif cl == 1072 then
 	console_enabled = false

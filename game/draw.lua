@@ -32,13 +32,21 @@ function lg.draw(drawable, ...)
 end
 
 function outlineText(text,x,y,type)
-	lg.setColor(0,0,0,alpha)
+	if style_edited and g_system ~= 'PSP' then
+		lg.setColor(255,255,255,alpha)
+	else
+		lg.setColor(0,0,0,alpha)
+	end
 	if g_system ~= 'PSP' then
 		lg.print(text,x-1.25,y)
 		lg.print(text,x,y-1.25)
 		lg.print(text,x+1.25,y)
 		lg.print(text,x,y+1.25)
-		lg.setColor(255,255,255,alpha)
+		if style_edited then
+			lg.setColor(0,0,0,alpha)
+		else
+			lg.setColor(255,255,255,alpha)
+		end
 	end
 	lg.print(text,x,y)
 end
@@ -129,11 +137,18 @@ function drawTextBox()
 			end
 			
 		elseif textx then
+			if style_edited then
+				lg.setColor(255,255,255,alpha)
+			end
 			lg.printf(textx,248.75,590,775)
 			lg.printf(textx,250,588.75,775)
 			lg.printf(textx,251.25,590,775)
 			lg.printf(textx,250,591.25,775)
-			lg.setColor(255,255,255,alpha)
+			if style_edited then
+				lg.setColor(0,0,0,alpha)
+			else
+				lg.setColor(255,255,255,alpha)
+			end
 			lg.printf(textx,250,590,775)
 		end
 	end
@@ -168,6 +183,7 @@ function drawConsole()
 		lg.print('> '..console_text1,0,0)
 		lg.print(console_text2,15,30)
 		lg.print(console_text3,15,60)
+		lg.print(console_text4,15,90)
 	end
 end
 

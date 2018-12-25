@@ -19,7 +19,7 @@ local y_sticker
 local s_y
 local n_y
 local y_y
-
+local m_y = 720
 local p_y = 500
 local ground = 500
 local y_velocity = 0
@@ -33,7 +33,9 @@ local cursorY
 local eyes_chance = love.math.random(0,5)
 local eyes_timer = 0
 local eyes_y = 0
-local eyes_in
+local eyes_in = false
+local glitch2g = love.math.random(1,101)
+local glitchpoem_in = false
 
 local mk = {'M','o','n','i','k','a'}
 
@@ -41,8 +43,15 @@ function addpoints()
 	sPoint = sPoint + spAdd
 	nPoint = nPoint + npAdd
 	yPoint = yPoint + ypAdd
-
-	sfx1:play()
+	
+	xaload = 0
+	if glitchpoem_in and love.math.random(1,11) >= 7 then
+		sfxplay('select_glitch')
+	elseif glitchpoem_in and love.math.random(1,11) == 1 then
+		sfxplay('baa')
+	else
+		sfx1:play()
+	end
 	if poemword ~= 21 then poemword = poemword + 1 end
 	if chapter == 22 then
 		progress = progress..'1'
@@ -105,9 +114,17 @@ function updatewordlist()
 	currentwordlist = wordlist
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr = love.math.random(1,#wordlist)
-			word[i] = wordlist[wordr]
-			table.remove(wordlist,wordr)
+			if love.math.random(1,401) == 1 and chapter >= 21 and not glitchpoem_in then
+				word[i] = {glitchtext(40),'glitchpoem'}
+			else
+				wordr = love.math.random(1,#wordlist)
+				word[i] = wordlist[wordr]
+				table.remove(wordlist,wordr)
+			end
+		end
+		
+		if persistent.act2[3] ~= 1 then
+			glitch2g = love.math.random(1,101)
 		end
 	else
 		for i = 1, 10 do
@@ -154,7 +171,7 @@ function poemgame()
 	s_sticker = s_sticker_1
 	n_sticker = n_sticker_1
 	y_sticker = y_sticker_1
-	s_y = 500; n_y = 500; y_y = 500; p_y = 500
+	s_y = 500; n_y = 500; y_y = 500; p_y = 500; m_y = 720
 	y_velocity = 0
 	
 	eyes_chance = love.math.random(0,5)
@@ -167,9 +184,13 @@ function poemgame()
 end
 
 function drawPoemGame()
-	lg.setBackgroundColor(0,0,0)
-	lg.setColor(255,255,255,alpha)
-	lg.draw(bgch2, 0, 0)
+	if glitchpoem_in then
+		lg.setBackgroundColor(255,255,255)
+	else
+		lg.setBackgroundColor(0,0,0)
+		lg.setColor(255,255,255,alpha)
+		lg.draw(bgch2, 0, 0)
+	end
 	
 	lg.setColor(0,0,0)
 	lg.draw(gui.check,cursorX,cursorY)
@@ -198,9 +219,12 @@ function drawPoemGame()
 		lg.draw(s_sticker,30,s_y)
 		lg.draw(n_sticker,130,n_y)
 		lg.draw(y_sticker,250,y_y)
+	elseif glitchpoem_in then
+		lg.draw(y_sticker_1_broken,0,500,0,2)
 	elseif persistent.ptr == 2 then
 		lg.draw(n_sticker,130,n_y)
 		lg.draw(y_sticker,250,y_y)
+		lg.draw(m_sticker_2,0,m_y)
 	else
 		lg.draw(m_sticker_1,130,500)
 	end
@@ -226,14 +250,15 @@ end
 
 function updatePoemGame(dt)
 	xaload = xaload + 1
+	if not spAdd then spAdd = 0 end
+	if not npAdd then npAdd = 0 end
+	if not ypAdd then ypAdd = 0 end
 	
 	if xaload <= 35 and poemword > 1 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
-		if not spAdd then spAdd = 0 end
-		if not npAdd then npAdd = 0 end
-		if not ypAdd then ypAdd = 0 end
+		
 		if persistent.ptr == 0 then
 			if spAdd == 3 then
 				s_sticker = s_sticker_2
@@ -246,20 +271,34 @@ function updatePoemGame(dt)
 				y_y = p_y
 			end
 		elseif persistent.ptr == 2 then
-			if npAdd == 3 or (spAdd == 3 and npAdd == 2) then
+			if glitchpoem_sl then
+				glitchpoem_in = true
+				audioUpdate('4g')
+			elseif npAdd == 3 or (spAdd == 3 and npAdd == 2) then
 				n_sticker = n_sticker_2
 				n_y = p_y
 			elseif ypAdd == 3 or (spAdd == 3 and ypAdd == 2) then
-				y_sticker = y_sticker_2
+				if glitch2g == 101 then
+					y_sticker = y_sticker_2g
+					persistent.act2[3] = 1
+				else
+					y_sticker = y_sticker_2
+				end
 				y_y = p_y
+			end
+			if love.math.random(1,11) == 11 and chapter == 2 and not glitchpoem_in then
+				m_y = p_y + 210
 			end
 		end
 	else
-		s_y = 500; n_y = 500; y_y = 500; p_y = 500
+		s_y = 500; n_y = 500; y_y = 500; p_y = 500; m_y = 720
 		s_sticker = s_sticker_1
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
-		if persistent.ptr <= 2 then
+		if word[menuselected][2] == 'glitchpoem' then
+			glitchpoem_sl = true
+		elseif persistent.ptr <= 2 then
+			glitchpoem_sl = false
 			spAdd = word[menuselected][2]
 			npAdd = word[menuselected][3]
 			ypAdd = word[menuselected][4]
@@ -290,14 +329,14 @@ function updatePoemGame(dt)
 	end
 	
 	if y_velocity ~= 0 then                                  
-		p_y = p_y + y_velocity * dt               
-		y_velocity = y_velocity - gravity * dt 
+		p_y = p_y + y_velocity * dt
+		y_velocity = y_velocity - gravity * dt
 	end
  
 	if p_y > ground then  
-		y_velocity = 0     
-    	p_y = ground  
-	end
+		y_velocity = 0
+    	p_y = ground
+	end		
 end
 
 function menuselect()
