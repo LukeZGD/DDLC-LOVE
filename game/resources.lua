@@ -65,9 +65,17 @@ function changeState(cstate,x)
 				s_sticker_2 = lg.newImage('images/gui/poemgame/s_sticker_2.png')
 			else
 				eyes = lg.newImage('images/bg/eyes.png')
+				m_sticker_2 = lg.newImage('images/gui/poemgame/m_sticker_2.png')
+				y_sticker_1_broken = lg.newImage('images/gui/poemgame/y_sticker_1_broken.png')
+				y_sticker_2g = lg.newImage('images/gui/poemgame/y_sticker_2g.png')
 			end
-			y_sticker_1 = lg.newImage('images/gui/poemgame/y_sticker_1.png')
-			y_sticker_2 = lg.newImage('images/gui/poemgame/y_sticker_2.png')
+			if chapter == 22 then
+				y_sticker_1 = lg.newImage('images/gui/poemgame/y_sticker_cut_1.png')
+				y_sticker_2 = lg.newImage('images/gui/poemgame/y_sticker_cut_2.png')
+			else
+				y_sticker_1 = lg.newImage('images/gui/poemgame/y_sticker_1.png')
+				y_sticker_2 = lg.newImage('images/gui/poemgame/y_sticker_2.png')
+			end
 			n_sticker_1 = lg.newImage('images/gui/poemgame/n_sticker_1.png')
 			n_sticker_2 = lg.newImage('images/gui/poemgame/n_sticker_2.png')
 		else

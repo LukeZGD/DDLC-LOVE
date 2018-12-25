@@ -234,11 +234,11 @@ function updateCredits(dt)
 	elseif c_timer >= 161 and c_timer < 162 then
 		updateConsole("os.remove(\"menu.lua\")","resources.lua deleted successfully.","draw.lua deleted successfully.")
 	elseif c_timer >= 162 and c_timer < 163 then
-		updateConsole("_","menu.lua deleted successfully.","resources.lua deleted successfully.")
+		updateConsole("_","menu.lua deleted successfully.","resources.lua deleted successfully.","draw.lua deleted successfully.")
 	elseif c_timer >= 163 and c_timer < 164 then
-		updateConsole("os.remove(\"scripts/script.lua\")","menu.lua deleted successfully.","resources.lua deleted successfully.")
+		updateConsole("os.remove(\"scripts/script.lua\")","menu.lua deleted successfully.","resources.lua deleted successfully.","draw.lua deleted successfully.")
 	elseif c_timer >= 164 and c_timer < 165 then
-		updateConsole("_","script.lua deleted successfully.","menu.lua deleted successfully.")
+		updateConsole("_","script.lua deleted successfully.","menu.lua deleted successfully.","resources.lua deleted successfully.")
 	elseif c_timer >= 165 then
 		console_enabled = false
 	end

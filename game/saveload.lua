@@ -4,7 +4,7 @@ persistent = {
 	ptr=0;
 	clear={0,0,0,0,0,0,0,0,0};
 	chr={m=1,s=1};
-	act2={0,0};
+	act2={0,0,0,0};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
 settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70}
@@ -118,6 +118,7 @@ end
 
 function savepersistent()
 	local pset = ''
+	local act2 = ''
 	for i = 1, #persistent.clear do
 		if persistent.clear[i] and persistent.clear[i+1] then
 			pset = pset..persistent.clear[i]..","
@@ -125,9 +126,16 @@ function savepersistent()
 			pset = pset..persistent.clear[i]
 		end
 	end
+	for i = 1, #persistent.act2 do
+		if persistent.act2[i] and persistent.act2[i+1] then
+			act2 = act2..persistent.act2[i]..","
+		elseif persistent.clear[i] then
+			act2 = act2..persistent.act2[i]
+		end
+	end
 	local spfile = "player='"..player.."'\
 persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
-act2={"..persistent.act2[1]..","..persistent.act2[2].."},\
+act2={"..act2.."},\
 clear={"..pset.."}};\
 sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 	
