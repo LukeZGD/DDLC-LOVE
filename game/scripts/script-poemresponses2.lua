@@ -205,6 +205,10 @@ function ch22_n_med_shared()
 	end
 end
 
+function ch22_n_good()
+	ch22_n_med()
+end
+
 function ch22_n_end()
     if appeal.n >= 2 then
         ch22_n_end2()
