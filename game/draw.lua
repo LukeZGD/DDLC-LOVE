@@ -6,7 +6,7 @@ local gui_ctc_x = 1010
 local nxh
 local nyh
 
-local changeX = {x={s=0,y=0,n=0,m=0},y={s=0,y=0,n=0,m=0},z={s=0,y=0,n=0,m=0}}
+changeX = {x={s=0,y=0,n=0,m=0},y={s=0,y=0,n=0,m=0},z={s=0,y=0,n=0,m=0}}
 unitimer = 0
 uniduration = 0.25
 
@@ -31,22 +31,28 @@ function lg.draw(drawable, ...)
 	if drawable then
 		lgdraw(drawable,args[1],args[2],args[3],args[4],args[5])
 	elseif dvertype == 'Test' then
-		lg.print('NODRAW',args[1],args[2])
+		--lg.print('NODRAW',args[1],args[2])
 	end
 end
 
 function outlineText(text,x,y,type)
-	if style_edited and g_system ~= 'PSP' then
-		lg.setColor(255,255,255,alpha)
-	else
+	if g_system == 'PSP' then
 		lg.setColor(0,0,0,alpha)
-	end
-	if g_system ~= 'PSP' then
-		lg.print(text,x-1.25,y)
-		lg.print(text,x,y-1.25)
-		lg.print(text,x+1.25,y)
-		lg.print(text,x,y+1.25)
-		if style_edited then
+	else
+		local addm = 1.25
+		if type == 'ct' then
+			lg.setColor(187,85,153,alpha)
+			addm = 2
+		elseif style_edited and type == 'c_disp' then
+			lg.setColor(255,255,255,alpha)
+		else
+			lg.setColor(0,0,0,alpha)
+		end
+		lg.print(text,x-addm,y)
+		lg.print(text,x,y-addm)
+		lg.print(text,x+addm,y)
+		lg.print(text,x,y+addm)
+		if style_edited and type == 'c_disp' then
 			lg.setColor(0,0,0,alpha)
 		else
 			lg.setColor(255,255,255,alpha)
@@ -125,24 +131,31 @@ function drawTextBox()
 		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1015)
 	end
 	
-	if style_edited then lg.setFont(deffont) end
-	
 	if not menu_enabled and (not poem_enabled or (event_enabled and textbox_enabled)) then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
 		if gui_ctc_t then lg.draw(gui.ctc, gui_ctc_x, 685) end
-		lg.setColor(0,0,0,alpha)
-		lg.print(ct,xps.ct,yps.ct)
 		
+		lg.setColor(0,0,0,alpha)
+		lg.setFont(rifficfont)
+		outlineText(ct,xps.ct,yps.ct,'ct')
+		
+		if style_edited then
+			lg.setFont(deffont)
+		else
+			lg.setFont(allerfont)
+		end
 		if c_disp and global_os == 'LOVE-OneLua' then
 			for i = 1, 4 do
-				outlineText(c_disp[i],xps.c,yps.c[i])
+				outlineText(c_disp[i],xps.c,yps.c[i],'c_disp')
 			end
 			
 		elseif textx then
 			if style_edited then
 				lg.setColor(255,255,255,alpha)
+			else
+				lg.setColor(0,0,0,alpha)
 			end
 			lg.printf(textx,248.75,590,775)
 			lg.printf(textx,250,588.75,775)
@@ -336,7 +349,6 @@ function hideMonika()
 end
 
 function hideAll()
-	--[[
 	s_Set.a = ''
 	s_Set.b = ''
 	y_Set.a = ''
@@ -346,11 +358,6 @@ function hideAll()
 	m_Set.a = ''
 	m_Set.b = ''
 	unloadAll()
-	]]
-	hideSayori()
-	hideYuri()
-	hideNatsuki()
-	hideMonika()
 end
 
 function drawSayori()
