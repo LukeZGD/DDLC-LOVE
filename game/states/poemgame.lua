@@ -263,7 +263,7 @@ function updatePoemGame(dt)
 	if not npAdd then npAdd = 0 end
 	if not ypAdd then ypAdd = 0 end
 	
-	if glitch2g == 101 and persistent.act2[3] ~= 1 then
+	if glitch2g == 101 and persistent.act2[3] ~= 1 and persistent.ptr == 2 then
 		persistent.act2[3] = 1
 		if xaload == 2 then
 			savepersistent()

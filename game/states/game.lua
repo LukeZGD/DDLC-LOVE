@@ -46,7 +46,6 @@ function drawGame()
 		outlineText(skiptext,5,35)
 	end
 	if menu_enabled then menu_draw() end
-	outlineText(s_Set.x..'\n'..changeX.z.s,0,0)
 end
 
 function updateGame(dt)
