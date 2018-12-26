@@ -103,6 +103,7 @@ function ch23script()
         n "..."
 		elseif cl == 1660 then
 		hideNatsuki()
+		pause(1)
 		elseif cl == 1661 then
 		updateMonika('1','g',-40)
         m "Aw, man..."

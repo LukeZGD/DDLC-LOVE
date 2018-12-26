@@ -176,6 +176,10 @@ function poemgame()
 	
 	eyes_chance = love.math.random(0,5)
 	eyes_in = false
+	glitchpoem_in = false
+	if persistent.act2[3] == 1 then
+		glitch2g = 0
+	end
 	
 	poemwords()
 	updatewordlist()
@@ -211,7 +215,7 @@ function drawPoemGame()
 	lg.print(word[9][1],675,435)
 	lg.print(word[10][1],675,525)
 	if spAdd and npAdd and ypAdd and dvertype == 'Test' then
-		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd,0,50)
+		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd..'\n'..glitch2g,0,50)
 	end
 	
 	lg.setColor(255,255,255,alpha)
@@ -225,6 +229,11 @@ function drawPoemGame()
 		lg.draw(n_sticker,130,n_y)
 		lg.draw(y_sticker,250,y_y)
 		lg.draw(m_sticker_2,0,m_y)
+		if glitch2g == 101 and xaload <= 35 then
+			lg.draw(y_sticker_2g,600,y_y)
+		elseif glitch2g == 101 then
+			lg.draw(y_sticker,600,y_y)
+		end
 	else
 		lg.draw(m_sticker_1,130,500)
 	end
@@ -254,6 +263,13 @@ function updatePoemGame(dt)
 	if not npAdd then npAdd = 0 end
 	if not ypAdd then ypAdd = 0 end
 	
+	if glitch2g == 101 and persistent.act2[3] ~= 1 then
+		persistent.act2[3] = 1
+		if xaload == 2 then
+			savepersistent()
+		end
+	end
+	
 	if xaload <= 35 and poemword > 1 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
@@ -278,12 +294,7 @@ function updatePoemGame(dt)
 				n_sticker = n_sticker_2
 				n_y = p_y
 			elseif ypAdd == 3 or (spAdd == 3 and ypAdd == 2) then
-				if glitch2g == 101 then
-					y_sticker = y_sticker_2g
-					persistent.act2[3] = 1
-				else
-					y_sticker = y_sticker_2
-				end
+				y_sticker = y_sticker_2
 				y_y = p_y
 			end
 			if love.math.random(1,11) == 11 and chapter == 2 and not glitchpoem_in then

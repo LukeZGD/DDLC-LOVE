@@ -6,6 +6,10 @@ local gui_ctc_x = 1010
 local nxh
 local nyh
 
+changeX = {x={s=0,y=0,n=0,m=0},y={s=0,y=0,n=0,m=0},z={s=0,y=0,n=0,m=0}}
+unitimer = 0
+uniduration = 0.2
+
 --compatiblity for LOVE 11 and above
 local lgsetColor = lg.setColor
 function lg.setColor(...)
@@ -192,10 +196,17 @@ function updateSayori(a,b,px,py)
 	s_Set.a = a
 	s_Set.b = b
 	if xaload == 0 then loadSayori() end
-	if px then
-		px = math.floor(px*3.2)
-		s_Set.x = px
+	
+	if px and xaload == 0 then
+		changeX.x.s = s_Set.x
+		changeX.y.s = px*3.2
+		if s_Set.x < px then
+			changeX.z.s = changeX.y.s - changeX.x.s
+		else
+			changeX.z.s = changeX.x.s - changeX.y.s
+		end
 	end
+	
 	if py then s_Set.y = py end
 end
 
@@ -204,10 +215,17 @@ function updateYuri(a,b,px,py)
 	y_Set.a = a 
 	y_Set.b = b
 	if xaload == 0 then loadYuri() end
-	if px then
-		px = math.floor(px*3.2)
-		y_Set.x = px
+	
+	if px and xaload == 0 then
+		changeX.x.y = y_Set.x
+		changeX.y.y = px*3.2
+		if y_Set.x < px then
+			changeX.z.y = changeX.y.y - changeX.x.y
+		else
+			changeX.z.y = changeX.x.y - changeX.y.y
+		end
 	end
+	
 	if py then y_Set.y = py end
 end
 
@@ -216,10 +234,17 @@ function updateNatsuki(a,b,px,py)
 	n_Set.a = a
 	n_Set.b = b
 	if xaload == 0 then loadNatsuki() end
-	if px then
-		px = math.floor(px*3.2)
-		n_Set.x = px
+	
+	if px and xaload == 0 then
+		changeX.x.n = n_Set.x
+		changeX.y.n = px*3.2
+		if n_Set.x < px then
+			changeX.z.n = changeX.y.n - changeX.x.n
+		else
+			changeX.z.n = changeX.x.n - changeX.y.n
+		end
 	end
+	
 	if py then n_Set.y = py end
 end
 
@@ -228,10 +253,17 @@ function updateMonika(a,b,px,py)
 	m_Set.a = a
 	m_Set.b = b
 	if xaload == 0 then loadMonika() end
-	if px then
-		px = math.floor(px*3.2)
-		m_Set.x = px
+	
+	if px and xaload == 0 then
+		changeX.x.m = m_Set.x
+		changeX.y.m = px*3.2
+		if m_Set.x < px then
+			changeX.z.m = changeX.y.m - changeX.x.m
+		else
+			changeX.z.m = changeX.x.m - changeX.y.m
+		end
 	end
+	
 	if py then m_Set.y = py end
 end
 
@@ -276,6 +308,15 @@ function drawSayori()
 	if s_Set.b~='' then
 		if s_a then lg.draw(s_a, s_Set.x, s_Set.y+1) end
 	end
+	
+	--if changeX.x.s < changeX.y.s and autoskip < 1 then
+	--	s_Set.x = math.ceil(changeX.x.s + easeQuadOut(unitimer,0,changeX.z.s,uniduration))
+	--elseif changeX.x.s > changeX.y.s and autoskip < 1 then
+	--	s_Set.x = math.floor(changeX.x.s - easeQuadOut(unitimer,0,changeX.z.s,uniduration))
+	--elseif s_Set.x ~= changeX.y.s then
+	if s_Set.x ~= changeX.y.s then
+		s_Set.x = changeX.y.s
+	end
 end
 
 function drawYuri()
@@ -286,6 +327,15 @@ function drawYuri()
 	
 	if y_Set.b~='' then
 		lg.draw(y_a, y_Set.x, y_Set.y+1)
+	end
+	
+	--if changeX.x.y < changeX.y.y and autoskip < 1 then
+	--	y_Set.x = math.ceil(changeX.x.y + easeQuadOut(unitimer,0,changeX.z.y,uniduration))
+	--elseif changeX.x.y > changeX.y.y and autoskip < 1 then
+	--	y_Set.x = math.floor(changeX.x.y - easeQuadOut(unitimer,0,changeX.z.y,uniduration))
+	--elseif y_Set.x ~= changeX.y.y then
+	if y_Set.x ~= changeX.y.y then
+		y_Set.x = changeX.y.y
 	end
 end
 
@@ -306,6 +356,15 @@ function drawNatsuki()
 	if n_Set.a=='1' or n_Set.a=='1b' or n_Set.a=='2' or n_Set.a=='2b' or n_Set.a=='3' or n_Set.a=='3b' or n_Set.a=='4' or n_Set.a=='4b' then
 		lg.draw(nr, n_Set.x, n_Set.y)
 	end
+	
+	--if changeX.x.n < changeX.y.n and autoskip < 1 then
+	--	n_Set.x = math.ceil(changeX.x.n + easeQuadOut(unitimer,0,changeX.z.n,uniduration))
+	--elseif changeX.x.n > changeX.y.n and autoskip < 1 then
+	--	n_Set.x = math.floor(changeX.x.n - easeQuadOut(unitimer,0,changeX.z.n,uniduration))
+	--elseif n_Set.x ~= changeX.y.n then
+	if n_Set.x ~= changeX.y.n then
+		n_Set.x = changeX.y.n
+	end
 end
 
 function drawMonika()
@@ -316,5 +375,14 @@ function drawMonika()
 	
 	if m_Set.b ~= '' then
 		lg.draw(m_a, m_Set.x, m_Set.y+1)
+	end
+	
+	--if changeX.x.m < changeX.y.m and autoskip < 1 then
+	--	m_Set.x = math.floor(changeX.x.m + easeQuadOut(unitimer,0,changeX.z.m,uniduration))
+	--elseif changeX.x.m > changeX.y.m and autoskip < 1 then
+	--	m_Set.x = math.floor(changeX.x.m - easeQuadOut(unitimer,0,changeX.z.m,uniduration))
+	--elseif m_Set.x ~= changeX.y.m then
+	if m_Set.x ~= changeX.y.m then
+		m_Set.x = changeX.y.m
 	end
 end
