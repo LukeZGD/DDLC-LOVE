@@ -111,7 +111,6 @@ function poemgamefinish()
 end
 
 function updatewordlist()
-	currentwordlist = wordlist
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
 			if love.math.random(1,401) == 1 and chapter >= 21 and not glitchpoem_in then
