@@ -34,7 +34,7 @@ local eyes_chance = math.random(0,5)
 local eyes_timer = 0
 local eyes_y = 0
 local eyes_in = false
-local glitch2g = love.math.random(1,101)
+local glitch2g = math.random(1,101)
 local glitchpoem_in = false
 
 local mk = {'M','o','n','i','k','a'}
@@ -111,7 +111,6 @@ function poemgamefinish()
 end
 
 function updatewordlist()
-	currentwordlist = wordlist
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
 			if math.random(1,401) == 1 and chapter >= 21 and not glitchpoem_in then
@@ -123,7 +122,7 @@ function updatewordlist()
 			end
 		end
 		
-		--glitch2g = math.random(1,101)
+		glitch2g = math.random(1,101)
 	else
 		for i = 1, 10 do
 			mk = {'M','o','n','i','k','a'}
