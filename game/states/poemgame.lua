@@ -416,10 +416,6 @@ function poemgamekeypressed(key)
 			end
 		end
 	elseif key == 'y' and eyes_in ~= true then
-		if persistent.ptr <= 2 then
-			menu_enable('pause')
-		else
-			menu_enable('pause2')
-		end
+		menu_enable('pause')
 	end
 end	

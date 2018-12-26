@@ -107,9 +107,7 @@ function game_keypressed(key)
 	elseif key == 'y' then --pause menu
 		menu_mchance = math.random(1,50)
 		autotimer = 0
-		if persistent.chr.m == 2 then menu_enable('pause2')
-		else menu_enable('pause')
-		end
+		menu_enable('pause')
 	elseif key == 'b' then --auto on/off
 		sfx1:play()
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		

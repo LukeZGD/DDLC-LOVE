@@ -290,6 +290,6 @@ function event_keypressed(key)
 		newgame_keypressed('a')
 	elseif key == 'y' and event_type == 'ch23-30' then
 		menu_mchance = 50
-		menu_enable('pause2')
+		menu_enable('pause')
 	end
 end

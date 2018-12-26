@@ -59,14 +59,11 @@ function menu_enable(m)
 		
 	elseif menu_type == 'settings' then
 		itemnames = {'Text Speed','Auto-Forward Time','Characters','Master Volume','Music Volume','Sound Volume'}
-		
-	elseif menu_type == 'settings2' then
-		itemnames = {'','','Characters','Master Volume','Music Volume','Sound Volume'}
 	
 	elseif menu_type == 'characters' then
 		itemnames = {'Delete monika.chr','Delete natsuki.chr','Delete sayori.chr','Delete yuri.chr','Restore all'}
 	
-	elseif menu_type == 'pause' or menu_type == 'pause2' then
+	elseif menu_type == 'pause' then
 		itemnames = {'','','','','','','',''}
 		
 	elseif menu_type == 'dialog' then 
@@ -101,16 +98,16 @@ end
 
 function menu_drawstuff(a)
 	if a == 'dialog' then
-		lg.setColor(255,189,225,menu_alpha)
+		lg.setColor(255,189,225,255)
 		lg.rectangle('fill',400,180,480,360)
-		lg.setColor(255,230,244,menu_alpha)
+		lg.setColor(255,230,244,255)
 		lg.rectangle('fill',410,190,460,340)
-		lg.setColor(255,189,225,menu_alpha)
+		lg.setColor(255,189,225,255)
 	elseif a == 'overlay' then
 		lg.setColor(255,255,255,menu_alpha)
 		lg.draw(background_Image,posX,posY)
 		lg.draw(gui.mmenu)
-		if menu_previous == 'pause' or menu_previous == 'pause2' then
+		if menu_previous == 'pause' then
 			lg.draw(gui.gamebuttons)
 		elseif menu_previous == 'title' then
 			lg.draw(gui.mainbuttons)
@@ -166,7 +163,7 @@ function menu_draw()
 		lg.print('OK',440,250)
 		
 		
-	elseif menu_type == 'pause' or menu_type == 'pause2' then
+	elseif menu_type == 'pause' then
 		lg.draw(gui.gmenu)
 		lg.draw(gui.gamebuttons)
 		lg.draw(gui.gamemenu)
@@ -208,9 +205,13 @@ function menu_draw()
 			lg.setColor(0,0,0,menu_alpha)
 			lg.print(savenum[i]..': '..save_date[i],(apx.x+10),(apx.y+110))
 		end
-		lg.print('Page '..pagenum,751,138)
+		if savenumber == 61 then
+			lg.print(menutext,366,138)
+		else
+			lg.print('Page '..pagenum,751,138)
+		end
 		
-	elseif menu_type == 'settings' or menu_type == 'settings2' then
+	elseif menu_type == 'settings' then
 		menu_drawstuff('overlay')
 		lg.setColor(255,255,255)
 		lg.draw(gui.setbuttons)
@@ -368,41 +369,36 @@ function menu_confirm()
 			love.event.quit()
 		end
 		
-	elseif menu_type == 'loadgame' then --load game confirm
+	elseif menu_type == 'loadgame' and persistent.chr.m ~= 2 then --load game confirm
 		savenumber = savenum[m_selected-1]
 		if love.filesystem.getInfo('save'..savenumber..'-'..persistent.ptr..'.sav') then
 			changeState('game',2)
 		end
+	elseif menu_type == 'savegame' and persistent.chr.m == 2 and chapter == 30 then
+		menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
+		savenumber = 61
 		
-	elseif menu_type == 'savegame' then  --save game confirm 
+	elseif menu_type == 'savegame' and persistent.chr.m ~= 2 then  --save game confirm 
 		savenumber = savenum[m_selected-1]
 		savegame()
 		savedatainfo(savenumber)
 		menu_enable(menu_previous)
 	
-	elseif menu_type == 'pause' or menu_type == 'pause2' then --pause menu options
+	elseif menu_type == 'pause' then --pause menu options
 		menu_previous = menu_type
-		if m_selected <= 6 and menu_type == 'pause' then
-			if m_selected == 2 then
-				menu_enable('history')
-			elseif m_selected == 3 then
-				pagenum = 1
-				menu_enable('savegame')
-			elseif m_selected == 4 then
-				pagenum = 1
-				menu_enable('loadgame')
-			elseif m_selected == 5 then
-				menu_enable('mainyesno')
-			elseif m_selected == 6 then
-				pagenum = 1
-				menu_enable('settings')
-			end
-		elseif m_selected <= 6 and menu_type == 'pause2' then
-			if m_selected == 3 and chapter == 30 then
-				menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
-			elseif m_selected == 6 then
-				menu_enable('settings2')
-			end
+		if m_selected == 2 then
+			menu_enable('history')
+		elseif m_selected == 3 then
+			pagenum = 1
+			menu_enable('savegame')
+		elseif m_selected == 4 then
+			pagenum = 1
+			menu_enable('loadgame')
+		elseif m_selected == 5 and persistent.chr.m ~= 2 then
+			menu_enable('mainyesno')
+		elseif m_selected == 6 then
+			pagenum = 1
+			menu_enable('settings')
 		elseif m_selected == 7 then
 			menu_enable('help')
 		elseif m_selected == 8 then
@@ -425,7 +421,7 @@ function menu_confirm()
 			menu_enable(menu_previous)
 		end
 		
-	elseif menu_type == 'settings' or menu_type == 'settings2' then
+	elseif menu_type == 'settings' then
 		if m_selected <= 3 and m_selected >= 5 then
 			menu_keypressed('left')
 		elseif m_selected == 4 then
@@ -500,12 +496,12 @@ function menu_keypressed(key)
 		menu_confirm()
 		
 	elseif key == 'b' then
-		if menu_type == 'settings' or menu_type == 'settings2' then
+		if menu_type == 'settings' then
 			savesettings()
 		end
-		if menu_type == 'pause' or menu_type == 'pause2' then
+		if menu_type == 'pause' then
 			menu_fadeout = true
-		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'pause2' and menu_type ~= 'choice' then
+		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' then
 			menu_enable(menu_previous)
 		end
 		menu_previous = nil
@@ -531,14 +527,6 @@ function menu_keypressed(key)
 			elseif cpick == 'Sound Volume' and settings.sfxvol > 0 then
 				settings.sfxvol = settings.sfxvol - 10
 			end
-		elseif menu_type == 'settings2' then
-			if cpick == 'Master Volume' and settings.masvol < 100 then
-				settings.masvol = settings.masvol + 10
-			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
-				settings.bgmvol = settings.bgmvol + 10
-			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
-				settings.sfxvol = settings.sfxvol + 10
-			end
 		elseif menu_type == 'history' then
 			
 		end
@@ -555,14 +543,6 @@ function menu_keypressed(key)
 			elseif cpick == 'Auto-Forward Time' and settings.autospd < 15 then
 				settings.autospd = settings.autospd + 1
 			elseif cpick == 'Master Volume' and settings.masvol < 100 then
-				settings.masvol = settings.masvol + 10
-			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
-				settings.bgmvol = settings.bgmvol + 10
-			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
-				settings.sfxvol = settings.sfxvol + 10
-			end
-		elseif menu_type == 'settings2' then
-			if cpick == 'Master Volume' and settings.masvol < 100 then
 				settings.masvol = settings.masvol + 10
 			elseif cpick == 'Music Volume' and settings.bgmvol < 100 then
 				settings.bgmvol = settings.bgmvol + 10
