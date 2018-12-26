@@ -4,10 +4,13 @@ local savedir
 local errtime = 0
 
 function drawLoad()
-	lg.setColor(0,0,0,alpha)
-	lg.rectangle('fill',0,0,1280,725)
-	lg.setColor(255,255,255)
-	lg.print(err,10,10)
+	lg.setBackgroundColor(255,255,255)
+	if err ~= '' then
+		lg.setColor(0,0,0,alpha)
+		lg.rectangle('fill',0,0,1280,725)
+		lg.setColor(255,255,255)
+		lg.print(err,10,10)
+	end
 end
 
 function updateLoad()
@@ -69,10 +72,7 @@ function updateLoad()
 		end
 	elseif l_timer == 100 then
 		lg.setBackgroundColor(255,255,255)
-		alpha = math.max(alpha - 5, 0)
-		if alpha == 0 then
-			changeState('splash')
-		end
+		changeState('splash')
 	end
 end
 

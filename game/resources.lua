@@ -15,10 +15,10 @@ function changeState(cstate,x)
 	elseif cstate == 'title' then
 		alpha = 0
 		
-		if persistent.ptr == 0 then
-			menu_art_s = lg.newImage("images/gui/menu_art_s.png")
-		else
+		if persistent.ptr == 1 or persistent.ptr == 2 then
 			menu_art_s = lg.newImage("images/gui/menu_art_s_break.png")
+		else
+			menu_art_s = lg.newImage("images/gui/menu_art_s.png")
 		end
 		
 		if persistent.ptr == 1 then
@@ -118,6 +118,7 @@ function changeState(cstate,x)
 		else
 			alpha = 255
 			loadAll()
+			changeX.y = {s=s_Set.x,y=y_Set.x,n=n_Set.x,m=m_Set.x}
 			bgUpdate(bg1, true)
 			audioUpdate(audio1, true)
 			cgUpdate(cg1, true)
