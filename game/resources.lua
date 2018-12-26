@@ -152,6 +152,9 @@ function timerCheck()
 		myTextStartTime = love.timer.getTime()
 	end
 	xaload = xaload + 1
+	if unitimer < uniduration then
+		unitimer = unitimer + dt
+	end
 end
 
 function bgUpdate(bgx, forceload) --background changes

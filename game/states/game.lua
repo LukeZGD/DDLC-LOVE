@@ -46,6 +46,7 @@ function drawGame()
 		outlineText(skiptext,5,35)
 	end
 	if menu_enabled then menu_draw() end
+	outlineText(s_Set.x..'\n'..changeX.z.s,0,0)
 end
 
 function updateGame(dt)
@@ -125,10 +126,11 @@ function game_keypressed(key)
 end
 
 function newgame_keypressed(key)
-	if (key == 'a' or key == 'lbutton') then 
+	if (key == 'a' or key == 'lbutton') and unitimer >= uniduration then 
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
+		unitimer = 0
 		collectgarbage()
 		collectgarbage()
 	end

@@ -787,16 +787,20 @@ function ch4_exclusive_natsuki()
 	elseif cl == 333 then
 		event_initstart('wipe')
 	elseif cl == 334 then
+		scriptJump(901)
+	elseif cl == 901 then
 		cw('bl',"Before long, the whole kitchen is a mess.")
-	elseif cl == 334 then
+	elseif cl == 902 then
 		cw('bl',"Spoons, dirty bowls, flour, spilled fluid, and plastic bags are strewn about every countertop.")
-	elseif cl == 334 then
+	elseif cl == 903 then
 		cw('bl',"The mixer isn't big enough to make all the batter at once, so we've had to do it several times.")
-	elseif cl == 334 then
+	elseif cl == 904 then
 		cw('bl',"Meanwhile, Natsuki is babysitting all of my movements to make sure I don't mess up her precious baking.")
-	elseif cl == 334 then
+	elseif cl == 905 then
 		updateNatsuki('2b','k',80)
 		cw('n',player..", where did you put the food coloring?")
+	elseif cl == 906 then
+		scriptJump(335)
 	elseif cl == 335 then
 		cw('n',"The batter's going in the oven soon, so I need to fill the trays.")
 	elseif cl == 336 then
@@ -873,7 +877,7 @@ function ch4_exclusive_natsuki()
 		cw('n',"The icing's still all lumpy!")
 	elseif cl == 369 then
 		cw('n',"Are you even trying?")
-	elseif cl == 379 then
+	elseif cl == 370 then
 		cw('mc',"Well, yeah...")
 	elseif cl == 371 then
 		cw('mc',"It'll just take a little longer.")
@@ -1414,7 +1418,7 @@ function ch4_exclusive_natsuki()
 	elseif cl == 603 then
 		hideNatsuki()
 		cw('bl',"Clearly flustered, Natsuki hurries off, and Sayori waves goodbye.")
-	elseif cl >= 604 then
+	elseif cl >= 604 and cl < 901 then
 		ch4_end()
 	end
 end
@@ -2897,8 +2901,9 @@ function ch4_end_no()
 	elseif cl == 806 then
     s "So..."
 	elseif cl == 807 then
-    hideAll()
+    scriptJump(808)
 	elseif cl == 808 then
+	hideAll()
     bl "Sayori's smile finally breaks."
 	elseif cl == 809 then
     bl "All of a sudden, she turns around and drops to her knees."
@@ -2942,7 +2947,7 @@ function ch4_end_no()
     bl "And I'll do whatever it takes to put a smile on her face every day."
 	elseif cl == 828 then
 	fadeOut(3)
-	elseif cl == 829 then
+	elseif cl >= 829 then
 	cl = 828
 	end
 end
