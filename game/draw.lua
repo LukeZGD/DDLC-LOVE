@@ -6,9 +6,9 @@ local gui_ctc_x = 1010
 local nxh
 local nyh
 
-changeX = {x={s=0,y=0,n=0,m=0},y={s=0,y=0,n=0,m=0},z={s=0,y=0,n=0,m=0}}
+local changeX = {x={s=0,y=0,n=0,m=0},y={s=0,y=0,n=0,m=0},z={s=0,y=0,n=0,m=0}}
 unitimer = 0
-uniduration = 0.2
+uniduration = 0.25
 
 --compatiblity for LOVE 11 and above
 local lgsetColor = lg.setColor
@@ -200,10 +200,12 @@ function updateSayori(a,b,px,py)
 	if px and xaload == 0 then
 		changeX.x.s = s_Set.x
 		changeX.y.s = px*3.2
-		if s_Set.x < px then
+		if changeX.x.s < changeX.y.s then
 			changeX.z.s = changeX.y.s - changeX.x.s
-		else
+		elseif changeX.x.s > changeX.y.s then
 			changeX.z.s = changeX.x.s - changeX.y.s
+		else
+			changeX.z.s = 0
 		end
 	end
 	
@@ -219,10 +221,12 @@ function updateYuri(a,b,px,py)
 	if px and xaload == 0 then
 		changeX.x.y = y_Set.x
 		changeX.y.y = px*3.2
-		if y_Set.x < px then
+		if changeX.x.y < changeX.y.y then
 			changeX.z.y = changeX.y.y - changeX.x.y
-		else
+		elseif changeX.x.y > changeX.y.y then
 			changeX.z.y = changeX.x.y - changeX.y.y
+		else
+			changeX.z.y = 0
 		end
 	end
 	
@@ -238,10 +242,12 @@ function updateNatsuki(a,b,px,py)
 	if px and xaload == 0 then
 		changeX.x.n = n_Set.x
 		changeX.y.n = px*3.2
-		if n_Set.x < px then
+		if changeX.x.n < changeX.y.n then
 			changeX.z.n = changeX.y.n - changeX.x.n
-		else
+		elseif changeX.x.n > changeX.y.n then
 			changeX.z.n = changeX.x.n - changeX.y.n
+		else
+			changeX.z.n = 0
 		end
 	end
 	
@@ -257,10 +263,12 @@ function updateMonika(a,b,px,py)
 	if px and xaload == 0 then
 		changeX.x.m = m_Set.x
 		changeX.y.m = px*3.2
-		if m_Set.x < px then
+		if changeX.x.m < changeX.y.m then
 			changeX.z.m = changeX.y.m - changeX.x.m
-		else
+		elseif changeX.x.m > changeX.y.m then
 			changeX.z.m = changeX.x.m - changeX.y.m
+		else
+			changeX.z.m = 0
 		end
 	end
 	
@@ -268,26 +276,67 @@ function updateMonika(a,b,px,py)
 end
 
 function hideSayori()
-	s_Set = {a='',b='',x=-400,y=4}
-	if sl then unloadSayori() end
+	if xaload == 0 then
+		changeX.x.s = s_Set.x
+		if changeX.x.s >= 300 then
+			changeX.y.s = 1955
+			changeX.z.s = changeX.y.s - changeX.x.s
+		else
+			changeX.y.s = -675
+			changeX.z.s = changeX.x.s - changeX.y.s
+		end
+	end
+	--s_Set = {a='',b='',x=-400,y=4}
+	--if sl then unloadSayori() end
 end
 
 function hideYuri()
-	y_Set = {a='',b='',x=-400,y=4}
-	if yl then unloadYuri() end
+	if xaload == 0 then
+		changeX.x.y = y_Set.x
+		if changeX.x.y >= 300 then
+			changeX.y.y = 1955
+			changeX.z.y = changeX.y.y - changeX.x.y
+		else
+			changeX.y.y = -675
+			changeX.z.y = changeX.x.y - changeX.y.y
+		end
+	end
+	--y_Set = {a='',b='',x=-400,y=4}
+	--if yl then unloadYuri() end
 end
 
 function hideNatsuki()
-	n_Set = {a='',b='',x=-400,y=4}
-	if nl then unloadNatsuki() end
+	if xaload == 0 then
+		changeX.x.n = n_Set.x
+		if changeX.x.n >= 300 then
+			changeX.y.n = 1955
+			changeX.z.n = changeX.y.n - changeX.x.n
+		else
+			changeX.y.n = -675
+			changeX.z.n = changeX.x.n - changeX.y.n
+		end
+	end
+	--n_Set = {a='',b='',x=-400,y=4}
+	--if nl then unloadNatsuki() end
 end
 
 function hideMonika()
-	m_Set = {a='',b='',x=-400,y=4}
-	if ml then unloadMonika() end
+	if xaload == 0 then
+		changeX.x.m = m_Set.x
+		if changeX.x.m >= 300 then
+			changeX.y.m = 1955
+			changeX.z.m = changeX.y.m - changeX.x.m
+		else
+			changeX.y.m = -675
+			changeX.z.m = changeX.x.m - changeX.y.m
+		end
+	end
+	--m_Set = {a='',b='',x=-400,y=4}
+	--if ml then unloadMonika() end
 end
 
 function hideAll()
+	--[[
 	s_Set.a = ''
 	s_Set.b = ''
 	y_Set.a = ''
@@ -297,6 +346,11 @@ function hideAll()
 	m_Set.a = ''
 	m_Set.b = ''
 	unloadAll()
+	]]
+	hideSayori()
+	hideYuri()
+	hideNatsuki()
+	hideMonika()
 end
 
 function drawSayori()
@@ -309,14 +363,15 @@ function drawSayori()
 		if s_a then lg.draw(s_a, s_Set.x, s_Set.y+1) end
 	end
 	
-	--if changeX.x.s < changeX.y.s and autoskip < 1 then
-	--	s_Set.x = math.ceil(changeX.x.s + easeQuadOut(unitimer,0,changeX.z.s,uniduration))
-	--elseif changeX.x.s > changeX.y.s and autoskip < 1 then
-	--	s_Set.x = math.floor(changeX.x.s - easeQuadOut(unitimer,0,changeX.z.s,uniduration))
-	--elseif s_Set.x ~= changeX.y.s then
-	if s_Set.x ~= changeX.y.s then
+	if s_Set.x < changeX.y.s and not (s_Set.x == changeX.y.s + 1) and not (s_Set.x == changeX.y.s - 1) and autoskip < 1 then
+		s_Set.x = math.ceil(changeX.x.s + easeQuadInOut(unitimer,0,changeX.z.s,uniduration))
+	elseif s_Set.x > changeX.y.s and autoskip < 1 then
+		s_Set.x = math.floor(changeX.x.s - easeQuadInOut(unitimer,0,changeX.z.s,uniduration))
+	elseif s_Set.x ~= changeX.y.s then
+	--if s_Set.x ~= changeX.y.s then
 		s_Set.x = changeX.y.s
 	end
+	--if sl and s_Set.x < -550 and xaload == 1 then unloadSayori() end
 end
 
 function drawYuri()
@@ -329,14 +384,15 @@ function drawYuri()
 		lg.draw(y_a, y_Set.x, y_Set.y+1)
 	end
 	
-	--if changeX.x.y < changeX.y.y and autoskip < 1 then
-	--	y_Set.x = math.ceil(changeX.x.y + easeQuadOut(unitimer,0,changeX.z.y,uniduration))
-	--elseif changeX.x.y > changeX.y.y and autoskip < 1 then
-	--	y_Set.x = math.floor(changeX.x.y - easeQuadOut(unitimer,0,changeX.z.y,uniduration))
-	--elseif y_Set.x ~= changeX.y.y then
-	if y_Set.x ~= changeX.y.y then
+	if y_Set.x < changeX.y.y and not (y_Set.x == changeX.y.y + 1) and not (y_Set.x == changeX.y.y - 1) and autoskip < 1 then
+		y_Set.x = math.ceil(changeX.x.y + easeQuadInOut(unitimer,0,changeX.z.y,uniduration))
+	elseif y_Set.x > changeX.y.y and autoskip < 1 then
+		y_Set.x = math.floor(changeX.x.y - easeQuadInOut(unitimer,0,changeX.z.y,uniduration))
+	elseif y_Set.x ~= changeX.y.y then
+	--if y_Set.x ~= changeX.y.y then
 		y_Set.x = changeX.y.y
 	end
+	--if yl and y_Set.x < -550 and xaload == 1 then unloadYuri() end
 end
 
 function drawNatsuki()
@@ -357,14 +413,15 @@ function drawNatsuki()
 		lg.draw(nr, n_Set.x, n_Set.y)
 	end
 	
-	--if changeX.x.n < changeX.y.n and autoskip < 1 then
-	--	n_Set.x = math.ceil(changeX.x.n + easeQuadOut(unitimer,0,changeX.z.n,uniduration))
-	--elseif changeX.x.n > changeX.y.n and autoskip < 1 then
-	--	n_Set.x = math.floor(changeX.x.n - easeQuadOut(unitimer,0,changeX.z.n,uniduration))
-	--elseif n_Set.x ~= changeX.y.n then
-	if n_Set.x ~= changeX.y.n then
+	if n_Set.x < changeX.y.n and not (n_Set.x == changeX.y.n + 1) and not (n_Set.x == changeX.y.n - 1) and autoskip < 1 then
+		n_Set.x = math.ceil(changeX.x.n + easeQuadInOut(unitimer,0,changeX.z.n,uniduration))
+	elseif n_Set.x > changeX.y.n and autoskip < 1 then
+		n_Set.x = math.floor(changeX.x.n - easeQuadInOut(unitimer,0,changeX.z.n,uniduration))
+	elseif n_Set.x ~= changeX.y.n then
+	--if n_Set.x ~= changeX.y.n then
 		n_Set.x = changeX.y.n
 	end
+	--if nl and n_Set.x < -550 and xaload == 1 then unloadNatsuki() end
 end
 
 function drawMonika()
@@ -377,12 +434,13 @@ function drawMonika()
 		lg.draw(m_a, m_Set.x, m_Set.y+1)
 	end
 	
-	--if changeX.x.m < changeX.y.m and autoskip < 1 then
-	--	m_Set.x = math.floor(changeX.x.m + easeQuadOut(unitimer,0,changeX.z.m,uniduration))
-	--elseif changeX.x.m > changeX.y.m and autoskip < 1 then
-	--	m_Set.x = math.floor(changeX.x.m - easeQuadOut(unitimer,0,changeX.z.m,uniduration))
-	--elseif m_Set.x ~= changeX.y.m then
-	if m_Set.x ~= changeX.y.m then
+	if m_Set.x < changeX.y.m and not (m_Set.x == changeX.y.m + 1) and not (m_Set.x == changeX.y.m - 1) and autoskip < 1 then
+		m_Set.x = math.floor(changeX.x.m + easeQuadInOut(unitimer,0,changeX.z.m,uniduration))
+	elseif m_Set.x > changeX.y.m and autoskip < 1 then
+		m_Set.x = math.floor(changeX.x.m - easeQuadInOut(unitimer,0,changeX.z.m,uniduration))
+	elseif m_Set.x ~= changeX.y.m then
+	--if m_Set.x ~= changeX.y.m then
 		m_Set.x = changeX.y.m
 	end
+	--if ml and m_Set.x < -550 and xaload == 1 then unloadMonika() end
 end
