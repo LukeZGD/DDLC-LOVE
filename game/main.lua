@@ -5,7 +5,7 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.5.1'
+	dversion = 'v0.5.2'
 	dvertype = 'Release'
 	
 	lg.setBackgroundColor(0,0,0)	
@@ -59,7 +59,9 @@ function love.draw()
 	end
 end
 
-function love.update(dt)
+function love.update()
+	dt = love.timer.getDelta()
+
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
