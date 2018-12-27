@@ -1,12 +1,14 @@
 lg = love.graphics
 local drawbottom
 local xps = {c=250,ct=270,textbox=230,namebox=250}
-local yps = {c={585,615,645,675},ct=532,textbox=565,namebox=526}
+local yps = {c={595,625,655,685},ct=532,textbox=565,namebox=526}
 local gui_ctc_x = 1010
-local nxh
-local nyh
+local xh
+local yh
 
-changeX = {x={s=0,y=0,n=0,m=0},y={s=0,y=0,n=0,m=0},z={s=0,y=0,n=0,m=0}}
+local with_r = {'1','1b','2','2b','3','3b','4','4b'}
+local with_yr = {'1','1b','2','2b','3','3b'}
+changeX = {s={x=0,y=0,z=0},y={x=0,y=0,z=0},n={x=0,y=0,z=0},m={x=0,y=0,z=0}}
 unitimer = 0
 uniduration = 0.25
 
@@ -35,7 +37,7 @@ function lg.draw(drawable, ...)
 	end
 end
 
-function outlineText(text,x,y,type)
+function outlineText(text,x,y,type,arg1)
 	if g_system == 'PSP' then
 		lg.setColor(0,0,0,alpha)
 	else
@@ -48,17 +50,28 @@ function outlineText(text,x,y,type)
 		else
 			lg.setColor(0,0,0,alpha)
 		end
-		lg.print(text,x-addm,y)
-		lg.print(text,x,y-addm)
-		lg.print(text,x+addm,y)
-		lg.print(text,x,y+addm)
+		if type == 'printf' and global_os ~= 'LOVE-OneLua' then
+			lg.printf(text,x-addm,y,arg1)
+			lg.printf(text,x,y-addm,arg1)
+			lg.printf(text,x+addm,y,arg1)
+			lg.printf(text,x,y+addm,arg1)
+		else
+			lg.print(text,x-addm,y)
+			lg.print(text,x,y-addm)
+			lg.print(text,x+addm,y)
+			lg.print(text,x,y+addm)
+		end
 		if style_edited and type == 'c_disp' then
 			lg.setColor(0,0,0,alpha)
 		else
 			lg.setColor(255,255,255,alpha)
 		end
 	end
-	lg.print(text,x,y)
+	if type == 'printf' and global_os ~= 'LOVE-OneLua' then
+		lg.printf(text,x,y,arg1)
+	else
+		lg.print(text,x,y)
+	end
 end
 
 function dripText(text,charactersPerSecond,startTime)
@@ -152,21 +165,7 @@ function drawTextBox()
 			end
 			
 		elseif textx then
-			if style_edited then
-				lg.setColor(255,255,255,alpha)
-			else
-				lg.setColor(0,0,0,alpha)
-			end
-			lg.printf(textx,248.75,590,775)
-			lg.printf(textx,250,588.75,775)
-			lg.printf(textx,251.25,590,775)
-			lg.printf(textx,250,591.25,775)
-			if style_edited then
-				lg.setColor(0,0,0,alpha)
-			else
-				lg.setColor(255,255,255,alpha)
-			end
-			lg.printf(textx,250,590,775)
+			outlineText(textx,250,590,'printf',775)
 		end
 	end
 end
@@ -204,148 +203,72 @@ function drawConsole()
 	end
 end
 
-function updateSayori(a,b,px,py)
+function updateCharacter(set,a,b,px,py,chset)
 	if not b then b = '' end
-	s_Set.a = a
-	s_Set.b = b
-	if xaload == 0 then loadSayori() end
+	set.a = a
+	set.b = b
 	
 	if px and xaload == 0 then
-		changeX.x.s = s_Set.x
-		changeX.y.s = px*3.2
-		if changeX.x.s < changeX.y.s then
-			changeX.z.s = changeX.y.s - changeX.x.s
-		elseif changeX.x.s > changeX.y.s then
-			changeX.z.s = changeX.x.s - changeX.y.s
+		chset.x = set.x
+		chset.y = px*3.2
+		if chset.x < chset.y then
+			chset.z = chset.y - chset.x
+		elseif chset.x > chset.y then
+			chset.z = chset.x - chset.y
 		else
-			changeX.z.s = 0
+			chset.z = 0
 		end
 	end
-	
-	if py then s_Set.y = py end
+	if py then set.y = py end
+end
+
+function updateSayori(a,b,px,py)
+	updateCharacter(s_Set,a,b,px,py,changeX.s)
+	if xaload == 0 then loadSayori() end
 end
 
 function updateYuri(a,b,px,py)
-	if not b then b = '' end
-	y_Set.a = a 
-	y_Set.b = b
+	updateCharacter(y_Set,a,b,px,py,changeX.y)
 	if xaload == 0 then loadYuri() end
-	
-	if px and xaload == 0 then
-		changeX.x.y = y_Set.x
-		changeX.y.y = px*3.2
-		if changeX.x.y < changeX.y.y then
-			changeX.z.y = changeX.y.y - changeX.x.y
-		elseif changeX.x.y > changeX.y.y then
-			changeX.z.y = changeX.x.y - changeX.y.y
-		else
-			changeX.z.y = 0
-		end
-	end
-	
-	if py then y_Set.y = py end
 end
 
 function updateNatsuki(a,b,px,py)
-	if not b then b = '' end
-	n_Set.a = a
-	n_Set.b = b
+	updateCharacter(n_Set,a,b,px,py,changeX.n)
 	if xaload == 0 then loadNatsuki() end
-	
-	if px and xaload == 0 then
-		changeX.x.n = n_Set.x
-		changeX.y.n = px*3.2
-		if changeX.x.n < changeX.y.n then
-			changeX.z.n = changeX.y.n - changeX.x.n
-		elseif changeX.x.n > changeX.y.n then
-			changeX.z.n = changeX.x.n - changeX.y.n
-		else
-			changeX.z.n = 0
-		end
-	end
-	
-	if py then n_Set.y = py end
 end
 
 function updateMonika(a,b,px,py)
-	if not b then b = '' end
-	m_Set.a = a
-	m_Set.b = b
+	updateCharacter(m_Set,a,b,px,py,changeX.m)
 	if xaload == 0 then loadMonika() end
-	
-	if px and xaload == 0 then
-		changeX.x.m = m_Set.x
-		changeX.y.m = px*3.2
-		if changeX.x.m < changeX.y.m then
-			changeX.z.m = changeX.y.m - changeX.x.m
-		elseif changeX.x.m > changeX.y.m then
-			changeX.z.m = changeX.x.m - changeX.y.m
+end
+
+function hideCharacter(set,chset)
+	if xaload == 0 then
+		chset.x = set.x
+		if chset.x >= 300 then
+			chset.y = 1955
+			chset.z = chset.y - chset.x
 		else
-			changeX.z.m = 0
+			chset.y = -675
+			chset.z = chset.x - chset.y
 		end
 	end
-	
-	if py then m_Set.y = py end
 end
 
 function hideSayori()
-	if xaload == 0 then
-		changeX.x.s = s_Set.x
-		if changeX.x.s >= 300 then
-			changeX.y.s = 1955
-			changeX.z.s = changeX.y.s - changeX.x.s
-		else
-			changeX.y.s = -675
-			changeX.z.s = changeX.x.s - changeX.y.s
-		end
-	end
-	--s_Set = {a='',b='',x=-400,y=4}
-	--if sl then unloadSayori() end
+	hideCharacter(s_Set,changeX.s)
 end
 
 function hideYuri()
-	if xaload == 0 then
-		changeX.x.y = y_Set.x
-		if changeX.x.y >= 300 then
-			changeX.y.y = 1955
-			changeX.z.y = changeX.y.y - changeX.x.y
-		else
-			changeX.y.y = -675
-			changeX.z.y = changeX.x.y - changeX.y.y
-		end
-	end
-	--y_Set = {a='',b='',x=-400,y=4}
-	--if yl then unloadYuri() end
+	hideCharacter(y_Set,changeX.y)
 end
 
 function hideNatsuki()
-	if xaload == 0 then
-		changeX.x.n = n_Set.x
-		if changeX.x.n >= 300 then
-			changeX.y.n = 1955
-			changeX.z.n = changeX.y.n - changeX.x.n
-		else
-			changeX.y.n = -675
-			changeX.z.n = changeX.x.n - changeX.y.n
-		end
-	end
-	--n_Set = {a='',b='',x=-400,y=4}
-	--if nl then unloadNatsuki() end
+	hideCharacter(n_Set,changeX.n)
 end
 
 function hideMonika()
-	if xaload == 0 then
-		changeX.x.m = m_Set.x
-		if changeX.x.m >= 300 then
-			changeX.y.m = 1955
-			changeX.z.m = changeX.y.m - changeX.x.m
-		else
-			changeX.y.m = -675
-			changeX.z.m = changeX.x.m - changeX.y.m
-		end
-	end
-	--m_Set = {a='',b='',x=-400,y=4}
-	--if ml then unloadMonika() end
+	hideCharacter(m_Set,changeX.m)
 end
 
 function hideAll()
@@ -360,94 +283,62 @@ function hideAll()
 	unloadAll()
 end
 
+function nearest(a,b)
+	if (a == b + 1) or (a == b + 2) or (a == b - 1) or (a == b - 2) then
+		return true
+	else
+		return false
+	end
+end
+
+function drawCharacter(l,r,a,set,chset)
+	if set.b~='' then
+		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
+			xh = set.x + 7
+			yh = set.y + 18
+		else
+			xh = set.x
+			yh = set.y
+		end
+		if a then lg.draw(a,xh,yh) end
+	end
+	
+	lg.draw(l, set.x, set.y)
+	if set == y_Set then
+		for i = 1, #with_yr do
+			if set.a == with_yr[i] then
+				lg.draw(r, set.x, set.y)
+			end
+		end
+	else
+		for i = 1, #with_r do
+			if set.a == with_r[i] then
+				lg.draw(r, set.x, set.y)
+			end
+		end
+	end
+	
+	if set.x < chset.y and not nearest(set.x,chset.y) and autoskip < 1 then
+		set.x = math.ceil(chset.x + easeQuadInOut(unitimer,0,chset.z,uniduration))
+	elseif set.x > chset.y and not nearest(set.x,chset.y) and autoskip < 1 then
+		set.x = math.floor(chset.x - easeQuadInOut(unitimer,0,chset.z,uniduration))
+	elseif set.x ~= chset.y then
+		set.x = chset.y
+	end
+end
+
 function drawSayori()
-	lg.draw(sl, s_Set.x, s_Set.y)
-	if s_Set.a=='1' or s_Set.a=='1b' or s_Set.a=='2' or s_Set.a=='2b' or s_Set.a=='3' or s_Set.a=='3b' or s_Set.a=='4' or s_Set.a=='4b' then
-		lg.draw(sr, s_Set.x, s_Set.y)
-	end
-	
-	if s_Set.b~='' then
-		if s_a then lg.draw(s_a, s_Set.x, s_Set.y+1) end
-	end
-	
-	if s_Set.x < changeX.y.s and not (s_Set.x == changeX.y.s + 1) and not (s_Set.x == changeX.y.s - 1) and autoskip < 1 then
-		s_Set.x = math.ceil(changeX.x.s + easeQuadInOut(unitimer,0,changeX.z.s,uniduration))
-	elseif s_Set.x > changeX.y.s and autoskip < 1 then
-		s_Set.x = math.floor(changeX.x.s - easeQuadInOut(unitimer,0,changeX.z.s,uniduration))
-	elseif s_Set.x ~= changeX.y.s then
-	--if s_Set.x ~= changeX.y.s then
-		s_Set.x = changeX.y.s
-	end
-	--if sl and s_Set.x < -550 and xaload == 1 then unloadSayori() end
+	drawCharacter(sl,sr,s_a,s_Set,changeX.s)
 end
 
 function drawYuri()
-	lg.draw(yl, y_Set.x, y_Set.y)
-	if y_Set.a=='1' or y_Set.a=='1b' or y_Set.a=='2' or y_Set.a=='2b' or y_Set.a=='3' or y_Set.a=='3b' then
-		lg.draw(yr, y_Set.x, y_Set.y)
-	end
-	
-	if y_Set.b~='' then
-		lg.draw(y_a, y_Set.x, y_Set.y+1)
-	end
-	
-	if y_Set.x < changeX.y.y and not (y_Set.x == changeX.y.y + 1) and not (y_Set.x == changeX.y.y - 1) and autoskip < 1 then
-		y_Set.x = math.ceil(changeX.x.y + easeQuadInOut(unitimer,0,changeX.z.y,uniduration))
-	elseif y_Set.x > changeX.y.y and autoskip < 1 then
-		y_Set.x = math.floor(changeX.x.y - easeQuadInOut(unitimer,0,changeX.z.y,uniduration))
-	elseif y_Set.x ~= changeX.y.y then
-	--if y_Set.x ~= changeX.y.y then
-		y_Set.x = changeX.y.y
-	end
-	--if yl and y_Set.x < -550 and xaload == 1 then unloadYuri() end
+	drawCharacter(yl,yr,y_a,y_Set,changeX.y)
 end
 
 function drawNatsuki()
-	if n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
-		nxh = n_Set.x + 7
-		nyh = n_Set.y + 18
-	else
-		nxh = n_Set.x
-		nyh = n_Set.y
-	end
-	
-	if n_Set.b~='' then
-		lg.draw(n_a, nxh, nyh+1)
-	end
-	
-	lg.draw(nl, n_Set.x, n_Set.y)
-	if n_Set.a=='1' or n_Set.a=='1b' or n_Set.a=='2' or n_Set.a=='2b' or n_Set.a=='3' or n_Set.a=='3b' or n_Set.a=='4' or n_Set.a=='4b' then
-		lg.draw(nr, n_Set.x, n_Set.y)
-	end
-	
-	if n_Set.x < changeX.y.n and not (n_Set.x == changeX.y.n + 1) and not (n_Set.x == changeX.y.n - 1) and autoskip < 1 then
-		n_Set.x = math.ceil(changeX.x.n + easeQuadInOut(unitimer,0,changeX.z.n,uniduration))
-	elseif n_Set.x > changeX.y.n and autoskip < 1 then
-		n_Set.x = math.floor(changeX.x.n - easeQuadInOut(unitimer,0,changeX.z.n,uniduration))
-	elseif n_Set.x ~= changeX.y.n then
-	--if n_Set.x ~= changeX.y.n then
-		n_Set.x = changeX.y.n
-	end
-	--if nl and n_Set.x < -550 and xaload == 1 then unloadNatsuki() end
+	drawCharacter(nl,nr,n_a,n_Set,changeX.n)
 end
 
 function drawMonika()
-	lg.draw(ml, m_Set.x, m_Set.y)
-	if m_Set.a=='1' or m_Set.a=='2' or m_Set.a=='3' or m_Set.a=='4' then
-		lg.draw(mr, m_Set.x, m_Set.y)
-	end
-	
-	if m_Set.b ~= '' then
-		lg.draw(m_a, m_Set.x, m_Set.y+1)
-	end
-	
-	if m_Set.x < changeX.y.m and not (m_Set.x == changeX.y.m + 1) and not (m_Set.x == changeX.y.m - 1) and autoskip < 1 then
-		m_Set.x = math.floor(changeX.x.m + easeQuadInOut(unitimer,0,changeX.z.m,uniduration))
-	elseif m_Set.x > changeX.y.m and autoskip < 1 then
-		m_Set.x = math.floor(changeX.x.m - easeQuadInOut(unitimer,0,changeX.z.m,uniduration))
-	elseif m_Set.x ~= changeX.y.m then
-	--if m_Set.x ~= changeX.y.m then
-		m_Set.x = changeX.y.m
-	end
-	--if ml and m_Set.x < -550 and xaload == 1 then unloadMonika() end
+	drawCharacter(ml,mr,m_a,m_Set,changeX.m)
 end

@@ -3,9 +3,14 @@ local audio_wloop = {'1','2','3','4','4g','5','5_monika','5_natsuki','5_sayori',
 function changeState(cstate,x)
 	menu_alpha = 0
 	menu_previous = nil
+	history = {}
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
 		require('states/'..cstate)
+	end
+	
+	if cstate == 'game' then
+		hideAll()
 	end
 	
 	if cstate == 'splash' then
@@ -111,14 +116,19 @@ function changeState(cstate,x)
 	end
 	
 	--load game state and scripts
-	if cstate == 'game' or cstate == 'newgame' then	
-		hideAll()
+	if cstate == 'game' or cstate == 'newgame' then
 		if audio1 == '4' and x == 2 then
 			alpha = 20
 		else
 			alpha = 255
-			loadAll()
-			changeX.y = {s=s_Set.x,y=y_Set.x,n=n_Set.x,m=m_Set.x}
+			loadSayori()
+			loadNatsuki()
+			loadYuri()
+			loadMonika()
+			changeX.s.y = s_Set.x
+			changeX.y.y = y_Set.x
+			changeX.n.y = n_Set.x
+			changeX.m.y = m_Set.x
 			bgUpdate(bg1, true)
 			audioUpdate(audio1, true)
 			cgUpdate(cg1, true)
@@ -169,7 +179,7 @@ function bgUpdate(bgx, forceload) --background changes
 	end
 	
 	if xaload == 0 or forceload then
-		if autoskip == 0 and forceload ~= true then bgch2 = bgch end
+		if autoskip == 0 and not forceload then bgch2 = bgch end
 		bgch = nil
 		bgch = lg.newImage('images/bg/'..bgx..'.png')
 	end	
@@ -178,7 +188,7 @@ end
 
 function cgUpdate(cgx, forceload) --cg changes
 	if cg1 ~= cgx or forceload then
-		if autoskip == 0 and forceload ~= true then cgch2 = cgch end
+		if autoskip == 0 and not forceload then cgch2 = cgch end
 		cgch = nil
 		cgch = lg.newImage('images/cg/'..cgx..'.png')
 	end	
@@ -398,12 +408,7 @@ function unloadMonika()
 	m_a = nil
 end
 
-function loadAll()
-	loadSayori()
-	loadNatsuki()
-	loadYuri()
-	loadMonika()
-end
+
 
 function unloadAll(x)
 	if x == nil or x == 'characters' then

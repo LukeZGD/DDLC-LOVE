@@ -1,6 +1,7 @@
 local skipspeed = 4
 local bgalpha = 255
 local cgalpha = 255
+local textboxd = true
 
 function drawGame()
 	lg.setBackgroundColor(0,0,0)
@@ -20,10 +21,11 @@ function drawGame()
 	drawMonika()
 	
 	if poem_enabled then drawPoem()	end
+	if textboxd then
+		drawTextBox()
+	end
 	
-	drawTextBox()
 	lg.setFont(allerfont)
-	
 	lg.setColor(255,255,255,alpha)
 	lg.print(cl,5,690)
 	if autotimer > 0 then
@@ -124,11 +126,14 @@ end
 
 function newgame_keypressed(key)
 	if (key == 'a' or key == 'lbutton') and unitimer >= uniduration then 
+		textboxd = true
 		autotimer = 0
 		cl = cl + 1 --next script
 		xaload = 0
 		unitimer = 0
 		collectgarbage()
 		collectgarbage()
+	elseif key == 'r' or key == 'rbutton' or key == 'plus' then
+		textboxd = not textboxd
 	end
 end
