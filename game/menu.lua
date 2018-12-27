@@ -14,6 +14,7 @@ local save_date = {}
 local save_bpic = {}
 local save_hoverpos = {}
 local sxp = 0
+local history_scr = 0
 menu_alpha = 0
 
 function menu_enable(m)
@@ -178,9 +179,34 @@ function menu_draw()
 		lg.rectangle('fill',120,70,1040,580)
 		lg.setColor(0,0,0,menu_alpha)
 		lg.print(menutext,140,90)
+		local keys = {}
+		local delsave = ''
+		if global_os == 'LOVE-OneLua' then
+			keys = {'Cross','Circle','Square','Triangle','R Trigger'}
+		else
+			keys = {'A','B','X','Y','Plus'}
+		end
+		lg.setColor(0,0,0)
+		lg.print('Key Bindings:',160,120)
+		lg.print(keys[1]..', L Trigger - Advances through the game, activates menu choices',160,160)
+		lg.print(keys[2]..' - Exit Menu, AutoForward On/Off',160,190)
+		lg.print(keys[3]..' - (Menu) Previous Page, Skipping On/Off',160,220)
+		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
+		lg.print(keys[5]..' - Show/hide text window',160,280)
+		lg.print('Managing files: Go to Settings > Characters',160,330)
+		delsave = 'Deleting save data: Delete save files and persistent in here:\n'
+		delsave = delsave..'Switch: sdmc:/switch/DDLC-LOVE/\n'
+		delsave = delsave..'PS Vita: ux0:/data/DDLC-LOVE/savedata/\n'
+		delsave = delsave..'PSP: ms0:/data/DDLC-LOVE/savedata/'
+		lg.print(delsave,160,360)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
-		menu_drawstuff('overlay')		
+		menu_drawstuff('overlay')
+		if menu_type == 'loadgame' then
+			lg.draw(gui.load)
+		elseif menu_type == 'savegame' then
+			lg.draw(gui.save)
+		end
 		if m_selected >= 2 and m_selected <= 4 then
 			save_hoverpos.x = save_oset.x[m_selected-1]
 			save_hoverpos.y = save_oset.y[1]
@@ -214,6 +240,7 @@ function menu_draw()
 	elseif menu_type == 'settings' then
 		menu_drawstuff('overlay')
 		lg.setColor(255,255,255)
+		lg.draw(gui.settings)
 		lg.draw(gui.setbuttons)
 		local hv = {x=0,y=0}
 		if m_selected <= 4 then
@@ -247,6 +274,41 @@ function menu_draw()
 		lg.print(settings.sfxvol..'%',1010,480)
 		lg.print(dversion..'\n'..dvertype,1200,660)
 		
+	elseif menu_type == 'history' then
+		menu_drawstuff('overlay')
+		lg.draw(gui.history)
+		
+		lg.setColor(0,0,0)
+		local ca = {}
+		local ca1 = {70,140,210}
+		local cdisp = {}
+		local ypsc = {35,65,95,125}
+		
+		for i = 1, #history do
+			--#history+1-i
+			if history[i] then
+				for j = 1, 3 do
+					ca[j] = string.find(history[i], '%s', ca1[j])
+					if ca[j] == nil then ca[j] = ca1[j] + 3 end
+				end
+				
+				cdisp[1] = string.sub(history[i], 1, ca[1])
+				for j = 2, 4 do
+					cdisp[j] = string.sub(history[i], ca[j-1]+1, ca[j])
+				end
+				
+				if c_disp and global_os == 'LOVE-OneLua' then
+					for j = 1, 4 do
+						if cdisp[j] then
+							lg.print(cdisp[j],400,(i*120)+ypsc[j])
+						end
+					end
+				else
+					lg.printf(history[i],375,(i*120)+(history_scr*75),775)
+				end
+			end
+		end
+		
 	else
 		menu_drawstuff('overlay')
 		lg.setColor(255,189,225,menu_alpha)
@@ -258,54 +320,13 @@ function menu_draw()
 		lg.print(menutext,340,90)
 	end
 	
-	lg.setColor(255,255,255,menu_alpha)
-	if menu_type == 'history' then
-		lg.draw(gui.history)
-	elseif menu_type == 'loadgame' then
-		lg.draw(gui.load)
-	elseif menu_type == 'savegame' then
-		lg.draw(gui.save)
-	elseif menu_type == 'settings' then
-		lg.draw(gui.settings)
-	end
-	
 	lg.setColor(0,0,0,menu_alpha)
-	for i = 1, 8 do
-		if menu_items >= i+1 and itemnames[i] and menu_type == 'characters' then
-			lg.print(itemnames[i],360,110+(50*i))
-		end
-	end
-	
-	if menu_type == 'help' then
-		local keys = {}
-		if global_os == 'LOVE-OneLua' then
-			keys = {'Cross','Circle','Square','Triangle'}
-		else
-			keys = {'A','B','X','Y'}
-		end
-		lg.setColor(0,0,0)
-		lg.print('Key Bindings:',160,120)
-		lg.print(keys[1]..', L Trigger - Advances through the game, activates menu choices',160,160)
-		lg.print(keys[2]..' - Exit Menu, AutoForward On/Off',160,190)
-		lg.print(keys[3]..' - (Menu) Previous Page, Skipping On/Off',160,220)
-		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
-		lg.print('Managing files: Go to Settings > Characters',160,300)
-		lg.print('Deleting save data: Delete save files and persistent in here:\nSwitch: sdmc:/switch/DDLC-LOVE/\nPS Vita: ux0:/data/DDLC-LOVE/savedata/\nPSP: ms0:/data/DDLC-LOVE/savedata/',160,330)
-		
-	elseif menu_type == 'history' then
-		lg.setColor(0,0,0)
-		--[[
-		lg.print(cl,160,120)
-		local c_disp_y = {185,215,245,275}
-		lg.print(ct,250,150)
-		if c_disp and global_os == 'LOVE-OneLua' then
-			for i = 1, 4 do
-				lg.print(c_disp[i],250,c_disp_y[i])
+	if menu_type == 'characters' then
+		for i = 1, 8 do
+			if menu_items >= i+1 and itemnames[i] then
+				lg.print(itemnames[i],360,110+(50*i))
 			end
-		else
-			lg.printf(textx,250,185,775)
 		end
-		]]
 	end
 	
 	if persistent.act2[2] < 1 and menu_mchance == 50 and persistent.ptr == 2 then
@@ -472,8 +493,12 @@ end
 function menu_keypressed(key)
 	if key == 'down' then
 		sfx2:play()
-		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected <= 4 then
-			m_selected = m_selected + 3
+		if menu_type == 'savegame' or menu_type == 'loadgame' then
+			if m_selected <= 4 then
+				m_selected = m_selected + 3
+			else
+				m_selected = m_selected - 3
+			end
 		elseif m_selected <= menu_items-1 then
 			m_selected = m_selected + 1
 		else
@@ -481,22 +506,35 @@ function menu_keypressed(key)
 		end
 		m_select()
 		
+		if menu_type == 'history' and history_scr > -17 then
+			history_scr = history_scr - 1
+		end
+		
 	elseif key == 'up' then
 		sfx2:play()
-		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected >= 5 and m_selected <= 7 then
-			m_selected = m_selected - 3
+		if menu_type == 'savegame' or menu_type == 'loadgame' then
+			if m_selected >= 5 and m_selected <= 7 then
+				m_selected = m_selected - 3
+			else
+				m_selected = m_selected + 3
+			end
 		elseif m_selected >= 3 then
 			m_selected = m_selected - 1
 		else
 			m_selected = menu_items
 		end
 		m_select()
+		if menu_type == 'history' and history_scr < 0 then
+			history_scr = history_scr + 1
+		end
 		
 	elseif key == 'a' then
 		menu_confirm()
 		
 	elseif key == 'b' then
-		if menu_type == 'settings' then
+		if menu_type == 'history' then
+			history_scr = 0
+		elseif menu_type == 'settings' then
 			savesettings()
 		end
 		if menu_type == 'pause' then
@@ -507,9 +545,13 @@ function menu_keypressed(key)
 		menu_previous = nil
 		
 	elseif key == 'left' then
-		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected > 2 then
+		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			sfx2:play()
-			m_selected = m_selected - 1
+			if m_selected == 2 or m_selected == 5 then
+				m_selected = m_selected + 2
+			elseif m_selected > 2 then
+				m_selected = m_selected - 1
+			end
 			m_select()
 		elseif menu_type == 'settings' then
 			if cpick == 'Text Speed' then
@@ -527,15 +569,17 @@ function menu_keypressed(key)
 			elseif cpick == 'Sound Volume' and settings.sfxvol > 0 then
 				settings.sfxvol = settings.sfxvol - 10
 			end
-		elseif menu_type == 'history' then
-			
 		end
 		game_setvolume()
 		
 	elseif key == 'right' then
-		if menu_type == 'savegame' or menu_type == 'loadgame' and m_selected < 7 then
+		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			sfx2:play()
-			m_selected = m_selected + 1
+			if m_selected == 4 or m_selected == 7 then
+				m_selected = m_selected - 2
+			elseif m_selected < 7 then
+				m_selected = m_selected + 1
+			end
 			m_select()
 		elseif menu_type == 'settings' then
 			if cpick == 'Text Speed' and settings.textspd < 250 then
@@ -548,10 +592,6 @@ function menu_keypressed(key)
 				settings.bgmvol = settings.bgmvol + 10
 			elseif cpick == 'Sound Volume' and settings.sfxvol < 100 then
 				settings.sfxvol = settings.sfxvol + 10
-			end
-		elseif menu_type == 'history' then
-			if cl < menu_history[1] then
-				cl = cl + 1
 			end
 		end
 		game_setvolume()

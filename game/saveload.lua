@@ -103,8 +103,13 @@ function loaddatainfo(save)
 end
 
 function savesettings()
-	local settingsfile = "settings={textspd="..settings.textspd..",autospd="..settings.autospd..",bgmvol="..settings.bgmvol..",sfxvol="..settings.sfxvol.."}"
-	love.filesystem.write("settings.sav", settingsfile)
+	local setfile = "settings={"
+	setfile = setfile.."textspd="..settings.textspd..","
+	setfile = setfile.."autospd="..settings.autospd..","
+	setfile = setfile.."masvol="..settings.masvol..","
+	setfile = setfile.."bgmvol="..settings.bgmvol..","
+	setfile = setfile.."sfxvol="..settings.sfxvol.."}"
+	love.filesystem.write("settings.sav", setfile)
 end
 
 function loadsettings()

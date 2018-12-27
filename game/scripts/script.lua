@@ -6,6 +6,7 @@ local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
+history = {}
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
@@ -69,16 +70,19 @@ function cw(p1, stext, tag)
 		end
 	end
 	
-	--[[
-	if menu_history then
-		c_disp[1] = string.sub(stext, 1, c_a[1])
-		for i = 2, 4 do
-			if slen >= c_a[i-1] then
-				c_disp[i] = string.sub(stext, c_a[i-1]+1, c_a[i])
-			end
+	local temptext = ct..': '..stext
+	if history[1] ~= stext and history[1] ~= temptext then
+		for i = 19, 1, -1 do
+			history[i] = history[i-1]
+		end
+		if style_edited then
+			history[1] = ''
+		elseif ct == '' then
+			history[1] = stext
+		else
+			history[1] = temptext
 		end
 	end
-	]]
 	
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)

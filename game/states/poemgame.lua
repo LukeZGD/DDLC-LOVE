@@ -151,10 +151,10 @@ function poemgame()
 	if persistent.ptr <= 2 then 
 		audioUpdate('4',true)
 		bg1 = 'notebook'
-		bgch2 = lg.newImage('images/bg/notebook.png')
+		bgch = lg.newImage('images/bg/notebook.png')
 	elseif persistent.ptr == 3 then 
 		audioUpdate('ghostmenu')
-		bgch2 = lg.newImage('images/bg/notebook-glitch.png')
+		bgch = lg.newImage('images/bg/notebook-glitch.png')
 	end
 	
 	if poemstate == 0 then 
@@ -192,7 +192,7 @@ function drawPoemGame()
 	else
 		lg.setBackgroundColor(0,0,0)
 		lg.setColor(255,255,255,alpha)
-		lg.draw(bgch2, 0, 0)
+		lg.draw(bgch, 0, 0)
 	end
 	
 	lg.setColor(0,0,0)
