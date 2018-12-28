@@ -1,7 +1,7 @@
 lg = love.graphics
 local drawbottom
 local xps = {c=250,ct=270,textbox=230,namebox=250}
-local yps = {c={595,625,655,685},ct=532,textbox=565,namebox=526}
+local yps = {c={590,620,650,680},ct=532,textbox=565,namebox=526}
 local gui_ctc_x = 1010
 local xh
 local yh
@@ -179,6 +179,15 @@ function drawPoem()
 	else
 		lg.setColor(243,243,243)
 		lg.rectangle('fill',240,0,800,720)
+	end
+	if poem_author == 'monika' then
+		lg.setFont(m1)
+	elseif poem_author == 'yuri' and not yuri_3 then
+		lg.setFont(y1)
+	elseif poem_author == 'sayori' then
+		lg.setFont(s1)
+	elseif poem_author == 'natsuki' then
+		lg.setFont(n1)
 	end
 	lg.setColor(0,0,0)
 	if poemtext and poem_scroll then

@@ -1,10 +1,10 @@
-local author = ''
+poem_author = ''
 
 function poem(poemname)
 	poem_enabled = true
 
 	if poemname == 'poem_y1' then
-		author = 'yuri'
+		poem_author = 'yuri'
 		poemtext = {
 			'Ghost Under the Light','',
 			
@@ -18,7 +18,7 @@ function poem(poemname)
 			'I flicker back.'};
 
 	elseif poemname == 'poem_y2' then
-		author = 'yuri'
+		poem_author = 'yuri'
 		poemtext = {
 			'The Raccoon','',
 			
@@ -45,7 +45,7 @@ function poem(poemname)
 			'And I feed myself again.'}
 	
 	elseif poemname == 'poem_y3' then
-		author = 'yuri'
+		poem_author = 'yuri'
 		poemtext = {
 			'Beach','',
 			'A marvel millions of years in the making.',
@@ -72,7 +72,7 @@ function poem(poemname)
 			'Drift forward, and I return to Earth forevermore.'};
 
 	elseif poemname == 'poem_y3b' then
-		author = 'yuri'
+		poem_author = 'yuri'
 		poemtext = {
 			'Ghost Under the Light pt. 2','',
 
@@ -99,7 +99,7 @@ function poem(poemname)
 			'Ghosts are blue-green. My heart is amber.'};
 
 	elseif poemname == 'poem_y22' then
-		author = 'yuri'
+		poem_author = 'yuri'
 		poemtext = {
 			'Wheel','',
 
@@ -120,11 +120,11 @@ function poem(poemname)
 			'human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.'}
 			
 	elseif poemname == 'poem_y23' then
-		author = 'yuri'
+		poem_author = 'yuri'
 		poemtext = {''}
 
 	elseif poemname == 'poem_n1' then
-		author = 'natsuki'
+		poem_author = 'natsuki'
 		poemtext = {
 			'Eagles Can Fly','',
 
@@ -138,7 +138,7 @@ function poem(poemname)
 			'But that\'s about it.'};
 	
 	elseif poemname == 'poem_n2' then
-		author = 'natsuki'
+		poem_author = 'natsuki'
 		poemtext = {
 			'Amy Likes Spiders','',
 
@@ -177,7 +177,7 @@ function poem(poemname)
 			'And I\'m gonna tell everyone.'};
 	
 	elseif poemname == 'poem_n2b' then
-		author = 'natsuki'
+		poem_author = 'natsuki'
 		poemtext = {[[
 T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
 
@@ -197,7 +197,7 @@ Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
 b3AgbXlzZWxmLg==]]};
 	
 	elseif poemname == 'poem_n3' then
-		author = 'natsuki'
+		poem_author = 'natsuki'
 		poemtext = {
 			'I\'ll Be Your Beach','',
 
@@ -236,7 +236,7 @@ b3AgbXlzZWxmLg==]]};
 			'You\'ll learn to love yourself again.'};
 
 	elseif poemname == 'poem_n3b' then
-		author = 'natsuki'
+		poem_author = 'natsuki'
 		poemtext = {
 			'Because You','',
 
@@ -268,7 +268,7 @@ b3AgbXlzZWxmLg==]]};
 			'Because you, because you, because you.'};
 	
 	elseif poemname == 'poem_n23' then
-		author = 'natsuki'
+		poem_author = 'natsuki'
 		poemtext = {
 			'I don\'t know how else to bring this up. But there\'s been something',
 			'I\'ve been worried about. Yuri has been acting kind of strange lately.',
@@ -297,7 +297,7 @@ b3AgbXlzZWxmLg==]]};
 			'a really good poem, okay? I\'m counting on you. Thanks for reading.'};
 	
 	elseif poemname == 'poem_s1' then
-		author = 'sayori'
+		poem_author = 'sayori'
 		poemtext = {
 			'Dear Sunshine','',
 
@@ -317,7 +317,7 @@ b3AgbXlzZWxmLg==]]};
 			'I want breakfast.'};
 	
 	elseif poemname == 'poem_s2' then
-		author = 'sayori'
+		poem_author = 'sayori'
 		poemtext = {
 			'Bottles','',
 
@@ -361,7 +361,7 @@ b3AgbXlzZWxmLg==]]};
 			'Inside my head.'};
 	
 	elseif poemname == 'poem_s3' then
-		author = 'sayori'
+		poem_author = 'sayori'
 		poemtext = {
 			'%','',
 
@@ -391,7 +391,7 @@ b3AgbXlzZWxmLg==]]};
 			'It just stops moving.'};
 	
 	elseif poemname == 'poem_m1' then
-		author = 'monika'
+		poem_author = 'monika'
 		poemtext = {
 			'Hole in Wall','',
 
@@ -430,7 +430,7 @@ b3AgbXlzZWxmLg==]]};
 			'Swallowing my fears, I brandish my pen.'};
 
 	elseif poemname == 'poem_m2' then
-		author = 'monika'
+		poem_author = 'monika'
 		poemtext = {
 			'Save Me','',
 
@@ -454,7 +454,7 @@ b3AgbXlzZWxmLg==]]};
 			'Of meaningless','','','','','','','','','','','','','','','Load Me'};
 	
 	elseif poemname == 'poem_m22' then
-		author = 'monika'
+		poem_author = 'monika'
 		poemtext = {
 			'Save Me',
 
@@ -478,7 +478,7 @@ b3AgbXlzZWxmLg==]]};
 			'Of m  n ngl ss','','','','','','','','','','','','','','','Delete Her'};
 	
 	elseif poemname == 'poem_m3' then
-		author = 'monika'
+		poem_author = 'monika'
 		poemtext = {
 			'The Lady who Knows Everything','',
 
@@ -525,7 +525,7 @@ b3AgbXlzZWxmLg==]]};
 			'And with a breath, she blows me back afloat, and I pick up a gust of wind.'};
 	
 	elseif poemname == 'poem_m4' then
-		author = 'monika'
+		poem_author = 'monika'
 		poemtext = {
 			'Happy End','',
 
@@ -545,7 +545,7 @@ b3AgbXlzZWxmLg==]]};
 	
 	if xaload == 0 then
 		sfxplay('pageflip')
-		if author == 'yuri' then
+		if poem_author == 'yuri' then
 			if yuri_2 then
 				poembg = lg.newImage('images/bg/poem_y1.png')
 				audioUpdate('0')
@@ -556,26 +556,19 @@ b3AgbXlzZWxmLg==]]};
 			else
 				audioUpdate('5_yuri')
 			end
-		elseif author == 'sayori' then
+		elseif poem_author == 'sayori' then
 			if chapter ~= 5 then
 				audioUpdate('5_sayori')
 			end
-		elseif author == 'natsuki' then
+		elseif poem_author == 'natsuki' then
 			audioUpdate('5_natsuki')
-		elseif author == 'monika' and persistent.ptr <= 2 then
+		elseif poem_author == 'monika' and persistent.ptr <= 2 then
 			audioUpdate('5_monika')
 		end
 	
 	elseif xaload > 0 then
-		if not poem_scroll then poem_scroll = {x=1,y=1} end
-		if is3DS or author == 'monika' then
-			lg.setFont(m1)
-		elseif author == 'yuri' and not yuri_3 then
-			lg.setFont(y1)
-		elseif author == 'sayori' then
-			lg.setFont(s1)
-		elseif author == 'natsuki' then
-			lg.setFont(n1)
+		if not poem_scroll then
+			poem_scroll = {x=1,y=1}
 		end
 	end
 end
