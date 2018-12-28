@@ -56,7 +56,9 @@ function cw(p1, stext, tag)
 	--word wrap
 	slen = string.len(textx)
 	c_a1 = {70,140,210}
-	if style_edited then c_a1 = {52,104,156} end
+	if style_edited then 
+		c_a1 = {52,104,156}
+	end
 	
 	for i = 1, 3 do
 		c_a[i] = string.find(stext, '%s', c_a1[i])
@@ -72,7 +74,7 @@ function cw(p1, stext, tag)
 	
 	local temptext = ct..': '..stext
 	if history[1] ~= stext and history[1] ~= temptext then
-		for i = 19, 1, -1 do
+		for i = 30, 1, -1 do
 			history[i] = history[i-1]
 		end
 		if style_edited then
