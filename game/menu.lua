@@ -300,7 +300,7 @@ function menu_draw()
 				if c_disp and global_os == 'LOVE-OneLua' then
 					for j = 1, 4 do
 						if cdisp[j] then
-							outlineText(cdisp[j],400,(i*120)+ypsc[j])
+							lg.print(cdisp[j],400,(i*120)+ypsc[j]+(history_scr*75))
 						end
 					end
 				else
@@ -357,16 +357,16 @@ function menu_update(dt)
 	
 	if menu_type == 'history' then
 		if g_system == 'Switch' then
-			if joystick:isGamepadDown('down') and history_scr > -17 then
-				history_scr = history_scr - 0.15
-			elseif joystick:isGamepadDown('up') and history_scr < 0 then
-				history_scr = history_scr + 0.15
+			if joystick:isGamepadDown('dpdown') and history_scr > -41 then
+				history_scr = history_scr - 0.2
+			elseif joystick:isGamepadDown('dpup') and history_scr < 0 then
+				history_scr = history_scr + 0.2
 			end
 		else
-			if love.keyboard.isDown('down') and history_scr > -17 then
-				history_scr = history_scr - 0.15
+			if love.keyboard.isDown('down') and history_scr > -41 then
+				history_scr = history_scr - 0.2
 			elseif love.keyboard.isDown('up') and history_scr < 0 then
-				history_scr = history_scr + 0.15
+				history_scr = history_scr + 0.2
 			end
 		end
 	end
