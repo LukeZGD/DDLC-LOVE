@@ -300,11 +300,11 @@ function menu_draw()
 				if c_disp and global_os == 'LOVE-OneLua' then
 					for j = 1, 4 do
 						if cdisp[j] then
-							lg.print(cdisp[j],400,(i*120)+ypsc[j])
+							outlineText(cdisp[j],400,(i*120)+ypsc[j])
 						end
 					end
 				else
-					lg.printf(history[i],375,(i*120)+(history_scr*75),775)
+					outlineText(history[i],375,(i*120)+(history_scr*75),'printf',775)
 				end
 			end
 		end
@@ -352,6 +352,22 @@ function menu_update(dt)
 		if menu_mtimer > 0.5 then
 			persistent.act2[2] = 1
 			savepersistent()
+		end
+	end
+	
+	if menu_type == 'history' then
+		if g_system == 'Switch' then
+			if joystick:isGamepadDown('down') and history_scr > -17 then
+				history_scr = history_scr - 0.15
+			elseif joystick:isGamepadDown('up') and history_scr < 0 then
+				history_scr = history_scr + 0.15
+			end
+		else
+			if love.keyboard.isDown('down') and history_scr > -17 then
+				history_scr = history_scr - 0.15
+			elseif love.keyboard.isDown('up') and history_scr < 0 then
+				history_scr = history_scr + 0.15
+			end
 		end
 	end
 end
@@ -506,10 +522,6 @@ function menu_keypressed(key)
 		end
 		m_select()
 		
-		if menu_type == 'history' and history_scr > -17 then
-			history_scr = history_scr - 1
-		end
-		
 	elseif key == 'up' then
 		sfx2:play()
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
@@ -524,9 +536,6 @@ function menu_keypressed(key)
 			m_selected = menu_items
 		end
 		m_select()
-		if menu_type == 'history' and history_scr < 0 then
-			history_scr = history_scr + 1
-		end
 		
 	elseif key == 'a' then
 		menu_confirm()
