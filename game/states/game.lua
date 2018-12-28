@@ -93,19 +93,28 @@ function updateGame(dt)
 		end
 	end
 	
+	if poem_enabled and poem_scroll and not menu_enabled then
+		if g_system == 'Switch' then
+			if joystick:isGamepadDown('dpup') then
+				poem_scroll.y = poem_scroll.y + 0.3
+			elseif joystick:isGamepadDown('dpdown') then
+				poem_scroll.y = poem_scroll.y - 0.3
+			end
+		else
+			if love.keyboard.isDown('up') and poem_scroll.y < 1 then
+				poem_scroll.y = poem_scroll.y + 0.3
+			elseif love.keyboard.isDown('down') then
+				poem_scroll.y = poem_scroll.y - 0.3
+			end
+		end
+	end
+	
 	if event_enabled then event_update(dt) end
 end
 
 function game_keypressed(key)
 	if event_enabled then
 		event_keypressed(key)
-	elseif poem_enabled and poem_scroll then
-		if key == 'up' and poem_scroll.y < 1 then
-			poem_scroll.y = poem_scroll.y + 3
-		elseif key == 'down' then
-			poem_scroll.y = poem_scroll.y - 3
-		end
-		newgame_keypressed(key)
 	elseif key == 'y' then --pause menu
 		menu_mchance = math.random(1,50)
 		autotimer = 0
