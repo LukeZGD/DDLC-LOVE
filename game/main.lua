@@ -1,4 +1,9 @@
 global_os, g_system = love.system.getOS()
+if g_system == 'Switch' then
+	joysticks = love.joystick.getJoysticks()
+	joystick = joysticks[1]
+end
+
 require 'draw'
 require 'resources'
 require 'saveload'
