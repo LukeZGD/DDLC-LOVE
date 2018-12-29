@@ -31,10 +31,11 @@ function event_draw_2()
 	
 	if event_type == 'n_blackeyes' then
 		lg.draw(bgch)
+        drawNatsuki()
 		if event_timer > 2 then
 			lg.draw(n_blackeyes, 256)
-		else
-			drawNatsuki()
+            lg.draw(n_eye, 650-(event_timer*50), 250-(easeQuadOut(event_timer,0,300,1)))
+            lg.draw(n_eye, 505+(event_timer*50), 250-(easeQuadOut(event_timer,0,300,1)))
 		end
 	end
 	
@@ -182,7 +183,7 @@ function event_draw_2()
 			if event_timer < 1.43 then
 				drawYuri()
 			else
-				lg.draw(eventvar1,256,eventvar2)
+				lg.draw(eventvar1,256,eventvar2+y_Set.y)
 			end
 		end
 	end

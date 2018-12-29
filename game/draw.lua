@@ -281,14 +281,10 @@ function hideMonika()
 end
 
 function hideAll()
-	s_Set.a = ''
-	s_Set.b = ''
-	y_Set.a = ''
-	y_Set.b = ''
-	n_Set.a = ''
-	n_Set.b = ''
-	m_Set.a = ''
-	m_Set.b = ''
+    s_Set = {a='',b='',x=-675,y=s_Set.y}
+    y_Set = {a='',b='',x=-675,y=y_Set.y}
+    n_Set = {a='',b='',x=-675,y=n_Set.y}
+    m_Set = {a='',b='',x=-675,y=m_Set.y}
 	unloadAll()
 end
 
@@ -313,17 +309,14 @@ function drawCharacter(l,r,a,set,chset)
 	end
 	
 	lg.draw(l, set.x, set.y)
+    
+    local with_set = with_r
 	if set == y_Set then
-		for i = 1, #with_yr do
-			if set.a == with_yr[i] then
-				lg.draw(r, set.x, set.y)
-			end
-		end
-	else
-		for i = 1, #with_r do
-			if set.a == with_r[i] then
-				lg.draw(r, set.x, set.y)
-			end
+		with_set = with_yr
+	end
+	for i = 1, #with_r do
+		if set.a == with_r[i] then
+			lg.draw(r, set.x, set.y)
 		end
 	end
 	
