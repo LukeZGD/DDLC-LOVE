@@ -56,9 +56,6 @@ function event_draw_2()
 	
 	if event_type == 'ny_argument2' then
 		drawanimframe()
-		if cl <= 1008 and ml then
-			lg.draw(ml)
-		end
 	end
 	
 	if event_type == 'yuri_glitch' then
