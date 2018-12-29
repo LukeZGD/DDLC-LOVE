@@ -14,7 +14,7 @@ local save_date = {}
 local save_bpic = {}
 local save_hoverpos = {}
 local sxp = 0
-local history_scr = 0
+local history_scr = -39
 menu_alpha = 0
 
 function menu_enable(m)
@@ -180,7 +180,13 @@ function menu_draw()
 		lg.setColor(0,0,0,menu_alpha)
 		lg.print(menutext,140,90)
 		local keys = {}
-		local delsave = ''
+		local delsave = 
+		[[
+		Deleting save data: Delete save files and persistent in here:
+		Switch: sdmc:/switch/DDLC-LOVE/
+		PS Vita: ux0:/data/DDLC-LOVE/savedata/
+		PSP: ms0:/data/DDLC-LOVE/savedata/
+		]]
 		if global_os == 'LOVE-OneLua' then
 			keys = {'Cross','Circle','Square','Triangle','R Trigger'}
 		else
@@ -194,10 +200,6 @@ function menu_draw()
 		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
 		lg.print(keys[5]..' - Show/hide text window',160,280)
 		lg.print('Managing files: Go to Settings > Characters',160,330)
-		delsave = 'Deleting save data: Delete save files and persistent in here:\n'
-		delsave = delsave..'Switch: sdmc:/switch/DDLC-LOVE/\n'
-		delsave = delsave..'PS Vita: ux0:/data/DDLC-LOVE/savedata/\n'
-		delsave = delsave..'PSP: ms0:/data/DDLC-LOVE/savedata/'
 		lg.print(delsave,160,360)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
@@ -284,27 +286,71 @@ function menu_draw()
 		local cdisp = {}
 		local ypsc = {35,65,95,125}
 		
-		for i = 1, #history do
-			--#history+1-i
-			if history[i] then
-				for j = 1, 3 do
-					ca[j] = string.find(history[i], '%s', ca1[j])
-					if ca[j] == nil then ca[j] = ca1[j] + 3 end
-				end
-				
-				cdisp[1] = string.sub(history[i], 1, ca[1])
-				for j = 2, 4 do
-					cdisp[j] = string.sub(history[i], ca[j-1]+1, ca[j])
-				end
-				
-				if c_disp and global_os == 'LOVE-OneLua' then
-					for j = 1, 4 do
-						if cdisp[j] then
-							lg.print(cdisp[j],400,(i*120)+ypsc[j]+(history_scr*75))
-						end
+		local historyline = 
+		[[
+		Welcome to the Literature Club! It's always been a dream of mine to make something
+		special out of the things I love. Now that you're a club member, you can help
+		me make that dream come true in this cute game!Every day is full of chit-chat and
+		fun activities with all of my adorable and unique club members:Sayori, the youthful
+		bundle of sunshine	who values happiness the most;Natsuki, the deceivingly cute girl
+		who packs an assertive punch;Yuri, the timid and mysterious one who finds comfort
+		in the world of books;...And, of course, Monika, the leader of the club! That's me!
+		I'm super excited for you to make friends with everyone and help the Literature Club
+		become a more intimate place for all my members. But I can tell already that you're
+		a sweetheart—will you promise to spend the most time with me?Welcome to the Literature
+		Club! It's always been a dream of mine to make something special out of the things I
+		love. Now that 	you're a club member, you can help me make that dream come true in
+		this cute game!Every day is full of chit-chat and fun activities with all of my
+		adorable and unique club members:Sayori, the youthful bundle of sunshine who values
+		happiness the most;Natsuki, the deceivingly cute girl who packs an assertive punch;
+		Yuri, the timid and mysterious one who finds comfort in the world of books;...And,
+		of course, Monika, the leader of the club! That's me!I'm super excited for you to
+		make friends with everyone and help the Literature Club become a more intimate place
+		for all my members. But I can tell already that you're a sweetheart—will you promise
+		to spend the most time with me?Welcome to the Literature Club! It's always been a
+		dream of mine to make something special out of the things I love. Now that you're a
+		club member, you can help me make that dream come true in this cute game!Every day is
+		full of chit-chat and fun activities with all of my adorable and unique club members:
+		Sayori, the youthful bundle of sunshine who values happiness the most;Natsuki, the
+		deceivingly cute girl who packs an assertive punch;Yuri, the timid and mysterious one
+		who finds comfort in the world of books;...And, of course, Monika, the leader of the
+		club! That's me!I'm super excited for you to make friends with everyone and help the
+		Literature Club become a more intimate place for all my members. But I can tell
+		already that you're a sweetheart—will you promise to spend the most time with me?will
+		you promise to spend the most time with me?will you promise to spend the most time with
+		me?will you promise to spend the most time with me?will you promise to spend the most
+		time with me?will you promise to spend the most time with me?will you promise to spend
+		the most time with me?will you promise to spend the most time with me?will you promise
+		to spend the most time with me?will you promise to spend the most time with me?will
+		you promise to spend the most time with me?will you promise to spend the most time with
+		me?will you promise to spend the most time with me?will you promise to spend the most
+		time with
+		]]
+		if chapter == 23 and cl >= 2001 then
+			outlineText(historyline,375,120+(history_scr*75))
+		else
+			for i = 1, #history do
+				--#history+1-i
+				if history[1] then
+					for j = 1, 3 do
+						ca[j] = string.find(history[1], '%s', ca1[j])
+						if ca[j] == nil then ca[j] = ca1[j] + 3 end
 					end
-				else
-					outlineText(history[i],375,(i*120)+(history_scr*75),'printf',775)
+					
+					cdisp[1] = string.sub(history[1], 1, ca[1])
+					for j = 2, 4 do
+						cdisp[j] = string.sub(history[1], ca[j-1]+1, ca[j])
+					end
+					
+					if c_disp and global_os == 'LOVE-OneLua' then
+						for j = 1, 4 do
+							if cdisp[j] then
+								lg.print(cdisp[j],400,3600+ypsc[j]+(history_scr*75)-(i*120))
+							end
+						end
+					else
+						outlineText(history[i],375,3600+(history_scr*75)-(i*120),'printf',775)
+					end
 				end
 			end
 		end
@@ -357,13 +403,13 @@ function menu_update(dt)
 	
 	if menu_type == 'history' then
 		if g_system == 'Switch' then
-			if joystick:isGamepadDown('dpdown') and history_scr > -41 then
+			if joystick:isGamepadDown('dpdown') and history_scr > -39 then
 				history_scr = history_scr - 0.2
 			elseif joystick:isGamepadDown('dpup') and history_scr < 0 then
 				history_scr = history_scr + 0.2
 			end
 		else
-			if love.keyboard.isDown('down') and history_scr > -41 then
+			if love.keyboard.isDown('down') and history_scr > -39 then
 				history_scr = history_scr - 0.2
 			elseif love.keyboard.isDown('up') and history_scr < 0 then
 				history_scr = history_scr + 0.2
@@ -542,7 +588,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'b' then
 		if menu_type == 'history' then
-			history_scr = 0
+			history_scr = -39
 		elseif menu_type == 'settings' then
 			savesettings()
 		end

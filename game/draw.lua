@@ -45,7 +45,7 @@ function outlineText(text,x,y,type,arg1)
 		if type == 'ct' then
 			lg.setColor(187,85,153,alpha)
 			addm = 2
-		elseif style_edited and type == 'c_disp' then
+		elseif style_edited and (type == 'c_disp' or type == 'printf') then
 			lg.setColor(255,255,255,alpha)
 		else
 			lg.setColor(0,0,0,alpha)
@@ -61,7 +61,7 @@ function outlineText(text,x,y,type,arg1)
 			lg.print(text,x+addm,y)
 			lg.print(text,x,y+addm)
 		end
-		if style_edited and type == 'c_disp' then
+		if style_edited and (type == 'c_disp' or type == 'printf') then
 			lg.setColor(0,0,0,alpha)
 		else
 			lg.setColor(255,255,255,alpha)
@@ -144,7 +144,7 @@ function drawTextBox()
 		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1015)
 	end
 	
-	if not menu_enabled and (not poem_enabled or (event_enabled and textbox_enabled)) then
+	if (not menu_enabled or (event_enabled and textbox_enabled)) and not poem_enabled then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
@@ -289,7 +289,7 @@ function hideAll()
 end
 
 function nearest(a,b)
-	if (a == b + 1) or (a == b + 2) or (a == b - 1) or (a == b - 2) then
+	if (a == b + 1) or  (a == b - 1) or (a == b + 2) or (a == b - 2) or (a == b + 3) or (a == b - 3) then
 		return true
 	else
 		return false
