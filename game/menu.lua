@@ -213,10 +213,10 @@ function menu_update(dt)
 	end
     
     if menu_type == 'history' then
-		if love.keyboard.isDown('down') and history_scr > -27 then
-			history_scr = history_scr - 0.15
-		elseif love.keyboard.isDown('up') and history_scr < 0 then
-			history_scr = history_scr + 0.15
+		if (love.keyboard.isDown('down') or love.keyboard.isDown('cpaddown')) and history_scr > -27 then
+			history_scr = history_scr - dt*10
+		elseif (love.keyboard.isDown('up') or love.keyboard.isDown('cpadup')) and history_scr < 0 then
+			history_scr = history_scr + dt*10
 		end
 	end
 end
