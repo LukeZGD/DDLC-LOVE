@@ -314,8 +314,8 @@ function drawCharacter(l,r,a,set,chset)
 	if set == y_Set then
 		with_set = with_yr
 	end
-	for i = 1, #with_r do
-		if set.a == with_r[i] then
+	for i = 1, #with_set do
+		if set.a == with_set[i] then
 			lg.draw(r, set.x, set.y)
 		end
 	end

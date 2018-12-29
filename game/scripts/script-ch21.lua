@@ -449,6 +449,7 @@ function ch21script(dt)
 	m "..."
     elseif cl == 1008 then
     m "..."
+    m_Set.x = 0
 	elseif cl == 1009 then
 	if is3DS then
 		updateMonika('1','m',30)
