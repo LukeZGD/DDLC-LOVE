@@ -2261,7 +2261,7 @@ function ch4_exclusive_yuri()
 	elseif cl == 613 then
 		mc "That should do it..."
 	elseif cl == 614 then
-    bl "I finish filling the night sky with white dots that looks like stars."
+    bl "I finish filling the night sky with white dots that look like stars."
 	elseif cl == 615 then
     bl "Looking at the banner as a whole, it's very pretty and natural-looking."
 	elseif cl == 616 then

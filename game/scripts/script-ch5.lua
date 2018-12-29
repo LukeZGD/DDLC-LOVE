@@ -45,7 +45,7 @@ function ch5script()
 	elseif cl == 15 then
     bl "Monika is placing little booklets on each of the desks in the classroom."
 	elseif cl == 16 then
-    bl "They must be the ones she prepared that has all the poems we're performing."
+    bl "They must be the ones she prepared that have all the poems we're performing.."
 	elseif cl == 17 then
     bl "In the end, I found a random poem online that I thought Monika would like, and submitted it."
 	elseif cl == 18 then
