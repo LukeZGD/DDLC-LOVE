@@ -3,7 +3,7 @@ require 'scripts.poemwords'
 local poemword = 1
 local progress = '1'
 local word = {}
-local wordr
+local wordr = {}
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0
@@ -19,7 +19,7 @@ local y_sticker
 local s_y
 local n_y
 local y_y
-local m_y = 240
+
 local p_y = 100
 local ground = 100
 local y_velocity = 0
@@ -29,13 +29,12 @@ local gravity = -2250
 local menuselected = 1
 local cursorX
 local cursorY
+local wordpick
 
 local eyes_chance = math.random(0,5)
 local eyes_timer = 0
 local eyes_y = 0
-local eyes_in = false
-local glitch2g = math.random(1,101)
-local glitchpoem_in = false
+local eyes_in
 
 local mk = {'M','o','n','i','k','a'}
 
@@ -43,15 +42,8 @@ function addpoints()
 	sPoint = sPoint + spAdd
 	nPoint = nPoint + npAdd
 	yPoint = yPoint + ypAdd
-	
-	xaload = 0
-	if glitchpoem_in and math.random(1,11) >= 7 then
-		sfxplay('select_glitch')
-	elseif glitchpoem_in and math.random(1,11) == 1 then
-		sfxplay('baa')
-	else
-		sfx1:play()
-	end
+
+	sfx1:play()
 	if poemword ~= 21 then poemword = poemword + 1 end
 	if chapter == 22 then
 		progress = progress..'1'
@@ -113,16 +105,9 @@ end
 function updatewordlist()
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			if math.random(1,401) == 1 and chapter >= 21 and not glitchpoem_in then
-				word[i] = {glitchtext(40),'glitchpoem'}
-			else
-				wordr = love.math.random(1,#wordlist)
-				word[i] = wordlist[wordr]
-				table.remove(wordlist,wordr)
-			end
+			wordr[i] = math.random(1,#wordlist)
+			word[i] = wordlist[wordr[i]][1]
 		end
-		
-		glitch2g = math.random(1,101)
 	else
 		for i = 1, 10 do
 			mk = {'M','o','n','i','k','a'}
@@ -133,7 +118,7 @@ function updatewordlist()
 					mk[j] = glitchtext(1)
 				end
 			end
-			word[i] = {mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]}
+			word[i] = mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]
 		end
 	end
 end
@@ -145,7 +130,6 @@ function poemgame()
 	
 	state = 'poemgame'
 	xaload = 0
-	
 	if persistent.ptr <= 2 then 
 		audioUpdate('4',true)
 		bgch2 = lg.newImage('images/bg/notebook.png')
@@ -167,7 +151,7 @@ function poemgame()
 	s_sticker = s_sticker_1
 	n_sticker = n_sticker_1
 	y_sticker = y_sticker_1
-	s_y = 100; n_y = 100; y_y = 100; p_y = 100; m_y = 240
+	s_y = 100; n_y = 100; y_y = 100; p_y = 100
 	y_velocity = 0
 	
 	math.randomseed(os.time())
@@ -177,7 +161,6 @@ function poemgame()
 	
 	eyes_chance = math.random(0,5)
 	eyes_in = false
-	glitchpoem_in = false
 	
 	poemwords()
 	updatewordlist()
@@ -187,13 +170,9 @@ end
 
 function drawPoemGame()
 	drawTopScreen()
-	if glitchpoem_in then
-		lg.setBackgroundColor(255,255,255)
-	else
-		lg.setBackgroundColor(0,0,0)
-		lg.setColor(255,255,255,alpha)
-		lg.draw(bgch2, 0, 0)
-	end
+	lg.setBackgroundColor(0,0,0)
+	lg.setColor(255,255,255,alpha)
+	lg.draw(bgch2, 0, 0)
 	
 	lg.setColor(0,0,0)
 	lg.draw(guicheck,cursorX,cursorY)
@@ -203,16 +182,16 @@ function drawPoemGame()
 	else
 		lg.print('20/20',245,25)
 	end
-	lg.print(word[1][1],117,45)
-	lg.print(word[2][1],117,81)
-	lg.print(word[3][1],117,117)
-	lg.print(word[4][1],117,152)
-	lg.print(word[5][1],117,187)
-	lg.print(word[6][1],200,45)
-	lg.print(word[7][1],200,81)
-	lg.print(word[8][1],200,117)
-	lg.print(word[9][1],200,152)
-	lg.print(word[10][1],200,187)
+	lg.print(word[1],117,45)
+	lg.print(word[2],117,81)
+	lg.print(word[3],117,117)
+	lg.print(word[4],117,152)
+	lg.print(word[5],117,187)
+	lg.print(word[6],200,45)
+	lg.print(word[7],200,81)
+	lg.print(word[8],200,117)
+	lg.print(word[9],200,152)
+	lg.print(word[10],200,187)
 	
 	if poemstate == 0 then
 		lg.setColor(255,255,255,alpha)
@@ -243,17 +222,9 @@ function drawPoemGame()
 		lg.draw(s_sticker,50,s_y)
 		lg.draw(n_sticker,110,n_y)
 		lg.draw(y_sticker,190,y_y)
-	elseif glitchpoem_in then
-		lg.draw(y_sticker_1_broken,0,156)
 	elseif persistent.ptr == 2 then
 		lg.draw(n_sticker,110,n_y)
 		lg.draw(y_sticker,190,y_y)
-		lg.draw(m_sticker_2,0,m_y)
-		if glitch2g == 101 and xaload <= 35 then
-			lg.draw(y_sticker_2g,187,y_y)
-		elseif glitch2g == 101 then
-			lg.draw(y_sticker,187,y_y)
-		end
 	else
 		lg.draw(m_sticker_1,120,100)
 	end
@@ -273,15 +244,14 @@ end
 
 function updatePoemGame(dt)
 	xaload = xaload + 1
-	if not spAdd then spAdd = 0 end
-	if not npAdd then npAdd = 0 end
-	if not ypAdd then ypAdd = 0 end
 	
-	if xaload <= 35 and poemword > 1 then
+	if xaload <= 35 and poemword > 0 then
 		if y_velocity == 0 then
 			y_velocity = jump_height
 		end
-		
+		if spAdd == nil then spAdd = 0 end
+		if npAdd == nil then npAdd = 0 end
+		if ypAdd == nil then ypAdd = 0 end
 		if persistent.ptr == 0 then
 			if spAdd == 3 then
 				s_sticker = s_sticker_2
@@ -294,32 +264,23 @@ function updatePoemGame(dt)
 				y_y = p_y
 			end
 		elseif persistent.ptr == 2 then
-			if glitchpoem_sl then
-				glitchpoem_in = true
-				sfxplay('4g')
-			elseif npAdd == 3 or (spAdd == 3 and npAdd == 2) then
+			if npAdd == 3 or (spAdd == 3 and npAdd == 2) then
 				n_sticker = n_sticker_2
 				n_y = p_y
 			elseif ypAdd == 3 or (spAdd == 3 and ypAdd == 2) then
 				y_sticker = y_sticker_2
 				y_y = p_y
 			end
-			if math.random(1,11) == 11 and chapter == 2 and not glitchpoem_in then
-				m_y = p_y + 210
-			end
 		end
 	else
-		s_y = 100; n_y = 100; y_y = 100; p_y = 100; m_y = 240
+		s_y = 100; n_y = 100; y_y = 100; p_y = 100
 		s_sticker = s_sticker_1
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
-		if word[menuselected][2] == 'glitchpoem' then
-			glitchpoem_sl = true
-		elseif persistent.ptr <= 2 then
-			glitchpoem_sl = false
-			spAdd = word[menuselected][2]
-			npAdd = word[menuselected][3]
-			ypAdd = word[menuselected][4]
+		if persistent.ptr <= 2 then
+			spAdd = wordlist[wordpick][2]
+			npAdd = wordlist[wordpick][3]
+			ypAdd = wordlist[wordpick][4]
 		end
 	end
 	
@@ -345,17 +306,18 @@ function updatePoemGame(dt)
 	end
 	
 	if y_velocity ~= 0 then                                  
-		p_y = p_y + y_velocity * dt
-		y_velocity = y_velocity - gravity * dt
+		p_y = p_y + y_velocity * dt               
+		y_velocity = y_velocity - gravity * dt 
 	end
  
 	if p_y > ground then  
-		y_velocity = 0
-    	p_y = ground
-	end		
+		y_velocity = 0     
+    	p_y = ground  
+	end
 end
 
 function menuselect()
+	wordpick = wordr[menuselected]
 	if menuselected <= 5 then
 		cursorX = 106
 	else
@@ -395,7 +357,7 @@ function poemgamekeypressed(key)
 		end
 		menuselect()
 		
-	elseif key == 'left' or key == 'right' or key == 'cpadleft' or key == 'cpadright' then
+	elseif key == 'left' or key == 'cpadleft' or key == 'right' or key == 'cpadright' then
 		if menuselected <= 5 then
 			menuselected = menuselected + 5
 		elseif menuselected >= 6 then
@@ -433,4 +395,4 @@ function poemgamemousepressed()
 	if mouseX>=135 and mouseX<=165 and mouseY<=18 then
 		poemgamekeypressed('y')
 	end
-end
+end		
