@@ -10,6 +10,7 @@ local saveindicator = {}
 local chch
 local cpick
 local menu_fadeout
+local history_scr = 0
 menu_alpha = 0
 
 function menu_enable(m)
@@ -143,9 +144,6 @@ function menu_draw()
 			lg.rectangle('fill',95,25+(25*i),6,6)
 		end
 		
-	elseif menu_type == 'choice' then
-		if settings.dtym == 1 then drawdatetime() end
-		
 	elseif menu_type == 'help' then
 		lg.setColor(255,189,225)
 		lg.rectangle('fill',14,30,260,110)
@@ -163,16 +161,42 @@ function menu_draw()
 		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
 		
 	elseif menu_type == 'history' then
-		lg.setColor(255,230,244,255)
-		lg.rectangle('fill',0,0,320,240)
+        local ca = {}
+		local ca1 = {45,95,145}
+		local cdisp = {}
+		local ypsc = {15,30,45,60}
+    
+        lg.setColor(255,255,255)
+        lg.draw(background_Image, posX, posY)
 		lg.setColor(0,0,0)
-		lg.print("History\n"..cl..'\n'..ct,16, 12)
-		if c_disp then
-			local ypc = {66,82,98,114}
-			for i = 1, 4 do
-				lg.print(c_disp[i],8,ypc[i])
+		
+		for i = 1, #history do
+			--#history+1-i
+			if history[i] then
+				for j = 1, 3 do
+					ca[j] = string.find(history[i], '%s', ca1[j])
+					if ca[j] == nil then ca[j] = ca1[j] + 3 end
+				end
+				
+				cdisp[1] = string.sub(history[i], 1, ca[1])
+				for j = 2, 4 do
+					cdisp[j] = string.sub(history[i], ca[j-1]+1, ca[j])
+				end
+				
+				if cdisp then
+					for j = 1, 4 do
+						if cdisp[j] then
+							lg.print(cdisp[j],8,(i*70)+ypsc[j]+(history_scr*25)-30)
+						end
+					end
+				end
 			end
 		end
+        lg.setColor(255,189,225)
+        lg.rectangle('fill',0,0,320,32)
+        lg.setColor(0,0,0)
+        lg.print("History",16, 12)
+        
 	end
 end
 
@@ -186,6 +210,14 @@ function menu_update(dt)
 		end
 	else
 		menu_alpha = math.min(menu_alpha + dt*1000, 255)
+	end
+    
+    if menu_type == 'history' then
+		if love.keyboard.isDown('down') and history_scr > -27 then
+			history_scr = history_scr - 0.15
+		elseif love.keyboard.isDown('up') and history_scr < 0 then
+			history_scr = history_scr + 0.15
+		end
 	end
 end
 
@@ -241,7 +273,6 @@ function menu_confirm()
 		menu_previous = menu_type
 		if m_selected <= 6 and menu_type == 'pause' then
 			if m_selected == 2 then
-				menu_history = {cl,ct}
 				menu_enable('history')
 			elseif m_selected == 3 then
 				pagenum = 1
@@ -365,10 +396,8 @@ function menu_keypressed(key)
 		if alpha == 255 then menu_confirm() end
 		
 	elseif key == 'b' then
-		if menu_history then
-			cl = menu_history[1]
-			ct = menu_history[2]
-			menu_history = nil
+		if menu_type == 'history' then
+            history_scr = 0
 		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true
@@ -405,11 +434,6 @@ function menu_keypressed(key)
 					settings.textloc = 'Bottom'
 				end
 			end
-			
-		elseif menu_type == 'history' then
-			if cl > 1 and cl >= (menu_history[1] - 50) then
-				cl = cl - 1
-			end
 		end
 		
 	elseif key == 'right' or key == 'cpadright' then
@@ -428,11 +452,6 @@ function menu_keypressed(key)
 			
 		elseif menu_type == 'settings2' and m_selected <= 2 then
 			menu_keypressed('left')
-			
-		elseif menu_type == 'history' then
-			if cl < menu_history[1] then
-				cl = cl + 1
-			end
 		end
 	
 	elseif key == 'x' then

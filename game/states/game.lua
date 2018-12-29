@@ -110,6 +110,14 @@ function updateGame(dt)
 		end
 	end
 	
+    if poem_enabled and poem_scroll and not menu_enabled then
+		if love.keyboard.isDown('up') and poem_scroll.y < 1 then
+			poem_scroll.y = poem_scroll.y + 0.1
+		elseif love.keyboard.isDown('down') then
+			poem_scroll.y = poem_scroll.y - 0.1
+		end
+	end
+    
 	if event_enabled then event_update(dt) end
 	
 	--custom audio looping
@@ -130,17 +138,6 @@ end
 function game_keypressed(key)
 	if event_enabled then
 		event_keypressed(key)
-	elseif poem_enabled and poem_scroll then
-		if key == 'up' and poem_scroll.y < 1 then
-			poem_scroll.y = poem_scroll.y + 3
-		elseif key == 'down' then
-			poem_scroll.y = poem_scroll.y - 3
-		elseif key == 'left' and poem_scroll.x < 1 then
-			--poem_scroll.x = poem_scroll.x + 3
-		elseif key == 'right' then
-			--poem_scroll.x = poem_scroll.x - 3
-		end
-		newgame_keypressed(key)
 	elseif key == 'y' then --pause menu
 		autotimer = 0
 		if persistent.chr.m == 2 then menu_enable('pause2')

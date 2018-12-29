@@ -38,7 +38,7 @@ function ch1script()
 		cw('n',"But if you don't take us seriously, then you won't see the end of it.")
 	elseif cl == 362 then
 		updateMonika('2','b',-40)
-		cw('m',"Natsuki, you certainly have a big mouth for someone who keeps her manga collection in the     clubroom.")
+		cw('m',"Natsuki, you certainly have a big mouth for someone who keeps her manga collection in the clubroom.")
 	elseif cl == 363 then
 		updateNatsuki('4','o')
 		cw('n',"M-M-M...!!")
