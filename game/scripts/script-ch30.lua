@@ -1,6 +1,6 @@
 local currentuser = player
 local autoloadskip = false
-local waittimes = {20,25,30,35,40}
+local waittimes = {20,25,30,35}
 local waittime
 local monikatopic
 
@@ -253,7 +253,7 @@ function ch30script()
 	elseif cl == 106 then
     cw('m',"Well, you're playing on "..global_os..", so it was actually a bit less difficult...")
 	elseif cl == 107 then
-    m "I had to go to 'Settings' and find the 'Characters' button..."
+    m "I just had to go to 'Settings' and find the 'Characters' button..."
 	elseif cl == 108 then
     m "Imagine if you could delete your own existence with the click of a button?"
 	elseif cl == 109 then

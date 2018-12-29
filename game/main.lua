@@ -26,6 +26,7 @@ function love.load()
 	menu_enabled = false
 	textbox_enabled = true
 	bgimg_disabled = false
+    math.randomseed(os.time())
 	
 	--for pc stuff
 	if g_system ~= 'Switch' and global_os ~= 'LOVE-OneLua' then

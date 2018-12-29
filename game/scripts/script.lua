@@ -256,6 +256,7 @@ function event_init(etype,arg1,arg2)
 			nl = lg.newImage('images/natsuki/glitch1.png')
 		elseif etype == 'n_blackeyes' then
 			n_blackeyes = lg.newImage('images/natsuki/blackeyes.png')
+            n_eye = lg.newImage('images/natsuki/eye.png')
 		elseif etype == 'ny_argument' then
 			vignette = lg.newImage('images/bg/vignette.png')
 			loadNoise()
