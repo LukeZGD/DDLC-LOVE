@@ -1,14 +1,15 @@
 function changeState(cstate,x)
 	menu_alpha = 0
 	menu_previous = nil
-	
-	for i = 1, 40 do
-		--loadstring('ch'..i..'script = nil')()
-	end
+	history = {}
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
 		require('states/'..cstate)
 	end
+    
+    if cstate == 'game' then
+        hideAll()
+    end
 	
 	if cstate == 'splash' then
 		splash = lg.newImage('images/bg/splash.png')
@@ -80,8 +81,7 @@ function changeState(cstate,x)
 	end
 	
 	--load game state and scripts
-	if cstate == 'game' or cstate == 'newgame' then	
-		hideAll()
+	if cstate == 'game' or cstate == 'newgame' then
 		if audio1 == '4' and x == 2 then
 			alpha = 20
 		else

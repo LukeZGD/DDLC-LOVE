@@ -7,6 +7,7 @@ local pchapter
 local aa
 local script_poemresponsesx = false
 is3DS = true
+history  = {}
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
@@ -67,6 +68,20 @@ function cw(p1, stext, tag)
 		end
 	end
 	
+    local temptext = ct..': '..stext
+	if history[1] ~= stext and history[1] ~= temptext then
+		for i = 12, 1, -1 do
+			history[i] = history[i-1]
+		end
+		if style_edited then
+			history[1] = ''
+		elseif ct == '' then
+			history[1] = stext
+		else
+			history[1] = temptext
+		end
+	end
+    
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)
 		if tagtimer >= (settings.textspd + slen) / 4 then

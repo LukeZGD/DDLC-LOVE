@@ -2,8 +2,10 @@ lg = love.graphics
 local drawbottom
 local xps = {}
 local yps = {}
-local nxh
-local nyh
+local xh
+local yh
+local with_r = {'1','1b','2','2b','3','3b','4','4b'}
+local with_yr = {'1','1b','2','2b','3','3b'}
 
 function drawTopScreen()
 	if drawbottom == 1 then
@@ -126,6 +128,7 @@ function drawPoem()
 		lg.setColor(243,243,243)
 		lg.rectangle('fill',40,0,320,240)
 	end
+    lg.setFont(m1)
 	lg.setColor(0,0,0)
 	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
@@ -157,130 +160,105 @@ function drawConsole()
 	end
 end
 
-function updateSayori(a,b,px,py)
+function updateCharacter(set,a,b,px,py,chset)
 	if not b then b = '' end
-	s_Set.a = a
-	s_Set.b = b
-	if xaload == 0 then loadSayori() end
-	if px then
-		s_Set.x = px
+	set.a = a
+	set.b = b
+    if px then
+		set.x = px
 	end
-	if py then s_Set.y = py end
+	if py then set.y = py end
+end
+
+function updateSayori(a,b,px,py)
+	updateCharacter(s_Set,a,b,px,py)
+	if xaload == 0 then loadSayori() end
 end
 
 function updateYuri(a,b,px,py)
-	if not b then b = '' end
-	y_Set.a = a 
-	y_Set.b = b
+	updateCharacter(y_Set,a,b,px,py)
 	if xaload == 0 then loadYuri() end
-	if px then
-		y_Set.x = px
-	end
-	if py then y_Set.y = py end
 end
 
 function updateNatsuki(a,b,px,py)
-	if not b then b = '' end
-	n_Set.a = a
-	n_Set.b = b
+	updateCharacter(n_Set,a,b,px,py)
 	if xaload == 0 then loadNatsuki() end
-	if px then
-		n_Set.x = px
-	end
-	if py then n_Set.y = py end
 end
 
 function updateMonika(a,b,px,py)
-	if not b then b = '' end
-	m_Set.a = a
-	m_Set.b = b
+	updateCharacter(m_Set,a,b,px,py)
 	if xaload == 0 then loadMonika() end
-	if px then
-		m_Set.x = px
-	end
-	if py then m_Set.y = py end
+end
+
+function hideCharacter(set)
+	set = {a='',b='',x=-200,y=0}
 end
 
 function hideSayori()
-	s_Set = {a='',b='',x=-200,y=0}
+	hideCharacter(s_Set)
 	if sl then unloadSayori() end
 end
 
 function hideYuri()
-	y_Set = {a='',b='',x=-200,y=0}
+	hideCharacter(y_Set)
 	if yl then unloadYuri() end
 end
 
 function hideNatsuki()
-	n_Set = {a='',b='',x=-200,y=0}
+	hideCharacter(n_Set)
 	if nl then unloadNatsuki() end
 end
 
 function hideMonika()
-	m_Set = {a='',b='',x=-200,y=0}
+	hideCharacter(m_Set)
 	if ml then unloadMonika() end
 end
 
 function hideAll()
-	s_Set.a = ''
-	s_Set.b = ''
-	y_Set.a = ''
-	y_Set.b = ''
-	n_Set.a = ''
-	n_Set.b = ''
-	m_Set.a = ''
-	m_Set.b = ''
+    s_Set = {a='',b='',x=-200,y=0}
+    y_Set = {a='',b='',x=-200,y=0}
+    n_Set = {a='',b='',x=-200,y=0}
+    m_Set = {a='',b='',x=-200,y=0}
 	unloadAll()
 end
 
-function drawSayori()
-	lg.draw(sl, s_Set.x, s_Set.y)
-	if s_Set.a=='1' or s_Set.a=='1b' or s_Set.a=='2' or s_Set.a=='2b' or s_Set.a=='3' or s_Set.a=='3b' or s_Set.a=='4' or s_Set.a=='4b' then
-		lg.draw(sr, s_Set.x, s_Set.y)
+function drawCharacter(l,r,a,set)
+	if set.b~='' then
+		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
+			xh = set.x + 4
+			yh = set.y + 6
+		else
+			xh = set.x
+			yh = set.y
+		end
+		if a then lg.draw(a,xh,yh) end
 	end
 	
-	if s_Set.b~='' then
-		if s_a then lg.draw(s_a, s_Set.x, s_Set.y) end
+	lg.draw(l, set.x, set.y)
+    
+    local with_set = with_r
+	if set == y_Set then
+		with_set = with_yr
 	end
+	for i = 1, #with_set do
+		if set.a == with_set[i] then
+			lg.draw(r, set.x, set.y)
+		end
+	end
+end
+
+function drawSayori()
+	drawCharacter(sl,sr,s_a,s_Set)
 end
 
 function drawYuri()
-	lg.draw(yl, y_Set.x, y_Set.y)
-	if y_Set.a=='1' or y_Set.a=='1b' or y_Set.a=='2' or y_Set.a=='2b' or y_Set.a=='3' or y_Set.a=='3b' then
-		lg.draw(yr, y_Set.x, y_Set.y)
-	end
-	
-	if y_Set.b~='' then
-		lg.draw(y_a, y_Set.x, y_Set.y)
-	end
+	drawCharacter(yl,yr,y_a,y_Set)
 end
 
 function drawNatsuki()
-	if n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
-		nxh = n_Set.x + 4
-		nyh = n_Set.y + 6
-	else
-		nxh = n_Set.x
-		nyh = n_Set.y
-	end
-	
-	if n_Set.b~='' then
-		lg.draw(n_a, nxh, nyh)
-	end
-	
-	lg.draw(nl, n_Set.x, n_Set.y)
-	if n_Set.a=='1' or n_Set.a=='1b' or n_Set.a=='2' or n_Set.a=='2b' or n_Set.a=='3' or n_Set.a=='3b' or n_Set.a=='4' or n_Set.a=='4b' then
-		lg.draw(nr, n_Set.x, n_Set.y)
-	end
+	drawCharacter(nl,nr,n_a,n_Set)
 end
 
 function drawMonika()
-	lg.draw(ml, m_Set.x, m_Set.y)
-	if m_Set.a=='1' or m_Set.a=='2' or m_Set.a=='3' or m_Set.a=='4' then
-		lg.draw(mr, m_Set.x, m_Set.y)
-	end
-	
-	if m_Set.b ~= '' then
-		lg.draw(m_a, m_Set.x, m_Set.y)
-	end
+	drawCharacter(ml,mr,m_a,m_Set)
 end
