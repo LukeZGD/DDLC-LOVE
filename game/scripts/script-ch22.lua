@@ -17,6 +17,9 @@ function ch22script()
 	end
     cw('y',"Welcome back, "..player.."...")
 	elseif cl == 1080 then
+	if y_chance == 0 then
+        updateYuri('1l','',80)
+	end
     mc "Ah, hi Yuri..."
 	elseif cl == 1081 then
     bl "I'm not sure if it's me, or if it's Yuri's expression..."
