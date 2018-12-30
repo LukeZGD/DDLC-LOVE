@@ -2,6 +2,7 @@ poem_author = ''
 
 function poem(poemname)
 	poem_enabled = true
+	autotimer = 0
 
 	if poemname == 'poem_y1' then
 		poem_author = 'yuri'
