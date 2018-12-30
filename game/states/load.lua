@@ -130,6 +130,7 @@ function checkLoad()
 		]]
 	elseif os_timecheck then
 		love.math.setRandomSeed(os.time())
+		math.randomseed(os.time())
 		l_timer = 100
 	else
 		err = [[

@@ -207,8 +207,8 @@ function drawConsole()
 		lg.setFont(console_font)
 		lg.print('> '..console_text1,0,0)
 		lg.print(console_text2,15,30)
-		lg.print(console_text3,15,60)
-		lg.print(console_text4,15,90)
+		lg.print(console_text3,15,50)
+		lg.print(console_text4,15,70)
 	end
 end
 
