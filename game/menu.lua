@@ -468,7 +468,7 @@ function menu_confirm()
 		savenumber = savenum[m_selected-1]
 		savegame()
 		savedatainfo(savenumber)
-		menu_enable(menu_previous)
+		menu_enable('savegame')
 	
 	elseif menu_type == 'pause' then --pause menu options
 		menu_previous = menu_type
