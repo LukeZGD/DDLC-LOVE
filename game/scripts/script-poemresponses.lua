@@ -14,7 +14,7 @@ function poemresponses()
 		end
 		
 	elseif cl == 667 or cl == 668 then --first time poem script
-		if chapter == 1 and poemsread == 0 then
+		if (chapter == 1 or chapter == 21) and poemsread == 0 then
 			if choicepick == 'Sayori' then
                 if cl == 667 then cw('bl',"I'm definitely most comfortable sharing it with Sayori first.")
                 elseif cl == 668 then cw('bl',"She's my good friend, after all.") end

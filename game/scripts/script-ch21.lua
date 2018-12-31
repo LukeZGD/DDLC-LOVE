@@ -348,16 +348,16 @@ function ch21script(dt)
     y "N-Natsuki!!"
 	elseif cl == 968 then
 	updateMonika('3','l',-40)
-	updateYuri('3','p',200)
-	updateNatsuki('1','o',80)
+	updateYuri('3','p',80)
+	updateNatsuki('1','o',200)
     m "Um, Natsuki, that's a little--"
 	elseif cl == 969 then
 	cw('ny',"This doesn't involve you!")
 	event_init('ny_argument')
 	elseif cl == 970 then
 	hideMonika()
-	updateYuri('2','h',150)
-	updateNatsuki('1','o',10)
+	updateYuri('2','h',10)
+	updateNatsuki('1','o',150)
 	audioUpdate('7g')
 	event_start('ny_argument')
     y "Taking out your own insecurities on others like that..."

@@ -682,6 +682,7 @@ function Yuri_exclusive2_2_ch22()
     cw('bl',"...",'nwfast')
 	
 	elseif cl == 1302 then
+		history = {}
 		event_end('show_vignette')
 		if poemwinner[1] == 'Yuri' and chapter == 23 then
 			scriptJump(1723)

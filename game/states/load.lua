@@ -1,16 +1,31 @@
 local l_timer = 94
 local err = ''
+local errmsg = 
+[[
+Error!
+Old save data detected, and it is not compatible with this version.
+
+Please delete all save data and try again.
+
+Delete everything in here:
+> sdmc:/3ds/data/LovePotion/DDLC-3DS/
+
+Press Y to quit
+]]
 
 function drawLoad()
-	drawTopScreen()
-	lg.setColor(0,0,0,alpha)
-	lg.rectangle('fill',0,0,400,240)
-	lg.setColor(255,255,255)
-	lg.print(err,5,5)
-	if err ~= '' then lg.print('Please delete all save data and try again.\n\nDelete everything in here:\n> sdmc:/3ds/data/LovePotion/DDLC-3DS/\n\nPress Y to quit',5,35) end
-	drawBottomScreen()
-	lg.setColor(0,0,0,alpha)
-	lg.rectangle('fill',-40,0,400,240)
+	lg.setBackgroundColor(255,255,255)
+	if err ~= '' then
+		drawTopScreen()
+		lg.setColor(0,0,0,alpha)
+		lg.rectangle('fill',0,0,400,240)
+		lg.setColor(255,255,255)
+		lg.print(err,5,5)
+		lg.print(errmsg,5,35)
+		drawBottomScreen()
+		lg.setColor(0,0,0,alpha)
+		lg.rectangle('fill',-40,0,400,240)
+	end
 end
 
 function updateLoad()
@@ -61,7 +76,7 @@ function checkLoad()
 	
 	local ghostmenu_chance = math.random(0, 63)
 	if persistent.playthrough or settings.dtym then
-		err = 'Error!\nOld save data detected, and it is not compatible with this version.'
+		err = errmsg
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then

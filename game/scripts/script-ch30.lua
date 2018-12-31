@@ -422,6 +422,7 @@ function ch30script()
 					monikatopics[i] = i
 				end
 				table.remove(monikatopics, 14)
+				table.remove(monikatopics, 25)
 				table.remove(monikatopics, 26)
 				if persistent.chr.s ~= 6 then
 					table.remove(monikatopics, 27)
@@ -443,13 +444,13 @@ function ch30_end()
 	if xaload == 0 then savepersistent() end
 	pause(2)
 	elseif cl == 1051 then
-	audioUpdate('0')
 	bgUpdate('cg/monika_rh')
 	cgUpdate('monika_glitch1')
 	if xaload == 0 then savegame('autoload') end
 	cw(gtext12,gtext70)
 	event_initstart('ch23-30')
 	elseif cl == 1052 then
+	audioUpdate('0')
 	bgUpdate('cg/monika_bg_glitch')
 	cgUpdate('monika_glitch2')
 	sfxplay('s_kill_glitch1s')
