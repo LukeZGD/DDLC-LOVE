@@ -143,7 +143,7 @@ function updateCredits(dt)
 	elseif c_timer >= 172 and c_timer < 175 then
 		alpha = math.max(alpha - 3, 0)
 	elseif c_timer >= 175.5 and c_timer < 200 then
-		if appeal.s == 9 then
+		if clearall >= 9 then
 			persistent.chr.m = 2
 			cl = 509
 			savepersistent()
