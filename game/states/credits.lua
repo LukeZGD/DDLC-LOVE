@@ -2,8 +2,8 @@ local c_timer = 200
 local c_timer2
 local ra1 = 440
 local ra2 = 415
-local ra3 = 485
-local ra4 = 432
+local ra3 = 482
+local ra4 = 430
 local ra5 = 488
 local ra6 = 460
 
@@ -66,7 +66,7 @@ function drawCredits()
 		lg.print("David Evelyn",873,5745 - c_timer2)
 		lg.print("Corey Shin",883,5790 - c_timer2)
 		lg.print("Alecia Bardachino",200,6975 - c_timer2)
-		lg.print("Matt Naples",215,7020 - c_timer2)
+		lg.print("Matt Naples",220,7020 - c_timer2)
 		lg.print("Monika",903,7665 - c_timer2)
 		lg.print(player,910,7710 - c_timer2)
 		lg.setColor(255,185,230)

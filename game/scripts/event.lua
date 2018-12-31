@@ -101,6 +101,9 @@ function event_start(etype, arg1)
 			eventvar4 = 'end2'
 		end
 	elseif event_type == 'beforecredits' or event_type == 'sayori_gs' then
+		if event_type == 'beforecredits' then
+			audioUpdate('end-voice')
+		end
 		eventvar1 = 0
 		eventvar2 = nil
 		eventvar3 = 0

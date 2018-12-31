@@ -336,13 +336,13 @@ function menu_draw()
 				--#history+1-i
 				if history[1] then
 					for j = 1, 3 do
-						ca[j] = string.find(history[1], '%s', ca1[j])
+						ca[j] = string.find(history[i], '%s', ca1[j])
 						if ca[j] == nil then ca[j] = ca1[j] + 3 end
 					end
 					
-					cdisp[1] = string.sub(history[1], 1, ca[1])
+					cdisp[1] = string.sub(history[i], 1, ca[1])
 					for j = 2, 4 do
-						cdisp[j] = string.sub(history[1], ca[j-1]+1, ca[j])
+						cdisp[j] = string.sub(history[i], ca[j-1]+1, ca[j])
 					end
 					
 					if c_disp and global_os == 'LOVE-OneLua' then
@@ -555,9 +555,15 @@ function m_select(arg)
 	cY = 110+(50*(m_selected-1))
 end
 
+function sfx2play()
+	if global_os ~= 'LOVE-OneLua' then
+		sfx2:play()
+	end
+end
+
 function menu_keypressed(key)
 	if key == 'down' then
-		sfx2:play()
+		sfx2play()
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			if m_selected <= 4 then
 				m_selected = m_selected + 3
@@ -572,7 +578,7 @@ function menu_keypressed(key)
 		m_select()
 		
 	elseif key == 'up' then
-		sfx2:play()
+		sfx2play()
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			if m_selected >= 5 and m_selected <= 7 then
 				m_selected = m_selected - 3
@@ -604,7 +610,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'left' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
-			sfx2:play()
+			sfx2play()
 			if m_selected == 2 or m_selected == 5 then
 				m_selected = m_selected + 2
 			elseif m_selected > 2 then
@@ -632,7 +638,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'right' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
-			sfx2:play()
+			sfx2play()
 			if m_selected == 4 or m_selected == 7 then
 				m_selected = m_selected - 2
 			elseif m_selected < 7 then

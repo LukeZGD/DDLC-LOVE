@@ -422,6 +422,7 @@ function ch30script()
 					monikatopics[i] = i
 				end
 				table.remove(monikatopics, 14)
+				table.remove(monikatopics, 25)
 				table.remove(monikatopics, 26)
 				if persistent.chr.s ~= 6 then
 					table.remove(monikatopics, 27)

@@ -22,6 +22,7 @@ function updateLoad()
 	if l_timer == 95 then
 		m1 = lg.newFont('fonts/m1.ttf',28)
 		y1 = lg.newFont('fonts/y1.ttf',30)
+		consolefont = lg.newFont('fonts/F25_Bank_Printer.ttf',18)
 		allerfont = lg.newFont('fonts/Aller_Rg.ttf',22)
 		lg.setFont(allerfont)
 		
