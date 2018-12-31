@@ -149,11 +149,11 @@ function drawNumbers()
 end
 
 function drawConsole()
-	if console_enabled and console_font then
+	if console_enabled then
 		lg.setColor(51,51,51,191)
 		lg.rectangle('fill',0,0,320,60)
 		lg.setColor(255,255,255)
-		lg.setFont(console_font)
+		lg.setFont(deffont)
 		lg.print('> '..console_text1,0,0)
 		lg.print(console_text2,5,15)
 		lg.print(console_text3,5,30)

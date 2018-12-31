@@ -113,6 +113,7 @@ function event_start(etype, arg1)
 			eventvar4 = 'end2'
 		end
 	elseif event_type == 'beforecredits' then
+		audioUpdate('end-voice')
 		eventvar1 = 0
 		eventvar2 = nil
 		eventvar3 = 0
