@@ -395,7 +395,6 @@ function event_end(arg1)
 end
 
 function updateConsole(text,text2,text3)
-	if console_font == nil then console_font = lg.newFont('fonts/F25_Bank_Printer') end
 	if console_enabled ~= true then console_enabled = true end
 	console_text1 = dripText(text,30,myTextStartTime)
 	if text2 then console_text2 = text2 else console_text2 = '' end
