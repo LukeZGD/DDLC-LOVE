@@ -3,7 +3,8 @@ local endx = 100
 if is3DS then
 	endx = 25
 end
-local clearall = 0
+
+clearall = 0
 for i = 1, 9 do
 	if persistent.clear[i] == 1 then
 		clearall = clearall + 1
