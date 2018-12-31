@@ -3,7 +3,12 @@ local endx = 100
 if is3DS then
 	endx = 25
 end
-appeal = {s=0,n=0,y=0}
+local clearall = 0
+for i = 1, 9 do
+	if persistent.clear[i] == 1 then
+		clearall = clearall + 1
+	end
+end
 
 function ch40script()
 	if cl == 1 then
@@ -650,12 +655,7 @@ function ch40script()
     s "There's actually something else."
 	
 	elseif cl >= 254 and cl < 500 then
-		if xaload == 0 and cl == 254 then
-			for i = 1, 9 do
-				if persistent.clear[i] == 1 then appeal.s = appeal.s + 1 end
-			end
-		end
-		if appeal.s == 9 then
+		if clearall >= 9 then
 			ch40_clearall()
 		else
 			ch40_clearnormal()
@@ -670,10 +670,11 @@ function ch40script()
 	scriptJump(1)
 	elseif cl == 502 then
 	event_initstart('beforecredits')
-	audioUpdate('end-voice')
+	
 	pause(41)
 	elseif cl == 503 then
-	event_end('beforecredits')
+	--event_end('beforecredits')
+	event_end('next')
 	elseif cl == 504 then
 	audioUpdate('0')
 	changeState('credits',1)
@@ -869,10 +870,10 @@ function ch40_clearall()
     s "We all love you."
 	elseif cl == 279 then
 	audioUpdate('0')
-	event_initstart('ch23-30')
+	--event_initstart('ch23-30')
 	pause(3)
 	elseif cl == 280 then
-	event_end()
+	--event_end()
 	scriptJump(502)
 	end
 end
