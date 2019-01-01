@@ -98,7 +98,7 @@ function cw(p1, stext, tag)
 end
 
 function scriptCheck()
-	c_disp = {'','','',''}
+	c_disp = ''
 	
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
