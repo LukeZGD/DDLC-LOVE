@@ -160,7 +160,7 @@ end
 
 function timerCheck()
 	if xaload == 0 then
-		myTextStartTime = love.timer.getTime()
+		startTime = getTime
 	end
 	xaload = xaload + 1
 	if unitimer < uniduration then
