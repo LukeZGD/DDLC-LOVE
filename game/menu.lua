@@ -334,26 +334,10 @@ function menu_draw()
 		else
 			for i = 1, #history do
 				--#history+1-i
-				if history[1] then
-					for j = 1, 3 do
-						ca[j] = string.find(history[i], '%s', ca1[j])
-						if ca[j] == nil then ca[j] = ca1[j] + 3 end
-					end
-					
-					cdisp[1] = string.sub(history[i], 1, ca[1])
-					for j = 2, 4 do
-						cdisp[j] = string.sub(history[i], ca[j-1]+1, ca[j])
-					end
-					
-					if c_disp and global_os == 'LOVE-OneLua' then
-						for j = 1, 4 do
-							if cdisp[j] then
-								lg.print(cdisp[j],400,3600+ypsc[j]+(history_scr*75)-(i*120))
-							end
-						end
-					else
-						outlineText(history[i],375,3600+(history_scr*75)-(i*120),'printf',775)
-					end
+				if global_os == 'LOVE-OneLua' then
+					lg.print(history[i],400,3600+(history_scr*75)-(i*120))
+				else
+					outlineText(history[i],400,3600+(history_scr*75)-(i*120),'c_disp')
 				end
 			end
 		end
