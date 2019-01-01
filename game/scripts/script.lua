@@ -1,6 +1,4 @@
 local stext
-local c_a = {}
-local c_a1 = {}
 local tspd
 local tagtimer = 0
 local pchapter
@@ -8,6 +6,17 @@ local aa
 local script_poemresponsesx = false
 is3DS = true
 history  = {}
+
+function wrap(str, limit)
+	local here = 1
+	local function check(sp, st, word, fi)
+		if fi - here > limit then
+			here = st
+			return "\n"..word
+		end
+	end
+	return str:gsub("(%s+)()(%S+)()", check)
+end
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
@@ -51,34 +60,25 @@ function cw(p1, stext, tag)
 	end
 	textx = dripText(stext,tspd,myTextStartTime)
 	
-	--word wrap
-	slen = string.len(textx)
-	c_a1 = {45,95,145}
-	if style_edited then c_a1 = {35,65,95} end
-	
-	for i = 1, 3 do
-		c_a[i] = string.find(stext, '%s', c_a1[i])
-		if c_a[i] == nil then c_a[i] = c_a1[i] + 3 end
+	if style_edited then
+		c_a1 = 35
+	else
+		c_a1 = 45
 	end
+	c_disp = wrap(textx,c_a1)
 	
-	c_disp[1] = string.sub(textx, 1, c_a[1])
-	for i = 2, 4 do
-		if slen >= c_a[i-1] then
-			c_disp[i] = string.sub(textx, c_a[i-1]+1, c_a[i])
-		end
-	end
-	
-    local temptext = ct..': '..stext
-	if history[1] ~= stext and history[1] ~= temptext then
+	local temptext = wrap(stext,45)
+	local temptext2 = ct..': '..temptext
+	if history[1] ~= temptext and history[1] ~= temptext2 then
 		for i = 12, 1, -1 do
 			history[i] = history[i-1]
 		end
 		if style_edited then
 			history[1] = ''
 		elseif ct == '' then
-			history[1] = stext
-		else
 			history[1] = temptext
+		else
+			history[1] = temptext2
 		end
 	end
     

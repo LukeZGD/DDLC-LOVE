@@ -97,11 +97,11 @@ end
 function drawTextBox()
 	if settings.textloc == 'Top' then
 		xps = {c=48,ct=63,textbox=40,namebox=52}
-		yps = {c={166,182,198,214},ct=142,textbox=162,namebox=142}
+		yps = {c=166,ct=142,textbox=162,namebox=142}
 		drawTopScreen()
 	else
 		xps = {c=8,ct=23,textbox=0,namebox=12}
-		yps = {c={66,82,98,114},ct=42,textbox=62,namebox=42}
+		yps = {c=66,ct=42,textbox=62,namebox=42}
 	end
 	
 	if style_edited then lg.setFont(deffont) end
@@ -112,11 +112,7 @@ function drawTextBox()
 		lg.draw(textbox, xps.textbox, yps.textbox)
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
-		if c_disp then
-			for i = 1, 4 do
-				lg.print(c_disp[i],xps.c,yps.c[i])
-			end
-		end
+		lg.print(c_disp,xps.c,yps.c)
 	end
 	if settings.textloc == 'Top' then drawBottomScreen() end
 end

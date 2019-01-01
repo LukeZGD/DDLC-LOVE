@@ -10,7 +10,7 @@ local saveindicator = {}
 local chch
 local cpick
 local menu_fadeout
-local history_scr = 0
+local history_scr = -27
 menu_alpha = 0
 
 function menu_enable(m)
@@ -171,26 +171,7 @@ function menu_draw()
 		lg.setColor(0,0,0)
 		
 		for i = 1, #history do
-			--#history+1-i
-			if history[i] then
-				for j = 1, 3 do
-					ca[j] = string.find(history[i], '%s', ca1[j])
-					if ca[j] == nil then ca[j] = ca1[j] + 3 end
-				end
-				
-				cdisp[1] = string.sub(history[i], 1, ca[1])
-				for j = 2, 4 do
-					cdisp[j] = string.sub(history[i], ca[j-1]+1, ca[j])
-				end
-				
-				if cdisp then
-					for j = 1, 4 do
-						if cdisp[j] then
-							lg.print(cdisp[j],8,(i*70)+ypsc[j]+(history_scr*25)-30)
-						end
-					end
-				end
-			end
+			lg.print(history[i],8,920+(history_scr*25)-(i*70))
 		end
         lg.setColor(255,189,225)
         lg.rectangle('fill',0,0,320,32)
@@ -212,7 +193,7 @@ function menu_update(dt)
 		menu_alpha = math.min(menu_alpha + dt*1000, 255)
 	end
     
-    if menu_type == 'history' then
+    if menu_type == 'history' and global_os == 'Horizon' then
 		if (love.keyboard.isDown('down') or love.keyboard.isDown('cpaddown')) and history_scr > -27 then
 			history_scr = history_scr - dt*10
 		elseif (love.keyboard.isDown('up') or love.keyboard.isDown('cpadup')) and history_scr < 0 then
@@ -397,7 +378,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'b' then
 		if menu_type == 'history' then
-            history_scr = 0
+            history_scr = -27
 		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true
