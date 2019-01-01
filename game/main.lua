@@ -1,3 +1,7 @@
+dversion = 'v1.0.1'
+dvertype = ''
+
+getTime = 0
 global_os, g_system = love.system.getOS()
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
@@ -10,12 +14,9 @@ require 'saveload'
 require 'menu'
 require 'scripts/script'
 
-function love.load() 
-	dversion = 'v1.0.0'
-	dvertype = ''
-	
+function love.load()
 	lg.setBackgroundColor(0,0,0)
-	myTextStartTime = love.timer.getTime()
+	startTime = getTime
 	autotimer = 0
 	autoskip = 0
 	sectimer = 0
@@ -64,6 +65,7 @@ function love.update()
 	else
 		dt = delta
 	end
+	getTime = getTime + dt
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	

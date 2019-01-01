@@ -1,7 +1,7 @@
 lg = love.graphics
 local drawbottom
-local xps = {c=250,ct=270,textbox=230,namebox=250}
-local yps = {c={590,620,650,680},ct=532,textbox=565,namebox=526}
+local xps = {c=260,ct=285,textbox=230,namebox=260}
+local yps = {c=590,ct=532,textbox=565,namebox=526}
 local gui_ctc_x = 1010
 local xh
 local yh
@@ -74,12 +74,19 @@ function outlineText(text,x,y,type,arg1)
 	end
 end
 
-function dripText(text,charactersPerSecond,startTime)
-	currentTime = love.timer.getTime()
-	if (currentTime <= startTime) or startTime == 0 then return '' end
-	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
-	if charactersPerSecond == nil then charactersPerSecond = 100 end
-	return text:sub(1,math.min(math.floor((currentTime-startTime)*charactersPerSecond),text:len()))
+function dripText(text,cps,sTime)
+	local cTime = getTime
+	local sTime2
+	if (cTime <= sTime) or sTime == 0 then
+		return ''
+	end
+	if cTime > sTime then
+		sTime2 = getTime
+	end
+	if not cps then
+		cps = 100
+	end
+	return text:sub(1,math.min(math.floor((cTime-sTime)*cps),text:len()))
 end
 
 function easeQuadOut(t,b,c,d)
@@ -159,14 +166,7 @@ function drawTextBox()
 		else
 			lg.setFont(allerfont)
 		end
-		if c_disp and global_os == 'LOVE-OneLua' then
-			for i = 1, 4 do
-				outlineText(c_disp[i],xps.c,yps.c[i],'c_disp')
-			end
-			
-		elseif textx then
-			outlineText(textx,250,590,'printf',775)
-		end
+		outlineText(c_disp,xps.c,yps.c,'c_disp')
 	end
 end
 
