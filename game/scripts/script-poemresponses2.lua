@@ -603,21 +603,15 @@ function ch23_n_end()
 	elseif cl == 711 then
     n "Just Monika."
 	elseif cl == 712 then
-	choicetemp = choices
-	hideAll()
 	n "Just Monika."
 	elseif cl == 713 then
-	menutext = 'Just Monika.'
-	choices = {'Just Monika.'}
-	choice_enable()
-	elseif cl == 714 then
-	choices = choicetemp
+	hideAll()
 	menutext = 'Just Monika.'
 	choice_enable('dialog')
-	elseif cl == 715 then
+	elseif cl == 714 then
 	if xaload < 3 then event_initstart('just_monika') end
 	audioUpdate('1')
-	elseif cl == 716 then
+	elseif cl == 715 then
 	poemfinish('n')
 	end
 end
