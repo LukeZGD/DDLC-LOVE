@@ -166,7 +166,9 @@ function drawTextBox()
 		else
 			lg.setFont(allerfont)
 		end
-		outlineText(c_disp,xps.c,yps.c,'c_disp')
+		if c_disp then
+			outlineText(c_disp,xps.c,yps.c,'c_disp')
+		end
 	end
 end
 
