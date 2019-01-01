@@ -87,6 +87,7 @@ function cw(p1, stext, tag)
 		end
 	end
 	
+	local slen = string.len(stext)
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)
 		if tagtimer >= (settings.textspd + slen) / 4 then
