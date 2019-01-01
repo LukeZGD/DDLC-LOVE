@@ -106,13 +106,15 @@ function drawTextBox()
 	
 	if style_edited then lg.setFont(deffont) end
 	
-	if not menu_enabled and (not poem_enabled or (event_enabled and textbox_enabled)) then
+	if (not menu_enabled or (event_enabled and textbox_enabled)) and not poem_enabled then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
-		lg.print(c_disp,xps.c,yps.c)
+		if c_disp then
+			lg.print(c_disp,xps.c,yps.c)
+		end
 	end
 	if settings.textloc == 'Top' then drawBottomScreen() end
 end
