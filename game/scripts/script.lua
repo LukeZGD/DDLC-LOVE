@@ -66,13 +66,13 @@ function cw(p1, stext, tag)
 	end
 	
 	if style_edited then
-		c_a1 = 55
+		c_a1 = 52
 	else
-		c_a1 = 75
+		c_a1 = 70
 	end
 	c_disp = wrap(textx,c_a1)
 	
-	local temptext = wrap(stext,75)
+	local temptext = wrap(stext,70)
 	local temptext2 = ct..': '..temptext
 	if history[1] ~= temptext and history[1] ~= temptext2 then
 		for i = 30, 1, -1 do
@@ -103,8 +103,7 @@ function cw(p1, stext, tag)
 end
 
 function scriptCheck()
-	c_disp = {'','','',''}
-	textx = ''
+	c_disp = ''
 	
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()

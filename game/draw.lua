@@ -1,8 +1,8 @@
 lg = love.graphics
 local drawbottom
 local xps = {c=260,ct=285,textbox=230,namebox=260}
-local yps = {c=590,ct=532,textbox=565,namebox=526}
-local gui_ctc_x = 1010
+local yps = {c=593,ct=532,textbox=565,namebox=526}
+local gui_ctc_x = 1015
 local xh
 local yh
 
@@ -146,9 +146,9 @@ end
 
 function drawTextBox()
 	if sectimer >= 0.5 then
-		gui_ctc_x = math.max(gui_ctc_x - 0.1, 1010)
+		gui_ctc_x = math.max(gui_ctc_x - 0.1, 1015)
 	else
-		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1015)
+		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1020)
 	end
 	
 	if (not menu_enabled or (event_enabled and textbox_enabled)) and not poem_enabled then
