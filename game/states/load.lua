@@ -126,7 +126,7 @@ function checkLoad()
 	elseif model == '1000' then
 		err = [[
 		Error!
-		PSP 1000 system detected. DDLC-LOVE will not run properly on this model because
+		PSP 1000 system detected. DDLC-LOVE will not run on this model because
 		of the lack of RAM. (32 MB on 1000, 64 MB on other models)
 		]]
 	elseif os_timecheck then
