@@ -48,21 +48,21 @@ function menu_enable(m)
 	
 	menutext = ''
 	if menu_type == 'mainyesno' then
-		menutext = 'Are you sure you want to return to the\nmain menu?'
-		itemnames = {'Yes','No'}
+		menutext = tr.menuhelp[9]
+		itemnames = {tr.menuitem[1],tr.menuitem[2]}
 		
 	elseif menu_type == 'quityesno' then
-		menutext = 'Are you sure you want to quit the game?'
-		itemnames = {'Yes','No'}
+		menutext = tr.menuhelp[10]
+		itemnames = {tr.menuitem[1],tr.menuitem[2]}
 	
 	elseif menu_type == 'title' then
 		itemnames = {'','','','',''}
 		
 	elseif menu_type == 'settings' then
-		itemnames = {'Text Speed','Auto-Forward Time','Characters','Master Volume','Music Volume','Sound Volume'}
+		itemnames = {'Text Speed','Auto-Forward Time','Characters','Language','Master Volume','Music Volume','Sound Volume'}
 	
 	elseif menu_type == 'characters' then
-		itemnames = {'Delete monika.chr','Delete natsuki.chr','Delete sayori.chr','Delete yuri.chr','Restore all'}
+		itemnames = {tr.menuitem[3]..'monika.chr',tr.menuitem[3]..'natsuki.chr',tr.menuitem[3]..'sayori.chr',tr.menuitem[3]..'yuri.chr',tr.menuitem[4]}
 	
 	elseif menu_type == 'pause' then
 		itemnames = {'','','','','','','',''}
@@ -75,6 +75,10 @@ function menu_enable(m)
 		
 	elseif menu_type == 'help' or menu_type == 'history' then
 		itemnames = {}
+		
+	elseif menu_type == 'language' then
+		itemnames = lang_names
+		menutext = "Select language"
 	end
 	
 	if menu_type == 'choice' then
@@ -123,7 +127,7 @@ function menu_draw()
 	if menu_type == 'title' then
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
-	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' then
+	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' or menu_type == 'language' then
 		if menu_type == 'choice' then
 			lg.setColor(255,255,255,255)
 			lg.draw(textbox,230,565)
@@ -183,27 +187,20 @@ function menu_draw()
 		lg.setColor(0,0,0,menu_alpha)
 		lg.print(menutext,140,90)
 		local keys = {}
-		local delsave = 
-		[[
-		Deleting save data: Delete save files and persistent in here:
-		Switch: sdmc:/switch/DDLC-LOVE/
-		PS Vita: ux0:/data/DDLC-LOVE/savedata/
-		PSP: ms0:/data/DDLC-LOVE/savedata/
-		]]
 		if global_os == 'LOVE-OneLua' then
-			keys = {'Cross','Circle','Square','Triangle','R Trigger'}
+			keys = {'Cross, L','Circle','Square','Triangle','R'}
 		else
 			keys = {'A','B','X','Y','Plus'}
 		end
 		lg.setColor(0,0,0)
 		lg.print('Key Bindings:',160,120)
-		lg.print(keys[1]..', L Trigger - Advances through the game, activates menu choices',160,160)
-		lg.print(keys[2]..' - Exit Menu, AutoForward On/Off',160,190)
-		lg.print(keys[3]..' - (Menu) Previous Page, Skipping On/Off',160,220)
-		lg.print(keys[4]..' - (Menu) Next Page, Enter Game Menu',160,250)
-		lg.print(keys[5]..' - Show/hide text window',160,280)
-		lg.print('Managing files: Go to Settings > Characters',160,330)
-		lg.print(delsave,160,360)
+		lg.print(keys[1]..tr.menuhelp[1],160,160)
+		lg.print(keys[2]..tr.menuhelp[2],160,190)
+		lg.print(keys[3]..tr.menuhelp[3],160,220)
+		lg.print(keys[4]..tr.menuhelp[4],160,250)
+		lg.print(keys[5]..tr.menuhelp[5],160,280)
+		lg.print(tr.menuhelp[6],160,330)
+		lg.print(tr.menuhelp[7],160,360)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		menu_drawstuff('overlay')
@@ -248,17 +245,19 @@ function menu_draw()
 		lg.draw(gui.settings)
 		lg.draw(gui.setbuttons)
 		local hv = {x=0,y=0}
-		if m_selected <= 4 then
+		if m_selected <= 5 then
 			hv.x = 340
 		else
 			hv.x = 790
 		end
-		if m_selected == 2 or m_selected == 5 then
+		if m_selected == 2 or m_selected == 6 then
 			hv.y = 344
-		elseif m_selected == 3 or m_selected == 6 then
+		elseif m_selected == 3 or m_selected == 7 then
 			hv.y = 412
-		elseif m_selected == 4 or m_selected == 7 then
+		elseif m_selected == 4 or m_selected == 8 then
 			hv.y = 480
+		elseif m_selected == 5 then
+			hv.y = 548
 		end
 		lg.draw(gui.scrbarh,368,378,0,0.5,1)
 		lg.draw(gui.scrbarh,368,446,0,0.5,1)
@@ -289,48 +288,8 @@ function menu_draw()
 		local cdisp = {}
 		local ypsc = {35,65,95,125}
 		
-		local historyline = 
-		[[
-		Welcome to the Literature Club! It's always been a dream of mine to make something
-		special out of the things I love. Now that you're a club member, you can help
-		me make that dream come true in this cute game!Every day is full of chit-chat and
-		fun activities with all of my adorable and unique club members:Sayori, the youthful
-		bundle of sunshine	who values happiness the most;Natsuki, the deceivingly cute girl
-		who packs an assertive punch;Yuri, the timid and mysterious one who finds comfort
-		in the world of books;...And, of course, Monika, the leader of the club! That's me!
-		I'm super excited for you to make friends with everyone and help the Literature Club
-		become a more intimate place for all my members. But I can tell already that you're
-		a sweetheart—will you promise to spend the most time with me?Welcome to the Literature
-		Club! It's always been a dream of mine to make something special out of the things I
-		love. Now that 	you're a club member, you can help me make that dream come true in
-		this cute game!Every day is full of chit-chat and fun activities with all of my
-		adorable and unique club members:Sayori, the youthful bundle of sunshine who values
-		happiness the most;Natsuki, the deceivingly cute girl who packs an assertive punch;
-		Yuri, the timid and mysterious one who finds comfort in the world of books;...And,
-		of course, Monika, the leader of the club! That's me!I'm super excited for you to
-		make friends with everyone and help the Literature Club become a more intimate place
-		for all my members. But I can tell already that you're a sweetheart—will you promise
-		to spend the most time with me?Welcome to the Literature Club! It's always been a
-		dream of mine to make something special out of the things I love. Now that you're a
-		club member, you can help me make that dream come true in this cute game!Every day is
-		full of chit-chat and fun activities with all of my adorable and unique club members:
-		Sayori, the youthful bundle of sunshine who values happiness the most;Natsuki, the
-		deceivingly cute girl who packs an assertive punch;Yuri, the timid and mysterious one
-		who finds comfort in the world of books;...And, of course, Monika, the leader of the
-		club! That's me!I'm super excited for you to make friends with everyone and help the
-		Literature Club become a more intimate place for all my members. But I can tell
-		already that you're a sweetheart—will you promise to spend the most time with me?will
-		you promise to spend the most time with me?will you promise to spend the most time with
-		me?will you promise to spend the most time with me?will you promise to spend the most
-		time with me?will you promise to spend the most time with me?will you promise to spend
-		the most time with me?will you promise to spend the most time with me?will you promise
-		to spend the most time with me?will you promise to spend the most time with me?will
-		you promise to spend the most time with me?will you promise to spend the most time with
-		me?will you promise to spend the most time with me?will you promise to spend the most
-		time with
-		]]
 		if chapter == 23 and cl >= 2001 then
-			outlineText(historyline,375,120+(history_scr*75))
+			outlineText(tr.menuhelp[11],375,120+(history_scr*75))
 		else
 			for i = 1, #history do
 				--#history+1-i
@@ -445,7 +404,7 @@ function menu_confirm()
 			changeState('game',2)
 		end
 	elseif menu_type == 'savegame' and persistent.chr.m == 2 and chapter == 30 then
-		menutext = "There's no point in saving anymore.\nDon't worry, I'm not going anywhere."
+		menutext = tr.menuhelp[8]
 		savenumber = 61
 		
 	elseif menu_type == 'savegame' and persistent.chr.m ~= 2 then  --save game confirm 
@@ -492,10 +451,12 @@ function menu_confirm()
 		end
 		
 	elseif menu_type == 'settings' then
-		if m_selected <= 3 and m_selected >= 5 then
+		if m_selected <= 3 and m_selected >= 6 then
 			menu_keypressed('left')
 		elseif m_selected == 4 then
 			menu_enable('characters')
+		elseif m_selected == 5 then
+			changeState('language')
 		end
 		
 	elseif menu_type == 'characters' then
@@ -527,6 +488,12 @@ function menu_confirm()
 	elseif menu_type == 'dialog' then
 		scriptJump(cl+1)
 		menu_fadeout = true
+		
+	elseif menu_type == 'language' then
+		settings.lang = lang_codes[m_selected-1]
+		savesettings()
+		l_timer = 99
+		changeState('load')
 	end
 end
 

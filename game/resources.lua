@@ -113,6 +113,8 @@ function changeState(cstate,x)
 		poem_special_i(x)
 	elseif cstate == 'credits' then
 		loadCredits(x)
+	elseif cstate == 'language' then
+		menu_enable('language')
 	end
 	
 	--load game state and scripts
@@ -136,20 +138,20 @@ function changeState(cstate,x)
 		poem_enabled = false
 		menu_enabled = false
 		xaload = -1
-		require('scripts/script-ch'..chapter)
+		require('scripts/'..settings.lang..'/script-ch'..chapter)
 		if persistent.ptr == 0 then
 			if poemwinner[chapter] == 'Sayori' then
-				require 'scripts/script-exclusives-sayori'
+				require('scripts/'..settings.lang..'/script-exclusives-sayori')
 			elseif poemwinner[chapter] == 'Natsuki' then
-				require 'scripts/script-exclusives-natsuki'
+				require('scripts/'..settings.lang..'/script-exclusives-natsuki')
 			elseif poemwinner[chapter] == 'Yuri' then
-				require 'scripts/script-exclusives-yuri'
+				require('scripts/'..settings.lang..'/script-exclusives-yuri')
 			end
 		elseif persistent.ptr == 2 and chapter > 20 then
 			if poemwinner[chapter-20] == 'Natsuki' and chapter == 21 then
-				require 'scripts/script-exclusives2-natsuki'
+				require('scripts/'..settings.lang..'/script-exclusives2-natsuki')
 			elseif poemwinner[chapter-20] == 'Yuri' or chapter > 21 then
-				require 'scripts/script-exclusives2-yuri'
+				require('scripts/'..settings.lang..'/script-exclusives2-yuri')
 			end
 		end
 		unloadAll('poemgame')

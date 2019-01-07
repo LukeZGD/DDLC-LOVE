@@ -1,4 +1,4 @@
-local l_timer = 94
+l_timer = 94
 local err = ''
 local savedir
 local errtime = 0
@@ -65,11 +65,20 @@ function updateLoad()
 		gui.scrhover = lg.newImage('images/gui/slider/horizontal_hover_thumb.png')		
 		
 	elseif l_timer == 99 then
-		local file = love.filesystem.getInfo('persistent')
-		if file then
-			checkLoad()
-		else
+		local f1 = love.filesystem.getInfo('persistent')
+		local f2 = false
+		if love.filesystem.getInfo('settings.sav') then
+			if settings.lang then
+				f2 = true
+				require('scripts/'..settings.lang..'/text')
+			end
+		end
+		if (not f1 and not f2) or (f1 and not f2) then
+			changeState('language')
+		elseif f2 and not f1 then
 			changeState('newgame')
+		elseif f1 and f2 then
+			checkLoad()
 		end
 	elseif l_timer == 100 then
 		lg.setBackgroundColor(255,255,255)
@@ -78,18 +87,9 @@ function updateLoad()
 end
 
 function checkLoad()
-	if love.filesystem.getInfo('persistent') then
-		loadpersistent()
-	end
-	
-	if love.filesystem.getInfo('settings.sav') then
-		loadsettings()
-		if not settings.masvol then
-			settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70}
-			savesettings()
-		end
-		game_setvolume()
-	end
+	loadpersistent()
+	loadsettings()
+	game_setvolume()
 	
 	if g_system == 'Switch' then
 		savedir = 'sdmc:/switch/DDLC-LOVE/'
@@ -107,6 +107,9 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = love.math.random(0, 63)
+	if not settings.lang then
+		changeState('language')
+	end
 	if not persistent.act2 then
 		err = [[
 		Error!
@@ -126,7 +129,7 @@ function checkLoad()
 	elseif model == '1000' then
 		err = [[
 		Error!
-		PSP 1000 system detected. DDLC-LOVE will not run on this model because
+		PSP 1000 system detected. DDLC-LOVE will not run properly on this model because
 		of the lack of RAM. (32 MB on 1000, 64 MB on other models)
 		]]
 	elseif os_timecheck then

@@ -15,16 +15,16 @@ function poemresponses()
 		
 	elseif cl == 667 or cl == 668 then --first time poem script
 		if (chapter == 1 or chapter == 21) and poemsread == 0 then
-			if choicepick == 'Sayori' then
+			if choicepick == tr.names[1] then
                 if cl == 667 then cw('bl',"I'm definitely most comfortable sharing it with Sayori first.")
                 elseif cl == 668 then cw('bl',"She's my good friend, after all.") end
-			elseif choicepick == 'Natsuki' then
+			elseif choicepick == tr.names[2] then
                 if cl == 667 then cw('bl',"I told Natsuki I was interested in her poems yesterday.")
                 elseif cl == 668 then cw('bl',"It's probably only fair if I shared mine with her first.") end
-            elseif choicepick == 'Yuri' then
+            elseif choicepick == tr.names[3] then
                 if cl == 667 then cw('bl',"Yuri seems the most experienced, so I should start with her.")
                 elseif cl == 668 then cw('bl',"I can trust her opinion to be fair.") end
-            elseif choicepick == 'Monika' then
+            elseif choicepick == tr.names[4] then
 				if cl == 667 then cw('bl',"I should start with Monika.")
 				elseif cl == 668 then cw('bl',"Yesterday she seemed eager to read my poem, and I want her to know I'm putting in effort.") end
 			end
@@ -33,13 +33,13 @@ function poemresponses()
 		end
 		
 	elseif cl >= 669 then
-		if choicepick == 'Sayori' then
+		if choicepick == tr.names[1] then
 			poemresponse_sayori()
-		elseif choicepick == 'Natsuki' then
+		elseif choicepick == tr.names[2] then
 			poemresponse_natsuki()
-		elseif choicepick == 'Yuri' then
+		elseif choicepick == tr.names[3] then
 			poemresponse_yuri()
-		elseif choicepick == 'Monika' then
+		elseif choicepick == tr.names[4] then
 			poemresponse_monika()
 		end
 		
@@ -52,16 +52,16 @@ function poemfinish(a)
 	
 	if a == 's' then
 		readpoem.s = 1
-		c_remove = 'Sayori'
+		c_remove = tr.names[1]
 	elseif a == 'n' then
 		readpoem.n = 1
-		c_remove = 'Natsuki'
+		c_remove = tr.names[2]
 	elseif a == 'y' then
 		readpoem.y = 1
-		c_remove = 'Yuri'
+		c_remove = tr.names[3]
 	elseif a == 'm' then
 		readpoem.m = 1
-		c_remove = 'Monika'
+		c_remove = tr.names[4]
 	end
 	
 	for i = 1, #choices do

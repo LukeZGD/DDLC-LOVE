@@ -19,15 +19,15 @@ end
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
-		ct = 'Sayori'
+		ct = tr.names[1]
 	elseif p1 == 'n' then
-		ct = 'Natsuki'
+		ct = tr.names[2]
 	elseif p1 == 'y' then
-		ct = 'Yuri'
+		ct = tr.names[3]
 	elseif p1 == 'm' then
-		ct = 'Monika'
+		ct = tr.names[4]
 	elseif p1 == 'ny' then
-		ct = 'Nat & Yuri'
+		ct = tr.names[5]
 	elseif p1 == 'mc' then
 		ct = player
 	elseif p1 == 'bl' then
@@ -108,12 +108,12 @@ function scriptCheck()
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
-		require 'scripts/script-poemresponses'
-		require 'scripts/poems'
+		require('scripts/'..settings.lang..'/script-poemresponses')
+		require('scripts/'..settings.lang..'/poems')
 		if persistent.ptr == 0 then
-			require 'scripts/script-poemresponses1'
+			require('scripts/'..settings.lang..'/script-poemresponses1')
 		else
-			require 'scripts/script-poemresponses2'
+			require('scripts/'..settings.lang..'/script-poemresponses2')
 		end
 		script_poemresponsesx = true
 	else
@@ -189,11 +189,11 @@ function poeminitialize(y)
 	poemsread = 0
 	readpoem = {s=0,n=0,y=0,m=0}
 	if persistent.ptr == 0 then
-		choices = {'Sayori','Natsuki','Yuri','Monika'}
+		choices = {tr.names[1],tr.names[2],tr.names[3],tr.names[4]}
 	elseif y == 'y_ranaway' then
-		choices = {'Natsuki','Monika'}
+		choices = {tr.names[2],tr.names[4]}
 	else
-		choices = {'Natsuki','Yuri','Monika'}
+		choices = {tr.names[2],tr.names[3],tr.names[4]}
 	end
 	scriptJump(666,'',0)
 end
@@ -284,6 +284,8 @@ function event_init(etype,arg1,arg2)
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('images/bg/splash-glitch2.png')
+			else
+				splash = lg.newImage('images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap
 			ghost_blood = lg.newImage('images/natsuki/ghost_blood.png')

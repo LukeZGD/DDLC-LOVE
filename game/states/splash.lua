@@ -1,19 +1,6 @@
 local random_msgchance = love.math.random(0, 3)
-local splash_messages = {
-	"You are my sunshine,\nMy only sunshine",
-    "I missed you.",
-    "Play with me",
-    "It's just a game, mostly.",
-    "This game is not suitable for children\nor those who are easily disturbed?",
-    "sdfasdklfgsdfgsgoinrfoenlvbd",
-    "null",
-    "I have granted kids to hell",
-    "PM died for this.",
-    "It was only partially your fault.",
-    "This game is not suitable for children\nor those who are easily dismembered.",
-    "Don't forget to backup Monika's character file.";
-	}
-local random_msg = love.math.random(1, #splash_messages)
+
+local random_msg = love.math.random(1, 12)
 local running
 local s_timer = 0
 local s_kille = {x=280,y=-5}
@@ -40,10 +27,10 @@ function drawSplash()
 		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
-			lg.print(splash_messages[random_msg], 440, 300)
+			lg.print(tr.splash[random_msg], 440, 300)
 		else
-			lg.print('This game is not suitable for children', 440, 300)
-			lg.print('  or those who are easily disturbed.', 447, 330)
+			lg.print(tr.splash[13], 440, 300)
+			lg.print(tr.splash[14], 447, 330)
 		end
 		
 	elseif state == 'title' then --title (Title Screen)
@@ -55,7 +42,7 @@ function drawSplash()
 		lg.draw(gui.mainbuttons)
 		lg.draw(gui.newgame)
 		lg.setColor(64,64,64,alpha)
-		lg.print('Unofficial port by LukeeGD',985,10)
+		lg.print(tr.splash[16],985,10)
 		menu_draw()
 		if ingamekeys then ingamekeys_draw() end
 	end
@@ -110,7 +97,7 @@ function drawSplashspec(spec)
 			drawanimframe()
 			lg.setColor(160,160,160)
 			lg.setFont(s1)
-			if s_timer > 600 then lg.print('Now everyone can be happy.',640,300) end
+			if s_timer > 600 then lg.print(tr.splash[15],640,300) end
 		elseif state == 'ghostmenu' then
 			drawSplashChar()
 		end
