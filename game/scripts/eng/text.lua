@@ -85,3 +85,27 @@ tr.menuhelp = {
 	time with
 	]]
 }
+tr.error = {
+'Press Y/Triangle to quit',
+[[
+Error!
+Old save data detected, and it is not compatible with this version of DDLC-LOVE.
+Please delete all save data and try again.
+
+Delete persistent and save files in here:
+> ]],
+[[
+Error!
+PSP 1000 system detected. DDLC-LOVE will not run properly on this model because
+of the lack of RAM. (32 MB on 1000, 64 MB on other models)
+]],
+[[
+Warning!
+os.time() returned nil
+
+Your device might have never been online, or this is just a bug that I won't be able to fix.
+The game will still launch, but some stuff that rely on random might be broken.
+
+Press A/Cross to continue
+]]
+}
