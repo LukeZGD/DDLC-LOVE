@@ -10,7 +10,7 @@ ifeq ($(strip $(DEVKITARM)),)
 $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
 
-LOVEPOTION_3DS := $(CURDIR)/LovePotion.elf
+# LOVEPOTION_3DS := $(CURDIR)/LovePotion.elf
 
 ifeq ($(UNAME), Linux)
 	makerom    := $(CURDIR)/tools/linux/makerom
@@ -47,7 +47,7 @@ ROMFS           := game/
 APP_TITLE       := DDLC-3DS
 APP_AUTHOR      := LukeeGD
 APP_TITLEID     := 0xDDFC
-APP_VERSION     := 0.3.2
+APP_VERSION     := 0.6
 APP_DESCRIPTION := An unofficial DDLC port for the 3DS!
 
 ICON            := icon.png
