@@ -5,7 +5,7 @@ require 'menu'
 require 'scripts/script'
 
 function love.load() 
-	dversion = 'v0.6.1'
+	dversion = 'v1.0.3'
 	dvertype = ''
 	
 	lg.setBackgroundColor(0,0,0)	
@@ -72,7 +72,8 @@ function love.update()
 		if posX <= -80 then posX = 0 end
 		if posY <= -80 then posY = 0 end
 	end
-
+	
+	--[[
 	--touch(3DS only)/mouse checks
 	mouseDown = love.mouse.isDown(1)
 	mouseX = love.mouse.getX()
@@ -81,6 +82,7 @@ function love.update()
 		mouseX = mouseX / 1.5 - 40
 		mouseY = mouseY / 1.5 - 240
 	end
+	]]
 	
 	--this acts as love.mousepressed
 	if mouseDown and mousereleased ~= 1 then
@@ -141,6 +143,19 @@ function love.keypressed(key)
 	end
 end
 
+function love.gamepadpressed(joy, button)
+	if button == 'dpup' then
+		button = 'up'
+	elseif button == 'dpdown' then
+		button = 'down'
+	elseif button == 'dpleft' then
+		button = 'left'
+	elseif button == 'dpright' then
+		button = 'right'
+	end
+	love.keypressed(button)
+end
+
 function love.textinput(text)
 	if text ~= '' then 
 		player = text
@@ -153,6 +168,7 @@ function love.textinput(text)
 end
 
 function game_quit()
+	--[[
 	unloadAll('characters')
 	unloadAll('stuff')
 	unloadAll('poemgame')
@@ -163,4 +179,6 @@ function game_quit()
 	else
 		love.event.quit()
 	end
+	]]
+	love.event.quit()
 end
