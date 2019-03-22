@@ -5,7 +5,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 
 **Some note/s:**
 - **DDLC-LOVE will not run on PSP 1000 systems.** It does not have enough memory for it.
-- The 3DS version of this port, **DDLC-3DS**, will be found in the [master](https://github.com/LukeZGD/DDLC-LOVE/tree/master) branch of this repo. I won't continue development for it anymore, so ddlclove is now the default branch.
+- The 3DS version of this port, **DDLC-3DS**, will be found in the [master](https://github.com/LukeZGD/DDLC-LOVE/tree/master) branch of this repo.
 
 **Locations of save files:**
 
@@ -20,13 +20,13 @@ You can reset the save data and start over by deleting all of the save files. Th
 
 ### Building:
 - All 3 versions share the same code, but they all have different processes for building.
-- **Switch** - Instructions are in [here](https://github.com/TurtleP/LovePotion/wiki/Packaging-Your-Game)
-- **PS Vita and PSP (files setup)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
+- **Switch** - Instructions are in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
+- **PS Vita and PSP (prerequisite)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
 - **PS Vita** - use the ONEmakerGUI included with [ONEluav4R1 for the PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
 - **PSP** - oneFont.pgf is also required to be beside the game folder. This is included with [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar).
 
 ### Running:
-- **Switch** - Copy the .nro to sdmc:/switch/ and run it with the homebrew menu. You may also convert the .nro to .nsp with [hacBrewPack](https://github.com/The-4n/hacBrewPack) or other tools.
+- **Switch** - Run the .nro with Atmosphère's title takeover functionality. Other methods can be found in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
 
 - **PSP** - Download the zip from the releases, and extract the folder with EBOOT.PBP to ms0:/PSP/GAME/
 
