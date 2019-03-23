@@ -1,5 +1,5 @@
 # DDLC-LOVE
-A Doki Doki Literature Club port for the Nintendo Switch, PSP, and PS Vita! Programmed in Lua, running under the LovePotion framework (Switch) / LOVE-OneLua and OneLua interpreter (PSP and PS Vita)
+A Doki Doki Literature Club port for the Nintendo Switch, PSP, and PS Vita! Programmed in Lua, running under the LovePotion framework for Switch, lpp-vita for Vita, and OneLua for PSP.
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
@@ -21,9 +21,9 @@ You can reset the save data and start over by deleting all of the save files. Th
 ### Building:
 - All 3 versions share the same code, but they all have different processes for building.
 - **Switch** - Instructions are in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
-- **PS Vita and PSP (prerequisite)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-OneLua](https://github.com/LukeZGD/LOVE-OneLua) is required beside the game folder (script.lua and the LOVE-OneLua folder). 
-- **PS Vita** - use the ONEmakerGUI included with [ONEluav4R1 for the PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
-- **PSP** - oneFont.pgf is also required to be beside the game folder. This is included with [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar).
+- **PS Vita and PSP (prerequisite)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) is required beside the game folder (script.lua/index.lua and the LOVE-WrapLua folder). 
+- **PS Vita** - Use the latest [lpp-vita nightly](http://rinnegatamante.it/lpp-nightly.php) to build a .vpk.
+- **PSP** - EBOOT.PBP and oneFont.pgf files from [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar) are also required to be beside the game folder. You may want to also change the ICON0.PNG and PIC1.PNG of the EBOOT.
 
 ### Running:
 - **Switch** - Run the .nro with Atmosphère's title takeover functionality. Other methods can be found in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
@@ -34,6 +34,7 @@ You can reset the save data and start over by deleting all of the save files. Th
 
 - **PC** - Drag the game folder to LÖVE 11.x
 
-**Credits to TurtleP for LovePotion!**
-
-**Credits to the OneLua team for OneLua!**
+### Credits:
+- **TurtleP** - LovePotion
+- **OneLua Team** - OneLua
+- **Rinnegatamante** - lpp-vita

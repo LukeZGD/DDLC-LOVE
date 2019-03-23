@@ -78,7 +78,7 @@ function menu_enable(m)
 		
 	elseif menu_type == 'language' then
 		itemnames = lang_names
-		menutext = "Select language"
+		menutext = tr.selectlang
 	end
 	
 	if menu_type == 'choice' then
@@ -187,7 +187,7 @@ function menu_draw()
 		lg.setColor(0,0,0,menu_alpha)
 		lg.print(menutext,140,90)
 		local keys = {}
-		if global_os == 'LOVE-OneLua' then
+		if global_os == 'LOVE-WrapLua' then
 			keys = {'Cross, L','Circle','Square','Triangle','R'}
 		else
 			keys = {'A','B','X','Y','Plus'}
@@ -293,7 +293,7 @@ function menu_draw()
 		else
 			for i = 1, #history do
 				--#history+1-i
-				if global_os == 'LOVE-OneLua' then
+				if global_os == 'LOVE-WrapLua' then
 					lg.print(history[i],400,3600+(history_scr*75)-(i*120))
 				else
 					outlineText(history[i],400,3600+(history_scr*75)-(i*120),'c_disp')
@@ -372,7 +372,7 @@ function menu_confirm()
 		
 		if m_selected == 2 then --new game
 			if player == '' then --keyboard input for player name
-				if global_os == 'LOVE-OneLua' then
+				if global_os == 'LOVE-WrapLua' then
 					love.keyboard.setTextInput(true)
 				else
 					require 'ingamekeys'
@@ -456,6 +456,7 @@ function menu_confirm()
 		elseif m_selected == 4 then
 			menu_enable('characters')
 		elseif m_selected == 5 then
+			menu_previous =
 			changeState('language')
 		end
 		
@@ -507,7 +508,7 @@ function m_select(arg)
 end
 
 function sfx2play()
-	if global_os ~= 'LOVE-OneLua' then
+	if global_os ~= 'LOVE-WrapLua' then
 		sfx2:play()
 	end
 end
@@ -554,7 +555,7 @@ function menu_keypressed(key)
 		end
 		if menu_type == 'pause' then
 			menu_fadeout = true
-		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' then
+		elseif menu_type ~= 'title' and menu_type ~= 'pause' and menu_type ~= 'choice' and menu_type ~= 'language' then
 			menu_enable(menu_previous)
 		end
 		menu_previous = nil

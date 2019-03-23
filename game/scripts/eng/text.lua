@@ -1,4 +1,5 @@
 tr = {}
+tr.selectlang = "Select language:"
 tr.names = {'Sayori','Natsuki','Yuri','Monika','Nat & Yuri'}
 tr.poemtime = 
 [[

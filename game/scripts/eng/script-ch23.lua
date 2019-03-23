@@ -13,7 +13,7 @@ function ch23script()
 		scriptJump(1631)
 	end
 	if cl == 1631 then
-	if (g_system == 'Switch' or global_os == 'LOVE-OneLua') and sgschance == 16 and persistent.act2[1] < 1 then
+	if (g_system == 'Switch' or global_os == 'LOVE-WrapLua') and sgschance == 16 and persistent.act2[1] < 1 then
 		scriptJump(1951)
 	end
 	audioUpdate('6')
@@ -343,7 +343,7 @@ function ch23script()
 	updateYuri('2','u')
     y "Um... Thank you for understanding, Monika."
 	elseif cl == 1721 then
-	if global_os == 'LOVE-OneLua' then
+	if global_os == 'LOVE-WrapLua' then
 		hideAll()
 		scriptJump(1722)
 	else

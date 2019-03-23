@@ -14,8 +14,8 @@ function drawSplash()
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,650)
 		if g_system == 'Switch' then
 			running = 'LovePotion Switch'
-		elseif global_os == 'LOVE-OneLua' then
-			running = 'LOVE-OneLua '..g_system
+		elseif global_os == 'LOVE-WrapLua' then
+			running = 'LOVE-WrapLua '..g_system
 		else
 			local major, minor, revision = love.getVersion()
 			running = string.format('LOVE %d.%d.%d', major, minor, revision)

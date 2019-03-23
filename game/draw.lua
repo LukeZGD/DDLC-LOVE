@@ -1,5 +1,4 @@
 lg = love.graphics
-local drawbottom
 local xps = {c=260,ct=285,textbox=230,namebox=260}
 local yps = {c=593,ct=532,textbox=565,namebox=526}
 local gui_ctc_x = 1015
@@ -50,7 +49,7 @@ function outlineText(text,x,y,type,arg1)
 		else
 			lg.setColor(0,0,0,alpha)
 		end
-		if type == 'printf' and global_os ~= 'LOVE-OneLua' then
+		if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 			lg.printf(text,x-addm,y,arg1)
 			lg.printf(text,x,y-addm,arg1)
 			lg.printf(text,x+addm,y,arg1)
@@ -67,7 +66,7 @@ function outlineText(text,x,y,type,arg1)
 			lg.setColor(255,255,255,alpha)
 		end
 	end
-	if type == 'printf' and global_os ~= 'LOVE-OneLua' then
+	if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 		lg.printf(text,x,y,arg1)
 	else
 		lg.print(text,x,y)

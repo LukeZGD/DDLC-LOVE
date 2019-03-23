@@ -25,8 +25,8 @@ function updateLoad()
 		lg.setFont(allerfont)
 		
 	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('audio/sfx/select'..'.mp3','static')
-		sfx2 = love.audio.newSource('audio/sfx/hover'..'.mp3','static')
+		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext,'static')
+		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext,'static')
 		menu_bg_m = lg.newImage("images/gui/menu_bg_m.png")
 		gui = {}
 		gui.keysbox = lg.newImage("images/gui/button/box.png")

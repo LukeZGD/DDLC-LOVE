@@ -1116,7 +1116,7 @@ function ch22_m_end()
 	scriptJump(737)
 	elseif cl == 737 then
 	poem_disable()
-	if global_os == 'LOVE-OneLua' then
+	if global_os == 'LOVE-WrapLua' then
 		scriptJump(738)
 	else
 		audioUpdate('0')

@@ -72,7 +72,7 @@ end
 
 function loadgame(x)
 	local savfile
-	if global_os == 'LOVE-OneLua' then
+	if global_os == 'LOVE-WrapLua' then
 		if x == 'autoload' then
 			love.filesystem.load("save-autoload.sav")
 		else
@@ -94,7 +94,7 @@ function savedatainfo(save)
 end
 
 function loaddatainfo(save)
-	if global_os == 'LOVE-OneLua' then
+	if global_os == 'LOVE-WrapLua' then
 		love.filesystem.load("save"..save.."-"..persistent.ptr.."_data.sav")
 	else
 		local datainfo = loadstring(love.filesystem.read("save"..save.."-"..persistent.ptr.."_data.sav"))
@@ -114,7 +114,7 @@ function savesettings()
 end
 
 function loadsettings()
-	if global_os == 'LOVE-OneLua' then
+	if global_os == 'LOVE-WrapLua' then
 		love.filesystem.load('settings.sav')
 	else
 		local settingsfile = loadstring(love.filesystem.read('settings.sav'))
@@ -149,7 +149,7 @@ sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 end
 
 function loadpersistent()
-	if global_os == 'LOVE-OneLua' then
+	if global_os == 'LOVE-WrapLua' then
 		love.filesystem.load('persistent')
 	else
 		local pfile = loadstring(love.filesystem.read('persistent'))

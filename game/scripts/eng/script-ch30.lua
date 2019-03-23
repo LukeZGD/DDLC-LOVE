@@ -55,7 +55,7 @@ function ch30script()
 	elseif cl == 14 then
     m "Or..."
 	elseif cl == 15 then
-	if (global_os == 'Horizon' or global_os == 'LOVE-OneLua') and xaload <= 2 then
+	if (global_os == 'Horizon' or global_os == 'LOVE-WrapLua') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
     if currentuser then
@@ -409,7 +409,7 @@ function ch30script()
 			end
 			if zzfile then
 				--load monika topics
-				if global_os == 'LOVE-OneLua' then
+				if global_os == 'LOVE-WrapLua' then
 					love.filesystem.load('monikatopics.sav')
 				else
 					local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))

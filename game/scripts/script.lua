@@ -284,8 +284,6 @@ function event_init(etype,arg1,arg2)
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('images/bg/splash-glitch2.png')
-			else
-				splash = lg.newImage('images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap
 			ghost_blood = lg.newImage('images/natsuki/ghost_blood.png')

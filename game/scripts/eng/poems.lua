@@ -553,7 +553,7 @@ b3AgbXlzZWxmLg==]]};
 			elseif yuri_3 then
 				if is3DS then 
                     poembg = lg.newImage('images/bg/poemxp.png')
-                elseif global_os == 'LOVE-OneLua' then
+                elseif global_os == 'LOVE-WrapLua' then
                     poembg = lg.newImage('images/bg/poem1.png')
                 end
 				

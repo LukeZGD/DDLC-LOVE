@@ -1,4 +1,4 @@
-dversion = 'v1.0.2'
+dversion = 'v1.0.3'
 dvertype = ''
 
 getTime = 0
@@ -29,7 +29,7 @@ function love.load()
 	bgimg_disabled = false
     
 	--for pc stuff
-	if g_system ~= 'Switch' and global_os ~= 'LOVE-OneLua' then
+	if g_system ~= 'Switch' and global_os ~= 'LOVE-WrapLua' then
 		love.window.setMode(1280, 720)
 		love.window.setTitle('DDLC-LOVE')
 		love.keyboard.setTextInput(false)
@@ -41,6 +41,8 @@ end
 function love.draw()
 	if event_enabled then
 		event_draw()
+	elseif state == 'language' then
+		lang_draw()
 	elseif state == 'load' then
 		drawLoad()
 	elseif state == 'splash' or state == 'splash2' or state == 'title' then --title (Title Screen)
@@ -157,7 +159,7 @@ end
 function game_setvolume()
 	if g_system == 'Switch' then
 		love.audio.setVolume(settings.masvol/100)
-	elseif global_os == 'LOVE-OneLua' then
+	elseif global_os == 'LOVE-WrapLua' then
 		if audio_bgm then
 			audio_bgm:setVolume(settings.bgmvol/100)
 		end
