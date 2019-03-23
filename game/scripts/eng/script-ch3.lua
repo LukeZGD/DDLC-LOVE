@@ -1100,7 +1100,13 @@ function ch3_end()
 		bgUpdate('residential')
 		cw('bl',"I can't believe this!")
 	elseif cl == 2387 then
-		cw('bl',savevalue.." is going to be coming to my house on Sunday...?")
+		local pname
+		if choicepick == 'n' then
+			pname = tr.names[2]
+		else
+			pname = tr.names[3]
+		end
+		cw('bl',pname.." is going to be coming to my house on Sunday...?")
 	
 	elseif cl >= 2388 then
 		if help_sayori then
@@ -1297,7 +1303,7 @@ end
 
 function ch3_end_natsuki()
 	if cl == 2250 then
-		savevalue = "Natsuki"
+		savevalue = "n"
 		cw('mc',"Well, baking sounds like it could be fun...")
 	elseif cl == 2251 then
 		cw('mc',"And you guys made it sound like a lot of work, so it could probably use two people.")
@@ -1632,7 +1638,7 @@ end
 
 function ch3_end_yuri()
 	if cl == 2250 then
-		savevalue = "Yuri"
+		savevalue = "y"
 		cw('mc',"Well, I'll probably be most useful helping out Yuri...")
 	elseif cl == 2251 then
 		updateYuri('2','n')

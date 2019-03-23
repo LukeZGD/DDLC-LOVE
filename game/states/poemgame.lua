@@ -1,4 +1,4 @@
-require 'scripts/poemwords'
+require('scripts/'..settings.lang..'/poemwords')
 
 local poemword = 1
 local progress = '1'
@@ -72,9 +72,9 @@ function poemgamefinish()
 	--determine poemwinner
 	if persistent.ptr == 0 then
 		if chapter == 2 then
-			if choicepick == 'Natsuki' then
+			if choicepick == 'n' then
 				nPoint = nPoint + 5
-			elseif choicepick == 'Yuri' then
+			elseif choicepick == 'y' then
 				yPoint = yPoint + 5
 			else
 				sPoint = sPoint + 5
@@ -159,6 +159,7 @@ function poemgame()
 	
 	if poemstate == 0 then 
 		poemtime = lg.newImage('images/gui/poemgame/poemtime.png')
+		poemtime2 = lg.newImage('images/gui/poemgame/poemtime2.png')
 	end
 	
 	poemword = 1
@@ -237,9 +238,16 @@ function drawPoemGame()
 		lg.draw(m_sticker_1,130,500)
 	end
 	
-	if poemstate == 0 then
+	if poemstate == 0 and settings.lang == 'eng' then
+		lg.setColor(255,255,255,alpha)
+		lg.draw(poemtime)
+		lg.draw(poemtime2)
+	elseif poemstate == 0 and settings.lang ~= 'eng' then
 		lg.setColor(255,255,255,alpha)
 		lg.draw(poemtime,0,0)
+		lg.setColor(0,0,0,alpha)
+		lg.setFont(allerfont)
+		lg.print(tr.poemtime,360,255)
 	elseif eyes_in then
 		lg.setColor(0,0,0)
 		lg.rectangle('fill',0,0,1280,725)

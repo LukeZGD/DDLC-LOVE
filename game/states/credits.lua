@@ -85,7 +85,7 @@ function drawCredits()
 		lg.draw(splashw)
 		lg.setFont(allerfont)
 		lg.print('DDLC-LOVE',5,615)
-		lg.print('Unofficial port by LukeeGD',5,660)
+		lg.print(tr.splash[16],5,645)
 	end
 	
 	lg.setColor(255,255,255)

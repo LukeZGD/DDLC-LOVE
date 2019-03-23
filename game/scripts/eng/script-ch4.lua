@@ -6,7 +6,7 @@ function ch4script()
 		bgUpdate('residential')
 		cw('bl',"It's already Sunday.")
 	elseif cl > 1 and cl < 10 then
-		if savevalue == "Natsuki" then
+		if savevalue == "n" then
 			if cl == 2 then
 				cw('bl',"I've been getting increasingly anxious about Natsuki's upcoming visit.")
 			elseif cl == 3 then
@@ -568,7 +568,7 @@ function ch4script()
 	elseif cl == 243 then
 		cw('bl',"I should just focus on what's ahead of me!")
 	elseif cl >= 244 then
-		if savevalue == 'Natsuki' then
+		if savevalue == 'n' then
 			ch4_exclusive_natsuki()
 		else
 			ch4_exclusive_yuri()

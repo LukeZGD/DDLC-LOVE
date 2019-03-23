@@ -1,6 +1,8 @@
 local ch2_winner = poemwinner[2]
-if ch2_winner == "Sayori" then
-	ch2_winner = "Yuri"
+if ch2_winner == "Sayori" or ch2_winner == "Yuri" then
+	ch2_winner = tr.names[3]
+else
+	ch2_winner = tr.names[2]
 end
 
 function ch2script()
@@ -1317,7 +1319,7 @@ function ch2script()
 		choice_enable()
 	elseif cl >= 1948 and cl < 1973 then
 		if choicepick == "I would walk home with "..ch2_winner.."." or choicepick == 'n' or choicepick == 'y' then
-			if ch2_winner == 'Natsuki' or choicepick == 'n' then
+			if ch2_winner == tr.names[2] or choicepick == 'n' then
 				choicepick = 'n'
 				ch2_end_natsuki()
 			else
@@ -1352,7 +1354,7 @@ function ch2_end_sayori()
 	elseif cl == 1951 then
 		cw('s',"B-But...")
 	elseif cl == 1952 then
-		if ch2_winner == "Natsuki" then
+		if ch2_winner == tr.names[2] then
 			cw('s',"She's so cute and fun to be around...")
 		else
 			cw('s',"She's so beautiful and smart...")

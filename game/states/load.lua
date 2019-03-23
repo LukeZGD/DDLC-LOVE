@@ -1,4 +1,4 @@
-local l_timer = 94
+l_timer = 95
 local err = ''
 local savedir
 local errtime = 0
@@ -19,23 +19,14 @@ function updateLoad()
 	end
 	
 	--loading assets
-	if l_timer == 95 then
-		m1 = lg.newFont('fonts/m1.ttf',28)
-		y1 = lg.newFont('fonts/y1.ttf',30)
+	if l_timer == 96 then
 		consolefont = lg.newFont('fonts/F25_Bank_Printer.ttf',18)
 		allerfont = lg.newFont('fonts/Aller_Rg.ttf',22)
 		lg.setFont(allerfont)
 		
-	elseif l_timer == 96 then
-		s1 = lg.newFont('fonts/s1.ttf',32)
-		n1 = lg.newFont('fonts/n1.ttf',26)
-		deffont = lg.newFont('fonts/VerilySerifMono.ttf',23)
-		halogenfont = lg.newFont('fonts/Halogen.ttf',28)
-		rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24)
-		
 	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('audio/sfx/select'..'.mp3', 'static')
-		sfx2 = love.audio.newSource('audio/sfx/hover'..'.mp3', 'static')
+		sfx1 = love.audio.newSource('audio/sfx/select'..'.mp3','static')
+		sfx2 = love.audio.newSource('audio/sfx/hover'..'.mp3','static')
 		menu_bg_m = lg.newImage("images/gui/menu_bg_m.png")
 		gui = {}
 		gui.keysbox = lg.newImage("images/gui/button/box.png")
@@ -65,11 +56,36 @@ function updateLoad()
 		gui.scrhover = lg.newImage('images/gui/slider/horizontal_hover_thumb.png')		
 		
 	elseif l_timer == 99 then
-		local file = love.filesystem.getInfo('persistent')
-		if file then
-			checkLoad()
-		else
+	
+		--set your custom fonts for translations here!
+		if settings.lang == 'eng' then
+			m1 = lg.newFont('fonts/m1.ttf',28) --monika poem font
+			y1 = lg.newFont('fonts/y1.ttf',30) --yuri poem font
+			s1 = lg.newFont('fonts/s1.ttf',32) --sayori poem font
+			n1 = lg.newFont('fonts/n1.ttf',26) --natsuki poem font
+			deffont = lg.newFont('fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
+			halogenfont = lg.newFont('fonts/Halogen.ttf',28) --poem game font
+			rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24) --charactername font
+		--[[
+		elseif settings.lang == 'languagecode' then
+			m1 = lg.newFont('fonts/nameoffont.ttf',fontsize)
+		]]
+		end
+		
+		local f1 = love.filesystem.getInfo('persistent')
+		local f2 = false
+		if love.filesystem.getInfo('settings.sav') then
+			if settings.lang then
+				f2 = true
+				require('scripts/'..settings.lang..'/text')
+			end
+		end
+		if (not f1 and not f2) or (f1 and not f2) then
+			changeState('language')
+		elseif f2 and not f1 then
 			changeState('newgame')
+		elseif f1 and f2 then
+			checkLoad()
 		end
 	elseif l_timer == 100 then
 		lg.setBackgroundColor(255,255,255)
@@ -78,18 +94,9 @@ function updateLoad()
 end
 
 function checkLoad()
-	if love.filesystem.getInfo('persistent') then
-		loadpersistent()
-	end
-	
-	if love.filesystem.getInfo('settings.sav') then
-		loadsettings()
-		if not settings.masvol then
-			settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70}
-			savesettings()
-		end
-		game_setvolume()
-	end
+	loadpersistent()
+	loadsettings()
+	game_setvolume()
 	
 	if g_system == 'Switch' then
 		savedir = 'sdmc:/switch/DDLC-LOVE/'
@@ -107,14 +114,11 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = love.math.random(0, 63)
+	if not settings.lang then
+		changeState('language')
+	end
 	if not persistent.act2 then
-		err = [[
-		Error!
-		Old save data detected, and it is not compatible with this version of DDLC-LOVE.
-		Please delete all save data and try again.
-		
-		Delete persistent and save files in here:
-		> ]]..savedir..'\n\nPress Y to quit'
+		err = tr.error[2]..savedir..'\n\n'..tr.error[1]
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
 	elseif ghostmenu_chance == 0 and persistent.ptr == 2 and persistent.chr.s == 0 then
@@ -124,26 +128,13 @@ function checkLoad()
 	elseif persistent.chr.m == 2 then
 		changeState('game','autoload')
 	elseif model == '1000' then
-		err = [[
-		Error!
-		PSP 1000 system detected. DDLC-LOVE will not run on this model because
-		of the lack of RAM. (32 MB on 1000, 64 MB on other models)
-		]]
+		err = tr.error[3]..'\n\n'..tr.error[1]
 	elseif os_timecheck then
 		love.math.setRandomSeed(os.time())
 		math.randomseed(os.time())
 		l_timer = 100
 	else
-		err = [[
-		Warning!
-		os.time() returned nil
-		
-		Your device might have never been online, or this is just a bug that I won't be able to fix.
-		The game will still launch, but some stuff that rely on random might be broken.
-		
-		Press A to continue
-		Press Y to quit
-		]]
+		err = tr.error[4]..'\n'..tr.error[1]
 		errtime = 1
 	end
 end
