@@ -1,7 +1,10 @@
+--[[
 audio_ext = '.ogg'
 if g_system == 'PSP' then
 	audio_ext = '.mp3'
 end
+]]
+audio_ext = '.mp3'
 
 local audio_wloop = {'1','2','3','4','4g','5','5_monika','5_natsuki','5_sayori','5_yuri','6','7g','8','10','d','monika-end'}
 
