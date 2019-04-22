@@ -54,13 +54,28 @@ function dripText(text,charactersPerSecond,startTime)
 		startTime = love.timer.getTime()
 		myTextStartTime = startTime
 		last_text = text
+		print_full_text = false
 	end
 
 	currentTime = love.timer.getTime()
 	if (currentTime <= startTime) or startTime == 0 then return '' end
 	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
 	if charactersPerSecond == nil then charactersPerSecond = 100 end
-	return text:sub(1,math.min(math.floor((currentTime-startTime)*charactersPerSecond),text:len()))
+	length = math.floor((currentTime-startTime)*charactersPerSecond)
+	length = math.max(length,1)
+	length = math.min(length,text:len())
+
+	if print_full_text then
+		return text
+	end
+
+	if length == text:len() then
+		print_full_text = true
+	else
+		print_full_text = false
+	end
+
+	return text:sub(1,length)
 end
 
 function easeQuadOut(t,b,c,d)
