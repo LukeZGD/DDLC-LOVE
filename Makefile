@@ -10,7 +10,9 @@ ifeq ($(strip $(DEVKITARM)),)
 $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
 
-# LOVEPOTION_3DS := $(CURDIR)/LovePotion.elf
+LOVEPOTION_3DS := $(CURDIR)/LovePotion.elf
+
+UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
 	makerom    := $(CURDIR)/tools/linux/makerom
