@@ -10,6 +10,7 @@ function love.load()
 	
 	lg.setBackgroundColor(0,0,0)	
 	myTextStartTime = love.timer.getTime()
+	last_text = ""
 	autotimer = 0
 	autoskip = 0
 	sectimer = 0

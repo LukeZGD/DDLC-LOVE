@@ -50,6 +50,12 @@ function lg.draw(drawable, ...)
 end
 
 function dripText(text,charactersPerSecond,startTime)
+	if text ~= last_text then
+		startTime = love.timer.getTime()
+		myTextStartTime = startTime
+		last_text = text
+	end
+
 	currentTime = love.timer.getTime()
 	if (currentTime <= startTime) or startTime == 0 then return '' end
 	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
