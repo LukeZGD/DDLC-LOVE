@@ -158,10 +158,15 @@ function game_keypressed(key)
 end
 
 function newgame_keypressed(key)
-	if (key == 'a' or key == 'lbutton') then 
-		autotimer = 0
-		cl = cl + 1 --next script
-		xaload = 0
+	if (key == 'a' or key == 'lbutton') then
+		if print_full_text then
+			autotimer = 0
+			cl = cl + 1 --next script
+			xaload = 0
+			print_full_text = false
+		else
+			print_full_text = true
+		end
 		collectgarbage()
 		collectgarbage()
 	end
