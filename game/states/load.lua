@@ -73,13 +73,13 @@ function updateLoad()
 		end
 		
 		local f1 = love.filesystem.getInfo('persistent')
-		local f2 = false
-		if love.filesystem.getInfo('settings.sav') then
-			if settings.lang then
-				f2 = true
-				require('scripts/'..settings.lang..'/text')
-			end
+		local f2 = love.filesystem.getInfo('settings.sav')
+		require('scripts/eng/text')
+		--[[
+		if f2 and  settings.lang then
+			require('scripts/'..settings.lang..'/text')
 		end
+		]]
 		if (not f1 and not f2) or (f1 and not f2) then
 			changeState('language')
 		elseif f2 and not f1 then
