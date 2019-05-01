@@ -215,23 +215,25 @@ function audioUpdate(audiox, forceload) --audio changes
 			audio_bgm = love.audio.newSource('audio/bgm/'..audiox..audio_ext, 'stream')
 			
 			--custom audio looping load
-			if audiox == '2g' then
-				audio_bgmloop = love.audio.newSource('audio/bgm/2re'..audio_ext, 'stream')
-			elseif audiox == '3g' or audiox == '3g2' then
-				audio_bgmloop = love.audio.newSource('audio/bgm/3re'..audio_ext, 'stream')
-			elseif audiox == '7' then
-				if persistent.ptr == 2 then
-					audio_bgmloop = love.audio.newSource('audio/bgm/7a'..audio_ext, 'stream')
+			if g_system ~= 'PS3' then
+				if audiox == '2g' then
+					audio_bgmloop = love.audio.newSource('audio/bgm/2re'..audio_ext, 'stream')
+				elseif audiox == '3g' or audiox == '3g2' then
+					audio_bgmloop = love.audio.newSource('audio/bgm/3re'..audio_ext, 'stream')
+				elseif audiox == '7' then
+					if persistent.ptr == 2 then
+						audio_bgmloop = love.audio.newSource('audio/bgm/7a'..audio_ext, 'stream')
+					else
+						audio_bgmloop = love.audio.newSource('audio/bgm/7re'..audio_ext, 'stream')
+					end
 				else
-					audio_bgmloop = love.audio.newSource('audio/bgm/7re'..audio_ext, 'stream')
+					audio_bgmloop = audio_bgm
 				end
-			else
-				audio_bgmloop = audio_bgm
-			end
-			for i = 1, #audio_wloop do
-				if audiox == audio_wloop[i] then
-					audio_bgmloop = love.audio.newSource('audio/bgm/'..audiox..'re'..audio_ext, 'stream')
-					audio_bgmloop:setLooping(true)
+				for i = 1, #audio_wloop do
+					if audiox == audio_wloop[i] then
+						audio_bgmloop = love.audio.newSource('audio/bgm/'..audiox..'re'..audio_ext, 'stream')
+						audio_bgmloop:setLooping(true)
+					end
 				end
 			end
 			
