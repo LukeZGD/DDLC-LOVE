@@ -74,18 +74,34 @@ function outlineText(text,x,y,type,arg1)
 end
 
 function dripText(text,cps,sTime)
+	if text ~= last_text then
+		sTime = love.timer.getTime()
+		startTime = sTime
+		last_text = text
+		print_full_text = false
+	end
+	
 	local cTime = getTime
 	local sTime2
-	if (cTime <= sTime) or sTime == 0 then
-		return ''
+	
+	if (cTime <= sTime) or sTime == 0 then return '' end
+	if cTime > sTime then sTime2 = getTime end
+	if not cps then cps = 100 end
+	length = math.floor((cTime-sTime)*cps)
+	length = math.max(length,1)
+	length = math.min(length,text:len())
+
+	if print_full_text then
+		return text
 	end
-	if cTime > sTime then
-		sTime2 = getTime
+
+	if length == text:len() then
+		print_full_text = true
+	else
+		print_full_text = false
 	end
-	if not cps then
-		cps = 100
-	end
-	return text:sub(1,math.min(math.floor((cTime-sTime)*cps),text:len()))
+
+	return text:sub(1,length)
 end
 
 function easeQuadOut(t,b,c,d)

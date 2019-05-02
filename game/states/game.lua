@@ -136,10 +136,14 @@ end
 function newgame_keypressed(key)
 	if (key == 'a' or key == 'lbutton') and unitimer >= uniduration then 
 		textboxd = true
-		autotimer = 0
-		cl = cl + 1 --next script
-		xaload = 0
-		unitimer = 0
+		if print_full_text then
+			autotimer = 0
+			cl = cl + 1 --next script
+			xaload = 0
+			unitimer = 0
+		else
+			print_full_text = true
+		end
 		collectgarbage()
 		collectgarbage()
 	elseif key == 'r' or key == 'rbutton' or key == 'plus' then
