@@ -1,6 +1,6 @@
 lg = love.graphics
 local xps = {c=260,ct=285,textbox=230,namebox=260}
-local yps = {c=593,ct=532,textbox=565,namebox=526}
+local yps = {c={593,623,653,683},ct=532,textbox=565,namebox=526}
 local gui_ctc_x = 1015
 local xh
 local yh
@@ -165,8 +165,12 @@ function drawTextBox()
 		else
 			lg.setFont(allerfont)
 		end
-		if c_disp then
-			outlineText(c_disp,xps.c,yps.c,'c_disp')
+		if c_disp[1] and g_system == 'PS3' then
+			for i = 1, #c_disp do
+				outlineText(c_disp[i],xps.c,yps.c[i],'c_disp')
+			end
+		elseif c_disp[1] then
+			outlineText(c_disp[1],xps.c,yps.c[1],'c_disp')
 		end
 	end
 end

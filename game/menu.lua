@@ -281,22 +281,30 @@ function menu_draw()
 	elseif menu_type == 'history' then
 		menu_drawstuff('overlay')
 		lg.draw(gui.history)
-		
 		lg.setColor(0,0,0)
-		local ca = {}
+		
 		local ca1 = {70,140,210}
-		local cdisp = {}
 		local ypsc = {35,65,95,125}
 		
 		if chapter == 23 and cl >= 2001 then
 			outlineText(tr.menuhelp[11],375,120+(history_scr*75))
 		else
 			for i = 1, #history do
-				--#history+1-i
-				if global_os == 'LOVE-WrapLua' then
-					lg.print(history[i],400,3600+(history_scr*75)-(i*120))
+				local temptext = wrap(history[i],70)
+				local ypos = 3600+(history_scr*75)-(i*120)
+				
+				if global_os == 'LOVE-WrapLua' and g_system == 'PS3' then
+					local cdisp = wrap_old(history[i],ca1)
+					for j = 1, #cdisp do
+						if cdisp[j] then
+							lg.print(cdisp[j],400,ypos+ypsc[j])
+						end
+					end
+					
+				elseif global_os == 'LOVE-WrapLua' then
+					lg.print(temptext,400,ypos)
 				else
-					outlineText(history[i],400,3600+(history_scr*75)-(i*120),'c_disp')
+					outlineText(temptext,400,ypos,'c_disp')
 				end
 			end
 		end

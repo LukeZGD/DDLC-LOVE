@@ -1,9 +1,11 @@
 local stext
+local c_a1
 local tspd
 local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
+c_disp = {}
 history = {}
 
 function wrap(str, limit)
@@ -15,6 +17,22 @@ function wrap(str, limit)
 		end
 	end
 	return str:gsub("(%s+)()(%S+)()", check)
+end
+
+function wrap_old(string,limit)
+	local ca = {}
+	local tableout = {}
+	for j = 1, 3 do
+		ca[j] = string.find(string, '%s', limit[j])
+		if ca[j] == nil then ca[j] = limit[j] + 3 end
+	end
+	
+	tableout[1] = string.sub(string, 1, ca[1])
+	for j = 2, 4 do
+		tableout[j] = string.sub(string, ca[j-1]+1, ca[j])
+	end
+	
+	return tableout
 end
 
 function cw(p1, stext, tag)
@@ -66,24 +84,28 @@ function cw(p1, stext, tag)
 	end
 	
 	if style_edited then
-		c_a1 = 52
+		c_a1 = {52,104,156}
 	else
-		c_a1 = 70
+		c_a1 = {70,140,210}
 	end
-	c_disp = wrap(textx,c_a1)
 	
-	local temptext = wrap(stext,70)
-	local temptext2 = ct..': '..temptext
-	if history[1] ~= temptext and history[1] ~= temptext2 then
+	if g_system == 'PS3' then
+		c_disp = wrap_old(textx,c_a1)
+	else
+		c_disp[1] = wrap(textx,c_a1[1])
+	end
+	
+	local temptext = ct..': '..stext
+	if history[1] ~= stext and history[1] ~= temptext then
 		for i = 30, 1, -1 do
 			history[i] = history[i-1]
 		end
 		if style_edited then
 			history[1] = ''
 		elseif ct == '' then
-			history[1] = temptext
+			history[1] = stext
 		else
-			history[1] = temptext2
+			history[1] = temptext
 		end
 	end
 	
@@ -103,7 +125,7 @@ function cw(p1, stext, tag)
 end
 
 function scriptCheck()
-	c_disp = ''
+	c_disp = {'','','',''}
 	
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
