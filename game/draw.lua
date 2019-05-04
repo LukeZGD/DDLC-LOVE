@@ -26,6 +26,12 @@ function drawBottomScreen()
 	end
 end
 
+local oldNewImage = lg.newImage
+function lg.newImage(path)
+    path = path:gsub(".png", ".t3x")
+    return oldNewImage(path)
+end
+
 --compatiblity for LOVE 11 and above
 local lgsetColor = lg.setColor
 function lg.setColor(...)
