@@ -20,6 +20,7 @@ You can reset the save data and start over by deleting all of the save files. Th
 
 ### Building:
 - All 3 versions share the same code, but they all have different processes for building.
+- Game assets need to be prepared first in game/assets folder, from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo.
 - **Switch** - Instructions are in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
 - **PS Vita and PSP (prerequisite)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) is required beside the game folder (script.lua/index.lua and the LOVE-WrapLua folder). 
 - **PS Vita** - use the ONEmakerGUI included with [ONEluav4R1 for the PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
