@@ -47,9 +47,9 @@ function loadSayori()
 end
 
 function unloadSayori()
-	imageFree(sl)
-	imageFree(sr)
-	imageFree(s_a)
+	sl = nil
+	sr = nil
+	s_a = nil
 end
 
 function loadYuri()	
@@ -91,9 +91,9 @@ function loadYuri()
 end
 
 function unloadYuri()
-	imageFree(yl)
-	imageFree(yr)
-	imageFree(y_a)
+	yl = nil
+	yr = nil
+	y_a = nil
 end
 
 function loadNatsuki()
@@ -143,9 +143,9 @@ function loadNatsuki()
 end
 
 function unloadNatsuki()
-	imageFree(nl)
-	imageFree(nr)
-	imageFree(n_a)
+	nl = nil
+	nr = nil
+	n_a = nil
 end
 
 function loadMonika()
@@ -181,9 +181,9 @@ function loadMonika()
 end
 
 function unloadMonika()
-	imageFree(ml)
-	imageFree(mr)
-	imageFree(m_a)
+	ml = nil
+	mr = nil
+	m_a = nil
 end
 
 function unloadAll(x)

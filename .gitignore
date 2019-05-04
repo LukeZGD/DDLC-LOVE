@@ -1,6 +1,8 @@
-
+*.png
+*.ogg
+*.mp3
+*.ttf
 *.db
-
 *.nro
 *.nacp
 *.3dsx

@@ -10,7 +10,7 @@ function bgUpdate(bgx, forceload) --background changes
 	
 	if xaload == 0 or forceload then
 		if autoskip == 0 and not forceload then bgch2 = bgch end
-		imageFree(bgch)
+		bgch = nil		
 		bgch = lg.newImage('assets/images/bg/'..bgx..'.png')
 	end	
 	bg1 = bgx
@@ -19,7 +19,7 @@ end
 function cgUpdate(cgx, forceload) --cg changes
 	if cg1 ~= cgx or forceload then
 		if autoskip == 0 and not forceload then cgch2 = cgch end
-		imageFree(cgch)
+		cgch = nil		
 		cgch = lg.newImage('assets/images/cg/'..cgx..'.png')
 	end	
 	cg1 = cgx
@@ -34,7 +34,7 @@ function loaderGame()
 		bgalpha = math.max(bgalpha - 15, 0)
 		if bgalpha == 0 then
 			bgalpha = 255
-			imageFree(bgch2)
+			bgch2 = nil
 		end
 	end
 	
@@ -42,7 +42,7 @@ function loaderGame()
 		cgalpha = math.max(cgalpha - 15, 0)
 		if cgalpha == 0 then
 			cgalpha = 255
-			imageFree(cgch2)
+			cgch2 = nil
 		end
 	end
 end

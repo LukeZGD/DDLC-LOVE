@@ -18,8 +18,12 @@ end
 
 function unloadanimframe()
 	for i = 1, 4 do
-		imageFree(animframe[i])
+		animframe[i] = nil
 	end
+end
+
+function unloadvignette()
+	vignette = nil
 end
 
 function event_init(etype,arg1,arg2)
@@ -136,66 +140,66 @@ function event_end(arg1)
 	bgimg_disabled = false
 	
 	if arg1 == 's_kill' then
-		imageFree(s_kill)
-		imageFree(s_kill2)
-		imageFree(s_kill_bg)
-		imageFree(s_kill_bg2)
-		imageFree(s_kill_bgzoom)
-		imageFree(splash_glitch)
-		imageFree(exception)
+		s_kill = nil
+		s_kill2 = nil
+		s_kill_bg = nil
+		s_kill_bg2 = nil
+		s_kill_bgzoom = nil
+		splash_glitch = nil
+		exception = nil
 		posX = -40
 		posY = 0
 		unloadanimframe()
 	elseif arg1 == 'next' then
 		event_endnext()
 	elseif arg1 == 's_glitch' then
-		imageFree(s_glitch1)
-		imageFree(s_glitch2)
+		s_glitch1 = nil
+		s_glitch2 = nil
 	elseif arg1 == 'n_blackeyes' then
-		imageFree(n_blackeyes)
+		n_blackeyes = nil
 		event_endnext()
 	elseif arg1 == 'ny_argument2' then
-		imageFree(vignette)
+		unloadvignette()
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'yuri_glitch' then
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'show_vignette' then
-		imageFree(vignette)
+		unloadvignette()
 	elseif arg1 == 'yuri_eyes' then
-		imageFree(eyes1)
-		imageFree(eyes2)
+		eyes1 = nil
+		eyes2 = nil
 		event_endnext()
 	elseif arg1 == 'yuri_ch23' then
-		imageFree(eyes1)
-		imageFree(bg_glitch)
+		eyes1 = nil
+		bg_glitch = nil
 		unloadanimframe()
 	elseif arg1 == 'm_ch23ex' then
-		imageFree(ex3top)
+		ex3top = nil
 	elseif arg1 == 'natsuki_ch22' then
-		imageFree(ghost3)
-		imageFree(ghost3_1)
-		imageFree(ghost3_2)
-		imageFree(ghost3_3)
-		imageFree(ghost_blood)
+		ghost3 = nil
+		ghost3_1 = nil
+		ghost3_2 = nil
+		ghost3_3 = nil
+		ghost_blood = nil
 		event_endnext()
 	elseif arg1 == 'yuri_kill' then
-		imageFree(stab1)
-		imageFree(stab2)
-		imageFree(stab3)
-		imageFree(stab4)
-		imageFree(stab5)
-		imageFree(stab6)
-		imageFree(stab6f)
+		stab1 = nil
+		stab2 = nil
+		stab3 = nil
+		stab4 = nil
+		stab5 = nil
+		stab6 = nil
+		stab6f = nil
 		event_endnext()
 	elseif arg1 == 'monika_end' then
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'beforecredits' then
-		imageFree(end_glitch1)
-		imageFree(end_glitch2)
-		imageFree(end_glitch3)
+		end_glitch1 = nil
+		end_glitch2 = nil
+		end_glitch3 = nil
 		unloadanimframe()
 		event_endnext()
 	end

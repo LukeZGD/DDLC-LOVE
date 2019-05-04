@@ -6,8 +6,8 @@ function audioUpdate(audiox, forceload) --audio changes
 		if audio_bgm then audio_bgm:stop() end
 		if audio_bgmloop then audio_bgmloop:stop() end
 		
-		audioFree(audio_bgm)
-		audioFree(audio_bgmloop)
+		audio_bgm = nil
+		audio_bgmloop = nil
 		
 		if audiox ~= '' and audiox ~= '0' then
 			audio_bgm = love.audio.newSource('assets/audio/bgm/'..audiox..audio_ext, 'stream')
@@ -45,7 +45,7 @@ end
 
 function sfxplay(sfx) --sfx stuff
 	if xaload == 0 then
-		audioFree(sfxp)
+		sfxp = nil
 		
 		if sfx ~= '' then
 			sfxp = love.audio.newSource('assets/audio/sfx/'..sfx..audio_ext, 'static')

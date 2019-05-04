@@ -1,7 +1,7 @@
 local skipspeed = 4
-local bgalpha = 255
-local cgalpha = 255
 local textboxd = true
+bgalpha = 255
+cgalpha = 255
 
 function drawGame()
 	lg.setBackgroundColor(0,0,0)

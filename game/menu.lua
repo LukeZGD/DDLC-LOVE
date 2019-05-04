@@ -17,13 +17,13 @@ local sxp = 0
 local history_scr = -39
 menu_alpha = 0
 
-function savepicLoad()
+function savepicLoad(i)
 	save_bpic[i] = lg.newImage('assets/images/bg/save/'..loadstring('return save'..chch..'.bg1')()..'.png')
 end
 
 function savepicFree()
 	for i = 1, #save_bpic do
-		imageFree(save_bpic[i])
+		if save_bpic[i] then save_bpic[i] = nil end
 	end
 end
 
@@ -46,7 +46,7 @@ function menu_enable(m)
 			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
 				loaddatainfo(chch)
 				save_date[i] = loadstring('return save'..chch..'.date')()
-				if menu_type ~= 'title' then savepicLoad() end
+				if menu_type ~= 'title' then savepicLoad(i) end
 			else
 				save_date[i] = 'empty slot'
 			end
