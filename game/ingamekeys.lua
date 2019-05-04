@@ -44,7 +44,7 @@ function ingamekeys_draw()
 		end
 	end
 	lg.draw(gui.keysbox,(keycursorX*50)+282,(keycursorY*50)+250)
-	lg.print("Y - Toggle Caps Lock",290,500)
+	lg.print("Triangle - Toggle Caps Lock",290,500)
 end
 
 function ingamekeys_keypressed(key)

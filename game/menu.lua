@@ -388,8 +388,14 @@ function menu_confirm()
 		
 		if m_selected == 2 then --new game
 			if player == '' then --keyboard input for player name
-				if global_os == 'LOVE-WrapLua' and g_system ~= 'PS3' then
-					love.keyboard.setTextInput(true)
+				if (global_os == 'LOVE-WrapLua' and g_system ~= 'PS3') or g_system == 'Switch' then
+					local input = {}
+					input["type"] = "standard"
+					input["header"] = "Enter Player Name"
+					input["subheader"] = ""
+					input["hint"] = "Enter Player Name"
+					input["isPassword"] = false
+					love.keyboard.showTextInput(input)
 				else
 					require 'ingamekeys'
 					ingamekeys = true
