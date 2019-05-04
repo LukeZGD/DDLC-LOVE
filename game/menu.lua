@@ -215,7 +215,11 @@ function menu_confirm()
 		
 		if m_selected == 2 then --new game
 			if player == '' and global_os == 'Horizon' then --keyboard input for player name
-				love.keyboard.setTextInput(true)
+				local input = {}
+				input["type"] = "basic"
+				input["hint"] = "Enter Player Name"
+				input["isPassword"] = false
+				love.keyboard.showTextInput(input)
 			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
 			end
