@@ -31,8 +31,6 @@ function lg.draw(drawable, ...)
 	local args = {...}
 	if drawable then
 		lgdraw(drawable,args[1],args[2],args[3],args[4],args[5])
-	elseif dvertype == 'Test' then
-		--lg.print('NODRAW',args[1],args[2])
 	end
 end
 
@@ -83,6 +81,7 @@ function dripText(text,cps,sTime)
 	
 	local cTime = getTime
 	local sTime2
+	local length
 	
 	if (cTime <= sTime) or sTime == 0 then return '' end
 	if cTime > sTime then sTime2 = getTime end
@@ -100,7 +99,7 @@ function dripText(text,cps,sTime)
 	else
 		print_full_text = false
 	end
-
+	
 	return text:sub(1,length)
 end
 
@@ -153,10 +152,6 @@ function fadeOut(x)
 			alpha = 255
 		end
 	end
-end
-
-function cgHide()
-	cgUpdate('blank')
 end
 
 function drawTextBox()

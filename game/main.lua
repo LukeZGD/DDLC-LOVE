@@ -1,21 +1,24 @@
 dversion = 'v1.0.3'
 dvertype = ''
-
-getTime = 0
 global_os, g_system = love.system.getOS()
+
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
 end
 
+require 'loader/audio'
+require 'loader/images'
+require 'loader/characters'
+require 'loader/states'
 require 'draw'
-require 'resources'
 require 'saveload'
 require 'menu'
 require 'scripts/script'
 
 function love.load()
 	lg.setBackgroundColor(0,0,0)
+	getTime = 0
 	startTime = getTime
 	last_text = ""
 	print_full_text = false

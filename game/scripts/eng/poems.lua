@@ -548,13 +548,13 @@ b3AgbXlzZWxmLg==]]};
 		sfxplay('pageflip')
 		if poem_author == 'yuri' then
 			if yuri_2 then
-				poembg = lg.newImage('images/bg/poem_y1.png')
+				poembg = lg.newImage('assets/images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
 				if is3DS then 
-                    poembg = lg.newImage('images/bg/poemxp.png')
+                    poembg = lg.newImage('assets/images/bg/poemxp.png')
                 elseif global_os == 'LOVE-WrapLua' then
-                    poembg = lg.newImage('images/bg/poem1.png')
+                    poembg = lg.newImage('assets/images/bg/poem1.png')
                 end
 				
 				audioUpdate('5_yuri2')

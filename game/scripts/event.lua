@@ -6,22 +6,6 @@ eventvar4 = 0
 eventvar5 = 0
 sectimer = 0
 
-function loadNoise()
-	for i = 1, 4 do
-		loadstring('animframe'..i..' = lg.newImage("images/bg/noise'..i..'.png")')()
-	end
-end
-
-function loadVignette()
-	vignette = lg.newImage('images/bg/vignette.png')
-end
-
-function loadYuriGlitch()
-	for i = 1, 4 do
-		loadstring('animframe'..i..' = lg.newImage("images/yuri/glitch'..i..'.png")')()
-	end
-end
-
 function event_start(etype, arg1)
 	autotimer = 0
 	autoskip = 0
@@ -222,14 +206,6 @@ function drawanimframe(x,y)
 		animframe = animframe1
 	end
 end
-
-function unloadanimframe()
-	animframe1 = nil
-	animframe2 = nil
-	animframe3 = nil
-	animframe4 = nil
-end
-
 function event_update(dt)
 	event_timer = event_timer + dt
 	

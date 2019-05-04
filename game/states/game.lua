@@ -52,23 +52,18 @@ end
 
 function updateGame(dt)
 	scriptCheck()
-	timerCheck()
 	
-	if bgch2 then
-		bgalpha = math.max(bgalpha - 15, 0)
-		if bgalpha == 0 then
-			bgalpha = 255
-			bgch2 = nil
-		end
+	--timercheck
+	if xaload == 0 then
+		startTime = getTime
+	end
+	xaload = xaload + 1
+	if unitimer < uniduration then
+		unitimer = unitimer + dt
 	end
 	
-	if cgch2 then
-		cgalpha = math.max(cgalpha - 15, 0)
-		if cgalpha == 0 then
-			cgalpha = 255
-			cgch2 = nil
-		end
-	end
+	--bgch2 and cgch2 stuff
+	loaderGame()
 	
 	--auto next script
 	if autotimer == 0 then

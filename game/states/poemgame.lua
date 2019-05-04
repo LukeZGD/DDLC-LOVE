@@ -148,20 +148,6 @@ function poemgame()
 	state = 'poemgame'
 	xaload = 0
 	
-	if persistent.ptr <= 2 then 
-		audioUpdate('4',true)
-		bg1 = 'notebook'
-		bgch = lg.newImage('images/bg/notebook.png')
-	elseif persistent.ptr == 3 then 
-		audioUpdate('ghostmenu')
-		bgch = lg.newImage('images/bg/notebook-glitch.png')
-	end
-	
-	if poemstate == 0 then 
-		poemtime = lg.newImage('images/gui/poemgame/poemtime.png')
-		poemtime2 = lg.newImage('images/gui/poemgame/poemtime2.png')
-	end
-	
 	poemword = 1
 	progress = '1'
 	sPoint = 0
@@ -193,7 +179,11 @@ function drawPoemGame()
 	else
 		lg.setBackgroundColor(0,0,0)
 		lg.setColor(255,255,255,alpha)
-		lg.draw(bgch, 0, 0)
+		if notebook and not notebook_glitch then
+			lg.draw(notebook)
+		elseif notebook_glitch then
+			lg.draw(notebook_glitch)
+		end
 	end
 	
 	lg.setColor(0,0,0)

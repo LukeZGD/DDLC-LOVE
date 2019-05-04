@@ -759,6 +759,7 @@ function ch20script()
 	alpha = 20
 	elseif cl >= 297 then
 	cl = 297
+	poemstate = 0
 	fadeOut(1)
 	
 	--1: x=80

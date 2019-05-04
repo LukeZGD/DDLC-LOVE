@@ -1,3 +1,4 @@
+require 'loader/assets_load'
 l_timer = 95
 local err = ''
 local savedir
@@ -18,68 +19,19 @@ function updateLoad()
 		l_timer = l_timer + 1
 	end
 	
-	--loading assets
-	if l_timer == 96 then
-		consolefont = lg.newFont('fonts/F25_Bank_Printer.ttf',18)
-		allerfont = lg.newFont('fonts/Aller_Rg.ttf',22)
-		lg.setFont(allerfont)
-		
-	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('audio/sfx/select'..audio_ext,'static')
-		sfx2 = love.audio.newSource('audio/sfx/hover'..audio_ext,'static')
-		menu_bg_m = lg.newImage("images/gui/menu_bg_m.png")
-		gui = {}
-		gui.keysbox = lg.newImage("images/gui/button/box.png")
-		gui.mmenu = lg.newImage("images/gui/overlay/main_menu.png")
-		gui.gmenu = lg.newImage("images/gui/overlay/game_menu.png")
-		gui.mainbuttons = lg.newImage("images/gui/overlay/mainbuttons.png")
-		gui.gamebuttons = lg.newImage("images/gui/overlay/gamebuttons.png")
-		gui.history = lg.newImage("images/gui/overlay/history.png")
-		gui.gamemenu = lg.newImage("images/gui/overlay/gamemenu.png")
-		gui.load = lg.newImage("images/gui/overlay/load.png")
-		gui.save = lg.newImage("images/gui/overlay/save.png")
-		gui.settings = lg.newImage("images/gui/overlay/settings.png")
-		gui.setbuttons = lg.newImage("images/gui/overlay/setbuttons.png")
-		
-	elseif l_timer == 98 then
-		--splash, title screen, gui elements, sfx
-		namebox = lg.newImage('images/gui/namebox.png')
-		textbox = lg.newImage('images/gui/textbox.png')
-		background_Image = lg.newImage('images/gui/menu_bg.png')
-		gui.check = lg.newImage('images/gui/button/check_selected_foreground.png')
-		gui.ctc = lg.newImage('images/gui/ctc.png')
-		gui.skip = lg.newImage('images/gui/skip.png')
-		gui.sidebar = lg.newImage('images/gui/overlay/sidebar.png')
-		gui.slothover = lg.newImage('images/gui/button/slot_hover_background.png')
-		gui.slotidle = lg.newImage('images/gui/button/slot_idle_background.png')
-		gui.scrbarh = lg.newImage('images/gui/scrollbar/horizontal_poem_bar.png')
-		gui.scrhover = lg.newImage('images/gui/slider/horizontal_hover_thumb.png')		
-		
-	elseif l_timer == 99 then
+	loaderAssets(l_timer)
 	
-		--set your custom fonts for translations here!
-		if settings.lang == 'eng' then
-			m1 = lg.newFont('fonts/m1.ttf',28) --monika poem font
-			y1 = lg.newFont('fonts/y1.ttf',30) --yuri poem font
-			s1 = lg.newFont('fonts/s1.ttf',32) --sayori poem font
-			n1 = lg.newFont('fonts/n1.ttf',26) --natsuki poem font
-			deffont = lg.newFont('fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
-			halogenfont = lg.newFont('fonts/Halogen.ttf',28) --poem game font
-			rifficfont = lg.newFont('fonts/RifficFree-Bold.ttf',24) --charactername font
-		--[[
-		elseif settings.lang == 'languagecode' then
-			m1 = lg.newFont('fonts/nameoffont.ttf',fontsize)
-		]]
-		end
-		
+	--save check
+	if l_timer == 99 then		
 		local f1 = love.filesystem.getInfo('persistent')
 		local f2 = love.filesystem.getInfo('settings.sav')
-		require('scripts/eng/text')
-		--[[
-		if f2 and  settings.lang then
+		
+		if f2 and settings.lang then
 			require('scripts/'..settings.lang..'/text')
+		else
+			require('scripts/eng/text')
 		end
-		]]
+		
 		if (not f1 and not f2) or (f1 and not f2) then
 			changeState('language')
 		elseif f2 and not f1 then
