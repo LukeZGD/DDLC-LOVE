@@ -194,9 +194,9 @@ function menu_update(dt)
 	end
     
     if menu_type == 'history' and global_os == 'Horizon' then
-		if (love.keyboard.isDown('down') or love.keyboard.isDown('cpaddown')) and history_scr > -27 then
+		if joystick:isGamepadDown('dpdown') and history_scr > -27 then
 			history_scr = history_scr - dt*10
-		elseif (love.keyboard.isDown('up') or love.keyboard.isDown('cpadup')) and history_scr < 0 then
+		elseif joystick:isGamepadDown('dpup') and history_scr < 0 then
 			history_scr = history_scr + dt*10
 		end
 	end
@@ -359,7 +359,7 @@ function m_select(arg)
 end
 
 function menu_keypressed(key)
-	if key == 'down' or key == 'cpaddown' then
+	if key == 'down' then
 		sfx2:play()
 		if m_selected <= menu_items-1 then
 			m_selected = m_selected + 1
@@ -368,7 +368,7 @@ function menu_keypressed(key)
 		end
 		m_select()
 		
-	elseif key == 'up' or key == 'cpadup' then
+	elseif key == 'up' then
 		sfx2:play()
 		if m_selected >= 3 then
 			m_selected = m_selected - 1
@@ -391,7 +391,7 @@ function menu_keypressed(key)
 		end
 		menu_previous = nil
 		
-	elseif key == 'left' or key == 'cpadleft' then
+	elseif key == 'left' then
 		if menu_type == 'settings' and m_selected <= 4 then
 			if cpick == 'Textbox Location' then
 				if settings.textloc == 'Bottom' then
@@ -421,7 +421,7 @@ function menu_keypressed(key)
 			end
 		end
 		
-	elseif key == 'right' or key == 'cpadright' then
+	elseif key == 'right' then
 		if menu_type == 'settings' and m_selected <= 4 then
 			if cpick == 'Textbox Location' then
 				menu_keypressed('left')

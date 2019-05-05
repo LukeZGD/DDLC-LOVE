@@ -45,7 +45,7 @@ function changeState(cstate,x)
 		require 'states/game'
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
-		poemfont = lg.newFont('standard',12)
+		poemfont = lg.newFont('standard',14)
 		if persistent.ptr <= 2 then
 			if persistent.ptr == 0 then
 				s_sticker_1 = lg.newImage('images/gui/poemgame/s_sticker_1.png')

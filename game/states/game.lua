@@ -111,9 +111,9 @@ function updateGame(dt)
 	end
 	
     if poem_enabled and poem_scroll and not menu_enabled then
-		if (love.keyboard.isDown('up') or love.keyboard.isDown('cpadup')) and poem_scroll.y < 1 then
+		if joystick:isGamepadDown('dpup') and poem_scroll.y < 1 then
 			poem_scroll.y = poem_scroll.y + dt*10
-		elseif (love.keyboard.isDown('down') or love.keyboard.isDown('cpaddown')) then
+		elseif joystick:isGamepadDown('dpdown') then
 			poem_scroll.y = poem_scroll.y - dt*10
 		end
 	end
