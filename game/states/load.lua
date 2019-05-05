@@ -35,12 +35,12 @@ function updateLoad()
 	
 	--loading assets
 	if l_timer == 95 then
-		font = lg.newFont('standard',12)
+		font = lg.newFont('standard',14)
 		lg.setFont(font)
 	
 	elseif l_timer == 96 then
-		m1 = lg.newFont('standard',14)
-		deffont = lg.newFont('standard',12)
+		m1 = lg.newFont('standard',16)
+		deffont = lg.newFont('standard',14)
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')

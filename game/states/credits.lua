@@ -11,8 +11,8 @@ function loadCredits(x)
 	if x ~= 1 then
 		logo = lg.newImage('images/gui/logo.png')
 		
-		halogenfont = lg.newFont('standard',12)
-		rifficfont = lg.newFont('standard',12)
+		halogenfont = lg.newFont('standard',14)
+		rifficfont = lg.newFont('standard',14)
 		
 		audioUpdate('credits')
 		c_timer = 0
