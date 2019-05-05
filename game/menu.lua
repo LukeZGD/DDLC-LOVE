@@ -387,7 +387,9 @@ function menu_confirm()
 		menu_previous = 'title'
 		
 		if m_selected == 2 then --new game
-			if player == '' then --keyboard input for player name
+			if player ~= '' or dvertype == 'Test' then --go straight to new game
+				changeState('game',1)
+			elseif player == '' then --keyboard input for player name
 				if (global_os == 'LOVE-WrapLua' and g_system ~= 'PS3') or g_system == 'Switch' then
 					local input = {}
 					input["type"] = "standard"
@@ -400,8 +402,6 @@ function menu_confirm()
 					require 'ingamekeys'
 					ingamekeys = true
 				end
-			elseif player ~= '' then --go straight to new game
-				changeState('game',1)
 			end
 			menu_previous = nil
 		

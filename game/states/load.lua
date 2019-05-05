@@ -32,7 +32,9 @@ function updateLoad()
 			require('scripts/eng/text')
 		end
 		
-		if (not f1 and not f2) or (f1 and not f2) then
+		if dvertype == 'Test' then
+			l_timer = 100
+		elseif (not f1 and not f2) or (f1 and not f2) then
 			changeState('language')
 		elseif f2 and not f1 then
 			changeState('newgame')

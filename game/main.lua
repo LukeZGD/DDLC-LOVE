@@ -1,5 +1,5 @@
 dversion = 'v1.0.3'
-dvertype = ''
+dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 
 if g_system == 'Switch' then
@@ -67,7 +67,7 @@ end
 
 function love.update()
 	local delta = love.timer.getDelta()
-	if delta > 0.6 then
+	if dvertype == 'Test' then
 		dt = 0.0167 --this is for yuzu
 	else
 		dt = delta
@@ -162,19 +162,10 @@ function game_quit()
 end
 
 function game_setvolume()
-	if g_system == 'Switch' then
+	if global_os ~= 'LOVE-WrapLua' then
 		love.audio.setVolume(settings.masvol/100)
-	elseif global_os == 'LOVE-WrapLua' then
-		if audio_bgm then
-			audio_bgm:setVolume(settings.bgmvol/100)
-		end
-		if audio_bgmloop then
-			audio_bgmloop:setVolume(settings.bgmvol/100)
-		end
-		sfx1:setVolume(settings.sfxvol/100)
-		sfx2:setVolume(settings.sfxvol/100)
-	else
-		love.audio.setVolume(settings.masvol/100)
+	end
+	if dvertype == '' then
 		if audio_bgm then
 			audio_bgm:setVolume(settings.bgmvol/100)
 		end
