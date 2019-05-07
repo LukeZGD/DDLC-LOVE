@@ -68,7 +68,7 @@ end
 function love.update()
 	local delta = love.timer.getDelta()
 	if dvertype == 'Test' then
-		dt = 0.0167 --this is for yuzu
+		dt = 0.0166 --this is for yuzu
 	else
 		dt = delta
 	end

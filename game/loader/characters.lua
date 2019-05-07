@@ -1,55 +1,62 @@
+s_Asset = {lr = {'',''}}
+y_Asset = {lr = {'',''}}
+n_Asset = {lr = {'',''}}
+m_Asset = {lr = {'',''}}
+
 function loadSayori()
 	if s_Set ~= s_Set_old then
 		unloadSayori()
 	end
 	
+	s_Asset.lr = {'',''}
 	if s_Set.a=='1' then
-		sl = lg.newImage('assets/images/sayori/1l.png') 
-		sr = lg.newImage('assets/images/sayori/1r.png') 
+		s_Asset.lr = {'1l','1r'}
 	elseif s_Set.a=='2' then
-		sl = lg.newImage('assets/images/sayori/1l.png') 
-		sr = lg.newImage('assets/images/sayori/2r.png') 
+		s_Asset.lr = {'1l','2r'}
 	elseif s_Set.a=='3' then
-		sl = lg.newImage('assets/images/sayori/2l.png') 
-		sr = lg.newImage('assets/images/sayori/1r.png') 
+		s_Asset.lr = {'2l','1r'}
 	elseif s_Set.a=='4' then
-		sl = lg.newImage('assets/images/sayori/2l.png') 
-		sr = lg.newImage('assets/images/sayori/2r.png') 
-	
+		s_Asset.lr = {'2l','2r'}
 	elseif s_Set.a=='1b' then
-		sl = lg.newImage('assets/images/sayori/1bl.png')
-		sr = lg.newImage('assets/images/sayori/1br.png')
+		s_Asset.lr = {'1bl','1br'}
 	elseif s_Set.a=='2b' then
-		sl = lg.newImage('assets/images/sayori/1bl.png') 
-		sr = lg.newImage('assets/images/sayori/2br.png') 
+		s_Asset.lr = {'1bl','2br'}
 	elseif s_Set.a=='3b' then
-		sr = lg.newImage('assets/images/sayori/2bl.png') 
-		sr = lg.newImage('assets/images/sayori/1br.png') 
+		s_Asset.lr = {'2bl','1br'}
 	elseif s_Set.a=='4b' then
-		sl = lg.newImage('assets/images/sayori/2bl.png') 
-		sr = lg.newImage('assets/images/sayori/2br.png') 
-	
+		s_Asset.lr = {'2bl','2br'}
 	elseif s_Set.a=='5a' then
-		sl = lg.newImage('assets/images/sayori/3a.png') 
+		s_Asset.lr = {'3a',''}
 	elseif s_Set.a=='5b' then
-		sl = lg.newImage('assets/images/sayori/3b.png') 
+		s_Asset.lr = {'3b',''}
 	elseif s_Set.a=='5c' then
-		sl = lg.newImage('assets/images/sayori/3c.png')  
+		s_Asset.lr = {'3c',''}
 	elseif s_Set.a=='5d' then
-		sl = lg.newImage('assets/images/sayori/3d.png') 
+		s_Asset.lr = {'3d',''}
 	elseif s_Set.a~='' then
-		sl = lg.newImage('assets/images/sayori/'..s_Set.a..'.png')
+		s_Asset[s_Set.a] = lg.newImage('assets/images/sayori/'..s_Set.a..'.png')
 	end
 	
-	if s_Set.b~='' then s_a = lg.newImage('assets/images/sayori/'..s_Set.b..'.png') end
+	for i = 1, 2 do
+		if s_Asset.lr[i] ~= '' and not s_Asset[s_Asset.lr[i]] then
+			s_Asset[s_Asset.lr[i]] = lg.newImage('assets/images/sayori/'..s_Asset.lr[i]..'.png')
+		end
+	end
+	
+	if s_Set.b~='' and not s_Asset[s_Set.b] then
+		s_Asset[s_Set.b] = lg.newImage('assets/images/sayori/'..s_Set.b..'.png')
+	end
 	
 	s_Set_old = s_Set
 end
 
 function unloadSayori()
-	sl = nil
-	sr = nil
-	s_a = nil
+	for i = 1, 2 do
+		s_Asset[s_Asset.lr[i]] = nil
+	end
+	s_Asset[s_Set.a] = nil
+	s_Asset[s_Set.b] = nil
+	collectgarbage()
 end
 
 function loadYuri()	
@@ -57,43 +64,47 @@ function loadYuri()
 		unloadYuri()
 	end
 	
+	y_Asset.lr = {'',''}
 	if y_Set.a=='1' then
-		yl = lg.newImage('assets/images/yuri/1l.png') 
-		yr = lg.newImage('assets/images/yuri/1r.png') 
+		y_Asset.lr = {'1l','1r'}
 	elseif y_Set.a=='2' then
-		yl = lg.newImage('assets/images/yuri/1l.png') 
-		yr = lg.newImage('assets/images/yuri/2r.png') 
+		y_Asset.lr = {'1l','2r'}
 	elseif y_Set.a=='3' then
-		yl = lg.newImage('assets/images/yuri/2l.png') 
-		yr = lg.newImage('assets/images/yuri/2r.png') 
-		
+		y_Asset.lr = {'2l','2r'}		
 	elseif y_Set.a=='1b' then
-		yl = lg.newImage('assets/images/yuri/1bl.png') 
-		yr = lg.newImage('assets/images/yuri/1br.png') 
+		y_Asset.lr = {'1bl','1br'}
 	elseif y_Set.a=='2b' then
-		yl = lg.newImage('assets/images/yuri/1bl.png')
-		yr = lg.newImage('assets/images/yuri/2br.png') 
+		y_Asset.lr = {'1bl','2br'}
 	elseif y_Set.a=='3b' then
-		yl = lg.newImage('assets/images/yuri/2bl.png') 
-		yr = lg.newImage('assets/images/yuri/2br.png') 
-	
+		y_Asset.lr = {'2bl','2br'}	
 	elseif y_Set.a=='4' then
-		yl = lg.newImage('assets/images/yuri/3.png') 
+		y_Asset.lr = {'3',''} 
 	elseif y_Set.a=='4b' then
-		yl = lg.newImage('assets/images/yuri/3b.png')
+		y_Asset.lr = {'3b',''}
 	elseif y_Set.a~='' then
-		yl = lg.newImage('assets/images/yuri/'..y_Set.a..'.png')
+		y_Asset[y_Set.a] = lg.newImage('assets/images/yuri/'..y_Set.a..'.png')
 	end
 	
-	if y_Set.b ~= '' then y_a = lg.newImage('assets/images/yuri/'..y_Set.b..'.png') end
+	for i = 1, 2 do
+		if y_Asset.lr[i] ~= '' and not y_Asset[y_Asset.lr[i]] then
+			y_Asset[y_Asset.lr[i]] = lg.newImage('assets/images/yuri/'..y_Asset.lr[i]..'.png')
+		end
+	end
+	
+	if y_Set.b ~= '' and not y_Asset[y_Set.b] then
+		y_Asset[y_Set.b] = lg.newImage('assets/images/yuri/'..y_Set.b..'.png')
+	end		
 	
 	y_Set_old = y_Set
 end
 
 function unloadYuri()
-	yl = nil
-	yr = nil
-	y_a = nil
+	for i = 1, 2 do
+		y_Asset[y_Asset.lr[i]] = nil
+	end
+	y_Asset[y_Set.a] = nil
+	y_Asset[y_Set.b] = nil
+	collectgarbage()
 end
 
 function loadNatsuki()
@@ -101,51 +112,51 @@ function loadNatsuki()
 		unloadNatsuki()
 	end
 	
-	if n_Set.b~='' then
-		n_a = lg.newImage('assets/images/natsuki/'..n_Set.b..'.png')
+	if n_Set.b ~= '' and not n_Asset[n_Set.b] then
+		n_Asset[n_Set.b] = lg.newImage('assets/images/natsuki/'..n_Set.b..'.png')
+	end	
+	
+	n_Asset.lr = {'',''}
+	if n_Set.a=='1' then
+		n_Asset.lr = {'1l','1r'}
+	elseif n_Set.a=='2' then
+		n_Asset.lr = {'1l','2r'}
+	elseif n_Set.a=='3' then
+		n_Asset.lr = {'2l','1r'}
+	elseif n_Set.a=='4' then
+		n_Asset.lr = {'2l','2r'}
+	elseif n_Set.a=='1b' then
+		n_Asset.lr = {'1bl','1br'}
+	elseif n_Set.a=='2b' then
+		n_Asset.lr = {'1bl','2br'}
+	elseif n_Set.a=='3b' then
+		n_Asset.lr = {'2bl','1br'}
+	elseif n_Set.a=='4b' then
+		n_Asset.lr = {'2bl','2br'}		
+	elseif n_Set.a=='5' then
+		n_Asset[n_Set.a] = lg.newImage('assets/images/natsuki/3.png') 
+	elseif n_Set.a=='5b' then
+		n_Asset[n_Set.a] = lg.newImage('assets/images/natsuki/3b.png')
+	elseif n_Set.a~='' then
+		n_Asset[n_Set.a] = lg.newImage('assets/images/natsuki/'..n_Set.a..'.png')   
 	end
 	
-	if n_Set.a=='1' then
-		nl = lg.newImage('assets/images/natsuki/1l.png') 
-		nr = lg.newImage('assets/images/natsuki/1r.png') 
-	elseif n_Set.a=='2' then
-		nl = lg.newImage('assets/images/natsuki/1l.png') 
-		nr = lg.newImage('assets/images/natsuki/2r.png') 
-	elseif n_Set.a=='3' then
-		nl = lg.newImage('assets/images/natsuki/2l.png') 
-		nr = lg.newImage('assets/images/natsuki/1r.png') 
-	elseif n_Set.a=='4' then
-		nl = lg.newImage('assets/images/natsuki/2l.png') 
-		nr = lg.newImage('assets/images/natsuki/2r.png') 
-		
-	elseif n_Set.a=='1b' then
-		nl = lg.newImage('assets/images/natsuki/1bl.png') 
-		nr = lg.newImage('assets/images/natsuki/1br.png') 
-	elseif n_Set.a=='2b' then
-		nl = lg.newImage('assets/images/natsuki/1bl.png') 
-		nr = lg.newImage('assets/images/natsuki/2br.png') 
-	elseif n_Set.a=='3b' then
-		nl = lg.newImage('assets/images/natsuki/2bl.png') 
-		nr = lg.newImage('assets/images/natsuki/1br.png') 
-	elseif n_Set.a=='4b' then
-		nl = lg.newImage('assets/images/natsuki/2bl.png') 
-		nr = lg.newImage('assets/images/natsuki/2br.png') 
-		
-	elseif n_Set.a=='5' then
-		nl = lg.newImage('assets/images/natsuki/3.png') 
-	elseif n_Set.a=='5b' then
-		nl = lg.newImage('assets/images/natsuki/3b.png') 
-	elseif n_Set.a~='' then
-		nl = lg.newImage('assets/images/natsuki/'..n_Set.a..'.png')   
+	for i = 1, 2 do
+		if n_Asset.lr[i] ~= '' and not n_Asset[n_Asset.lr[i]] then
+			n_Asset[n_Asset.lr[i]] = lg.newImage('assets/images/natsuki/'..n_Asset.lr[i]..'.png')
+		end
 	end
 	
 	n_Set_old = n_Set
 end
 
 function unloadNatsuki()
-	nl = nil
-	nr = nil
-	n_a = nil
+	for i = 1, 2 do
+		n_Asset[n_Asset.lr[i]] = nil
+	end
+	n_Asset[n_Set.a] = nil
+	n_Asset[n_Set.b] = nil
+	collectgarbage()
 end
 
 function loadMonika()
@@ -153,37 +164,43 @@ function loadMonika()
 		unloadMonika()
 	end
 	
-	if m_Set.a=='5a' then
-		ml = lg.newImage('assets/images/monika/3a.png') 
-	elseif m_Set.a=='5b' then
-		ml = lg.newImage('assets/images/monika/3b.png') 
-	elseif m_Set.a=='1' then
-		ml = lg.newImage('assets/images/monika/1l.png')
-		mr = lg.newImage('assets/images/monika/1r.png')
+	m_Asset.lr = {'',''}
+	if m_Set.a=='1' then
+		m_Asset.lr = {'1l','1r'}
 	elseif m_Set.a=='2' then
-		ml = lg.newImage('assets/images/monika/1l.png')
-		mr = lg.newImage('assets/images/monika/2r.png')
+		m_Asset.lr = {'1l','2r'}
 	elseif m_Set.a=='3' then
-		ml = lg.newImage('assets/images/monika/2l.png')
-		mr = lg.newImage('assets/images/monika/1r.png')
+		m_Asset.lr = {'2l','1r'}
 	elseif m_Set.a=='4' then
-		ml = lg.newImage('assets/images/monika/2l.png')
-		mr = lg.newImage('assets/images/monika/2r.png')
+		m_Asset.lr = {'2l','2r'}	
+	elseif m_Set.a=='5a' then
+		m_Asset[m_Set.a] = lg.newImage('assets/images/monika/3a.png') 
+	elseif m_Set.a=='5b' then
+		m_Asset[m_Set.a] = lg.newImage('assets/images/monika/3b.png')
 	elseif m_Set.a~='' then
-		ml = lg.newImage('assets/images/monika/'..m_Set.a..'.png')
+		m_Asset[m_Set.a] = lg.newImage('assets/images/monika/'..m_Set.a..'.png')   
 	end
 	
-	if m_Set.b~='' then
-		m_a = lg.newImage('assets/images/monika/'..m_Set.b..'.png') 
+	for i = 1, 2 do
+		if m_Asset.lr[i] ~= '' and not m_Asset[m_Asset.lr[i]] then
+			m_Asset[m_Asset.lr[i]] = lg.newImage('assets/images/monika/'..m_Asset.lr[i]..'.png')
+		end
+	end
+	
+	if m_Set.b ~= '' and not m_Asset[m_Set.b] then
+		m_Asset[m_Set.b] = lg.newImage('assets/images/monika/'..m_Set.b..'.png')
 	end
 	
 	m_Set_old = m_Set
 end
 
 function unloadMonika()
-	ml = nil
-	mr = nil
-	m_a = nil
+	for i = 1, 2 do
+		m_Asset[m_Asset.lr[i]] = nil
+	end
+	m_Asset[m_Set.a] = nil
+	m_Asset[m_Set.b] = nil
+	collectgarbage()
 end
 
 function unloadAll(x)

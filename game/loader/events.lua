@@ -66,7 +66,8 @@ function event_init(etype,arg1,arg2)
 			loadVignette()
 			loadNoise()
 		elseif etype == 'ny_argument2' then
-			ml = lg.newImage('assets/images/monika/ac.png')
+			m_Asset['ac'] = lg.newImage('assets/images/monika/ac.png')
+			m_Set.a = 'ac'
 		elseif etype == 'yuri_glitch' then
 			loadYuriGlitch()
 		elseif etype == 'show_vignette' then

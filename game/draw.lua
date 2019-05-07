@@ -312,7 +312,7 @@ function nearest(a,b)
 	end
 end
 
-function drawCharacter(l,r,a,set,chset)
+function drawCharacter(asset,set,chset)
 	if set.b~='' then
 		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
 			xh = set.x + 7
@@ -321,10 +321,14 @@ function drawCharacter(l,r,a,set,chset)
 			xh = set.x
 			yh = set.y
 		end
-		if a then lg.draw(a,xh,yh) end
+		if asset[set.b] then lg.draw(asset[set.b],xh,yh) end
 	end
 	
-	lg.draw(l, set.x, set.y)
+	if asset[asset.lr[1]] then
+		lg.draw(asset[asset.lr[1]], set.x, set.y)
+	elseif asset[set.a] then
+		lg.draw(asset[set.a], set.x, set.y)
+	end
     
     local with_set = with_r
 	if set == y_Set then
@@ -332,7 +336,7 @@ function drawCharacter(l,r,a,set,chset)
 	end
 	for i = 1, #with_set do
 		if set.a == with_set[i] then
-			lg.draw(r, set.x, set.y)
+			lg.draw(asset[asset.lr[2]], set.x, set.y)
 		end
 	end
 	
@@ -346,17 +350,17 @@ function drawCharacter(l,r,a,set,chset)
 end
 
 function drawSayori()
-	drawCharacter(sl,sr,s_a,s_Set,changeX.s)
+	drawCharacter(s_Asset,s_Set,changeX.s)
 end
 
 function drawYuri()
-	drawCharacter(yl,yr,y_a,y_Set,changeX.y)
+	drawCharacter(y_Asset,y_Set,changeX.y)
 end
 
 function drawNatsuki()
-	drawCharacter(nl,nr,n_a,n_Set,changeX.n)
+	drawCharacter(n_Asset,n_Set,changeX.n)
 end
 
 function drawMonika()
-	drawCharacter(ml,mr,m_a,m_Set,changeX.m)
+	drawCharacter(m_Asset,m_Set,changeX.m)
 end
