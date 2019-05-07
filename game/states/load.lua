@@ -1,3 +1,4 @@
+require 'loader/assets_load'
 local l_timer = 94
 local err = ''
 local errmsg = 
@@ -34,26 +35,9 @@ function updateLoad()
 	end
 	
 	--loading assets
-	if l_timer == 95 then
-		font = lg.newFont('standard',14)
-		lg.setFont(font)
-	
-	elseif l_timer == 96 then
-		m1 = lg.newFont('standard',16)
-		deffont = lg.newFont('standard',14)
+	loaderAssets(l_timer)
 		
-	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('audio/sfx/select.ogg', 'static')
-		sfx2 = love.audio.newSource('audio/sfx/hover.ogg', 'static')
-		
-	elseif l_timer == 98 then
-		--splash, title screen, gui elements, sfx
-		namebox = lg.newImage('images/gui/namebox.png')
-		textbox = lg.newImage('images/gui/textbox.png')
-		background_Image = lg.newImage('images/bg/menu_bg.png')
-		guicheck = lg.newImage('images/gui/check.png')
-		
-	elseif l_timer == 99 then
+	if l_timer == 99 then
 		local file = love.filesystem.isFile('persistent')
 		if file then
 			checkLoad()

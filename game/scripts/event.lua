@@ -6,22 +6,6 @@ eventvar4 = 0
 eventvar5 = 0
 sectimer = 0
 
-function loadNoise()
-	for i = 1, 4 do
-		loadstring('animframe'..i..' = lg.newImage("images/bg/noise'..i..'.png")')()
-	end
-end
-
-function loadVignette()
-	vignette = lg.newImage('images/bg/vignette.png')
-end
-
-function loadYuriGlitch()
-	for i = 1, 4 do
-		loadstring('animframe'..i..' = lg.newImage("images/yuri/glitch'..i..'.png")')()
-	end
-end
-
 function event_start(etype, arg1)
 	autotimer = 0
 	autoskip = 0
@@ -252,22 +236,22 @@ function drawanimframe(x,y)
 		lg.draw(animframe,x,y)
 	end
 	local dt = love.timer.getDelta()
-	if sectimer > 0.75 and animframe4 then
-		animframe = animframe4
-	elseif sectimer > 0.5 and animframe3 then
-		animframe = animframe3
-	elseif sectimer > 0.25 and animframe2 then
-		animframe = animframe2
-	elseif animframe1 then
-		animframe = animframe1
+	if sectimer > 0.75 and animframe[4] then
+		animframe = animframe[4]
+	elseif sectimer > 0.5 and animframe[3] then
+		animframe = animframe[3]
+	elseif sectimer > 0.25 and animframe[2] then
+		animframe = animframe[2]
+	elseif animframe[1] then
+		animframe = animframe[1]
 	end
 end
 
 function unloadanimframe()
-	animframe1 = nil
-	animframe2 = nil
-	animframe3 = nil
-	animframe4 = nil
+	animframe[1] = nil
+	animframe[2] = nil
+	animframe[3] = nil
+	animframe[4] = nil
 end
 
 function event_update(dt)

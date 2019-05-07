@@ -7,8 +7,11 @@ if global_os == 'Horizon' then
 	joystick = joysticks[1]
 end
 
+require 'loader/audio'
+require 'loader/images'
+require 'loader/characters'
+require 'loader/states'
 require 'draw'
-require 'resources'
 require 'saveload'
 require 'menu'
 require 'scripts/script'

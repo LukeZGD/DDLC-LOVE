@@ -132,14 +132,14 @@ function poemgame()
 	xaload = 0
 	if persistent.ptr <= 2 then 
 		audioUpdate('4',true)
-		bgch2 = lg.newImage('images/bg/notebook.png')
+		bgch2 = lg.newImage('assets/images/bg/notebook.png')
 	elseif persistent.ptr == 3 then 
 		audioUpdate('ghostmenu')
-		bgch2 = lg.newImage('images/bg/notebook-glitch.png')
+		bgch2 = lg.newImage('assets/images/bg/notebook-glitch.png')
 	end
 	
 	if poemstate == 0 then 
-		poemtime = lg.newImage('images/gui/poemgame/poemtime.png')
+		poemtime = lg.newImage('assets/images/gui/poemgame/poemtime.png')
 	end
 	
 	poemword = 1

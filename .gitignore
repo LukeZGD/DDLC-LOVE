@@ -1,4 +1,5 @@
 build/
+game/assets/
 *.db
 *.3dsx
 *.smdh
