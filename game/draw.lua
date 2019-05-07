@@ -28,7 +28,9 @@ end
 
 local oldNewImage = lg.newImage
 function lg.newImage(path)
-    path = path:gsub(".png", ".t3x")
+    if g_system == '3DS' then
+		path = path:gsub(".png", ".t3x")
+	end
     return oldNewImage(path)
 end
 
@@ -221,22 +223,22 @@ end
 
 function hideSayori()
 	hideCharacter(s_Set)
-	if sl then unloadSayori() end
+	if s_Asset[s_Asset.lr[1]] or s_Asset[s_Set.a] then unloadSayori() end
 end
 
 function hideYuri()
 	hideCharacter(y_Set)
-	if yl then unloadYuri() end
+	if y_Asset[y_Asset.lr[1]] or y_Asset[y_Set.a] then unloadYuri() end
 end
 
 function hideNatsuki()
 	hideCharacter(n_Set)
-	if nl then unloadNatsuki() end
+	if n_Asset[n_Asset.lr[1]] or n_Asset[n_Set.a] then unloadNatsuki() end
 end
 
 function hideMonika()
 	hideCharacter(m_Set)
-	if ml then unloadMonika() end
+	if m_Asset[m_Asset.lr[1]] or m_Asset[m_Set.a] then unloadMonika() end
 end
 
 function hideAll()
@@ -247,7 +249,7 @@ function hideAll()
 	unloadAll()
 end
 
-function drawCharacter(l,r,a,set)
+function drawCharacter(asset,set)
 	if set.b~='' then
 		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
 			xh = set.x + 4
@@ -256,10 +258,14 @@ function drawCharacter(l,r,a,set)
 			xh = set.x
 			yh = set.y
 		end
-		if a then lg.draw(a,xh,yh) end
+		if asset[set.b] then lg.draw(asset[set.b],xh,yh) end
 	end
 	
-	lg.draw(l, set.x, set.y)
+	if asset[asset.lr[1]] then
+		lg.draw(asset[asset.lr[1]], set.x, set.y)
+	elseif asset[set.a] then
+		lg.draw(asset[set.a], set.x, set.y)
+	end
     
     local with_set = with_r
 	if set == y_Set then
@@ -267,23 +273,23 @@ function drawCharacter(l,r,a,set)
 	end
 	for i = 1, #with_set do
 		if set.a == with_set[i] then
-			lg.draw(r, set.x, set.y)
+			lg.draw(asset[asset.lr[2]], set.x, set.y)
 		end
 	end
 end
 
 function drawSayori()
-	drawCharacter(sl,sr,s_a,s_Set)
+	drawCharacter(s_Asset,s_Set)
 end
 
 function drawYuri()
-	drawCharacter(yl,yr,y_a,y_Set)
+	drawCharacter(y_Asset,y_Set)
 end
 
 function drawNatsuki()
-	drawCharacter(nl,nr,n_a,n_Set)
+	drawCharacter(n_Asset,n_Set)
 end
 
 function drawMonika()
-	drawCharacter(ml,mr,m_a,m_Set)
+	drawCharacter(m_Asset,m_Set)
 end

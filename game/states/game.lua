@@ -3,10 +3,6 @@ local audiotell = 0
 local bgalpha = 255
 
 function drawGame()
-	if autotimer > 0 or autoskip > 0 then
-		scriptCheck()
-		timerCheck()
-	end
 	lg.setBackgroundColor(0,0,0)
 	
 	drawTopScreen()
@@ -74,10 +70,14 @@ function drawGame()
 end
 
 function updateGame(dt)
-	if autotimer == 0 and autoskip == 0 then
-		scriptCheck()
-		timerCheck()
+	scriptCheck()
+	
+	--timercheck
+	local dt = love.timer.getDelta()
+	if xaload == 0 then
+		myTextStartTime = love.timer.getTime()
 	end
+	xaload = xaload + 1
 	
 	if bgch2 then
 		bgalpha = math.max(bgalpha - dt*1000, 0)
