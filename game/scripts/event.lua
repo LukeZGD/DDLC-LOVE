@@ -196,14 +196,14 @@ function drawanimframe(x,y)
 	if animframe then
 		lg.draw(animframe,x,y)
 	end
-	if sectimer > 0.75 and animframe4 then
-		animframe = animframe4
-	elseif sectimer > 0.5 and animframe3 then
-		animframe = animframe3
-	elseif sectimer > 0.25 and animframe2 then
-		animframe = animframe2
-	elseif animframe1 then
-		animframe = animframe1
+	if sectimer > 0.75 and animframe[4] then
+		animframe = animframe[4]
+	elseif sectimer > 0.5 and animframe[3] then
+		animframe = animframe[3]
+	elseif sectimer > 0.25 and animframe[2] then
+		animframe = animframe[2]
+	elseif animframe[1] then
+		animframe = animframe[1]
 	end
 end
 function event_update(dt)
