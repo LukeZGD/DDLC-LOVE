@@ -12,7 +12,8 @@ function changeState(cstate,x)
 	end
 	
 	if cstate == 'splash' then
-		if not splash then splash = lg.newImage('assets/images/bg/splash.png') end
+		splash = nil
+		splash = lg.newImage('assets/images/bg/splash.png')
 		alpha = 0
 		audioUpdate('1')
 	elseif cstate == 'title' then
