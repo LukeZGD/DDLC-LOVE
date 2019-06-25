@@ -14,6 +14,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 | Switch   | sdmc:/switch/DDLC-LOVE/             |
 | PSP      | ms0:/data/DDLC-LOVE/savedata/       |
 | PS Vita  | ux0:/data/DDLC-LOVE/savedata/       |
+| PS3      | root of USB drive                   |
 | Windows  | %appdata%\LOVE\DDLC-LOVE\           |
 
 You can reset the save data and start over by deleting all of the save files. This is also mentioned in the help menu.
@@ -22,7 +23,7 @@ You can reset the save data and start over by deleting all of the save files. Th
 - All 3 versions share the same code, but they all have different processes for building.
 - Game assets need to be prepared first in game/assets folder, from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo.
 - **Switch** - Instructions are in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
-- **PS Vita and PSP (prerequisite)** - Put the entire game folder in the "PSVita Assets" or "PSP Assets" folder, but do not overwrite files. [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) is required beside the game folder (script.lua/index.lua and the LOVE-WrapLua folder). 
+- **PS Vita, PSP, and PS3 (prerequisite)** - [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) is required beside the game folder (script.lua/index.lua and the LOVE-WrapLua folder). 
 - **PS Vita** - use the ONEmakerGUI included with [ONEluav4R1 for the PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
 - **PSP** - EBOOT.PBP and oneFont.pgf files from [ONEluav4R1 for the PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar) are also required to be beside the game folder. You may want to also change the ICON0.PNG and PIC1.PNG of the EBOOT.
 
@@ -34,8 +35,8 @@ You can reset the save data and start over by deleting all of the save files. Th
 - **PS Vita** - Install the vpk from the releases.
 
 - **PS3**
-1. Install [Lua Player PS3](https://store.brewology.com/ahomebrew.php?brewid=212) to your PS3
-2. Extract all files of thE zip to the root of a USB drive to be used for the PS3
+1. Install [Lua Player PS3](https://store.brewology.com/ahomebrew.php?brewid=212) to your PS3 (you need CFW/HAN/HEN to get Package Manager)
+2. Extract all files of the zip to the root of a USB drive to be used for the PS3
 3. Insert the USB drive to the rightmost USB slot (dev_usb000)
 4. Launch Lua Player PS3
 
