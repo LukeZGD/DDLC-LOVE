@@ -321,7 +321,8 @@ function drawCharacter(asset,set,chset)
 			xh = set.x
 			yh = set.y
 		end
-		if asset[set.b] then lg.draw(asset[set.b],xh,yh) end
+		if asset[set.b] and set == n_Set then lg.draw(asset[set.b],xh,yh)
+		elseif asset[set.b] then lg.draw(asset[set.b],set.x,set.y) end
 	end
 	
 	if asset[asset.lr[1]] then

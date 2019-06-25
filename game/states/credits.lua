@@ -160,7 +160,7 @@ function updateCredits(dt)
 	end
 	
 	--credits assets stuff
-	loaderCredits()
+	loaderCredits(c_timer)
 	
 	--fake console stuff
 	if c_timer >= 157 and c_timer < 158 then

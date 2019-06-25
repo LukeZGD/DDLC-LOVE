@@ -40,7 +40,11 @@ function drawSplash()
 		lg.draw(gui.sidebar,-720+titlebg_ypos,0)
 		drawSplashChar()
 		lg.draw(gui.mainbuttons)
-		lg.draw(gui.newgame)
+		if persistent.ptr == 1 and gui.newgame1 then
+			lg.draw(gui.newgame1)
+		elseif gui.newgame then
+			lg.draw(gui.newgame)
+		end
 		lg.setColor(64,64,64,alpha)
 		lg.print(tr.splash[16],985,10)
 		menu_draw()
@@ -137,8 +141,12 @@ end
 function drawSplashChar()
 	lg.draw(menu_art_y,tlp.yx,tlp.yy,0,tlp.scale,tlp.scale)
 	lg.draw(menu_art_n,tlp.nx,tlp.ny,0,tlp.scale,tlp.scale)
-	lg.draw(menu_art_s,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
 	lg.draw(menu_art_m,tlp.mx,tlp.my,0,tlp.scale,tlp.scale)
+	if menu_art_s_break then
+		lg.draw(menu_art_s_break,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
+	elseif menu_art_s then
+		lg.draw(menu_art_s,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
+	end
 end
 
 function updateSplashChar()

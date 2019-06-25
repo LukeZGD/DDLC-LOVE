@@ -5,6 +5,7 @@ eventvar3 = 0
 eventvar4 = 0
 eventvar5 = 0
 sectimer = 0
+local currentframe
 
 function event_start(etype, arg1)
 	autotimer = 0
@@ -171,7 +172,7 @@ function event_draw()
 	lg.setColor(255,255,255,255)
 	lg.setFont(allerfont)
 	if textbox_enabled then
-		lg.print(cl,5,690)
+		if dvertype == 'Test' then lg.print(cl,5,690) end
 		drawTextBox()	
 	end
 	
@@ -193,17 +194,17 @@ end
 function drawanimframe(x,y)
 	if x == nil then x = 0 end
 	if y == nil then y = 0 end
-	if animframe then
-		lg.draw(animframe,x,y)
+	if animframe[currentframe] then
+		lg.draw(animframe[currentframe],x,y)
 	end
 	if sectimer > 0.75 and animframe[4] then
-		animframe = animframe[4]
+		currentframe = 4
 	elseif sectimer > 0.5 and animframe[3] then
-		animframe = animframe[3]
+		currentframe = 3
 	elseif sectimer > 0.25 and animframe[2] then
-		animframe = animframe[2]
+		currentframe = 2
 	elseif animframe[1] then
-		animframe = animframe[1]
+		currentframe = 1
 	end
 end
 function event_update(dt)

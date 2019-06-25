@@ -27,7 +27,7 @@ function drawGame()
 	
 	lg.setFont(allerfont)
 	lg.setColor(255,255,255,alpha)
-	lg.print(cl,5,690)
+	if dvertype == 'Test' then lg.print(cl,5,690) end
 	if autotimer > 0 then
 		lg.draw(gui.skip,0,27)
 		lg.setColor(0,0,0)

@@ -250,5 +250,5 @@ function updateConsole(text,text2,text3,text4)
 	console_text1 = dripText(text,30,startTime)
 	if text2 then console_text2 = text2 else console_text2 = '' end
 	if text3 then console_text3 = text3 else console_text3 = '' end
-	if text4 then console_text4 = text3 else console_text4 = '' end
+	if text4 then console_text4 = text4 else console_text4 = '' end
 end

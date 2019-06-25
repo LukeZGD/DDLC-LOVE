@@ -1,7 +1,7 @@
 function loadNoise()
 	animframe = {}
 	for i = 1, 4 do
-		animframe[i] = lg.newImage("assets/images/bg/noise'..i..'.png")
+		animframe[i] = lg.newImage("assets/images/bg/noise"..i..".png")
 	end
 end
 
@@ -12,7 +12,7 @@ end
 function loadYuriGlitch()
 	animframe = {}
 	for i = 1, 4 do
-		animframe[i] = lg.newImage("assets/images/yuri/glitch'..i..'.png")
+		animframe[i] = lg.newImage("assets/images/yuri/glitch"..i..".png")
 	end
 end
 

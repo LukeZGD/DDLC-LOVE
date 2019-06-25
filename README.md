@@ -33,6 +33,12 @@ You can reset the save data and start over by deleting all of the save files. Th
 
 - **PS Vita** - Install the vpk from the releases.
 
+- **PS3**
+1. Install [Lua Player PS3](https://store.brewology.com/ahomebrew.php?brewid=212) to your PS3
+2. Extract all files of thE zip to the root of a USB drive to be used for the PS3
+3. Insert the USB drive to the rightmost USB slot (dev_usb000)
+4. Launch Lua Player PS3
+
 - **PC** - Drag the game folder to LÖVE 11.x
 
 ### Credits:
