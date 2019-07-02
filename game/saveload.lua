@@ -7,7 +7,7 @@ persistent = {
 	act2={0,0,0,0};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70,lang='eng'}
+settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70,lang='eng',outline=0}
 --default save values
 cl = 1
 bg1 = 'black'

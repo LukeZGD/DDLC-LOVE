@@ -36,7 +36,9 @@ function audioUpdate(audiox, forceload) --audio changes
 			end
 			
 			audio_bgm:setLooping(false)
-			game_setvolume()
+			if sfxp then
+				sfxp:setVolume((settings.sfxvol/100)*(settings.masvol/100))
+			end
 			audio_bgm:play()
 		end
 	end

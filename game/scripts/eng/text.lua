@@ -84,7 +84,8 @@ tr.menuhelp = {
 	you promise to spend the most time with me?will you promise to spend the most time with
 	me?will you promise to spend the most time with me?will you promise to spend the most
 	time with
-	]]
+	]],
+	' - Toggle text outline'
 }
 tr.error = {
 'Press Y/Triangle to quit',

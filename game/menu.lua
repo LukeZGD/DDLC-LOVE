@@ -196,9 +196,9 @@ function menu_draw()
 		lg.print(menutext,140,90)
 		local keys = {}
 		if global_os == 'LOVE-WrapLua' then
-			keys = {'Cross, L','Circle','Square','Triangle','R'}
+			keys = {'Cross, L','Circle','Square','Triangle','R','Select'}
 		else
-			keys = {'A','B','X','Y','Plus'}
+			keys = {'A','B','X','Y','Plus','Minus'}
 		end
 		lg.setColor(0,0,0)
 		lg.print('Key Bindings:',160,120)
@@ -207,8 +207,9 @@ function menu_draw()
 		lg.print(keys[3]..tr.menuhelp[3],160,220)
 		lg.print(keys[4]..tr.menuhelp[4],160,250)
 		lg.print(keys[5]..tr.menuhelp[5],160,280)
-		lg.print(tr.menuhelp[6],160,330)
-		lg.print(tr.menuhelp[7],160,360)
+		lg.print(keys[6]..tr.menuhelp[12],160,310)
+		lg.print(tr.menuhelp[6],160,360)
+		lg.print(tr.menuhelp[7],160,390)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		menu_drawstuff('overlay')

@@ -1,4 +1,4 @@
-dversion = 'v1.0.3'
+dversion = 'v1.0.4'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 
@@ -162,17 +162,17 @@ function game_quit()
 end
 
 function game_setvolume()
-	if global_os ~= 'LOVE-WrapLua' then
-		love.audio.setVolume(settings.masvol/100)
-	end
+	local masvol = settings.masvol/100
+	local bgmvol = (settings.bgmvol/100)*masvol
+	local sfxvol = (settings.sfxvol/100)*masvol
 	if dvertype == '' then
 		if audio_bgm then
-			audio_bgm:setVolume(settings.bgmvol/100)
+			audio_bgm:setVolume(bgmvol)
 		end
 		if audio_bgmloop then
-			audio_bgmloop:setVolume(settings.bgmvol/100)
+			audio_bgmloop:setVolume(bgmvol)
 		end
-		sfx1:setVolume(settings.sfxvol/100)
-		sfx2:setVolume(settings.sfxvol/100)
+		sfx1:setVolume(sfxvol)
+		sfx2:setVolume(sfxvol)
 	end
 end

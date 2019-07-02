@@ -143,5 +143,8 @@ function newgame_keypressed(key)
 		collectgarbage()
 	elseif key == 'r' or key == 'rbutton' or key == 'plus' then
 		textboxd = not textboxd
+	elseif key == 'minus' or key == '-' or key == 'select' then
+		if settings.outline ~= 1 then settings.outline = 1
+		else settings.outline = 0 end
 	end
 end
