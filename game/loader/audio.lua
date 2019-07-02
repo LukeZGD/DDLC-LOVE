@@ -36,9 +36,7 @@ function audioUpdate(audiox, forceload) --audio changes
 			end
 			
 			audio_bgm:setLooping(false)
-			if sfxp then
-				sfxp:setVolume((settings.sfxvol/100)*(settings.masvol/100))
-			end
+			game_setvolume()
 			audio_bgm:play()
 		end
 	end
@@ -52,7 +50,9 @@ function sfxplay(sfx) --sfx stuff
 		if sfx ~= '' then
 			sfxp = love.audio.newSource('assets/audio/sfx/'..sfx..audio_ext, 'static')
 		end
-		game_setvolume()
+		if sfxp then
+			sfxp:setVolume((settings.sfxvol/100)*(settings.masvol/100))
+		end
 		sfxp:play()
 	end
 end
