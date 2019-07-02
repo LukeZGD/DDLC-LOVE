@@ -35,7 +35,7 @@ function lg.draw(drawable, ...)
 end
 
 function outlineText(text,x,y,type,arg1)
-	if g_system == 'PSP' or g_system == 'PS3' then
+	if g_system == 'PSP' or g_system == 'PS3' or settings.outline == 1 then
 		lg.setColor(0,0,0,alpha)
 	else
 		local addm = 1.25
@@ -228,6 +228,16 @@ function drawConsole()
 	end
 end
 
+function nearest(a,b)
+	if (a == b + 1) or  (a == b - 1) or (a == b + 2) or (a == b - 2) or (a == b + 3) or (a == b - 3) then
+		return true
+	else
+		return false
+	end
+end
+
+--Character draw functions in 1.0.2
+
 function updateCharacter(set,a,b,px,py,chset)
 	if not b then b = '' end
 	set.a = a
@@ -304,15 +314,7 @@ function hideAll()
 	unloadAll()
 end
 
-function nearest(a,b)
-	if (a == b + 1) or  (a == b - 1) or (a == b + 2) or (a == b - 2) or (a == b + 3) or (a == b - 3) then
-		return true
-	else
-		return false
-	end
-end
-
-function drawCharacter(asset,set,chset)
+function drawCharacter(l,r,a,set,chset)
 	if set.b~='' then
 		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
 			xh = set.x + 7
@@ -321,15 +323,10 @@ function drawCharacter(asset,set,chset)
 			xh = set.x
 			yh = set.y
 		end
-		if asset[set.b] and set == n_Set then lg.draw(asset[set.b],xh,yh)
-		elseif asset[set.b] then lg.draw(asset[set.b],set.x,set.y) end
+		if a then lg.draw(a,xh,yh) end
 	end
 	
-	if asset[asset.lr[1]] then
-		lg.draw(asset[asset.lr[1]], set.x, set.y)
-	elseif asset[set.a] then
-		lg.draw(asset[set.a], set.x, set.y)
-	end
+	lg.draw(l, set.x, set.y)
     
     local with_set = with_r
 	if set == y_Set then
@@ -337,7 +334,7 @@ function drawCharacter(asset,set,chset)
 	end
 	for i = 1, #with_set do
 		if set.a == with_set[i] then
-			lg.draw(asset[asset.lr[2]], set.x, set.y)
+			lg.draw(r, set.x, set.y)
 		end
 	end
 	
@@ -351,17 +348,17 @@ function drawCharacter(asset,set,chset)
 end
 
 function drawSayori()
-	drawCharacter(s_Asset,s_Set,changeX.s)
+	drawCharacter(sl,sr,s_a,s_Set,changeX.s)
 end
 
 function drawYuri()
-	drawCharacter(y_Asset,y_Set,changeX.y)
+	drawCharacter(yl,yr,y_a,y_Set,changeX.y)
 end
 
 function drawNatsuki()
-	drawCharacter(n_Asset,n_Set,changeX.n)
+	drawCharacter(nl,nr,n_a,n_Set,changeX.n)
 end
 
 function drawMonika()
-	drawCharacter(m_Asset,m_Set,changeX.m)
+	drawCharacter(ml,mr,m_a,m_Set,changeX.m)
 end
