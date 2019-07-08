@@ -66,8 +66,7 @@ function event_init(etype,arg1,arg2)
 			loadVignette()
 			loadNoise()
 		elseif etype == 'ny_argument2' then
-			m_Asset['ac'] = lg.newImage('assets/images/monika/ac.png')
-			m_Set.a = 'ac'
+			ml = lg.newImage('assets/images/monika/ac.png')
 		elseif etype == 'yuri_glitch' then
 			loadYuriGlitch()
 		elseif etype == 'show_vignette' then
@@ -89,6 +88,8 @@ function event_init(etype,arg1,arg2)
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('assets/images/bg/splash-glitch2.png')
+			elseif g_system == '3DS' then
+				splash = lg.newImage('assets/images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap
 			ghost_blood = lg.newImage('assets/images/natsuki/ghost_blood.png')
