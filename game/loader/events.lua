@@ -1,7 +1,7 @@
 function loadNoise()
 	animframe = {}
 	for i = 1, 4 do
-		animframe[i] = lg.newImage("assets/images/bg/noise'..i..'.png")
+		animframe[i] = lg.newImage("assets/images/bg/noise"..i..".png")
 	end
 end
 
@@ -12,7 +12,7 @@ end
 function loadYuriGlitch()
 	animframe = {}
 	for i = 1, 4 do
-		animframe[i] = lg.newImage("assets/images/yuri/glitch'..i..'.png")
+		animframe[i] = lg.newImage("assets/images/yuri/glitch"..i..".png")
 	end
 end
 
@@ -28,13 +28,13 @@ end
 
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
-		require 'scripts.event'
+		require 'scripts/event'
 		if persistent.ptr <= 1 then
-			require 'scripts.event-1'
+			require 'scripts/event-1'
 		elseif persistent.ptr == 2 then
-			require 'scripts.event-2'
+			require 'scripts/event-2'
 		else
-			require 'scripts.event-3'
+			require 'scripts/event-3'
 		end
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = lg.newImage('assets/images/cg/s_kill/s_kill.png')
@@ -45,6 +45,7 @@ function event_init(etype,arg1,arg2)
 			s_kill_bgzoom = lg.newImage('assets/images/cg/s_kill/s_kill_bgzoom.png')
 			splash_glitch = lg.newImage('assets/images/bg/splash-glitch.png')
 			exception = lg.newImage('assets/images/cg/s_kill/ex2.png')
+			loadNoise()
 		elseif etype == 'endscreen' then
 			if arg1 == 'flipped' then
 				bgch = lg.newImage('assets/images/gui/endflipped.png')
@@ -60,11 +61,13 @@ function event_init(etype,arg1,arg2)
 			nl = lg.newImage('assets/images/natsuki/glitch1.png')
 		elseif etype == 'n_blackeyes' then
 			n_blackeyes = lg.newImage('assets/images/natsuki/blackeyes.png')
+            n_eye = lg.newImage('assets/images/natsuki/eye.png')
 		elseif etype == 'ny_argument' then
-			vignette = lg.newImage('assets/images/bg/vignette.png')
+			loadVignette()
 			loadNoise()
 		elseif etype == 'ny_argument2' then
-			ml = lg.newImage('assets/images/monika/ac.png')
+			m_Asset['ac'] = lg.newImage('assets/images/monika/ac.png')
+			m_Set.a = 'ac'
 		elseif etype == 'yuri_glitch' then
 			loadYuriGlitch()
 		elseif etype == 'show_vignette' then
@@ -83,11 +86,10 @@ function event_init(etype,arg1,arg2)
 			loadYuriGlitch()
 		elseif etype == 'm_ch23ex' then
 			ex3top = lg.newImage('assets/images/gui/ex3top.png')
-			ex3bottom = lg.newImage('assets/images/gui/ex3bottom.png')
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('assets/images/bg/splash-glitch2.png')
-			else
+			elseif g_system == '3DS' then
 				splash = lg.newImage('assets/images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap
@@ -110,6 +112,9 @@ function event_init(etype,arg1,arg2)
 			end_glitch3 = lg.newImage('assets/images/bg/end-glitch3.png')
 			loadNoise()
 			loadVignette()
+		elseif etype == 'sayori_gs' then
+			sayori_gs1 = lg.newImage('assets/images/bg/GlitchSayoriScreen1.png')
+			sayori_gs2 = lg.newImage('assets/images/bg/GlitchSayoriScreen2.png')
 		end
 		if arg1 == 'show_noise' then
 			loadNoise()
@@ -147,6 +152,7 @@ function event_end(arg1)
 		exception = nil
 		posX = -40
 		posY = 0
+		unloadanimframe()
 	elseif arg1 == 'next' then
 		event_endnext()
 	elseif arg1 == 's_glitch' then
@@ -156,14 +162,14 @@ function event_end(arg1)
 		n_blackeyes = nil
 		event_endnext()
 	elseif arg1 == 'ny_argument2' then
-		vignette = nil
+		unloadvignette()
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'yuri_glitch' then
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'show_vignette' then
-		vignette = nil
+		unloadvignette()
 	elseif arg1 == 'yuri_eyes' then
 		eyes1 = nil
 		eyes2 = nil
@@ -174,7 +180,6 @@ function event_end(arg1)
 		unloadanimframe()
 	elseif arg1 == 'm_ch23ex' then
 		ex3top = nil
-		ex3bottom = nil
 	elseif arg1 == 'natsuki_ch22' then
 		ghost3 = nil
 		ghost3_1 = nil

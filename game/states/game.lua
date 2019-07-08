@@ -15,12 +15,10 @@ function drawGame()
 	
 	lg.setColor(255,255,255,alpha)
 	if cg1 ~= '' then lg.draw(cgch) end
-	if xaload > 0 then
-		drawSayori()
-		drawYuri()
-		drawNatsuki()
-		drawMonika()
-	end
+	drawSayori()
+	drawYuri()
+	drawNatsuki()
+	drawMonika()
 	
 	if poem_enabled then drawPoem()	end
 	

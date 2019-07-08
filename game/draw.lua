@@ -188,6 +188,18 @@ function drawConsole()
 end
 
 function updateCharacter(set,a,b,px,py,chset)
+	--[[
+	if set == s_Set then
+		unloadSayori()
+	elseif set == y_Set then
+		unloadYuri()
+	elseif set == n_Set then
+		unloadNatsuki()
+	elseif set == m_Set then
+		unloadMonika()
+	end
+	]]
+	
 	if not b then b = '' end
 	set.a = a
 	set.b = b
@@ -218,27 +230,30 @@ function updateMonika(a,b,px,py)
 end
 
 function hideCharacter(set)
-	set = {a='',b='',x=-200,y=0}
+	set.a = ''
+	set.b = ''
+	set.x = -200
+	set.y = 0
 end
 
 function hideSayori()
 	hideCharacter(s_Set)
-	if s_Asset[s_Asset.lr[1]] or s_Asset[s_Set.a] then unloadSayori() end
+	--unloadSayori()
 end
 
 function hideYuri()
 	hideCharacter(y_Set)
-	if y_Asset[y_Asset.lr[1]] or y_Asset[y_Set.a] then unloadYuri() end
+	--unloadYuri()
 end
 
 function hideNatsuki()
 	hideCharacter(n_Set)
-	if n_Asset[n_Asset.lr[1]] or n_Asset[n_Set.a] then unloadNatsuki() end
+	--unloadNatsuki()
 end
 
 function hideMonika()
 	hideCharacter(m_Set)
-	if m_Asset[m_Asset.lr[1]] or m_Asset[m_Set.a] then unloadMonika() end
+	--unloadMonika()
 end
 
 function hideAll()
