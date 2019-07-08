@@ -1,5 +1,5 @@
-dversion = 'v1.0.3'
-dvertype = ''
+dversion = 'v1.0.5'
+dvertype = '' --put 'Test' for test mode
 
 global_os, g_system = love.system.getOS()
 if global_os == 'Horizon' then

@@ -10,15 +10,15 @@ ifeq ($(strip $(DEVKITARM)),)
 $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>devkitARM")
 endif
 
-#ifeq ($(strip $(LOVEPOTION_3DS)),)
-#
-#export ERR_MSG := \
-#$nPlease set LOVEPOTION_3DS in your environment.\
-#$nThis should be the path to your Love Potion projects.\
-#$nDo *NOT* save the *.elf file anywhere else.\
-#$nexport LOVEPOTION_3DS=<path to>/LovePotion.elf
-#$(error $(ERR_MSG))
-#endif
+ifeq ($(strip $(LOVEPOTION_3DS)),)
+
+export ERR_MSG := \
+$nPlease set LOVEPOTION_3DS in your environment.\
+$nThis should be the path to your Love Potion projects.\
+$nDo *NOT* save the *.elf file anywhere else.\
+$nexport LOVEPOTION_3DS=<path to>/LovePotion.elf
+$(error $(ERR_MSG))
+endif
 
 TOPDIR ?= $(CURDIR)
 include $(DEVKITARM)/3ds_rules
@@ -40,10 +40,10 @@ TARGET			:= $(notdir $(CURDIR))
 BUILD			:= build
 GAME			:= game
 
-APP_TITLE		:= Löve Potion
-APP_AUTHOR		:= TurtleP
+APP_TITLE		:= DDLC-LOVE
+APP_AUTHOR		:= LukeZGD
 APP_VERSION		:= 1.1
-APP_DESCRIPTION := LOVE for 3DS
+APP_DESCRIPTION := An unofficial port of DDLC for the 3DS
 
 ICON			:= icon.png
 
