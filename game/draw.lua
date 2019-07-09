@@ -13,6 +13,17 @@ function drawTopScreen()
 		drawbottom = 0
 	elseif global_os == 'Horizon' then
 		lg.setScreen('top')
+		love.graphics.setDepth(2)
+	end
+end
+
+function drawTopScreenWith2D()
+	if drawbottom == 1 then
+		lg.pop()
+		drawbottom = 0
+	elseif global_os == 'Horizon' then
+		lg.setScreen('top')
+		love.graphics.setDepth(0)
 	end
 end
 
@@ -274,6 +285,7 @@ function drawCharacter(asset,set)
 			yh = set.y
 		end
 		if asset[set.b] then
+			love.graphics.setDepth(1)
 			lg.draw(asset[set.b],xh,yh)
 		end
 	end
