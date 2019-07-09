@@ -87,10 +87,7 @@ function love.update()
 	end
 	
 	--touch (3DS)
-	if global_os == 'Horizon' then
-		--local touches = love.touch.getTouches()
-		--mouseX, mouseY = love.touch.getPosition(touches[1])
-	else
+	if global_os ~= 'Horizon' then
 		mouseX = love.mouse.getX()
 		mouseY = love.mouse.getY()
 		mouseX = mouseX / 1.5 - 40
@@ -173,7 +170,9 @@ function love.mousepressed()
 	end
 end
 
-function love.touchpressed()
+function love.touchpressed(id, x, y, dx, dy, pressure)
+	mouseX = x
+	mouseY = y
 	love.mousepressed()
 end
 

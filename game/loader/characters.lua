@@ -34,7 +34,7 @@ function loadSayori()
 	elseif s_Set.a=='5d' then
 		s_Asset.lr = {'3d',''}
 	elseif s_Set.a~='' then
-		s_Asset[s_Set.a] = lg.newImage('assets/images/sayori/'..s_Set.a..'.png')
+		s_Asset.lr = {s_Set.a,''}
 	end
 	
 	for i = 1, 2 do
@@ -52,11 +52,11 @@ end
 
 function unloadSayori()
 	for i = 1, 2 do
-		s_Asset[s_Asset.lr[i]] = nil
+		--s_Asset[s_Asset.lr[i]] = nil
 	end
-	s_Asset[s_Set.a] = nil
-	s_Asset[s_Set.b] = nil
-	collectgarbage()
+	--s_Asset[s_Set.a] = nil
+	--s_Asset[s_Set.b] = nil
+	--collectgarbage()
 end
 
 function loadYuri()	
@@ -82,7 +82,7 @@ function loadYuri()
 	elseif y_Set.a=='4b' then
 		y_Asset.lr = {'3b',''}
 	elseif y_Set.a~='' then
-		y_Asset[y_Set.a] = lg.newImage('assets/images/yuri/'..y_Set.a..'.png')
+		y_Asset.lr = {y_Set.a,''}
 	end
 	
 	for i = 1, 2 do
@@ -100,11 +100,11 @@ end
 
 function unloadYuri()
 	for i = 1, 2 do
-		y_Asset[y_Asset.lr[i]] = nil
+		--y_Asset[y_Asset.lr[i]] = nil
 	end
-	y_Asset[y_Set.a] = nil
-	y_Asset[y_Set.b] = nil
-	collectgarbage()
+	--y_Asset[y_Set.a] = nil
+	--y_Asset[y_Set.b] = nil
+	--collectgarbage()
 end
 
 function loadNatsuki()
@@ -134,11 +134,11 @@ function loadNatsuki()
 	elseif n_Set.a=='4b' then
 		n_Asset.lr = {'2bl','2br'}		
 	elseif n_Set.a=='5' then
-		n_Asset[n_Set.a] = lg.newImage('assets/images/natsuki/3.png') 
+		n_Asset.lr = {'3',''}
 	elseif n_Set.a=='5b' then
-		n_Asset[n_Set.a] = lg.newImage('assets/images/natsuki/3b.png')
+		n_Asset.lr = {'3b',''}
 	elseif n_Set.a~='' then
-		n_Asset[n_Set.a] = lg.newImage('assets/images/natsuki/'..n_Set.a..'.png')   
+		n_Asset.lr = {n_Set.a,''}
 	end
 	
 	for i = 1, 2 do
@@ -152,11 +152,11 @@ end
 
 function unloadNatsuki()
 	for i = 1, 2 do
-		n_Asset[n_Asset.lr[i]] = nil
+		--n_Asset[n_Asset.lr[i]] = nil
 	end
-	n_Asset[n_Set.a] = nil
-	n_Asset[n_Set.b] = nil
-	collectgarbage()
+	--n_Asset[n_Set.a] = nil
+	--n_Asset[n_Set.b] = nil
+	--collectgarbage()
 end
 
 function loadMonika()
@@ -174,11 +174,11 @@ function loadMonika()
 	elseif m_Set.a=='4' then
 		m_Asset.lr = {'2l','2r'}	
 	elseif m_Set.a=='5a' then
-		m_Asset[m_Set.a] = lg.newImage('assets/images/monika/3a.png') 
+		m_Asset.lr = {'3a',''}
 	elseif m_Set.a=='5b' then
-		m_Asset[m_Set.a] = lg.newImage('assets/images/monika/3b.png')
+		m_Asset.lr = {'3b',''}
 	elseif m_Set.a~='' then
-		m_Asset[m_Set.a] = lg.newImage('assets/images/monika/'..m_Set.a..'.png')   
+		m_Asset.lr = {m_Set.a,''} 
 	end
 	
 	for i = 1, 2 do
@@ -196,11 +196,11 @@ end
 
 function unloadMonika()
 	for i = 1, 2 do
-		m_Asset[m_Asset.lr[i]] = nil
+		--m_Asset[m_Asset.lr[i]] = nil
 	end
-	m_Asset[m_Set.a] = nil
-	m_Asset[m_Set.b] = nil
-	collectgarbage()
+	--m_Asset[m_Set.a] = nil
+	--m_Asset[m_Set.b] = nil
+	--collectgarbage()
 end
 
 function unloadAll(x)
