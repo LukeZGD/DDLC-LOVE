@@ -17,6 +17,7 @@ require 'menu'
 require 'scripts/script'
 
 function love.load()
+	love.graphics.set3D(true)
 	lg.setBackgroundColor(0,0,0)
 	myTextStartTime = love.timer.getTime()
 	last_text = ""

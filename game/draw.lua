@@ -273,7 +273,9 @@ function drawCharacter(asset,set)
 			xh = set.x
 			yh = set.y
 		end
-		if asset[set.b] then lg.draw(asset[set.b],xh,yh) end
+		if asset[set.b] then
+			lg.draw(asset[set.b],xh,yh)
+		end
 	end
 	
 	if asset[asset.lr[1]] then
