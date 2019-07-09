@@ -127,7 +127,6 @@ function drawTextBox()
 	if settings.textloc == 'Top' then
 		xps = {c=48,ct=63,textbox=40,namebox=52}
 		yps = {c=166,ct=142,textbox=162,namebox=142}
-		drawTopScreen()
 	else
 		xps = {c=8,ct=23,textbox=0,namebox=12}
 		yps = {c=66,ct=42,textbox=62,namebox=42}
@@ -259,7 +258,9 @@ function drawCharacter(l,r,a,set)
 			xh = set.x
 			yh = set.y
 		end
-		if a then lg.draw(a,xh,yh) end
+		if a then
+			lg.draw(a,xh,yh)
+		end
 	end
 	
 	lg.draw(l, set.x, set.y)

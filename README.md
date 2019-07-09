@@ -20,7 +20,7 @@ You can reset the save data and start over by deleting all of the files on that 
 New 3DS/2DS users should disable L2 Cache before playing this. (?)
 
 ### Building (LovePotion 3DS):
-- Simply run `make` for a 3dsx build or `make cia` for a cia build. LovePotion 1.0.9 .elf and tools are provided.
+- Simply run `make` for a 3dsx build or `make cia` for a cia build.
 
 ### Running:
 - 3DSX - Download the zip from the [releases](https://github.com/LukeZGD/DDLC-3DS/releases), then extract the folder with the .3dsx and the game folder in the 3ds folder of your SD card. You can now run this with the homebrew launcher. (This is only tested in Rosalina homebrew launcher, it may not work in *hax)
@@ -30,3 +30,6 @@ New 3DS/2DS users should disable L2 Cache before playing this. (?)
 - PC - Drag the game folder to LÖVE 0.10.2 / 11.1
 
 **Credits to TurtleP for LovePotion!**
+https://github.com/TurtleP/LovePotion
+
+
