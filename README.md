@@ -3,9 +3,9 @@ A Doki Doki Literature Club port for the Nintendo Switch, PSP, PS Vita, and PS3!
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
-**Some note/s:**
+**Some notes:**
 - **DDLC-LOVE will not run on PSP 1000 systems.** It does not have enough memory for it.
-- **I don’t have enough interest in developing this, or in DDLC anymore. Any further updates will be very minor and will be for Switch and Vita versions only.**
+- **I don’t have enough interest in developing this, or in DDLC anymore. There will be no more updates from me.**
 - The 3DS version of this port is found in the [master](https://github.com/LukeZGD/DDLC-LOVE/tree/master) branch of this repo.
 
 **Locations of save files:**
