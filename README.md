@@ -32,7 +32,7 @@ New 3DS/2DS users should disable L2 Cache before playing this. (?)
 
 - PC - Drag the game folder to LÖVE 0.10.2 / 11.1
 
-**Credits to TurtleP for LovePotion!**
-https://github.com/TurtleP/LovePotion
+**Credits to TurtleP for [LovePotion](https://github.com/TurtleP/LovePotion)!**
+
 
 
