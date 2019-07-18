@@ -44,6 +44,6 @@ You can reset the save data and start over by deleting all of the save files. Th
 - **PC** - Drag the game folder to LÖVE 11.x
 
 ### Credits:
-- **TurtleP** - LovePotion
-- **OneLua Team** - OneLua
-- **3141card** - Lua Player PS3
+- **TurtleP** - [LovePotion](https://github.com/TurtleP/LovePotion)
+- **OneLua Team** - [OneLua](http://onelua.x10.mx/)
+- **3141card** - [Lua Player PS3](https://store.brewology.com/ahomebrew.php?brewid=212)
