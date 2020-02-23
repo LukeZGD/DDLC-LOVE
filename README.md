@@ -5,7 +5,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 
 **Some notes:**
 - **DDLC-LOVE will not run on PSP 1000 systems.** It does not have enough memory for it.
-- **I don’t have enough interest in developing this, or in DDLC anymore. There will be no more updates from me.**
+- **I don’t have enough interest in developing this, or in DDLC anymore. Any further updates will be very minor changes or fixes only.**
 - The 3DS version of this port is found in the [master](https://github.com/LukeZGD/DDLC-LOVE/tree/master) branch of this repo.
 
 **Locations of save files:**
