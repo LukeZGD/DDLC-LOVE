@@ -7,7 +7,7 @@ persistent = {
 	act2={0,0,0,0};
 }
 sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70,lang='eng',outline=0}
+settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70,lang='eng',o=0}
 --default save values
 cl = 1
 bg1 = 'black'
@@ -109,7 +109,8 @@ function savesettings()
 	setfile = setfile.."masvol="..settings.masvol..","
 	setfile = setfile.."bgmvol="..settings.bgmvol..","
 	setfile = setfile.."sfxvol="..settings.sfxvol..","
-	setfile = setfile.."lang='"..settings.lang.."'}"
+	setfile = setfile.."lang='"..settings.lang.."',"
+	setfile = setfile.."o="..settings.o.."}"
 	love.filesystem.write("settings.sav", setfile)
 end
 

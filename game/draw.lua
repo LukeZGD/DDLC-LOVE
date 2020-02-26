@@ -35,7 +35,7 @@ function lg.draw(drawable, ...)
 end
 
 function outlineText(text,x,y,type,arg1)
-	if g_system == 'PSP' or g_system == 'PS3' or settings.outline == 1 then
+	if g_system == 'PSP' or g_system == 'PS3' or settings.o == 1 then
 		lg.setColor(0,0,0,alpha)
 	else
 		local addm = 1.25
