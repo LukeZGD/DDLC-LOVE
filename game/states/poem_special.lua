@@ -48,7 +48,7 @@ function drawpoem_special()
 	end
 end
 
-function updatepoem_special(dt)
+function updatepoem_special()
 	xaload = xaload + 1
 	if p_confirm >= 1 and p_number <= 11 then
 		if p_alpha <= 0 then

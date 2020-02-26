@@ -44,7 +44,7 @@ function event_draw_1()
 	end
 end
 
-function event_update_1(dt)
+function event_update_1()
 	--s_kill timers
 	if event_type == 's_kill_start' and event_timer > 0.75 then event_next()
 	elseif event_type == 's_kill' then

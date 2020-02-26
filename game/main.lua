@@ -1,4 +1,4 @@
-dversion = 'v1.0.5'
+dversion = 'v1.0.5-2'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 
@@ -83,22 +83,22 @@ function love.update()
 	
 	--update depending on gamestate
 	if state == 'load' then
-		updateLoad(dt)
+		updateLoad()
 	elseif state == 'splash' or state == 'splash2' or state == 'title' then
-		updateSplash(dt)
+		updateSplash()
 	elseif state == 'game' or state == 'newgame' then
-		updateGame(dt)
+		updateGame()
 	elseif state == 'poemgame' then
-		updatePoemGame(dt)
+		updatePoemGame()
 	elseif state == 'poem_special' then
-		updatepoem_special(dt)
+		updatepoem_special()
 	elseif state == 's_kill_early' or state == 'ghostmenu' then
-		updateSplashspec(dt)
+		updateSplashspec()
 	elseif state == 'credits' then
-		updateCredits(dt)
+		updateCredits()
 	end
 	if menu_enabled then
-		menu_update(dt)
+		menu_update()
 	end
 	
 	--custom audio looping
@@ -155,10 +155,6 @@ function love.textinput(text)
 	else
 		changeState('title')
 	end
-end
-
-function game_quit()
-	love.event.quit()
 end
 
 function game_setvolume()

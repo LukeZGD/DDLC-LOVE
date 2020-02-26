@@ -94,7 +94,7 @@ function drawCredits()
 	drawConsole()
 end
 
-function updateCredits(dt)
+function updateCredits()
 	c_timer = c_timer + dt
 	c_timer2 = (c_timer - 60) * 75
 	--lyrics part stuff

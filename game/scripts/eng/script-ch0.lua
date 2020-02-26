@@ -924,7 +924,7 @@ function ch0script()
 	elseif cl == 10015 then 
 		persistent.chr.s = 0
 		savepersistent()
-		game_quit()
+		love.event.quit()
 	end
 	
 	--NEW GAME
@@ -943,7 +943,7 @@ function ch0script()
 		choice_enable()
 	elseif cl >= 10021 then
 		if choicepick == 'I do not agree.' then
-			game_quit()
+			love.event.quit()
 		else
 			cl = 10021
 			bgUpdate('warning2')

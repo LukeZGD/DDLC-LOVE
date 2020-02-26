@@ -53,7 +53,7 @@ function drawSplash()
 	lg.setColor(0,0,0,255)
 end
 
-function updateSplash(dt)
+function updateSplash()
 	--splash screen s_timer
 	s_timer = s_timer + dt
 	
@@ -110,7 +110,7 @@ function drawSplashspec(spec)
 	end
 end
 
-function updateSplashspec(dt)
+function updateSplashspec()
 	s_timer = s_timer + dt
 	if s_timer > 3.1 then
 		alpha = math.min(alpha + 4, 255)

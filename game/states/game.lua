@@ -50,7 +50,7 @@ function drawGame()
 	if menu_enabled then menu_draw() end
 end
 
-function updateGame(dt)
+function updateGame()
 	scriptCheck()
 	
 	--timercheck
@@ -104,7 +104,7 @@ function updateGame(dt)
 		end
 	end
 	
-	if event_enabled then event_update(dt) end
+	if event_enabled then event_update() end
 end
 
 function game_keypressed(key)

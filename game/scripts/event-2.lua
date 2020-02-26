@@ -194,7 +194,7 @@ function event_draw_2()
 	end
 end
 
-function event_update_2(dt)
+function event_update_2()
 	--m_glitch
 	if event_type == 'm_glitch1' then
 		if event_timer > 0.8 then

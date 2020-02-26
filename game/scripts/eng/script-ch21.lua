@@ -24,7 +24,7 @@ function ch21_endmenu()
 	choice_enable()
 end
 
-function ch21script(dt)
+function ch21script()
 	if cl == 299 then
 	bgUpdate('club_day2')
 	audioUpdate('2g2')

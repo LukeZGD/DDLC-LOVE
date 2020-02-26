@@ -254,7 +254,7 @@ function drawPoemGame()
 	if menu_enabled then menu_draw() end
 end
 
-function updatePoemGame(dt)
+function updatePoemGame()
 	xaload = xaload + 1
 	if not spAdd then spAdd = 0 end
 	if not npAdd then npAdd = 0 end
