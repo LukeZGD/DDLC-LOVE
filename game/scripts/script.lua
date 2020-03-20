@@ -1,3 +1,4 @@
+require 'loader/events'
 local stext
 local tspd
 local tagtimer = 0
