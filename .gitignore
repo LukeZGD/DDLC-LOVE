@@ -1,7 +1,8 @@
 build/
 game/assets/
-*.db
+banner.bnr
+icon.icn
 *.3dsx
+*.db
+*.cia
 *.smdh
-*.nro
-*.nacp

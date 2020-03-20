@@ -130,7 +130,7 @@ function menu_draw()
 			lg.print(settings.textloc..' Screen',140, 45)
 		end
 		lg.print('Press (<) and (>) to change settings.',16,188)
-		lg.print('DDLC-3DS '..dversion..' '..dvertype,16, 203)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,16, 203)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		lg.print('Page '..pagenum..' of 10',220,12)
@@ -194,9 +194,9 @@ function menu_update(dt)
 	end
     
     if menu_type == 'history' and global_os == 'Horizon' then
-		if joystick:isGamepadDown('dpdown') and history_scr > -27 then
+		if love.keyboard.isDown('down') and history_scr > -27 then
 			history_scr = history_scr - dt*10
-		elseif joystick:isGamepadDown('dpup') and history_scr < 0 then
+		elseif love.keyboard.isDown('up') and history_scr < 0 then
 			history_scr = history_scr + dt*10
 		end
 	end
@@ -215,11 +215,7 @@ function menu_confirm()
 		
 		if m_selected == 2 then --new game
 			if player == '' and global_os == 'Horizon' then --keyboard input for player name
-				local input = {}
-				input["type"] = "basic"
-				input["hint"] = "Enter Player Name"
-				input["isPassword"] = false
-				love.keyboard.showTextInput(input)
+				love.keyboard.setTextInput(true)
 			elseif player ~= '' then --go straight to new game
 				changeState('game',1)
 			end

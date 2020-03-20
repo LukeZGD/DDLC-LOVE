@@ -1,12 +1,3 @@
-dversion = 'v1.0.4-1'
-dvertype = '' --put 'Test' for test mode
-
-global_os, g_system = love.system.getOS()
-if global_os == 'Horizon' then
-	joysticks = love.joystick.getJoysticks()
-	joystick = joysticks[1]
-end
-
 require 'loader/audio'
 require 'loader/images'
 require 'loader/characters'
@@ -16,10 +7,12 @@ require 'saveload'
 require 'menu'
 require 'scripts/script'
 
-function love.load()
+function love.load() 
 	if pcall (love.graphics.set3D, true) == true then
 		love.graphics.set3D(true)
 	end
+	dversion = 'v1.0.7'
+	dvertype = ''
 	
 	lg.setBackgroundColor(0,0,0)
 	myTextStartTime = love.timer.getTime()
@@ -35,16 +28,17 @@ function love.load()
 	menu_enabled = false
 	textbox_enabled = true
 	bgimg_disabled = false
-    
+	
 	math.randomseed(os.time())
 	math.random()
 	math.random()
 	math.random()
 	
-	--for pc stuff
-	if global_os ~= 'Horizon' then
+	--os detection
+	global_os = love.system.getOS()
+	if global_os ~= 'Horizon' then 
 		love.window.setMode(600, 720) 
-		love.window.setTitle('DDLC-3DS')
+		love.window.setTitle('DDLC-LOVE')
 		love.keyboard.setTextInput(false)
 	end
 	
@@ -75,23 +69,43 @@ end
 
 function love.update()
 	dt = love.timer.getDelta()
-	
+
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
+	--moving background (3DS only)
 	if global_os == 'Horizon' then
 		posX = posX - 0.25
 		posY = posY - 0.25
 		if posX <= -80 then posX = 0 end
 		if posY <= -80 then posY = 0 end
 	end
-	
-	--touch (3DS)
+
+	--touch(3DS only)/mouse checks
+	mouseDown = love.mouse.isDown(1)
+	mouseX = love.mouse.getX()
+	mouseY = love.mouse.getY()
 	if global_os ~= 'Horizon' then
-		mouseX = love.mouse.getX()
-		mouseY = love.mouse.getY()
 		mouseX = mouseX / 1.5 - 40
 		mouseY = mouseY / 1.5 - 240
+	end
+	
+	--this acts as love.mousepressed
+	if mouseDown and mousereleased ~= 1 then
+		if menu_enabled ~= true then
+			if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
+				love.keypressed('a')
+			elseif state == 'game' then
+				game_mousepressed()
+			elseif state == 'poemgame' then
+				poemgamemousepressed()
+			end
+		elseif menu_enabled then
+			menu_mousepressed()
+		end
+		mousereleased = 1
+	elseif mouseDown == false then
+		mousereleased = nil
 	end
 	
 	--update depending on gamestate
@@ -128,52 +142,11 @@ function love.keypressed(key)
 		elseif state == 'poem_special' then
 			poem_special_keypressed(key)
 		elseif (state == 'load' or state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
-			love.event.quit()
+			game_quit()
 		end
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
-end
-
-function love.gamepadpressed(joy, button)
-	if button == 'dpup' then
-		button = 'up'
-	elseif button == 'dpdown' then
-		button = 'down'
-	elseif button == 'dpleft' then
-		button = 'left'
-	elseif button == 'dpright' then
-		button = 'right'
-	end
-	love.keypressed(button)
-end
-
-function love.gamepadreleased(joy, button)
-
-end
-
-function love.gamepadaxis(joy, axis, value)
-
-end
-
-function love.mousepressed()
-	if menu_enabled ~= true then
-		if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
-			love.keypressed('a')
-		elseif state == 'game' then
-			game_mousepressed()
-		elseif state == 'poemgame' then
-			poemgamemousepressed()
-		end
-	elseif menu_enabled then
-		menu_mousepressed()
-	end
-end
-
-function love.touchpressed(id, x, y, dx, dy, pressure)
-	mouseX = x
-	mouseY = y
-	love.mousepressed()
 end
 
 function love.textinput(text)
@@ -188,5 +161,14 @@ function love.textinput(text)
 end
 
 function game_quit()
-	love.event.quit()
+	unloadAll('characters')
+	unloadAll('stuff')
+	unloadAll('poemgame')
+	collectgarbage()
+	collectgarbage()
+	if global_os == 'Horizon' then
+		love.quit()
+	else
+		love.event.quit()
+	end
 end

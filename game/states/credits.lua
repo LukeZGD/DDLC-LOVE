@@ -12,8 +12,8 @@ function loadCredits(x)
 	if x ~= 1 then
 		logo = lg.newImage('assets/images/gui/logo.png')
 		
-		halogenfont = lg.newFont('standard',14)
-		rifficfont = lg.newFont('standard',14)
+		halogenfont = lg.newFont('assets/fonts/Halogen',12)
+		rifficfont = lg.newFont('assets/fonts/RifficFree-Bold',12)
 		
 		audioUpdate('credits')
 		c_timer = 0
@@ -89,7 +89,7 @@ function drawCredits()
 	elseif c_timer < 200 then
 		lg.draw(splashw)
 		lg.setFont(font)
-		lg.print('DDLC-3DS',2,205)
+		lg.print('DDLC-LOVE',2,205)
 		lg.print('Unofficial port by LukeeGD',2,220)
 	end
 	

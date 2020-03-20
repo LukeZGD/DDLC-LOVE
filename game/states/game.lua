@@ -2,7 +2,19 @@ local skipspeed = 4
 local audiotell = 0
 local bgalpha = 255
 
+function timerCheck()
+	local dt = love.timer.getDelta()
+	if xaload == 0 then
+		myTextStartTime = love.timer.getTime()
+	end
+	xaload = xaload + 1
+end
+
 function drawGame()
+	if autotimer > 0 or autoskip > 0 then
+		scriptCheck()
+		timerCheck()
+	end
 	lg.setBackgroundColor(0,0,0)
 	
 	drawTopScreen()
@@ -15,10 +27,12 @@ function drawGame()
 	
 	lg.setColor(255,255,255,alpha)
 	if cg1 ~= '' then lg.draw(cgch) end
-	drawSayori()
-	drawYuri()
-	drawNatsuki()
-	drawMonika()
+	if xaload > 0 then
+		drawSayori()
+		drawYuri()
+		drawNatsuki()
+		drawMonika()
+	end
 	
 	if poem_enabled then drawPoem()	end
 	
@@ -67,15 +81,11 @@ function drawGame()
 	if menu_enabled then menu_draw() end
 end
 
-function updateGame(dt)
-	scriptCheck()
-	
-	--timercheck
-	local dt = love.timer.getDelta()
-	if xaload == 0 then
-		myTextStartTime = love.timer.getTime()
+function updateGame(dt)	
+	if autotimer == 0 and autoskip == 0 then
+		scriptCheck()
+		timerCheck()
 	end
-	xaload = xaload + 1
 	
 	if bgch2 then
 		bgalpha = math.max(bgalpha - dt*1000, 0)
@@ -109,9 +119,9 @@ function updateGame(dt)
 	end
 	
     if poem_enabled and poem_scroll and not menu_enabled then
-		if joystick:isGamepadDown('dpup') and poem_scroll.y < 1 then
+		if love.keyboard.isDown('up') and poem_scroll.y < 1 then
 			poem_scroll.y = poem_scroll.y + dt*10
-		elseif joystick:isGamepadDown('dpdown') then
+		elseif love.keyboard.isDown('down') then
 			poem_scroll.y = poem_scroll.y - dt*10
 		end
 	end

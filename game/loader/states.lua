@@ -45,7 +45,7 @@ function changeState(cstate,x)
 		require 'states/game'
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
-		poemfont = lg.newFont('standard',14)
+		poemfont = lg.newFont('assets/fonts/Halogen',12)
 		if persistent.ptr <= 2 then
 			if persistent.ptr == 0 then
 				s_sticker_1 = lg.newImage('assets/images/gui/poemgame/s_sticker_1.png')
@@ -86,10 +86,7 @@ function changeState(cstate,x)
 			alpha = 20
 		else
 			alpha = 255
-			loadSayori()
-			loadYuri()
-			loadNatsuki()
-			loadMonika()
+			loadAll()
 			bgUpdate(bg1, true)
 			audioUpdate(audio1, true)
 			cgUpdate(cg1, true)

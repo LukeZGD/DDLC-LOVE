@@ -18,7 +18,6 @@ function sfxplay(sfx) --sfx stuff
 		sfxp = nil
 		collectgarbage()
 		collectgarbage()
-		
 		if sfx ~= '' then
 			sfxp = love.audio.newSource('assets/audio/sfx/'..sfx..'.ogg', 'static')
 		end
