@@ -1,4 +1,4 @@
-dversion = 'v1.0.6'
+dversion = 'v1.0.7'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 

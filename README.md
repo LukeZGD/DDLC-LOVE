@@ -20,7 +20,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 - For Atmosphère 0.10.2 and up, add `enable_deprecated_hid_mitm = u8!0x1` in `sdmc:/atmosphere/config/system_settings.ini` under `[Atmosphere]` (See [#111](https://github.com/LukeZGD/DDLC-LOVE/issues/111))
 - **DDLC-LOVE does not support PSP 1000 systems.**
 - **Any further updates will be very minor changes or fixes only.**
-- The discontinued 3DS version of this port can be found in the [master](https://github.com/LukeZGD/DDLC-LOVE/tree/master) branch.
+- The 3DS version of this port can be found in the [master](https://github.com/LukeZGD/DDLC-LOVE/tree/master) branch.
 
 ### Building:
 - All versions share the same code, but they all have different processes for building.
