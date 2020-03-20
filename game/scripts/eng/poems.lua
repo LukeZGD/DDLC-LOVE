@@ -552,10 +552,10 @@ b3AgbXlzZWxmLg==]]};
 				audioUpdate('0')
 			elseif yuri_3 then
 				if is3DS then 
-                    poembg = lg.newImage('assets/images/bg/poemxp.png')
-                elseif global_os == 'LOVE-WrapLua' then
-                    poembg = lg.newImage('assets/images/bg/poem1.png')
-                end
+					poembg = lg.newImage('assets/images/bg/poemxp.png')
+				else
+					poembg = lg.newImage('assets/images/bg/poem1.png')
+				end
 				
 				audioUpdate('5_yuri2')
 			else

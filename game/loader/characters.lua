@@ -1,5 +1,3 @@
---Character loader in 1.0.2 (from resources.lua)
-
 function loadSayori()
 	if s_Set.a=='1' then
 		sl = lg.newImage('assets/images/sayori/1l.png') 
@@ -164,8 +162,15 @@ function unloadMonika()
 	m_a = nil
 end
 
+function loadAll()
+	loadSayori()
+	loadNatsuki()
+	loadYuri()
+	loadMonika()
+end
+
 function unloadAll(x)
-	if x == nil or x == 'characters' then
+	if not x or x == 'characters' then
 		sl = nil
 		sr = nil
 		yl = nil
