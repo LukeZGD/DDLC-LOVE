@@ -8,6 +8,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 - This branch is for **3DS systems only**.
 - This branch should also work on other platforms that support LÖVE (0.10.2 and later). This is for testing purposes only, please go to the [ddlclove](https://github.com/LukeZGD/DDLC-LOVE/tree/ddlclove/) branch for proper support on other platforms
 - Only the **latest Luma3DS CFW** is supported.
+- Make sure that dspfirm.cdc is dumped for audio to work (use [DSP1](https://github.com/zoogie/DSP1/releases))
 - New 3DS/2DS users should disable L2 Cache before playing this. (See [#7](https://github.com/LukeZGD/DDLC-LOVE/issues/7))
 - **Any further updates will be very minor changes or fixes only.**
 
