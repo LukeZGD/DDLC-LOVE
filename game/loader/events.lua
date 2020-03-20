@@ -61,7 +61,7 @@ function event_init(etype,arg1,arg2)
 			nl = lg.newImage('assets/images/natsuki/glitch1.png')
 		elseif etype == 'n_blackeyes' then
 			n_blackeyes = lg.newImage('assets/images/natsuki/blackeyes.png')
-            n_eye = lg.newImage('assets/images/natsuki/eye.png')
+			n_eye = lg.newImage('assets/images/natsuki/eye.png')
 		elseif etype == 'ny_argument' then
 			loadVignette()
 			loadNoise()

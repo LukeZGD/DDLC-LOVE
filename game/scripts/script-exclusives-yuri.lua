@@ -9,7 +9,7 @@ function Yuri_exclusive_1()
 		cw('bl',"It looks like the same book that she lent to me...")
 	elseif cl == 427 then
 		cw('bl',"More than that, she seems to be on the first few pages.")
-    elseif cl == 428 then
+	elseif cl == 428 then
 		audioUpdate('6')
 		updateYuri('4','a2',80)
 		cw('y',"Ah...")
@@ -17,7 +17,7 @@ function Yuri_exclusive_1()
 		cw('bl',"Crap--")
 	elseif cl == 430 then
 		cw('bl',"I think she noticed me looking at her...")
-    elseif cl == 431 then
+	elseif cl == 431 then
 		cw('bl',"She sneaks another glance at me, and our eyes meet for a split second.")
 	elseif cl == 432 then
 		updateYuri('4','b2')
@@ -394,7 +394,7 @@ function Yuri_exclusive_1()
 		cw('bl',"Yuri remains silent for a moment.")
 	elseif cl == 597 then
 		cw('y',"But "..player.."...")
-    elseif cl == 598 then
+	elseif cl == 598 then
 		cw('y',"That's probably...")
 	elseif cl == 599 then
 		cw('y', "...a terrible thing to have in common with her!")

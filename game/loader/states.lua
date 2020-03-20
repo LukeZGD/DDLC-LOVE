@@ -6,10 +6,10 @@ function changeState(cstate,x)
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
 		require('states/'..cstate)
 	end
-    
-    if cstate == 'game' then
-        hideAll()
-    end
+	
+	if cstate == 'game' then
+		hideAll()
+	end
 	
 	if cstate == 'splash' then
 		splash = lg.newImage('assets/images/bg/splash.png')

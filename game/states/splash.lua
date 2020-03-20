@@ -1,17 +1,17 @@
 local random_msgchance = math.random(0, 3)
 local splash_messages = {
 	"You are my sunshine,\nMy only sunshine",
-    "I missed you.",
-    "Play with me",
-    "It's just a game, mostly.",
-    "This game is not suitable for children\nor those who are easily disturbed?",
-    "sdfasdklfgsdfgsgoinrfoenlvbd",
-    "null",
-    "I have granted kids to hell",
-    "PM died for this.",
-    "It was only partially your fault.",
-    "This game is not suitable for children\nor those who are easily dismembered.",
-    "Don't forget to backup Monika's character file.";
+	"I missed you.",
+	"Play with me",
+	"It's just a game, mostly.",
+	"This game is not suitable for children\nor those who are easily disturbed?",
+	"sdfasdklfgsdfgsgoinrfoenlvbd",
+	"null",
+	"I have granted kids to hell",
+	"PM died for this.",
+	"It was only partially your fault.",
+	"This game is not suitable for children\nor those who are easily dismembered.",
+	"Don't forget to backup Monika's character file.";
 	}
 local random_msg = math.random(1, #splash_messages)
 local running

@@ -305,14 +305,14 @@ function updatePoemGame(dt)
 		end
 	end
 	
-	if y_velocity ~= 0 then                                  
-		p_y = p_y + y_velocity * dt               
+	if y_velocity ~= 0 then								  
+		p_y = p_y + y_velocity * dt			   
 		y_velocity = y_velocity - gravity * dt 
 	end
  
 	if p_y > ground then  
-		y_velocity = 0     
-    	p_y = ground  
+		y_velocity = 0	 
+		p_y = ground  
 	end
 end
 

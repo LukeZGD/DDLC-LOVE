@@ -162,7 +162,7 @@ function drawPoem()
 		lg.setColor(243,243,243)
 		lg.rectangle('fill',40,0,320,240)
 	end
-    lg.setFont(m1)
+	lg.setFont(m1)
 	lg.setColor(0,0,0)
 	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
@@ -198,7 +198,7 @@ function updateCharacter(set,a,b,px,py,chset)
 	if not b then b = '' end
 	set.a = a
 	set.b = b
-    if px then
+	if px then
 		set.x = px
 	end
 	if py then set.y = py end
@@ -252,10 +252,10 @@ function hideMonika()
 end
 
 function hideAll()
-    s_Set = {a='',b='',x=-200,y=0}
-    y_Set = {a='',b='',x=-200,y=0}
-    n_Set = {a='',b='',x=-200,y=0}
-    m_Set = {a='',b='',x=-200,y=0}
+	s_Set = {a='',b='',x=-200,y=0}
+	y_Set = {a='',b='',x=-200,y=0}
+	n_Set = {a='',b='',x=-200,y=0}
+	m_Set = {a='',b='',x=-200,y=0}
 	unloadAll()
 end
 
@@ -277,8 +277,8 @@ function drawCharacter(l,r,a,set)
 	end
 	
 	lg.draw(l, set.x, set.y)
-    
-    local with_set = with_r
+	
+	local with_set = with_r
 	if set == y_Set then
 		with_set = with_yr
 	end

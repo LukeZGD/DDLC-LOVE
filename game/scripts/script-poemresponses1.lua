@@ -166,7 +166,7 @@ function ch2_y_end()
 end
 
 function ch2_y_bad()
-    if y_poemappeal[1] < 0 then
+	if y_poemappeal[1] < 0 then
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
@@ -352,7 +352,7 @@ function ch2_y_shared()
 end
 
 function ch2_y_med()
-    if y_poemappeal[1] <= 0 then
+	if y_poemappeal[1] <= 0 then
 		if cl == 670 then
 			updateYuri('1','a')
 			cw('y',"Let's see what you've written for today.")
@@ -384,7 +384,7 @@ function ch2_y_med()
 		elseif cl >= 682 then
 			ch2_y_shared()
 		end
-    else
+	else
 		if cl == 671 then
 			updateYuri('1','a')
 			cw('y',"Let's see what you've written for today.")
@@ -411,7 +411,7 @@ end
 
 function ch2_y_good()
 	if y_poemappeal[1] < 1 then
-        if cl == 670 then
+		if cl == 670 then
 			updateYuri('1','a')
 			cw('y',"Let's see what you've written for today.")
 		elseif cl == 671 then
@@ -768,8 +768,8 @@ end
 
 function ch3_y_bad()
 	if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
-        ch3_y_bad12_shared()
-    elseif y_poemappeal[1] < 0 or y_poemappeal[2] < 0 then
+		ch3_y_bad12_shared()
+	elseif y_poemappeal[1] < 0 or y_poemappeal[2] < 0 then
 		if cl == 670 then
 			updateYuri('1','i')
 			cw('y',"...")
@@ -800,7 +800,7 @@ function ch3_y_bad()
 			cw('y',"No...")
 		elseif cl == 682 then
 			cw('y',"You don't understand.")
-        elseif cl == 683 then
+		elseif cl == 683 then
 			cw('y',"I spent so much time worrying about what's better and what's worse.")
 		elseif cl == 684 then
 			cw('y',"Not just with you...")
@@ -884,8 +884,8 @@ function ch3_y_bad()
 			cw('bl',"I'll wait until she's feeling a little bit better.")
 		elseif cl == 722 then
 			poemfinish('y')
-        end
-    else
+		end
+	else
 		if cl == 670 then
 			updateYuri('1','a')
 			cw('y',"...")
@@ -958,7 +958,7 @@ function ch3_y_shared()
 		cw('y',"I'm just...a little too used to it.")
 	elseif cl == 711 then
 		cw('mc',"Overthinking?")
-    elseif cl == 712 then
+	elseif cl == 712 then
 		cw('y',"Being disliked.")
 	elseif cl == 713 then
 		cw('mc',"Yuri...")
@@ -984,9 +984,9 @@ function ch3_y_shared()
 end
 
 function ch3_y_med()
-    if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
-        ch3_y_bad12_shared()
-    elseif y_poemappeal[1] < 1 or y_poemappeal[2] < 1 then
+	if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
+		ch3_y_bad12_shared()
+	elseif y_poemappeal[1] < 1 or y_poemappeal[2] < 1 then
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
@@ -1040,7 +1040,7 @@ function ch3_y_med()
 		elseif cl >= 692 then
 			ch3_y_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			updateYuri('1','e')
 			cw('y',"...")
@@ -1066,9 +1066,9 @@ function ch3_y_med()
 end
 
 function ch3_y_good()
-    if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
-        ch3_y_bad12_shared()
-    elseif y_poemappeal[2] < 1 then
+	if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
+		ch3_y_bad12_shared()
+	elseif y_poemappeal[2] < 1 then
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
@@ -1148,8 +1148,8 @@ function ch3_y_good()
 			cw('mc',"Yuri...?")
 		elseif cl >= 705 then
 			ch3_y_good_shared()
-        end
-    else
+		end
+	else
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
@@ -1279,7 +1279,7 @@ function ch3_y_good_shared()
 		cw('y',"And all I can do with them is read, and write...")
 	elseif cl == 735 then
 		cw('y',"But it wasn't until now...")
-    elseif cl == 736 then
+	elseif cl == 736 then
 		updateYuri('2','s')
 		cw('y',"That I started sharing it with you...")
 	elseif cl == 737 then
@@ -1538,7 +1538,7 @@ function ch2_n_end()
 end
 
 function ch2_n_bad()
-    if n_poemappeal[1] < 0 then
+	if n_poemappeal[1] < 0 then
 		if cl == 670 then
 			cw('n',"...Hm.")
 		elseif cl == 671 then
@@ -1660,11 +1660,11 @@ function ch2_n_bad_sharedwithch3()
 		cw('bl',"At least Natsuki wasn't really the girl I was trying to impress in the first place...")
 	elseif cl == 698 then
 		poemfinish('n')
-    end
+	end
 end
 
 function ch2_n_med()
-    if n_poemappeal[1] < 0 then
+	if n_poemappeal[1] < 0 then
 		if cl == 670 then
 			cw('n',"...Hm.")
 		elseif cl == 671 then
@@ -1676,8 +1676,8 @@ function ch2_n_med()
 			cw('mc',"That's good...")
 		elseif cl >= 674 then
 			ch2_n_med_shared()
-        end
-    elseif n_poemappeal[1] == 0 then
+		end
+	elseif n_poemappeal[1] == 0 then
 		if cl == 670 then
 			cw('n',"...Hm.")
 		elseif cl == 671 then
@@ -1712,7 +1712,7 @@ function ch2_n_med()
 		elseif cl >= 683 then
 			ch2_n_med_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('n',"...Hm.")
 		elseif cl == 671 then
@@ -1776,7 +1776,7 @@ function ch2_n_med_shared()
 end
 	
 function ch2_n_good()
-    if n_poemappeal[1] ~= 1 then
+	if n_poemappeal[1] ~= 1 then
 		if cl == 670 then
 			updateNatsuki('1','h')
 			cw('n',"...")
@@ -1851,7 +1851,7 @@ function ch2_n_good()
 			elseif chapter == 3 then ch3_n_end()
 			end
 		end
-    else
+	else
 		ch2_n_good_sharedwithch3()
 	end
 end
@@ -1950,9 +1950,9 @@ function ch2_n_good_sharedwithch3()
 	elseif cl == 706 then
 		cw('bl',"Monika sees the poem lying on the floor and swiftly picks it up.")
 	elseif cl == 707 then
-        if readpoem.m == 1 then
+		if readpoem.m == 1 then
 			cw('bl',"She skims over it a second time, her smile not fading from her face.")
-        else
+		else
 			cw('bl',"She reads through it, her smile not fading from her face.")
 		end
 	elseif cl == 708 then
@@ -2055,20 +2055,20 @@ function ch2_n_good_sharedwithch3()
 		cw('m',"Like what?")
 	elseif cl == 745 then
 		updateNatsuki('1','2b')
-        cw('n',"Ugh...")
+		cw('n',"Ugh...")
 	elseif cl == 746 then
 		cw('n',"Never mind.")
 	elseif cl == 747 then
-        if poemsread >= 3 then
-            cw('bl',"Well, I guess Natsuki has my poem now.")
-        else
-            cw('mc',"Ah, Natsuki...")
+		if poemsread >= 3 then
+			cw('bl',"Well, I guess Natsuki has my poem now.")
+		else
+			cw('mc',"Ah, Natsuki...")
 		end
 	elseif cl == 748 then
 		if poemsread >= 3 then
 			cw('bl',"Not that I really planned on keeping it.")
 		else
-            cw('mc',"I'll give you the poem, but that's still not very fair to "..unfairto.."...")
+			cw('mc',"I'll give you the poem, but that's still not very fair to "..unfairto.."...")
 		end
 	elseif cl == 749 then
 		if poemsread >= 3 then
@@ -2331,7 +2331,7 @@ function ch3_n_end_special()
 		cw('bl',"With that, I return to my seat so that I can put away Natsuki's poem.")
 	elseif cl == 815 then
 		poemfinish('n')
-    end
+	end
 end
 
 function ch3_n_bad12_shared()
@@ -2349,9 +2349,9 @@ function ch3_n_bad12_shared()
 end
 
 function ch3_n_bad()
-    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
-        ch3_n_bad12_shared()
-    elseif n_poemappeal[1] < 0 or n_poemappeal[2] < 0 then
+	if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+		ch3_n_bad12_shared()
+	elseif n_poemappeal[1] < 0 or n_poemappeal[2] < 0 then
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
@@ -2368,7 +2368,7 @@ function ch3_n_bad()
 		elseif cl >= 676 then
 			ch2_n_bad_sharedwithch3()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 672 then
@@ -2396,7 +2396,7 @@ function ch3_n_bad()
 			cw('mc',"Okay, okay.")
 		elseif cl == 681 then
 			cw('mc',"Like you said, I'm allowed to try new things.")
-        elseif cl >= 682 then
+		elseif cl >= 682 then
 			ch3_n_shared()
 		end
 	end
@@ -2477,9 +2477,9 @@ function ch3_n_shared()
 end
 
 function ch3_n_med()
-    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
-        ch3_n_bad12_shared()
-    elseif n_poemappeal[2] ~= 0 then
+	if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+		ch3_n_bad12_shared()
+	elseif n_poemappeal[2] ~= 0 then
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
@@ -2498,7 +2498,7 @@ function ch3_n_med()
 		elseif cl >= 677 then
 			ch2_n_med_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
@@ -2526,9 +2526,9 @@ function ch3_n_med()
 end
 
 function ch3_n_good()
-    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
-        ch3_n_bad12_shared()
-    elseif n_poemappeal[1] > 0 and n_poemappeal[2] > 0 then
+	if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+		ch3_n_bad12_shared()
+	elseif n_poemappeal[1] > 0 and n_poemappeal[2] > 0 then
 		if cl == 670 then
 			updateNatsuki('1','l')
 			cw('n',"Let's see, let's see!")
@@ -2722,9 +2722,9 @@ function ch3_n_good()
 		elseif cl >= 754 then
 			ch3_n_end()
 		end
-    elseif n_poemappeal[1] > 0 or n_poemappeal[2] > 0 then
-        ch2_n_good_sharedwithch3()
-    else
+	elseif n_poemappeal[1] > 0 or n_poemappeal[2] > 0 then
+		ch2_n_good_sharedwithch3()
+	else
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
@@ -2796,7 +2796,7 @@ function ch3_n_good()
 			cw('n',"Anyway, here's the one I wrote.")
 		elseif cl >= 700 then
 			ch3_n_end()
-        end
+		end
 	end
 end
 
@@ -2868,7 +2868,7 @@ function ch1_s_shared()
 	elseif cl == 701 then
 		cw('s',"It just reminds me of how you're really a part of the club now~")
 	elseif cl == 702 then
-        cw('bl',"(Not to mention the fact that I'm standing in front of you in the clubroom...?)")
+		cw('bl',"(Not to mention the fact that I'm standing in front of you in the clubroom...?)")
 	elseif cl == 703 then
 		cw('mc',"Er...well, of course.")
 	elseif cl == 704 then
@@ -2879,22 +2879,22 @@ function ch1_s_shared()
 	elseif cl == 706 then
 		cw('s',"It's like I said before, "..player.."...")
 	elseif cl == 707 then
-        cw('s',"Deep down, you're not selfish at all, you know?")
+		cw('s',"Deep down, you're not selfish at all, you know?")
 	elseif cl == 708 then
-        cw('s',"Trying new things like this for other people...")
+		cw('s',"Trying new things like this for other people...")
 	elseif cl == 709 then
-        updateSayori('2','q')
+		updateSayori('2','q')
 		cw('s',"That's something that only really good people do!")
 	elseif cl == 710 then
-        cw('mc',"Thanks...Sayori.")
+		cw('mc',"Thanks...Sayori.")
 	elseif cl == 711 then
-        cw('bl',"...I'm not sure if Sayori sees the full picture of my motive here.")
+		cw('bl',"...I'm not sure if Sayori sees the full picture of my motive here.")
 	elseif cl == 712 then
-        cw('bl',"Then again...")
+		cw('bl',"Then again...")
 	elseif cl == 713 then
-        cw('bl',"I can't deny that she's part of the reason I joined.")
+		cw('bl',"I can't deny that she's part of the reason I joined.")
 	elseif cl == 714 then
-        cw('bl',"Knowing how much this means to her and all...")
+		cw('bl',"Knowing how much this means to her and all...")
 	elseif cl == 715 then
 		updateSayori('1','x')
 		cw('s',"Yeah.")
@@ -2908,14 +2908,14 @@ function ch1_s_shared()
 		updateSayori('4','r')
 		cw('s',"Yay~!")
 	elseif cl == 720 then
-        cw('s',"Now, you'll read my poem too, right?")
+		cw('s',"Now, you'll read my poem too, right?")
 	elseif cl == 721 then
-        updateSayori('1','y')
+		updateSayori('1','y')
 		cw('s',"Don't worry, I'm really bad at this.")
 	elseif cl == 722 then
-        cw('s',"Ehehe...")
+		cw('s',"Ehehe...")
 	elseif cl == 723 then
-        cw('mc',"We'll see about that.")
+		cw('mc',"We'll see about that.")
 	elseif cl == 724 then
 		poem('poem_s1')
 	elseif cl == 725 then
@@ -2981,7 +2981,7 @@ function ch1_s_shared()
 		cw('s',"This was so much fun.")
 	elseif cl == 751 then
 		cw('s',"Monika's the best!")
-    elseif cl == 752 then
+	elseif cl == 752 then
 		cw('mc',"Ah...yeah.")
 	elseif cl == 753 then
 		cw('s',"But next time, I won't forget.")
@@ -3091,7 +3091,7 @@ function ch2_s_bad()
 	elseif cl == 675 then
 		updateSayori('4','l')
 		cw('s',"...Maybe!")
-    elseif cl == 676 then
+	elseif cl == 676 then
 		updateSayori('5a')
 		cw('s',"Just a little?")
 	elseif cl == 677 then
@@ -3126,7 +3126,7 @@ function ch2_s_shared()
 		cw('s',"That's so sweet~")
 	elseif cl == 720 then
 		cw('mc',"Yeah, right.")
-	elseif cl == 721 then    
+	elseif cl == 721 then	
 		cw('mc',"But you're always thinking about other people.")
 	elseif cl == 722 then
 		cw('mc',"You need to think about yourself once in a while.")
@@ -3304,11 +3304,11 @@ function ch2_s_med()
 			cw('s',"Uh-huh!")
 		elseif cl == 677 then
 			cw('mc',"Maybe I'm getting better at this, then.")
-        elseif cl >= 678 then
+		elseif cl >= 678 then
 			ch2_s_med_shared()
 		end
 
-    elseif s_poemappeal[1] == 0 then
+	elseif s_poemappeal[1] == 0 then
 		if cl == 670 then
 			cw('s',"...")
 		elseif cl == 671 then
@@ -3337,8 +3337,8 @@ function ch2_s_med()
 		elseif cl >= 681 then
 			ch2_s_med_shared()
 		end
-    else
-        if cl == 670 then
+	else
+		if cl == 670 then
 			cw('s',"...")
 		elseif cl == 671 then
 			updateSayori('4','x')
@@ -3489,10 +3489,10 @@ function ch2_s_good()
 		elseif cl == 703 then
 			updateSayori('4','l')
 			cw('s',"Ehehe...")
-        elseif cl >= 704 then
+		elseif cl >= 704 then
 			ch2_s_med_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('s',"...")
 		elseif cl == 671 then
@@ -3517,7 +3517,7 @@ function ch2_s_good()
 			cw('mc',"I mean...")
 		elseif cl == 680 then
 			cw('mc',"You're really the only one who feels that way, so...")
-        elseif cl == 681 then
+		elseif cl == 681 then
 			updateSayori('4','h')
 			cw('s',"Eh?!")
 		elseif cl == 682 then
@@ -3562,7 +3562,7 @@ function ch2_s_good()
 			cw('s',"Ehehe...")
 		elseif cl == 700 then
 			cw('mc',"So, yeah...")
-        elseif cl == 701 then
+		elseif cl == 701 then
 			cw('mc',"I guess what I'm saying is that I can feel more feelings through you than I can through myself.")
 		elseif cl == 702 then
 			cw('mc',"We have that kind of weird connection.")
@@ -3684,9 +3684,9 @@ function ch2_s_good()
 end
 
 function ch3_s_bad()
-    local currentname = "Yuri"
-    if n_poemappeal[3] > y_poemappeal[3] then
-        currentname = "Natsuki"
+	local currentname = "Yuri"
+	if n_poemappeal[3] > y_poemappeal[3] then
+		currentname = "Natsuki"
 	end
 	if cl == 670 then
 		cw('s',"...")
@@ -3794,7 +3794,7 @@ end
 
 function ch3_s_good()
 	if poemwinner[1] ~= "Sayori" and poemwinner[2] ~= "Sayori" then
-        ch3_s_bad()
+		ch3_s_bad()
 	else
 		if cl == 670 then
 			updateSayori('1','d')
@@ -4072,7 +4072,7 @@ function ch3_m_start()
 		cw('m',"Anyway, let's take a look at today's poem!")
 	elseif cl == 680 then
 		cw('mc',"Sure...")
-    elseif cl == 681 then
+	elseif cl == 681 then
 		cw('bl',"I let Monika take the poem I'm holding in my hands.")
 	elseif cl == 682 then
 		cw('m',"...")
@@ -4117,7 +4117,7 @@ function ch1_m_end()
 		cw('m',"Don't worry, I'm not very good...")
 	elseif cl == 743 then
 		cw('mc',"You sound pretty confident for someone who claims to not be very good.")
-    elseif cl == 744 then
+	elseif cl == 744 then
 		updateMonika('1','j')
 		cw('m',"Well...that's 'cause I have to sound confident.")
 	elseif cl == 745 then
@@ -4334,7 +4334,7 @@ function m_natsuki_1()
 	elseif cl == 700 then
 		updateMonika('5a','')
 		cw('m',"So take that as a compliment!")
-    elseif cl == 701 then
+	elseif cl == 701 then
 		cw('mc',"Ahaha...")
 	elseif cl == 702 then
 		cw('mc',"If you say so.")
@@ -4360,7 +4360,7 @@ function m_natsuki_1()
 		cw('m',"They can express views of the world that would apply to anybody.")
 	elseif cl == 712 then
 		cw('mc',"I see...")
-    elseif cl == 713 then
+	elseif cl == 713 then
 		cw('mc',"So you're saying that Natsuki is kind of like that?")
 	elseif cl == 714 then
 		updateMonika('2','a')
@@ -4403,7 +4403,7 @@ function m_sayori_1()
 	elseif cl == 701 then
 		updateMonika('3','a')
 		cw('m',"But maybe there are also some similarities that you wouldn't expect.")
-    elseif cl == 702 then
+	elseif cl == 702 then
 		cw('m',"The way she talks about you...")
 	elseif cl == 703 then
 		cw('m',"It sounds like the two of you really care about each other's well-being.")
@@ -4669,7 +4669,7 @@ function m_yuri_2()
 		cw('mc',"Eh?!")
 	elseif cl == 716 then
 		cw('mc',"You...completely misunderstood!")
-    elseif cl == 717 then
+	elseif cl == 717 then
 		cw('m',"Ahaha! Calm down, I'm kidding!")
 	elseif cl == 718 then
 		updateMonika('2','a')
@@ -4896,7 +4896,7 @@ function m_yuri_3()
 		cw('mc',"I just...feel bad that she has a hard time socializing.")
 	elseif cl == 711 then
 		cw('mc',"It makes me want to make sure she doesn't spend all her time alone.")
-    elseif cl == 712 then
+	elseif cl == 712 then
 		cw('mc',"Besides, the novel isn't too bad either, you know...")
 	elseif cl == 713 then
 		updateMonika('1','k')

@@ -1,15 +1,15 @@
 function Sayori_exclusive_1()
 	if cl == 423 then
 		cw('bl',"Man...")
-    elseif cl == 424 then
+	elseif cl == 424 then
 		cw('bl',"It looks like no one wants to be bothered today.")
-    elseif cl == 425 then
+	elseif cl == 425 then
 		cw('bl',"I slump down into the nearest desk.")
 	elseif cl == 426 then
 		cw('bl',"How am I supposed to occupy myself with something literature-related by myself like this?")
 	elseif cl == 427 then
 		cw('bl',"I guess I could always read some of the book Yuri gave me...")
-    elseif cl == 428 then
+	elseif cl == 428 then
 		cw('bl',"...But I'm feeling a little too tired to read.")
 	elseif cl == 429 then
 		cw('bl',"I could probably fall asleep right now.")
@@ -36,7 +36,7 @@ function Sayori_exclusive_1()
 		cw('m',"We just need a way of showing that to everyone...")
 	elseif cl == 438 then
 		cw('m',"Something that speaks to their creative minds.")
-    elseif cl == 439 then
+	elseif cl == 439 then
 		updateSayori('1','i')
 		cw('s',"Mmmmmmmmmmm.....")
 	elseif cl == 440 then
@@ -83,7 +83,7 @@ function Sayori_exclusive_1()
 		cw('s',"Ah! You're right!")
 	elseif cl == 457 then
 		cw('s',"Natsuki makes the best cupcakes!")
-    elseif cl == 458 then
+	elseif cl == 458 then
 		cw('s',"That works out perfectly~")
 	elseif cl == 459 then
 		updateMonika('1','d')
@@ -127,13 +127,13 @@ function Sayori_exclusive_1()
 		cw('bl','I open my eyes to find Sayori\'s face filling my vision.')
 	elseif cl == 474 then
 		cw('bl',"I nearly fall out of my chair.")
-    elseif cl == 475 then
+	elseif cl == 475 then
 		updateSayori('4','q',80)
 		cw('s',"Ehehe, sorry~")
 	elseif cl == 476 then
 		updateSayori('4','i')
 		cw('s',"Wait!")
-    elseif cl == 477 then
+	elseif cl == 477 then
 		updateSayori('4','j')
 		cw('s',"Actually, I'm not sorry at all!")
 	elseif cl == 478 then
@@ -276,9 +276,9 @@ function Sayori_exclusive_1()
 		cw('s',"Well...")
 	elseif cl == 538 then
 		cw('s',"I was just thinking how weird it is to have a friend who does these kinds of things.")
-    elseif cl == 539 then
+	elseif cl == 539 then
 		cw('mc',"Eh?")
-    elseif cl == 540 then
+	elseif cl == 540 then
 		cw('mc',"D-Don't say that!")
 	elseif cl == 541 then
 		cw('mc',"You'll make me feel weird about it, stupid...")
@@ -410,7 +410,7 @@ function Sayori_exclusive_1()
 	elseif cl == 598 then
 		updateSayori('4','x')
 		cw('s',player..", I can't wait to read yours!")
-    elseif cl == 599 then
+	elseif cl == 599 then
 		cw('mc',"Yeah, same...")
 	elseif cl == 600 then
 		cw('bl',"I fail to sound enthusiastic, but Sayori still trots away to retrieve her poem.")
@@ -426,7 +426,7 @@ function Sayori_exclusive_1()
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=-40 x=80 x=200
 		--4: x=-60 x=30 x=120 x=220
-    
+	
 	end
 end
 
@@ -711,7 +711,7 @@ function Sayori_exclusive_2()
 		cw('bl',"Sayori slowly releases her hands from her forehead.")
 	elseif cl == 1473 then
 		cw('bl',"I gently brush her bangs to the side.")
-    elseif cl == 1474 then
+	elseif cl == 1474 then
 		cgUpdate('s_cg2_exp3')
 		cw('s',"Ow--!")
 	elseif cl == 1475 then
@@ -770,7 +770,7 @@ function Sayori_exclusive_2()
 	elseif cl == 1498 then
 		bgUpdate('cg/s_cg2_base2')
 		cw('bl',"I hand Sayori the bottle of apple juice.")
-    elseif cl == 1499 then
+	elseif cl == 1499 then
 		cgHide()
 		cw('s',"It's nice and cold...")
 	elseif cl == 1500 then
@@ -958,7 +958,7 @@ function Sayori_exclusive_2()
 	elseif cl == 1582 then
 		updateMonika('3','m')
 		cw('m',"...")
-    elseif cl == 1583 then
+	elseif cl == 1583 then
 		updateMonika('3','l')
 		cw('m',"...Well, anyway!")
 	elseif cl == 1584 then

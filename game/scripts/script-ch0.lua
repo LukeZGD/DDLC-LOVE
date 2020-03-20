@@ -23,7 +23,7 @@ function ch0script()
 		cw('s',"I overslept again!")
 	elseif cl == 10 then 
 		cw('s',"But I caught you this time!")
-    elseif cl == 11 then
+	elseif cl == 11 then
 		cw('mc',"Maybe, but only because I decided to stop and wait for you.")
 	elseif cl == 12 then
 		updateSayori('5c')
@@ -173,7 +173,7 @@ function ch0script()
 		cw('s',"Well...")
 	elseif cl == 75 then
 		cw('s',"I kind of told the club yesterday I would bring in a new member...")
-    elseif cl == 76 then
+	elseif cl == 76 then
 		cw('s',"And Natsuki made cupcakes and everything...")
 	elseif cl == 77 then 
 		cw('s',"Ehehe...")
@@ -181,11 +181,11 @@ function ch0script()
 		cw('mc',"Don\'t make promises you can\'t keep!")
 	elseif cl == 79 then
 		cw('bl','I can\'t tell if Sayori is really that much of an airhead, or if she\'s so cunning as to have planned all of this out.')
-    elseif cl == 80 then 
+	elseif cl == 80 then 
 		cw('bl','I let out a long sigh.')
 	elseif cl == 81 then
 		cw('mc',"Fine... I\'ll stop by for a cupcake, okay?")
-    elseif cl == 82 then
+	elseif cl == 82 then
 		updateSayori('4','r')
 		cw('s',"Yes! Let\'s go~!")
 	elseif cl == 83 then
@@ -210,7 +210,7 @@ function ch0script()
 	elseif cl == 89 then
 		updateYuri('1','a',80)
 		cw('Girl 1',"Welcome to the Literature Club. It's a pleasure meeting you.")
-    elseif cl == 90 then 
+	elseif cl == 90 then 
 		cw('Girl 1',"Sayori always says nice things about you.")
 	elseif cl == 91 then
 		updateNatsuki('4','c',10)
@@ -230,9 +230,9 @@ function ch0script()
 		cw('mc',"...")
 	elseif cl == 96 then 
 		cw('bl','All words escape me in this situation.')
-    elseif cl == 97 then 
+	elseif cl == 97 then 
 		cw('bl','This club...')
-    elseif cl == 98 then
+	elseif cl == 98 then
 		cw('bl','...is full of incredibly cute girls!!')
 	elseif cl == 99 then
 		hideMonika()
@@ -253,7 +253,7 @@ function ch0script()
 		cw('bl','The girl with the sour attitude, whose name is apparently Natsuki, is one I don\'t recognize.')
 	elseif cl == 105 then
 		cw('bl','Her small figure makes me think she\'s probably a first-year.')
-    elseif cl == 106 then
+	elseif cl == 106 then
 		cw('bl','She is also the one who made cupcakes, according to Sayori.')
 	elseif cl == 107 then
 		updateSayori('2','q',-40)
@@ -263,7 +263,7 @@ function ch0script()
 	elseif cl == 109 then
 		updateSayori('1','x')
 		cw('s',"Anyway! This is Natsuki, always full of energy.")
-    elseif cl == 110 then 
+	elseif cl == 110 then 
 		cw('s',"And this is Yuri, the smartest in the club!")
 	elseif cl == 111 then
 		updateYuri('4','b2')
@@ -293,21 +293,21 @@ function ch0script()
 		cw('bl','Basically, completely out of my league.')
 	elseif cl == 121 then
 		cw('bl','So, having her smile at me so genuinely feels a little...')
-    elseif cl == 122 then
+	elseif cl == 122 then
 		cw('mc',"Y-You too, Monika.")
 	elseif cl == 123 then
 		hideMonika()
 		updateSayori('4','x')
 		cw('s',"Come sit down, " .. player .. '! We made room for you at the table, so you can sit next to me or Monika.')
-    elseif cl == 124 then 
+	elseif cl == 124 then 
 		cw('s',"I'll get the cupcakes~")
 	elseif cl == 125 then
 		updateNatsuki('1','b',80)
 		cw('n',"Hey! I made them, I'll get them!")
-    elseif cl == 126 then
+	elseif cl == 126 then
 		updateSayori('5a','')
 		cw('s',"Sorry, I got a little too excited~")
-    elseif cl == 127 then
+	elseif cl == 127 then
 		updateYuri('1','a',200)
 		cw('y',"Then, how about I make some tea as well?")
 	elseif cl == 128 then
@@ -317,11 +317,11 @@ function ch0script()
 		cw('bl','The girls have a few desks arranged to form a table.')
 	elseif cl == 129 then
 		cw('bl','As Sayori mentioned, it\'s been widened so that there is one space next to Monika and one space next to Sayori.')
-    elseif cl == 130 then
+	elseif cl == 130 then
 		cw('bl','Natsuki and Yuri walk over to the corner of the room, where Natsuki grabs a wrapped tray and Yuri opens the closet.')
 	elseif cl == 131 then
 		cw('bl','Still feeling awkward, I take a seat next to Sayori.')
-    elseif cl == 132 then
+	elseif cl == 132 then
 		cw('bl','Natsuki proudly marches back to the table, tray in hand.')
 	elseif cl == 133 then
 		updateNatsuki('2','z',80)
@@ -363,15 +363,15 @@ function ch0script()
 		cw('bl','Natsuki is quiet.')
 	elseif cl == 147 then
 		cw('bl','I can\'t help but notice her sneaking glances in my direction.')
-    elseif cl == 148 then 
+	elseif cl == 148 then 
 		cw('bl','Is she waiting for me to take a bite?')
-    elseif cl == 149 then 
+	elseif cl == 149 then 
 		cw('bl','I finally bite down.')
-    elseif cl == 150 then
+	elseif cl == 150 then
 		cw('bl','The icing is sweet and full of flavor - I wonder if she made it herself.')
-    elseif cl == 151 then
+	elseif cl == 151 then
 		cw('mc',"This is really good.")
-    elseif cl == 152 then 
+	elseif cl == 152 then 
 		cw('mc',"Thank you, Natsuki.")
 	elseif cl == 153 then
 		updateNatsuki('5','h')
@@ -386,16 +386,16 @@ function ch0script()
 	elseif cl == 157 then
 		updateNatsuki('1','2c')
 		cw('n',"Well, maybe!")
-    elseif cl == 158 then 
+	elseif cl == 158 then 
 		cw('n',"But not for, y-you know, you! Dummy...")
 	elseif cl == 159 then
 		cw('n',"Alright, alright...")
 	elseif cl == 160 then
 		hideNatsuki()
 		cw('bl','I give up on Natsuki\'s weird logic and dismiss the conversation.')
-    elseif cl == 161 then 
+	elseif cl == 161 then 
 		cw('bl',"Yuri returns to the table, carrying a tea set.")
-    elseif cl == 162 then
+	elseif cl == 162 then
 		cw('bl','She carefully places a teacup in front of each of us before setting down the teapot next to the cupcake tray.')
 	elseif cl == 163 then
 		updateYuri('1','a',10)
@@ -417,14 +417,14 @@ function ch0script()
 	elseif cl == 170 then
 		updateYuri('4','b2')
 		cw('y',"I meant that, you know...")
-    elseif cl == 171 then 
+	elseif cl == 171 then 
 		cw('mc',"I believe you.")
 	elseif cl == 172 then
 		cw('mc',"Well, tea and reading might not be a pastime for me, but I at least enjoy tea.")
 	elseif cl == 173 then
 		updateYuri('2','u')
 		cw('y',"I'm glad...")
-    elseif cl == 174 then 
+	elseif cl == 174 then 
 		cw('bl','Yuri faintly smiles to herself in relief.')
 	elseif cl == 175 then
 		cw('bl',"Monika raises an eyebrow, then smiles at me.")
@@ -436,7 +436,7 @@ function ch0script()
 		cw('mc',"Um...")
 	elseif cl == 178 then 
 		cw('bl',"I was afraid of this question.")
-    elseif cl == 179 then
+	elseif cl == 179 then
 		cw('bl','Something tells me I shouldn\'t tell Monika that I was practically dragged here by Sayori.')
 	elseif cl == 180 then
 		cw('mc',"Well, I haven't joined any clubs yet, and Sayori seemed really happy here, so...")
@@ -453,11 +453,11 @@ function ch0script()
 		cw('mc',"Monika, I\'m surprised.")
 	elseif cl == 185 then 
 		cw('mc',"How come you decided to start your own club?")
-    elseif cl == 186 then
+	elseif cl == 186 then
 		cw('mc',"You could probably be a board member for any of the major clubs.")
-    elseif cl == 187 then 
+	elseif cl == 187 then 
 		cw('mc',"Weren\'t you a leader of the debate club last year?")
-    elseif cl == 188 then 
+	elseif cl == 188 then 
 		updateMonika('5a','')
 		cw('m',"Ahaha, well, you know...")
 	elseif cl == 189 then
@@ -480,14 +480,14 @@ function ch0script()
 		hideSayori()
 		hideYuri()
 		cw('mc',"Then I\'m surprised there aren\'t more people in the club yet.")
-    elseif cl == 196 then 
+	elseif cl == 196 then 
 		cw('mc',"It must be hard to start a new club.")
-    elseif cl == 197 then
+	elseif cl == 197 then
 		updateMonika('3','b')
 		cw('m',"You could put it that way.")
-    elseif cl == 198 then
+	elseif cl == 198 then
 		cw('m',"Not many people are very interested in putting out all the effort to start something brand new...")
-    elseif cl == 199 then
+	elseif cl == 199 then
 		cw('m',"Especially when it\'s something that doesn\'t grab your attention, like literature.")
 	elseif cl == 200 then
 		cw('m',"You have to work hard to convince people that you\'re both fun and worthwhile.")
@@ -515,11 +515,11 @@ function ch0script()
 		cw('n',"You know it!")
 	elseif cl == 207 then
 		cw('bl',"Everyone enthusiastically agrees.")
-    elseif cl == 208 then 
+	elseif cl == 208 then 
 		cw('bl',"Such different girls, all interested in the same goal...")
-    elseif cl == 209 then
+	elseif cl == 209 then
 		cw('bl',"Monika must have worked really hard just to find these three.")
-    elseif cl == 210 then
+	elseif cl == 210 then
 		cw('bl',"Maybe that's why they were all so delighted by the idea of a new member joining.")
 	elseif cl == 211 then
 		cw('bl',"Though I still don't really know if I can keep up with their level of enthusiasm about literature...")

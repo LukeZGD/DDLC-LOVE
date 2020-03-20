@@ -1,9 +1,9 @@
 function Natsuki_exclusive_1()
 	if cl == 423 then
 		cw('n',"Ugh...!")
-    elseif cl == 424 then
+	elseif cl == 424 then
 		cw('bl',"I hear Natsuki utter an exasperated sigh from within the closet.")
-    elseif cl == 425 then
+	elseif cl == 425 then
 		cw('bl',"She seems to be annoyed by something.")
 	elseif cl == 426 then
 		cw('bl',"I approach her, in case she needs a hand.")
@@ -288,9 +288,9 @@ function Natsuki_exclusive_1()
 		cw('bl',"...")
 	elseif cl == 545 then
 		cw('bl',"We read on for a few more minutes.")
-    elseif cl == 546 then
+	elseif cl == 546 then
 		cw('bl',"I've finished a couple chapters at this point.")
-    elseif cl == 547 then
+	elseif cl == 547 then
 		cw('mc',"...")
 	elseif cl == 548 then
 		cw('mc',"...Are you sure this isn't boring for you?")
@@ -449,7 +449,7 @@ function Natsuki_exclusive_1()
 		cw('n',"Oh, come on!")
 	elseif cl == 620 then
 		cw('n',"Could your timing be any worse?")
-    elseif cl == 621 then
+	elseif cl == 621 then
 		updateMonika('5a','')
 		cw('m',"Sorry~!")
 	elseif cl == 622 then
@@ -466,7 +466,7 @@ function Natsuki_exclusive_1()
 		cw('bl',"Natsuki suddenly notices how close she's gotten to me.")
 	elseif cl == 627 then
 		cw('bl',"She hastily slides herself a good twelve inches away from me.")
-    elseif cl == 628 then
+	elseif cl == 628 then
 		hideMonika()
 		updateNatsuki('1','p',80)
 		cw('mc',"Alright...")
@@ -511,21 +511,21 @@ function Natsuki_exclusive_1()
 		cw('bl',"I only got partway through the volume so far.")
 	elseif cl == 646 then
 		cw('bl',"I might fall behind on some shows if I try to get through this...")
-    elseif cl == 647 then 
+	elseif cl == 647 then 
 		cw('bl',"But I suppose that's a necessary sacrifice in exchange for seeing Natsuki's enthusiastic face.")
 	elseif cl == 648 then
 		cw('bl',"Or am I more scared of what will happen if I don't finish it...?")
-    elseif cl == 649 then
+	elseif cl == 649 then
 		cw('bl',"Alright, then!")
-    elseif cl == 650 then
+	elseif cl == 650 then
 		cw('bl',"I stand up.")
-    elseif cl == 651 then
+	elseif cl == 651 then
 		cw('bl',"I return to where I put my stuff and carefully slip the book into my bag.")
 		--1: x=80
 		--2: x=20 x=140 ..or.. x=10 x=150
 		--3: x=0-40 x=80 x=200
 		--4: x=0-60 x=30 x=120 x=220
-    elseif cl == 1359 then
+	elseif cl == 1359 then
 		scriptJump(423)
 	end
 end
@@ -840,7 +840,7 @@ function Natsuki_exclusive_2_ch3()
 		cw('n',"W-What are you looking at?!")
 	elseif cl == 1489 then
 		cw('mc',"--!")
-    elseif cl == 1490 then
+	elseif cl == 1490 then
 		cw('n',"You're trying to look at my...m-my...")
 	elseif cl == 1491 then
 		cw('bl',"Natsuki's legs shake.")
@@ -862,7 +862,7 @@ function Natsuki_exclusive_2_ch3()
 		cw('mc',"But--")
 	elseif cl == 1500 then
 		cw('n',"I'll do it myself!!")
-    elseif cl == 1501 then
+	elseif cl == 1501 then
 		cgHide()
 		cw('n',"A-Ah--")
 	elseif cl == 1502 then

@@ -81,7 +81,7 @@ function cw(p1, stext, tag)
 			history[1] = temptext2
 		end
 	end
-    
+	
 	local slen = string.len(stext)
 	if tag then
 		tagtimer = tagtimer + (settings.textspd / 100)

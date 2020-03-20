@@ -161,23 +161,23 @@ function menu_draw()
 		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
 		
 	elseif menu_type == 'history' then
-        local ca = {}
+		local ca = {}
 		local ca1 = {45,95,145}
 		local cdisp = {}
 		local ypsc = {15,30,45,60}
-    
-        lg.setColor(255,255,255)
-        lg.draw(background_Image, posX, posY)
+	
+		lg.setColor(255,255,255)
+		lg.draw(background_Image, posX, posY)
 		lg.setColor(0,0,0)
 		
 		for i = 1, #history do
 			lg.print(history[i],8,920+(history_scr*25)-(i*70))
 		end
-        lg.setColor(255,189,225)
-        lg.rectangle('fill',0,0,320,32)
-        lg.setColor(0,0,0)
-        lg.print("History",16, 12)
-        
+		lg.setColor(255,189,225)
+		lg.rectangle('fill',0,0,320,32)
+		lg.setColor(0,0,0)
+		lg.print("History",16, 12)
+		
 	end
 end
 
@@ -192,8 +192,8 @@ function menu_update(dt)
 	else
 		menu_alpha = math.min(menu_alpha + dt*1000, 255)
 	end
-    
-    if menu_type == 'history' and global_os == 'Horizon' then
+	
+	if menu_type == 'history' and global_os == 'Horizon' then
 		if love.keyboard.isDown('down') and history_scr > -27 then
 			history_scr = history_scr - dt*10
 		elseif love.keyboard.isDown('up') and history_scr < 0 then
@@ -378,7 +378,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'b' then
 		if menu_type == 'history' then
-            history_scr = -27
+			history_scr = -27
 		end
 		if menu_type == 'pause' or menu_type == 'pause2' then
 			menu_fadeout = true

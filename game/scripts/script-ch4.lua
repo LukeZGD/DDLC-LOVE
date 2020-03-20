@@ -476,7 +476,7 @@ function ch4script()
 		cw('bl',"Sayori lets me go.")
 	elseif cl == 202 then
 		cw('bl',"As she does so, I let her go as well.")
-    elseif cl == 203 then
+	elseif cl == 203 then
 		cw('mc',"The festival is tomorrow.")
 	elseif cl == 204 then
 		updateSayori('1b','k')
@@ -1183,7 +1183,7 @@ function ch4_exclusive_natsuki()
 	elseif cl == 503 then
 		event_initstart('wipe')
 
-    elseif cl == 504 then
+	elseif cl == 504 then
 		cw('bl',"When we're finally finished, Natsuki puts them all side by side to admire our work.")
 	elseif cl == 505 then
 		updateNatsuki('4b','l',80)
@@ -1206,7 +1206,7 @@ function ch4_exclusive_natsuki()
 		cw('mc',"Ahaha.")
 	elseif cl == 513 then
 		cw('mc', "Sayori's the exact opposite in that regard.")
-    elseif cl == 514 then
+	elseif cl == 514 then
 		cw('mc',"If she was here, we'd probably be down ten cupcakes already.")
 	elseif cl == 515 then
 		cw('mc',"And she would still eat dinner.")
@@ -1410,7 +1410,7 @@ function ch4_exclusive_natsuki()
 		cw('n',"Yeah, well...")
 	elseif cl == 600 then
 		cw('n',"I'll still see you at the festival tomorrow, so it's fine.")
-    elseif cl == 601 then
+	elseif cl == 601 then
 		updateNatsuki('2b','b')
 		cw('n',"Just don't eat any cupcakes before then!")
 	elseif cl == 602 then
@@ -1565,7 +1565,7 @@ function ch4_exclusive_yuri()
 	elseif cl == 302 then
 		updateYuri('1b','a')
 		cw('y',"I'm determined to provide an experience that will leave them wanting more.")
-    elseif cl == 303 then
+	elseif cl == 303 then
 		cw('mc',"That's great.")
 	elseif cl == 304 then
 		cw('mc',"It's easy to forget that you're a pretty intense person.")
@@ -1837,7 +1837,7 @@ function ch4_exclusive_yuri()
 		cw('bl',"Where do you even get a knife like this...?")
 	elseif cl == 424 then
 		cw('bl',"Curious of its sharpness, I feel the point of the knife with my index finger.")
-    elseif cl == 425 then
+	elseif cl == 425 then
 		cw('mc',"Ow--!")
 	elseif cl == 426 then
 		updateYuri('3b','n')
@@ -2261,111 +2261,111 @@ function ch4_exclusive_yuri()
 	elseif cl == 613 then
 		mc "That should do it..."
 	elseif cl == 614 then
-    bl "I finish filling the night sky with white dots that look like stars."
+	bl "I finish filling the night sky with white dots that look like stars."
 	elseif cl == 615 then
-    bl "Looking at the banner as a whole, it's very pretty and natural-looking."
+	bl "Looking at the banner as a whole, it's very pretty and natural-looking."
 	elseif cl == 616 then
-    updateYuri('1b','a',80)
-    y "I think it came out better than I expected."
+	updateYuri('1b','a',80)
+	y "I think it came out better than I expected."
 	elseif cl == 617 then
-    y "I'm really happy with the results."
+	y "I'm really happy with the results."
 	elseif cl == 618 then
-    mc "Yeah, me too."
+	mc "Yeah, me too."
 	elseif cl == 619 then
-    mc "Are you going to add the lettering now?"
+	mc "Are you going to add the lettering now?"
 	elseif cl == 620 then
 	updateYuri('1b','f')
-    y "Ah, not yet..."
+	y "Ah, not yet..."
 	elseif cl == 621 then
-    y "It needs to dry first."
+	y "It needs to dry first."
 	elseif cl == 622 then
-    mc "That's true, but won't that take a while?"
+	mc "That's true, but won't that take a while?"
 	elseif cl == 623 then
 	updateYuri('2b','h')
-    y "Well..."
+	y "Well..."
 	elseif cl == 624 then
-    y "Perhaps it would be best to leave it here, then have you bring it in the morning."
+	y "Perhaps it would be best to leave it here, then have you bring it in the morning."
 	elseif cl == 625 then
 	updateYuri('2b','f')
-    y "I can do the lettering in the classroom before our event starts."
+	y "I can do the lettering in the classroom before our event starts."
 	elseif cl == 626 then
-    y "Is that okay?"
+	y "Is that okay?"
 	elseif cl == 627 then
-    mc "That's totally fine."
+	mc "That's totally fine."
 	elseif cl == 628 then
 	updateYuri('1b','a')
-    y "Wonderful."
+	y "Wonderful."
 	elseif cl == 629 then
-    y "In that case..."
+	y "In that case..."
 	elseif cl == 630 then
-    y "I don't think there's anything more for us to do here."
+	y "I don't think there's anything more for us to do here."
 	elseif cl == 631 then
-    mc "Phew."
+	mc "Phew."
 	elseif cl == 632 then
 	updateYuri('1b','c')
-    y "Ahaha."
+	y "Ahaha."
 	elseif cl == 633 then
-    y "You say that like you're glad it's over."
+	y "You say that like you're glad it's over."
 	elseif cl == 634 then
 	updateYuri('1b','a')
-    y "Was I wrong to assume that you were at least enjoying yourself a little bit?"
+	y "Was I wrong to assume that you were at least enjoying yourself a little bit?"
 	elseif cl == 635 then
-    mc "Ah, no, it's not that."
+	mc "Ah, no, it's not that."
 	elseif cl == 636 then
-    mc "I'm just glad that we managed to get everything done."
+	mc "I'm just glad that we managed to get everything done."
 	elseif cl == 637 then
 	updateYuri('2b','a')
-    y "I see."
+	y "I see."
 	elseif cl == 638 then
-    y "I am, too."
+	y "I am, too."
 	elseif cl == 639 then
-    y "I was a little concerned about time..."
+	y "I was a little concerned about time..."
 	elseif cl == 640 then
-    y "I need to start making dinner soon."
+	y "I need to start making dinner soon."
 	elseif cl == 641 then
-    mc "Ah..."
+	mc "Ah..."
 	elseif cl == 642 then
-    mc "So you don't have any time left?"
+	mc "So you don't have any time left?"
 	elseif cl == 643 then
-    bl "I was secretly hoping we would have extra time after finishing the work..."
+	bl "I was secretly hoping we would have extra time after finishing the work..."
 	elseif cl == 644 then
 	updateYuri('2b','l')
-    y "Well..."
+	y "Well..."
 	elseif cl == 645 then
-    y "..."
+	y "..."
 	elseif cl == 646 then
-    bl "Yuri thinks to herself."
+	bl "Yuri thinks to herself."
 	elseif cl == 647 then
 	updateYuri('2b','v')
-    y "I-I think it would be too irresponsible of me to wait much longer..."
+	y "I-I think it would be too irresponsible of me to wait much longer..."
 	elseif cl == 648 then
-    y "I'm sorry!"
+	y "I'm sorry!"
 	elseif cl == 649 then
-    y "I was hoping there would be more time as well..."
+	y "I was hoping there would be more time as well..."
 	elseif cl == 650 then
-    mc "It's probably my fault."
+	mc "It's probably my fault."
 	elseif cl == 651 then
-    mc "Sorry for being such a slow worker."
+	mc "Sorry for being such a slow worker."
 	elseif cl == 652 then
 	updateYuri('1b','t')
-    y "No, it's not your fault at all."
+	y "No, it's not your fault at all."
 	elseif cl == 653 then
-    y "And...the important thing is that we got everything done, right?"
+	y "And...the important thing is that we got everything done, right?"
 	elseif cl == 654 then
-    mc "Yeah..."
+	mc "Yeah..."
 	elseif cl == 655 then
 	updateYuri('1b','u')
-    y "So..."
+	y "So..."
 	elseif cl == 656 then
-    y "I shouldn't be disappointed...or anything."
+	y "I shouldn't be disappointed...or anything."
 	elseif cl == 657 then
-    bl "Gathering all her things, Yuri seems to look a little downcast."
+	bl "Gathering all her things, Yuri seems to look a little downcast."
 	elseif cl == 658 then
-    bl "I understand why."
+	bl "I understand why."
 	elseif cl == 659 then
-    bl "It sounded like she rarely gets the opportunity to spend time with friends in a relaxed environment."
+	bl "It sounded like she rarely gets the opportunity to spend time with friends in a relaxed environment."
 	elseif cl == 660 then
-    bl "But that doesn't mean this is the last time it can happen..."
+	bl "But that doesn't mean this is the last time it can happen..."
 	
 	elseif cl == 661 then
 	event_initstart('wipe','house')
@@ -2375,46 +2375,46 @@ function ch4_exclusive_yuri()
 	updateYuri('1b','a',80)
 	y "Thank you very much for having me today."
 	elseif cl == 664 then
-    mc "No problem, I'm glad I was able to help."
+	mc "No problem, I'm glad I was able to help."
 	elseif cl == 665 then
 	scriptJump(667)
 	elseif cl == 667 then
-    mc "Just let me know if there's anything else you need me to bring tomorrow."
+	mc "Just let me know if there's anything else you need me to bring tomorrow."
 	elseif cl == 668 then
-    y "I will."
+	y "I will."
 	elseif cl == 669 then
 	updateYuri('1b','u')
-    y "Well, then..."
+	y "Well, then..."
 	elseif cl == 670 then
 	bl "Yuri fidgets."
 	elseif cl == 671 then
 	updateYuri('2b','u')
-    y "I guess...I'll see you tomorrow."
+	y "I guess...I'll see you tomorrow."
 	elseif cl == 672 then
-    mc "Wait--"
+	mc "Wait--"
 	elseif cl == 673 then
 	updateYuri('2b','t')
-    bl "I kind of say that without thinking."
+	bl "I kind of say that without thinking."
 	elseif cl == 674 then
-    mc "About today..."
+	mc "About today..."
 	elseif cl == 675 then
-    mc "It's fine that we didn't have as much time as we wanted."
+	mc "It's fine that we didn't have as much time as we wanted."
 	elseif cl == 676 then
-    mc "Because we can do this again."
+	mc "Because we can do this again."
 	elseif cl == 677 then
-    mc "Whenever you want, you can come over, or we can go out somewhere--"
+	mc "Whenever you want, you can come over, or we can go out somewhere--"
 	elseif cl == 678 then
-    mc "Ah, I forgot you don't like going out much--"
+	mc "Ah, I forgot you don't like going out much--"
 	elseif cl == 679 then
 	updateYuri('2b','s')
 	bl "As I stumble over my words, Yuri simply smiles bashfully."
 	elseif cl == 680 then
-    mc "Anyway..."
+	mc "Anyway..."
 	elseif cl == 681 then
-    mc "You know what I'm trying to say, so..."
+	mc "You know what I'm trying to say, so..."
 	elseif cl == 682 then
 	updateYuri('1b','s')
-    cw('y',"You're very thoughtful, "..player..".")
+	cw('y',"You're very thoughtful, "..player..".")
 	elseif cl == 683 then
 	bl "Yuri takes a step closer to me, then briefly squeezes my hand."
 	elseif cl == 684 then
@@ -2422,7 +2422,7 @@ function ch4_exclusive_yuri()
 	audioUpdate('0')
 	y "I kind of like that about you..."
 	elseif cl == 685 then
-    mc "Well..."
+	mc "Well..."
 	elseif cl == 686 then
 	bl "How am I supposed to respond to that?"
 	elseif cl == 687 then
@@ -2439,37 +2439,37 @@ function ch4_exclusive_yuri()
 	elseif cl == 691 then
 	cw('s',"H-Hi, "..player.."...")
 	elseif cl == 692 then
-    mc "Sayori--!"
+	mc "Sayori--!"
 	elseif cl == 693 then
-    mc "Just now, we weren't--"
+	mc "Just now, we weren't--"
 	elseif cl == 694 then
 	updateSayori('1b','q')
-    s "Ehehe~"
+	s "Ehehe~"
 	elseif cl == 695 then
-    cw('s',"It's okay, "..player..".")
+	cw('s',"It's okay, "..player..".")
 	elseif cl == 696 then
 	updateSayori('1b','a')
-    s "I just stopped by to say hi~"
+	s "I just stopped by to say hi~"
 	elseif cl == 697 then
 	updateYuri('3b','q')
 	y "U-Um..."
 	elseif cl == 698 then
-    y "Well, it's nice to see you..."
+	y "Well, it's nice to see you..."
 	elseif cl == 699 then
 	updateYuri('3b','v')
-    y "I'm sorry, but I'm already on my way to leave!"
+	y "I'm sorry, but I'm already on my way to leave!"
 	elseif cl == 700 then
 	updateSayori('1b','h')
 	s "Aw, really?"
 	elseif cl == 701 then
-    s "That's too bad..."
+	s "That's too bad..."
 	elseif cl == 702 then
 	updateYuri('2b','t')
 	y "I'm sorry..."
 	elseif cl == 703 then
-    y "But we'll all be together at the festival tomorrow, so..."
+	y "But we'll all be together at the festival tomorrow, so..."
 	elseif cl == 704 then
-    y "So that's fine, right?"
+	y "So that's fine, right?"
 	elseif cl == 705 then
 	updateSayori('4b','q')
 	s "Of course!"
@@ -2480,7 +2480,7 @@ function ch4_exclusive_yuri()
 	updateYuri('4b','c2')
 	y "Y-Yeah, so..."
 	elseif cl == 708 then
-    y "I'll see you tomorrow!"
+	y "I'll see you tomorrow!"
 	elseif cl == 709 then
 	hideYuri()
 	bl "Clearly embarrassed, Yuri hurries off."
@@ -2662,29 +2662,29 @@ function ch4_end_yes()
 	updateSayori('1b','v')
 	s "Eh--?"
 	elseif cl == 778 then
-    mc "Those are my true feelings."
+	mc "Those are my true feelings."
 	elseif cl == 779 then
-    mc "So...there's no way you could like me more than I like you."
+	mc "So...there's no way you could like me more than I like you."
 	elseif cl == 780 then
-    mc "I should have realized it sooner."
+	mc "I should have realized it sooner."
 	elseif cl == 781 then
-    mc "But spending time with everyone at the club..."
+	mc "But spending time with everyone at the club..."
 	elseif cl == 782 then
-    mc "Making new friends..."
+	mc "Making new friends..."
 	elseif cl == 783 then
-    mc "And having fun with you every day..."
+	mc "And having fun with you every day..."
 	elseif cl == 784 then
-    mc "It helped me realize that you are truly the most important person to me."
+	mc "It helped me realize that you are truly the most important person to me."
 	elseif cl == 785 then
-    mc "That's why I'll accept any of your burdens."
+	mc "That's why I'll accept any of your burdens."
 	elseif cl == 786 then
-    mc "As long as we continue like this every day..."
+	mc "As long as we continue like this every day..."
 	elseif cl == 787 then
-    mc "With you by my side..."
+	mc "With you by my side..."
 	elseif cl == 788 then
-    mc "Then I know we'll both be happy."
+	mc "Then I know we'll both be happy."
 	elseif cl == 789 then
-    cw('s',player.."...")
+	cw('s',player.."...")
 	elseif cl == 790 then
 		persistent.clear[9] = 1
 		if xaload == 0 then
@@ -2696,136 +2696,136 @@ function ch4_end_yes()
 	elseif cl == 791 then
 	cw('s',player.."...")
 	elseif cl == 792 then
-    s "Is this...really okay?"
+	s "Is this...really okay?"
 	elseif cl == 793 then
-    mc "Yeah."
+	mc "Yeah."
 	elseif cl == 794 then
-    bl "I hold Sayori in my arms and pull her closer."
+	bl "I hold Sayori in my arms and pull her closer."
 	elseif cl == 795 then
-    mc "You'll never have to let go of me again."
+	mc "You'll never have to let go of me again."
 	elseif cl == 796 then
 	cw('s',"I love you, "..player.."...")
 	elseif cl == 797 then
-    s "I want to be with you forever."
+	s "I want to be with you forever."
 	elseif cl == 798 then
-    mc "Me too."
+	mc "Me too."
 	elseif cl == 799 then
-    s "..."
+	s "..."
 	elseif cl == 800 then
-    bl "I feel Sayori's grip around me weaken a little bit."
-    elseif cl == 801 then
+	bl "I feel Sayori's grip around me weaken a little bit."
+	elseif cl == 801 then
 	s "What is this...?"
 	elseif cl == 802 then
-    mc "Sayori...?"
+	mc "Sayori...?"
 	elseif cl == 803 then
-    s "I'm supposed to be happy right now..."
+	s "I'm supposed to be happy right now..."
 	elseif cl == 804 then
-    s "I always thought this would be the happiest moment for me."
+	s "I always thought this would be the happiest moment for me."
 	elseif cl == 805 then
-    s "But why...?"
+	s "But why...?"
 	elseif cl == 806 then
-    s "Even now..."
+	s "Even now..."
 	elseif cl == 807 then
-    s "Why won't the rainclouds go away?"
+	s "Why won't the rainclouds go away?"
 	elseif cl == 808 then
-    cw('s',"They're not going away at all, "..player.."...")
+	cw('s',"They're not going away at all, "..player.."...")
 	elseif cl == 809 then
-    mc "It's okay, Sayori..."
+	mc "It's okay, Sayori..."
 	elseif cl == 810 then
-    mc "It might take some time for things to get better again."
+	mc "It might take some time for things to get better again."
 	elseif cl == 811 then
-    mc "But no matter how long it takes, I'll be there every step of the way."
+	mc "But no matter how long it takes, I'll be there every step of the way."
 	elseif cl == 812 then
-    mc "That's all that matters right now."
+	mc "That's all that matters right now."
 	elseif cl == 813 then
-    s "O-Okay..."
+	s "O-Okay..."
 	elseif cl == 814 then
-    s "I...trust you..."
+	s "I...trust you..."
 	elseif cl == 815 then
 	bgUpdate('house')
 	updateSayori('1b','v',80)
 	bl "Sayori and I slowly release each other."
 	elseif cl == 816 then
-    mc "So..."
+	mc "So..."
 	elseif cl == 817 then
-    mc "I guess that makes the festival tomorrow...our first date, huh?"
+	mc "I guess that makes the festival tomorrow...our first date, huh?"
 	elseif cl == 818 then
 	updateSayori('1b','y')
-    s "Ehehe..."
+	s "Ehehe..."
 	elseif cl == 819 then
-    s "What are you saying?"
+	s "What are you saying?"
 	elseif cl == 820 then
-    s "I don't want to think about those things, you know?"
+	s "I don't want to think about those things, you know?"
 	elseif cl == 821 then
-    s "I want everything to be the same as it always has been."
+	s "I want everything to be the same as it always has been."
 	elseif cl == 822 then
-    s "Even if we really are...a couple."
+	s "Even if we really are...a couple."
 	elseif cl == 823 then
 	updateSayori('1b','k')
-    s "I don't know if I could handle anything more right now..."
+	s "I don't know if I could handle anything more right now..."
 	elseif cl == 824 then
-    s "It's really new and scary to me."
+	s "It's really new and scary to me."
 	elseif cl == 825 then
-    mc "I understand."
+	mc "I understand."
 	elseif cl == 826 then
-    mc "We'll go at whatever pace suits you best."
+	mc "We'll go at whatever pace suits you best."
 	elseif cl == 827 then
 	updateSayori('1b','d')
-    cw('s',"Hey, "..player.."...")
+	cw('s',"Hey, "..player.."...")
 	elseif cl == 828 then
 	bl "Sayori gazes at me once again, smiling sadly."
 	elseif cl == 829 then
 	updateSayori('4b','d')
-    s "Even if I get really, really sad..."
+	s "Even if I get really, really sad..."
 	elseif cl == 830 then
-    s "This is the best thing for me...right?"
+	s "This is the best thing for me...right?"
 	elseif cl == 831 then
-    mc "Eh...?"
+	mc "Eh...?"
 	elseif cl == 832 then
-    bl "I don't really understand what Sayori means by that."
+	bl "I don't really understand what Sayori means by that."
 	elseif cl == 833 then
-    mc "Are you saying that this is making you feel sad, Sayori?"
+	mc "Are you saying that this is making you feel sad, Sayori?"
 	elseif cl == 834 then
 	updateSayori('4b','k')
-    s "I-I don't know..."
+	s "I-I don't know..."
 	elseif cl == 835 then
-    s "I don't understand what I'm feeling."
+	s "I don't understand what I'm feeling."
 	elseif cl == 836 then
-    s "It felt like a bunch of thorns when you told me you love me..."
+	s "It felt like a bunch of thorns when you told me you love me..."
 	elseif cl == 837 then
 	updateSayori('4b','d')
-    s "But that's why I want to trust you."
+	s "But that's why I want to trust you."
 	elseif cl == 838 then
-    s "You know what's best for me..."
+	s "You know what's best for me..."
 	elseif cl == 839 then
-    mc "...Yeah."
+	mc "...Yeah."
 	elseif cl == 840 then
-    mc "I do."
+	mc "I do."
 	elseif cl == 841 then
-    mc "That's my promise."
+	mc "That's my promise."
 	elseif cl == 842 then
 	hideSayori()
-    bl "I say that, but in reality, I've never felt more uncertain when it comes to Sayori."
+	bl "I say that, but in reality, I've never felt more uncertain when it comes to Sayori."
 	elseif cl == 843 then
 	bl "I know that I love her, and she loves me."
 	elseif cl == 844 then
-    bl "But I'm having as much trouble understanding Sayori's feelings as she is."
+	bl "But I'm having as much trouble understanding Sayori's feelings as she is."
 	elseif cl == 845 then
-    bl "Even though I can comfort her..."
+	bl "Even though I can comfort her..."
 	elseif cl == 846 then
-    bl "I keep wondering if I should be doing something more, or something different."
+	bl "I keep wondering if I should be doing something more, or something different."
 	elseif cl == 847 then
-    bl "I know these thoughts will continue to plague me until things are back to the way they were."
+	bl "I know these thoughts will continue to plague me until things are back to the way they were."
 	elseif cl == 848 then
-    bl "Is that what Sayori meant by not wanting anything to change?"
+	bl "Is that what Sayori meant by not wanting anything to change?"
 	elseif cl == 849 then
-    bl "I don't know."
+	bl "I don't know."
 	elseif cl == 850 then
-    bl "But I know that I'll give it everything I've got."
+	bl "But I know that I'll give it everything I've got."
 	elseif cl == 851 then
-    bl "Sayori is the most important person to me."
+	bl "Sayori is the most important person to me."
 	elseif cl == 852 then
-    bl "And I'll do whatever it takes to have a happy future with her."
+	bl "And I'll do whatever it takes to have a happy future with her."
 	elseif cl == 853 then
 	fadeOut(3)
 	elseif cl >= 854 then
@@ -2839,112 +2839,112 @@ function ch4_end_no()
 	updateSayori('2b','v',80)
 	mc "You'll always be my dearest friend."
 	elseif cl == 777 then
-    mc "What you need most is for things to be like they've always been."
+	mc "What you need most is for things to be like they've always been."
 	elseif cl == 778 then
-    mc "Monika told me the truth..."
+	mc "Monika told me the truth..."
 	elseif cl == 779 then
-    mc "She told me how much happier you seemed after I joined the club."
+	mc "She told me how much happier you seemed after I joined the club."
 	elseif cl == 780 then
-    mc "I know you're struggling with some really difficult feelings right now."
+	mc "I know you're struggling with some really difficult feelings right now."
 	elseif cl == 781 then
-    mc "But..."
+	mc "But..."
 	elseif cl == 782 then
-    mc "Please trust me that I know what's best...and what will make you happy in the end."
+	mc "Please trust me that I know what's best...and what will make you happy in the end."
 	elseif cl == 783 then
-    mc "I promise I'll help get things back to the way they were."
+	mc "I promise I'll help get things back to the way they were."
 	elseif cl == 784 then
 	updateSayori('1b','t')
-    s "I..."
+	s "I..."
 	elseif cl == 785 then
-    s "I...see..."
+	s "I...see..."
 	elseif cl == 786 then
 	bl "Sayori forces a smile through an incredibly pained expression."
 	elseif cl == 787 then
-    s "Ahaha..."
+	s "Ahaha..."
 	elseif cl == 788 then
-    s "Is this what it feels like...to get stabbed in the chest?"
+	s "Is this what it feels like...to get stabbed in the chest?"
 	elseif cl == 789 then
-    s "I should write a poem about this..."
+	s "I should write a poem about this..."
 	elseif cl == 790 then
-    mc "Sayori--"
+	mc "Sayori--"
 	elseif cl == 791 then
-    s "It's okay."
+	s "It's okay."
 	elseif cl == 792 then
-    s "This is just my punishment...remember?"
+	s "This is just my punishment...remember?"
 	elseif cl == 793 then
-    s "For being so selfish..."
+	s "For being so selfish..."
 	elseif cl == 794 then
-    s "So please..."
+	s "So please..."
 	elseif cl == 795 then
-    s "Please don't worry about these stupid feelings."
+	s "Please don't worry about these stupid feelings."
 	elseif cl == 796 then
-    s "I know you're right."
+	s "I know you're right."
 	elseif cl == 797 then
-    s "I knew this whole time that there's no happiness down that path."
+	s "I knew this whole time that there's no happiness down that path."
 	elseif cl == 798 then
-    s "That's why I came here..."
+	s "That's why I came here..."
 	elseif cl == 799 then
-    s "Just so I could get the answer I needed to hear."
+	s "Just so I could get the answer I needed to hear."
 	elseif cl == 800 then
-    s "And the other thing..."
+	s "And the other thing..."
 	elseif cl == 801 then
-    s "You're also right that I just want it to go back to the way it was."
+	s "You're also right that I just want it to go back to the way it was."
 	elseif cl == 802 then
-    s "I realize that now."
+	s "I realize that now."
 	elseif cl == 803 then
-    cw('s',"You really do know me better than anyone, "..player..".")
+	cw('s',"You really do know me better than anyone, "..player..".")
 	elseif cl == 804 then
 	updateSayori('4b','v')
-    s "I'll trust you with anything..."
+	s "I'll trust you with anything..."
 	elseif cl == 805 then
-    s "Anything at all..."
+	s "Anything at all..."
 	elseif cl == 806 then
-    s "So..."
+	s "So..."
 	elseif cl == 807 then
-    scriptJump(808)
+	scriptJump(808)
 	elseif cl == 808 then
 	hideAll()
-    bl "Sayori's smile finally breaks."
+	bl "Sayori's smile finally breaks."
 	elseif cl == 809 then
-    bl "All of a sudden, she turns around and drops to her knees."
+	bl "All of a sudden, she turns around and drops to her knees."
 	elseif cl == 810 then
-    s "AAAAAaaaaAAAAAAAAHH!!!!"
+	s "AAAAAaaaaAAAAAAAAHH!!!!"
 	elseif cl == 811 then
-    bl "Clutching her head with both hands, she screams as loudly as she can."
+	bl "Clutching her head with both hands, she screams as loudly as she can."
 	elseif cl == 812 then
-    bl "I'm so shocked that I don't know how to react."
+	bl "I'm so shocked that I don't know how to react."
 	elseif cl == 813 then
 	updateSayori('4b','t',80)
-    s "..."
-    elseif cl == 814 then
+	s "..."
+	elseif cl == 814 then
 	hideSayori()
-    bl "Sayori looks over her shoulder and flashes me one more weak smile before turning around and running off."
+	bl "Sayori looks over her shoulder and flashes me one more weak smile before turning around and running off."
 	elseif cl == 815 then
-    mc "Sayori!"
+	mc "Sayori!"
 	elseif cl == 816 then
-    bl "..."
+	bl "..."
 	elseif cl == 817 then
-    bl "I'm left helplessly standing in the front of my house."
+	bl "I'm left helplessly standing in the front of my house."
 	elseif cl == 818 then
-    bl "Why am I feeling so horrible about this?"
+	bl "Why am I feeling so horrible about this?"
 	elseif cl == 819 then
-    bl "There's nothing more that I could have done."
+	bl "There's nothing more that I could have done."
 	elseif cl == 820 then
-    bl "The most I can do is support Sayori through her feelings and help her on the path that's right."
+	bl "The most I can do is support Sayori through her feelings and help her on the path that's right."
 	elseif cl == 821 then
-    bl "But I'm having as much trouble understanding Sayori's feelings as she is."
+	bl "But I'm having as much trouble understanding Sayori's feelings as she is."
 	elseif cl == 822 then
-    bl "Even though I can comfort her..."
+	bl "Even though I can comfort her..."
 	elseif cl == 823 then
-    bl "I keep wondering if I should be doing something more, or something different."
+	bl "I keep wondering if I should be doing something more, or something different."
 	elseif cl == 824 then
-    bl "I know these thoughts will continue to plague me until things are back to the way they were."
+	bl "I know these thoughts will continue to plague me until things are back to the way they were."
 	elseif cl == 825 then
-    bl "I'm going to give it everything I've got."
+	bl "I'm going to give it everything I've got."
 	elseif cl == 826 then
-    bl "Sayori will always be my dearest friend."
+	bl "Sayori will always be my dearest friend."
 	elseif cl == 827 then
-    bl "And I'll do whatever it takes to put a smile on her face every day."
+	bl "And I'll do whatever it takes to put a smile on her face every day."
 	elseif cl == 828 then
 	fadeOut(3)
 	elseif cl >= 829 then
