@@ -155,7 +155,7 @@ function ch2script()
 		cw('y',"I got too absorbed into my book...")
 	elseif cl == 1212 then
 		cw('y',"Uu...")
-    elseif cl == 1213 then
+	elseif cl == 1213 then
 		updateSayori('1','r')
 		cw('s',"Ahaha!")
 	elseif cl == 1214 then
@@ -209,7 +209,7 @@ function ch2script()
 		updateSayori('4','p')
 		sfxplay('slap')
 		cw('bl',"Pwap!")
-    elseif cl == 1234 then
+	elseif cl == 1234 then
 		updateSayori('4','p')
 		cw('s',"Kyaa--!")
 	elseif cl == 1235 then
@@ -804,7 +804,7 @@ function ch2script()
 		cw('s',"Can I go next??")
 	elseif cl == 1743 then
 		cw('m',"Ahaha. Of course.")
-    elseif cl == 1744 then
+	elseif cl == 1744 then
 		updateMonika('2','d')
 		cw('m',"Now, let's see...")
 	elseif cl == 1745 then
@@ -856,7 +856,7 @@ function ch2script()
 	elseif cl == 1763 then
 		updateMonika('1','a')
 		cw('m',"I was just hoping to set a good example.")
-    elseif cl == 1764 then
+	elseif cl == 1764 then
 		cw('m',"Are you ready to go next, Sayori?")
 	elseif cl == 1765 then
 		updateYuri('2','r',-40)
@@ -906,7 +906,7 @@ function ch2script()
 	elseif cl == 1784 then
 		updateYuri('3','o')
 		cw('y',"I...")
-    elseif cl == 1785 then
+	elseif cl == 1785 then
 		cw('bl',"...It's up to me to save this situation.")
 	elseif cl == 1786 then
 		cw('bl',"I'm the first to start applauding.")
@@ -922,7 +922,7 @@ function ch2script()
 		hideYuri()
 		updateMonika('1','a',80)
 		cw('m',"Yuri, that was really good.")
-    elseif cl == 1792 then
+	elseif cl == 1792 then
 		cw('m',"Thank you for sharing.")
 	elseif cl == 1793 then
 		cw('y',"...")
@@ -944,7 +944,7 @@ function ch2script()
 	elseif cl == 1800 then
 		updateSayori('1','s')
 		cw('s',"...Ahaha!")
-    elseif cl == 1801 then
+	elseif cl == 1801 then
 		updateSayori('4','s')
 		cw('s',"Sorry, I giggled...")
 	elseif cl == 1802 then
@@ -1018,7 +1018,7 @@ function ch2script()
 		cw('m',"In other words, I've seen poems of yours where that sort of gentle delivery wouldn't work as well.")
 	elseif cl == 1831 then
 		cw('m',"They might need a little more force behind them, depending on what you're reading...")
-    elseif cl == 1832 then
+	elseif cl == 1832 then
 		updateSayori('1','x')
 		cw('s',"Oh, I know what you mean!")
 	elseif cl == 1833 then
@@ -1099,7 +1099,7 @@ function ch2script()
 		cw('n',"I'm going.")
 	elseif cl == 1864 then
 		cw('bl',"Natsuki begrudgingly gets out of her seat and makes her way to the podium.")
-    elseif cl == 1865 then
+	elseif cl == 1865 then
 		hideMonika()
 		hideSayori()
 		hideYuri()
@@ -1426,7 +1426,7 @@ function ch2_end_yuri()
 	elseif cl == 1952 then
 		updateSayori('1','x')
 		cw('s',"Isn't she so beautiful and smart?")
-    elseif cl >= 1953 then
+	elseif cl >= 1953 then
 		ch2_end_shared()
 	end
 end

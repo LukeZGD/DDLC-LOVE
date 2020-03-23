@@ -19,7 +19,7 @@ function ch3script()
 		cw('m',"Yeah...")
 	elseif cl == 1982 then
 		cw('m',"Ahaha...")
-    elseif cl == 1983 then
+	elseif cl == 1983 then
 		updateYuri('1','m')
 		cw('y',"You must have a lot of determination.")
 	elseif cl == 1984 then
@@ -904,7 +904,7 @@ function ch3_end()
 	elseif cl == 2185 then
 		updateMonika('1','i')
 		cw('m',"But if I can't also be a leader on my own, then I won't grow as a person.")
-    elseif cl == 2186 then
+	elseif cl == 2186 then
 		updateMonika('2','i')
 		cw('m',"So, Yuri...!")
 	elseif cl == 2187 then
@@ -1084,14 +1084,14 @@ function ch3_end()
 		choice_enable()
 		
 	elseif cl >= 2250 and cl < 2386 then
-        if choicepick == "Natsuki." then
+		if choicepick == "Natsuki." then
 			ch3_end_natsuki()
-        elseif choicepick == "Yuri." then
+		elseif choicepick == "Yuri." then
 			ch3_end_yuri()
-        elseif choicepick == "Monika." then
-            ch3_end_monika()
-        elseif choicepick == "Sayori..." then
-            ch3_end_sayori()
+		elseif choicepick == "Monika." then
+			ch3_end_monika()
+		elseif choicepick == "Sayori..." then
+			ch3_end_sayori()
 		end
 		choices = {''}
 	
@@ -1429,7 +1429,7 @@ function ch3_end_natsuki()
 		cw('n',"And...")
 	elseif cl == 2300 then
 		cw('n',"And you're going to help make the event a lot more fun and welcoming.")
-    elseif cl == 2301 then
+	elseif cl == 2301 then
 		updateNatsuki('1','q')
 		cw('n',"I mean, the cupcakes will probably help a lot too...")
 	elseif cl == 2302 then
@@ -1633,7 +1633,7 @@ function ch3_end_natsuki()
 		cw('n',"...Never mind.")
 	elseif cl == 2385 then
 		scriptJump(2386)
-    end
+	end
 end
 
 function ch3_end_yuri()
@@ -1964,5 +1964,5 @@ function ch3_end_yuri()
 		cw('bl',"After that exchange, I make my way out the door, and Yuri follows.")
 	elseif cl == 2384 then
 		scriptJump(2386)
-    end
+	end
 end

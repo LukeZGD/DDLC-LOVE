@@ -1,10 +1,14 @@
 dversion = 'v1.0.8'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
-
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
+end
+if g_system == 'Switch' or global_os == 'LOVE-OneLua' then
+    branch = 'ddlclove'
+else
+    branch = '3ds'
 end
 
 require 'loader/audio'
@@ -16,29 +20,32 @@ require 'saveload'
 require 'menu'
 require 'scripts/script'
 
-function love.load()
+function love.load() 
+	if pcall (love.graphics.set3D, true) == true then
+		love.graphics.set3D(true)
+	end
+	dversion = 'v1.0.8'
+	dvertype = ''
+	
 	lg.setBackgroundColor(0,0,0)
-	getTime = 0
-	startTime = getTime
-	last_text = ''
+	myTextStartTime = love.timer.getTime()
+	last_text = ""
 	print_full_text = false
 	autotimer = 0
 	autoskip = 0
 	sectimer = 0
 	xaload = 0
 	alpha = 255
-	posX = 0
+	posX = -40
 	posY = 0
 	menu_enabled = false
 	textbox_enabled = true
 	bgimg_disabled = false
-    
-	--for pc stuff
-	if g_system ~= 'Switch' and global_os ~= 'LOVE-WrapLua' then
-		love.window.setMode(1280, 720)
-		love.window.setTitle('DDLC-LOVE')
-		love.keyboard.setTextInput(false)
-	end
+	
+	math.randomseed(os.time())
+	math.random()
+	math.random()
+	math.random()
 	
 	changeState('load')
 end
@@ -46,11 +53,9 @@ end
 function love.draw()
 	if event_enabled then
 		event_draw()
-	elseif state == 'language' then
-		lang_draw()
 	elseif state == 'load' then
 		drawLoad()
-	elseif state == 'splash' or state == 'splash2' or state == 'title' then --title (Title Screen)
+	elseif state == 'splash' or state == 'splash2' or state == 'title' then
 		drawSplash()
 	elseif state == 'game' or state == 'newgame' then --game (Ingame)
 		drawGame()
@@ -67,40 +72,57 @@ end
 
 function love.update()
 	dt = love.timer.getDelta()
-	getTime = getTime + dt
+
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
-	posX = posX - 0.625
-	posY = posY - 0.625
-	if posX <= -200 then posX = 0 end
-	if posY <= -200 then posY = 0 end
+	--moving background
+    posX = posX - 0.25
+	posY = posY - 0.25
+	if posX <= -80 then posX = 0 end
+	if posY <= -80 then posY = 0 end
+
+	--touch checks
+	mouseDown = love.mouse.isDown(1)
+	mouseX = love.mouse.getX()
+	mouseY = love.mouse.getY()
+    
+	--this acts as love.mousepressed
+	if mouseDown and mousereleased ~= 1 then
+		if menu_enabled ~= true then
+			if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
+				love.keypressed('a')
+			elseif state == 'game' then
+				game_mousepressed()
+			elseif state == 'poemgame' then
+				poemgamemousepressed()
+			end
+		elseif menu_enabled then
+			menu_mousepressed()
+		end
+		mousereleased = 1
+	elseif mouseDown == false then
+		mousereleased = nil
+	end
 	
 	--update depending on gamestate
 	if state == 'load' then
-		updateLoad()
+		updateLoad(dt)
 	elseif state == 'splash' or state == 'splash2' or state == 'title' then
-		updateSplash()
+		updateSplash(dt)
 	elseif state == 'game' or state == 'newgame' then
-		updateGame()
+		updateGame(dt)
 	elseif state == 'poemgame' then
-		updatePoemGame()
+		updatePoemGame(dt)
 	elseif state == 'poem_special' then
-		updatepoem_special()
+		updatepoem_special(dt)
 	elseif state == 's_kill_early' or state == 'ghostmenu' then
-		updateSplashspec()
+		updateSplashspec(dt)
 	elseif state == 'credits' then
-		updateCredits()
+		updateCredits(dt)
 	end
 	if menu_enabled then
-		menu_update()
-	end
-	
-	--custom audio looping
-	if audio_bgm and audio_bgmloop then
-		if not audio_bgm:isPlaying() and not audio_bgmloop:isPlaying() then
-			audio_bgmloop:play()
-		end
+		menu_update(dt)
 	end
 end
 
@@ -116,29 +138,12 @@ function love.keypressed(key)
 			poemgamekeypressed(key)
 		elseif state == 'poem_special' then
 			poem_special_keypressed(key)
-		elseif state == 'load' then
-			loadkeypressed(key)
-		elseif (state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
-			love.event.quit()
+		elseif (state == 'load' or state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
+			game_quit()
 		end
-	elseif ingamekeys then
-		ingamekeys_keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
-end
-
-function love.gamepadpressed(joy, button)
-	if button == 'dpup' then
-		button = 'up'
-	elseif button == 'dpdown' then
-		button = 'down'
-	elseif button == 'dpleft' then
-		button = 'left'
-	elseif button == 'dpright' then
-		button = 'right'
-	end
-	love.keypressed(button)
 end
 
 function love.textinput(text)
@@ -152,18 +157,15 @@ function love.textinput(text)
 	end
 end
 
-function game_setvolume()
-	local masvol = settings.masvol/100
-	local bgmvol = (settings.bgmvol/100)*masvol
-	local sfxvol = (settings.sfxvol/100)*masvol
-	if dvertype == '' then
-		if audio_bgm then
-			audio_bgm:setVolume(bgmvol)
-		end
-		if audio_bgmloop then
-			audio_bgmloop:setVolume(bgmvol)
-		end
-		sfx1:setVolume(sfxvol)
-		sfx2:setVolume(sfxvol)
+function game_quit()
+	unloadAll('characters')
+	unloadAll('stuff')
+	unloadAll('poemgame')
+	collectgarbage()
+	collectgarbage()
+	if global_os == 'Horizon' then
+		love.quit()
+	else
+		love.event.quit()
 	end
 end

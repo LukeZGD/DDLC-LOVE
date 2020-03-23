@@ -7,16 +7,16 @@ function ch1script()
 		cw('m',"Hi again, "..player.."!")
 	elseif cl == 349 then
 		cw('m',"Glad to see you didn't run away on us. Hahaha!")
-    elseif cl == 350 then
+	elseif cl == 350 then
 		cw('mc',"Nah, don't worry.")
 	elseif cl == 351 then
 		cw('mc',"This might be a little strange for me, but I at least keep my word.")
-    elseif cl == 352 then
+	elseif cl == 352 then
 		hideMonika()
 		cw('bl',"Well, I'm back at the Literature Club.")
-    elseif cl == 353 then
+	elseif cl == 353 then
 		cw('bl',"I was the last to come in, so everyone else is already hanging out.")
-    elseif cl == 354 then
+	elseif cl == 354 then
 		updateYuri('1','a',80)
 		cw('y',"Thanks for keeping your promise, "..player..".")
 	elseif cl == 355 then
@@ -42,7 +42,7 @@ function ch1script()
 	elseif cl == 363 then
 		updateNatsuki('4','o')
 		cw('n',"M-M-M...!!")
-    elseif cl == 364 then
+	elseif cl == 364 then
 		hideMonika()
 		cw('bl',"Natsuki finds herself stuck between saying \"Monika\" and \"Manga\".")
 	elseif cl == 365 then
@@ -129,7 +129,7 @@ function ch1script()
 		cw('mc',"First of all, I wasn't expecting anything in the first place.")
 	elseif cl == 397 then
 		cw('mc',"So any nice gesture from you is a pleasant surprise.")
-    elseif cl == 398 then
+	elseif cl == 398 then
 		cw('mc',"It'll make me happy no matter what.")
 	elseif cl == 399 then
 		updateYuri('3','v')
@@ -156,7 +156,7 @@ function ch1script()
 		cw('y',"Discuss it...if you wanted...")
 	elseif cl == 409 then
 		cw('bl',"Th-This is...")
-    elseif cl == 410 then
+	elseif cl == 410 then
 		cw('bl',"How is this girl accidentally being so cute?")
 	elseif cl == 411 then
 		cw('bl',"She even picked out a book she thinks I'll like, despite me not reading much...")
@@ -164,7 +164,7 @@ function ch1script()
 		cw('mc',"Yuri, thank you! I'll definitely read this!")
 	elseif cl == 413 then
 		cw('bl',"I enthusiastically take the book.")
-    elseif cl == 414 then
+	elseif cl == 414 then
 		updateYuri('2','m')
 		cw('y',"Phew...")
 	elseif cl == 415 then
@@ -177,7 +177,7 @@ function ch1script()
 		cw('bl',"Now that everyone's settled in, I expected Monika to kick off some scheduled activities for the club.")
 	elseif cl == 418 then
 		cw('bl',"But that doesn't seem to be the case.")
-    elseif cl == 419 then
+	elseif cl == 419 then
 		cw('bl',"Sayori and Monika are having a cheery conversation in the corner.")
 	elseif cl == 420 then
 		cw('bl',"Yuri's face is already buried in a book.")
@@ -224,7 +224,7 @@ function ch1script()
 	--ch1-end
 	if cl == 900 then
 		audioUpdate('3')
-		cw('mc',"Phew...")    
+		cw('mc',"Phew...")	
 	elseif cl == 901 then
 		cw('bl',"I guess that's everyone.")
 	elseif cl == 902 then
@@ -459,7 +459,7 @@ function ch1script()
 		cw('ny',"Well??")
 	elseif cl == 991 then
 		cw('mc',"...")
-    elseif cl == 992 then
+	elseif cl == 992 then
 		cw('bl',"How did I get dragged into this in the first place?!")
 	elseif cl == 993 then
 		cw('bl',"It's not like I know anything about writing...")
@@ -470,14 +470,14 @@ function ch1script()
 		choices = {"Natsuki.","Yuri.","Help me, Sayori!!"}
 		choice_enable()
 	elseif cl >= 996 and cl < 1092 then
-		if choicepick == 'Natsuki.' or choicepick == 'n' then
-			choicepick = 'n'
+		if choicepick == 'Natsuki.' or choicepick == 'Natsuki' then
+			choicepick = 'Natsuki'
 			ch1_end_natsuki()
-		elseif choicepick == "Yuri." or choicepick == 'y' then
-			choicepick = 'y'
+		elseif choicepick == "Yuri." or choicepick == 'Yuri' then
+			choicepick = 'Yuri'
 			ch1_end_yuri()
-		elseif choicepick == "Help me, Sayori!!" or choicepick == 's' then
-			choicepick = 's'
+		elseif choicepick == "Help me, Sayori!!" or choicepick == 'Sayori' then
+			choicepick = 'Sayori'
 			ch1_end_sayori()
 		end
 		choices = {''}
@@ -509,7 +509,7 @@ function ch1script()
 		cw('mc',"...Yeah, I'd say the same.")
 	elseif cl == 1100 then
 		cw('mc',"It was a neat thing to talk about with everyone.")
-    elseif cl == 1101 then
+	elseif cl == 1101 then
 		updateMonika('1','j')
 		cw('m',"Awesome!")
 	elseif cl == 1102 then
@@ -541,7 +541,7 @@ function ch1script()
 	elseif cl == 1113 then
 		updateSayori('4','q')
 		cw('s',"Ehehe~")
-    elseif cl == 1114 then
+	elseif cl == 1114 then
 		cw('bl',"Sayori beams at me.")
 	elseif cl == 1115 then
 		cw('bl',"It truly has been a while since Sayori and I have spent this much time together.")
@@ -560,7 +560,7 @@ function ch1script()
 		cw('mc',"You know, between Yuri and Natsuki.")
 	elseif cl == 1121 then
 		cw('mc',"Does that kind of thing happen often?")
-    elseif cl == 1122 then
+	elseif cl == 1122 then
 		updateSayori('4','j')
 		cw('s',"No, no, no!")
 	elseif cl == 1123 then
@@ -646,7 +646,7 @@ function ch1_end_natsuki()
 		cw('bl',"I wrack my brain in an attempt to back myself up.")
 	elseif cl == 1003 then
 		cw('mc',"I think that conveying feelings with few words...")
-    elseif cl == 1004 then
+	elseif cl == 1004 then
 		cw('mc',"Can be just as impressive as well!")
 	elseif cl == 1005 then
 		cw('mc',"It lets the reader's imagination take over.")
@@ -744,7 +744,7 @@ function ch1_end_natsuki()
 		cw('n',"The thing about...")
 	elseif cl == 1047 then
 		cw('n',"Uu...")
-    elseif cl == 1048 then
+	elseif cl == 1048 then
 		cw('bl',"Natsuki glances around the room.")
 	elseif cl == 1049 then
 		updateNatsuki('1','x')
@@ -921,7 +921,7 @@ function ch1_end_yuri()
 		cw('mc',"But Natsuki, you took it way too far!")
 	elseif cl == 1020 then
 		cw('mc',"Yuri means well, and if you just told her how you felt...")
-    elseif cl == 1021 then
+	elseif cl == 1021 then
 		cw('mc',"Then this wouldn't have happened in the first place.")
 	elseif cl == 1022 then
 		updateNatsuki('1','e')
@@ -1071,7 +1071,7 @@ function ch1_end_sayori()
 		cw('y',"...")
 	elseif cl == 1001 then
 		cw('bl',"But Yuri's expression is so defenseless that I can't bring myself to say anything to her.")
-    elseif cl == 1002 then
+	elseif cl == 1002 then
 		audioUpdate('0')
 		cw('mc',"...")
 	elseif cl == 1003 then
@@ -1107,7 +1107,7 @@ function ch1_end_sayori()
 		cw('y',"She would never...!")
 	elseif cl == 1014 then
 		cw('y',"It's your immaturity that's made her upset in the first place!")
-    elseif cl == 1015 then
+	elseif cl == 1015 then
 		updateNatsuki('1','e')
 		cw('n',"Excuse me?")
 	elseif cl == 1016 then
@@ -1126,7 +1126,7 @@ function ch1_end_sayori()
 		updateNatsuki('3','f')
 		updateNatsuki('1','o')
 		cw('ny',"--")
-    elseif cl == 1021 then
+	elseif cl == 1021 then
 		audioUpdate('8')
 		updateSayori('1','h')
 		cw('s',"Natsuki! Yuri!")
@@ -1206,7 +1206,7 @@ function ch1_end_sayori()
 	elseif cl == 1050 then
 		updateMonika('3','e')
 		cw('m',"But I'm not very good with people...")
-    elseif cl == 1051 then
+	elseif cl == 1051 then
 		cw('m',"I couldn't even bring myself to interject.")
 	elseif cl == 1052 then
 		updateMonika('1','m')

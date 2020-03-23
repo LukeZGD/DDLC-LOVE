@@ -6,7 +6,7 @@ function ch4script()
 		bgUpdate('residential')
 		cw('bl',"It's already Sunday.")
 	elseif cl > 1 and cl < 10 then
-		if savevalue == "n" then
+		if savevalue == 'n' then
 			if cl == 2 then
 				cw('bl',"I've been getting increasingly anxious about Natsuki's upcoming visit.")
 			elseif cl == 3 then
