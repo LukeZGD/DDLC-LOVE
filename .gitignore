@@ -1,10 +1,10 @@
-*.png
-*.ogg
-*.mp3
-*.ttf
+build/
+game/assets/
+banner.bnr
+icon.icn
+*.3dsx
+*.cia
 *.db
 *.nro
 *.nacp
-*.3dsx
 *.smdh
-build/

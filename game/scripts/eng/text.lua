@@ -30,7 +30,7 @@ tr.splash = {
 tr.menuitem = {'Yes','No','Delete ','Restore All'}
 tr.menuhelp = {
 	' - Advances through the game, activates menu choices',
-	' - Exit Menu, AutoForward On/Off',
+	' - Exit Menu, Auto-Forward On/Off',
 	' - (Menu) Previous Page, Skipping On/Off',
 	' - (Menu) Next Page, Enter Game Menu',
 	' - Show/hide text window',
@@ -40,6 +40,7 @@ tr.menuhelp = {
 	Switch: sdmc:/switch/DDLC-LOVE/
 	PS Vita: ux0:/data/DDLC-LOVE/savedata/
 	PSP: ms0:/data/DDLC-LOVE/savedata/
+	PS3: dev_usb000:/DDLC-LOVE/savedata/
 	]],
 	"There's no point in saving anymore.\nDon't worry, I'm not going anywhere.",
 	'Are you sure you want to return to the\nmain menu?',
@@ -98,7 +99,7 @@ Delete persistent and save files in here:
 > ]],
 [[
 Error!
-PSP 1000 system detected. DDLC-LOVE will not run properly on this model because
+PSP 1000 system detected. DDLC-LOVE will not run on this model because
 of the lack of RAM. (32 MB on 1000, 64 MB on other models)
 ]],
 [[

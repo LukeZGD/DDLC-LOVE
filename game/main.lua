@@ -1,4 +1,4 @@
-dversion = 'v1.0.7'
+dversion = 'v1.0.8'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 
@@ -20,7 +20,7 @@ function love.load()
 	lg.setBackgroundColor(0,0,0)
 	getTime = 0
 	startTime = getTime
-	last_text = ""
+	last_text = ''
 	print_full_text = false
 	autotimer = 0
 	autoskip = 0
@@ -66,12 +66,7 @@ function love.draw()
 end
 
 function love.update()
-	local delta = love.timer.getDelta()
-	if dvertype == 'Test' then
-		dt = 0.0166 --this is for yuzu
-	else
-		dt = delta
-	end
+	dt = love.timer.getDelta()
 	getTime = getTime + dt
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
