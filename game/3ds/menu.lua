@@ -188,7 +188,7 @@ function menu_draw()
 	end
 end
 
-function menu_update(dt)
+function menu_update()
 	if menu_fadeout then
 		menu_alpha = math.max(menu_alpha - dt*1000, 0)
 		if menu_alpha == 0 then

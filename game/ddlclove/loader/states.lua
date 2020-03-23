@@ -4,7 +4,7 @@ function changeState(cstate,x)
 	history = {}
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
-		require('states/'..cstate)
+		require('ddlclove/states/'..cstate)
 	end
 	
 	if cstate == 'game' then
@@ -65,7 +65,7 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 'autoload' then
 		loadgame('autoload')
 	elseif cstate == 'newgame' then --first time newgame
-		require 'states/game'
+		require('ddlclove/states/game')
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		
@@ -113,8 +113,8 @@ function changeState(cstate,x)
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
-		require 'states/splash'
-		require 'scripts/event'
+		require('ddlclove/states/splash')
+		require('scripts/event')
 		loadNoise()
 		endbg = lg.newImage('assets/images/gui/end.png')
 		s_killearly = lg.newImage('assets/images/cg/s_kill/s_kill_early.png')
@@ -122,7 +122,7 @@ function changeState(cstate,x)
 		y_timer = 0
 		alpha = 0
 	elseif cstate == 'ghostmenu' then
-		require 'states/splash'
+		require('ddlclove/states/splash')
 		endbg = lg.newImage('assets/images/gui/end.png')
 		menu_art_m = lg.newImage("assets/images/gui/menu_art_m_ghost.png")
 		menu_art_s = lg.newImage("assets/images/gui/menu_art_s_ghost.png")

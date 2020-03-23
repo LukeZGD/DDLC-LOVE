@@ -1,4 +1,4 @@
-require 'loader/events'
+require('loader/events')
 local stext
 local c_a1
 local tspd

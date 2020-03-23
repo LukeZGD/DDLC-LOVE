@@ -1,4 +1,4 @@
-require 'loader/events'
+require('loader/events')
 local stext
 local tspd
 local tagtimer = 0
@@ -104,12 +104,12 @@ function scriptCheck()
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
-		require 'scripts.script-poemresponses'
-		require 'scripts.poems'
+		require('scripts/eng/script-poemresponses')
+		require('scripts/eng/poems')
 		if persistent.ptr == 0 then
-			require 'scripts.script-poemresponses1'
+			require('scripts/eng/script-poemresponses1')
 		else
-			require 'scripts.script-poemresponses2'
+			require('scripts/eng/script-poemresponses2')
 		end
 		script_poemresponsesx = true
 	else
@@ -149,7 +149,6 @@ function m (say) return cw('m',say) end
 function pause(t)
 	autotimer = 0
 	if event_enabled then textbox_enabled = false end
-	local dt = love.timer.getDelta()
 	tagtimer = tagtimer + dt
 	if tagtimer >= t then
 		scriptJump(cl+1)

@@ -25,7 +25,7 @@ function event_draw_3()
 	end
 end
 
-function event_update_3(dt)
+function event_update_3()
 	if event_type == 'monika_end' then
 		eventvar5 = eventvar5 + dt
 		if eventvar5 >= 0.25 then

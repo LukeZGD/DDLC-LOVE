@@ -60,7 +60,7 @@ function drawSplash()
 	end
 end
 
-function updateSplash(dt)
+function updateSplash()
 	--splash screen s_timer
 	s_timer = s_timer + dt
 	
@@ -117,7 +117,7 @@ function drawSplashspec(spec)
 	lg.rectangle('fill',-40,0,400,240)
 end
 
-function updateSplashspec(dt)
+function updateSplashspec()
 	s_timer = s_timer + dt
 	
 	if s_timer > 3.1 then

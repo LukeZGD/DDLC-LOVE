@@ -1,4 +1,4 @@
-require 'loader/assets_load'
+require('ddlclove/loader/assets_load')
 l_timer = 95
 local err = ''
 local savedir

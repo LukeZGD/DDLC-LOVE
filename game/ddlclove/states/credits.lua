@@ -1,4 +1,4 @@
-require 'loader/assets_credits'
+require('loader/assets_credits')
 local c_timer = 200
 local c_timer2
 local ra1 = 440

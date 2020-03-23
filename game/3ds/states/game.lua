@@ -3,7 +3,6 @@ local audiotell = 0
 local bgalpha = 255
 
 function timerCheck()
-	local dt = love.timer.getDelta()
 	if xaload == 0 then
 		myTextStartTime = love.timer.getTime()
 	end
@@ -81,7 +80,7 @@ function drawGame()
 	if menu_enabled then menu_draw() end
 end
 
-function updateGame(dt)	
+function updateGame()	
 	if autotimer == 0 and autoskip == 0 then
 		scriptCheck()
 		timerCheck()
@@ -126,7 +125,7 @@ function updateGame(dt)
 		end
 	end
 	
-	if event_enabled then event_update(dt) end
+	if event_enabled then event_update() end
 	
 	--custom audio looping
 	if audio1 == '7' and persistent.ptr == 2 then

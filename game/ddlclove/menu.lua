@@ -400,7 +400,7 @@ function menu_confirm()
 					input["isPassword"] = false
 					love.keyboard.showTextInput(input)
 				else
-					require 'ingamekeys'
+					require('ddlclove/ingamekeys')
 					ingamekeys = true
 				end
 			end

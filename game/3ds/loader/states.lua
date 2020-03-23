@@ -4,7 +4,7 @@ function changeState(cstate,x)
 	history = {}
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
-		require('states/'..cstate)
+		require('3ds/states/'..cstate)
 	end
 	
 	if cstate == 'game' then
@@ -42,7 +42,7 @@ function changeState(cstate,x)
 	elseif cstate == 'game' and x == 'autoload' then
 		loadgame('autoload')
 	elseif cstate == 'newgame' then --first time newgame
-		require 'states/game'
+		require('3ds/states/game')
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
 		poemfont = lg.newFont('assets/fonts/Halogen',12)
@@ -63,13 +63,13 @@ function changeState(cstate,x)
 		poemgame()
 		alpha = 255
 	elseif cstate == 's_kill_early' then --set up very early act 1 end
-		require 'states/splash'
+		require('3ds/states/splash')
 		endbg = lg.newImage('assets/images/gui/end.png')
 		s_killearly = lg.newImage('assets/images/cg/s_kill/s_kill_early.png')
 		audioUpdate('s_kill_early')
 		alpha = 0
 	elseif cstate == 'ghostmenu' then
-		require 'states/splash'
+		require('3ds/states/splash')
 		endbg = lg.newImage('assets/images/gui/end.png')
 		titlebg = lg.newImage('assets/images/gui/bg_ghost.png')
 		audioUpdate('ghostmenu')
@@ -94,20 +94,20 @@ function changeState(cstate,x)
 		poem_enabled = false
 		menu_enabled = false
 		xaload = -1
-		require('scripts/script-ch'..chapter)
+		require('scripts/eng/script-ch'..chapter)
 		if persistent.ptr == 0 then
 			if poemwinner[chapter] == 'Sayori' then
-				require 'scripts/script-exclusives-sayori'
+				require('scripts/eng/script-exclusives-sayori')
 			elseif poemwinner[chapter] == 'Natsuki' then
-				require 'scripts/script-exclusives-natsuki'
+				require('scripts/eng/script-exclusives-natsuki')
 			elseif poemwinner[chapter] == 'Yuri' then
-				require 'scripts/script-exclusives-yuri'
+				require('scripts/eng/script-exclusives-yuri')
 			end
 		elseif persistent.ptr == 2 and chapter > 20 then
 			if poemwinner[chapter-20] == 'Natsuki' and chapter == 21 then
-				require 'scripts/script-exclusives2-natsuki'
+				require('scripts/eng/script-exclusives2-natsuki')
 			elseif poemwinner[chapter-20] == 'Yuri' or chapter > 21 then
-				require 'scripts/script-exclusives2-yuri'
+				require('scripts/eng/script-exclusives2-yuri')
 			end
 		end
 		unloadAll('poemgame')

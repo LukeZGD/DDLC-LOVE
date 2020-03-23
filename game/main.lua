@@ -11,25 +11,20 @@ else
     branch = '3ds'
 end
 
-require 'loader/audio'
-require 'loader/images'
-require 'loader/characters'
-require 'loader/states'
-require 'draw'
-require 'saveload'
-require 'menu'
-require 'scripts/script'
+require('loader/characters')
+require(branch..'/loader/audio')
+require(branch..'/loader/images')
+require(branch..'/loader/states')
+require(branch..'/main')
+require(branch..'/draw')
+require(branch..'/saveload')
+require(branch..'/menu')
+require(branch..'/scripts/script')
 
 function love.load() 
-	if pcall (love.graphics.set3D, true) == true then
-		love.graphics.set3D(true)
-	end
-	dversion = 'v1.0.8'
-	dvertype = ''
-	
 	lg.setBackgroundColor(0,0,0)
-	myTextStartTime = love.timer.getTime()
-	last_text = ""
+	
+	last_text = ''
 	print_full_text = false
 	autotimer = 0
 	autoskip = 0
@@ -41,18 +36,16 @@ function love.load()
 	menu_enabled = false
 	textbox_enabled = true
 	bgimg_disabled = false
-	
-	math.randomseed(os.time())
-	math.random()
-	math.random()
-	math.random()
-	
+    
+    mainload()    
 	changeState('load')
 end
 
 function love.draw()
 	if event_enabled then
 		event_draw()
+	elseif state == 'language' then
+		lang_draw()
 	elseif state == 'load' then
 		drawLoad()
 	elseif state == 'splash' or state == 'splash2' or state == 'title' then
@@ -72,57 +65,29 @@ end
 
 function love.update()
 	dt = love.timer.getDelta()
-
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
-	--moving background
-    posX = posX - 0.25
-	posY = posY - 0.25
-	if posX <= -80 then posX = 0 end
-	if posY <= -80 then posY = 0 end
-
-	--touch checks
-	mouseDown = love.mouse.isDown(1)
-	mouseX = love.mouse.getX()
-	mouseY = love.mouse.getY()
-    
-	--this acts as love.mousepressed
-	if mouseDown and mousereleased ~= 1 then
-		if menu_enabled ~= true then
-			if state == 'splash' or state == 'splash2' or state == 'newgame' or state == 'poem_special' then
-				love.keypressed('a')
-			elseif state == 'game' then
-				game_mousepressed()
-			elseif state == 'poemgame' then
-				poemgamemousepressed()
-			end
-		elseif menu_enabled then
-			menu_mousepressed()
-		end
-		mousereleased = 1
-	elseif mouseDown == false then
-		mousereleased = nil
-	end
+	mainupdate()
 	
 	--update depending on gamestate
 	if state == 'load' then
-		updateLoad(dt)
+		updateLoad()
 	elseif state == 'splash' or state == 'splash2' or state == 'title' then
-		updateSplash(dt)
+		updateSplash()
 	elseif state == 'game' or state == 'newgame' then
-		updateGame(dt)
+		updateGame()
 	elseif state == 'poemgame' then
-		updatePoemGame(dt)
+		updatePoemGame()
 	elseif state == 'poem_special' then
-		updatepoem_special(dt)
+		updatepoem_special()
 	elseif state == 's_kill_early' or state == 'ghostmenu' then
-		updateSplashspec(dt)
+		updateSplashspec()
 	elseif state == 'credits' then
-		updateCredits(dt)
+		updateCredits()
 	end
 	if menu_enabled then
-		menu_update(dt)
+		menu_update()
 	end
 end
 
@@ -138,9 +103,11 @@ function love.keypressed(key)
 			poemgamekeypressed(key)
 		elseif state == 'poem_special' then
 			poem_special_keypressed(key)
-		elseif (state == 'load' or state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
-			game_quit()
-		end
+		elseif state == 'load' then
+			loadkeypressed(key)
+		elseif (state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
+			love.event.quit()
+        end
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
@@ -154,18 +121,5 @@ function love.textinput(text)
 		changeState('game',1)
 	else
 		changeState('title')
-	end
-end
-
-function game_quit()
-	unloadAll('characters')
-	unloadAll('stuff')
-	unloadAll('poemgame')
-	collectgarbage()
-	collectgarbage()
-	if global_os == 'Horizon' then
-		love.quit()
-	else
-		love.event.quit()
 	end
 end

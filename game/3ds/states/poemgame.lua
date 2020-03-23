@@ -1,4 +1,4 @@
-require 'scripts.poemwords'
+require('scripts/eng/poemwords')
 
 local poemword = 1
 local progress = '1'
@@ -242,7 +242,7 @@ function drawPoemGame()
 	end
 end
 
-function updatePoemGame(dt)
+function updatePoemGame()
 	xaload = xaload + 1
 	
 	if xaload <= 35 and poemword > 0 then

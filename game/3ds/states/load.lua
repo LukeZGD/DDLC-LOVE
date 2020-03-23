@@ -1,4 +1,4 @@
-require 'loader/assets_load'
+require('3ds/loader/assets_load')
 local l_timer = 94
 local err = ''
 local errmsg = 
@@ -9,7 +9,7 @@ Old save data detected, and it is not compatible with this version.
 Please delete all save data and try again.
 
 Delete everything in here:
-> sdmc:/3ds/data/LovePotion/DDLC-3DS/
+> sdmc:/3ds/data/LovePotion/DDLC-LOVE/
 
 Press Y to quit
 ]]
@@ -39,6 +39,7 @@ function updateLoad()
 		
 	if l_timer == 99 then
 		local file = love.filesystem.isFile('persistent')
+		require('scripts/eng/text')
 		if file then
 			checkLoad()
 		else
@@ -59,7 +60,7 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = math.random(0, 63)
-	if persistent.playthrough or settings.dtym then
+	if persistent.playthrough or settings.dtym or not settings.lang then
 		err = errmsg
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
@@ -72,4 +73,10 @@ function checkLoad()
 	else
 		l_timer = 100
 	end
+end
+
+function loadkeypressed(key)
+    if key == 'y' then
+        love.event.quit()
+    end
 end

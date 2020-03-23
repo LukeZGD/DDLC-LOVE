@@ -1,4 +1,4 @@
-require 'loader/assets_credits'
+require('loader/assets_credits')
 local c_timer = 200
 local c_timer2
 local ra1 = 100
@@ -103,7 +103,7 @@ function drawCredits()
 	--lg.print(c_timer)
 end
 
-function updateCredits(dt)
+function updateCredits()
 	c_timer = c_timer + dt
 	c_timer2 = (c_timer - 60) * 25
 	

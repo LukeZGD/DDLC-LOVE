@@ -235,7 +235,6 @@ function drawanimframe(x,y)
 	if animframe then
 		lg.draw(animframe,x,y)
 	end
-	local dt = love.timer.getDelta()
 	if sectimer > 0.75 and animframe[4] then
 		animframe = animframe[4]
 	elseif sectimer > 0.5 and animframe[3] then
@@ -254,15 +253,15 @@ function unloadanimframe()
 	animframe[4] = nil
 end
 
-function event_update(dt)
+function event_update()
 	event_timer = event_timer + dt
 	
 	if persistent.ptr <= 1 then
-		if event_update_1 then event_update_1(dt) end
+		if event_update_1 then event_update_1() end
 	elseif persistent.ptr == 2 then
-		if event_update_2 then event_update_2(dt) end
+		if event_update_2 then event_update_2() end
 	else
-		if event_update_3 then event_update_3(dt) end
+		if event_update_3 then event_update_3() end
 	end
 	
 	--wipe timers
