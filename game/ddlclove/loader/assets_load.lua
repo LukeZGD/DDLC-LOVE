@@ -2,7 +2,7 @@ function loaderAssets(l_timer)
 	--loading assets
 	if l_timer == 96 then
 		consolefont = lg.newFont('assets/fonts/F25_Bank_Printer.ttf',18)
-		allerfont = lg.newFont('assets/fonts/Aller_Rg.ttf',22)
+		allerfont = lg.newFont('assets/fonts/Aller_Rg.ttf',23)
 		lg.setFont(allerfont)
 		
 	elseif l_timer == 97 then

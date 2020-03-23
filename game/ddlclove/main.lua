@@ -11,6 +11,7 @@ function mainload()
 end
 
 function mainupdate()
+	getTime = getTime + dt
 	--moving background
 	posX = posX - 0.625
 	posY = posY - 0.625
