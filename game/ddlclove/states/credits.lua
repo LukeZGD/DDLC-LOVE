@@ -25,12 +25,12 @@ function drawCredits()
 	
 	if c_timer < 51 then
 		lg.setFont(m1)
-		lg.print("Every day, I imagine a future where I can be with you",440,200)
-		lg.print("In my hand is a pen that will write a poem of me and you",415,250)
-		lg.print("The ink flows down into a dark puddle",485,300)
-		lg.print("Just move your hand - write the way into his heart!",435,350)
-		lg.print("But in this world of infinite choices",488,400)
-		lg.print("What will it take just to find that special day?",460,450)
+		lg.print(tr.credits[1],440,200)
+		lg.print(tr.credits[2],415,250)
+		lg.print(tr.credits[3],485,300)
+		lg.print(tr.credits[4],435,350)
+		lg.print(tr.credits[5],488,400)
+		lg.print(tr.credits[6],460,450)
 		lg.setColor(0,0,0)
 		lg.rectangle('fill',ra1,200,960,60)
 		lg.rectangle('fill',ra2,250,960,60)
@@ -72,16 +72,16 @@ function drawCredits()
 		lg.print(player,910,7710 - c_timer2)
 		lg.setColor(255,185,230)
 		lg.setFont(rifficfont)
-		lg.print("Concept and Game Design",144,855 - c_timer2)
-		lg.print("Character Art",880,1545 - c_timer2)
-		lg.print("Background Art",210,2235 - c_timer2)
-		lg.print("Writing",890,2925 - c_timer2)
-		lg.print("Music",246,3615 - c_timer2)
-		lg.print("Vocals",917,4305 - c_timer2)
-		lg.print("Special Thanks",210,4980 - c_timer2)
-		lg.print("Special Thanks",860,5670 - c_timer2)
-		lg.print("Special Thanks",210,6900 - c_timer2)
-		lg.print("Special Thanks",860,7590 - c_timer2)
+		lg.print(tr.credits[7],144,855 - c_timer2)
+		lg.print(tr.credits[8],880,1545 - c_timer2)
+		lg.print(tr.credits[9],210,2235 - c_timer2)
+		lg.print(tr.credits[10],890,2925 - c_timer2)
+		lg.print(tr.credits[11],246,3615 - c_timer2)
+		lg.print(tr.credits[12],917,4305 - c_timer2)
+		lg.print(tr.credits[13],210,4980 - c_timer2)
+		lg.print(tr.credits[13],860,5670 - c_timer2)
+		lg.print(tr.credits[13],210,6900 - c_timer2)
+		lg.print(tr.credits[13],860,7590 - c_timer2)
 	elseif c_timer < 200 then
 		lg.draw(splashw)
 		lg.setFont(allerfont)
@@ -166,19 +166,19 @@ function updateCredits()
 	if c_timer >= 157 and c_timer < 158 then
 		updateConsole("os.remove(\"draw.lua\")")
 	elseif c_timer >= 158 and c_timer < 159 then
-		updateConsole("_","draw.lua deleted successfully.")
+		updateConsole("_","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 159 and c_timer < 160 then
-		updateConsole("os.remove(\"resources.lua\")","draw.lua deleted successfully.")
+		updateConsole("os.remove(\"resources.lua\")","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 160 and c_timer < 161 then
-		updateConsole("_","resources.lua deleted successfully.","draw.lua deleted successfully.")
+		updateConsole("_","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 161 and c_timer < 162 then
-		updateConsole("os.remove(\"menu.lua\")","resources.lua deleted successfully.","draw.lua deleted successfully.")
+		updateConsole("os.remove(\"menu.lua\")","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 162 and c_timer < 163 then
-		updateConsole("_","menu.lua deleted successfully.","resources.lua deleted successfully.","draw.lua deleted successfully.")
+		updateConsole("_","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 163 and c_timer < 164 then
-		updateConsole("os.remove(\"scripts/script.lua\")","menu.lua deleted successfully.","resources.lua deleted successfully.","draw.lua deleted successfully.")
+		updateConsole("os.remove(\"scripts/script.lua\")","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 164 and c_timer < 165 then
-		updateConsole("_","script.lua deleted successfully.","menu.lua deleted successfully.","resources.lua deleted successfully.")
+		updateConsole("_","script.lua "..tr.credits[14]..".","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".")
 	elseif c_timer >= 165 then
 		console_enabled = false
 	end
@@ -190,7 +190,7 @@ function updateCredits()
 	elseif c_timer >= 202.5 and c_timer < 203.5 then
 		updateConsole("love.audio.play(ddlc)")
 	elseif c_timer >= 203.5 and c_timer < 205 then
-		updateConsole("_","Playing audio \"ddlc"..audio_ext.."\"...")
+		updateConsole("_",""..tr.credits[15].." \"ddlc"..audio_ext.."\"...")
 	elseif c_timer >= 205 then
 		console_enabled = false
 		changeState('credits')

@@ -516,7 +516,9 @@ function menu_confirm()
 	elseif menu_type == 'language' then
 		settings.lang = lang_codes[m_selected-1]
 		savesettings()
-		l_timer = 99
+		require('scripts/'..settings.lang..'/text')
+		loaderAssets(101)
+		l_timer = 97
 		changeState('load')
 	end
 end

@@ -10,8 +10,13 @@ function audioUpdate(audiox, forceload) --audio changes
 		audio_bgmloop = nil
 		
 		if audiox ~= '' and audiox ~= '0' then
-			audio_bgm = love.audio.newSource('assets/audio/bgm/'..audiox..audio_ext, 'stream')
-			
+
+			if audiox == 'credits' or audiox == 'end-voice' then
+				audio_bgm = love.audio.newSource('assets/audio/bgm/'..settings.lang..'/'..audiox..audio_ext, 'stream')
+			else
+				audio_bgm = love.audio.newSource('assets/audio/bgm/'..audiox..audio_ext, 'stream')
+			end
+
 			--custom audio looping load
 			if g_system ~= 'PS3' then
 				if audiox == '2g' then
@@ -29,8 +34,12 @@ function audioUpdate(audiox, forceload) --audio changes
 				end
 				for i = 1, #audio_wloop do
 					if audiox == audio_wloop[i] then
-						audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'re'..audio_ext, 'stream')
-						audio_bgmloop:setLooping(true)
+						if audiox == 'credits' or audiox == 'end-voice' then
+							audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..settings.lang..'/'..audiox..'re'..audio_ext, 'stream')
+						else
+							audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'re'..audio_ext, 'stream')
+						end
+							audio_bgmloop:setLooping(true)
 					end
 				end
 			end

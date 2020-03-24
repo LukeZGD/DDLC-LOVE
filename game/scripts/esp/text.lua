@@ -1,32 +1,33 @@
 tr = {}
-tr.selectlang = "Select language:"
-tr.auto = "Auto-Forward On"
-tr.skip = {'Skipping', 'Skipping >', 'Skipping >>', 'Skipping >>>'}
+tr.selectlang = "Selecciona un idioma:"
+tr.auto = "Automático"
+tr.skip = {'Saltando', 'Saltando >', 'Saltando >>', 'Saltando >>>'}
 tr.missing = {
 	'Error: Script file is missing or corrupt.\nPlease reinstall the game.',
 	'OK'
 }
 tr.credits = {
 	--Song
-	'Every day, I imagine a future where I can be with you',
+	'Cada día, imagino un futuro en el que estoy junto a ti.',
 	'In my hand is a pen that will write a poem of me and you',
 	'The ink flows down into a dark puddle',
 	'Just move your hand - write the way into his heart!',
 	'But in this world of infinite choices',
 	'What will it take just to find that special day?',
 	--Credits
-	'Concept and Game Design',
-	'Character Art',
-	'Background Art',
-	'Writing',
-	'Music',
-	'Vocals',
-	'Special Thanks',
+	'Concepto y diseño',
+	'Diseño de personajes',
+	'Diseño de fondos',
+	'Guion',
+	'Música',
+	'Voces',
+	'Agradecimientos especiales',
 	--Console
-	'deleted successfully',
-	'Playing audio'
+	'ha sido eliminado',
+	'Reproduciendo'
 }
-tr.names = {'Sayori','Natsuki','Yuri','Monika','Nat & Yuri'}
+
+tr.names = {'Sayori','Natsuki','Yuri','Monika','Nat y Yuri'}
 tr.poemtime = 
 [[
 It's time to write a poem!
@@ -51,12 +52,12 @@ tr.splash = {
 	"This game is not suitable for children",
 	"  or those who are easily disturbed.",
 	"Now everyone can be happy.",
-	"Unofficial port by LukeeGD"--.."\nTranslations by: ..." --you may add more credits here
+	"Port realizado por LukeeGD".."\nGlowTranslations\nVersión: 1.0" --you may add more credits here
 }
-tr.menuitem = {'Yes','No','Delete ','Restore All'}
+tr.menuitem = {'Sí','No','Borrar ','Restaurar todo'}
 tr.menuhelp = {
 	' - Advances through the game, activates menu choices',
-	' - Exit Menu, Auto-Forward On/Off',
+	' - Exit Menu, AutoForward On/Off',
 	' - (Menu) Previous Page, Skipping On/Off',
 	' - (Menu) Next Page, Enter Game Menu',
 	' - Show/hide text window',
@@ -66,7 +67,6 @@ tr.menuhelp = {
 	Switch: sdmc:/switch/DDLC-LOVE/
 	PS Vita: ux0:/data/DDLC-LOVE/savedata/
 	PSP: ms0:/data/DDLC-LOVE/savedata/
-	PS3: dev_usb000:/DDLC-LOVE/savedata/
 	]],
 	"There's no point in saving anymore.\nDon't worry, I'm not going anywhere.",
 	'Are you sure you want to return to the\nmain menu?',
@@ -125,7 +125,7 @@ Delete persistent and save files in here:
 > ]],
 [[
 Error!
-PSP 1000 system detected. DDLC-LOVE will not run on this model because
+PSP 1000 system detected. DDLC-LOVE will not run properly on this model because
 of the lack of RAM. (32 MB on 1000, 64 MB on other models)
 ]],
 [[

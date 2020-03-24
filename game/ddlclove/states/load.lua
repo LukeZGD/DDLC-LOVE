@@ -15,22 +15,31 @@ function drawLoad()
 end
 
 function updateLoad()
+	local f1 = love.filesystem.getInfo('persistent')
+	local f2 = love.filesystem.getInfo('settings.sav')
+
+
 	if l_timer < 99 then
 		l_timer = l_timer + 1
 	end
-	
+
+
+
+	if l_timer == 97 then
+		if f2 then
+			loadsettings()
+			require('scripts/'..settings.lang..'/text')
+			loaderAssets(101)
+		end
+		if not f2 then
+			require('scripts/eng/text')
+		end
+	end
+
 	loaderAssets(l_timer)
 	
 	--save check
 	if l_timer == 99 then		
-		local f1 = love.filesystem.getInfo('persistent')
-		local f2 = love.filesystem.getInfo('settings.sav')
-		
-		if f2 and settings.lang then
-			require('scripts/'..settings.lang..'/text')
-		else
-			require('scripts/eng/text')
-		end
 		
 		if dvertype == 'Test' then
 			l_timer = 100

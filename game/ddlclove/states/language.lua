@@ -1,5 +1,5 @@
-lang_names = {'English'}
-lang_codes = {'eng'}
+lang_names = {'English', 'Español', 'Italiano'}
+lang_codes = {'eng', 'esp', 'ita'}
 local lang_state = 0
 local lang_select = 1
 

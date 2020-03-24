@@ -60,8 +60,10 @@ function cw(p1, stext, tag)
 	if stext == nil then stext = '' end
 	
 	--auto add quotation marks
-	if p1 ~= 'bl' then
-		stext = '"'..stext..'"'
+	if settings.lang ~= 'esp' then
+		if p1 ~= 'bl' then
+			stext = '"'..stext..'"'
+		end
 	end
 	
 	--text drip for scripts
@@ -85,9 +87,9 @@ function cw(p1, stext, tag)
 	end
 	
 	if style_edited then
-		c_a1 = {52,104,156}
+		c_a1 = {40,104,156}
 	else
-		c_a1 = {70,140,210}
+		c_a1 = {65,140,210}
 	end
 	
 	if g_system == 'PS3' then
