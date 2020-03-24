@@ -48,7 +48,7 @@ ROMFS           := game
 APP_TITLE       := DDLC-LOVE
 APP_AUTHOR      := LukeeGD
 APP_TITLEID     := DDFC
-APP_VERSION     := 0.4
+APP_VERSION     := 1.1
 APP_DESCRIPTION := An unofficial port of DDLC for the Switch, PSP, and PS Vita
 
 ICON            := icon.jpg

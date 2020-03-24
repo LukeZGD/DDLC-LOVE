@@ -1,4 +1,4 @@
-function mainload() 
+function main_load() 
 	if pcall (love.graphics.set3D, true) == true then
 		love.graphics.set3D(true)
 	end
@@ -11,7 +11,7 @@ function mainload()
 	math.random()
 end
 
-function mainupdate()
+function main_update()
 	--moving background
 	posX = posX - 0.25
 	posY = posY - 0.25

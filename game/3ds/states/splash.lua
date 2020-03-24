@@ -1,19 +1,5 @@
-local random_msgchance = math.random(0, 3)
-local splash_messages = {
-	"You are my sunshine,\nMy only sunshine",
-	"I missed you.",
-	"Play with me",
-	"It's just a game, mostly.",
-	"This game is not suitable for children\nor those who are easily disturbed?",
-	"sdfasdklfgsdfgsgoinrfoenlvbd",
-	"null",
-	"I have granted kids to hell",
-	"PM died for this.",
-	"It was only partially your fault.",
-	"This game is not suitable for children\nor those who are easily dismembered.",
-	"Don't forget to backup Monika's character file.";
-	}
-local random_msg = math.random(1, #splash_messages)
+local random_msgchance = math.random(0,3)
+local random_msg = math.random(1,12)
 local running
 local s_timer = 0
 local titlebgused
@@ -32,7 +18,7 @@ function drawSplash()
 		drawTopScreen()
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
-			lg.print(splash_messages[random_msg], 95, 100)
+			lg.print(tr.splash[random_msg], 95, 100)
 		else
 			lg.print('This game is not suitable for children', 95, 100)
 			lg.print('  or those who are easily disturbed.', 98, 116)

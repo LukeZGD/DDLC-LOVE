@@ -1,4 +1,4 @@
-function mainload() 
+function main_load() 
 	getTime = 0
 	startTime = getTime
 	
@@ -10,7 +10,7 @@ function mainload()
 	end
 end
 
-function mainupdate()
+function main_update()
 	getTime = getTime + dt
 	--moving background
 	posX = posX - 0.625

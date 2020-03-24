@@ -8,7 +8,7 @@ Old save data detected, and it is not compatible with this version.
 
 Please delete all save data and try again.
 
-Delete everything in here:
+Delete the save folder:
 > sdmc:/3ds/data/LovePotion/DDLC-LOVE/
 
 Press Y to quit
@@ -60,7 +60,10 @@ function checkLoad()
 	end
 	
 	local ghostmenu_chance = math.random(0, 63)
-	if persistent.playthrough or settings.dtym or not settings.lang then
+	if not settings.lang then
+		settings.lang = 'eng'
+	end
+    if persistent.playthrough or settings.dtym then
 		err = errmsg
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')

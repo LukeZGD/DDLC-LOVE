@@ -164,8 +164,8 @@ function menu_draw()
 		lg.print('X - (Menu) Previous Page, Skipping On/Off',16,100)
 		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
 		lg.print('Managing files: Go to Settings > Characters',16,150)
-		lg.print('Deleting save data: Delete everything in here',16,180)
-		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
+		lg.print('Deleting save data: Delete the save folder:',16,180)
+		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-LOVE/',16,195)
 		
 	elseif menu_type == 'history' then
 		local ca = {}

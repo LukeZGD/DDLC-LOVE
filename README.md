@@ -1,31 +1,32 @@
 # DDLC-LOVE
 
-A Doki Doki Literature Club port for the Nintendo 3DS, Nintendo Switch, PS Vita, PSP, and PS3! Programmed in Lua, running under the LovePotion for 3DS and Switch, OneLua for PSP and PS Vita, and Lua Player for PS3.
+A Doki Doki Literature Club port for the **Nintendo Switch, 3DS, Sony PS Vita, PSP, and PS3!** Programmed in Lua, running under LovePotion for Switch and 3DS, OneLua for PS Vita and PSP, and Lua Player for PS3.
 
 This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: http://ddlc.moe
 
-### Locations of save files:
+## Locations of save files:
 
 - You can reset the save data and start over by deleting the save file folder. This is also mentioned in the help menu.
 
 | Platform | Location                            |
 |----------|-------------------------------------|
-| 3DS      | sdmc:/3ds/data/DDLC-LOVE/           |
 | Switch   | sdmc:/switch/DDLC-LOVE/             |
+| 3DS      | sdmc:/3ds/data/DDLC-LOVE/           |
 | PS Vita  | ux0:/data/DDLC-LOVE/savedata/       |
 | PSP      | ms0:/data/DDLC-LOVE/savedata/       |
 | PS3      | dev_usb000:/DDLC-LOVE/savedata/     |
-| Other    | [love.filesystem](https://love2d.org/wiki/love.filesystem)|
+| Other    | see [love.filesystem](https://love2d.org/wiki/love.filesystem)|
 
-### Some notes:
+## Some notes:
 - (Switch) Only **[Atmosphère](https://github.com/Atmosphere-NX/Atmosphere)** is supported.
-- (Switch) For Atmosphère 0.10.2 and up, add `enable_deprecated_hid_mitm = u8!0x1` in `sdmc:/atmosphere/config/system_settings.ini` under `[Atmosphere]` (See [#111](https://github.com/LukeZGD/DDLC-LOVE/issues/111))
+- (Switch) For Atmosphère 0.10.2 and up, add `enable_deprecated_hid_mitm = u8!0x1` in `sdmc:/atmosphere/config/system_settings.ini` under `[Atmosphere]` (see [#111](https://github.com/LukeZGD/DDLC-LOVE/issues/111))
 - (3DS) Only the **latest [Luma3DS](https://github.com/AuroraWright/Luma3DS)** is supported.
 - (3DS) Make sure that dspfirm.cdc is dumped for audio to work (use [DSP1](https://github.com/zoogie/DSP1/releases))
 - New 3DS/2DS users may have to disable L2 Cache before playing (see [#7](https://github.com/LukeZGD/DDLC-LOVE/issues/7))
-- DDLC-LOVE does not support **PSP 1000** systems.
+- **PSP 1000** systems are not supported.
+- PS3 support is experimental, the game may and will glitch out after only a few minutes of playing
 
-### Building:
+## Building:
 - Game assets and other stuff are needed to be prepared first from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo.
 - For all Sony devices, [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) and `lv1lua.lua` from DDLC-LOVE-Assets are also required beside the game folder (`script.lua`, `lv1lua.lua`, and the `LOVE-WrapLua` folder).
 - **Switch** - Instructions are in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
@@ -35,7 +36,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 1. Set `LOVEPOTION_3DS` to path to [LovePotion 1.0.9](https://github.com/TurtleP/LovePotion/releases/tag/1.0.9) first! eg. `export LOVEPOTION_3DS=<path to>/LovePotion.elf`
 2. Run `make -f Makefile_3ds` for a .3dsx build or `make -f Makefile_3ds cia` for a .cia build.
 
-### Running:
+## Running:
 - **Switch** - Run the .nro with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. Other methods can be found [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
 - **PSP** - Download the zip from the releases, and extract the folder with EBOOT.PBP to `ms0:/PSP/GAME/`. You can now run DDLC-LOVE from the XMB
 - **PS Vita** - Install the .vpk from the releases. You can now run DDLC-LOVE from the home screen

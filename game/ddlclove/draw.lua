@@ -41,7 +41,7 @@ function outlineText(text,x,y,type,arg1)
 		local addm = 1.5
 		if type == 'ct' then
 			lg.setColor(187,85,153,alpha)
-			addm = 2
+			addm = 2.35
 		elseif style_edited and (type == 'c_disp' or type == 'printf') then
 			lg.setColor(255,255,255,alpha)
 		else
