@@ -75,6 +75,7 @@ function event_init(etype,arg1,arg2)
 			eyes1 = lg.newImage('assets/images/yuri/eyes1.png')
 			eyes2 = lg.newImage('assets/images/yuri/eyes2.png')
 		elseif etype == 'yuri_glitch_head' then
+			animframe = {}
 			animframe[1] = lg.newImage('assets/images/yuri/za.png')
 			animframe[2] = lg.newImage('assets/images/yuri/zb.png')
 			animframe[3] = lg.newImage('assets/images/yuri/zc.png')
