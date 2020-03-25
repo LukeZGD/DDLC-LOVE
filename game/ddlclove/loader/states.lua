@@ -1,4 +1,5 @@
 function changeState(cstate,x)
+	print(cstate)
 	menu_alpha = 0
 	menu_previous = nil
 	history = {}
@@ -138,11 +139,7 @@ function changeState(cstate,x)
 	elseif cstate == 'credits' then
 		loadCredits(x)
 	elseif cstate == 'language' then
-		if g_system == 'Vita' or g_system == 'Switch' then
-			menu_enable('language')
-		else
-			settings.lang = 'eng'
-		end
+		menu_enable('language')
 	end
 	
 	--load game state and scripts
