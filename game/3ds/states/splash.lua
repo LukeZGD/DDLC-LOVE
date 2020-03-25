@@ -12,7 +12,6 @@ function drawSplash()
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,0,205)
-		lg.print('Running in LOVE / LovePotion 3DS',0,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()

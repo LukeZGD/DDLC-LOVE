@@ -7,6 +7,10 @@ local ra3 = 482
 local ra4 = 430
 local ra5 = 488
 local ra6 = 460
+local splashx = 985
+if g_system == 'PS3' then
+	splashx = 925
+end
 
 function loadCredits(x)
 	if x ~= 1 then
@@ -85,8 +89,8 @@ function drawCredits()
 	elseif c_timer < 200 then
 		lg.draw(splashw)
 		lg.setFont(allerfont)
-		lg.print('DDLC-LOVE',5,615)
-		lg.print(tr.splash[16],5,645)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
+		lg.print(tr.splash[16],splashx,10)
 	end
 	
 	lg.setColor(255,255,255)

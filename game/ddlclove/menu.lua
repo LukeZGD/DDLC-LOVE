@@ -276,11 +276,11 @@ function menu_draw()
 		elseif m_selected == 5 then
 			hv.y = 548
 		end
-		lg.draw(gui.scrbarh,368,378,0,0.5,1)
-		lg.draw(gui.scrbarh,368,446,0,0.5,1)
-		lg.draw(gui.scrbarh,818,378,0,0.5,1)
-		lg.draw(gui.scrbarh,818,446,0,0.5,1)
-		lg.draw(gui.scrbarh,818,514,0,0.5,1)
+		lg.draw(gui.scrbarh,368,378)
+		lg.draw(gui.scrbarh,368,446)
+		lg.draw(gui.scrbarh,818,378)
+		lg.draw(gui.scrbarh,818,446)
+		lg.draw(gui.scrbarh,818,514)
 		lg.draw(gui.scrhover,((settings.textspd-50)*1.7)+368,378)
 		lg.draw(gui.scrhover,((settings.autospd-1)*24.29)+368,446)
 		lg.draw(gui.scrhover,(settings.masvol*3.4)+818,378)
@@ -293,7 +293,7 @@ function menu_draw()
 		lg.print(settings.masvol..'%',1020,340)
 		lg.print(settings.bgmvol..'%',1005,410)
 		lg.print(settings.sfxvol..'%',1010,480)
-		lg.print(dvertype..'\n'..dversion,1200,660)
+		lg.print(dvertype..'\n'..dversion,dversionx,650)
 		
 	elseif menu_type == 'history' then
 		menu_drawstuff('overlay')

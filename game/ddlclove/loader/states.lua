@@ -138,7 +138,11 @@ function changeState(cstate,x)
 	elseif cstate == 'credits' then
 		loadCredits(x)
 	elseif cstate == 'language' then
-		menu_enable('language')
+		if g_system == 'Vita' or g_system == 'Switch' then
+			menu_enable('language')
+		else
+			settings.lang = 'eng'
+		end
 	end
 	
 	--load game state and scripts
