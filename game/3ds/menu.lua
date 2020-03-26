@@ -49,7 +49,7 @@ function menu_enable(m)
 		
 	elseif menu_type == 'title' then
 		menutext = 'Main Menu'
-		itemnames = {'New Game','Load Game','Settings','Help','Quit'}
+		itemnames = {'New Game','Load Game','Settings','Help'}
 		if persistent.ptr == 1 then itemnames[1] = glitchtext(10) end
 		
 	elseif menu_type == 'settings' then
@@ -66,7 +66,7 @@ function menu_enable(m)
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		menutext = 'Game Menu'
-		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help','Quit'}
+		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help'}
 	
 	elseif menu_type == 'savegame' then
 		menutext = 'Save Game'
@@ -235,7 +235,7 @@ function menu_confirm()
 			menu_enable('help')
 			
 		elseif m_selected == 6 then --quit
-			game_quit()
+			--game_quit()
 		end
 		
 	elseif menu_type == 'loadgame' then --load game confirm
@@ -278,7 +278,7 @@ function menu_confirm()
 		elseif m_selected == 7 then
 			menu_enable('help')
 		elseif m_selected == 8 then
-			menu_enable('quityesno')
+			--menu_enable('quityesno')
 		end
 		
 	elseif menu_type == 'mainyesno' then

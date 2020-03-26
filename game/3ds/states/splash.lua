@@ -11,7 +11,7 @@ function drawSplash()
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
-		lg.print('DDLC-LOVE '..dversion..' '..dvertype,0,205)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,5,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
@@ -39,7 +39,7 @@ function drawSplash()
 		lg.draw(titlebgused)
 		
 		lg.setColor(64,64,64,alpha)
-		lg.print('Unofficial port by LukeeGD',240,5)
+		lg.print('Unofficial port by LukeeGD',245,5)
 		drawBottomScreen()
 		menu_draw()
 	end

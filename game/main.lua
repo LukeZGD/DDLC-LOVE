@@ -42,6 +42,11 @@ function love.load()
 end
 
 function love.draw()
+	--for pc stuff
+	if dwidth and dheight then
+		love.graphics.scale(dwidth/1280,dheight/720)
+	end
+	
 	if event_enabled then
 		event_draw()
 	elseif state == 'language' then

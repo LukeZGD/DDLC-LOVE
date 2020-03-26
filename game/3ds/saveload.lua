@@ -30,6 +30,10 @@ appeal = {s=0,n=0,y=0}
 savevalue = ''
 savenumber = 1
 
+function love.filesystem.load(file)
+	return loadstring(love.filesystem.read(file))
+end
+
 function savegame(x)
 	local choiceset = ''
 	
@@ -72,11 +76,11 @@ end
 function loadgame(x)
 	local savfile
 	if x == 'autoload' then
-		savfile = loadstring(love.filesystem.read("save-autoload.sav"))
+		savfile = love.filesystem.load("save-autoload.sav")
 	else
-		savfile = loadstring(love.filesystem.read("save"..savenumber.."-"..persistent.ptr..".sav"))
+		savfile = love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
 	end
-	savfile()
+	pcall(savfile)
 end
 
 function savesettings()
@@ -102,8 +106,8 @@ sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 end
 
 function loadpersistent()
-	local pfile = loadstring(love.filesystem.read('persistent'))
-	local settingsfile = loadstring(love.filesystem.read('settings.sav'))
-	if pfile then pfile() end
-	if settingsfile then settingsfile() end
+	local pfile = love.filesystem.load('persistent')
+	local settingsfile = love.filesystem.load('settings.sav')
+	pcall(pfile)
+	pcall(settingsfile)
 end

@@ -2,7 +2,7 @@ local random_msgchance = love.math.random(0,3)
 local random_msg = love.math.random(1,12)
 local s_timer = 0
 local s_kille = {x=280,y=-5}
-local splashx = 985
+local splashx = 975
 if g_system == 'PS3' then
 	splashx = 925
 end

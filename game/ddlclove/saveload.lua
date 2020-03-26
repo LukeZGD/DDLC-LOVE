@@ -70,22 +70,20 @@ savevalue='"..savevalue.."'"
 	end
 end
 
+if global_os ~= 'LOVE-WrapLua' then
+	function love.filesystem.load(file)
+		return loadstring(love.filesystem.read(file))
+	end
+end
+
 function loadgame(x)
 	local savfile
-	if global_os == 'LOVE-WrapLua' then
-		if x == 'autoload' then
-			love.filesystem.load("save-autoload.sav")
-		else
-			love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
-		end
+	if x == 'autoload' then
+		savfile = love.filesystem.load("save-autoload.sav")
 	else
-		if x == 'autoload' then
-			savfile = loadstring(love.filesystem.read("save-autoload.sav"))
-		else
-			savfile = loadstring(love.filesystem.read("save"..savenumber.."-"..persistent.ptr..".sav"))
-		end
-		savfile()
+		savfile = love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
 	end
+    pcall(savfile)
 end
 
 function savedatainfo(save)
@@ -94,12 +92,8 @@ function savedatainfo(save)
 end
 
 function loaddatainfo(save)
-	if global_os == 'LOVE-WrapLua' then
-		love.filesystem.load("save"..save.."-"..persistent.ptr.."_data.sav")
-	else
-		local datainfo = loadstring(love.filesystem.read("save"..save.."-"..persistent.ptr.."_data.sav"))
-		if datainfo then datainfo("save"..save.."-"..persistent.ptr.."_data.sav") end
-	end
+	local datainfo = love.filesystem.load("save"..save.."-"..persistent.ptr.."_data.sav")
+	pcall(datainfo)
 end
 
 function savesettings()
@@ -115,12 +109,8 @@ function savesettings()
 end
 
 function loadsettings()
-	if global_os == 'LOVE-WrapLua' then
-		love.filesystem.load('settings.sav')
-	else
-		local settingsfile = loadstring(love.filesystem.read('settings.sav'))
-		if settingsfile then settingsfile() end
-	end
+	local settingsfile = love.filesystem.load('settings.sav')
+	pcall(settingsfile)
 end
 
 function savepersistent()
@@ -150,10 +140,6 @@ sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 end
 
 function loadpersistent()
-	if global_os == 'LOVE-WrapLua' then
-		love.filesystem.load('persistent')
-	else
-		local pfile = loadstring(love.filesystem.read('persistent'))
-		if pfile then pfile() end
-	end
+	local pfile = love.filesystem.load('persistent')
+	pcall(pfile)
 end
