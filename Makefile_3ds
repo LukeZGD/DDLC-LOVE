@@ -20,15 +20,16 @@ $nexport LOVEPOTION_3DS=<path to>/LovePotion.elf
 $(error $(ERR_MSG))
 endif
 
+UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)
-	makerom    := $(CURDIR)/tools/linux/makerom
-	bannertool := $(CURDIR)/tools/linux/bannertool
+	makerom    := $(CURDIR)/data/tools/linux/makerom
+	bannertool := $(CURDIR)/data/tools/linux/bannertool
 else ifeq ($(UNAME), Darwin)
-	makerom    := $(CURDIR)/tools/osx/makerom
-	bannertool := $(CURDIR)/tools/osx/bannertool
+	makerom    := $(CURDIR)/data/tools/osx/makerom
+	bannertool := $(CURDIR)/data/tools/osx/bannertool
 else
-	makerom    := $(CURDIR)/tools/windows/makerom.exe
-	bannertool := $(CURDIR)/tools/windows/bannertool.exe
+	makerom    := $(CURDIR)/data/tools/windows/makerom.exe
+	bannertool := $(CURDIR)/data/tools/windows/bannertool.exe
 endif
 
 TOPDIR ?= $(CURDIR)

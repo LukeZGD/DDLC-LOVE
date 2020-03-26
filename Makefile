@@ -1,6 +1,9 @@
 3DS    := make -f Makefile_3ds
 SWITCH := make -f Makefile_switch
 
+all:
+	@:
+
 nro:
 	$(SWITCH)
 
@@ -13,8 +16,3 @@ cia:
 clean:
 	$(SWITCH) clean
 	$(3DS) clean
-
-all:
-	nro
-	3dsx
-	cia
