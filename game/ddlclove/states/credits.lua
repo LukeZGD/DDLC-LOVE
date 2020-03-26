@@ -7,10 +7,6 @@ local ra3 = 482
 local ra4 = 430
 local ra5 = 488
 local ra6 = 460
-local splashx = 985
-if g_system == 'PS3' then
-	splashx = 925
-end
 
 function loadCredits(x)
 	if x ~= 1 then

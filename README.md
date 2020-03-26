@@ -21,7 +21,7 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 - (Switch) Only **[Atmosphère](https://github.com/Atmosphere-NX/Atmosphere)** is supported.
 - (Switch) For Atmosphère 0.10.2 and up, add `enable_deprecated_hid_mitm = u8!0x1` in `sdmc:/atmosphere/config/system_settings.ini` under `[Atmosphere]` (see [#111](https://github.com/LukeZGD/DDLC-LOVE/issues/111))
 - (3DS) Only the **latest [Luma3DS](https://github.com/AuroraWright/Luma3DS)** is supported.
-- (3DS) Make sure that dspfirm.cdc is dumped for audio to work (use [DSP1](https://github.com/zoogie/DSP1/releases))
+- (3DS) Make sure that `dspfirm.cdc` is dumped for audio to work (use [DSP1](https://github.com/zoogie/DSP1/releases))
 - New 3DS/2DS users may have to disable L2 Cache before playing (see [#7](https://github.com/LukeZGD/DDLC-LOVE/issues/7))
 - **PSP 1000** systems are not supported.
 - PS3 support is experimental, the game may and will glitch out after only a few minutes of playing
@@ -29,12 +29,12 @@ This port is unofficial and is not affiliated with Team Salvato. Please support 
 ## Building:
 - Game assets and other stuff are needed to be prepared first from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo.
 - For all Sony devices, [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) and `lv1lua.lua` from DDLC-LOVE-Assets are also required beside the game folder (`script.lua`, `lv1lua.lua`, and the `LOVE-WrapLua` folder).
-- **Switch** - Instructions are in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
+- **Switch** - Run `make nro` for a .nro build; More details in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
 - **PS Vita** - Get the `sce_sys` folder from DDLC-LOVE-Assets and use the ONEmakerGUI included with [ONEluav4R1 for PS Vita](http://onelua.x10.mx/vita/ONEluaVita4R1.rar) to build a .vpk. 
 - **PSP** - `EBOOT.PBP` and `oneFont.pgf` files from [ONEluav4R1 for PSP](http://onelua.x10.mx/psp/ONEluav4R1.rar) are also required to be beside the game folder. You can get `ICON0.PNG` and `PIC1.PNG` from DDLC-LOVE-Assets as well.
 - **3DS:**
 1. Set `LOVEPOTION_3DS` to path to [LovePotion 1.0.9](https://github.com/TurtleP/LovePotion/releases/tag/1.0.9) first! eg. `export LOVEPOTION_3DS=<path to>/LovePotion.elf`
-2. Run `make -f Makefile_3ds` for a .3dsx build or `make -f Makefile_3ds cia` for a .cia build.
+2. Run `make 3dsx` for a .3dsx build or `make cia` for a .cia build.
 
 ## Running:
 - **Switch** - Run the .nro with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. Other methods can be found [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)

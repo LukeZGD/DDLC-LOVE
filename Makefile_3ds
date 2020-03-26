@@ -58,7 +58,7 @@ APP_TITLEID     := 0xDDFC
 APP_VERSION     := 1.1
 APP_DESCRIPTION := An unofficial DDLC port for the 3DS!
 
-ICON            := icon.png
+ICON            := data/icon.png
 
 #---------------------------------------------------------------------------------
 # cia variables
@@ -70,9 +70,9 @@ ICON            := icon.png
 # PRODUCT_CODE: change the last four digits, must also be unique (?)
 #---------------------------------------------------------------------------------
 
-RSF_PATH        := cia/info.rsf
-BANNER_AUDIO    := cia/audio.wav
-BANNER_IMAGE    := cia/banner.png
+RSF_PATH        := data/info.rsf
+BANNER_AUDIO    := data/audio.wav
+BANNER_IMAGE    := data/banner.png
 
 ICON_FLAGS      := nosavebackups,visible
 UNIQUE_ID       := 0xDDFC # must be unique!
