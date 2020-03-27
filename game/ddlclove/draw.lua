@@ -15,12 +15,9 @@ uniduration = 0.25
 local lgsetColor = lg.setColor
 function lg.setColor(...)
 	local args = {...}
-	local ver = love.getVersion()
-	if ver >= 11 then
-		for i = 1, #args do
-			if args[i] > 0 then
-				args[i] = args[i] / 255
-			end
+	for i = 1, #args do
+		if args[i] > 0 then
+			args[i] = args[i] / 255
 		end
 	end
 	lgsetColor(args[1],args[2],args[3],args[4])
@@ -191,10 +188,10 @@ function drawPoem()
 		lg.draw(poembg, 240, 0)
 	elseif yuri_3 then
 		lg.setColor(255,0,0,192)
-		lg.rectangle('fill',240,0,800,720)
+		lg.rectangle('fill',240,0,800,725)
 	else
 		lg.setColor(243,243,243)
-		lg.rectangle('fill',240,0,800,720)
+		lg.rectangle('fill',240,0,800,725)
 	end
 	if poem_author == 'monika' then
 		lg.setFont(m1)

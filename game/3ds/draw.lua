@@ -18,21 +18,6 @@ function drawBottomScreen()
 	lg.setScreen('bottom')
 end
 
---compatiblity for LOVE 11 and above
-local lgsetColor = lg.setColor
-function lg.setColor(...)
-	local args = {...}
-	local ver = love.getVersion()
-	if ver >= 11 then
-		for i = 1, #args do
-			if args[i] > 0 then
-				args[i] = args[i] / 255
-			end
-		end
-	end
-	lgsetColor(args[1],args[2],args[3],args[4])
-end
-
 local lgdraw = lg.draw
 function lg.draw(drawable, ...)
 	local args = {...}

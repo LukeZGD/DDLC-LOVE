@@ -317,9 +317,6 @@ function menu_draw()
 							lg.print(cdisp[j],400,ypos+ypsc[j])
 						end
 					end
-					
-				elseif global_os == 'LOVE-WrapLua' then
-					lg.print(temptext,400,ypos)
 				else
 					outlineText(temptext,400,ypos,'c_disp')
 				end
