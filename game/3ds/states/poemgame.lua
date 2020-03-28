@@ -3,7 +3,7 @@ require('scripts/eng/poemwords')
 local poemword = 1
 local progress = '1'
 local word = {}
-local wordr = {}
+local wordr
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0
@@ -29,7 +29,6 @@ local gravity = -2250
 local menuselected = 1
 local cursorX
 local cursorY
-local wordpick
 
 local eyes_chance = math.random(0,5)
 local eyes_timer = 0
@@ -105,7 +104,7 @@ end
 function updatewordlist()
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr = love.math.random(1,#wordlist)
+			wordr = math.random(1,#wordlist)
 			word[i] = wordlist[wordr]
 			table.remove(wordlist,wordr)
 		end
@@ -279,9 +278,9 @@ function updatePoemGame()
 		n_sticker = n_sticker_1
 		y_sticker = y_sticker_1
 		if persistent.ptr <= 2 then
-			spAdd = wordlist[wordpick][2]
-			npAdd = wordlist[wordpick][3]
-			ypAdd = wordlist[wordpick][4]
+			spAdd = word[menuselected][2]
+			npAdd = word[menuselected][3]
+			ypAdd = word[menuselected][4]
 		end
 	end
 	
@@ -318,7 +317,6 @@ function updatePoemGame()
 end
 
 function menuselect()
-	wordpick = wordr[menuselected]
 	if menuselected <= 5 then
 		cursorX = 106
 	else
