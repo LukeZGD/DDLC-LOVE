@@ -45,7 +45,6 @@ function changeState(cstate,x)
 		require('3ds/states/game')
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
-		poemfont = lg.newFont('assets/fonts/Halogen',12)
 		if persistent.ptr <= 2 then
 			if persistent.ptr == 0 then
 				s_sticker_1 = lg.newImage('assets/images/gui/poemgame/s_sticker_1.png')

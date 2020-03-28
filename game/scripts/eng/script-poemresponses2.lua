@@ -877,8 +877,7 @@ function ch23_y_good()
 	mc "Sure, I don't care..."
 	elseif cl == 679 then
 	updateYuri('2','y5')
-	y "Ahaha."
-	cw('y',"You're too nice to me, "..player.."...")
+	cw('y',"Ahaha. You're too nice to me, "..player.."...")
 	elseif cl == 680 then
 	y "I've never met anyone as nice as you."
 	elseif cl == 681 then
@@ -931,22 +930,20 @@ function ch23_y_good()
 	elseif cl == 696 then
 	updateYuri('2','y5')
 	y "Hurry! Read it!"
-	event_init('yuri_eyes')
 	
 	--ch23_y_end
 	elseif cl == 697 then
-	event_start('yuri_eyes')
+	event_initstart('show_darkred','')
 	yuri_3 = true
 	poem('poem_y23')
 	elseif cl == 700 then
 	poem_disable(-1)
+	updateYuri('eyes1','',0)
 	y "Do you like it??"
 	elseif cl == 701 then
 	y "I wrote it for you!"
 	elseif cl == 702 then
-	event_end('yuri_eyes')
-	event_start('show_darkred','')
-	updateYuri('1','b')
+	updateYuri('1','b',80)
 	cw('y',"In case you couldn't tell, the poem is about "..gtext80)
 	elseif cl == 703 then
 	updateYuri('1','y6')
@@ -971,6 +968,7 @@ function ch23_y_good()
 	hideYuri()
 	pause(1)
 	elseif cl == 710 then
+	yuri_3 = false
 	poemfinish('y')
 	end
 end

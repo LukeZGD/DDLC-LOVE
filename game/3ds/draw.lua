@@ -26,6 +26,15 @@ function lg.draw(drawable, ...)
 	end
 end
 
+local lgsetfont = lg.setFont
+function lg.setFont(setfont)
+	if setfont then
+		lgsetfont(setfont)
+	else
+		lgsetfont(font)
+	end
+end
+
 function dripText(text,charactersPerSecond,startTime)
 	if text ~= last_text then
 		startTime = love.timer.getTime()
@@ -102,7 +111,7 @@ function drawTextBox()
 		yps = {c=69,ct=42,textbox=62,namebox=42}
 	end
 	
-	if style_edited then lg.setFont(deffont) end
+	if style_edited then lg.setFont(dfnt) end
 	
 	if (not menu_enabled or (event_enabled and textbox_enabled)) and not poem_enabled then
 		lg.setColor(255,255,255,alpha)
@@ -119,17 +128,17 @@ end
 
 function drawPoem()
 	if poembg then
-		lg.draw(poembg, 40, 0)
+		lg.draw(poembg,40)
 	else
 		lg.setColor(243,243,243)
-		lg.rectangle('fill',40,0,320,240)
+		lg.rectangle('fill',0,0,400,240)
 	end
 	lg.setFont(m1)
 	lg.setColor(0,0,0)
 	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
 			if poemtext[i] then
-				lg.print(poemtext[i],35+(poem_scroll.x*10),(poem_scroll.y*8)+(i*14)-14)
+				lg.print(poemtext[i],(poem_scroll.x*10)-5,(poem_scroll.y*8)+(i*14)-14)
 			end
 		end
 	end
@@ -149,7 +158,7 @@ function drawConsole()
 		lg.setColor(51,51,51,191)
 		lg.rectangle('fill',0,0,320,60)
 		lg.setColor(255,255,255)
-		lg.setFont(deffont)
+		lg.setFont(dfnt)
 		lg.print('> '..console_text1,0,0)
 		lg.print(console_text2,5,15)
 		lg.print(console_text3,5,30)

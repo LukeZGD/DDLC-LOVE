@@ -5,8 +5,8 @@ function loaderAssets(l_timer)
 		lg.setFont(font)
 	
 	elseif l_timer == 96 then
-		m1 = lg.newFont('assets/fonts/m1',14)
-		deffont = lg.newFont()
+		dfnt = lg.newFont()
+		m1 = lg.newFont('assets/fonts/Halogen',12)
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('assets/audio/sfx/select.ogg', 'static')

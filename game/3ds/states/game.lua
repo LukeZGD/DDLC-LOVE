@@ -122,6 +122,10 @@ function updateGame()
 			poem_scroll.y = poem_scroll.y + dt*10
 		elseif love.keyboard.isDown('down') then
 			poem_scroll.y = poem_scroll.y - dt*10
+		elseif love.keyboard.isDown('left') and poem_scroll.x < 1 then
+			poem_scroll.x = poem_scroll.x + dt*10
+		elseif love.keyboard.isDown('right') then
+			poem_scroll.x = poem_scroll.x - dt*10
 		end
 	end
 	

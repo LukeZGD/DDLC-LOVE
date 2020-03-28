@@ -80,7 +80,7 @@ function event_draw_2()
 		end
 		lg.rectangle('fill',0,0,400,240)
 		lg.setColor(255,255,255)
-		if poem_enabled then drawPoem()	end
+		if poem_enabled then drawPoem() end
 	end
 	
 	if event_type == 'faint_effect' then
@@ -113,6 +113,7 @@ function event_draw_2()
 		end
 		lg.setColor(255,255,255,alpha)
 		drawMonika()
+        if poem_enabled then drawPoem() end
 	end
 	
 	if event_type == 'yuri_ch23' then

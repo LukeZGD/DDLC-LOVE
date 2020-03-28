@@ -2,7 +2,6 @@ local random_msgchance = math.random(0,3)
 local random_msg = math.random(1,12)
 local running
 local s_timer = 0
-local titlebgused
 
 function drawSplash()
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
@@ -28,15 +27,7 @@ function drawSplash()
 		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(background_Image,posX,posY)
-		
-		if persistent.ptr == 0 then
-			titlebgused = titlebg
-		elseif persistent.ptr <= 2 then
-			titlebgused = titlebg2
-		elseif persistent.ptr == 4 then
-			titlebgused = titlebg3
-		end
-		lg.draw(titlebgused)
+		lg.draw(titlebg)
 		
 		lg.setColor(64,64,64,alpha)
 		lg.print('Unofficial port by LukeeGD',245,5)

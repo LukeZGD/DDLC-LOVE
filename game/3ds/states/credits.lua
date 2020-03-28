@@ -4,16 +4,15 @@ local c_timer2
 local ra1 = 100
 local ra2 = 92
 local ra3 = 120
-local ra4 = 98
+local ra4 = 96
 local ra5 = 126
 local ra6 = 110
 
 function loadCredits(x)
 	if x ~= 1 then
 		logo = lg.newImage('assets/images/gui/logo.png')
-		
-		halogenfont = lg.newFont('assets/fonts/Halogen',12)
-		rifficfont = lg.newFont('assets/fonts/RifficFree-Bold',12)
+		credits = lg.newImage('assets/images/gui/credits.png')
+		rfnt = lg.newFont('assets/fonts/RifficFree-Bold',12)
 		
 		audioUpdate('credits')
 		c_timer = 0
@@ -28,13 +27,7 @@ function drawCredits()
 	lg.setColor(255,255,255,alpha)
 	
 	if c_timer < 51 then
-		lg.setFont(m1)
-		lg.print("Every day, I imagine a future where I can be with you",100,55)
-		lg.print("In my hand is a pen that will write a poem of me and you",92,75)
-		lg.print("The ink flows down into a dark puddle",120,95)
-		lg.print("Just move your hand - write the way into his heart!",98,115)
-		lg.print("But in this world of infinite choices",126,135)
-		lg.print("What will it take just to find that special day?",110,155)
+		lg.draw(credits)
 		lg.setColor(0,0,0)
 		lg.rectangle('fill',ra1,55,300,20)
 		lg.rectangle('fill',ra2,75,300,20)
@@ -59,7 +52,7 @@ function drawCredits()
 		lg.draw(m_sticker_1, 275, 2060 - c_timer2)
 		lg.draw(sayo3, 180, 2270 - c_timer2)
 		lg.draw(moni1, 20, 2500 - c_timer2)
-		lg.setFont(halogenfont)
+		lg.setFont(m1)
 		lg.print("Dan Salvato",60,310 - c_timer2)
 		lg.print("Satchely",280,540 - c_timer2)
 		lg.print("Velinquent",76,770 - c_timer2)
@@ -75,7 +68,7 @@ function drawCredits()
 		lg.print("Monika",279,2555 - c_timer2)
 		lg.print(player,281,2570 - c_timer2)
 		lg.setColor(255,185,230)
-		lg.setFont(rifficfont)
+		lg.setFont(rfnt)
 		lg.print("Concept and Game Design",5,285 - c_timer2)
 		lg.print("Character Art",260,515 - c_timer2)
 		lg.print("Background Art",58,745 - c_timer2)

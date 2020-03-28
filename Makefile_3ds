@@ -105,10 +105,6 @@ endif
 
 all: $(OUTPUT).smdh $(OUTPUT).3dsx
 
-clean:
-	@echo clean ...
-	@rm -fr $(TARGET).3dsx $(OUTPUT).smdh $(OUTPUT).cia banner.bnr icon.icn
-
 $(OUTPUT).smdh:
 	@echo "Building smdh.."
 	@smdhtool --create "$(APP_TITLE)" "$(APP_DESCRIPTION)" "$(APP_AUTHOR)" "$(APP_ICON)" $@

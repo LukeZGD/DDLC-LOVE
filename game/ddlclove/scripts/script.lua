@@ -60,7 +60,7 @@ function cw(p1, stext, tag)
 	if stext == nil then stext = '' end
 	
 	--auto add quotation marks
-	if settings.lang ~= 'esp' then
+	if settings.lang == 'eng' then
 		if p1 ~= 'bl' then
 			stext = '"'..stext..'"'
 		end

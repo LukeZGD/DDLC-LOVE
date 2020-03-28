@@ -930,22 +930,20 @@ function ch23_y_good()
 	elseif cl == 696 then
 	updateYuri('2','y5')
 		cw('y', "¡Venga! ¡Léelo!")
-	event_init('yuri_eyes')
 	
 	--ch23_y_end
 	elseif cl == 697 then
-	event_start('yuri_eyes')
+	event_initstart('show_darkred','')
 	yuri_3 = true
 	poem('poem_y23')
 	elseif cl == 700 then
 	poem_disable(-1)
+	updateYuri('eyes1','',0)
 		cw('y', "¿Te gusta?")
 	elseif cl == 701 then
 		cw('y', "¡Lo he compuesto para ti!")
 	elseif cl == 702 then
-	event_end('yuri_eyes')
-	event_start('show_darkred','')
-	updateYuri('1','b')
+	updateYuri('1','b',80)
 	cw('y',"En el caso de que no supieras decirme, el poema trata de "..gtext80)
 	elseif cl == 703 then
 	updateYuri('1','y6')
@@ -970,6 +968,7 @@ function ch23_y_good()
 	hideYuri()
 	pause(1)
 	elseif cl == 710 then
+	yuri_3 = nil
 	poemfinish('y')
 	end
 end
