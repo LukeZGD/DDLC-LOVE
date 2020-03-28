@@ -1,7 +1,7 @@
 tr = {}
 tr.selectlang = "selecciona un idioma:"
 tr.auto = "Avance automático"
-tr.skip = {'Saltando', 'Saltando >', 'Saltando >>', 'Saltando >>>'}
+tr.skip = "Saltando"
 tr.missing = {
 	'Error: El juego está dañado.\nPor favor, instalalo de nuevo.',
 	'Aceptar'

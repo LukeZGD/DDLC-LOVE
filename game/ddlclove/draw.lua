@@ -15,9 +15,11 @@ uniduration = 0.25
 local lgsetColor = lg.setColor
 function lg.setColor(...)
 	local args = {...}
-	for i = 1, #args do
-		if args[i] > 0 then
-			args[i] = args[i] / 255
+	if global_os ~= 'LOVE-WrapLua' then
+		for i = 1, #args do
+			if args[i] > 0 then
+				args[i] = args[i] / 255
+			end
 		end
 	end
 	lgsetColor(args[1],args[2],args[3],args[4])

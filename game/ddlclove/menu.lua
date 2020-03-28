@@ -521,10 +521,14 @@ function menu_confirm()
 	elseif menu_type == 'language' then
 		settings.lang = lang_codes[m_selected-1]
 		savesettings()
-		require('scripts/'..settings.lang..'/text')
-		loaderAssets(101)
-		l_timer = 97
-		changeState('load')
+		if splashx then
+			love.event.quit()
+		else
+			require('scripts/'..settings.lang..'/text')
+			loaderAssets(101)
+			l_timer = 97
+			changeState('load')
+		end
 	end
 end
 

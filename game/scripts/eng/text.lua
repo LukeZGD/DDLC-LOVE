@@ -1,7 +1,7 @@
 tr = {}
 tr.selectlang = "Select language:"
 tr.auto = "Auto-Forward On"
-tr.skip = {'Skipping', 'Skipping >', 'Skipping >>', 'Skipping >>>'}
+tr.skip = "Skipping"
 tr.missing = {
 	'Error: Script file is missing or corrupt.\nPlease reinstall the game.',
 	'OK'

@@ -57,3 +57,4 @@
 - **TurtleP** - [LovePotion](https://github.com/TurtleP/LovePotion)
 - **OneLua Team** - [OneLua](http://onelua.x10.mx/)
 - **3141card** - [Lua Player PS3](https://store.brewology.com/ahomebrew.php?brewid=212)
+- **GlowTranslations** - [Spanish translation](https://tinyurl.com/ddlcglow)
