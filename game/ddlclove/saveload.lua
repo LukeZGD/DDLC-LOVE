@@ -83,7 +83,7 @@ function loadgame(x)
 	else
 		savfile = love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
 	end
-    pcall(savfile)
+	pcall(savfile)
 end
 
 function savedatainfo(save)

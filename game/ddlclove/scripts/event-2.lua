@@ -31,11 +31,11 @@ function event_draw_2()
 	
 	if event_type == 'n_blackeyes' then
 		lg.draw(bgch)
-        drawNatsuki()
+		drawNatsuki()
 		if event_timer > 2 then
 			lg.draw(n_blackeyes, 256)
-            lg.draw(n_eye, 650-(event_timer*50), 250-(easeQuadOut(event_timer,0,300,1)))
-            lg.draw(n_eye, 505+(event_timer*50), 250-(easeQuadOut(event_timer,0,300,1)))
+			lg.draw(n_eye, 650-(event_timer*50), 250-(easeQuadOut(event_timer,0,300,1)))
+			lg.draw(n_eye, 505+(event_timer*50), 250-(easeQuadOut(event_timer,0,300,1)))
 		end
 	end
 	

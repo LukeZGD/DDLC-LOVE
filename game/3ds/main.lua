@@ -22,7 +22,7 @@ function main_update()
 	mouseDown = love.mouse.isDown(1)
 	mouseX = love.mouse.getX()
 	mouseY = love.mouse.getY()
-    
+	
 	--this acts as love.mousepressed
 	if mouseDown and mousereleased ~= 1 then
 		if menu_enabled ~= true then

@@ -63,7 +63,7 @@ function checkLoad()
 	if not settings.lang then
 		settings.lang = 'eng'
 	end
-    if persistent.playthrough or settings.dtym then
+	if persistent.playthrough or settings.dtym then
 		err = errmsg
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
 		changeState('s_kill_early')
@@ -79,7 +79,7 @@ function checkLoad()
 end
 
 function loadkeypressed(key)
-    if key == 'y' then
-        love.event.quit()
-    end
+	if key == 'y' then
+		love.event.quit()
+	end
 end

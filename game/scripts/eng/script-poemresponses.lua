@@ -16,15 +16,15 @@ function poemresponses()
 	elseif cl == 667 or cl == 668 then --first time poem script
 		if (chapter == 1 or chapter == 21) and poemsread == 0 then
 			if choicepick == tr.names[1] then
-                if cl == 667 then cw('bl',"I'm definitely most comfortable sharing it with Sayori first.")
-                elseif cl == 668 then cw('bl',"She's my good friend, after all.") end
+				if cl == 667 then cw('bl',"I'm definitely most comfortable sharing it with Sayori first.")
+				elseif cl == 668 then cw('bl',"She's my good friend, after all.") end
 			elseif choicepick == tr.names[2] then
-                if cl == 667 then cw('bl',"I told Natsuki I was interested in her poems yesterday.")
-                elseif cl == 668 then cw('bl',"It's probably only fair if I shared mine with her first.") end
-            elseif choicepick == tr.names[3] then
-                if cl == 667 then cw('bl',"Yuri seems the most experienced, so I should start with her.")
-                elseif cl == 668 then cw('bl',"I can trust her opinion to be fair.") end
-            elseif choicepick == tr.names[4] then
+				if cl == 667 then cw('bl',"I told Natsuki I was interested in her poems yesterday.")
+				elseif cl == 668 then cw('bl',"It's probably only fair if I shared mine with her first.") end
+			elseif choicepick == tr.names[3] then
+				if cl == 667 then cw('bl',"Yuri seems the most experienced, so I should start with her.")
+				elseif cl == 668 then cw('bl',"I can trust her opinion to be fair.") end
+			elseif choicepick == tr.names[4] then
 				if cl == 667 then cw('bl',"I should start with Monika.")
 				elseif cl == 668 then cw('bl',"Yesterday she seemed eager to read my poem, and I want her to know I'm putting in effort.") end
 			end
@@ -108,11 +108,11 @@ function poemresponse_sayori()
 end
 
 function poemresponse_natsuki()
-    if cl <= 669 then
+	if cl <= 669 then
 		updateNatsuki('1','c',80)
 	end
 	
-    poemopinion = "med"
+	poemopinion = "med"
 	if persistent.ptr == 0 then
 		if n_poemappeal[chapter] < 0 then
 			poemopinion = "bad"
@@ -135,7 +135,7 @@ function poemresponse_yuri()
 		updateYuri('1','a',80)
 	end
 	
-    poemopinion = "med"
+	poemopinion = "med"
 	if persistent.ptr == 0 then
 		if y_poemappeal[chapter] < 0 then
 			poemopinion = "bad"
@@ -277,7 +277,7 @@ function ch1_y_shared()
 		cw('mc',"Biased? How?")
 	elseif cl == 719 then
 		updateYuri('2','a')
-        cw('y',"U-Um...")
+		cw('y',"U-Um...")
 	elseif cl == 720 then
 		cw('y',"Well...")
 	elseif cl == 721 then
@@ -379,7 +379,7 @@ function ch1_y_shared()
 		cw('y',"And soon to be left with nothing...")
 	elseif cl == 763 then
 		cw('mc',"...That\'s a lot more solemn, putting it that way.")
-    elseif cl == 764 then
+	elseif cl == 764 then
 		cw('mc',"I hadn\'t even thought of that...")
 	elseif cl == 765 then
 		cw('mc',"That\'s impressive.")

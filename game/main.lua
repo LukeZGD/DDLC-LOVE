@@ -6,9 +6,9 @@ if g_system == 'Switch' then
 	joystick = joysticks[1]
 end
 if global_os == 'Horizon' and g_system ~= 'Switch' and global_os ~= 'LOVE-OneLua' then
-    branch = '3ds'
+	branch = '3ds'
 else
-    branch = 'ddlclove'
+	branch = 'ddlclove'
 end
 
 require('loader/characters')
@@ -36,8 +36,8 @@ function love.load()
 	menu_enabled = false
 	textbox_enabled = true
 	bgimg_disabled = false
-    
-    main_load()    
+	
+	main_load()
 	changeState('load')
 end
 
@@ -113,7 +113,7 @@ function love.keypressed(key)
 		elseif (state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
 			love.event.quit()
 		end
-    elseif ingamekeys then
+	elseif ingamekeys then
 		ingamekeys_keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
