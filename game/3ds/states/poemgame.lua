@@ -118,7 +118,7 @@ function updatewordlist()
 					mk[j] = glitchtext(1)
 				end
 			end
-			word[i] = mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]
+			word[i] = {mk[1]..mk[2]..mk[3]..mk[4]..mk[5]..mk[6]}
 		end
 	end
 end
@@ -182,16 +182,16 @@ function drawPoemGame()
 	else
 		lg.print('20/20',245,25)
 	end
-	lg.print(word[1],117,45)
-	lg.print(word[2],117,81)
-	lg.print(word[3],117,117)
-	lg.print(word[4],117,152)
-	lg.print(word[5],117,187)
-	lg.print(word[6],200,45)
-	lg.print(word[7],200,81)
-	lg.print(word[8],200,117)
-	lg.print(word[9],200,152)
-	lg.print(word[10],200,187)
+	lg.print(word[1][1],117,45)
+	lg.print(word[2][1],117,81)
+	lg.print(word[3][1],117,117)
+	lg.print(word[4][1],117,152)
+	lg.print(word[5][1],117,187)
+	lg.print(word[6][1],200,45)
+	lg.print(word[7][1],200,81)
+	lg.print(word[8][1],200,117)
+	lg.print(word[9][1],200,152)
+	lg.print(word[10][1],200,187)
 	
 	if poemstate == 0 then
 		lg.setColor(255,255,255,alpha)
