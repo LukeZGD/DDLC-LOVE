@@ -1,5 +1,31 @@
 tr = {}
 tr.selectlang = "Select language:"
+tr.auto = "Auto-Forward On"
+tr.skip = {'Skipping', 'Skipping >', 'Skipping >>', 'Skipping >>>'}
+tr.missing = {
+	'Error: Script file is missing or corrupt.\nPlease reinstall the game.',
+	'OK'
+}
+tr.credits = {
+	--Song
+	'Every day, I imagine a future where I can be with you',
+	'In my hand is a pen that will write a poem of me and you',
+	'The ink flows down into a dark puddle',
+	'Just move your hand - write the way into his heart!',
+	'But in this world of infinite choices',
+	'What will it take just to find that special day?',
+	--Credits
+	'Concept and Game Design',
+	'Character Art',
+	'Background Art',
+	'Writing',
+	'Music',
+	'Vocals',
+	'Special Thanks',
+	--Console
+	'deleted successfully',
+	'Playing audio'
+}
 tr.names = {'Sayori','Natsuki','Yuri','Monika','Nat & Yuri'}
 tr.poemtime = 
 [[

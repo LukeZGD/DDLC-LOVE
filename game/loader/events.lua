@@ -46,9 +46,9 @@ function event_init(etype,arg1,arg2)
 			loadNoise()
 		elseif etype == 'endscreen' then
 			if arg1 == 'flipped' then
-				bgch = lg.newImage('assets/images/gui/endflipped.png')
+				bgch = lg.newImage('assets/images/gui/'..settings.lang..'/endflipped.png')
 			else
-				bgch = lg.newImage('assets/images/gui/end.png')
+				bgch = lg.newImage('assets/images/gui/'..settings.lang..'/end.png')
 			end
 		elseif etype == 's_glitch' then
 			s_glitch1 = lg.newImage('assets/images/sayori/glitch1.png')
@@ -73,6 +73,7 @@ function event_init(etype,arg1,arg2)
 			eyes1 = lg.newImage('assets/images/yuri/eyes1.png')
 			eyes2 = lg.newImage('assets/images/yuri/eyes2.png')
 		elseif etype == 'yuri_glitch_head' then
+			animframe = {}
 			animframe[1] = lg.newImage('assets/images/yuri/za.png')
 			animframe[2] = lg.newImage('assets/images/yuri/zb.png')
 			animframe[3] = lg.newImage('assets/images/yuri/zc.png')
@@ -82,7 +83,7 @@ function event_init(etype,arg1,arg2)
 			eyes1 = lg.newImage('assets/images/yuri/eyes1.png')
 			loadYuriGlitch()
 		elseif etype == 'm_ch23ex' then
-			ex3top = lg.newImage('assets/images/gui/ex3top.png')
+			ex3top = lg.newImage('assets/images/gui/'..settings.lang..'/ex3top.png')
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('assets/images/bg/splash-glitch2.png')

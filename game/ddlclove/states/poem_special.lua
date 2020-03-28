@@ -43,12 +43,12 @@ function drawpoem_special()
 		lg.setColor(255,230,244,255)
 		lg.rectangle('fill',440,250,400,32)
 		lg.setColor(0,0,0,255)
-		lg.print("Error: Script file is missing or corrupt. \nPlease reinstall the game.",440,195)
-		lg.print('OK',440,250)
+		lg.print(tr.missing[1],440,195)
+		lg.print(tr.missing[2],440,250)
 	end
 end
 
-function updatepoem_special()
+function updatepoem_special(dt)
 	xaload = xaload + 1
 	if p_confirm >= 1 and p_number <= 11 then
 		if p_alpha <= 0 then
