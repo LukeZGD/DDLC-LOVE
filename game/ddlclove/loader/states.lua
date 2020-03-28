@@ -1,4 +1,5 @@
 function changeState(cstate,x)
+	print(cstate)
 	menu_alpha = 0
 	menu_previous = nil
 	history = {}

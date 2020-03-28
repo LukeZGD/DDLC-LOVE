@@ -15,6 +15,10 @@ local save_bpic = {}
 local save_hoverpos = {}
 local sxp = 0
 local history_scr = -39
+local dversionx = 1200
+if g_system == 'PS3' then
+	dversionx = 950
+end
 menu_alpha = 0
 
 function savepicLoad(i)
@@ -136,6 +140,9 @@ function menu_draw()
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
 	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' or menu_type == 'language' then
+		if g_system == 'PS3' then
+			lg.draw(background_Image,posX,posY)
+		end
 		if menu_type == 'choice' then
 			lg.setColor(255,255,255,255)
 			lg.draw(textbox,230,565)
@@ -165,6 +172,7 @@ function menu_draw()
 		end
 		lg.setColor(255,255,255,menu_alpha/1.3)
 		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
+		lg.draw(gui.check,408,200+(50*(m_selected-1)))
 		
 	elseif menu_type == 'dialog' then
 		lg.setColor(255,255,255,128)
@@ -209,7 +217,7 @@ function menu_draw()
 		lg.print(keys[5]..tr.menuhelp[5],160,280)
 		lg.print(keys[6]..tr.menuhelp[12],160,310)
 		lg.print(tr.menuhelp[6],160,360)
-		lg.print(tr.menuhelp[7],160,390)
+		lg.print(tr.menuhelp[7]..savedir,160,390)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		menu_drawstuff('overlay')
@@ -268,11 +276,11 @@ function menu_draw()
 		elseif m_selected == 5 then
 			hv.y = 548
 		end
-		lg.draw(gui.scrbarh,368,378,0,0.5,1)
-		lg.draw(gui.scrbarh,368,446,0,0.5,1)
-		lg.draw(gui.scrbarh,818,378,0,0.5,1)
-		lg.draw(gui.scrbarh,818,446,0,0.5,1)
-		lg.draw(gui.scrbarh,818,514,0,0.5,1)
+		lg.draw(gui.scrbarh,368,378)
+		lg.draw(gui.scrbarh,368,446)
+		lg.draw(gui.scrbarh,818,378)
+		lg.draw(gui.scrbarh,818,446)
+		lg.draw(gui.scrbarh,818,514)
 		lg.draw(gui.scrhover,((settings.textspd-50)*1.7)+368,378)
 		lg.draw(gui.scrhover,((settings.autospd-1)*24.29)+368,446)
 		lg.draw(gui.scrhover,(settings.masvol*3.4)+818,378)
@@ -285,7 +293,7 @@ function menu_draw()
 		lg.print(settings.masvol..'%',1020,340)
 		lg.print(settings.bgmvol..'%',1005,410)
 		lg.print(settings.sfxvol..'%',1010,480)
-		lg.print(dversion..'\n'..dvertype,1200,660)
+		lg.print(dvertype..'\n'..dversion,dversionx,650)
 		
 	elseif menu_type == 'history' then
 		menu_drawstuff('overlay')
@@ -309,9 +317,6 @@ function menu_draw()
 							lg.print(cdisp[j],400,ypos+ypsc[j])
 						end
 					end
-					
-				elseif global_os == 'LOVE-WrapLua' then
-					lg.print(temptext,400,ypos)
 				else
 					outlineText(temptext,400,ypos,'c_disp')
 				end

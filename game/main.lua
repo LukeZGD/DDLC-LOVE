@@ -1,4 +1,4 @@
-dversion = 'v1.0.8'
+dversion = 'v1.1.0'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 if g_system == 'Switch' then
@@ -37,11 +37,16 @@ function love.load()
 	textbox_enabled = true
 	bgimg_disabled = false
     
-    mainload()    
+    main_load()    
 	changeState('load')
 end
 
 function love.draw()
+	--for pc stuff
+	if dwidth and dheight then
+		love.graphics.scale(dwidth/1280,dheight/720)
+	end
+	
 	if event_enabled then
 		event_draw()
 	elseif state == 'language' then
@@ -50,7 +55,7 @@ function love.draw()
 		drawLoad()
 	elseif state == 'splash' or state == 'splash2' or state == 'title' then
 		drawSplash()
-	elseif state == 'game' or state == 'newgame' then --game (Ingame)
+	elseif state == 'game' or state == 'newgame' then
 		drawGame()
 	elseif state == 'poemgame' then
 		drawPoemGame()
@@ -68,7 +73,7 @@ function love.update()
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
-	mainupdate()
+	main_update()
 	
 	--update depending on gamestate
 	if state == 'load' then

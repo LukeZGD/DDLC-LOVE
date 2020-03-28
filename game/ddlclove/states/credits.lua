@@ -85,8 +85,8 @@ function drawCredits()
 	elseif c_timer < 200 then
 		lg.draw(splashw)
 		lg.setFont(allerfont)
-		lg.print('DDLC-LOVE',5,615)
-		lg.print(tr.splash[16],5,645)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
+		lg.print(tr.splash[16],splashx,10)
 	end
 	
 	lg.setColor(255,255,255)

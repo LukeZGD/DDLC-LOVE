@@ -1,19 +1,5 @@
-local random_msgchance = math.random(0, 3)
-local splash_messages = {
-	"You are my sunshine,\nMy only sunshine",
-	"I missed you.",
-	"Play with me",
-	"It's just a game, mostly.",
-	"This game is not suitable for children\nor those who are easily disturbed?",
-	"sdfasdklfgsdfgsgoinrfoenlvbd",
-	"null",
-	"I have granted kids to hell",
-	"PM died for this.",
-	"It was only partially your fault.",
-	"This game is not suitable for children\nor those who are easily dismembered.",
-	"Don't forget to backup Monika's character file.";
-	}
-local random_msg = math.random(1, #splash_messages)
+local random_msgchance = math.random(0,3)
+local random_msg = math.random(1,12)
 local running
 local s_timer = 0
 local titlebgused
@@ -25,14 +11,13 @@ function drawSplash()
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
-		lg.print('DDLC-LOVE '..dversion..' '..dvertype,0,205)
-		lg.print('Running in LOVE / LovePotion 3DS',0,220)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,5,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
-			lg.print(splash_messages[random_msg], 95, 100)
+			lg.print(tr.splash[random_msg], 95, 100)
 		else
 			lg.print('This game is not suitable for children', 95, 100)
 			lg.print('  or those who are easily disturbed.', 98, 116)
@@ -54,7 +39,7 @@ function drawSplash()
 		lg.draw(titlebgused)
 		
 		lg.setColor(64,64,64,alpha)
-		lg.print('Unofficial port by LukeeGD',240,5)
+		lg.print('Unofficial port by LukeeGD',245,5)
 		drawBottomScreen()
 		menu_draw()
 	end

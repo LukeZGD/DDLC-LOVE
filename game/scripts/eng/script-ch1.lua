@@ -470,14 +470,14 @@ function ch1script()
 		choices = {"Natsuki.","Yuri.","Help me, Sayori!!"}
 		choice_enable()
 	elseif cl >= 996 and cl < 1092 then
-		if choicepick == 'Natsuki.' or choicepick == 'Natsuki' then
-			choicepick = 'Natsuki'
+		if choicepick == 'Natsuki.' or choicepick == 'n' then
+			choicepick = 'n'
 			ch1_end_natsuki()
-		elseif choicepick == "Yuri." or choicepick == 'Yuri' then
-			choicepick = 'Yuri'
+		elseif choicepick == "Yuri." or choicepick == 'y' then
+			choicepick = 'y'
 			ch1_end_yuri()
-		elseif choicepick == "Help me, Sayori!!" or choicepick == 'Sayori' then
-			choicepick = 'Sayori'
+		elseif choicepick == "Help me, Sayori!!" or choicepick == 's' then
+			choicepick = 's'
 			ch1_end_sayori()
 		end
 		choices = {''}

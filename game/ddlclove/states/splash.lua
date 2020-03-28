@@ -1,9 +1,11 @@
-local random_msgchance = love.math.random(0, 3)
-
-local random_msg = love.math.random(1, 12)
-local running
+local random_msgchance = love.math.random(0,3)
+local random_msg = love.math.random(1,12)
 local s_timer = 0
 local s_kille = {x=280,y=-5}
+splashx = 975
+if g_system == 'PS3' then
+	splashx = 925
+end
 
 function drawSplash()
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
@@ -11,16 +13,7 @@ function drawSplash()
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
-		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,650)
-		if g_system == 'Switch' then
-			running = 'LovePotion Switch'
-		elseif global_os == 'LOVE-WrapLua' then
-			running = 'LOVE-WrapLua '..g_system
-		else
-			local major, minor, revision = love.getVersion()
-			running = string.format('LOVE %d.%d.%d', major, minor, revision)
-		end
-		lg.print('Running in '..running,15,680)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		lg.setColor(255,255,255,255)
@@ -46,7 +39,7 @@ function drawSplash()
 			lg.draw(gui.newgame)
 		end
 		lg.setColor(64,64,64,alpha)
-		lg.print(tr.splash[16],985,10)
+		lg.print(tr.splash[16],splashx,10)
 		menu_draw()
 		if ingamekeys then ingamekeys_draw() end
 	end

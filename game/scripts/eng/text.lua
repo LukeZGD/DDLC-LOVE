@@ -62,12 +62,8 @@ tr.menuhelp = {
 	' - Show/hide text window',
 	'Managing files: Go to Settings > Characters',
 	[[
-	Deleting save data: Delete save files and persistent in here:
-	Switch: sdmc:/switch/DDLC-LOVE/
-	PS Vita: ux0:/data/DDLC-LOVE/savedata/
-	PSP: ms0:/data/DDLC-LOVE/savedata/
-	PS3: dev_usb000:/DDLC-LOVE/savedata/
-	]],
+	Deleting save data: Delete the save folder:
+	> ]],
 	"There's no point in saving anymore.\nDon't worry, I'm not going anywhere.",
 	'Are you sure you want to return to the\nmain menu?',
 	'Are you sure you want to quit the game?',
@@ -121,7 +117,7 @@ Error!
 Old save data detected, and it is not compatible with this version of DDLC-LOVE.
 Please delete all save data and try again.
 
-Delete persistent and save files in here:
+Deleting save data: Delete the save folder:
 > ]],
 [[
 Error!

@@ -1,5 +1,6 @@
+animframe = {}
+
 function loadNoise()
-	animframe = {}
 	for i = 1, 4 do
 		animframe[i] = lg.newImage("assets/images/bg/noise"..i..".png")
 	end
@@ -10,25 +11,22 @@ function loadVignette()
 end
 
 function loadYuriGlitch()
-	animframe = {}
 	for i = 1, 4 do
 		animframe[i] = lg.newImage("assets/images/yuri/glitch"..i..".png")
 	end
 end
 
 function unloadanimframe()
-	for i = 1, 4 do
-		animframe[i] = nil
+	if next(animframe) then
+		for i = 1, #animframe do
+			animframe[i] = nil
+		end
 	end
-end
-
-function unloadvignette()
-	vignette = nil
 end
 
 function event_init(etype,arg1,arg2)
 	if xaload == 1 then
-		require(branch..'/scripts/event')
+		require('scripts/event')
 		if persistent.ptr <= 1 then
 			require(branch..'/scripts/event-1')
 		elseif persistent.ptr == 2 then
@@ -162,14 +160,14 @@ function event_end(arg1)
 		n_blackeyes = nil
 		event_endnext()
 	elseif arg1 == 'ny_argument2' then
-		unloadvignette()
+		vignette = nil
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'yuri_glitch' then
 		unloadanimframe()
 		event_endnext()
 	elseif arg1 == 'show_vignette' then
-		unloadvignette()
+		vignette = nil
 	elseif arg1 == 'yuri_eyes' then
 		eyes1 = nil
 		eyes2 = nil

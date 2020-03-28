@@ -69,7 +69,7 @@ function drawpoem_special()
 		lg.setColor(255,189,225,255)
 		lg.rectangle('fill', 16, 45, 30, 16)
 		lg.setColor(0,0,0,255)
-		lg.print("Error: Script file is missing or corrupt.\nPlease reinstall the game.",16, 12)
+		lg.print("Error: Script file is missing or corrupt. \nPlease reinstall the game.",16, 12)
 		lg.print('OK',17,45)
 	end
 end

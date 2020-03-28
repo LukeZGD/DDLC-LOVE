@@ -49,7 +49,7 @@ function menu_enable(m)
 		
 	elseif menu_type == 'title' then
 		menutext = 'Main Menu'
-		itemnames = {'New Game','Load Game','Settings','Help','Quit'}
+		itemnames = {'New Game','Load Game','Settings','Help'}
 		if persistent.ptr == 1 then itemnames[1] = glitchtext(10) end
 		
 	elseif menu_type == 'settings' then
@@ -66,7 +66,7 @@ function menu_enable(m)
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then
 		menutext = 'Game Menu'
-		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help','Quit'}
+		itemnames = {'History','Save Game','Load Game','Main Menu','Settings','Help'}
 	
 	elseif menu_type == 'savegame' then
 		menutext = 'Save Game'
@@ -164,8 +164,8 @@ function menu_draw()
 		lg.print('X - (Menu) Previous Page, Skipping On/Off',16,100)
 		lg.print('Y - (Menu) Next Page, Enter Game Menu',16,120)
 		lg.print('Managing files: Go to Settings > Characters',16,150)
-		lg.print('Deleting save data: Delete everything in here',16,180)
-		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-3DS/',16,195)
+		lg.print('Deleting save data: Delete the save folder:',16,180)
+		lg.print('> sdmc:/3ds/data/LovePotion/DDLC-LOVE/',16,195)
 		
 	elseif menu_type == 'history' then
 		local ca = {}
@@ -235,7 +235,7 @@ function menu_confirm()
 			menu_enable('help')
 			
 		elseif m_selected == 6 then --quit
-			game_quit()
+			--game_quit()
 		end
 		
 	elseif menu_type == 'loadgame' then --load game confirm
@@ -278,7 +278,7 @@ function menu_confirm()
 		elseif m_selected == 7 then
 			menu_enable('help')
 		elseif m_selected == 8 then
-			menu_enable('quityesno')
+			--menu_enable('quityesno')
 		end
 		
 	elseif menu_type == 'mainyesno' then

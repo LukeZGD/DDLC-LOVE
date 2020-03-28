@@ -1,8 +1,18 @@
 require('ddlclove/loader/assets_load')
 l_timer = 95
 local err = ''
-local savedir
 local errtime = 0
+if g_system == 'Switch' then
+	savedir = 'sdmc:/switch/DDLC-LOVE/'
+elseif g_system == 'Vita' then
+	savedir = 'ux0:/data/DDLC-LOVE/savedata/'
+elseif g_system == 'PSP' then
+	savedir = 'ms0:/data/DDLC-LOVE/savedata/'
+elseif g_system == 'PS3' then
+	savedir = 'dev_usb000:/DDLC-LOVE/savedata/'
+else
+	savedir = 'savedir'
+end
 
 function drawLoad()
 	lg.setBackgroundColor(255,255,255)
@@ -60,16 +70,6 @@ function checkLoad()
 	loadpersistent()
 	loadsettings()
 	game_setvolume()
-	
-	if g_system == 'Switch' then
-		savedir = 'sdmc:/switch/DDLC-LOVE/'
-	elseif g_system == 'Vita' then
-		savedir = 'ux0:/data/DDLC-LOVE/savedata/'
-	elseif g_system == 'PSP' then
-		savedir = 'ms0:/data/DDLC-LOVE/savedata/'
-	else
-		savedir = '%appdata%\\LOVE\\DDLC-LOVE\\'
-	end
 	
 	os_timecheck = os.time()
 	if g_system == 'PSP' then

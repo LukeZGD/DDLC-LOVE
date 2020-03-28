@@ -1,16 +1,17 @@
-function mainload() 
+function main_load() 
 	getTime = 0
 	startTime = getTime
 	
 	--for pc stuff
 	if g_system ~= 'Switch' and global_os ~= 'LOVE-WrapLua' then
-		love.window.setMode(1280, 720)
+		love.window.setFullscreen(true)
 		love.window.setTitle('DDLC-LOVE')
 		love.keyboard.setTextInput(false)
+		dwidth, dheight = love.window.getDesktopDimensions()
 	end
 end
 
-function mainupdate()
+function main_update()
 	getTime = getTime + dt
 	--moving background
 	posX = posX - 0.625
