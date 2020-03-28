@@ -64,9 +64,9 @@ function poemgamefinish()
 	--determine poemwinner
 	if persistent.ptr == 0 then
 		if chapter == 2 then
-			if choicepick == 'Natsuki' then
+			if choicepick == 'n' then
 				nPoint = nPoint + 5
-			elseif choicepick == 'Yuri' then
+			elseif choicepick == 'y' then
 				yPoint = yPoint + 5
 			else
 				sPoint = sPoint + 5
@@ -105,8 +105,9 @@ end
 function updatewordlist()
 	if persistent.ptr <= 2 then
 		for i = 1, 10 do
-			wordr[i] = math.random(1,#wordlist)
-			word[i] = wordlist[wordr[i]][1]
+			wordr = love.math.random(1,#wordlist)
+			word[i] = wordlist[wordr]
+			table.remove(wordlist,wordr)
 		end
 	else
 		for i = 1, 10 do
