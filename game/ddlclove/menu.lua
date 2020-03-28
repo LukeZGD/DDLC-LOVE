@@ -16,6 +16,7 @@ local save_hoverpos = {}
 local sxp = 0
 local history_scr = -39
 local dversionx = 1200
+local xpsc = 400
 if g_system == 'PS3' then
 	dversionx = 950
 end
@@ -310,15 +311,19 @@ function menu_draw()
 				local temptext = wrap(history[i],70)
 				local ypos = 3600+(history_scr*75)-(i*120)
 				
+				if g_system == 'PSP' then
+					xpsc = 360
+				end
+				
 				if global_os == 'LOVE-WrapLua' and g_system == 'PS3' then
 					local cdisp = wrap_old(history[i],ca1)
 					for j = 1, #cdisp do
 						if cdisp[j] then
-							lg.print(cdisp[j],400,ypos+ypsc[j])
+							lg.print(cdisp[j],xpsc,ypos+ypsc[j])
 						end
 					end
 				else
-					outlineText(temptext,400,ypos,'c_disp')
+					outlineText(temptext,xpsc,ypos,'c_disp')
 				end
 			end
 		end

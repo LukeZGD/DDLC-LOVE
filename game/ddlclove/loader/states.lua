@@ -28,10 +28,18 @@ function changeState(cstate,x)
 		end
 		
 		--new game gui image
-		if persistent.ptr == 1 and not gui.newgame1 then
-			gui.newgame1 = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame1.png")
-		elseif not gui.newgame1 then
-			gui.newgame = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
+		if g_system == 'PSP' then
+			if persistent.ptr == 1 and not gui.newgame1 then
+				gui.newgame1 = lg.newImage("assets/images/gui/overlay/newgame1.png")
+			elseif not gui.newgame1 then
+				gui.newgame = lg.newImage("assets/images/gui/overlay/newgame.png")
+			end
+		else
+			if persistent.ptr == 1 and not gui.newgame1 then
+				gui.newgame1 = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame1.png")
+			elseif not gui.newgame1 then
+				gui.newgame = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
+			end
 		end
 		
 		--monika

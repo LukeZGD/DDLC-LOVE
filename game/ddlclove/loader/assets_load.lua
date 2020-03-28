@@ -3,7 +3,6 @@ function loaderAssets(l_timer)
 		gui = {}
 	end
 
-
 	--loading assets
 	if l_timer == 96 then
 		consolefont = lg.newFont('assets/fonts/F25_Bank_Printer.ttf',18)
@@ -65,5 +64,15 @@ function loaderAssets(l_timer)
 		gui.save = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/save.png")
 		gui.settings = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/settings.png")
 		gui.setbuttons = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/setbuttons.png")
+        
+	elseif l_timer == 102 then
+		gui.mainbuttons = lg.newImage("assets/images/gui/overlay/mainbuttons.png")
+		gui.gamebuttons = lg.newImage("assets/images/gui/overlay/gamebuttons.png")
+		gui.history = lg.newImage("assets/images/gui/overlay/history.png")
+		gui.gamemenu = lg.newImage("assets/images/gui/overlay/gamemenu.png")
+		gui.load = lg.newImage("assets/images/gui/overlay/load.png")
+		gui.save = lg.newImage("assets/images/gui/overlay/save.png")
+		gui.settings = lg.newImage("assets/images/gui/overlay/settings.png")
+		gui.setbuttons = lg.newImage("assets/images/gui/overlay/setbuttons.png")
 	end
 end

@@ -3,8 +3,8 @@ local random_msg = love.math.random(1,12)
 local s_timer = 0
 local s_kille = {x=280,y=-5}
 splashx = 975
-if g_system == 'PS3' then
-	splashx = 925
+if g_system == 'PSP' or g_system == 'PS3' then
+	splashx = 915
 end
 
 function drawSplash()

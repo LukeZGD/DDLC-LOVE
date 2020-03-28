@@ -66,7 +66,8 @@ function outlineText(text,x,y,type,arg1)
 	if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 		lg.printf(text,x,y,arg1)
 	else
-		lg.print(text,x,y)
+		local print = lg.print(text,x,y)
+		pcall(print)
 	end
 end
 
@@ -174,6 +175,9 @@ function drawTextBox()
 			lg.setFont(deffont)
 		else
 			lg.setFont(allerfont)
+		end
+		if g_system == 'PSP' then
+			xps.c = 240
 		end
 		if c_disp[1] and g_system == 'PS3' then
 			for i = 1, #c_disp do

@@ -39,7 +39,11 @@ function updateLoad()
 		if f2 then
 			loadsettings()
 			require('scripts/'..settings.lang..'/text')
-			loaderAssets(101)
+			if g_system == 'PSP' then
+				loaderAssets(102)
+			else
+				loaderAssets(101)
+			end
 		end
 		if not f2 then
 			require('scripts/eng/text')
