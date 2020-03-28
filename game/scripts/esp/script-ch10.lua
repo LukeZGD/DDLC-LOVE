@@ -10,17 +10,17 @@ function ch10script()
 	audioUpdate('2g')
 	cw(s_name,gtext)
 	elseif cl == 2 then
-	bl "I see an annoying girl running toward me from the distance, waving her arms in the air like she's totally oblivious to any attention she might draw to herself."
+		cw('bl', "Veo a lo lejos corriendo hacia mí e intentando llamar mi atención a una chica muy pesada que está dando la nota agitando los brazos.")
 	elseif cl == 3 then
-	cw('bl',"That girl is "..s_name..", my neighbor and good friend since we were children.")
-    elseif cl == 4 then
-	bl "You know, the kind of friend you'd never see yourself making today, but it just kind of works out because you've known each other for so long?"
-    elseif cl == 5 then
-	bl "We used to walk to school together on days like this, but starting around high school she would oversleep more and more frequently, and I would get tired of waiting up."
-    elseif cl == 6 then
-	bl "But if she's going to chase after me like this, I almost feel better off running away."
-    elseif cl == 7 then
-	cw('bl',"However, I just sigh and idle in front of the crosswalk and let "..s_name.." catch up to me.")
+		cw('bl', "Esa chica es "..s_name..", mi vecina y mi mejor amiga desde que éramos pequeños.")
+	elseif cl == 4 then
+		cw('bl', "Es la típica amiga con la que no te ves quedando, pero lo hacéis porque os conocéis desde hace tiempo.")
+	elseif cl == 5 then
+		cw('bl', "Solíamos caminar juntos hacia el colegio, pero desde que empezamos el instituto se queda dormida cada vez con más frecuencia y ya estoy muy cansado de esperarla.")
+	elseif cl == 6 then
+		cw('bl', "Pero para perseguirme así, casi mejor salgo corriendo.")
+	elseif cl == 7 then
+		cw('bl', "Sin embargo, me paro en el paso de peatones, suspiro y dejo que "..s_name.." me pille.")
 	event_init('s_glitch')
 	elseif cl == 8 then
 	if gs == 0 then

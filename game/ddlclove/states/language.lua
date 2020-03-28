@@ -1,4 +1,4 @@
-lang_names = {'English', 'Español castellano'}
+lang_names = {'English', 'Español (España)'}
 lang_codes = {'eng', 'esp'}
 local lang_state = 0
 local lang_select = 1

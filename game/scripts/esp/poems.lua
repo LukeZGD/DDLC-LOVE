@@ -7,118 +7,123 @@ function poem(poemname)
 	if poemname == 'poem_y1' then
 		poem_author = 'yuri'
 		poemtext = {
-			'Ghost Under the Light','',
+			'Fantasma bajo la luz','',
 			
-			'The tendrils of my hair illuminate beneath the amber glow.',
-			'Bathing.',
-			'It must be this one.',
-			'The last remaining streetlight to have withstood the test of time.',
-			'the last yet to be replaced by the sickening blue-green hue of the future.',
-			'I bathe. Calm; breathing air of the present but living in the past.',
-			'The light flickers.',
-			'I flicker back.'};
+			'Se iluminan, bajo el resplandor ambarino, los rizos de mi cabello.',
+			'Bañándose.',
+			'Debe ser esta.',
+			'La última farola que ha resistido el paso del tiempo.',
+			'La última en ser sustituida por el enfermizo tono azul verdoso del futuro.',
+			'Me baño. Calma; respiro el aire del presente, pero vivo en el pasado.',
+			'La luz parpadea.',
+			'Yo parpadeo en respuesta.'};
 
 	elseif poemname == 'poem_y2' then
 		poem_author = 'yuri'
 		poemtext = {
-			'The Raccoon','',
+			'El mapache','',
 			
-			'It happened in the dead of night while I was slicing bread for a guilty snack.',
-			'My attention was caught by the scuttering of a raccoon outside my window.',
-			'That was, I believe, the first time I noticed my strange tendencies as an unordinary',
-			'human.',
-			'I gave the raccoon a piece of bread, my subconscious well aware of the consequences.',
-			'Well aware that a raccoon that is fed will always come back for more.',
-			'The enticing beauty of my cutting knife was the symptom.',
-			'The bread, my hungry curiosity.',
-			'The raccoon, an urge.','',
-			
-			'The moon increments its phase and reflects that much more light off of my cutting knife.',
-			'The very same light that glistens in the eyes of my raccoon friend.',
-			'I slice the bread, fresh and soft. The raccoon becomes excited.',
-			'Or perhaps I\'m merely projecting my emotions onto the newly-satisfied animal.','',
-			
-			'The raccoon has taken to following me.',
-			'You could say that we\'ve gotten quite used to each other.',
-			'The raccoon becomes hungry more and more frequently, so my bread is always handy.',
-			'Every time I brandish my cutting knife, the raccoon shows me its excitement.',
-			'A rush of blood. Classic Pavlovian conditioning. I slice the bread.',
-			'And I feed myself again.'}
+			'Ocurrió a medianoche, mientras cortaba pan en rodajas para picotear.',
+			'Un gruñido llamó mi atención. Había un mapache tras la ventana.',
+			'Creo que fue la primera vez que noté mis insólitas tendencias.',
+			'Le di al mapache un trozo de pan, siendo, en el fondo, consciente de las consecuencias.',
+			'Consciente de que un mapache que es alimentado siempre vuelve a por más.',
+			'La seductora belleza de mi cuchillo era el síntoma.',
+			'El pan, mi curiosidad hambrienta.',
+			'El mapache, una urgencia.','',
+
+			'La luna cambia de fase, y refleja más la luz en mi cuchillo.',
+			'La misma luz que brilla en los ojos de mi amigo el mapache.',
+			'Corto el pan, fresco y blando. El mapache se emociona.',
+			'O quizá estoy proyectando mis emociones en el animal nuevamente satisfecho.','',
+
+			'El mapache ha empezado a seguirme.',
+			'Podría decirse que nos hemos habituado el uno al otro.',
+			'El mapache tiene hambre cada vez con más frecuencia, así que mi pan siempre está a mano.',
+			'Cuando blando mi cuchillo, el mapache muestra su entusiasmo.',
+			'Un torrente de sangre. Condicionamiento clásico de Pavlov. Corto el pan.',
+			'Vuelvo a sentirme yo misma.'}
 	
 	elseif poemname == 'poem_y3' then
 		poem_author = 'yuri'
 		poemtext = {
-			'Beach','',
-			'A marvel millions of years in the making.',
-			'Where the womb of Earth chaotically meets the surface.',
-			'Under a clear blue sky, an expanse of bliss--',
-			'But beneath gray rolling clouds, an endless enigma.',
-			'The easiest world to get lost in',
-			'Is one where everything can be found.','',
-			
-			'One can only build a sand castle where the sand is wet.',
-			'But where the sand is wet, the tide comes.',
-			'Will it gently lick at your foundations until you give in?',
-			'Or will a sudden wave send you crashing down in the blink of an eye?',
-			'Either way, the outcome is the same.',
-			'Yet we still build sand castles.','',
-			
-			'I stand where the foam wraps around my ankles.',
-			'Where my toes squish into the sand.',
-			'The salty air is therapeutic.',
-			'The breeze is gentle, yet powerful.',
-			'I sink my toes into the ultimate boundary line, tempted by the foamy',
-			'tendrils.',
-			'Turn back, and I abandon my peace to erode at the shore.',
-			'Drift forward, and I return to Earth forevermore.'};
+			'Playa','',
+			'Millones de años invertidos en su creación: maravilla.',
+			'Donde el vientre de la tierra emerge caóticamente a la superficie.',
+			'Bajo un tranquilo cielo azul, una extensión de felicidad.',
+			'Pero bajo unas nubes grises de tormenta, un enigma sin fin.',
+			'El mejor mundo para perderse',
+			'es aquel en el que todo puede encontrarse.','',
+
+			'Una solo puede hacer un castillo de arena donde la arena está húmeda.',
+			'Pero allí donde la arena está húmeda, viene la marea.',
+			'¿Lamerá esta tus cimientos suavemente hasta que te des por vencido?',
+			'¿O te derribará en un abrir y cerrar de ojos una ola repentina?',
+			'Sea como sea, el resultado es el mismo.',
+			'Aun así, seguimos haciendo castillos de arena.','',
+
+			'Me yergo allí donde la espuma envuelve mis tobillos.',
+			'Donde los dedos de mis pies juguetean con la arena.',
+			'El aire salado es terapéutico.',
+			'La brisa es suave, pero poderosa.',
+			'Hundo mis dedos en la última frontera, tentada por los espumosos tentáculos.',
+			'Me doy la vuelta, y abandono mi paz en la orilla, a merced de la erosión.',
+			'Empiezo a caminar, y regreso a la tierra para siempre.'};
 
 	elseif poemname == 'poem_y3b' then
 		poem_author = 'yuri'
 		poemtext = {
-			'Ghost Under the Light pt. 2','',
+			'Fantasma bajo la luz, parte 2','',
 
-			'The tendrils of my hair illuminate beneath the amber glow.',
-			'Bathing.',
-			'In the distance, a blue-green light flickers.',
-			'A lone figure crosses its path - a silhouette obstructing the eerie glow.',
-			'My heart pounds. The silhouette grows. Closer. Closer.',
-			'I open my umbrella, casting a shadow to shield me from visibility.',
-			'But I am too late.',
-			'He steps into the streetlight. I gasp and drop my umbrella.',
-			'The light flickers. My heart pounds. He raises his arm.','',
-			
-			'Time stops.','',
+			'Se iluminan, bajo el resplandor ambarino, los rizos de mi cabello.',
+			'Bañándose.',
+			'En la distancia, una luz azul verdoso parpadea.',
+			'Una solitaria figura atraviesa su camino –una silueta que obstruye el misterioso brillo.',
+			'Mi corazón late con fuerza. La silueta crece. Más cerca. Más cerca.',
+			'Abro mi paraguas, invocando una sombra para que me oculte.',
+			'Pero es demasiado tarde.',
+			'Él avanza hacia la farola. Grito y tiro mi paraguas.',
+			'La luz parpadea. Mi corazón late con fuerza. Él sube su brazo.','',
 
-			'The only indication of movement is the amber light flickering against',
-			'his outstretched arm.',
-			'The flickering light is in rhythm with the pounding of my heart.',
-			'Teasing me for succumbing to this forbidden emotion.',
-			'Have you ever heard of a ghost feeling warmth before?',
-			'Giving up on understanding, I laugh.',
-			'Understanding is overrated.',
-			'I touch his hand. The flickering stops.',
-			'Ghosts are blue-green. My heart is amber.'};
+			'El tiempo se para.','',
+
+			'Lo único que delata su movimiento es el parpadeo de la luz ambarina en su largo brazo.',
+			'La luz parpadea al ritmo de los latidos de mi corazón,',
+			'incitándome a sucumbir ante esta emoción prohibida.',
+			'¿Alguna vez has oído hablar de una sensación de calidez fantasmal?',
+			'Desisto de intentar entenderla, me río.',
+			'Entender las cosas está sobrevalorado.',
+			'Toco su mano. El parpadeo cesa.',
+			'Los fantasmas son azul verdoso. Mi corazón es ámbar.'};
 
 	elseif poemname == 'poem_y22' then
 		poem_author = 'yuri'
 		poemtext = {
-			'Wheel','',
+			'Engranaje','',
 
-			'A rotating wheel. Turning an axle. Grinding. Bolthead. Linear gearbox. Falling sky.',
-			'Seven holy stakes. A docked ship. A portal to another world. A thin rope tied to a',
-			'thick rope. A torn harness. Parabolic gearbox. Expanding universe. Time controlled',
-			'by slipping cogwheels. Existence of God. Swimming with open water in all directions.',
-			'Drowning. A prayer written in blood. A prayer written in time-devouring snakes with',
-			'human eyes. A thread connecting all living human eyes. A kaleidoscope of holy stakes.',
-			'Exponential gearbox. A sky of exploding stars. God disproving the existence of God.',
-			'A wheel rotating in six dimensions. Forty gears and a ticking clock. A clock that',
-			'ticks one second for every rotation of the planet. A clock that ticks forty times',
-			'every time it ticks every second time. A bolthead of holy stakes tied to the existence',
-			'of a docked ship to another world. A kaleidoscope of blood written in clocks.',
-			'A time-devouring prayer connecting a sky of forty gears and open human eyes in all',
-			'directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal.',
-			'Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing',
-			'human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.'}
+			'Un engranaje que gira. Sobre su eje. Triturando. La cabeza de un tornillo.',
+			'Engranajes en línea. Cielo que cae. Siete estacas sagradas.',
+			'Un barco amarrado. Un portal a otro mundo. Una cuerda fina unida a',
+			'una cuerda gruesa. Un cinturón roto. Engranajes parabólicos.',
+			'Universo en expansión. Tiempo controlado por el deslizar de unas ruedas',
+			'dentadas. Existencia de Dios. Nadando en mar abierto en todas las direcciones.',
+			'Ahogándose. Una plegaria escrita en sangre. Una plegaria escrita en serpientes',
+			'devoradoras de tiempo con ojos humanos.',
+			'Una trama conectando todos los ojos de los humanos vivos. Un',
+			'calidoscopio de serpientes sagradas. Engranajes exponenciales.',
+			'Un cielo de estrellas explotando. Dios disconforme con la existencia de Dios.',
+			'Un engranaje rotando en seis dimensiones.',
+			'Cuarenta engranajes y un reloj que hace tic-tac. Un reloj que suena cada segundo.',
+			'La cabeza de un tornillo de estacas sagradas atadas a',
+			'la existencia de un barco amarrado a otro mundo. Un caleidoscopio de sangre',
+			'escrita en relojes. Una plegaria',
+			'devoradora de tiempo conectando un cielo de cuarenta engranajes y ojos humanos',
+			'abiertos en todas direcciones. Engranajes que respiran. Cabeza de tornillo',
+			'que respira.',
+			'Barco que respira. Portal que respira. Serpientes que respiran. Dios que respira.',
+			'Sangre que respira. Estacas sagradas que respiran.',
+			'Ojos humanos que respiran. Tiempo que respira. Plegaria que respira.',
+			'Cielo que respira. Engranaje que respira.'}
 			
 	elseif poemname == 'poem_y23' then
 		poem_author = 'yuri'
@@ -127,419 +132,433 @@ function poem(poemname)
 	elseif poemname == 'poem_n1' then
 		poem_author = 'natsuki'
 		poemtext = {
-			'Eagles Can Fly','',
+			'Las águilas pueden volar','',
 
-			'Monkeys can climb',
-			'Crickets can leap',
-			'Horses can race',
-			'Owls can seek',
-			'Cheetahs can run',
-			'Eagles can fly',
-			'People can try',
-			'But that\'s about it.'};
+			'Los monos pueden trepar.',
+			'Los saltamontes pueden saltar.',
+			'Los caballos pueden galopar.',
+			'Los búhos pueden planear.',
+			'Los guepardos pueden correr.',
+			'Las águilas pueden volar.',
+			'Los humanos pueden intentarlo.',
+			'Pero eso es todo.'};
 	
 	elseif poemname == 'poem_n2' then
 		poem_author = 'natsuki'
 		poemtext = {
-			'Amy Likes Spiders','',
+			'A Amy le gustan las arañas','',
 
-			'You know what I heard about Amy?',
-			'Amy likes spiders.',
-			'Icky, wriggly, hairy, ugly spiders!',
-			'That\'s why I\'m not friends with her.','',
+			'¿Sabes qué dicen sobre Amy?',
+			'Que le gustan las arañas.',
+			'¡Las sucias, turbias, peludas y horrendas arañas!',
+			'Por eso no soy su amiga.','',
 
-			'Amy has a cute singing voice.',
-			'I heard her singing my favorite love song.',
-			'Every time she sang the chorus, my heart would pound to the',
-			'rhythm of the words.',
-			'But she likes spiders.',
-			'That\'s why I\'m not friends with her.','',
-			
-			'One time, I hurt my leg really bad.',
-			'Amy helped me up and took me to the nurse.',
-			'I tried not to let her touch me.',
-			'She likes spiders, so her hands are probably gross.',
-			'That\'s why I\'m not friends with her.','',
+			'Amy tiene una voz bonita.',
+			'La oí cantar mi canción de amor favorita.',
+			'Cada vez que cantaba el estribillo, mi corazón latía',
+			'al ritmo de sus palabras.',
+			'Pero le gustan las arañas.',
+			'Por eso no soy su amiga.','',
 
-			'Amy has a lot of friends.',
-			'I always see her talking to people.',
-			'She probably talks about spiders.',
-			'What if her friends start to like spiders too?',
-			'That\'s why I\'m not friends with her.','',
-			
-			'It doesn\'t matter if she has other hobbies.',
-			'It doesn\'t matter if she keeps it private.',
-			'It doesn\'t matter if it doesn\'t hurt anyone.',
+			'Una vez, mi pierna quedó tremendamente malherida.',
+			'Amy me ayudó y me llevó a la enfermería.',
+			'Intenté que no me tocara, me daba grima.',
+			'Porque como le gustan las arañas, tendría',
+			'las manos asquerosas.',
+			'Por eso no soy su amiga.','',
 
-			'It\'s gross.',
-			'She\'s gross.',
-			'The world is better off without spider lovers.','',
+			'Amy tiene muchos amigos.',
+			'Siempre la veo hablando con todo el mundo.',
+			'Probablemente hable sobre arañas.',
+			'¿Y si a sus amigos también empiezan a',
+			'gustarles las arañas?',
+			'Por eso no soy su amiga.','',
 
-			'And I\'m gonna tell everyone.'};
+			'Me da igual si tiene otras aficiones.',
+			'Me da igual si es un secreto.',
+			'Me da igual si no le hace daño a nadie.','',
+
+			'Es asqueroso.',
+			'Ella es asquerosa.',
+			'El mundo está mejor sin gente a la que',
+			'le gusten las arañas.',
+
+			'Y se lo haré saber a todos si hace falta.'};
 	
 	elseif poemname == 'poem_n2b' then
 		poem_author = 'natsuki'
 		poemtext = {[[
-T3BlbiBZb3VyIFRoaXJkIEV5ZQ==
-
-SSBjYW4gZmVlbCB0aGUgdGVuZGVybmVz
-cyBvZiBoZXIgc2tpbiB0aHJvdWdoIHRo
-ZSBrbmlmZSwgYXMgaWYgaXQgd2VyZSBh
-biBleHRlbnNpb24gb2YgbXkgc2Vuc2Ug
-b2YgdG91Y2guIE15IGJvZHkgbmVhcmx5
-IGNvbnZ1bHNlcy4gVGhlcmUncyBzb21l
-dGhpbmcgaW5jcmVkaWJseSBmYWludCwg
-ZGVlcCBkb3duLCB0aGF0IHNjcmVhbXMg
-dG8gcmVzaXN0IHRoaXMgdW5jb250cm9s
-bGFibGUgcGxlYXN1cmUuIEJ1dCBJIGNh
-biBhbHJlYWR5IHRlbGwgdGhhdCBJJ20g
-YmVpbmcgcHVzaGVkIG92ZXIgdGhlIGVk
-Z2UuIEkgY2FuJ3QuLi5JIGNhbid0IHN0
-b3AgbXlzZWxmLg==]]};
+UHVlZG8gc2VudGlyIGxhIHRlcm51cmEg
+ZGUgc3UgcGllbCBhIHRyYXbDqXMgZGVs
+IGN1Y2hpbGxvLCBjb21vIHNpIGVzdGUg
+ZnVlcmEgdW5hIGV4dGVuc2nDs24gZGUg
+bWkgc2VudGlkbyBkZWwgdGFjdG8uCk1p
+IGN1ZXJwbyBwcsOhY3RpY2FtZW50ZSBz
+ZSBjb252dWxzaW9uYS4KSGF5IGFsZ28g
+aW5jcmXDrWJsZW1lbnRlIHRlbnVlLCBi
+aWVuIHByb2Z1bmRvLCBxdWUgZ3JpdGEg
+cGFyYSByZXNpc3RpciBlc3RlIHBsYWNl
+ciBpbmNvbnRyb2xhYmxlLgpQZXJvIHlh
+IHPDqSBxdWUgZXN0b3kgbGxlZ2FuZG8g
+YSBtaXMgbMOtbWl0ZXMuCk5vIHB1ZWRv
+4oCmIG5vIHB1ZWRvIHBhcmFybWUu]]};
 	
 	elseif poemname == 'poem_n3' then
 		poem_author = 'natsuki'
 		poemtext = {
-			'I\'ll Be Your Beach','',
+			'Seré tu playa','',
 
-			'Your mind is so full of troubles and fears',
-			'That diminished your wonder over the years',
-			'But today I have a special place',
-			'A beach for us to go.','',
+			'Tu mente está tan llena de problemas y miedos',
+			'que tus maravillas se atenuaron a lo largo de los años.',
+			'Pero hoy te propongo un lugar especial,',
+			'una playa a la que podemos ir.','',
 
-			'A shore reaching beyond your sight',
-			'A sea that sparkles with brilliant light',
-			'The walls in your mind will melt away',
-			'Before the sunny glow.','',
-			
-			'I\'ll be the beach that washes your worries away',
-			'I\'ll be the beach that you daydream about each day',
-			'I\'ll be the beach that makes your heart leap',
-			'In a way you thought had left you long ago.','',
+			'Una orilla que se difumina en el horizonte.',
+			'Un mar que resplandece con centelleante luz.',
+			'Los muros de tu mente se diluirán',
+			'bajo el brillo solar.','',
 
-			'Let\'s bury your heavy thoughts in a pile of sand',
-			'Bathe in sunbeams and hold my hand',
-			'Wash your insecurities in the salty sea',
-			'And let me see you shine.','',
-			
-			'Let\'s leave your memories in a footprint trail',
-			'Set you free in my windy sail',
-			'And remember the reasons you\'re wonderful',
-			'When you press your lips to mine.','',
+			'Seré la playa que borre tus preocupaciones.',
+			'Seré la playa con la que sueñes despierta cada día.',
+			'Seré la playa que haga que tu corazón se acelere',
+			'de una forma que creías haber olvidado hace tiempo.','',
 
-			'I\'ll be the beach that washes your worries away',
-			'I\'ll be the beach that you daydream about each day',
-			'I\'ll be the beach that makes your heart leap',
-			'In a way you thought had left you long ago.','',
-			
-			'But if you let me by your side',
-			'Your own beach, your own escape',
-			'You\'ll learn to love yourself again.'};
+			'Enterremos tus pesados pensamientos',
+			'en un montón de arena.',
+			'Báñate en los rayos solares y dame la mano.',
+			'Lava tus inseguridades en el mar salado.',
+			'Y déjame ver tu brillo.','',
+
+			'Abandonemos tus recuerdos en un sendero de pisadas.',
+			'Libérate en mi nave de viento.',
+			'Y recuerda las razones por las que eres maravillosa',
+			'cuando presiones tus labios en los míos.','',
+
+			'Seré la playa que borre tus preocupaciones.',
+			'Seré la playa con la que sueñes despierta cada día.',
+			'Seré la playa que haga que tu corazón se acelere',
+			'de una forma que creías haber olvidado hace tiempo.',
+			'Pero si me dejas estar a tu lado',
+			'-tu propia playa, tu propia escapatoria-,',
+			'aprenderás a amarte otra vez.'};
 
 	elseif poemname == 'poem_n3b' then
 		poem_author = 'natsuki'
 		poemtext = {
-			'Because You','',
+			'Por ti','',
 
-			'Tomorrow will be brighter with me around',
-			'But when today is dim, I can only look down.',
-			'My looking is a little more forward',
-			'Because you look at me.','',
+			'Mañana será un día más luminoso, pues yo estaré cerca.',
+			'Pero cuando el hoy es sombrío, solo puedo mirar hacia abajo.',
+			'Mi mirada va un poco más allá',
+			'porque tú me miras.','',
 
-			'When I want to say something, I say it with a shout!',
-			'But my truest feelings can never come out.',
-			'My words are a little less empty',
-			'Because you listen to me.','',
-			
-			'When something is above me, I reach for the stars.',
-			'But when I feel small, I don\'t get very far.',
-			'My standing is a little bit taller',
-			'Because you sit with me.','',
+			'Cuando quiero decir algo, ¡lo digo gritando!',
+			'Pero mis verdaderas emociones nunca pueden salir.',
+			'Mis palabras están un poco menos vacías',
+			'porque tú me escuchas.','',
 
-			'I believe in myself with all of my heart.',
-			'But what do I do when it\'s torn all apart?',
-			'My faith is a little bit stronger',
-			'Because you trusted me.','',
-			
-			'My pen always puts my feelings to the test.',
-			'I\'m not a good writer, but my best is my best.',
-			'My poems are a little bit dearer',
-			'Because you think of me.','',
+			'Cuando algo está por encima de mí, me propongo',
+			'alcanzar las estrellas.',
+			'Pero cuando me siento pequeña, no llego muy lejos.',
+			'Mi figura es un poco más alta',
+			'porque te sientas conmigo.','',
 
-			'Because you, because you, because you.'};
+			'Creo en mí con todo mi corazón.',
+			'¿Pero qué hago cuando todo está destrozado?',
+			'Mi fe es un poco más fuerte',
+			'porque tú confías en mí.','',
+
+			'Mi bolígrafo siempre pone mis sentimientos a prueba.',
+			'No soy una buena escritora, pero doy lo mejor de mí misma.',
+			'Mis poemas son un poco más valiosos',
+			'porque tú piensas en mí.','',
+
+			'Por ti, por ti, por ti.'};
 	
 	elseif poemname == 'poem_n23' then
 		poem_author = 'natsuki'
 		poemtext = {
-			'I don\'t know how else to bring this up. But there\'s been something',
-			'I\'ve been worried about. Yuri has been acting kind of strange lately.',
-			'You\'ve only been here a few days, so you may not know what I',
-			'mean. But she\'s not normally like this. She\'s always been quiet',
-			'and polite and attentive...things like that.','',
+			'No sé cómo hablar de esto. Pero hay algo que me lleva',
+			'preocupando un tiempo.',
+			'Yuri ha estado actuando de una forma algo rara últimamente.',
+			'Solo llevas aquí unos días, así que probablemente',
+			'no sabes a qué me refiero. Pero normalmente ella no es así.',
+			'Siempre ha sido tranquila y educada',
+			'y amable... ya sabes.','',
 
-			'Okay... This is really embarrassing, but I\'m forcing myself to suck it',
-			'up. The truth is, I\'m REALLY worried about her. But if I try talking',
-			'to her, she\'ll just get mad at me again. I don\'t know what to do.',
-			'I think you\'re the only person that she\'ll listen to. I don\'t know',
-			'why. But please try to do something. Maybe you can convince her to',
-			'talk to a therapist.','',
-			
-			'I\'ve always wanted to try being better friends with Yuri, and it',
-			'really hurts me to see this happening. I know I\'m going to hate',
-			'myself later for admitting that, but right now I don\'t care. I just',
-			'feel so helpless. So please see if you can do something to help.',
-			'I don\'t want anything bad to happen to her. I\'ll make you cupcakes',
-			'if I have to. Just please try to do something.','',
+			'Vale... esto es bastante embarazoso, pero me estoy obligando',
+			'a mí misma a contenerme. La verdad es que estoy MUY',
+			'preocupada por ella. Pero si intento hablar con ella,',
+			'seguro que se vuelve a enfadar conmigo otra vez. No',
+			'sé qué hacer. Creo que ella solo te escuchará a ti. No sé por qué.',
+			'Pero, por favor, intenta hacer algo. A lo mejor puedes',
+			'convencerla para que vaya a terapia. ','',
 
-			'As for Monika... I don\'t know why, but she\'s been really dismissive',
-			'about this. It\'s like she just wants us to ignore it. So I\'m mad at',
-			'her right now, and that\'s why I\'m coming to you about this.',
-			'DON\'T LET HER KNOW I WROTE THIS!!!! Just pretend like I gave you',
-			'a really good poem, okay? I\'m counting on you. Thanks for reading.'};
+			'Siempre he querido intentar llevarme mejor con Yuri y me',
+			'duele muchísimo ver',
+			'lo que está pasando. Sé que luego voy a odiarme a mí misma',
+			'por haber admitido eso, pero ahora mismo',
+			'no me importa. Me siento muy inútil. Así que, por favor,',
+			've si puedes hacer algo para ayudar.',
+			'No quiero que le pase nada malo. Te haré magdalenas si hace',
+			'falta. Solo, por favor,',
+			'intenta hacer algo.','',
+
+			'Y en cuanto a Monika... No sé por qué, pero se muestra',
+			'muy indiferente con todo esto. Parece que solo quiere',
+			'que pasemos del tema. Así que ahora estoy enfadada con ella,',
+			'y por eso me estoy dirigiendo a ti.',
+			'¡¡¡QUE NO SE ENTERE DE QUE TE HE ESCRITO ESTO!!!',
+			'Tú haz como que te he dado un poema muy bueno, ¿vale?',
+			'Cuento contigo. Gracias por leerme.'};
 	
 	elseif poemname == 'poem_s1' then
 		poem_author = 'sayori'
 		poemtext = {
-			'Dear Sunshine','',
+			'Querido Cielito:','',
 
-			'The way you glow through my blinds in the morning',
-			'It makes me feel like you missed me.',
-			'Kissing my forehead to help me out of bed.',
-			'Making me rub the sleepy from my eyes.','',
+			'La forma en que brillas a través de mis cortinas por la mañana',
+			'hace que sienta que me has echado de menos.',
+			'Besas mi frente para ayudarme a salir de la cama.',
+			'Me haces borrar el sueño de mis ojos.','',
 
-			'Are you asking me to come out and play?',
-			'Are you trusting me to wish away a rainy day?',
-			'I look above. The sky is blue.',
-			'It\'s a secret, but I trust you too.','',
-			
-			'If it wasn\'t for you, I could sleep forever.',
-			'But I\'m not mad.',
+			'¿Estás pidiéndome que salga y juegue?',
+			'¿Estás confiando en mí para que olvide los días lluviosos?',
+			'Miro hacia arriba. El cielo está azul.',
+			'Es un secreto, pero yo también confío en ti.','',
 
-			'I want breakfast.'};
+			'Si no fuese por ti, podría dormir para siempre.',
+			'Pero no estoy enfadada.','',
+
+			'Quiero mi desayuno.'};
 	
 	elseif poemname == 'poem_s2' then
 		poem_author = 'sayori'
 		poemtext = {
-			'Bottles','',
+			'Botellas','',
 
-			'I pop off my scalp like the lid of a cookie jar.',
-			'It\'s the secret place where I keep all my dreams.',
-			'Little balls of sunshine, all rubbing together like a bundle of kittens.',
-			'I reach inside with my thumb and forefinger and pluck one out.',
-			'It\'s warm and tingly.',
-			'But there\'s no time to waste! I put it in a bottle to keep it safe.',
-			'And I put the bottle on the shelf with all of the other bottles.',
-			'Happy thoughts, happy thoughts, happy thoughts in bottles, all in a row.','',
-			
-			'My collection makes me lots of friends.',
-			'Each bottle a starlight to make amends.',
-			'Sometimes my friend feels a certain way.',
-			'Down comes a bottle to save the day.',
+			'Abro mi cráneo como si fuera la tapa de un tarro de galletas.',
+			'Es el sitio secreto donde guardo todos mis sueños.',
+			'Pequeñas esferas de luz solar, acurrucadas como una camada de gatitos.',
+			'Introduzco mi pulgar y mi índice y extraigo una.',
+			'Está calentita y hace cosquillas.',
+			'¡Pero no hay tiempo que perder! La pongo en una botella para mantenerla a salvo.',
+			'Y pongo la botella en la estantería con todas las demás botellas.',
+			'Pensamientos felices, pensamientos felices, pensamientos felices',
+			'en botellas, todos en fila.','',
 
-			'Night after night, more dreams.',
-			'Friend after friend, more bottles.',
-			'Deeper and deeper my fingers go.',
-			'Like exploring a dark cave, discovering the secrets hiding in the nooks and crannies.',
-			'Digging and digging.',
-			'Scraping and scraping.','',
-			
-			'I blow dust off my bottle caps.',
-			'It doesn\'t feel like time elapsed.',
-			'My empty shelf could use some more.',
-			'My friends look through my locked front door.',
+			'Gracias a mi colección hago muchos amigos.',
+			'Cada botella es la luz de una estrella a enmendar.',
+			'A veces mi amigo se siente de una determinada forma.',
+			'Saco una botella para salvar el día.','',
 
-			'Finally, all done. I open up, and in come my friends.',
-			'In they come, in such a hurry. Do they want my bottles that much?',
-			'I frantically pull them from the shelf, one after the other.',
-			'Holding them out to each and every friend.',
-			'Each and every bottle.',
-			'But every time I let one go, it shatters against the tile between my feet.',
-			'Happy thoughts, happy thoughts, happy thoughts in shards, all over the floor.','',
-			
-			'They were supposed to be for my friends, my friends who aren\'t smiling.',
-			'They\'re all shouting, pleading. Something.',
-			'But all I hear is echo, echo, echo, echo, echo',
-			'Inside my head.'};
+			'Noche tras noche, más sueños.',
+			'Amigo tras amigo, más botellas.',
+			'Mis dedos cada vez llegan más lejos.',
+			'Como si explorasen una cueva oscura, descubren los secretos escondidos',
+			'en los recovecos y rincones.',
+			'Cavando y cavando.',
+			'Rascando y rascando.','',
+
+			'Soplo el polvo de los tapones de mis botellas.',
+			'No parece que haya pasado el tiempo.',
+			'Mi estantería podría haber aguantado vacía más tiempo.',
+			'Mis amigos miran a través de mi puerta principal, que está bloqueada.',
+			'Por fin, todo acabado. Abro, y vienen mis amigos.',
+			'Entran, con prisas. ¿Tanto quieren mis botellas?',
+			'Las saco frenéticamente de la estantería, una detrás de otra.','',
+
+			'Ofreciéndoselas a todos y cada uno de mis amigos.',
+			'Todas y cada una de las botellas.',
+			'Pero cada vez que dejo a una marchar, se hace añicos en la baldosa',
+			'que hay entre mis pies.',
+			'Pensamientos felices, pensamientos felices, pensamientos felices en',
+			'pedazos, por todo el suelo.','',
+
+			'Tenían que haber sido para mis amigos, mis amigos que no están sonriendo.',
+			'Todos están gritando, suplicando. Algo.',
+			'Pero todo lo que oigo es un eco, eco, eco, eco, eco, eco',
+			'dentro de mi cabeza.'};
 	
 	elseif poemname == 'poem_s3' then
 		poem_author = 'sayori'
 		poemtext = {
 			'%','',
 
-			'Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get',
-			'out of my head. Get out of my head. Get out of my head. Get out of my head. Get out',
-			'of my head. Get out of my head. Get out of my head. Get out of my head. Get out of',
-			'my head. Get out of my head. Get out of my head. Get out of my head. Get out of my',
-			'head. Get out of my head. Get out of my head. Get out of my head. Get out of my head.',
-			'Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get',
-			'out of my head. Get out of my head. Get out of my head. Get out of my head. Get out',
-			'of my head. Get out of my head. Get out of my head. Get out of my head. Get out of',
-			'my head. Get out of my head. Get out of my head. Get out of my head. Get out of my',
-			'head. Get out of my head. Get out of','',
-			'Get.',
-			'Out.',
-			'Of.',
-			'My.',
-			'Head.','',
-
-			'Get out of my head before I do what I know is best for you.',
-			'Get out of my head before I listen to everything she said to me.',
-			'Get out of my head before I show you how much I love you.',
-			'Get out of my head before I finish writing this poem.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza.',
+			'Sal de mi cabeza. Sal de mi cabeza. Sal de mi cabeza. Sal de',
+			'Sal.',
+			'De.',
+			'Mi.',
+			'Cabeza.','',
+			'Sal de mi cabeza antes de que haga lo que sé que es mejor para ti.',
+			'Sal de mi cabeza antes de que haga caso de todo lo que ella me dijo.',
+			'Sal de mi cabeza antes de que te demuestre lo mucho que te quiero.',
+			'Sal de mi cabeza antes de que termine de escribir este poema.',
 			'','','','','','','','','',
-			
-			'But a poem is never actually finished.',
-			'It just stops moving.'};
+			'Pero un poema nunca se termina, en realidad.',
+			'Solo deja de moverse.'};
 	
 	elseif poemname == 'poem_m1' then
 		poem_author = 'monika'
 		poemtext = {
-			'Hole in Wall','',
+			'Agujero en la pared','',
 
-			'It couldn\'t have been me.',
-			'See, the direction the spackle protrudes.',
-			'A noisy neighbor? An angry boyfriend? I\'ll never know. I wasn\'t home.',
-			'I peer inside for a clue.',
-			'No! I can\'t see. I reel, blind, like a film left out in the sun.',
-			'But it\'s too late. My retinas.',
-			'Already scorched with a permanent copy of the meaningless image.',
-			'It\'s just a little hole. It wasn\'t too bright.','',
-			
-			'It was too deep.',
-			'Stretching forever into everything.',
-			'A hole of infinite choices.',
-			'I realize now, that I wasn\'t looking in.',
-			'I was looking out.',
-			'And he, on the other side, was looking in.'};
+			'No podría haber sido yo.',
+			'Observa la dirección en que el yeso sobresale.',
+			'¿Un vecino ruidoso? ¿Un novio enfadado? Nunca lo sabré. Yo no estaba en casa.',
+			'Miro hacia dentro, en busca de una pista.',
+			'¡No! No puedo ver nada. Ciega, me tambaleo como una cinta dejada al sol.',
+			'Pero es demasiado tarde. Mis retinas.',
+			'Quemadas ya con una copia permanente de una imagen vacua.',
+			'Era solo un pequeño agujero. No demasiado brillante.',
+			'Demasiado profundo.',
+			'Extendiéndose para siempre hacia todas partes.',
+			'Un agujero de infinitas opciones.',
+			'Me doy cuenta ahora de que no miraba hacia dentro.',
+			'Miraba hacia fuera.',
+			'Y él, en cambio, miraba hacia dentro.'};
 
 				elseif poemname == 'poem_m21' then
 					poemtext = {
-			'Hole in Wall','',
+			'Agujero en la pared','',
 
-			'But he wasn\'t looking at me.',
-			'Confused, I frantically glance at my surroundings.',
-			'But my burned eyes can no longer see color.',
-			'Are there others in this room? Are they talking?',
-			'Or are they simply poems on flat sheets of paper,',
-			'The sound of frantic scrawling playing tricks on my ears?',
-			'The room begins to crinkle.',
-			'Closing in on me.',
-			'The air I breathe dissipates before it reaches my lungs.',
-			'I panic. There must be a way out.',
-			'It\'s right there. He\'s right there.','',
-			
-			'Swallowing my fears, I brandish my pen.'};
+			'Pero él no me miraba a mí.',
+			'Confusa, miro frenéticamente a mi alrededor.',
+			'Pero mis ojos quemados ya no pueden distinguir el color.',
+			'¿Están los demás en esta habitación? ¿Están hablando?',
+			'¿O son meros poemas en aplanadas hojas de papel,',
+			'el sonido de frenéticos garabatos jugueteando en mis oídos?',
+			'La habitación comienza a arrugarse.',
+			'Cerrándose en torno a mí.',
+			'El aire que respiro se disipa antes de alcanzar mis pulmones.',
+			'Entro en pánico. Tiene que haber una salida.',
+			'Está justo aquí. Él está justo aquí.','',
+
+			'Tragándome las lágrimas, blando mi bolígrafo.'};
 
 	elseif poemname == 'poem_m2' then
 		poem_author = 'monika'
 		poemtext = {
-			'Save Me','',
+			'Sálvame','',
 
-			'The colors, they won\'t stop.',
-			'Bright, beautiful colors',
-			'Flashing, expanding, piercing',
-			'Red, green, blue',
-			'An endless',
-			'cacophony',
-			'Of meaningless',
-			'noise','',
-			
-			'The noise, it won\'t stop.',
-			'Violent, grating waveforms',
-			'Squeaking, screeching, piercing',
-			'Sine, cosine, tangent',
-			'	Like playing a chalkboard on a turntable',
-			'		Like playing a vinyl on a pizza crust',
-			'An endless',
-			'poem',
-			'Of meaningless','','','','','','','','','','','','','','','Load Me'};
+			'Los colores no pararán',
+			'Brillantes, hermosos colores',
+			'Parpadeando, expandiéndose, perforando',
+			'Rojo, verde, azul',
+			'Una cacofonía',
+			'infinita',
+			'de ruido',
+			'sin sentido,','',
+
+
+			'El ruido no parará',
+			'Violentas y crispantes ondas',
+			'Chirriando, chillando, perforando',
+			'Seno, coseno, tangente',
+			'    Como tocar una pizarra en un tocadiscos',
+			'          Como tocar un vinilo en una corteza de pizza',
+			'Un poema',
+			'infinito',
+			'sin sentido','','','','','','','','','','','','','','',
+			'Cárgame.'};
 	
 	elseif poemname == 'poem_m22' then
 		poem_author = 'monika'
 		poemtext = {
-			'Save Me',
+			'Sálvame',
 
-			'The colors, they won\'t',
-			'Bright, bea t ful c l rs',
-			'Flash ng, exp nd ng, piercing',
-			'Red, green, blue',
-			'An  ndless',
-			'CACOPHONY',
-			'Of meaningless',
-			'noise','',
-			
-			'The noise, it won\'t STOP.',
-			'Viol nt, grating w vef rms',
-			'Sq e king, screech ng, piercing',
-			'SINE, COSINE, TANGENT',
-			'	Like play ng a ch lkboard on a t rntable',
-			'		Like playing a KNIFE on a BREATHING RIBCAGE',
-			' n  ndl ss',
-			'p  m',
-			'Of m  n ngl ss','','','','','','','','','','','','','','','Delete Her'};
+			'Los colores no',
+			'Brillantes, h rm sos c l res',
+			'Parpade ndo, expand énd se, perforando',
+			'Rojo, verde, azul',
+			'Una CACOFONÍA',
+			' nfinita',
+			'de ruido',
+			'sin sentido','','',
+
+
+			'El ruido no PARARÁ',
+			'Viol ntas y crispantes  ond s',
+			'Chir i ndo, chill ndo, perforando',
+			'SENO, COSENO, TANGENTE',
+			'    Como toc r una pi arra en un to adiscos.',
+			'          Como tocar un CUCHILLO en una CAJA TORÁCICA QUE RESPIRA.',
+			'Un p em ',
+			' nf nito',
+			'sin se tid  ','','','','','','','','','','','','','','',
+			'Elimínala'};
 	
 	elseif poemname == 'poem_m3' then
 		poem_author = 'monika'
 		poemtext = {
-			'The Lady who Knows Everything','',
+			'La dama que todo lo sabe','',
 
-			'An old tale tells of a lady who wanders Earth.',
-			'The Lady who Knows Everything.',
-			'A beautiful lady who has found every answer,',
-			'All meaning,',
-			'All purpose,',
-			'And all that was ever sought.','',
-			
-			'And here I am,',
+			'Cuenta una antigua leyenda que una dama deambula por la Tierra.',
+			'La dama que todo lo sabe.',
+			'Hermosa dama que toda respuesta ha hallado,',
+			'todo sentido, ',
+			'todo significado,',
+			'y todo aquello que jamás se ha buscado.','',
+
+			'Y aquí yo me encuentro,',
 			'',
 			'',
-			'			  a feather',
+			'                  pluma',
 			'',
 			'',
-			'Lost adrift the sky, victim of the currents of the wind.','',
+			'víctima de aéreas corrientes, en el cielo extraviada.','',
 
-			'Day after day, I search.',
-			'I search with little hope, knowing legends don\'t exist.',
-			'But when all else has failed me,',
-			'When all others have turned away,',
-			'The legend is all that remains - the last dim star glimmering in the twilit sky.','',
-			
-			'Until one day, the wind ceases to blow.',
-			'I fall.',
-			'And I fall and fall, and fall even more.',
-			'Gentle as a feather.',
-			'A dry quill, expressionless.','',
+			'Busco, día tras día,',
+			'busco, sin apenas esperanzas: las leyendas no existen.',
+			'Pero cuando todo lo demás me ha fallado,',
+			'cuando todos los demás la espalda me han dado,',
+			'todo lo que queda es la leyenda – última estrella moribunda que al atardecer suspira.','',
 
-			'But a hand catches me between the thumb and forefinger.',
-			'The hand of a beautiful lady.',
-			'I look at her eyes and find no end to her gaze.','',
-			
-			'The Lady who Knows Everything knows what I am thinking.',
-			'Before I can speak, she responds in a hollow voice.',
-			'"I have found every answer, all of which amount to nothing.',
-			'There is no meaning.',
-			'There is no purpose.',
-			'And we seek only the impossible.',
-			'I am not your legend.',
-			'Your legend does not exist."','',
+			'Hasta que un día cesa el soplo del viento.',
+			'Caigo.',
+			'Caigo, caigo y sigo cayendo.',
+			'Con la mansedumbre de una pluma.',
+			'Una pluma seca, sin expresión.','',
 
-			'And with a breath, she blows me back afloat, and I pick up a gust of wind.'};
+			'Mas una mano me toma entre el pulgar y el índice.',
+			'La mano de una hermosa dama.',
+			'Le miro a los ojos y descubro el infinito en su mirada.','',
+
+			'La dama que todo lo sabe lo que estoy pensando.',
+			'Antes de que separe mis labios, ella me responde con su voz hueca.',
+			'"He encontrado todas las respuestas, que no valen nada.',
+			'No hay sentido.',
+			'No hay significado.',
+			'Y solo buscamos lo imposible.',
+			'No soy tu leyenda.',
+			'Tu leyenda no existe".','',
+
+			'Y con una exhalación, me devuelve a flote, y me elevo sobre una ráfaga de viento.'};
 	
 	elseif poemname == 'poem_m4' then
 		poem_author = 'monika'
 		poemtext = {
-			'Happy End','',
+			'Final Feliz','',
 
-			'Pen in hand, I find my strength.',
-			'The courage endowed upon me by my one and only love.',
-			'Together, let us dismantle this crumbling world',
-			'And write a novel of our own fantasies.','',
+			'Bolígrafo en mano, encuentro mi fuerza.',
+			'El valor que me dio mi único y verdadero amor.',
+			'Desmantelemos juntos este mundo en ruinas',
+			'y escribamos una novela con nuestras propias fantasías.','',
 
-			'With a flick of her pen, the lost finds her way.',
-			'In a world of infinite choices, behold this special day.','',
+			'Con un trazo de su bolígrafo, los perdidos encuentran su camino.',
+			'En un mundo de infinitas opciones, contempla este día especial.','',
 
-			'After all,',
-			'Not all good times must come to an end.'};
+			'Después de todo,',
+			'no todos los buenos tiempos tienen por qué acabar.'};
 	
 	else poemtext = {''}
 	end
@@ -552,10 +571,10 @@ b3AgbXlzZWxmLg==]]};
 				audioUpdate('0')
 			elseif yuri_3 then
 				if is3DS then 
-                    poembg = lg.newImage('assets/images/bg/poemxp.png')
-                elseif global_os == 'LOVE-WrapLua' then
-                    poembg = lg.newImage('assets/images/bg/poem1.png')
-                end
+					poembg = lg.newImage('assets/images/bg/poemxp.png')
+				else
+					poembg = lg.newImage('assets/images/bg/poem1.png')
+				end
 				
 				audioUpdate('5_yuri2')
 			else

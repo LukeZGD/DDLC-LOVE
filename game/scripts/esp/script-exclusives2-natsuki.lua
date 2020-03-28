@@ -3,348 +3,346 @@ local ntext2 = glitchtext(96)
 
 function Natsuki_exclusive2_1()
 	if cl == 358 then
-	n "Ugh...!"
+		cw('n', "¡Ugh...!")
 	elseif cl == 359 then
-    bl "I hear Natsuki utter an exasperated sigh from within the closet."
+		cw('bl', "Oigo el suspiro exasperado de Natsuki desde dentro del armario.")
 	elseif cl == 360 then
-    bl "She seems to be annoyed by something."
+		cw('bl', "Parece estar molesta por algo.")
 	elseif cl == 361 then
-    bl "I approach her, in case she needs a hand."
+		cw('bl', "Me acerco a ella, por si necesita que le eche una mano.")
 	elseif cl == 362 then
 	audioUpdate('6')
 	bgUpdate('closet')
 	updateNatsuki('4','r',80)
-    mc "You looking for something in there?"
+		cw('mc', "¿Estás buscando algo?")
 	elseif cl == 363 then
 	style_edited = true
 	updateNatsuki('4','x')
-    n "fucking monikammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"
+		cw('n', "Puta monikammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
 	elseif cl == 364 then
 	style_edited = false
-    n "She never puts my stuff back in the right spot!"
+		cw('n', "¡Nunca deja mis cosas en su sitio!")
 	elseif cl == 365 then
-    n "What's the point in keeping your collection organized if someone else is just gonna mess it up?"
+		cw('n', "¿Qué sentido tiene mantener tu colección ordenada si después viene alguien a fastidiarlo?")
 	elseif cl == 366 then
-    bl "Natsuki slides a bunch of stacked books and boxes across the shelf."
+		cw('bl', "Natsuki desliza un montón de libros apilados y cajas a través de la estantería.")
 	elseif cl == 367 then
-    mc "Manga..."
+		cw('mc', "Manga...")
 	elseif cl == 368 then
 	updateNatsuki('2','c')
-    n "You read manga, right?"
+		cw('n', "Lees manga, ¿verdad?")
 	elseif cl == 369 then
-    mc "Ah--"
+		cw('mc', "Ah...")
 	elseif cl == 370 then
-    mc "...Sometimes..."
+		cw('mc', "A veces...")
 	elseif cl == 371 then
-    bl "Manga is one of those things where you can't admit you're really into it until you figure out where the other person stands."
+		cw('bl', "El manga es una de esas cosas que no puedes admitir que te gustan a menos de que te percates de que a la otra persona también le gustan.")
 	elseif cl == 372 then
-    mc "...How did you know, anyway?"
+		cw('mc', "¿Pero cómo te has dado cuenta?")
 	elseif cl == 373 then
 	updateNatsuki('2','k')
-    n "I heard you bring it up at some point."
+		cw('n', "Te escuché hablar de ello hace algún tiempo.")
 	elseif cl == 374 then
-    n "Besides, it's kind of written on your face."
+		cw('n', "Además, está escrito en tu cara.")
 	elseif cl == 375 then
-    bl "What's that supposed to mean...?"
+		cw('bl', "¿Y qué se supone que significa eso?")
 	elseif cl == 376 then
-    mc "I-I see..."
+		cw('mc', "Y-ya veo...")
 	elseif cl == 377 then
-    bl "There's a lone volume of manga amidst a stack of various books on the side of one of the shelves."
+		cw('bl', "Hay un solitario volumen de manga en medio de un montón de libros de toda índole ubicados en el extremo de una de las estanterías.")
 	elseif cl == 378 then
-    bl "Curious, I pull it out of the stack."
+		cw('bl', "Atraído por él, lo tomo de dicho montón.")
 	elseif cl == 379 then
 	updateNatsuki('1','b')
-    n "There it is!"
+		cw('n', "¡Ahí está!")
 	elseif cl == 380 then
-    bl "Natsuki snatches it out of my hand."
+		cw('bl', "Natsuki me lo arrebata de las manos.")
 	elseif cl == 381 then
-    bl "She then turns to a box of manga and slips the volume right into the middle of the rest."
-	updateNatsuki('4','d')
-    n "Aah, much better!"
+		cw('bl', "Luego, centra su atención en una caja llena de manga y coloca el tomo junto al resto.")
 	elseif cl == 382 then
-    n "Seeing a box set with one book missing is probably the most irritating sight in the world."
+		updateNatsuki('4','d')
+		cw('n', "¡Ah, mucho mejor! Ver una colección a la que le falta un libro es probablemente la imagen más irritante del mundo.")
 	elseif cl == 383 then
-    mc "I know that feel..."
+		cw('mc', "Entiendo muy bien cómo te sientes...")
 	elseif cl == 384 then
-    bl "I get a closer look at the box set she's admiring."
+		cw('bl', "Miro más detenidamente la colección de tomos que ella está admirando.")
 	elseif cl == 385 then
-    mc "Parfait Girls...?"
+		cw('n', "¿...?")
 	elseif cl == 386 then
-    bl "It's a series I've never heard of in my life."
+		cw('bl', "Es una serie de la que no había oído hablar en mi vida.")
 	elseif cl == 387 then
-    bl "That probably means it's either way out of my demographic, or it's simply terrible."
+		cw('bl', "Supongo que eso significa que, o está fuera de mi demografía, o es simplemente terrible.")
 	elseif cl == 388 then
 	updateNatsuki('5','g')
-    n "If you're gonna judge, you can go do it through the glass on that door."
-    bl "She points to the classroom door."
+		cw('n', "Si vas a juzgar, puedes hacerlo a través del cristal de esa puerta.")
 	elseif cl == 389 then
-    mc "H-Hey, I wasn't judging anything...!"
+		cw('mc', "¡Oye, que no estaba juzgando ni nada parecido...!")
 	elseif cl == 390 then
-    mc "I didn't even say anything."
+		cw('mc', "Ni siquiera he dicho nada.")
 	elseif cl == 391 then
 	updateNatsuki('5','c')
-    n "It was the tone of your voice."
+		cw('n', "Tu tono de voz te delató.")
 	elseif cl == 392 then
-	cw('n',"But I'll tell you one thing, "..player..".")
+		cw('n', "Pero te diré algo, " .. player .. ".")
 	elseif cl == 393 then
 	updateNatsuki('4','l')
-    cw('n',"Consider this a lesson straight from the Literature Club:",'nw')
+		cw('n', "Considera esto una lección del club de Literatura:")
 	elseif cl == 394 then
 	style_edited = true
-    cw('n',"don't judge a bookkkkkkkkkkkkkkkkk kkkkk kk"..space(20)..'k'..space(40)..'k'..space(120)..'k'..space(160)..'k'..space(200)..'k')
-    elseif cl == 395 then
+	cw('n',"no juzgues un libroooooooooooooo ooooo oo"..space(20)..'o'..space(40)..'o'..space(120)..'o'..space(160)..'o'..space(200)..'o')
+	elseif cl == 395 then
 	style_edited = false
-    n "In fact--"
+		cw('n', "De hecho...")
 	elseif cl == 396 then
-    bl "Natsuki pulls out the first volume of Parfait Girls from the box."
+		cw('bl', "Natsuki toma el primer tomo de Las chicas del postre de la caja.")
 	elseif cl == 397 then
-    n "I'm gonna show you exactly why!"
+		cw('n', "¡Te enseñaré exactamente por qué!")
 	elseif cl == 398 then
-    bl "She shoves the book right into my hands."
+		cw('bl', "Natsuki coloca bruscamente el tomo en mis manos.")
 	elseif cl == 399 then
-    mc "Ah..."
+	mc "Ah..."
 	elseif cl == 400 then
-    bl "I stare at the cover."
+		cw('bl', "Echo un vistazo a la portada.")
 	elseif cl == 401 then
-    bl "It features four girls in colorful attire striking animated feminine poses."
+		cw('bl', "En ella, salen cuatro chicas con atuendos coloridos y posturas animadas y femeninas.")
 	elseif cl == 402 then
-    bl "It's...exceedingly \"moe\"."
+		cw('bl', "Es... extremadamente moe.")
 	elseif cl == 403 then
 	updateNatsuki('4','b')
-    n "Don't just stand there!"
+		cw('n', "¡No te quedes ahí parado!")
 	elseif cl == 404 then
-    mc "Uwa--"
+		cw('mc', "E-eh...")
 	elseif cl == 405 then
 	hideNatsuki()
-    bl "Natsuki grabs my arm and pulls me out of the closet."
+		cw('bl', "Natsuki me agarra del brazo y me arrastra fuera del armario.")
 	elseif cl == 406 then
-    bl "She then takes a seat against the wall, beneath the windowsills."
+		cw('bl', "Luego, toma asiento contra la pared, bajo las ventanas.")
 	elseif cl == 407 then
-    bl "She pats on the ground next to her, signaling me to sit there."
+		cw('bl', "Natsuki da palmaditas en el suelo a su lado, invitándome a tomar asiento ahí.")
 	elseif cl == 408 then
 	bgUpdate('club')
-    updateNatsuki('2','a',80)
-    mc "Wouldn't chairs be more comfortable...?"
+	updateNatsuki('2','a',80)
+		cw('mc', "¿No sería más cómodo que nos sentásemos en sillas...?")
 	elseif cl == 409 then
-    bl "I take my seat."
+		cw('bl', "Tomo asiento.")
 	elseif cl == 410 then
 	updateNatsuki('2','k')
-    n "Chairs wouldn't work."
+		cw('n', "Las sillas no nos servirían.")
 	elseif cl == 411 then
-    n "We can't read at the same time like that."
+		cw('n', "No podemos leer de la misma forma en ellas.")
 	elseif cl == 412 then
-    mc "Eh? Why's that?"
+		cw('mc', "¿Eh? ¿Y eso por qué?")
 	elseif cl == 413 then
-    mc "Ah...I guess it's easier to be close together like this..."
+		cw('mc', "Ah... Supongo que es más fácil que estemos juntos sentados de esta forma...")
 	elseif cl == 414 then
 	updateNatsuki('2','o')
-    n "--!"
+		cw('n', "¡...!")
 	elseif cl == 415 then
 	updateNatsuki('5','r')
-    n "D-Don't just say that!"
+		cw('n', "¡N-no digas eso!")
 	elseif cl == 416 then
-    n "You'll make me feel weird about it!"
+		cw('n', "¡Me harás sentir extraña estando así!")
 	elseif cl == 417 then
-    bl "Natsuki crosses her arms and scootches an inch away from me."
+		cw('bl', "Natsuki se cruza de brazos y se aleja un par de centímetros de mí.")
 	elseif cl == 418 then
-    mc "Sorry..."
+		cw('mc', "Lo siento...")
 	elseif cl == 419 then
 	updateNatsuki('5','g')
-    bl "I didn't exactly expect to be sitting this close to her, either..."
+		cw('bl', "Tampoco es que yo esperase sentarme tan cerca de ella, sinceramente...")
 	elseif cl == 420 then
-    bl "Not that I can say it's a particularly bad thing."
+		cw('bl', "Aunque no puedo decir que me desagradara la idea.")
 	elseif cl == 421 then
-    bl "I open the book."
+		cw('bl', "Abro el libro.")
 	elseif cl == 422 then
-    bl "It's only a few seconds before Natsuki once again inches closer, reclaiming the additional space while she hopes I won't notice."
+		cw('bl', "Tras unos pocos segundos Natsuki vuelve a acercarse, estrechando el espacio entre nosotros con esperanzas de que no me percate de ello.")
 	elseif cl == 423 then
-    bl "I can feel her peering over my shoulder, much more eager to begin reading than I am."
+		cw('bl', "Puedo sentir su mirada por encima de mi hombro, expresando más ganas por empezar a leer que yo.")
 	elseif cl == 424 then
 	updateNatsuki('1','k')
-    n "Wow, how long has it been since I read the beginning...?"
+		cw('n', "Vaya, ¿cuánto tiempo ha pasado desde que terminé de leer el principio?")
 	elseif cl == 425 then
-    mc "Hm?"
+		cw('mc', "¿Eh?")
 	elseif cl == 426 then
-    mc "You don't go back and flip through the older volumes every now and then?"
+		cw('mc', "¿No sueles volver atrás para ojear los tomos más viejos de vez en cuando?")
 	elseif cl == 427 then
 	updateNatsuki('2','k')
-    n "Not really."
+		cw('n', "Pues no, la verdad.")
 	elseif cl == 428 then
-    n "Maybe sometimes after I've already finished the series."
+		cw('n', "A veces, cuando ya he terminado la serie, lo hago.")
 	elseif cl == 429 then
 	updateNatsuki('2','c')
-    n "Hey, are you paying attention?"
+		cw('n', "Eh, ¿me estás prestando atención?")
 	elseif cl == 430 then
-    mc "Uh..."
+		cw('mc', "Eh...")
 	elseif cl == 431 then
-    bl "I am, but nothing's really happened yet, so I can talk at the same time."
+		cw('bl', "Se la estoy prestando, pero no veo nada oportuno que comentar.")
 	elseif cl == 432 then
-    bl "It looks like it's about a bunch of friends in high school."
+		cw('bl', "Parece que trata acerca de un grupo de amigos de secundaria.")
 	elseif cl == 433 then
-    bl "Typical slice-of-life affair."
+		cw('bl', "Típica trama de recuerdos de la vida.")
 	elseif cl == 434 then
-    bl "I kind of grew out of these, since it's rare for the writing to be entertaining enough to make up for the lack of plot."
+		cw('bl', "Acabé cansándome, ya que la escritura no suele compensar la falta de trama.")
 	elseif cl == 435 then
-    hideAll()
+	hideAll()
 	bgUpdate('cg/n_cg1_base')
 	persistent.clear[1] = 1
 	if xaload == 1 then
 		savepersistent()
 	end
-    mc "...Are you sure this isn't boring for you?"
+		cw('mc', "¿Estás segura de que esto no te parece aburrido?")
 	elseif cl == 436 then
 	scriptJump(437)
 	elseif cl == 437 then
-    n "It's not!"
+		cw('n', "¡No lo es!")
 	elseif cl == 438 then
-    mc "Even though you're just watching me read?"
+		cw('mc', "¿Incluso aunque solo me estés viendo leer?")
 	elseif cl == 439 then
-    n "Well...!"
+		cw('n', "¡Bueno...!")
 	elseif cl == 440 then
-    n "I'm...fine with that."
+		cw('n', "A mí... con eso me basta.")
 	elseif cl == 441 then
-    mc "If you say so..."
+		cw('mc', "Si tú lo dices...")
 	elseif cl == 442 then
-    mc "...I guess it's fun sharing something you like with someone else."
+		cw('mc', "Supongo que compartir lo que te gusta con alguien más resulta divertido.")
 	elseif cl == 443 then
-    mc "I always get excited when I convince any of my friends to pick up a series I enjoy."
+		cw('mc', "Siempre me emociono cuando convenzo a algún amigo de que se enganche a una serie que yo mismo he disfrutado.")
 	elseif cl == 444 then
-    mc "You know what I mean?"
+		cw('mc', "¿Sabes a lo que me refiero?")
 	elseif cl == 445 then
-    n "...?"
+	n "¿...?"
 	elseif cl == 446 then
-    mc "Hm?"
+		cw('mc', "¿Eh?")
 	elseif cl == 447 then
-    mc "You don't?"
+		cw('mc', "¿No lo sabes?")
 	elseif cl == 448 then
-    cgUpdate('n_cg1_exp2')
-    n "Um..."
+	cgUpdate('n_cg1_exp2')
+		cw('n', "Mmm...")
 	elseif cl == 449 then
-    n "That's not..."
+		cw('n', "Eso no...")
 	elseif cl == 450 then
-    n "Well, I wouldn't really know."
+		cw('n', "Bueno, realmente no podría saberlo.")
 	elseif cl == 451 then
-    mc "...What do you mean?"
+		cw('mc', "¿Qué quieres decir con eso?")
 	elseif cl == 452 then
-    mc "Don't you share your manga with your friends?"
+		cw('mc', "¿No sueles compartir tus mangas con tus amigos?")
 	elseif cl == 453 then
 	cgUpdate('n_cg1_exp3')
-    n "Could you not rub it in?"
+		cw('n', "¿Podrías dejar de restregármelo?")
 	elseif cl == 454 then
-    n "Jeez..."
+		cw('n', "Ainss...")
 	elseif cl == 455 then
-    mc "Ah... Sorry..."
+		cw('mc', "Oh, lo siento...")
 	elseif cl == 456 then
-    n "Hmph."
+		cw('n', "Jum.")
 	elseif cl == 457 then
-    n "Like I could ever get my friends to read this..."
+		cw('n', "Como si pudiese hacer que mis amigos leyesen esto...")
 	elseif cl == 458 then
-    n "They just think manga is for kids."
+		cw('n', "Ellos piensan que el manga solo es para niños.")
 	elseif cl == 459 then
-    n "I can't even bring it up without them being all like..."
+		cw('n', "Ni siquiera puedo sacar el tema sin que digan cosas como...")
 	elseif cl == 460 then
-    n "'Eh? You still haven't grown out of that yet?'"
+		cw('n', "«¿Eh? ¿Todavía te gustan esas cosas?»")
 	elseif cl == 461 then
-    n "Makes me want to punch them in the face..."
+		cw('n', "Me hace querer darles un puñetazo en la cara...")
 	elseif cl == 462 then
-    mc "Urgh, I know those kinds of people..."
+		cw('mc', "Oh, sé a qué tipo de personas te refieres...")
 	elseif cl == 463 then
-    mc "Honestly, it takes a lot of effort to find friends who don't judge, much less friends who are also into it..."
+		cw('mc', "Honestamente, es muy difícil encontrar a amigos que no te juzguen, y más incluso que también compartan tus gustos...")
 	elseif cl == 464 then
-    mc "I'm already kind of a loser, so I guess I gravitated toward the other losers over time."
+		cw('mc', "Yo ya soy lo que podríamos llamar un perdedor, así que supongo que he empatizado con el resto de perdedores con el tiempo.")
 	elseif cl == 465 then
-    mc "But it's probably harder for someone like you..."
+		cw('mc', "Pero probablemente sea más difícil para alguien como tú...")
 	elseif cl == 466 then
 	cgHide()
-    n "Hm."
+		cw('n', "Ajá.")
 	elseif cl == 467 then
-    n "Yeah, that's pretty accurate."
+		cw('n', "Sí, es bastante acertado.")
 	elseif cl == 468 then
-    bl "...Wait, which part??"
+		cw('bl', "Espera, ¿qué parte de lo que he dicho?")
 	elseif cl == 469 then
-    n "I mean, I feel like I can't even keep it in my own room..."
+		cw('n', "Quiero decir, siento que ni siquiera lo puedo dejar en mi propia habitación...")
 	elseif cl == 470 then
 	style_edited = true
-	n "My dad would beat the shit out of me if he found this."
+		cw('n', "Mi padre me pegaría hasta en la foto del DNI si se enterara de esto.")
 	elseif cl == 471 then
-    style_edited = false
-    n "At least it's safe here in the clubroom."
+	style_edited = false
+		cw('n', "Por lo menos, las cosas están seguras aquí, en la habitación del club.")
 	elseif cl == 472 then
 	cgUpdate('n_cg1_exp3')
-    n "'Cept Monika's kind of a jerk about it..."
+		cw('n', "Aunque Monika es muy cabrona...")
 	elseif cl == 473 then
-    n "Ugh! I just can't win, can I?"
+		cw('n', "¡Uh! No hay forma en la que pueda ganar, ¿no es así?")
 	elseif cl == 474 then
-    mc "Well, it paid off in the end, didn't it?"
+		cw('mc', "Bueno, al final la cosa dio sus frutos, ¿no?")
 	elseif cl == 475 then
-    mc "I mean, here I am, reading it."
+		cw('mc', "Quiero decir, aquí estoy, leyéndolo.")
 	elseif cl == 476 then
-    n "Well, it's not like that solves any of my problems."
+		cw('n', "Bueno, no es como si eso resolviese alguno de mis problemas.")
 	elseif cl == 477 then
-    mc "Maybe..."
+		cw('mc', "Puede...")
 	elseif cl == 478 then
-    mc "But at least you're enjoying yourself, right?"
+		cw('mc', "Pero al menos lo disfrutas, ¿no?")
 	elseif cl == 479 then
-    cgUpdate('n_cg1_exp2')
-    n "--"
+	cgUpdate('n_cg1_exp2')
+		cw('n', "...")
 	elseif cl == 480 then
-    n "..."
+	n "..."
 	elseif cl == 481 then
-    n "...So?"
+		cw('n', "¿Y bien...?")
 	elseif cl == 482 then
-    mc "Ahaha."
+		cw('mc', "Ja, ja, ja.")
 	elseif cl == 483 then
-    cgUpdate('n_cg1_exp3')
-    n "Jeez, that's enough!"
+	cgUpdate('n_cg1_exp3')
+		cw('n', "Dios, ¡basta ya!")
 	elseif cl == 484 then
-    n "Are you gonna keep reading, or what?"
+		cw('n', "Vas a seguir leyendo, ¿o qué?")
 	elseif cl == 485 then
-    mc "Yeah, yeah..."
+		cw('mc', "Sí, sí...")
 	elseif cl == 486 then
-    bl "I flip the page."
+		cw('bl', "Paso la página.")
 	elseif cl == 487 then
 	cgHide()
 	event_initstart('wipe','black')
 	elseif cl == 488 then
-    bl "..."
+	bl "..."
 	elseif cl == 489 then
-    bl "..."
+	bl "..."
 	elseif cl == 490 then
-    bl "....."
+		cw('bl', "... ...")
 	elseif cl == 491 then
-    bl "......."
+		cw('bl', "... ... ...")
 	elseif cl == 492 then
-    bl "........."
+		cw('bl', "... ... ... ...")
 	elseif cl == 493 then
-    bl "Time passes."
+		cw('bl', "El tiempo pasa.")
 	elseif cl == 494 then
-    bl "Natsuki is strangely quiet now."
+		cw('bl', "Natsuki está extrañamente quieta ahora.")
 	elseif cl == 495 then
-    bl "I glance over at her."
+		cw('bl', "La miro.")
 	elseif cl == 496 then
 	bgUpdate('cg/n_cg1_base')
 	cgUpdate('n_cg1_exp4')
-    bl "It looks like she's started to fall asleep."
+		cw('bl', "Parece que está empezando a quedarse dormida.")
 	elseif cl == 497 then
-    mc "Hey, Natsuki..."
+		cw('mc', "Eh, Natsuki...")
 	elseif cl == 498 then
 	cgUpdate('n_cg1_exp5')
-    n "Y-Yeah...?"
+		cw('n', "¿S-Sí...?")
 	elseif cl == 499 then
-    bl "Suddenly, Natsuki collapses straight into me."
+		cw('bl', "Repentinamente, Natsuki se desploma directamente hacia mí.")
 	elseif cl == 500 then
 	sfxplay('fall')
-    mc "H-Hey--"
+		cw('mc', "O-oye...")
 	
 	elseif cl == 501 then
 	cgHide()
 	bgUpdate('cg/n_cg1b')
 	audioUpdate('6g')
 	event_initstart('n_rects_ghost')
-    style_edited = true
-    cw('n',ntext)
+	style_edited = true
+	cw('n',ntext)
 	elseif cl == 502 then
-    cw('n',ntext2)
+	cw('n',ntext2)
 
 	elseif cl == 503 then
 	event_end()
@@ -352,46 +350,46 @@ function Natsuki_exclusive2_1()
 	bgUpdate('club')
 	updateMonika('1','r',80)
 	style_edited = false
-    m "Oh jeez..."
+		cw('m', "Oh, vaya...")
 	elseif cl == 504 then
 	updateMonika('1','d')
-    m "Natsuki, are you okay?"
-    elseif cl == 505 then
+		cw('m', "Natsuki, ¿estás bien?")
+	elseif cl == 505 then
 	updateMonika('1','d',10)
 	updateNatsuki('1','2b',150)
-    n "..."
-    elseif cl == 506 then
+	n "..."
+	elseif cl == 506 then
 	updateMonika('1','a')
-    m "Here..."
+		cw('m', "Toma...")
 	elseif cl == 507 then
-    bl "Monika reaches into her bag and pulls out some kind of protein bar."
+		cw('bl', "Monika saca de su mochila algo que parece una barrita de proteínas.")
 	elseif cl == 508 then
-    bl "She throws it in Natsuki's direction."
+		cw('bl', "Luego, la tira en dirección a Natsuki.")
 	elseif cl == 509 then
-    bl "Natsuki's eyes suddenly light up again."
+		cw('bl', "Los ojos de Natsuki de repente vuelven a iluminarse.")
 	elseif cl == 510 then
-    bl "She snatches the bar from the floor and immediately tears off the wrapper."
+		cw('bl', "Coge la barrita del suelo e inmediatamente quita el envoltorio.")
 	elseif cl == 511 then
 	updateNatsuki('1','s')
-    n "I told you not to give mmph..."
+		cw('n', "Te dije que no me dieras... Ñamñam...")
 	elseif cl == 512 then
-    bl "She doesn't even finish her sentence before stuffing it into her mouth."
+		cw('bl', "Ni siquiera termina su frase antes de metérsela en la boca.")
 	elseif cl == 513 then
 	hideNatsuki()
 	updateMonika('3','b',80)
-    cw('m',"Don't worry, "..player..".")
+		cw('m', "No te preocupes, " .. player .. ".")
 	elseif cl == 514 then
-    m "She's fine."
+		cw('m', "Natsuki está bien.")
 	elseif cl == 515 then
-    m "It just happens every now and then."
+		cw('m', "Solo son cosas que le ocurren de vez en cuando.")
 	elseif cl == 516 then
 	updateMonika('1','a')
-    m "That's why I always keep a snack in my bag for her."
+		cw('m', "Por eso siempre guardo tentempiés en mi mochila para ella.")
 	elseif cl == 517 then
 	updateMonika('5a')
-    m "Anyway...!"
+		cw('m', "¡En fin!")
 	elseif cl == 518 then
-    m "Why don't we all share poems now?"
+		cw('m', "¿Por qué no aprovechamos todos para compartir nuestros poemas?")
 	elseif cl == 519 then
 	poeminitialize()
 	end

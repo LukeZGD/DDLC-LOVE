@@ -4,159 +4,164 @@ function ch5script()
 	elseif cl == 1 then
 	audioUpdate('0')
 	bgUpdate('residential')
-	bl "It's the day of the festival."
+		cw('bl', "Hoy es el festival.")
 	elseif cl == 2 then
-    bl "Of all days, I expected this to be the one where I'd be walking to school with Sayori."
+		cw('bl', "Esperaba ir hoy al instituto con Sayori.")
 	elseif cl == 3 then
-    bl "But Sayori isn't answering her phone."
+		cw('bl', "Pero no coge el teléfono.")
 	elseif cl == 4 then
-    bl "I considered going to her house to wake her up, but decided that's a little too much."
+		cw('bl', "He pensado en ir a su casa para levantarla, pero me parecía excesivo.")
 	elseif cl == 5 then
-    bl "Meanwhile, the preparations for the event should be nearly complete."
+		cw('bl', "Mientras tanto, las preparaciones del festival están prácticamente listas.")
 	elseif cl == 6 then
-	    if savevalue == "Natsuki" then
-			bl "I managed to carry all the cupcakes myself by carefully stacking two trays."
+		if savevalue == "Natsuki" or savevalue == "n" then
+		cw('bl', "He conseguido traer los pastelillos yo solo poniendo dos bandejas una encima de la otra.")
 		else
-			bl "The banner Yuri and I painted is dry, and I gently rolled it up to take with me."
+		cw('bl', "Ya se ha secado la pancarta de Yuri, así que la he enrollado y me la he llevado.")
 		end
 	elseif cl == 7 then
-		if savevalue == 'Natsuki' then
-			bl "Natsuki is already texting up a storm, but I can't respond, thanks to my hands being full."
+		if savevalue == 'Natsuki' or savevalue == "n" then
+		cw('bl', "Natsuki ya me está escribiendo como una loca, pero tengo las manos ocupadas.")
 		else
-            bl "She sent me a pleasant text reminding me not to forget anything, and I reassured her."
+		cw('bl', "Me ha enviado un mensaje para que no me olvide de nada, así que la he tranquilizado.")
 		end
 	elseif cl == 8 then
-    bl "Funnily enough, I probably feel the same way as Natsuki about the event."
+		cw('bl', "Es gracioso, pero seguramente me siento igual que Natsuki con el evento.")
 	elseif cl == 9 then
-    cw('bl',"I'm more excited for it to be over so I can spend time with Sayori and "..savevalue.." at the festival.")
+	if savevalue == "Natsuki" or savevalue == "n" then
+		cw('bl', "Tengo más ganas de que se acabe para poder pasar más rato con Sayori y con Natsuki en el festival.")
+		else
+		cw('bl', "Tengo más ganas de que se acabe para poder pasar más rato con Sayori y con Yuri en el festival.")
+		end
+		
 	elseif cl == 10 then
-    bl "But knowing Monika, I'm sure the event will be great, too."
+		cw('bl', "Aunque conociendo a Monika, seguro que el evento será genial.")
 	
 	elseif cl == 11 then
 	bgUpdate('club')
 	updateMonika('5a','',80)
-	cw('m',player.."!")
+		cw('m', "¡" .. player .. "!")
 	elseif cl == 12 then
-    m "You're the first one here."
+		cw('m', "Eres el primero en llegar.")
 	elseif cl == 13 then
-    m "Thanks for being early!"
+		cw('m', "¡Gracias por llegar tan pronto!")
 	elseif cl == 14 then
-    mc "That's funny, I thought at least Yuri would be here by now."
+		cw('mc', "Qué raro, pensaba que Yuri ya había llegado.")
 	elseif cl == 15 then
-    bl "Monika is placing little booklets on each of the desks in the classroom."
+		cw('bl', "Monika está colocando unos libritos en cada pupitre.")
 	elseif cl == 16 then
-    bl "They must be the ones she prepared that have all the poems we're performing.."
+		cw('bl', "Seguro que son los poemas que ha compuesto para recitarlos.")
 	elseif cl == 17 then
-    bl "In the end, I found a random poem online that I thought Monika would like, and submitted it."
+		cw('bl', "Pero al final he presentado un poema al azar que pensaba que le gustaría a Monika.")
 	elseif cl == 18 then
-    bl "So, that's the one I'll be performing."
+		cw('bl', "Así que ese será el que recitaré.")
 	elseif cl == 19 then
 	updateMonika('1','d')
-    m "I'm surprised you didn't bring Sayori with you."
+		cw('m', "Me sorprende que no hayas traído a Sayori contigo.")
 	elseif cl == 20 then
-    mc "Yeah, she overslept again..."
+		cw('mc', "Ya, se ha vuelto a quedar dormida.")
 	elseif cl == 21 then
-    mc "That dummy."
+		cw('mc', "Será tonta.")
 	elseif cl == 22 then
-    mc "You'd think that on days this important, she'd try a little harder..."
+		cw('bl', "...")
 	elseif cl == 23 then
-    bl "I say that, but I suddenly remember what Sayori told me yesterday..."
+		cw('bl', "Justo cuando digo eso, me acuerdo de lo que me dijo ayer...")
 	elseif cl == 24 then
-    bl "And I suddenly feel awful, knowing it's not nearly that simple for her."
+		cw('bl', "Y me empiezo a sentir horrible, ya que sé que no es tan simple para ella.")
 	elseif cl == 25 then
-    bl "I only said it because it's the way I'm used to thinking."
+		cw('bl', "Tan solo lo he dicho por la costumbre.")
 	elseif cl == 26 then
-    bl "But..."
+		cw('bl', "Pero...")
 	elseif cl == 27 then
-    bl "Maybe I should have gone to wake her up after all?"
+		cw('bl', "¿Hubiese sido mejor haber ido a despertarla?")
 	elseif cl == 28 then
 	updateMonika('1','k')
-    m "Ahaha."
+		cw('m', "Ja, ja, ja.")
 	elseif cl == 29 then
 	updateMonika('4','b')
-	cw('m',"You should take a little responsibility for her, "..player.."!")
+		cw('m', "¡Tendrías que preocuparte más por ella, " .. player .. "!")
 	elseif cl == 30 then
-    m "I mean, especially after your exchange with her yesterday..."
+		cw('m', "Es decir, después de lo de ayer...")
 	elseif cl == 31 then
-    m "You kind of left her hanging this morning, you know?"
+		cw('m', "La has dejado colgada esta mañana, ¿sabes?")
 	elseif cl == 32 then
 	updateMonika('4','a')
-	mc "Exchange...?"
+		cw('mc', "¿Lo de ayer?")
 	elseif cl == 33 then
-    mc "Monika-- You know about that??"
+		cw('mc', "¡Monika! ¿¿Cómo sabes lo que ha pasado??")
 	elseif cl == 34 then
 	updateMonika('2','a')
-    m "Of course I do."
+		cw('m', "Por supuesto.")
 	elseif cl == 35 then
-    m "I'm the club president, after all."
+		cw('m', "Después de todo, soy la presidenta del club.")
 	elseif cl == 36 then
-    mc "But--!"
+		cw('mc', "¡Pero...!")
 	elseif cl == 37 then
-    bl "I stammer, embarrassed."
+		cw('bl', "Avergonzado, comienzo a tartamudear.")
 	elseif cl == 38 then
-    bl "Did Sayori really tell her about it that quickly?"
+		cw('bl', "¿En serio se lo ha contado tan rápido?")
 	elseif cl == 39 then
 		if choicepick == 's_yes' then
-			bl "That we're...a couple now?"
+		cw('bl', "¿Lo de que somos... pareja?")
 		else
-			bl "About how I basically turned down her confession?"
+		cw('bl', "¿Lo de cómo he rechazado su confesión?")
 		end
 	elseif cl == 40 then
 		if choicepick == 's_yes' then
-			bl "I didn't really plan on bringing it up with anyone yet..."
+		cw('bl', "No pretendía hacerlo público todavía...")
 		else
-			bl "That makes me really seem like the bad guy here..."
+		cw('bl', "Eso me hará parecer el malo de la película...")
 		end
 	elseif cl == 41 then
 		if choicepick == 's_yes' then
 			scriptJump(42)
 		else
-			bl "But I'm the one who knows what's best for her, right?"
+		cw('bl', "Pero soy el que sabe lo que más le conviene, ¿no?")
 		end
 	
 	elseif cl == 42 then
-    mc "Jeez..."
+		cw('mc', "Ains...")
 	elseif cl == 43 then
-    mc "You don't know the full story at all, so..."
+		cw('mc', "Bueno, no conoces toda la historia, así que...")
 	elseif cl == 44 then
 	updateMonika('2','j')
-    m "Don't worry."
+		cw('m', "No te preocupes.")
 	elseif cl == 45 then
-    m "I probably know a lot more than you think."
+		cw('m', "Seguramente sé más de lo que crees.")
 	elseif cl == 46 then
-    mc "Eh...?"
+		cw('mc', "¿Eh?")
 	elseif cl == 47 then
-    bl "Monika is being as friendly as usual, but for some reason I felt a chill down my spine after hearing that."
+		cw('bl', "Monika es tan maja como siempre, pero por alguna razón, me ha dado un escalofrío después de escuchar eso.")
 	elseif cl == 48 then
 	updateMonika('5a')
-    m "Hey, do you want to check out the pamphlets?"
+		cw('m', "Oye, ¿quieres ojear los panfletos?")
 	elseif cl == 49 then
-    m "They came out really nice!"
+		cw('m', "¡Me han quedado geniales!")
 	elseif cl == 50 then
-    mc "Yeah, sure."
+		cw('mc', "Sí, claro.")
 	elseif cl == 51 then
-    bl "I grab one of the pamphlets laid out on the desks."
+		cw('bl', "Cojo uno de los panfletos de los pupitres.")
 	elseif cl == 52 then
-    mc "Oh yeah, they really did."
+		cw('mc', "Anda, pues es verdad.")
 	elseif cl == 53 then
-    mc "Something like this will definitely help people take the club more seriously."
+		cw('mc', "Con esto, seguro que la gente nos toma más en serio.")
 	elseif cl == 54 then
-    m "Yeah, I thought so too!"
+		cw('m', "¡Sí, yo también lo había pensado!")
 	elseif cl == 55 then
 	hideMonika()
-	bl "I flip through the pages."
+		cw('bl', "Empiezo a pasar las páginas.")
 	elseif cl == 56 then
-    bl "Each member's poem is neatly printed on its own page, giving it an almost professional feel."
+		cw('bl', "El poema de cada uno está impreso de una forma casi profesional.")
 	elseif cl == 57 then
-    bl "I recognize Natsuki's and Yuri's poems from the ones they performed during our practice."
+		cw('bl', "Reconozco los poemas de Yuri y Natsuki, ya que eran los que usaban en los ensayos.")
 	elseif cl == 58 then
-    mc "What's this...?"
+		cw('mc', "¿Qué es esto?")
 	elseif cl == 59 then
-    bl "I flip to Sayori's poem."
+		cw('bl', "Llego al poema de Sayori.")
 	elseif cl == 60 then
-    bl "It's different from the one she practiced."
+		cw('bl', "Es diferente al que había ensayado.")
 	elseif cl == 61 then
-    bl "It's one that I haven't read before..."
+		cw('bl', "No lo había visto nunca.")
 	elseif cl == 62 then
 		if xaload == 0 then
 			sfxplay('pageflip')
@@ -168,107 +173,107 @@ function ch5script()
 		scriptJump(64)
 	elseif cl == 64 then
 		poem_disable(0)
-	mc "Ah--"
+		cw('mc', "Pero...")
 	elseif cl == 65 then
-    bl "What is this...?"
+		cw('bl', "¿Qué es esto?")
 	elseif cl == 66 then
-    bl "Reading the poem, I get a pit in my stomach."
+		cw('bl', "Tras leer el poema, siento un vacío en mí.")
 	elseif cl == 67 then
 	updateMonika('1','d',80)
-	cw('m',player.."?")
+		cw('m', "¿" .. player .. "?")
 	elseif cl == 68 then
-    m "What's wrong?"
+		cw('m', "¿Qué te pasa?")
 	elseif cl == 69 then
-    mc "Ah, nothing..."
+		cw('mc', "Ah, nada...")
 	elseif cl == 70 then
-    bl "This poem feels completely different from everything else Sayori's written."
+		cw('bl', "Este poema es demasiado diferente hasta para Sayori.")
 	elseif cl == 71 then
-    bl "But more than that..."
+		cw('bl', "Y no solo eso...")
 	elseif cl == 72 then
-    mc "I-I changed my mind!"
+		cw('mc', "¡H-he cambiado de opinión!")
 	elseif cl == 73 then
-    mc "I'm going to go get Sayori, so..."
+		cw('mc', "Voy a por Sayori, así que...")
 	elseif cl == 74 then
-    m "Ah--"
+		cw('m', "Ah...")
 	elseif cl == 75 then
 	updateMonika('1','b')
-    m "Well, alright!"
+		cw('m', "¡Perfecto!")
 	elseif cl == 76 then
-    m "Try not to take too long, okay?"
+		cw('m', "No tardes mucho, ¿vale?")
 	
 	elseif cl == 77 then
 	event_initstart('wipe','corridor')
 	elseif cl == 78 then
-	bl "I quickly leave the classroom."
+		cw('bl', "Salgo deprisa del aula.")
 	elseif cl == 79 then
-    m "Don't strain yourself~"
+		cw('m', "No te fuerces demasiado~")
 	elseif cl == 80 then
-    bl "Monika calls that out after me."
+		cw('bl', "Monika me dice eso antes de irme.")
 	elseif cl == 81 then
-    bl "I quicken my pace."
+		cw('bl', "Me doy más prisa.")
 
 	elseif cl == 82 then
 	event_initstart('wipe','residential')
 	elseif cl == 83 then
-	bl "What was I thinking?"
+		cw('bl', "¿En qué estaba pensado?")
 	elseif cl == 84 then
-    bl "I should have tried a little bit harder for Sayori."
+		cw('bl', "Tendría que haberme esforzado un poco más por Sayori.")
 	elseif cl == 85 then
-    bl "It's not a big deal to at least wait for her, or help her wake up."
+		cw('bl', "No me cuesta tanto esperarla o ayudar a que se despierte.")
 	elseif cl == 86 then
-    bl "Even the simple gesture of walking her to school makes her really happy."
+		cw('bl', "Incluso acompañarla a clase le hace feliz.")
 	elseif cl == 87 then
-    bl "Besides..."
+		cw('bl', "Además...")
 	elseif cl == 88 then
-    bl "I told her yesterday that things will be the same as they always have been."
+		cw('bl', "Ayer le dije que todo seguiría igual que siempre.")
 	elseif cl == 89 then
-    bl "That's all she needs, and what I want to give her."
+		cw('bl', "Eso es todo lo que necesita, y es lo que quiero darle.")
 	
 	elseif cl == 90 then
 	event_initstart('wipe','house')
 	elseif cl == 91 then
-    bl "I reach Sayori's house and knock on the door."
+		cw('bl', "Llego a la casa de Sayori y toco a la puerta.")
 	elseif cl == 92 then
-    bl "I don't expect an answer, since she's not picking up her phone, either."
+		cw('bl', "No me esperaba ninguna respuesta ya que tampoco coge el teléfono.")
 	elseif cl == 93 then
-    bl "Like yesterday, I open the door and let myself in."
+		cw('bl', "Igual que ayer, abro la puerta y me meto.")
 	elseif cl == 94 then
-    bgUpdate('black')
-    mc "Sayori?"
+	bgUpdate('black')
+		cw('mc', "¿Sayori?")
 	elseif cl == 95 then
-    bl "She really is a heavy sleeper..."
+		cw('bl', "Sí que tiene el sueño profundo.")
 	elseif cl == 96 then
-    bl "I swallow."
+		cw('bl', "Trago.")
 	elseif cl == 97 then
-    bl "I can't believe I ended up doing this after all."
+		cw('bl', "No me puedo creer que al final esté haciendo esto.")
 	elseif cl == 98 then
-    bl "Waking her up in her own house..."
+		cw('bl', "Ir a despertarla...")
 	elseif cl == 99 then
 		if choicepick == 's_yes' then
-			bl "That really is something that a boyfriend would do, isn't it?"
+		cw('bl', "Cómo se nota que es algo que haría un novio, ¿no?")
 		else
-			bl "Isn't that more like something a boyfriend would do?"
+		cw('bl', "¿No es algo que haría un novio?")
 		end
 	elseif cl == 100 then
-    bl "In any case..."
+		cw('bl', "En cualquier caso...")
 	elseif cl == 101 then
-    bl "It just feels right."
+		cw('bl', "Me parece lo correcto.")
 	elseif cl == 102 then
-    bl "Outside Sayori's room, I knock on her door."
+		cw('bl', "Al llegar a la habitación de Sayori, toco a la puerta.")
 	elseif cl == 103 then
-    mc "Sayori?"
+	mc "¿Sayori?"
 	elseif cl == 104 then
-    mc "Wake up, dummy..."
+		cw('mc', "Despierta, tonta...")
 	elseif cl == 105 then
-    bl "There's no response."
+		cw('bl', "No hay respuesta.")
 	elseif cl == 106 then
-    bl "I really didn't want to have to enter her room like this..."
+		cw('bl', "La verdad es que no quería tener que entrar así...")
 	elseif cl == 107 then
-    bl "Isn't it kind of a breach of privacy?"
+		cw('bl', "Esto cuenta como invasión de la intimidad, ¿no?")
 	elseif cl == 108 then
-    bl "But she really leaves me no choice."
+		cw('bl', "Aunque no me queda otra.")
 	elseif cl == 109 then
-		cw('bl',"I gently open the door.")
+		cw('bl', "Abro la puerta con cuidado.")
 		event_init('s_kill')
 	elseif cl == 110 then
 		persistent.ptr = 1
@@ -277,130 +282,130 @@ function ch5script()
 			savepersistent()
 		end
 		event_start('s_kill_start')
-		cw('bl','.......Sayo--','slow')
+		cw('bl','Sayo...............','slow')
 	elseif cl == 111 then
 		event_start('s_kill')
 	elseif cl == 112 then
 		event_start('s_kill2')
 	elseif cl == 113 then
 		event_start('s_killzoom')
-		cw('bl',"What the hell...?")
+		cw('bl', "¿Qué demonios?")
 	elseif cl == 114 then
-		cw('bl',"What the hell??")
+		cw('bl', "¿¿Pero qué demonios??")
 	elseif cl == 115 then
-		cw('bl',"Is this a nightmare?")
+		cw('bl', "¿Estoy en una pesadilla?")
 	elseif cl == 116 then
-		cw('bl',"It...has to be.")
+		cw('bl', "Tiene... que serlo.")
 	elseif cl == 117 then
-		cw('bl',"This isn't real.")
+		cw('bl', "No es real.")
 	elseif cl == 118 then
-		cw('bl',"There's no way this can be real.")
+		cw('bl', "No puede ser real.")
 	elseif cl == 119 then
-	bl "Sayori wouldn't do this."
+		cw('bl', "Sayori no haría esto.")
 	elseif cl == 120 then
-    bl "Everything was normal up until a few days ago."
+		cw('bl', "Todo parecía tan normal hasta hace unos días.")
 	elseif cl == 121 then
-    bl "That's why I can't believe what my eyes are showing me...!"
+		cw('bl', "¡Por eso es imposible lo que estoy viendo!")
 	elseif cl == 122 then
 	event_end('s_kill')
 	event_start('black')
-	bl "I suppress the urge to vomit." --line 307, known for the original exception error
+		cw('bl', "Me aguanto mis ganas de vomitar.")
 	elseif cl == 123 then
-    bl "Just yesterday..."
+		cw('bl', "Justo ayer...")
 	elseif cl == 124 then
-    bl "I told Sayori I would be there for her."
+		cw('bl', "Le dije que estaría para ella.")
 	elseif cl == 125 then
-    bl "I told her I know what's best, and that everything will be okay."
+		cw('bl', "Le dije que sabía lo que más le convenía, y que todo iría bien.")
 	elseif cl == 126 then
-    bl "Then why...?"
+		cw('bl', "¿Así que por qué?")
 	elseif cl == 127 then
-    bl "Why would she do this...?"
+		cw('bl', "¿Por qué ha hecho algo así?")
 	elseif cl == 128 then
-    bl "How could I be so helpless?"
+		cw('bl', "¿Cómo puedo ser tan inútil?")
 	elseif cl == 129 then
-    bl "What did I do wrong?"
+		cw('bl', "¿Qué he hecho mal?")
 	elseif cl >= 130 and cl < 135 then
 		if choicepick == 's_yes' then
 			if cl == 130 then 
-			bl "Confessing to her..."
+		cw('bl', "Mi confesión...")
 			elseif cl == 131 then
-			bl "I shouldn't have confessed to her."
+		cw('bl', "No tendría que haberle dicho eso.")
 			elseif cl == 132 then
-			bl "That's not what Sayori needed at all."
+		cw('bl', "No es lo que necesitaba.")
 			elseif cl == 133 then
-			bl "She even told me how painful it is for others to care about her."
+		cw('bl', "Hasta me dijo cómo le dolía que se preocupasen por ella.")
 			elseif cl == 134 then
-			bl "Then why did I confess to her, and make her feel even worse?"
+		cw('bl', "Entonces, ¿por qué lo hice? ¿para hacer que se sintiese peor?")
 			end
 		else
 			if cl == 130 then
-			bl "Turning down her confession..."
+		cw('bl', "Rechazar su confesión...")
 			elseif cl == 131 then
-			bl "That has to have been what pushed her over the edge."
+		cw('bl', "Seguro que esa era la gota que colma el vaso.")
 			elseif cl == 132 then
-			bl "Her agonized scream still echoes in my ears."
+		cw('bl', "Su agónico grito resuena en mi cabeza.")
 			elseif cl == 133 then
-			bl "Why did I do that to her when she needed me the most?"
+		cw('bl', "¿Cómo he podido hacerle eso cuando más me necesitaba?")
 			elseif cl == 134 then
 			scriptJump(135)
 			end
 		end
 	elseif cl == 135 then
-    bl "Why was I so selfish?"
+		cw('bl', "¿Cómo he podido ser tan egoísta?")
 	elseif cl == 136 then
-    bl "This is my fault--!"
+		cw('bl', "¡Es mi culpa!")
 	elseif cl == 137 then
-    bl "My swarming thoughts keep telling me everything I could have done to prevent this."
+		cw('bl', "Mi cabeza continúa pensando qué podría haber hecho para evitarlo.")
 	elseif cl == 138 then
-    bl "If I just spent more time with her."
+		cw('bl', "Si hubiese pasado más tiempo con ella,")
 	elseif cl == 139 then
-    bl "Walked her to school."
+		cw('bl', "si la hubiese acompañado al instituto,")
 	elseif cl == 140 then
-    if choicepick == 's_yes' then
-        bl "And remained friends with her, like it always has been..."
-    else
-        bl "And gave her what I know she wanted out of our relationship..."
+	if choicepick == 's_yes' then
+		cw('bl', "también hubiéramos seguido siendo los mismos amigos de siempre...")
+	else
+		cw('bl', "Y le hubiese dado que sé que quería de nuestra relación...")
 	end
 	elseif cl == 141 then
-    bl "...Then I could have prevented this."
+		cw('bl', "Entonces podría haberlo evitado.")
 	elseif cl == 142 then
-    bl "I know I could have prevented this!"
+		cw('bl', "¡Sé que podría haberlo evitado!")
 	elseif cl == 143 then
-    bl "Screw the Literature Club."
+		cw('bl', "Que le den al club de literatura.")
 	elseif cl == 144 then
-    bl "Screw the festival."
+		cw('bl', "Que le den al festival.")
 	elseif cl == 145 then
-    bl "I just...lost my best friend."
+		cw('bl', "Acabo... de perder a mi mejor amiga.")
 	elseif cl == 146 then
-    bl "Someone I grew up with."
+		cw('bl', "Aquella con la que crecí.")
 	elseif cl == 147 then
-    bl "She's gone forever now."
+		cw('bl', "Se ha ido para siempre.")
 	elseif cl == 148 then
-    bl "Nothing I do can bring her back."
+		cw('bl', "No puedo hacer nada para que vuelva.")
 	elseif cl == 149 then
-    bl "This isn't some game where I can reset and try something different."
+		cw('bl', "Esto es la vida real, no puedo reiniciar y comenzar desde cero para probar algo distinto.")
 	elseif cl == 150 then
-    bl "I had only one chance, and I wasn't careful enough."
+		cw('bl', "Tan solo tenía una oportunidad y no he tenido cuidado.")
 	elseif cl == 151 then
-    bl "And now I'll carry this guilt with me until I die."
+		cw('bl', "Y sé que la culpa me atormentará hasta el día en el que me muera.")
 	elseif cl == 152 then
-    bl "Nothing in my life is worth more than hers..."
+		cw('bl', "Su vida era lo que más me importaba...")
 	elseif cl == 153 then
-    bl "But I still couldn't do what she needed from me."
+		cw('bl', "Y aun así no he podido darle lo que necesitaba de mí.")
 	elseif cl == 154 then
-    bl "And now..."
+		cw('bl', "Y ahora...")
 	elseif cl == 155 then
-    bl "I can never take it back."
+		cw('bl', "Ya no puedo retractarme...")
 	elseif cl == 156 then
-    bl "Never."
+		cw('bl', "Nunca.")
 	elseif cl == 157 then
-    bl "Never."
+		cw('bl', "Nunca.")
 	elseif cl == 158 then
-    bl "Never."
+		cw('bl', "Nunca.")
 	elseif cl == 159 then
-    bl "Never."
+		cw('bl', "Nunca.")
 	elseif cl == 160 then
-    bl "Never..."
+		cw('bl', "Nunca...")
 	elseif cl == 161 then
 	event_end('next')
 	elseif cl == 162 then

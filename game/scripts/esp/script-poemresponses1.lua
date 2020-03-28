@@ -8,118 +8,118 @@ function ch2_y_end()
 	elseif cl == 716 then
 		poem_disable()
 		updateYuri('2','m')
-		cw('y',"Um...")
+		cw('y', "Mmm...")
 	elseif cl == 717 then
-		cw('y',"I was a little more daring with this one than yesterday's...")
+		cw('y', "Con este he sido mucho más atrevida que con el de ayer...")
 	elseif cl == 718 then
-		cw('mc',"I can see that.")
+		cw('mc', "Ya veo.")
 	elseif cl == 719 then
-		cw('mc',"It's a lot more metaphorical...")
+		cw('mc', "Es mucho más metafórico...")
 	elseif cl == 720 then
-		cw('mc',"I don't know if it's my fault, but I can't begin to imagine what this poem is about.")
+		cw('bl', "No sé si soy yo, pero no tengo ni idea sobre de qué podría ir.")
 	elseif cl == 721 then
 		updateYuri('1','a')
-		cw('y',"That's right.")
+		cw('y', "Exacto.")
 	elseif cl == 722 then
-		cw('y',"It's a bit closer to my preferred writing style...")
+		cw('y', "Se acerca más a mi estilo de composición...")
 	elseif cl == 723 then
-		cw('y',"Using the poem as a canvas to express vivid imagery, and conveying emotions through them.")
+		cw('y', "Usando el poema como si fuese un lienzo para expresar imágenes vívidas y transmitir mis emociones a través de ellos.")
 	elseif cl == 724 then
-		cw('mc',"Yeah, if I take it at face value, then I can't even figure out what it's supposed to mean...")
+		cw('mc', "Ya, a primera vista soy incapaz de entender de qué va...")
 	elseif cl == 725 then
 		updateYuri('2','f')
-		cw('y',"Well...")
+		cw('y', "Bueno...")
 	elseif cl == 726 then
-		cw('y',"I think it's something that different people can relate to in their own way.")
+		cw('y', "Creo que eso es algo con lo que mucha gente se siente identificada de una forma u otra.")
 	elseif cl == 727 then
-		cw('y',"I wanted to express the way it feels for me to indulge in my more unusual hobbies...")
+		cw('y', "Quería expresar cómo me siento cuando me dejo llevar por mis aficiones más extravagantes...")
 	elseif cl == 728 then
 		updateYuri('2','v')
-		cw('y',"It's those sorts of things I'm usually forced to keep to myself.")
+		cw('y', "Es una de esas cosas que me siento obligada a ocultar.")
 	elseif cl == 729 then
-		cw('y',"So, I sometimes enjoy writing about them.")
+		cw('y', "Así que, a veces me gusta escribir sobre ellas.")
 	elseif cl >= 730 then
 		if readpoem.n == 1 and (n_poemappeal[1] >= 0 or n_poemappeal[1] >= 0) then
 			if cl == 730 then
-				cw('mc',"Huh, that's funny...")
+		cw('mc', "Ja, qué raro...")
 			elseif cl == 730 then
 				updateYuri('2','e')
-				cw('y',"...?")
+		cw('y', "¿...?")
 			elseif cl == 731 then
-				cw('mc',"Didn't Natsuki also write something about that?")
+		cw('mc', "¿No había compuesto Natsuki uno con un tema similar?")
 			elseif cl == 732 then
-				cw('mc',"About someone being ridiculed for a strange interest?")
+		cw('mc', "¿Sobre alguien siendo ridiculizado por una afición extravagante?")
 			elseif cl == 733 then
 				updateYuri('2','h')
-				cw('y',"Eh?")
+		cw('y', "¿Eh?")
 			elseif cl == 734 then
-				cw('y',"She...she did?")
+		cw('y', "A-ah... ¿sí?")
 			elseif cl == 735 then
-				cw('mc',"Yeah...")
+		cw('mc', "Sí...")
 			elseif cl == 736 then
-				cw('mc',"She was talking about how it doesn't matter what you're into as long as you're not hurting anybody.")
+		cw('mc', "Hablaba de que da igual lo que te guste, siempre y cuando no dañes a nadie con ello.")
 			elseif cl == 737 then
 				updateYuri('3','r')
-				cw('y',"She--She's right!")
+		cw('y', "¡T-tiene razón!")
 			elseif cl == 738 then
 				updateYuri('3','o')
-				cw('y',"Ah--I mean...")
+		cw('mc', "Oh...")
 			elseif cl == 739 then
-				cw('y',"Does she really feel that way...?")
+		cw('y', "¿De verdad se siente así...?")
 			elseif cl == 740 then
-				cw('mc',"Yeah.")
+		cw('mc', "Sí.")
 			elseif cl == 741 then
-				cw('mc',"Sounds like you two have that in common...")
+		cw('mc', "Parece que las dos tenéis eso en común...")
 			elseif cl == 742 then
 				updateYuri('3','h')
-				cw('y',"That's...well, that's interesting...")
+		cw('y', "Eso es... bueno, interesante...")
 			elseif cl == 743 then
-				cw('y',"To me, she seemed like the kind of person who would make fun of my hobbies...")
+		cw('y', "Siempre me ha parecido alguien que se reiría de mis aficiones...")
 			elseif cl == 744 then
-				cw('y',"But I suppose that's my fault for judging, isn't it...?")
+		cw('y', "Pero supongo que es mi culpa por juzgarla, ¿no?")
 			elseif cl == 745 then
 				updateYuri('3','p')
-				cw('y',"Ah-- Please don't tell her I said that!")
+		cw('y', "¡Ah! ¡Por favor, no le digas que he dicho eso!")
 			elseif cl == 746 then
-				cw('mc',"Ahaha. Don't worry, I have no reason to.")
+		cw('mc', "Ja, ja, ja. No te preocupes, no tengo ninguna razón para hacerlo.")
 			elseif cl == 747 then
 				updateYuri('1','l')
-				cw('y',"Okay...")
+		cw('y', "Vale...")
 			elseif cl == 748 then
 				updateYuri('1','a')
-				cw('y',"Well, thank you for sharing it with me.")
+		cw('y', "Bueno, gracias por compartirlo conmigo.")
 			end
 		else
 			if cl == 730 then
-				cw('mc',"Why do you keep them to yourself?")
+		cw('mc', "¿Y por qué te los guardas para ti?")
 			elseif cl == 731 then
 				updateYuri('3','v')
-				cw('y',"Be...Because...")
+		cw('y', "Po-porque...")
 			elseif cl == 732 then
-				cw('y',"They're embarrassing...")
+		cw('y', "Me dan vergüenza...")
 			elseif cl == 733 then
-				cw('y',"And people would make fun of me.")
+		cw('y', "Y la gente se reiría de mí.")
 			elseif cl == 734 then
-				cw('y',"Don't you have anything like that, "..player.."?")
+		cw('y', "¿No tienes algo parecido, " .. player .. "?")
 			elseif cl == 735 then
-				cw('mc',"Well...")
+		cw('mc', "Bueno...")
 			elseif cl == 736 then
-				cw('mc',"Yeah, I guess I do...")
+		cw('mc', "Sí, supongo...")
 			elseif cl == 737 then
 				updateYuri('2','h')
-				cw('y',"I feel like everyone has a little something like that.")
+		cw('y', "Creo que todo el mundo tiene algo así.")
 			elseif cl == 738 then
-				cw('y',"The best we can do is respect each other and our individualities.")
+		cw('y', "Lo que deberíamos hacer es respetarnos entre nosotros y a nuestras diferencias.")
 			elseif cl == 739 then
-				cw('y',"Even if it's difficult sometimes, and some things make us uncomfortable...")
+		cw('y', "Aunque a veces sea difícil y otras nos hagan sentir incómodos...")
 			elseif cl == 740 then
 				updateYuri('1','a')
-				cw('y',"After all, if I hadn't learned to embrace my own weirdness, I would probably hate myself.")
+		cw('y', "Después de todo, si no hubiese aprendido a aceptar mis rarezas, me odiaría a mí misma.")
 			elseif cl == 741 then
 				updateYuri('2','u')
-				cw('y',"I-I might be ranting a little bit now...")
+		cw('y', "L-lo siento por desahogarme contigo...")
 			elseif cl == 742 then
-				cw('y',"...But I'm glad that you're a good listener.")
+		cw('y', "Pero me alegra que sepas escuchar.")
 			elseif cl == 743 then
 				scriptJump(749)
 			end
@@ -128,33 +128,33 @@ function ch2_y_end()
 			if appeal.y >= 2 then
 				if cl == 749 then
 					updateYuri('2','s')
-					cw('y',"You're good at a lot of things...")
+		cw('y', "Se te dan bien muchas cosas...")
 				elseif cl == 750 then
-					cw('y',"Writing, listening...")
+		cw('y', "Componer, escuchar...")
 				elseif cl == 751 then
 					updateYuri('2','u')
-					cw('y',"There really aren't many people like you, "..player.."...")
+		cw('y', "" .. player .. ".")
 				elseif cl == 752 then
-					cw('mc',"Th-That's exaggerating a little bit...")
+		cw('mc', "C-creo que exageras...")
 				elseif cl == 753 then
 					updateYuri('2','v')
-					cw('y',"It's just...how I feel.")
+		cw('y', "Es... como me siento.")
 				elseif cl == 754 then
-					cw('y',"I never thought I would feel so comfortable sharing my writing...")
+		cw('y', "Nunca imaginé que me sentiría tan cómoda compartiendo mis poemas...")
 				elseif cl == 755 then
 					updateYuri('2','s')
-					cw('y',"But now, I almost feel like I look forward to it...")
+		cw('y', "Pero ahora, espero con ansias el siguiente...")
 				elseif cl == 756 then
 					updateYuri('2','m')
-					cw('y',"It's just...a really nice feeling.")
+		cw('y', "Es... un sentimiento muy agradable.")
 				elseif cl == 757 then
-					cw('y',"And you're to thank for that.")
+		cw('y', "Y es gracias a ti.")
 				elseif cl == 758 then
-					cw('mc',"It's...it's nothing, really...")
+		cw('mc', "N-no ha sido nada, de verdad...")
 				elseif cl == 759 then
-					cw('bl',"Yuri smiles sincerely at me.")
+		cw('bl', "Yuri me sonríe con sinceridad.")
 				elseif cl == 760 then
-					cw('bl',"For just a moment, her timidness seems to disappear.")
+		cw('bl', " Por un segundo, parecía que su timidez se había esfumado.")
 				elseif cl == 761 then
 					poemfinish('y')
 				end
@@ -166,143 +166,143 @@ function ch2_y_end()
 end
 
 function ch2_y_bad()
-    if y_poemappeal[1] < 0 then
+	if y_poemappeal[1] < 0 then
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
 			updateYuri('2','h')
-			cw('y',"Um...")
+		cw('y', "Mmm...")
 		elseif cl == 672 then
-			cw('y',"...Are you still mad at me?")
+		cw('y', "¿Todavía estás enfadado conmigo?")
 		elseif cl == 673 then
-			cw('mc',"Eh?!")
+		cw('mc', "¡¿Eh?!")
 		elseif cl == 674 then
-			cw('y',"For disrespecting Natsuki yesterday...")
+		cw('y', "Por faltarle el respeto a Natsuki ayer...")
 		elseif cl == 675 then
-			cw('y',"Because reading this poem...")
+		cw('y', "Porque al leer este poema...")
 		elseif cl == 676 then
-			cw('y',"Now I know why you got mad at me.")
+		cw('y', "Ahora entiendo por qué te enfadaste.")
 		elseif cl == 677 then
-			cw('y',"Because you...")
+		cw('y', "Porque tú...")
 		elseif cl == 678 then
 			updateYuri('3','v')
-			cw('y',"You prefer her writing over mine!")
+		cw('y', "¡Prefieres sus poemas a los míos!")
 		elseif cl == 679 then
-			cw('mc',"That's not really true...!")
+		cw('mc', "¡No es verdad!")
 		elseif cl == 680 then
-			cw('y',"Meaning when I disrespected her...")
+		cw('y', "Por lo que cuando le falté el respeto a ella...")
 		elseif cl == 681 then
-			cw('y',"I disrespected you too...didn't I?")
+		cw('y', "También te lo falté a ti, ¿no?")
 		elseif cl == 682 then
 			updateYuri('4','c2')
-			cw('y',"Oh no...")
+		cw('y', "Oh, no...")
 		elseif cl == 683 then
-			cw('mc',"Yuri...")
+		cw('mc', "Yuri...")
 		elseif cl == 684 then
-			cw('mc',"You might be reading into this a little too much...")
+		cw('mc', "Creo que le estás dando demasiadas vueltas a esto...")
 		elseif cl == 685 then
-			cw('y',"How could I be so stupid...?")
+		cw('y', "¿Cómo he podido ser tan estúpida?")
 		elseif cl == 686 then
-			cw('y',"I always let these things happen...")
+		cw('y', "Siempre me acaban pasando este tipo de cosas...")
 		elseif cl == 687 then
-			cw('y',"Whenever I think before I speak, I just come off as awkward and unlikable.")
+		cw('y', "Siempre que pienso antes de hablar parezco rara y repugnante.")
 		elseif cl == 688 then
-			cw('y',"But if I speak without thinking, the things I want to keep inside come out and make people hate me.")
+		cw('y', "Pero si hablo sin pensar, acabo soltando cosas que no quiero y hago que la gente me odie.")
 		elseif cl == 689 then
 			updateYuri('2','v')
-			cw('y',"So...please don't force yourself to be around me.")
+		cw('y', "Así que...")
 		elseif cl == 690 then
-			cw('y',"I know this is what Monika wants.")
+		cw('y', "Sé que es lo que quiere Monika.")
 		elseif cl == 691 then
-			cw('y',"But it's not fair to you when you could be enjoying your time with Natsuki and Sayori.")
+		cw('y', "Pero no es justo si pudieses estar disfrutando con Natsuki y Sayori.")
 		elseif cl == 692 then
-			cw('mc',"Yuri--")
+		cw('mc', "Yuri...")
 		elseif cl == 693 then
 			updateYuri('4','b2')
-			cw('y',"Please...")
+		cw('y', "Por favor...")
 		elseif cl == 694 then
-			cw('y',"It makes it easier for me if you don't express any concern.")
+		cw('y', "Me es más fácil si no te veo preocupado.")
 		elseif cl == 695 then
-			cw('y',"Besides...")
+		cw('y', "Además...")
 		elseif cl == 696 then
-			cw('y',"I have my books with me.")
+		cw('y', "Tengo a mis libros conmigo.")
 		elseif cl == 697 then
 			updateYuri('3','u')
-			cw('y',"That's...all I need.")
+		cw('y', "Eso...")
 		elseif cl == 698 then
 			cw('mc',"...")
 		elseif cl == 699 then
-			cw('bl',"Yuri smiles sadly and puts her head down on her desk.")
+		cw('bl', "Yuri sonríe con tristeza y agacha su cabeza hacia el pupitre.")
 		elseif cl == 700 then
-			cw('bl',"I'm frustrated.")
+		cw('bl', "Estoy frustrado.")
 		elseif cl == 701 then
-			cw('bl',"I don't hate her, but it's as if she's not capable of listening to me over her own thoughts.")
+		cw('bl', "No la odio, pero es incapaz de escucharme a mí en vez de a sus pensamientos.")
 		elseif cl == 702 then
-			cw('bl',"I sigh to myself.")
+		cw('bl', "Suspiro para mis adentros.")
 		elseif cl == 703 then
-			cw('bl',"All I can do is accept that that's how she is.")
+		cw('bl', "Solo puedo aceptarla tal y como es.")
 		elseif cl == 704 then
-			cw('bl',"If she wants to be left alone, then I have no choice but to abide to that request.")
+		cw('bl', "Si quiere que la deje sola, no me queda más remedio que aceptarlo.")
 		elseif cl == 705 then
 			poemfinish('y')
 		end
 	else
 		if cl == 670 then
 			updateYuri('2','a')
-			cw('y',"Ah, is it my turn?")
+		cw('y', "Ah, ¿es mi turno?")
 		elseif cl == 671 then
-			cw('y',"Let's see how it compares to yesterday's...")
+		cw('y', "Veamos qué tal este en comparación con el de ayer...")
 		elseif cl == 672 then
-			cw('y',"Mm...")
+		cw('y', "Mmm...")
 		elseif cl == 673 then
-			cw('y',"I see...")
+		cw('mc', "Ya veo...")
 		elseif cl == 674 then
-			cw('y',"It's a bit different.")
+		cw('y', "Es un poco diferente.")
 		elseif cl == 675 then
 			updateYuri('1','a')
-			cw('y',"I respect you for trying different things, "..player..".")
+		cw('y', "Te respeto por probar cosas distintas, " .. player .. ".")
 		elseif cl == 676 then
-			cw('y',"Were you inspired by Natsuki's poem?")
+		cw('y', "¿Te has inspirado en los poemas de Natsuki?")
 		elseif cl == 677 then
-			cw('y',"Or Sayori's, perhaps?")
+		cw('y', "¿O quizá, en Sayori?")
 		elseif cl == 678 then
-			cw('mc',"Well...")
+		cw('mc', "Bueno...")
 		elseif cl == 679 then
-			cw('mc',"I guess you could say that...")
+		cw('mc', "Supongo que algo así...")
 		elseif cl == 680 then
-			cw('y',"I thought so.")
+		cw('y', "Me lo imaginaba.")
 		elseif cl == 681 then
 			updateYuri('2','u')
-			cw('y',"I'm happy for you.")
+		cw('y', "Me alegro por ti.")
 		elseif cl == 682 then
-			cw('y',"You don't need to find inspiration in my poems.")
+		cw('y', "No necesitas inspirarte en mis poemas.")
 		elseif cl == 683 then
-			cw('y',"I write them for myself...")
+		cw('y', "Los compongo para mí...")
 		elseif cl == 684 then
 			updateYuri('4','b2')
-			cw('y',"...Not for anyone else.")
+		cw('y', "Y no para nadie más.")
 		elseif cl == 685 then
-			cw('y',"So I don't really...need for people to like them or anything.")
+		cw('y', "Así que me da igual... que a la gente no le gusten.")
 		elseif cl == 686 then
-			cw('mc',"Yuri!")
+		cw('mc', "¡Yuri!")
 		elseif cl == 687 then
 			updateYuri('3','t')
-			cw('y',"E-Eh?")
+		cw('y', "¿E-eh?")
 		elseif cl == 688 then
-			cw('mc',"I'm sorry for being blunt, but you're overthinking this a little.")
+		cw('mc', "Perdona por ser tan directo, pero creo que le estás dando demasiadas vueltas.")
 		elseif cl == 689 then
-			cw('mc',"Just because our styles are different doesn't mean I dislike your poems...")
+		cw('mc', "Que nuestros estilos sean diferentes no significa que no me gusten tus poemas...")
 		elseif cl == 690 then
-			cw('mc',"In fact, if I tried to do something in your style, I would probably just do a terrible job.")
+		cw('mc', "De hecho, si intentara usar tu estilo, sería un fracaso estrepitoso.")
 		elseif cl == 691 then
 			updateYuri('4','a2')
-			cw('y',"I...I see...")
+		cw('mc', "Ya veo...")
 		elseif cl == 692 then
-			cw('y',"I'm sorry...")
+		cw('y', "Lo siento...")
 		elseif cl == 693 then
-			cw('y',"My stupid mind...it likes to do that sometimes.")
+		cw('y', "A veces, a mi estúpido cerebro le gusta hacer esto.")
 		elseif cl == 694 then
-			cw('y',"Anyway...")
+		cw('m', "Bueno...")
 		elseif cl >= 695 then
 			ch2_y_shared()
 		end
@@ -314,95 +314,95 @@ function ch2_y_shared()
 		scriptJump(695)
 	elseif cl == 695 then
 		updateYuri('2','h')
-		cw('y',"You don't need to be afraid to be a little more daring...")
+		cw('y', "No tiene que darte miedo ser un poco más atrevido...")
 	elseif cl == 696 then
-		cw('y',"Metaphors can go a long way.")
+		cw('y', "Las metáforas pueden llegar a ser muy útiles.")
 	elseif cl == 697 then
-		cw('y',"Don't feel like you need to work your brain like turning a bunch of gears.")
+		cw('y', "No creas que necesitas usar tu cerebro de forma lógica.")
 	elseif cl == 698 then
 		updateYuri('1','m')
-		cw('y',"Try letting your mind wander through your feelings...")
+		cw('y', "Intenta divagar entre tus sentimientos...")
 	elseif cl == 699 then
-		cw('y',"And write down the things you see and hear.")
+		cw('y', "Y apunta las cosas que veas y escuches.")
 	elseif cl == 700 then
-		cw('y',"That's one way to truly enable your reader to see into your mind.")
+		cw('y', "Esa es una forma de dejar que el lector pueda ver qué hay realmente en tu cabeza.")
 	elseif cl == 701 then
 		updateYuri('2','u')
-		cw('y',"It's a very intimate exercise...")
+		cw('y', "Es un ejercicio muy íntimo...")
 	elseif cl == 702 then
-		cw('mc',"I see.")
+		cw('mc', "Ya veo.")
 	elseif cl == 703 then
-		cw('mc',"That's a certainly interesting technique.")
+		cw('mc', "Sí que es una técnica interesante.")
 	elseif cl == 704 then
-		cw('mc',"Thanks for sharing.")
+		cw('mc', "Gracias por enseñármelo.")
 	elseif cl == 705 then
 		updateYuri('2','v')
-		cw('y',"I have, um...")
+		cw('y', "Tengo, em...")
 	elseif cl == 706 then
-		cw('y',"...Well, an example of that, if you'd like to read it...")
+		cw('y', "Bueno, un ejemplo de lo que decía, por si quieres verlo...")
 	elseif cl == 707 then
-		cw('mc',"Of course.")
+		cw('mc', "Por supuesto.")
 	elseif cl == 708 then
-		cw('mc',"Is this the poem you wrote for today?")
+		cw('mc', "¿Es el poema de hoy?")
 	elseif cl == 709 then
-		cw('bl',"Yuri nods, and timidly hands me her poem.")
+		cw('bl', "Yuri asiente y me da su poema con timidez.")
 	elseif cl >= 710 then
 		ch2_y_end()
 	end
 end
 
 function ch2_y_med()
-    if y_poemappeal[1] <= 0 then
+	if y_poemappeal[1] <= 0 then
 		if cl == 670 then
 			updateYuri('1','a')
-			cw('y',"Let's see what you've written for today.")
+		cw('y', "Veamos qué has compuesto para hoy.")
 		elseif cl == 671 then
 			cw('y',"...")
 		elseif cl == 672 then
-			cw('y',"Mm...")
+		cw('y', "Mmm...")
 		elseif cl == 673 then
 			updateYuri('1','c')
-			cw('y',"Well done, "..player..".")
+		cw('y', "Bien hecho, " .. player .. ".")
 		elseif cl == 674 then
-			cw('y',"Your skills are already improving.")
+		cw('y', "Estás mejorando mucho.")
 		elseif cl == 675 then
-			cw('mc',"Really?")
+		cw('mc', "¿En serio?")
 		elseif cl == 676 then
-			cw('mc',"Thanks, Yuri.")
+		cw('mc', "Gracias, Yuri.")
 		elseif cl == 677 then
-			cw('mc',"Coming from you, that means a lot.")
+		cw('mc', "Significa mucho viniendo de ti.")
 		elseif cl == 678 then
 			updateYuri('3','f')
-			cw('y',"Eh?")
+			cw('y',"¿Eh?")
 		elseif cl == 679 then
 			updateYuri('3','v')
-			cw('y',"I-It's nothing!")
+		cw('y', "¡Qu-qué va!")
 		elseif cl == 680 then
-			cw('y',"I'm just happy to help inspire fellow writers...")
+		cw('y', "Me hace feliz ayudar a mis compañeros escritores...")
 		elseif cl == 681 then
-			cw('y',"I know you're new to this, so don't worry so much if it seems like you can't get your poem to feel perfect.")
+		cw('y', "Ya sé que eres nuevo en esto, así que no te preocupes si no te sale perfecto.")
 		elseif cl >= 682 then
 			ch2_y_shared()
 		end
-    else
+	else
 		if cl == 671 then
 			updateYuri('1','a')
-			cw('y',"Let's see what you've written for today.")
+		cw('y', "Veamos qué has compuesto para hoy.")
 		elseif cl == 671 then
 			cw('y',"...")
 		elseif cl == 672 then
-			cw('y',"Mm...")
+		cw('y', "Mmm...")
 		elseif cl == 673 then
-			cw('y',"This is pretty good, "..player..".")
+		cw('y', "Está bastante bien, " .. player .. ".")
 		elseif cl == 674 then
-			cw('y',"Were you influenced by seeing everyone's writing styles yesterday?")
+		cw('y', "¿Te ha influido que vieras ayer los estilos de composición de todas?")
 		elseif cl == 675 then
-			cw('mc',"I guess you could say that...")
+		cw('mc', "Supongo que algo así...")
 		elseif cl == 676 then
 			updateYuri('1','m')
-			cw('y',"I was also a bit surprised by how differently everyone writes.")
+		cw('y', "A mí también me sorprendió la variedad de estilos que tenemos.")
 		elseif cl == 677 then
-			cw('y',"So I respect you for trying new things.")
+		cw('y', "Así que no te juzgaré por probar cosas nuevas.")
 		elseif cl >= 678 then
 			ch2_y_shared()
 		end
@@ -411,44 +411,44 @@ end
 
 function ch2_y_good()
 	if y_poemappeal[1] < 1 then
-        if cl == 670 then
+		if cl == 670 then
 			updateYuri('1','a')
-			cw('y',"Let's see what you've written for today.")
+		cw('y', "Veamos qué has compuesto para hoy.")
 		elseif cl == 671 then
 			cw('y',"...")
 		elseif cl == 672 then
 			updateYuri('2','e')
-			cw('y',"......")
+		cw('y', "...")
 		elseif cl == 673 then
-			cw('bl',"Yuri stares at the poem with a surprised expression on her face.")
+		cw('bl', "Yuri se queda mirando al poema ojiplática.")
 		elseif cl == 674 then
-			cw('mc',"Do you...like it?")
+		cw('mc', "¿Te... gusta?")
 		elseif cl == 675 then
 			cw('y',player.."...")
 		elseif cl == 676 then
-			cw('y',"...How did you even pick up on this so quickly?")
+		cw('y', "¿Cómo has comprendido esto tan rápido?")
 		elseif cl >= 677 then
 			ch2_y_good_shared()
 		end
 	else
 		if cl == 670 then
 			updateYuri('1','a')
-			cw('y',"Let's see what you've written for today.")
+		cw('y', "Veamos qué has compuesto para hoy.")
 		elseif cl == 671 then
 			cw('y',"...")
 		elseif cl == 672 then
 			updateYuri('2','e')
-			cw('y',"......")
+		cw('y', "...")
 		elseif cl == 673 then
-			cw('bl',"Yuri stares at the poem with a surprised expression on her face.")
+		cw('bl', "Yuri se queda mirando al poema ojiplática.")
 		elseif cl == 674 then
-			cw('mc',"Do you...like it?")
+		cw('mc', "¿Te... gusta?")
 		elseif cl == 675 then
 			cw('y',player.."...")
 		elseif cl == 676 then
-			cw('y',"This one might even be better than yesterday's...")
+		cw('y', "Creo que este es incluso mejor que el de ayer...")
 		elseif cl == 677 then
-			cw('y',"...How did you even pick up on this so quickly?")
+			cw('y',"¿Cómo has comprendido esto tan rápido?")
 		elseif cl >= 678 then
 			ch2_y_good_shared()
 		end
@@ -460,84 +460,84 @@ function ch2_y_good_shared()
 		scriptJump(678)
 	elseif cl == 678 then
 		 updateYuri('2','v')
-		 cw('y',"Just yesterday, I was telling you the kind of techniques worth practicing...")
+		cw('y', "Ayer mismo te estaba diciendo qué técnicas podrías practicar...")
 	elseif cl == 679 then
-		cw('mc',"Maybe that's why...")
+		cw('mc', "Quizás es por eso...")
 	elseif cl == 680 then
-		cw('mc',"You did a good job explaining.")
+		cw('mc', "Has hecho un buen trabajo explicándolo.")
 	elseif cl == 681 then
-		cw('mc',"I really wanted to try giving it more imagery.")
+		cw('mc', "Quería darle mucho más simbolismo.")
 	elseif cl == 682 then
 		updateYuri('4','b2')
-		cw('bl',"Yuri visibly swallows.")
+		cw('bl', "Yuri traga saliva.")
 	elseif cl == 683 then
-		cw('bl',"Even her hands appear sweaty.")
+		cw('bl', "Hasta sus manos parecen sudorosas.")
 	elseif cl == 684 then
-		cw('y',"I'm not...used to this...")
+		cw('y', "No lo hago...")
 	elseif cl == 685 then
-		cw('mc',"Used to what?")
+		cw('mc', "¿Acostumbrada a qué?")
 	elseif cl == 686 then
 		updateYuri('3','o')
-		cw('y',"I don't know...!")
+		cw('y', "¡No lo sé!")
 	elseif cl == 687 then
-		cw('mc',"It's fine, take your time...")
+		cw('mc', "No pasa nada, tómate tu tiempo...")
 	elseif cl == 688 then
 		updateYuri('3','l')
-		cw('bl',"Yuri breathes and collects her thoughts.")
+		cw('bl', "Yuri respira hondo y se concentra.")
 	elseif cl == 689 then
-		cw('bl',"I know that Yuri likes to think before she speaks, so I offer that patience to her.")
+		cw('bl', "Sé que a Yuri le gusta pensar antes de hablar, así que le dejo su tiempo.")
 	elseif cl == 690 then
 		updateYuri('4','a2')
-		cw('y',"Yeah...")
+		cw('mc', "Sí.")
 	elseif cl == 691 then
-		cw('y',"Just...being appreciated like this...I guess.")
+		cw('y', "El hecho... de que me aprecien de esta manera... supongo.")
 	elseif cl == 692 then
-		cw('y',"It probably sounds really stupid...")
+		cw('y', "Seguramente parecerá estúpido...")
 	elseif cl == 693 then
-		cw('y',"But seeing someone motivated by my writing...")
+		cw('y', "Pero ver que mis poemas motivan a alguien...")
 	elseif cl == 694 then
-		cw('y',"It just makes me...")
+		cw('y', "Me hace...")
 	elseif cl == 695 then
-		cw('y',"Really happy...")
+		cw('y', "Muy feliz...")
 	elseif cl == 696 then
-		cw('mc',"Are you saying you've never shared your writing before?")
+		cw('mc', "¿Me estás diciendo que nunca habías enseñado tus poemas?")
 	elseif cl == 697 then
-		cw('bl',"Yuri nods.")
+		cw('bl', "Yuri asiente.")
 	elseif cl == 698 then
-		cw('mc', "Really? I don't believe it.")
+		cw('mc', "¿En serio? No me lo creo.")
 	elseif cl == 699 then
-		cw('y',"I really only write for myself...")
+		cw('y', "La verdad es que solo escribo para mí...")
 	elseif cl == 700 then
-		cw('y',"And besides...")
+		cw('y', "Y además...")
 	elseif cl == 701 then
 		updateYuri('3','w')
-		cw('y',"...People would just laugh at me!")
+		cw('y', "¡La gente se reiría de mí!")
 	elseif cl == 702 then
-		cw('mc',"Do you really think that...?")
+		cw('mc', "¿De verdad crees eso?")
 	elseif cl == 703 then
-		cw('bl',"Again, Yuri nods.")
+		cw('bl', "Yuri asiente.")
 	elseif cl == 704 then
-		cw('mc',"Huh...")
+		cw('mc', "Mmm...")
 	elseif cl == 705 then
-		cw('mc',"Even your close friends?")
+		cw('mc', "¿Hasta tus amigos más cercanos?")
 	elseif cl == 706 then
 		updateYuri('2','v')
 		cw('y',"...")
 	elseif cl == 707 then
-		cw('bl',"Yuri doesn't respond to that.")
+		cw('bl', "Yuri no responde.")
 	elseif cl == 708 then
-		cw('bl',"I wonder why...")
+		cw('bl', "Me pregunto por qué...")
 	elseif cl == 709 then
-		cw('mc',"Anyway...")
+		cw('mc', "Bueno...")
 	elseif cl == 710 then
-		cw('mc',"Do you want to share the poem you wrote today?")
+		cw('mc', "¿Me enseñas el poema que has compuesto hoy?")
 	elseif cl == 711 then
-		cw('y',"...Yeah.")
+		cw('mc', "Sí.")
 	elseif cl == 712 then
 		updateYuri('3','t')
-		cw('y',"I do!")
+		cw('y', "¡Claro!")
 	elseif cl == 713 then
-		cw('y',"If it's with you...")
+		cw('y', "Si es a ti...")
 	elseif cl >= 714 then
 		ch2_y_end()
 	end
@@ -549,11 +549,11 @@ function ch3_y_bad12_shared()
 		cw('y',"...")
 	elseif cl == 671 then
 		updateYuri('4','b2')
-		cw('bl',"Yuri doesn't look too enthusiastic about spending time with me...")
+		cw('bl', "Yuri no parece muy ilusionada por pasar tiempo conmigo...")
 	elseif cl == 672 then
-		cw('bl',"I guess if she changes her mind, she'll come to me.")
+		cw('bl', "Supongo que ya vendrá a verme, si cambia de opinión.")
 	elseif cl == 673 then
-		cw('bl',"But I should leave her be for now.")
+		cw('bl', "Pero de momento debería dejarla en paz.")
 	elseif cl == 674 then
 		poemfinish('y')
 	end
@@ -573,79 +573,79 @@ function ch3_y_end()
 			elseif cl == 771 then
 				poem_disable()
 				updateYuri('2','v')
-				cw('y',"Um...")
+		cw('y', "Mmm...")
 			elseif cl == 772 then
-				cw('y',"I'm aware that the beach is kind of an inane thing to write about.")
+		cw('y', "Soy consciente de que escribir sobre la playa es un sinsentido.")
 			elseif cl == 773 then
-				cw('y',"But I did my best to take a metaphorical approach to it.")
+		cw('y', "Pero me he esforzado para darle un toque metafórico.")
 			elseif cl >= 774 then
 				if readpoem.n == 0 or appeal.n >= 3 then
 					if cl == 774 then
-						cw('mc',"You say that like you didn't even want to write about it...")
+		cw('mc', "Lo dices como si no hubieses querido hacerlo sobre ese tema...")
 					elseif cl == 775 then
 						updateYuri('2','e')
-						cw('y',"Oh, you haven't heard...?")
+		cw('y', "Ah, ¿te has enterado?")
 					elseif cl == 776 then
 						updateYuri('2','h')
-						cw('y',"After yesterday, Natsuki and I...well...")
+		cw('y', "Después de lo de ayer, Natsuki y yo, bueno...")
 					elseif cl == 777 then
-						cw('y',"It was...amusing that we wrote about something similar in such different ways.")
+		cw('y', "Fue... gracioso que las dos hubiéramos escrito sobre lo mismo de una forma tan diferente.")
 					elseif cl == 778 then
-						cw('y',"So, Natsuki wanted us to write about the same topic as each other again.")
+		cw('y', "Así que, Natsuki ha querido que escribamos sobre el mismo tema otra vez.")
 					elseif cl == 779 then
 						if readpoem.n == 1 then
-							cw('mc',"I see...")
+		cw('mc', "Entiendo...")
 						else
 							scriptJump(782)
 						end
 					elseif cl == 780 then
-						cw('bl',"Something tells me the poem Natsuki showed me isn't the one she plans on sharing with everyone else...")
+		cw('bl', "Algo me dice que el poema que me ha enseñado Natsuki pretende no enseñárselo a nadie...")
 					elseif cl == 781 then
-						cw('bl',"Of course, I choose not to mention that to Yuri.")
+		cw('bl', "Por razones obvias, decido no mencionarle nada a Yuri.")
 					end
 				else
 					if cl == 774 then
-						cw('mc',"Yeah, Natsuki already told me about it.")
+		cw('mc', "Sí, Natsuki me lo ha contado.")
 					elseif cl == 775 then
 						updateYuri('3','t')
-						cw('y',"S-She did...?")
+		cw('y', "A-ah, ¿sí?")
 					elseif cl == 776 then
-						cw('y',"She didn't say anything weird, did she?")
+		cw('y', "No ha dicho nada raro, ¿verdad?")
 					elseif cl == 777 then
-						cw('y',"She just wanted us to write about the same topic again...")
+		cw('y', "Es solo que quiere que escribamos sobre el mismo tema otra vez...")
 					elseif cl == 778 then
 						scriptJump(782)
 					end
 				end
 				if cl == 782 then
 					updateYuri('2','f')
-					cw('y',"I suppose to better compare the differences in our writing styles...or thought processes.")
+		cw('y', "Supongo que para comparar las diferencias entre nuestros estilos... o nuestras ideas.")
 				elseif cl == 783 then
 					updateYuri('2','w')
-					cw('y',"Anyway, it was her idea...!")
+		cw('y', "Bueno, ¡que ha sido idea suya!")
 				elseif cl == 784 then
-					cw('y',"Knowing her, it's no surprise that she'd want to do something like that.")
+		cw('y', "Conociéndola no me sorprende que haya querido hacer algo así.")
 				elseif cl == 785 then
-					cw('y',"She probably just wants to show off.")
+		cw('y', "Seguramente querrá fardar.")
 				elseif cl == 786 then
 					updateYuri('2','v')
-					cw('y',"It's not like I have a particular interest in her writing style...")
+		cw('y', "Y tampoco es que me interese su estilo...")
 				elseif cl == 787 then
-					cw('y',"I just went with her request.")
+		cw('y', "Solo le he seguido la corriente.")
 				elseif cl == 788 then
-					cw('y',"But...")
+		cw('y', "Pero...")
 				elseif cl == 789 then
 					updateYuri('1','s')
-					cw('y',"Well, I suppose it's not so bad to write about something simple on occasion.")
+		cw('y', "Bueno, supongo que no está tan mal escribir sobre algo simple de vez en cuando.")
 				elseif cl == 790 then
 					updateYuri('1','m')
-					cw('y',"It can be refreshing, you know?")
+		cw('y', "Puede resultar algo innovador, ¿no crees?")
 				elseif cl == 791 then
-					cw('y',"It's good for me to calm my thoughts once in a while.")
+		cw('y', "Me va bien despejarme de vez en cuando.")
 				elseif cl == 792 then
-					cw('mc',"Yeah...I think I agree.")
+		cw('mc', "Sí, creo que tienes razón.")
 				elseif cl == 793 then
-					cw('mc',"Thanks for sharing.")
+		cw('mc', "Gracias por compartirla.")
 				elseif cl == 794 then
 					poemfinish('y')
 				end
@@ -661,106 +661,106 @@ function ch3_y_end_special()
 		scriptJump(770)
 	elseif cl == 770 then
 		poem_disable()
-		cw('bl',"Finishing the poem, I start to hand it back to Yuri.")
+		cw('bl', "Tras acabar el poema, se lo devuelvo a Yuri.")
 	elseif cl == 771 then
-		cw('bl',"But instead of taking it from me, she looks away.")
+		cw('bl', "Pero en lugar de cogerlo, aparta la mirada.")
 	elseif cl == 772 then
 		cw('y',"...")
 	elseif cl == 773 then
-		cw('y',"Do you...dislike it?")
+		cw('y', "Acaso... ¿no te gusta?")
 	elseif cl == 774 then
-		cw('mc',"Ah--no, of course not.")
+		cw('mc', "Ah, no, no es eso.")
 	elseif cl == 775 then
-		cw('mc',"I just...don't really know how I should respond.")
+		cw('mc', "Es solo que... no sé cómo responder.")
 	elseif cl == 776 then
-		cw('bl',"Despite Yuri's poems usually being cryptic, it wasn't hard to figure out what this one was about.")
+		cw('bl', "A pesar de que los poemas de Yuri suelen ser enrevesados, no fue difícil entender de qué trataba este.")
 	elseif cl == 777 then
 		if readpoem.n == 1 then
-			cw('bl',"Also, this clearly isn't the poem that Natsuki said she wrote about...")
+		cw('bl', "Además, no hay duda de que este no es el poema del que hablaba Natsuki...")
 		else
 			scriptJump(779)
 		end
 	elseif cl == 778 then
-		cw('bl',"...Meaning I'm probably the only one she's showing this to.")
+		cw('bl', "Por lo tanto, esto significa que seguramente sea el único al que se lo ha enseñado.")
 	elseif cl == 779 then
 		updateYuri('2','v')
-		cw('y',"I-I don't know if I'll be able to explain this one...")
+		cw('y', "N-no sé si podré explicar bien este...")
 	elseif cl == 780 then
-		cw('mc',"That's fine.")
+		cw('mc', "No pasa nada.")
 	elseif cl == 781 then
-		cw('mc',"I understand this one.")
+		cw('mc', "Este lo he entendido.")
 	elseif cl == 782 then
 		updateYuri('4','c2')
 		cw('y',"...")
 	elseif cl == 783 then
-		cw('bl',"Yuri is having an even harder time speaking than usual.")
+		cw('bl', "A Yuri le está costando hablar más de lo normal.")
 	elseif cl == 784 then
-		cw('mc',"Does this one...mean a lot to you?")
+		cw('mc', "¿Este... significa mucho para ti?")
 	elseif cl == 785 then
-		cw('bl',"Yuri nods.")
+		cw('bl', "Yuri asiente.")
 	elseif cl == 786 then
-		cw('mc',"I'm not really good with words, but...")
+		cw('mc', "No soy muy bueno expresándome, pero...")
 	elseif cl == 787 then
-		cw('mc',"I'm happy that you shared it with me.")
+		cw('mc', "Me alegro de que lo hayas compartido conmigo.")
 	elseif cl == 788 then
-		cw('mc',"So, thank you.")
+		cw('mc', "Así que, gracias.")
 	elseif cl == 789 then
-		cw('mc',"And I hope we keep spending time together.")
+		cw('mc', "Espero que podamos seguir pasando tiempo juntos.")
 	elseif cl == 790 then
 		updateYuri('4','e2')
-		cw('bl',"Despite my inability to make eye contact, I see a faint smile emerge on Yuri's lips.")
+		cw('bl', "A pesar de que apenas puedo mantener contacto visual con Yuri, veo como sonríe levemente.")
 	elseif cl == 791 then
-		cw('bl',"I once again try to hand the poem back to her.")
+		cw('bl', "Intento devolverle el poema otra vez.")
 	elseif cl == 792 then
 		updateYuri('4','a2')
-		cw('bl',"But instead, Yuri gently takes my hands and pushes them back toward me.")
+		cw('bl', "Pero esta vez, Yuri empuja mis manos suavemente hacia mí.")
 	elseif cl == 793 then
-		cw('bl',"I hesitate in response to her warm touch.")
+		cw('bl', "Vacilo al sentir su cálido tacto.")
 	elseif cl == 794 then
 		updateYuri('1','v')
-		cw('y',"You can...")
+		cw('y', "Puedes...")
 	elseif cl == 795 then
-		cw('y',"Um...")
+		cw('y', "Mmm...")
 	elseif cl == 796 then
-		cw('y',"The poem is...")
+		cw('y', "Este poema...")
 	elseif cl == 797 then
-		cw('bl',"Once again, Yuri fails to form a complete sentence.")
+		cw('bl', "Yuri vuelve a dejar sus frases incompletas.")
 	elseif cl == 798 then
-		cw('mc',"You mean I can keep it?")
+		cw('mc', "¿Quieres decir que me lo puedo quedar?")
 	elseif cl == 799 then
-		cw('bl',"Yuri nods.")
+		cw('bl', "Yuri asiente.")
 	elseif cl == 800 then
-		cw('mc',"I'd love to.")
+		cw('mc', "Me encantaría.")
 	elseif cl == 801 then
 		updateYuri('1','u')
-		cw('bl',"Again, Yuri faintly smiles, as if she doesn't want me to notice.")
+		cw('bl', "De nuevo, Yuri sonríe levemente como si quisiese que no me dé cuenta.")
 	elseif cl == 802 then
-		cw('y',"You always...")
+		cw('y', "Tú siempre...")
 	elseif cl == 803 then
-		cw('y',"You always...make me feel nice.")
+		cw('y', "Tú siempre... me haces sentir bien.")
 	elseif cl == 804 then
-		cw('y',"I know I'm not good with people, but...")
+		cw('y', "Sé que no se me da bien estar con gente, pero...")
 	elseif cl == 805 then
-		cw('y',"I hope that...I can return the favor sometimes.")
+		cw('y', "Espero... poder devolverte el favor.")
 	elseif cl == 806 then
-		cw('mc',"Yeah.")
+		cw('mc', "Sí.")
 	elseif cl == 807 then
-		cw('mc',"Don't worry.")
+		cw('mc', "No te preocupes.")
 	elseif cl == 808 then
-		cw('mc',"I think you do a good job.")
+		cw('mc', "Creo que haces un buen trabajo.")
 	elseif cl == 809 then
-		cw('bl',"Yuri finally turns back toward me.")
+		cw('bl', "Por fin Yuri se gira hacia mí.")
 	elseif cl == 810 then
 		updateYuri('1','s')
-		cw('y',"I guess...we should move on before Monika says something.")
+		cw('y', "Supongo... que deberíamos movernos antes de que Monika diga algo.")
 	elseif cl == 811 then
-		cw('y',"But I'm sure we can talk again later...")
+		cw('y', "Pero estoy segura de que podremos hablar más tarde.")
 	elseif cl == 812 then
-		cw('mc',"Yeah.")
+		cw('mc', "Sí.")
 	elseif cl == 813 then
-		cw('mc',"I'm sure we will.")
+		cw('mc', "Yo también lo estoy.")
 	elseif cl == 814 then
-		cw('bl',"With that, Yuri timidly smiles at me, and I return to my seat so I can put her poem away.")
+		cw('bl', "Tras eso, Yuri me sonríe tímidamente y yo vuelvo a mi sitio para guardar su poema.")
 	elseif cl == 815 then
 		poemfinish('y')
 	end
@@ -768,142 +768,142 @@ end
 
 function ch3_y_bad()
 	if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
-        ch3_y_bad12_shared()
-    elseif y_poemappeal[1] < 0 or y_poemappeal[2] < 0 then
+		ch3_y_bad12_shared()
+	elseif y_poemappeal[1] < 0 or y_poemappeal[2] < 0 then
 		if cl == 670 then
 			updateYuri('1','i')
 			cw('y',"...")
 		elseif cl == 671 then
-			cw('y',"...I see.")
+		cw('y', "Ya veo.")
 		elseif cl == 672 then
-			cw('y',"I think you're improving at writing in general, "..player..".")
+		cw('y', "Creo que estás mejorando en general, " .. player .. ".")
 		elseif cl == 673 then
 			updateYuri('2','i')
-			cw('y',"But I can't help but feel a little bit foolish.")
+		cw('y', "Pero no puedo evitar sentirme algo tonta.")
 		elseif cl == 674 then
-			cw('mc',"Eh? What for?")
+		cw('mc', "¿Eh? ¿Y eso?")
 		elseif cl == 675 then
-			cw('y',"Just...")
+		cw('y', "Es solo que...")
 		elseif cl == 676 then
-			cw('y',"I feel like I kept trying to offer advice...")
+		cw('y', "Creo que no paraba de darte consejos...")
 		elseif cl == 677 then
-			cw('y',"When it should have been clear to me that you prefer a different writing style.")
+		cw('y', "Cuando estaba claro que preferías otro estilo lírico.")
 		elseif cl == 678 then
 			updateYuri('3','w')
-			cw('y',"I probably just sounded arrogant!")
+		cw('y', "¡Seguro que he quedado como una arrogante!")
 		elseif cl == 679 then
-			cw('y',"I'm so stupid...")
+		cw('y', "Qué estúpida soy...")
 		elseif cl == 680 then
-			cw('mc',"Yuri, that's a little--")
+		cw('mc', "Yuri, eres un poco...")
 		elseif cl == 681 then
 			updateYuri('4','b2')
-			cw('y',"No...")
+		cw('y', "No...")
 		elseif cl == 682 then
-			cw('y',"You don't understand.")
-        elseif cl == 683 then
-			cw('y',"I spent so much time worrying about what's better and what's worse.")
+		cw('y', "Tú no lo entiendes.")
+		elseif cl == 683 then
+		cw('y', "He pasado demasiado tiempo preocupándome por lo que es mejor y lo que es peor.")
 		elseif cl == 684 then
-			cw('y',"Not just with you...")
+		cw('y', "No solo contigo...")
 		elseif cl == 685 then
-			cw('y',"With Natsuki, and Sayori...")
+		cw('y', "Con Natsuki y Sayori...")
 		elseif cl == 686 then
-			cw('y',"It's obvious now why nobody has fun when talking to me...")
+		cw('y', "Es obvio que nadie se lo pasa bien cuando habla conmigo...")
 		elseif cl == 687 then
-			cw('y',"And because of that...")
+		cw('y', "Y por eso...")
 		elseif cl == 688 then
 			updateYuri('4','c2')
-			cw('y',"...I'll just keep my mouth shut about your poem!")
+		cw('y', "¡Cerraré el pico y no opinaré sobre tu poema!")
 		elseif cl == 689 then
 			cw('mc',"...")
 		elseif cl == 690 then
-			cw('bl',"Yuri buries her head into her arms on her desk.")
+		cw('bl', "Yuri se tapa la cabeza con los brazos en el pupitre.")
 		elseif cl == 691 then
-			cw('bl',"That's not the first time I've seen her do that.")
+		cw('bl', "No es la primera vez que le veo hacer eso.")
 		elseif cl == 692 then
-			cw('mc',"I don't think it's ever as bad as you make it sound in your head...")
+		cw('mc', "Creo que no es tan malo como tú te crees...")
 		elseif cl == 693 then
 			cw('y',"...")
 		elseif cl == 694 then
-			cw('mc',"I think if people really didn't like talking to you...")
+		cw('mc', "Creo que si de verdad no les gustase hablar contigo...")
 		elseif cl == 695 then
-			cw('mc',"Then it would be a lot more obvious.")
+		cw('mc', "Sería mucho más obvio.")
 		elseif cl == 696 then
-			cw('mc',"I know that you like to read deeply into things.")
+		cw('mc', "Sé que te gusta encontrar significados ocultos a todo.")
 		elseif cl == 697 then
-			cw('mc',"But some things are just worth taking at face value.")
+		cw('mc', "Pero hay cosas que no tienen ningún trasfondo.")
 		elseif cl == 698 then
 			updateYuri('4','b2')
-			cw('y',"I just...")
+		cw('n', "Yo solo...")
 		elseif cl == 699 then
-			cw('y',"I've gotten so used to it...")
+		cw('y', "Estoy tan acostumbrada...")
 		elseif cl == 700 then
-			cw('y',"...That it's hard for me to comprehend any other possibility.")
+		cw('y', "Que me cuesta comprender que haya alguna otra posibilidad.")
 		elseif cl == 701 then
-			cw('mc',"Gotten used to what?")
+		cw('mc', "¿Acostumbrada a qué?")
 		elseif cl == 702 then
-			cw('mc',"Reading deeply into things?")
+		cw('mc', "¿A buscar significados ocultos?")
 		elseif cl == 703 then
-			cw('y',"Being disliked.")
+		cw('y', "A no gustarle a la gente.")
 		elseif cl == 704 then
 			cw('mc',"Yuri...")
 		elseif cl == 705 then
 			updateYuri('2','v')
-			cw('y',"What...what am I saying?")
+		cw('y', "¿Qu-Qué estoy diciendo?")
 		elseif cl == 706 then
-			cw('y',"I'm sorry...")
+		cw('y', "Lo siento...")
 		elseif cl == 707 then
-			cw('y',"I never meant to bring this up...")
+		cw('y', "No pretendía sacar el tema...")
 		elseif cl == 708 then
-			cw('bl',"Yuri turns away from me.")
+		cw('bl', "Yuri me da la espalda.")
 		elseif cl == 709 then
 			updateYuri('4','b2')
-			cw('y',"You should go...")
+		cw('y', "Deberías irte...")
 		elseif cl == 710 then
-			cw('mc',"Eh...?")
+		cw('mc', "¿Eh?")
 		elseif cl == 711 then
-			cw('y',"Please...")
+		cw('y', "Por favor...")
 		elseif cl == 712 then
-			cw('y',"Please don't look at me right now.")
+		cw('y', "Por favor, no me mires.")
 		elseif cl == 713 then
-			cw('y',"I want to do some thinking...")
+		cw('y', "Quiero reflexionar...")
 		elseif cl == 714 then
-			cw('mc',"Are you sure...?")
+		cw('mc', "¿Estás segura...?")
 		elseif cl == 715 then
-			cw('bl',"Yuri nods.")
+		cw('bl', "Yuri asiente.")
 		elseif cl == 716 then
-			cw('mc',"Alright...")
+		cw('mc', "Vale.")
 		elseif cl == 717 then
-			cw('bl',"I leave Yuri be.")
+		cw('bl', "Dejo en paz a Yuri.")
 		elseif cl == 718 then
-			cw('bl',"Comforting or reassuring her is nearly impossible as it is.")
+		cw('bl', "Animarla es prácticamente imposible cuando se pone así.")
 		elseif cl == 719 then
-			cw('bl',"So when she wants to be alone, I think anything I say could only make things worse.")
+		cw('bl', "Así que cuando quiere estar sola creo que solo conseguiré empeorarlo todo.")
 		elseif cl == 720 then
-			cw('bl',"I feel bad, but thankfully she doesn't take it out on me...")
+		cw('bl', "Me siento mal, pero al menos no lo paga conmigo...")
 		elseif cl == 721 then
-			cw('bl',"I'll wait until she's feeling a little bit better.")
+		cw('bl', "Esperaré a que se sienta algo mejor.")
 		elseif cl == 722 then
 			poemfinish('y')
-        end
-    else
+		end
+	else
 		if cl == 670 then
 			updateYuri('1','a')
 			cw('y',"...")
 		elseif cl == 671 then
-			cw('y',"...Ah.")
+		cw('y', "Ah.")
 		elseif cl == 672 then
-			cw('y',"Decided to try something different today?")
+		cw('y', "¿Hoy has decidido probar algo diferente?")
 		elseif cl == 673 then
-			cw('mc',"I guess so.")
+		cw('mc', "Supongo.")
 		elseif cl == 674 then
-			cw('mc',"Is that good, or bad?")
+		cw('mc', "¿Eso es bueno o malo?")
 		elseif cl == 675 then
 			updateYuri('2','g')
-			cw('y',"Well, neither.")
+		cw('y', "Bueno, ninguna de las dos.")
 		elseif cl == 676 then
-			cw('y',"I have my preferences.")
+		cw('y', "Tengo mis gustos.")
 		elseif cl == 677 then
-			cw('y',"But it would be unfair of me to call something good or bad based on that.")
+		cw('y', "Así que decir si es bueno o malo en base a eso sería erróneo.")
 		elseif cl >= 678 then
 			ch3_y_shared()
 		end
@@ -915,150 +915,150 @@ function ch3_y_shared()
 		scriptJump(692)
 	elseif cl == 692 then
 		updateYuri('1','f')
-		cw('y',"As always, I believe what's most important is exploring and discovering yourself.")
+		cw('y', "Como siempre, creo que lo importante es explorar y descubrirse a uno mismo.")
 	elseif cl == 693 then
-		cw('mc',"That's comforting.")
+		cw('mc', "Eso me anima.")
 	elseif cl == 694 then
-		cw('mc',"I'm kind of afraid of disappointing you in some way or another.")
+		cw('mc', "Me da miedo decepcionarte de alguna forma.")
 	elseif cl == 695 then
 		updateYuri('2','t')
-		cw('y',"Eh...?")
+		cw('y', "¿Eh?")
 	elseif cl == 696 then
-		cw('y',"Why me...?")
+		cw('y', "¿Por qué a mí?")
 	elseif cl == 697 then
-		cw('mc',"Well, you're always sophisticated with your writing and have the most advice to share.")
+		cw('mc', "Bueno, tienes un estilo mucho más sofisticado y eres la que más consejos ofrece.")
 	elseif cl == 698 then
 		updateYuri('4','a2')
-		cw('y',"Is that so...?")
+		cw('y', "¿Ah, sí?...")
 	elseif cl == 699 then
 		cw('y',"...")
 	elseif cl == 700 then
-		cw('bl',"Yuri thinks for a good minute.")
+		cw('bl', "Yuri se queda pensativa.")
 	elseif cl == 701 then
 		updateYuri('4','c2')
-		cw('y',"...That must be terrible.")
+		cw('y', "Eso tiene que ser horrible.")
 	elseif cl == 702 then
-		cw('mc',"Eh?")
+		cw('mc',"¿Eh?")
 	elseif cl == 703 then
-		cw('y',"For me to have become someone whose opinion is fearsome...")
+		cw('y', "Convertirme en alguien cuya opinión temas...")
 	elseif cl == 704 then
-		cw('y',"How unlikable of me...")
+		cw('y', "Qué desagradable por mi parte...")
 	elseif cl == 705 then
 		cw('mc',"Yuri...")
 	elseif cl == 706 then
-		cw('mc',"It's not as bad as you're making it sound in your head.")
+		cw('mc', "No es tan malo como tú te crees.")
 	elseif cl == 707 then
-		cw('mc',"I just meant that I respect your opinion.")
+		cw('mc', "Me refiero a que respeto tu opinión.")
 	elseif cl == 708 then
 		updateYuri('2','v')
-		cw('y',"I see...")
+		cw('y', "Ya veo...")
 	elseif cl == 709 then
-		cw('y',"I'm sorry that I always overthink and come to those sorts of conclusions...")
+		cw('y', "Perdona por darle tantas a vueltas a todo y llegar a conclusiones precipitadas...")
 	elseif cl == 710 then
-		cw('y',"I'm just...a little too used to it.")
+		cw('y', "Es que... estoy acostumbrada.")
 	elseif cl == 711 then
-		cw('mc',"Overthinking?")
-    elseif cl == 712 then
-		cw('y',"Being disliked.")
+		cw('mc', "¿A darle vueltas a las cosas?")
+	elseif cl == 712 then
+		cw('y', "A no gustarle a la gente.")
 	elseif cl == 713 then
 		cw('mc',"Yuri...")
 	elseif cl == 714 then
 		updateYuri('3','w')
-		cw('y',"What...what am I saying?")
+		cw('y', "¿Qu-qué estoy diciendo?")
 	elseif cl == 715 then
-		cw('y',"I'm sorry, I didn't mean to bring that up...")
+		cw('y', "Lo siento, no pretendía sacar el tema...")
 	elseif cl == 716 then
-		cw('y',"Let's move on...")
+		cw('y', "Corramos un tupido velo...")
 	elseif cl == 717 then
-		cw('mc',"Alright...")
+		cw('mc', "Muy bien.")
 	elseif cl == 718 then
-		cw('mc',"Do you want to share your poem now?")
+		cw('mc', "¿Quieres enseñarme tu poema?")
 	elseif cl == 719 then
 		updateYuri('2','i')
-		cw('y',"Okay...")
+		cw('y', "Vale.")
 	elseif cl == 720 then
-		cw('y',"Here.")
+		cw('y', "Toma.")
 	elseif cl >= 721 then
 		ch3_y_end()
 	end
 end
 
 function ch3_y_med()
-    if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
-        ch3_y_bad12_shared()
-    elseif y_poemappeal[1] < 1 or y_poemappeal[2] < 1 then
+	if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
+		ch3_y_bad12_shared()
+	elseif y_poemappeal[1] < 1 or y_poemappeal[2] < 1 then
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
 			updateYuri('1','a')
-			cw('y',"Well done, "..player..".")
+		cw('y', "Bien hecho, " .. player .. ".")
 		elseif cl == 672 then
-			cw('y',"You've definitely improved your writing over the course of these few days.")
+		cw('y', "Está claro que has mejorado muchísimo a lo largo de estos días.")
 		elseif cl == 673 then
-			cw('y',"Has my advice been helpful to you?")
+		cw('y', "¿Te han sido de ayuda mis consejos?")
 		elseif cl == 674 then
-			cw('mc',"Yeah... Definitely.")
+		cw('mc', "Sí, por supuesto.")
 		elseif cl == 675 then
 			updateYuri('2','m')
-			cw('y',"I'm glad...")
+		cw('y', "Me alegro...")
 		elseif cl == 676 then
-			cw('y',"Sharing our writing like this...")
+		cw('y', "Compartir nuestros poemas de esta forma...")
 		elseif cl == 677 then
-			cw('y',"It's a lot more fun and rewarding than I anticipated.")
+		cw('y', "Es mucho más divertido y agradable de lo que me imaginaba.")
 		elseif cl == 678 then
-			cw('y',"I need to remember to thank Monika...")
+		cw('y', "Tengo que darle las gracias a Monika...")
 		elseif cl == 679 then
-			cw('y',"I think we all felt a little awkward at first.")
+		cw('y', "Creo que al principio todos nos sentíamos un poco incómodos.")
 		elseif cl == 680 then
 			updateYuri('1','a')
-			cw('y',"But now it seems like everyone is enjoying sharing their writing and seeing what others think.")
+		cw('y', "Pero parece que ahora a todos nos gusta compartir los poemas y escuchar la opinión de los demás.")
 		elseif cl == 681 then
-			cw('mc',"I guess I can't really disagree.")
+		cw('mc', "Supongo que tienes razón.")
 		elseif cl == 682 then
-			cw('mc',"I was afraid this whole thing would be a chore...")
+		cw('mc', "Tenía miedo de que todo esto fuera una lata...")
 		elseif cl == 683 then
-			cw('bl',"But it's a great way for me to spend some personal time with all the girls in the club.")
+		cw('bl', "Pero es una buena forma de pasar más tiempo con todas las chicas del club.")
 		elseif cl == 684 then
-			cw('mc',"But it's been fun getting to know everyone and their writing.")
+		cw('mc', "Pero supongo que es divertido conocer al resto y su estilo.")
 		elseif cl == 685 then
-			cw('mc',"And I guess doing some writing myself...")
+		cw('mc', "Y supongo que haber compuesto algunos poemas...")
 		elseif cl == 686 then
 			updateYuri('2','a')
-			cw('y',"Well...")
+		cw('mc', "Bueno...")
 		elseif cl == 687 then
-			cw('y',"Have you learned anything about yourself, "..player.."?")
+		cw('y', "¿Has aprendido algo sobre ti, " .. player .. "?")
 		elseif cl == 688 then
-			cw('mc',"Eh?")
+			cw('mc',"¿Eh?")
 		elseif cl == 689 then
 			updateYuri('2','i')
-			cw('y',"Well, you know how I like to say that writing is a very personal way to get in touch with yourself...")
+		cw('y', "Bueno, ya sabes que para mí escribir es una forma de conocerse a uno mismo...")
 		elseif cl == 690 then
 			updateYuri('1','a')
-			cw('y',"In the end, it doesn't matter if you're a good writer, or a bad writer.")
+		cw('y', "Al final da igual si se te da bien o mal.")
 		elseif cl == 691 then
-			cw('y',"And even my opinions are just opinions...you know?")
+		cw('y', "Y las opiniones, son eso, opiniones, ¿no?")
 		elseif cl >= 692 then
 			ch3_y_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			updateYuri('1','e')
 			cw('y',"...")
 		elseif cl == 671 then
-			cw('y',"...Ah.")
+		cw('y', "Ah.")
 		elseif cl == 672 then
-			cw('y',"Decided to try something different today?")
+		cw('y', "¿Hoy has decidido probar algo diferente?")
 		elseif cl == 673 then
-			cw('mc',"I guess so.")
+		cw('mc', "Supongo.")
 		elseif cl == 674 then
-			cw('mc',"Is that good, or bad?")
+		cw('mc', "¿Eso es bueno o malo?")
 		elseif cl == 675 then
 			updateYuri('2','i')
-			cw('y',"Well, neither.")
+		cw('y', "Bueno, ninguna de las dos.")
 		elseif cl == 676 then
-			cw('y',"I have my preferences.")
+		cw('y', "Tengo mis gustos.")
 		elseif cl == 677 then
-			cw('y',"But it would be unfair of me to call something good or bad based on that.")
+		cw('y', "Así que decir si es bueno o malo en base a eso sería erróneo.")
 		elseif cl >= 678 then
 			ch3_y_shared()
 		end
@@ -1066,141 +1066,141 @@ function ch3_y_med()
 end
 
 function ch3_y_good()
-    if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
-        ch3_y_bad12_shared()
-    elseif y_poemappeal[2] < 1 then
+	if y_poemappeal[1] < 0 and y_poemappeal[2] < 0 then
+		ch3_y_bad12_shared()
+	elseif y_poemappeal[2] < 1 then
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
 			updateYuri('2','u')
 			cw('y',player.."...")
 		elseif cl == 672 then
-			cw('y',"...This is wonderful.")
+		cw('y', "Es maravilloso.")
 		elseif cl == 673 then
-			cw('y',"I can feel the emotion that you poured into it.")
+		cw('y', "Puedo sentir la emoción que has volcado en el poema.")
 		elseif cl == 674 then
-			cw('y',"Is this the result of trying what I suggested yesterday?")
+		cw('y', "¿Es este el resultado de lo que te sugerí ayer?")
 		elseif cl == 675 then
-			cw('mc',"Yeah, I guess so...")
+		cw('mc', "Sí, supongo...")
 		elseif cl == 676 then
-			cw('mc',"You did a good job explaining.")
+		cw('mc', "Has hecho un buen trabajo explicándolo.")
 		elseif cl == 677 then
-			cw('mc',"I really wanted to try giving it more feeling.")
+		cw('mc', "La verdad es que quería darle mucho más sentimiento.")
 		elseif cl == 678 then
 			updateYuri('4','b2')
-			cw('bl',"Yuri visibly swallows.")
+		cw('bl', "Yuri traga saliva.")
 		elseif cl == 679 then
-			cw('bl',"Even her hands appear sweaty.")
+		cw('bl', "Hasta sus manos parecen sudorosas.")
 		elseif cl == 680 then
 			audioUpdate('9')
-			cw('y',"I'm not...used to this...")
+		cw('y', "No estoy... acostumbrada a esto...")
 		elseif cl == 681 then
-			cw('mc',"Used to what?")
+		cw('mc', "¿Acostumbrada a qué?")
 		elseif cl == 682 then
 			updateYuri('3','o')
-			cw('y',"I don't know...!")
+		cw('y', "¡No lo sé!")
 		elseif cl == 683 then
-			cw('mc',"It's fine, take your time...")
+		cw('mc', "No pasa nada, tómate tu tiempo...")
 		elseif cl == 684 then
-			cw('bl',"Yuri breathes and collects her thoughts.")
+		cw('bl', "Yuri respira hondo y se concentra.")
 		elseif cl == 685 then
-			cw('bl',"I know that Yuri likes to think before she speaks, so I offer that patience to her.")
+		cw('bl', "Sé que a Yuri le gusta pensar antes de hablar, así que le dejo su tiempo.")
 		elseif cl == 686 then
 			updateYuri('4','a2')
-			cw('y',"Yeah...")
+		cw('mc', "Sí...")
 		elseif cl == 687 then
-			cw('y',"Just...being appreciated like this...I guess.")
+		cw('y', "El hecho... de que me aprecien de esta manera... supongo.")
 		elseif cl == 688 then
-			cw('y',"It probably sounds really stupid...")
+		cw('y', "Seguramente parecerá estúpido...")
 		elseif cl == 689 then
-			cw('y',"But seeing someone motivated by my writing...")
+		cw('y', "Pero ver que mis poemas motivan a alguien...")
 		elseif cl == 690 then
-			cw('y',"It just makes me...")
+		cw('y', "Me hace...")
 		elseif cl == 691 then
-			cw('y',"Really happy...")
+		cw('y', "Muy feliz...")
 		elseif cl == 692 then
-			cw('mc',"Are you saying you've never shared your writing before?")
+		cw('mc', "¿Me estás diciendo que nunca habías enseñado tus poemas?")
 		elseif cl == 693 then
-			cw('bl',"Yuri nods.")
+			cw('bl',"Yuri asiente.")
 		elseif cl == 694 then
-			cw('mc',"Really? I don't believe it.")
+		cw('mc', "¿En serio? No me lo creo.")
 		elseif cl == 695 then
-			cw('y',"I really only write for myself...")
+		cw('y', "La verdad es que solo escribo para mí...")
 		elseif cl == 696 then
-			cw('y',"And besides...")
+		cw('y', "Y además...")
 		elseif cl == 697 then
 			updateYuri('3','w')
-			cw('y',"...People would just laugh at me!")
+		cw('y', "¡La gente se reiría de mí!")
 		elseif cl == 698 then
-			cw('mc',"Do you really think that...?")
+		cw('mc', "¿De verdad crees eso?")
 		elseif cl == 699 then
-			cw('bl',"Again, Yuri nods.")
+		cw('bl', "Yuri vuelve a asentir.")
 		elseif cl == 700 then
-			cw('mc',"Huh...")
+		cw('mc', "Mmm...")
 		elseif cl == 701 then
-			cw('mc',"Even your close friends?")
+		cw('mc', "¿Hasta tus amigos más cercanos?")
 		elseif cl == 702 then
 			updateYuri('2','v')
 			cw('y',"...")
 		elseif cl == 703 then
-			cw('bl',"For some reason, Yuri doesn't respond.")
+		cw('bl', "Por alguna razón, Yuri no responde.")
 		elseif cl == 704 then
-			cw('mc',"Yuri...?")
+		cw('mc', "¿Yuri?...")
 		elseif cl >= 705 then
 			ch3_y_good_shared()
-        end
-    else
+		end
+	else
 		if cl == 670 then
 			cw('y',"...")
 		elseif cl == 671 then
 			cw('y',player..".")
 		elseif cl == 672 then
 			updateYuri('2','s')
-			cw('y',"Your writing has only improved in these last few days.")
+		cw('y', "No has hecho más que mejorar últimamente.")
 		elseif cl == 673 then
-			cw('y',"Every poem you've shown me has been nothing short of spectacular.")
+		cw('y', "Todos los poemas que me has enseñado son espectaculares.")
 		elseif cl == 674 then
-			cw('y',"I can really feel the emotions...")
+		cw('y', "Puedo sentir tus emociones...")
 		elseif cl == 675 then
 			updateYuri('2','m')
-			cw('y',"I'm a little envious, even...")
+		cw('y', "Hasta estoy un poco celosa...")
 		elseif cl == 676 then
-			cw('y',"I don't think it ever came to me this naturally.")
+		cw('y', "Creo que nunca me ha salido tan natural.")
 		elseif cl == 677 then
-			cw('mc',"Yuri, that's the wrong way to put it.")
+		cw('mc', "Yuri, te estás equivocando.")
 		elseif cl == 678 then
-			cw('mc',"This never did come naturally to me.")
+		cw('mc', "Esto no me ha salido tan natural sin más.")
 		elseif cl == 679 then
-			cw('mc',"But I've been able to improve so much thanks to you.")
+		cw('mc', "Sino que he podido mejorar tanto gracias a ti.")
 		elseif cl == 680 then
-			cw('mc',"You're really the example I was chasing after.")
+		cw('mc', "Eres el ejemplo que estaba buscando.")
 		elseif cl == 681 then
 			updateYuri('3','u')
-			cw('y',"I-Is that so...?")
+		cw('y', "¿A-ah, sí?")
 		elseif cl == 682 then
-			cw('y',"Yuri gently smiles to herself.")
+		cw('bl', "Yuri sonríe ligeramente.")
 		elseif cl == 683 then
-			cw('y',"This feeling...")
+		cw('y', "Esta sensación...")
 		elseif cl == 684 then
-			cw('y',"I'm so glad...I got the chance to share my writing.")
+		cw('y', "Me alegro tanto... de haber podido compartir mis poemas.")
 		elseif cl == 685 then
 			updateYuri('4','e2')
-			cw('y',"I never thought it would feel like this.")
+		cw('y', "No me imaginaba que me sentiría así.")
 		elseif cl == 686 then
-			cw('mc',"I remember you mentioning that yesterday.")
+		cw('mc', "Recuerdo que ayer dijiste algo parecido.")
 		elseif cl == 687 then
-			cw('mc',"I can't believe that you're so good at something and you've never even shared it with anyone.")
+		cw('mc', "No me creo que seas tan buena en algo y no lo hayas compartido nunca.")
 		elseif cl == 688 then
-			cw('mc',"It's kind of a shame.")
+		cw('mc', "Es una pena.")
 		elseif cl == 689 then
 			updateYuri('2','u')
-			cw('y',"Maybe, but...")
+		cw('y', "Quizá, pero...")
 		elseif cl == 690 then
-			cw('y',"It's not like I really...had a choice.")
+		cw('y', "Tampoco es... que tuviera otra opción.")
 		elseif cl == 691 then
-			cw('mc',"What do you mean...?")
+		cw('mc', "¿Qué quieres decir?")
 		elseif cl == 692 then
-			cw('y',"Well...")
+		cw('y', "Bueno...")
 		elseif cl >= 693 then
 			ch3_y_good_shared()
 		end
@@ -1212,143 +1212,143 @@ function ch3_y_good_shared()
 		scriptJump(705)
 	elseif cl == 705 then
 		audioUpdate('9')
-		cw('bl',"Yuri smiles sadly.")
+		cw('bl', "Yuri sonríe con tristeza.")
 	elseif cl == 706 then
 		updateYuri('1','u')
-		cw('y',player..", during lunchtime, I eat by myself.")
+		cw('y', "" .. player .. ", yo como sola a la hora de la comida.")
 	elseif cl == 707 then
-		cw('y',"Did you know that?")
+		cw('y', "¿Lo sabías?")
 	elseif cl == 708 then
-		cw('y',"It's a great time to find a quiet spot and do some reading.")
+		cw('y', "Es un momento perfecto para encontrar un sitio tranquilo en el que leer.")
 	elseif cl == 709 then
-		cw('y',"In fact...")
+		cw('y', "De hecho...")
 	elseif cl == 710 then
 		updateYuri('2','s')
-		cw('y',"I always have some books with me.")
+		cw('y', "Siempre llevo un libro encima.")
 	elseif cl == 711 then
-		cw('y',"You could say I really enjoy reading...")
+		cw('y', "Se podría decir que me encanta la lectura...")
 	elseif cl == 712 then
-		cw('y',"...Well, that's one way to put it, anyway...")
+		cw('y', "Bueno, al menos es una forma de decirlo...")
 	elseif cl == 713 then
-		cw('y',"But...")
+		cw('s', "Pero...")
 	elseif cl == 714 then
-		cw('y',"Books are so full of amazing and inspiring people.")
+		cw('y', "Los libros están llenos de personajes increíbles e inspiradores.")
 	elseif cl == 715 then
-		cw('y',"People you want to fall in love with.")
+		cw('y', "Personajes de los que te quieres enamorar.")
 	elseif cl == 716 then
-		cw('y',"Or people you just know would make a really good friend.")
+		cw('y', "O personajes de los cuales sabes que serían buenos amigos.")
 	elseif cl == 717 then
 		updateYuri('1','m')
-		cw('y',"Cheerful people, who always put a smile on your face...")
+		cw('y', "Personajes alegres, que siempre logran hacerte sonreír...")
 	elseif cl == 718 then
-		cw('y',"Or deep thinkers, and problem solvers, who discover the mysteries of life.")
+		cw('y', "O pensadores, de los que resuelven problemas y que descubren los misterios de la vida.")
 	elseif cl == 719 then
-		cw('y',"So when you look at it that way...")
+		cw('y', "Así que si lo miras de esa forma...")
 	elseif cl == 720 then
-		cw('y',"I'm surrounded by friends every day...")
+		cw('y', "Estoy rodeada de amigos cada día.")
 	elseif cl == 721 then
-		cw('y',"...You know?")
+		cw('y', "¿Sabes?")
 	elseif cl == 722 then
 		updateYuri('2','s')
-		cw('y',"And those friends don't laugh at me...")
+		cw('y', "Y estos no se ríen de mí...")
 	elseif cl == 723 then
-		cw('y',"They don't tease me for spacing out all the time...")
+		cw('y', "No se meten conmigo por quedarme en babia todo el rato...")
 	elseif cl == 724 then
-		cw('y',"They don't make fun of my body type...")
+		cw('y', "No se ríen de mi cuerpo...")
 	elseif cl == 725 then
-		cw('y',"And...")
+		cw('y', "Y...")
 	elseif cl == 726 then
 		updateYuri('3','v')
-		cw('y',"...And they don't hate me for acting like a know-it-all!")
+		cw('y', "¡Y no me odian por parecer una sabelotodo!")
 	elseif cl == 727 then
-		cw('mc',"People...say that about you?")
+		cw('mc', "¿La gente... dice eso de ti?")
 	elseif cl == 728 then
-		cw('y',"I'm not a know-it-all, "..player.."!")
+		cw('y', "¡No soy una sabelotodo, " .. player .. "!")
 	elseif cl == 729 then
-		cw('y',"It's the opposite. I don't know anything!")
+		cw('y', "Al contrario. ¡No sé nada!")
 	elseif cl == 730 then
 		updateYuri('4','b2')
-		cw('y',"I don't know how to talk to people.")
+		cw('y', "No sé cómo hablarle a la gente.")
 	elseif cl == 731 then
-		cw('y',"I don't know how to make people see me as normal.")
+		cw('y', "No sé cómo hacer que la gente me vea como a una persona normal.")
 	elseif cl == 732 then
-		cw('y',"I don't even know how to make myself happy!")
+		cw('y', "¡Ni siquiera sé cómo ser feliz!")
 	elseif cl == 733 then
-		cw('y',"I have all these feelings...")
+		cw('y', "Así es como me siento...")
 	elseif cl == 734 then
-		cw('y',"And all I can do with them is read, and write...")
+		cw('y', "Y lo único que puedo hacer es leer y escribir...")
 	elseif cl == 735 then
-		cw('y',"But it wasn't until now...")
-    elseif cl == 736 then
+		cw('y', "Pero no ha sido hasta ahora...")
+	elseif cl == 736 then
 		updateYuri('2','s')
-		cw('y',"That I started sharing it with you...")
+		cw('y', "Que he empezado a compartir todo contigo...")
 	elseif cl == 737 then
-		cw('y',"...That I really understood what was missing all this time.")
+		cw('y', "Es cuando he entendido qué es lo que me faltaba.")
 	elseif cl == 738 then
-		cw('mc',"But I haven't really done anything...")
+		cw('mc', "Pero si no he hecho nada...")
 	elseif cl == 739 then
 		cw('y',"No...")
 	elseif cl == 740 then
-		cw('y',"That's wrong.")
+		cw('y', "Te equivocas.")
 	elseif cl == 741 then
-		cw('y',"Just being patient and respectful...")
+		cw('y', "Has sido paciente y respetuoso...")
 	elseif cl == 742 then
 		updateYuri('3','u')
-		cw('y',"That's really...important to me.")
+		cw('y', "Todo eso es... muy importante para mí.")
 	elseif cl == 743 then
-		cw('y',"I know I'm a difficult person, "..player.."...")
+		cw('y', "Sé que soy algo difícil de lidiar, " .. player .. "...")
 	elseif cl == 744 then
-		cw('y',"I speak too slowly...")
+		cw('y', "Hablo lentamente...")
 	elseif cl == 745 then
-		cw('y',"I second-guess myself all the time...")
+		cw('y', "No paro de corregirme todo el rato...")
 	elseif cl == 746 then
-		cw('y',"I read too deeply into things...")
+		cw('y', "Siempre le doy demasiadas vueltas a las cosas...")
 	elseif cl == 747 then
-		cw('y',"But every time...")
+		cw('y', "Pero siempre...")
 	elseif cl == 748 then
-		cw('y',"You've always treated me just like anyone else.")
+		cw('y', "Tú siempre me has tratado como al resto.")
 	elseif cl == 749 then
-		cw('y',"It's so rare that I feel comfortable with myself when I talk to others...")
+		cw('y', "Es tan raro que ahora me siento cómoda hablando con los demás...")
 	elseif cl == 750 then
-		cw('y',"But that's why every time I talk to you...")
+		cw('y', "Pero por eso, cada vez que hablo contigo...")
 	elseif cl == 751 then
 		updateYuri('2','s')
-		cw('y',"...I just feel really happy.")
+		cw('y', "Me siento muy feliz.")
 	elseif cl == 752 then
-		cw('mc',"I see...")
+		cw('mc', "Ya veo...")
 	elseif cl == 753 then
-		cw('mc',"Well, I treat you how you deserve to be treated, Yuri.")
+		cw('mc', "Bueno, te trato como mereces que te traten, Yuri.")
 	elseif cl == 754 then
-		cw('mc',"And if other people don't see it that way, then screw them.")
+		cw('mc', "Y si los demás no lo ven, que les den.")
 	elseif cl == 755 then
-		cw('mc',"I mean, I joined this club hoping I would make friends.")
+		cw('mc', "Mira, me uní al club esperando hacer nuevos amigos.")
 	elseif cl == 756 then
-		cw('mc',"And I would say I've had at least one success.")
+		cw('mc', "Y, al menos, puedo decir que he tenido éxito una vez.")
 	elseif cl == 757 then
-		cw('mc',"Wouldn't you?")
+		cw('mc', "¿No crees?")
 	elseif cl == 758 then
 		updateYuri('4','b2')
-		cw('y',"U-Um...")
+		cw('mc', "Mmm...")
 	elseif cl == 759 then
-		cw('y',"If you put it that way...")
+		cw('y', "Diciéndolo así...")
 	elseif cl == 760 then
-		cw('y',"...Yeah...")
+		cw('y', "Pues sí.")
 	elseif cl == 761 then
 		updateYuri('4','e2')
-		cw('y',"We really are friends now, aren't we?")
+		cw('y', "Ya somos amigos de verdad, ¿no?")
 	elseif cl == 762 then
-		cw('bl',"Yuri puts her head in her hands.")
+		cw('bl', "Yuri se pone las manos en la cabeza.")
 	elseif cl == 763 then
-		cw('bl',"But this time, she's smiling as she does it.")
+		cw('bl', "Pero esta vez sonríe.")
 	elseif cl == 764 then
-		cw('mc',"Do you want to show me your poem?")
+		cw('mc', "¿Quieres enseñarme tu poema?")
 	elseif cl == 765 then
 		updateYuri('3','s')
-		cw('y',"Yeah.")
+		cw('y', "Sí.")
 	elseif cl == 766 then
-		cw('y',"I do!")
+		cw('y', "¡Claro!")
 	elseif cl == 767 then
-		cw('y',"Let me get it for you...")
+		cw('y', "Déjame ir a por él.")
 	elseif cl >= 768 then
 		ch3_y_end()
 	end
@@ -1364,172 +1364,172 @@ function ch2_n_end()
 	elseif cl == 763 then
 		poem_disable()
 		updateNatsuki('2','a')
-		cw('n',"Not bad, right?")
+		cw('n', "Nada mal, ¿eh?")
 	elseif cl == 764 then
-		cw('mc',"It's quite a bit longer than yesterday's.")
+		cw('mc', "Es un poco más largo que el de ayer.")
 	elseif cl == 765 then
 		updateNatsuki('2','w')
-		cw('n',"Yesterday's was way too short...")
+		cw('n', "El de ayer era demasiado corto...")
 	elseif cl == 766 then
-		cw('n',"I was just warming up!")
+		cw('n', "¡Solo estaba calentando!")
 	elseif cl == 767 then
 		updateNatsuki('2','c')
-		cw('n',"I hope you didn't think that was the best I could do.")
+		cw('n', "Espero no haberte dado la impresión de que eso era lo mejor que podía hacer.")
 	elseif cl == 768 then
-		cw('mc',"No, of course not...")
+		cw('mc', "Por supuesto que no...")
 	elseif cl == 769 then
 		updateNatsuki('2','a')
-		cw('n',"Anyway, the message is pretty straightforward in this poem.")
+		cw('n', "De todas formas, está claro el mensaje que tiene el poema.")
 	elseif cl == 770 then
-		cw('n',"I doubt I have to explain it.")
+		cw('n', "No creo que haga falta explicarlo.")
 	elseif cl == 771 then
 		updateNatsuki('2','c')
-		cw('n',"Sometimes you can explain complicated issues with much simpler analogies...")
+		cw('n', "A veces puedes explicar algo complejo con analogías mucho más simples...")
 	elseif cl == 772 then
-		cw('n',"And it helps people realize how stupid they're being.")
+		cw('n', "Además, ayuda a que la gente se dé cuenta de lo estúpida que es.")
 	elseif cl == 773 then
 		updateNatsuki('2','g')
-		cw('n',"Like, anyone would agree that the subject of this poem is an ignorant jerk...")
+		cw('n', "Cualquiera estaría de acuerdo con que el sujeto de este poema es un puto ignorante...")
 	elseif cl == 774 then
-		cw('mc',"Do you know people like that?")
+		cw('mc', "¿Conoces a gente así?")
 	elseif cl == 775 then
 		updateNatsuki('2','c')
-		cw('n',"Of course. It's about how everyone thinks my--")
+		cw('n', "Claro, es lo que piensa todo el mundo de mí...")
 	elseif cl == 776 then
 		updateNatsuki('5','w')
-		cw('n',"...That doesn't matter! It can be about anything!")
+		cw('n', "¡Eso da igual! ¡Puede ser sobre cualquier cosa!")
 	elseif cl == 777 then
 		updateNatsuki('5','h')
-		cw('n',"I wrote it to be easy to relate to...")
+		cw('n', "Lo compuse para que fuese fácil sentirse identificado...")
 	elseif cl == 778 then
-		cw('n',"Everyone has some kind of weird hobby, or a guilty pleasure.")
+		cw('n', "Todo el mundo tiene algún pasatiempo raro o algún gusto inconfesable.")
 	elseif cl == 779 then
 		updateNatsuki('5','q')
-		cw('n',"Something that you're afraid if people find out, they'd make fun of you or think less of you.")
+		cw('n', "Es algo que temes a que la gente se entere, se burlarían o pensarían muy mal de ti.")
 	elseif cl == 780 then
 		updateNatsuki('1','e')
-		cw('n',"...But that just makes people stupid!")
+		cw('n', "¡Eso es lo que les hace estúpidos!")
 	elseif cl == 781 then
-		cw('n',"Who cares what someone likes, as long as they're not hurting anyone, and it makes them happy?")
+		cw('n', "¿A quién le importa lo que le guste a esa persona? Siempre y cuando le haga feliz sin hacer daño a nadie.")
 	elseif cl == 782 then
 		updateNatsuki('1','q')
-		cw('n',"I think people really need to learn to respect others for liking weird things...")
+		cw('n', "Creo que la gente debería aprender a respetar a los demás por gustarles cosas raras...")
 	elseif cl == 783 then
 		if readpoem.y == 1 and (y_poemappeal[1] >= 0 or y_poemappeal[2] >= 0) then
-			cw('mc',"Huh, that's funny...")
+		cw('mc', "Ja, qué raro...")
 		else
-			cw('mc',"Well, you're definitely right.")
+		cw('mc', "Bueno, tenías toda la razón.")
 		end
 	elseif cl == 784 then
 		if readpoem.y == 1 and (y_poemappeal[1] >= 0 or y_poemappeal[2] >= 0) then
-			cw('mc',"Yuri wrote about something similar today.")
+		cw('mc', "Yuri compuso hoy un poema parecido.")
 		else
-			cw('mc',"At least, I can relate to that.")
+		cw('mc', "Al menos puedo sentirme identificado con esto.")
 		end
 	elseif cl == 785 then
 		if readpoem.y == 1 and (y_poemappeal[1] >= 0 or y_poemappeal[2] >= 0) then
 			updateNatsuki('1','h')
-			cw('n',"Huh?")
+		cw('n', "¿Eh?")
 		else
-			cw('mc',"And I'm sure a lot of other people can, too.")
+		cw('mc', "Y estoy seguro de que hay mucha más gente que también.")
 		end
 	elseif cl == 786 then
 		if readpoem.y == 1 and (y_poemappeal[1] >= 0 or y_poemappeal[2] >= 0) then
-			cw('n',"Did you say Yuri?")
+		cw('n', "¿Has dicho Yuri?")
 		else
 			scriptJump(805)
 		end
 	elseif cl == 787 then
-		cw('mc',"Yeah...")
+		cw('mc', "Sí...")
 	elseif cl == 788 then
-		cw('mc',"She said her poem was about an unusual hobby of hers.")
+		cw('mc', "Dijo que su poema iba sobre uno de sus pasatiempos raros.")
 	elseif cl == 789 then
-		cw('mc',"I didn't really get it, but she said something similar to you...")
+		cw('mc', "No lo he pillado, pero me ha dicho algo parecido a lo tuyo.")
 	elseif cl == 790 then
-		cw('mc',"That people shouldn't make each other feel insecure about those things.")
+		cw('mc', "Que la gente no debería hacer sentir incómodo a nadie con este tipo de cosas.")
 	elseif cl == 791 then
 		updateNatsuki('1','q')
-		cw('n',"Really?")
+		cw('n', "¿En serio?")
 	elseif cl == 792 then
-		cw('n',"Well...")
+		cw('n', "Bueno...")
 	elseif cl == 793 then
 		updateNatsuki('1','t')
-		cw('n',"I mean, Yuri's pretty weird, so I wouldn't doubt that she has some weird hobbies...")
+		cw('n', "A ver, Yuri es bastante rarita, así que no me extraña que tenga pasatiempos raros...")
 	elseif cl == 794 then
-		cw('n',"...Not that there's anything wrong with that!")
+		cw('n', "¡Aunque tampoco hay nada malo en eso!")
 	elseif cl == 795 then
 		updateNatsuki('1','u')
-		cw('n',"Uu...")
+		cw('n', "Em...")
 	elseif cl == 796 then
-		cw('n',"It's not like...I would judge her or anything...")
+		cw('n', "No es... como si fuera a juzgarla ni nada...")
 	elseif cl == 797 then
-		cw('bl',"Natsuki has trouble finding words.")
+		cw('bl', "A Natsuki le cuesta expresarse.")
 	elseif cl == 798 then
 		updateNatsuki('1','q')
-		cw('n',"I-I guess I should try not to be so mean to her...")
+		cw('n', "Su-supongo que debería intentar ser menos borde con ella...")
 	elseif cl == 799 then
-		cw('n',"If she feels insecure about her weird behaviors and stuff...")
+		cw('n', "Si se siente incómoda sobre sus comportamientos tan raros y tal...")
 	elseif cl == 800 then
-		cw('n',"I mean, I always hate people who make me feel insecure...")
+		cw('n', "O sea, yo odio a quienes me hacen sentir incómoda...")
 	elseif cl == 801 then
 		updateNatsuki('1','w')
-		cw('n',"And Yuri made me feel insecure yesterday!")
+		cw('n', "¡Y ayer Yuri me hizo sentir incómoda!")
 	elseif cl == 802 then
 		updateNatsuki('1','s')
-		cw('n',"But the way you put it, it sounds like she's learned her lesson...")
+		cw('n', "Pero por lo que dices, parece que ya ha aprendido la lección...")
 	elseif cl == 803 then
-		cw('mc',"Well, I would say so.")
+		cw('mc', "Bueno, eso parece.")
 	elseif cl == 804 then
-		cw('mc',"Even if her writing style is really different, I'm sure she'll appreciate the message in your poem.")
+		cw('mc', "Aunque tengáis un estilo muy diferente, seguro que aprecia el mensaje de tu poema.")
 	elseif cl >= 805 then
 		if appeal.n >= 2 then
 			if cl == 805 then
 				updateNatsuki('4','h')
-				cw('n',"You know...")
+		cw('n', "Ya sabes...")
 			elseif cl == 806 then
-				cw('n',"I'm glad that you can appreciate this kind of writing...")
+		cw('n', "Me alegra que puedas apreciar este estilo de composición...")
 			elseif cl == 807 then
 				updateNatsuki('4','q')
-				cw('n',"I mean...I know I was talking about that yesterday.")
+		cw('n', "Quiero decir, ya sé que ayer estuvimos hablando sobre el mismo tema.")
 			elseif cl == 808 then
-				cw('n',"But I've been...well, I've been enjoying sharing my writing with you, so...")
+		cw('n', "Pero... bueno, me ha gustado compartir mis poemas contigo, así que...")
 			elseif cl == 809 then
 				updateNatsuki('4','w')
-				cw('n',"...So consider yourself lucky, okay?")
+		cw('n', "Así que considérate afortunado, ¿vale?")
 			elseif cl == 810 then
-				cw('mc',"Ahaha.")
+		cw('mc', "Ja, ja, ja.")
 			elseif cl == 811 then
-				cw('mc',"Well, thanks for being honest.")
+		cw('mc', "Bueno, gracias por ser sincera.")
 			elseif cl == 812 then
 				updateNatsuki('1','n')
-				cw('n',"What's that supposed to mean?")
+		cw('n', "¿Qué quieres decir con eso?")
 			elseif cl == 813 then
-				cw('n',"I'm always honest!")
+		cw('n', "¡Yo siempre soy sincera!")
 			elseif cl == 814 then
 				updateNatsuki('1','2b')
-				cw('n',"Jeez...")
+		cw('n', "Ainss...")
 			elseif cl == 815 then
-				cw('n',"Just look forward to tomorrow too, okay?")
+		cw('n', "Tú espera a mañana y verás, ¿vale?")
 			elseif cl == 816 then
-				cw('mc',"Alright, I will.")
+		cw('mc', "Vale.")
 			elseif cl == 817 then
 				poemfinish('n')
 			end
 		else	
 			if cl == 805 then
 				updateNatsuki('4','c')
-				cw('n',"It's what I do best, after all!")
+		cw('n', "Después de todo, ¡es lo que mejor se me da!")
 			elseif cl == 806 then
-				cw('n',"I don't like writing unless there's a good message to take away from it.")
+		cw('n', "No me gusta componer a menos que pueda sacar algo de ello.")
 			elseif cl == 807 then
-				cw('n',"Like, conveying emotions is important...")
+		cw('n', "Transmitir emociones y tal es importante...")
 			elseif cl == 808 then
-				cw('n',"But I want to make people think, not just feel.")
+		cw('n', "No solo quiero que sientan, también quiero que piensen.")
 			elseif cl == 809 then
 				updateNatsuki('4','b')
-				cw('n',"Remember that!")
+		cw('n', "¡Que te quede claro!")
 			elseif cl == 810 then
-				cw('n',"I'm gonna write a good one for tomorrow, too, so look forward to it.")
+		cw('n', "Mañana volveré a componer otro, así que más te vale tener ganas.")
 			elseif cl == 811 then
 				poemfinish('n')
 			end
@@ -1538,69 +1538,69 @@ function ch2_n_end()
 end
 
 function ch2_n_bad()
-    if n_poemappeal[1] < 0 then
+	if n_poemappeal[1] < 0 then
 		if cl == 670 then
-			cw('n',"...Hm.")
+		cw('n', "Mmm...")
 		elseif cl == 671 then
 			updateNatsuki('2','k')
-			cw('n',"Well, I can admit that it's better than the last one.")
+		cw('n', "Bueno, lo que sí es verdad, es que este está mucho mejor que el anterior.")
 		elseif cl == 672 then
-			cw('n',"It's nice to see that you're putting in some effort.")
+		cw('n', "Es bueno ver que estás poniendo de tu parte.")
 		elseif cl == 673 then
-			cw('mc',"That's good...")
+		cw('mc', "Eso es bueno...")
 		elseif cl == 674 then
 			updateNatsuki('2','c')
-			cw('n',"But I still don't like this at all.")
+		cw('n', "Pero sigue sin gustarme hacer esto.")
 		elseif cl == 675 then
-			cw('n',"It's trying too hard to be serious.")
+		cw('n', "Creo que pretende ser demasiado serio.")
 		elseif cl == 676 then
-			cw('mc',"Eh? What do you mean by that?")
+		cw('mc', "¿Eh? ¿Qué quieres decir con eso?")
 		elseif cl >= 677 then
 			ch2_n_bad_sharedwithch3()
 		end
 	else
 		if cl == 670 then
 			updateNatsuki('1','k')
-			cw('n',"...Hm.")
+		cw('n', "Mmm...")
 		elseif cl == 671 then
-			cw('n',"I liked your last one better.")
+		cw('n', "Me gustó más el anterior.")
 		elseif cl == 672 then
-			cw('mc',"Eh? Really?")
+		cw('mc', "¿Eh? ¿En serio?")
 		elseif cl == 673 then
 			updateNatsuki('2','c')
-			cw('n',"Well yeah. I can tell you were a little more daring with this one.")
+		cw('n', "Claro. En este te veo mucho más osado.")
 		elseif cl == 674 then
-			cw('n',"But you're really not good enough for that yet. It fell flat.")
+		cw('n', "Pero todavía te falta mucho. Qué desastre.")
 		elseif cl == 675 then
-			cw('mc',"That may be true, but I just wanted to try something different.")
+		cw('mc', "Tienes toda la razón, estaba intentando probar algo diferente.")
 		elseif cl == 676 then
-			cw('mc',"I'm still figuring this all out.")
+		cw('mc', "Todavía le estoy dando muchas vueltas a esto.")
 		elseif cl == 677 then
 			updateNatsuki('2','k')
-			cw('n',"I mean, I always like poems that aren't trying too hard.")
+		cw('n', "A ver, a mí me gustan los poemas más simples.")
 		elseif cl == 678 then
 			updateNatsuki('2','q')
-			cw('n',"I hate when people try to sound fancy or add more meaning just by using annoying and complicated language.")
+		cw('n', "Odio cuando alguien quiere sonar más pijo o le mete más significados usando palabras pomposas y complicadas.")
 		elseif cl == 679 then
 			updateNatsuki('4','b')
-			cw('n',"Just make it simple, cute, and to the point!")
+		cw('n', "¡Lo mejor es simple, adorable y conciso!")
 		elseif cl == 680 then
 			updateNatsuki('4','y')
-			cw('n',"Yuri's head over heels for all this cryptic nonsense, but I see right through that BS. Hah!")
+		cw('n', "A Yuri le pirra este tipo de mensajes tan crípticos, pero yo sé cuál es su rollo. ¡Ja!")
 		elseif cl == 681 then
 			updateNatsuki('4','2a')
-			cw('n',"Making your reader look so hard for all this deep meaning is just an excuse to have no meaning at all.")
+		cw('n', "Hacer que el lector tenga que buscar algo tan profundo no es más que una fachada para la falta de significado.")
 		elseif cl == 682 then
-			cw('mc',"I guess that's one way to look at it.")
+		cw('mc', "Supongo que es una forma de verlo.")
 		elseif cl == 683 then
-			cw('n',"Well, everyone has their own opinion.")
+		cw('n', "Bueno, cada uno tiene su opinión.")
 		elseif cl == 684 then
-			cw('n',"But my opinion is the best opinion. I'm sure you've figured that out already.")
+		cw('n', "Pero la mía es la mejor. Estoy segura de que ya te has dado cuenta.")
 		elseif cl == 685 then
-			cw('mc',"Er...")
+		cw('mc', "Em...")
 		elseif cl == 686 then
 			updateNatsuki('2','a')
-			cw('n',"Anyway, here's my poem. Maybe you'll learn something.")
+		cw('n', "Bueno, aquí tienes mi poema. Quizá aprendas algo.")
 		elseif cl >= 687 then
 			ch2_n_end()
 		end
@@ -1612,122 +1612,122 @@ function ch2_n_bad_sharedwithch3()
 		scriptJump(678)
 	elseif cl == 678 then
 		updateNatsuki('4','c')
-		cw('n',"Poems don't need to be all deep-sounding to express something.")
+		cw('n', "Los poemas no tienen por qué ser superprofundos para expresar algo.")
 	elseif cl == 679 then
-		cw('n',"It's going to just sound like you're forcing it unless you really don't suck at it.")
+		cw('n', "A no ser que seas un experto, parecerá que lo estás forzando.")
 	elseif cl == 680 then
 		updateNatsuki('4','w')
-		cw('n',"Honestly... Don't bother trying to write poems like this until you're on Yuri's level--")
+		cw('n', "Si te soy sincera, no te molestes en escribir poemas así hasta que llegues al nivel de Yuri...")
 	elseif cl == 681 then
 		updateNatsuki('4','o')
-		cw('bl',"Natsuki stops short all of a sudden.")
+		cw('bl', "Natsuki se corta de repente.")
 	elseif cl == 682 then
 		updateNatsuki('1','o')
-		cw('n',"D-Don't...tell me...")
+		cw('n', "N-no... me digas que...")
 	elseif cl == 683 then
-		cw('mc',"Eh?")
+		cw('mc',"¿Eh?")
 	elseif cl == 684 then
-		cw('n',"You're not...you're not just trying to impress Yuri, are you?!")
+		cw('n', "No estarás... intentado impresionar a Yuri, ¡¿no?!")
 	elseif cl == 685 then
-		cw('mc',"W-What are you talking about?? And keep your voice down...!")
+		cw('mc', "¿¿D-de qué estás hablando?? ¡Baja la voz!")
 	elseif cl == 686 then
 		updateNatsuki('1','x')
-		cw('n',"You know Yuri would love this kind of...this angsty.......!!")
+		cw('n', "¡¡Sabías que a Yuri le encantaría... este tipo de angustia!!")
 	elseif cl == 687 then
-		cw('mc',"Just because she's a talented writer doesn't mean...I-I mean...")
+		cw('mc', "Solo por que sea una escritora con talento no significa que... Qui-quiero decir...")
 	elseif cl == 688 then
 		updateNatsuki('1','o')
-		cw('n',"Uu....!!")
+		cw('n', "Em...")
 	elseif cl == 689 then
-		cw('bl',"Looks like I'm in trouble.")
+		cw('bl', "Parece que me he metido en un lío.")
 	elseif cl == 690 then
-		cw('bl',"I somehow struck a nerve, though what I did is beyond me.")
+		cw('bl', "Creo que he dado de lleno en una de sus inseguridades, pero no tengo ni idea de qué le he hecho.")
 	elseif cl == 691 then
 		updateNatsuki('1','c')
-		cw('n',"I am so done with you.")
+		cw('n', "Estoy hasta el moño de ti.")
 	elseif cl == 692 then
-		cw('bl',"Natsuki shoves the poem I handed her back over to me.")
+		cw('bl', "Natsuki me tira el poema que le había dejado.")
 	elseif cl == 693 then
 		updateNatsuki('5','w')
-		cw('n',"Take your stupid poem. If you wrote it for someone else, just don't show it to me!")
+		cw('n', "Toma tu estúpido poema. ¡Si lo escribiste para otra persona, no me lo enseñes!")
 	elseif cl == 694 then
-		cw('mc',"Ouch...")
+		cw('mc', "Au...")
 	elseif cl == 695 then
-		cw('bl',"This is what I get for letting a younger girl step into my business.")
+		cw('bl', "Esto es lo que me pasa por dejar que se meta de por medio una chica más joven.")
 	elseif cl == 696 then
-		cw('bl',"Unless I was a mind reader, I was destined to be in a world of pain from the start.")
+		cw('bl', "Estaba destinado a sufrir con ella a no ser que fuera mentalista.")
 	elseif cl == 697 then
-		cw('bl',"At least Natsuki wasn't really the girl I was trying to impress in the first place...")
+		cw('bl', "Al menos Natsuki no era la chica a la que intentaba sorprender...")
 	elseif cl == 698 then
 		poemfinish('n')
-    end
+	end
 end
 
 function ch2_n_med()
-    if n_poemappeal[1] < 0 then
+	if n_poemappeal[1] < 0 then
 		if cl == 670 then
-			cw('n',"...Hm.")
+		cw('n', "Mmm...")
 		elseif cl == 671 then
 			updateNatsuki('2','k')
-			cw('n',"Well, I can admit that it's better than the last one.")
+		cw('n', "Bueno, lo que sí es verdad, es que este está mucho mejor que el anterior.")
 		elseif cl == 673 then
-			cw('n',"It's nice to see that you're putting in some effort.")
+		cw('n', "Es bueno ver que estás poniendo de tu parte.")
 		elseif cl == 672 then
-			cw('mc',"That's good...")
+		cw('mc', "Eso es bueno...")
 		elseif cl >= 674 then
 			ch2_n_med_shared()
-        end
-    elseif n_poemappeal[1] == 0 then
+		end
+	elseif n_poemappeal[1] == 0 then
 		if cl == 670 then
-			cw('n',"...Hm.")
+		cw('n', "Mmm...")
 		elseif cl == 671 then
 			updateNatsuki('2','k')
-			cw('n',"Well, it's not really any worse than your last one.")
+		cw('n', "Bueno, este no es tan malo como el anterior.")
 		elseif cl == 672 then
-			cw('n',"But I can't really say it's any better, either.")
+		cw('n', "Pero tampoco puedo decir que sea mejor.")
 		elseif cl == 673 then
-			cw('mc',"Phew...")
+		cw('mc', "Uf...")
 		elseif cl == 674 then
 			updateNatsuki('2','c')
-			cw('n',"Huh? 'Phew' what?")
+		cw('n', "¿Eh? ¿«Uf...» qué?")
 		elseif cl == 675 then
-			cw('mc',"Ah... Well anything that isn't a trainwreck, I'll take as a win.")
+		cw('mc', "Bueno... cualquier cosa que no sea una patada en la entrepierna, lo veo como un logro.")
 		elseif cl == 676 then
-			cw('mc',"And I get the feeling you're probably the most critical.")
+		cw('mc', "Además, tengo la sensación que eres la que más critica mis poemas.")
 		elseif cl == 677 then
 			updateNatsuki('1','p')
-			cw('n',"H-Hey! What makes you--")
+		cw('n', "¡P-pero bueno! ¿¡Qué te hace...!?")
 		elseif cl == 678 then
 			updateNatsuki('1','q')
-			cw('n',"(Wait, maybe that was a compliment...?)")
+		cw('n', "(Un segundo, ¿eso era un cumplido...?)")
 		elseif cl == 679 then
 			updateNatsuki('4','y')
-			cw('n',"A-Ahah! Glad to see someone recognizes my experience!")
+		cw('n', "¡Ja, ja, ja! ¡Me alegra saber que por fin alguien reconoce mi experiencia!")
 		elseif cl == 680 then
-			cw('n',"Well then, keep practicing and maybe you'll be as good as me someday!")
+		cw('n', "Bueno, ¡pues sigue practicando y tal vez algún día serás tan bueno como yo!")
 		elseif cl == 681 then
-			cw('mc',"That's...uh...")
+		cw('mc', "Eso es... esto...")
 		elseif cl == 682 then
-			cw('bl',"Something tells me Natsuki completely missed the point.")
+		cw('bl', "Creo que Natsuki no tiene ni pajolera idea de a qué me estaba refiriendo.")
 		elseif cl >= 683 then
 			ch2_n_med_shared()
 		end
-    else
+	else
 		if cl == 670 then
-			cw('n',"...Hm.")
+		cw('n', "Mmm...")
 		elseif cl == 671 then
 			updateNatsuki('2','c')
-			cw('n',"Well, it's not terrible.")
+		cw('n', "Bueno, por lo menos este no es tan malo.")
 		elseif cl == 672 then
-			cw('n',"But it's pretty disappointing after your last one.")
+		cw('n', "Pero es bastante decepcionante respecto al último.")
 		elseif cl == 673 then
 			updateNatsuki('2','s')
-			cw('n',"Then again, if this one was as good as your last one, I would be completely pissed.")
+		cw('n', "También te digo, que si este hubiese sido igual de bueno que el anterior, me habría puesto de muy mala hostia.")
 		elseif cl == 674 then
-			cw('mc',"Well, I guess I wanted to try something a little different this time.")
+		cw('mc', "Bueno, intentaba probar algo distinto respecto al anterior.")
 		elseif cl == 675 then
 			updateNatsuki('2','c')
-			cw('n',"Fair enough. You're still new to this, so I wouldn't expect you to find your style right away.")
+		cw('n', "Me parece bien. Todavía estás verde en esto, es normal que no hayas encontrado tu estilo por ahora.")
 		elseif cl >= 676 then
 			ch2_n_med_shared()
 		end
@@ -1739,35 +1739,35 @@ function ch2_n_med_shared()
 		scriptJump(684)
 	elseif cl == 684 then
 		updateNatsuki('2','c')
-		cw('n',"Come to think of it, this kind of reminds me of Sayori's poem from yesterday...")
+		cw('n', "Ahora que lo pienso, me recuerda un poco al poema de ayer de Sayori...")
 	elseif cl == 685 then
-		cw('mc',"Eh? You think so?")
+		cw('mc', "¿Eh? ¿Tú crees?")
 	elseif cl == 686 then
 		updateNatsuki('2','j')
-		cw('n',"Yeah. Well I guess if you've been friends with her for so long, you might be on the same wavelength.")
+		cw('n', "Sí. Bueno, supongo que si lleváis tanto tiempo siendo amigos estaréis sincronizados o algo.")
 	elseif cl == 687 then
 		updateNatsuki('2','k')
-		cw('n',"But you never really struck me as her type.")
+		cw('n', "Aunque no tenías pinta de ser su tipo.")
 	elseif cl == 688 then
-		cw('mc',"Sayori has a 'type' all of a sudden...?")
+		cw('mc', "Ah, ¿pero que resulta que ahora Sayori tiene un «tipo»?")
 	elseif cl == 689 then
 		updateNatsuki('4','2c')
-		cw('n',"Well, I don't know! But honestly, how can someone so...er, fluffy...spend so much time with someone like you?")
+		cw('n', "¡Bueno, yo qué sé! Pero entonces, ¿cómo puede ser que alguien tan... em, dulce... pase tanto tiempo contigo?")
 	elseif cl == 690 then
-		cw('n',"It's like she's dragging around a dead weight.")
+		cw('n', "Es como si estuviera arrastrando un peso muerto.")
 	elseif cl == 691 then
-		cw('mc',"Uug... That was a little unnecessary...")
+		cw('mc', "Agh, eso sí que era innecesario...")
 	elseif cl == 692 then
-		cw('mc',"But think of it this way. If it weren't for me, she would probably just fly away like letting go of a balloon.")
+		cw('mc', "Pero piénsalo así, de no ser por mí, se podría haber ido volando como un globo al dejarlo ir.")
 	elseif cl == 693 then
-		cw('mc',"You could say we each take care of each other in our own way.")
+		cw('mc', "Se podría decir que cuidamos el uno del otro a nuestra manera.")
 	elseif cl == 694 then
 		updateNatsuki('2','q')
-		cw('n',"Whatever it is, I don't get it...")
+		cw('n', "Sea lo que sea, no lo pillo...")
 	elseif cl == 695 then
-		cw('n',"...Oh, yeah, I guess I'm supposed to show you my poem.")
+		cw('n', "Ah, sí... supongo que ahora te tengo que enseñar mi poema.")
 	elseif cl == 696 then
-		cw('n',"Here.")
+		cw('n', "Toma.")
 	elseif cl >= 697 then
 		if chapter == 2 then ch2_n_end()
 		elseif chapter == 3 then ch3_n_end()
@@ -1776,82 +1776,82 @@ function ch2_n_med_shared()
 end
 	
 function ch2_n_good()
-    if n_poemappeal[1] ~= 1 then
+	if n_poemappeal[1] ~= 1 then
 		if cl == 670 then
 			updateNatsuki('1','h')
 			cw('n',"...")
 		elseif cl == 671 then
-			cw('bl',"Natsuki reads my poem.")
+		cw('bl', "Natsuki lee mi poema.")
 		elseif cl == 672 then
-			cw('bl',"She keeps glancing at me, then back at the poem.")
+		cw('bl', "Va alternando entre mirarme a mí y al poema.")
 		elseif cl == 673 then
-			cw('bl',"By now, she must have read it more than once.")
+		cw('bl', "Seguramente le haya dado tiempo a leerlo más de una vez.")
 		elseif cl == 674 then
 			updateNatsuki('1','q')
-			cw('n',"...Aren't you supposed to be bad at this?")
+		cw('n', "¿No se supone que se te debería dar mal esto?")
 		elseif cl == 675 then
-			cw('mc',"...Is that a compliment?")
+		cw('mc', "¿Eso es un cumplido?")
 		elseif cl == 676 then
 			updateNatsuki('1','o')
-			cw('n',"N-No! I mean... You know...")
+		cw('n', "Ya sabes...")
 		elseif cl == 677 then
-			cw('bl',"Natsuki struggles to find the words she wants.")
+		cw('bl', "A Natsuki le cuesta encontrar las palabras adecuadas.")
 		elseif cl == 678 then
 			updateNatsuki('5','w')
-			cw('n',"I just...expected a lot less after what you showed me yesterday.")
+		cw('n', "Es solo que... me esperaba algo peor después de lo de ayer.")
 		elseif cl == 679 then
-			cw('n',"That's all.")
+		cw('n', "Eso es todo.")
 		elseif cl == 680 then
-			cw('mc',"Well, I guess I just got lucky with this one.")
+		cw('mc', "Bueno, supongo que he tenido suerte con este.")
 		elseif cl == 681 then
 			updateNatsuki('4','t')
-			cw('n',"Y-Yeah!! Exactly!")
+		cw('n', "¡¡S-sí!! ¡Exacto!")
 		elseif cl == 682 then
-			cw('n',"You just got lucky, you know?")
+		cw('n', "Solo has tenido suerte, ¿sabes?")
 		elseif cl == 683 then
 			updateNatsuki('4','y')
-			cw('n',"Don't get used to it.")
+		cw('n', "No te acostumbres.")
 		elseif cl == 684 then
-			cw('n',"You won't always manage to write poems this cute. I mean--!")
+		cw('n', "No siempre podrás componer poemas así de adorables. ¡Es decir...!")
 		elseif cl == 685 then
 			updateNatsuki('1','p')
-			cw('n',"I mean well-written! No, I mean--")
+		cw('n', "¡Quería decir bien estructurado! No, digo...")
 		elseif cl == 686 then
-			cw('mc',"Ah, so that's how it is. My poem is cute?")
+		cw('mc', "Ah, así es eso. ¿Mi poema es adorable?")
 		elseif cl == 687 then
 			updateNatsuki('1','v')
-			cw('n',"No! Why are you smiling?! It's not like I like cute things!")
+		cw('n', "¡No! ¡¿Por qué sonríes?! ¡Ni que me gustaran las cosas adorables!")
 		elseif cl == 688 then
-			cw('bl',"Natsuki shoves my poem back towards me.")
+		cw('bl', "Natsuki me devuelve mi poema.")
 		elseif cl == 689 then
 			updateNatsuki('4','w')
-			cw('n',"H-Huh! Reading it again, I decided that it's not so great after all.")
+		cw('n', "¡J-ja! Ahora que lo leo otra vez, opino que no está tan bien como te había dicho.")
 		elseif cl == 690 then
-			cw('n',"It's too cute and doki-doki.")
+		cw('n', "Es demasiado adorable y doki-doki.")
 		elseif cl == 691 then
 			updateNatsuki('4','t')
-			cw('n',"It would only impress...you know, girls...who like those kinds of things.")
+		cw('n', "Con eso solo impresionarás... ya sabes, a las chicas... que les gusten este tipo de cosas.")
 		elseif cl == 692 then
-			cw('n',"Ahaha!")
+		cw('n', "¡Ja, ja, ja!")
 		elseif cl == 693 then
-			cw('bl',"For some reason, Natsuki is incredibly easy to see through.")
+		cw('bl', "Por alguna razón, Natsuki es como un libro abierto.")
 		elseif cl == 694 then
 			updateNatsuki('1','w')
-			cw('n',"Well, anyway...!")
+		cw('n', "¡Bueno, da igual!")
 		elseif cl == 695 then
 			updateNatsuki('1','h')
-			cw('n',"You're gonna read mine now, right?")
+		cw('n', "Ahora vamos a leer el mío, ¿sí?")
 		elseif cl == 696 then
-			cw('n',"Judging by your tastes, you'll probably like it a lot.")
+		cw('n', "A juzgar por tus gustos, este te gustará mucho.")
 		elseif cl == 697 then
 			updateNatsuki('2','q')
-			cw('n',"You'll probably learn something, too. Don't forget who the real pro is.")
+		cw('n', "Seguramente también aprenderás algo. No te olvides de quién es la verdadera profesional.")
 		elseif cl >= 698 then
 			if chapter == 2 then ch2_n_end()
 			elseif chapter == 3 then ch3_n_end()
 			end
 		end
-    else
+	else
 		ch2_n_good_sharedwithch3()
 	end
 end
@@ -1865,243 +1865,243 @@ function ch2_n_good_sharedwithch3()
 		updateNatsuki('1','n')
 		cw('n',"...")
 	elseif cl == 671 then
-		cw('bl',"Natsuki reads my poem.")
+		cw('bl', "Natsuki lee mi poema.")
 	elseif cl == 672 then
-		cw('bl',"She keeps glancing at me, then back at the poem.")
+		cw('bl', "Va alternando entre mirarme a mí y al poema.")
 	elseif cl == 673 then
-		cw('bl',"By now, she must have read it more than once.")
+		cw('bl', "Seguramente le haya dado tiempo a leerlo más de una vez.")
 	elseif cl == 674 then
 		updateNatsuki('1','u')
-		cw('n',"Rrgh...")
+		cw('n', "Argh...")
 	elseif cl == 675 then
-		cw('mc',"...?")
+		cw('mc',"¿...?")
 	elseif cl == 676 then
-		cw('mc',"Is it that bad?")
+		cw('mc', "¿Tan malo es?")
 	elseif cl == 677 then
 		updateNatsuki('1','r')
-		cw('n',"No! No, it's not!")
+		cw('n', "¡No! ¡Para nada!")
 	elseif cl == 678 then
-		cw('n',"It's good. It's really good, okay?!")
+		cw('n', "Es bueno, ¿vale? ¡Es muy bueno!")
 	elseif cl == 679 then
 		updateNatsuki('5','w')
-		cw('n',"There, I said it!")
+		cw('n', "¡Hale! ¡Ya lo he dicho!")
 	elseif cl == 680 then
-		cw('n',"Ugh, this wasn't supposed to happen at all...!")
+		cw('n', "¡Agh! ¡Esto no tenía que pasar!")
 	elseif cl == 681 then
 		updateNatsuki('5','s')
-		cw('n',"Why can't you just be bad at this?")
+		cw('n', "¿Por qué no se te puede dar mal y ya?")
 	elseif cl == 682 then
-		cw('n',"My poems are supposed to impress you, not the other way around!")
+		cw('n', "¡Se supone que mis poemas te tienen que impresionar a ti y no al revés!")
 	elseif cl == 683 then
-		cw('mc',"You're trying to impress me?")
+		cw('mc', "¿Estás intentando impresionarme?")
 	elseif cl == 684 then
 		updateNatsuki('1','2c')
-		cw('n',"Obviously! You think I'd let you enjoy Yuri's writing more than mine?")
+		cw('n', "¡Obviamente! ¿Crees que voy a dejar que te gusten más los poemas de Yuri que los míos?")
 	elseif cl == 685 then
-		cw('n',"Give me a break.")
+		cw('n', "Venga ya.")
 	elseif cl == 686 then
-		cw('mc',"Well...")
+		cw('mc', "Bueno...")
 	elseif cl == 687 then
-		cw('mc',"In that case, what's the problem with me trying to impress you?")
+		cw('mc', "En ese caso, ¿qué problema hay si te intento impresionar?")
 	elseif cl == 688 then
 		updateNatsuki('1','e')
-		cw('n',"I'll tell you! You--")
+		cw('n', "¡Pues te lo voy a decir! Tú...")
 	elseif cl == 689 then
 		updateNatsuki('1','p')
-		cw('n',"--")
+		cw('n',"...")
 	elseif cl == 690 then
-		cw('bl',"Natsuki's face freezes, like she just realized something.")
+		cw('bl', "Natsuki se queda paralizada, como si se hubiese dado cuenta de algo.")
 	elseif cl == 691 then
-		cw('n',"Y-Y-You...")
+		cw('n', "T-t-tú...")
 	elseif cl == 692 then
-		cw('n',"You're trying to...impress me?")
+		cw('n', "¿Estás intentando sorprenderme... a mí?")
 	elseif cl == 693 then
 		updateNatsuki('1','q')
-		cw('bl',"Natsuki vigorously scans her eyes over my poem one more time.")
+		cw('bl', "Natsuki vuelve a leerse mi poema enérgicamente.")
 	elseif cl == 694 then
-		cw('bl',"Then, the poem slips out of her hands and flutters to the floor.")
+		cw('bl', "Entonces, el poema se le cae de las manos y este cae lentamente hasta el suelo.")
 	elseif cl == 695 then
 		updateNatsuki('1','p')
-		cw('n',"I...have to use the bathroom!")
+		cw('n', "¡Tengo... que ir al baño!")
 	elseif cl == 696 then
 		hideNatsuki()
-		cw('bl',"Red-faced, Natsuki quickly walks out of the room.")
+		cw('bl', "Roja como un tomate, Natsuki sale corriendo del aula.")
 	elseif cl == 697 then
 		updateMonika('1','d',80)
-		cw('m',"Hey, "..player.."...")
+		cw('m', "Oye, " .. player .. "...")
 	elseif cl == 698 then
-		cw('m',"Did you do something to Natsuki?")
+		cw('m', "¿Qué le has hecho a Natsuki?")
 	elseif cl == 699 then
-		cw('m',"I just saw her rush out like that...")
+		cw('m', "Acabo de verla salir corriendo...")
 	elseif cl == 700 then
 		updateMonika('2','g')
-		cw('m',"You didn't do anything terrible, did you?")
+		cw('m', "No le habrás hecho nada malo, ¿no?")
 	elseif cl == 701 then
-		cw('mc',"N-No!")
+		cw('mc', "¡N-no!")
 	elseif cl == 702 then
-		cw('mc',"I just told her that--")
+		cw('mc', "Solo le he dicho que...")
 	elseif cl == 703 then
-		cw('bl',"My voice gets caught in my throat.")
+		cw('bl', "Se me corta la voz.")
 	elseif cl == 704 then
-		cw('bl',"There's no way I could tell Monika that I'm trying to impress Natsuki.")
+		cw('bl', "No puedo decirle a Monika que intentaba impresionar a Natsuki.")
 	elseif cl == 705 then
 		updateMonika('2','d')
-		cw('m',"Hmm?")
+		cw('m', "¿Sí?")
 	elseif cl == 706 then
-		cw('bl',"Monika sees the poem lying on the floor and swiftly picks it up.")
+		cw('bl', "Monika ve el poema en el suelo y se agacha para cogerlo.")
 	elseif cl == 707 then
-        if readpoem.m == 1 then
-			cw('bl',"She skims over it a second time, her smile not fading from her face.")
-        else
-			cw('bl',"She reads through it, her smile not fading from her face.")
+		if readpoem.m == 1 then
+		cw('bl', "Le echa otro vistazo rápido sin perder la sonrisa.")
+		else
+		cw('bl', "Lo vuelve a leer sin perder la sonrisa.")
 		end
 	elseif cl == 708 then
 		updateMonika('2','a')
-		cw('m',"I see.")
+		cw('mc', "Ya veo.")
 	elseif cl == 709 then
 		if readpoem.m == 1 then
-			cw('m',"At first I just thought you liked her writing style...")
+		cw('m', "Al principio pensaba que te gustaba su estilo...")
 		else
-			cw('m',"You wrote this for Natsuki, didn't you?")
+		cw('m', "Lo has compuesto para Natsuki, ¿no?")
 		end
 	elseif cl == 710 then
 		if readpoem.m == 1 then
-			cw('m',"But you wrote this for Natsuki, didn't you?")
+		cw('m', "Pero lo has compuesto para Natsuki, ¿verdad?")
 		else
 			scriptJump(711)
 		end
 	elseif cl == 711 then
-		cw('mc',"I-I mean...")
+		cw('mc', "Pu-pues...")
 	elseif cl == 712 then
-		cw('mc',"Not really...")
+		cw('mc', "No creas...")
 	elseif cl == 713 then
 		updateMonika('2','d')
-		cw('m',"In fact, didn't she like your poem a lot the other day, too?")
+		cw('m', "De hecho, el otro día también le encantó tu poema, ¿no?")
 	elseif cl == 714 then
-		cw('m',"I'm surprised you know her taste so well already.")
+		cw('m', "Me sorprende que ya conozcas tan bien sus gustos.")
 	elseif cl == 715 then
 		updateMonika('4','a')
-		cw('m',"Are you sure you're not cheating, "..player.."?")
+		cw('m', "Seguro que no estás haciendo trampas, ¿" .. player .. "?")
 	elseif cl == 716 then
-		cw('mc',"Cheating...?")
+		cw('mc', "¿Trampas?")
 	elseif cl == 717 then
-		cw('mc',"What do you mean by that?")
+		cw('mc', "¿Qué insinúas?")
 	elseif cl == 718 then
 		updateMonika('5a')
-		cw('m',"Never mind, I'm just kidding. Ahaha!")
+		cw('m', "Da igual, era broma. ¡Ja, ja, ja!")
 	elseif cl == 719 then
-		cw('bl',"I didn't understand Monika's joke at all.")
+		cw('bl', "No he entendido la broma de Monika.")
 	elseif cl == 720 then
-		cw('m',"Anyway...")
+		cw('m', "Bueno...")
 	elseif cl == 721 then
 		updateMonika('1','a')
-		cw('m',"How do you think Natsuki feels about you?")
+		cw('m', "¿Qué crees que siente Natsuki por ti?")
 	elseif cl == 722 then
-		cw('m',"Oh, you don't need to answer that.")
+		cw('m', "Ah, no tienes por qué responder.")
 	elseif cl == 723 then
-		cw('m',"It was just something for you to think about.")
+		cw('m', "Lo he dicho para que reflexiones sobre ello.")
 	elseif cl == 724 then
 		updateNatsuki('4','e',-40)
-		cw('n',"Hey!")
+		cw('n', "¡Oye!")
 	elseif cl == 725 then
-		cw('bl',"Natsuki comes up and snatches the poem out of Monika's hands.")
+		cw('bl', "Natsuki vuelve y le quita el poema a Monika.")
 	elseif cl == 726 then
-		cw('bl',"Neither of us had noticed her reenter the classroom.")
+		cw('bl', "Ninguno de los dos la ha visto entrar.")
 	elseif cl == 727 then
-		cw('n',"Did you read this, Monika?")
+		cw('n', "¿Lo has leído, Monika?")
 	elseif cl == 728 then
 		updateMonika('1','j')
-		cw('m',"Of course! I liked it!")
+		cw('m', "¡Por supuesto! ¡Me ha encantado!")
 	elseif cl == 729 then
 		updateMonika('1','a')
 		updateNatsuki('1','r')
-		cw('n',"Ugh...")
+		cw('n', "Agh.")
 	elseif cl == 730 then
-		cw('n',"You should really stop reading things that aren't for you, you know.")
+		cw('n', "Pues no deberías leer cosas que no van dirigidas a ti.")
 	elseif cl == 731 then
-		cw('n',"You have a bad habit of doing that.")
+		cw('n', "Tienes la mala costumbre.")
 	elseif cl == 732 then
 		updateMonika('1','d')
-		cw('m',"Eh?")
+		cw('m',"¿Eh?")
 	elseif cl == 733 then
-		cw('m',"But "..player.." wrote this poem.")
+		cw('m', "Pero lo ha compuesto " .. player .. ".")
 	elseif cl == 734 then
 		updateMonika('1','a')
-		cw('m',"And we're supposed to share with everyone, right?")
+		cw('m', "Y se supone que tenemos que enseñarlos a todos, ¿no?")
 	elseif cl == 735 then
 		updateNatsuki('1','x')
-		cw('n',"Uu--")
+		cw('n', "Uuuh...")
 	elseif cl == 736 then
-		cw('bl',"Natsuki freezes.")
+		cw('bl', "Natsuki se queda de piedra.")
 	elseif cl == 737 then
-		cw('bl',"She apparently forgot that my poem is technically for everyone to read.")
+		cw('bl', "Al parecer, se ha olvidado de que técnicamente todos pueden leer el poema.")
 	elseif cl == 738 then
 		updateNatsuki('4','2c')
-		cw('n',"Okay, well, I think "..player.." is done sharing this poem with everyone.")
+		cw('n', "Bueno, vale, creo que " .. player .. " ya ha terminado de enseñar el poema.")
 	elseif cl == 739 then
-		cw('n',"It's not like anyone would want to read this anyway.")
+		cw('n', "Tampoco creo que nadie vaya a querer leer esto.")
 	elseif cl == 740 then
 		updateNatsuki('4','h')
-		cw('n',"In fact, I'm just going to hold onto this.")
+		cw('n', "De hecho, me lo voy a quedar.")
 	elseif cl == 741 then
 		updateMonika('5a')
-		cw('m',"If you insist~")
+		cw('m', "Si insistes~")
 	elseif cl == 742 then
 		updateNatsuki('1','i')
-		cw('n',"What?")
+		cw('n', "¿Cómo?")
 	elseif cl == 743 then
-		cw('n',"Why are you looking at me like that??")
+		cw('n', "¿¿Por qué me miras así??")
 	elseif cl == 744 then
-		cw('m',"Like what?")
+		cw('m', "¿Así cómo?")
 	elseif cl == 745 then
 		updateNatsuki('1','2b')
-        cw('n',"Ugh...")
+		cw('n', "Agh.")
 	elseif cl == 746 then
-		cw('n',"Never mind.")
+		cw('n', "Déjalo.")
 	elseif cl == 747 then
-        if poemsread >= 3 then
-            cw('bl',"Well, I guess Natsuki has my poem now.")
-        else
-            cw('mc',"Ah, Natsuki...")
+		if poemsread >= 3 then
+		cw('bl', "Bueno, supongo Natsuki se queda con mi poema.")
+		else
+		cw('mc', "Ah, Natsuki...")
 		end
 	elseif cl == 748 then
 		if poemsread >= 3 then
-			cw('bl',"Not that I really planned on keeping it.")
+		cw('bl', "Tampoco tenía intención de quedármelo.")
 		else
-            cw('mc',"I'll give you the poem, but that's still not very fair to "..unfairto.."...")
+			cw('mc',"Quédate el poema, pero no es justo para "..unfairto.."...")
 		end
 	elseif cl == 749 then
 		if poemsread >= 3 then
 			scriptJump(757)
 		else
-			cw('mc',"...She hasn't gotten to read it yet.")
+		cw('mc', "Aún no ha podido leerlo.")
 		end
 	elseif cl == 750 then
 		updateNatsuki('2','q')
-		cw('n',"So what?")
+		cw('n', "¿Y qué?")
 	elseif cl == 751 then
 		updateMonika('2','a')
-		cw('m',"Well... I guess "..player.." is right, Natsuki...")
+		cw('m', "Bueno, supongo que " .. player .. " tiene razón, Natsuki...")
 	elseif cl == 752 then
-		cw('m',"It's not fair if you don't let everyone finish reading it.")
+		cw('m', "No es justo impedir que el resto lo lea.")
 	elseif cl == 753 then
 		cw('n',"...")
 	elseif cl == 754 then
 		updateNatsuki('2','h')
-		cw('n',"...Fine.")
+		cw('n', "Vale.")
 	elseif cl == 755 then
-		cw('bl',"Natsuki returns my poem.")
+		cw('bl', "Natsuki me devuelve el poema.")
 	elseif cl == 756 then
-		cw('n',"It's not like she's going to like it, though.")
+		cw('n', "Ni que le vaya a gustar.")
 	elseif cl == 757 then
 		hideMonika()
 		updateNatsuki('2','h',80)
-		cw('n',"Anyway, read my poem now.")
+		cw('n', "Bueno, ahora lee mi poema.")
 	elseif cl == 758 then
 		updateNatsuki('4','h')
-		cw('n',"And no, I won't let you keep it.")
+		cw('n', "Y no, no podrás quedártelo.")
 	elseif cl == 759 then
-		cw('n',"This is my only copy.")
+		cw('n', "Es mi única copia.")
 	elseif cl >= 760 then
 		if chapter == 2 then ch2_n_end()
 		elseif chapter == 3 then ch3_n_end()
@@ -2123,76 +2123,76 @@ function ch3_n_end()
 			elseif cl == 764 then
 				poem_disable()
 				updateNatsuki('2','a')
-				cw('n',"Yeah...")
+		cw('n', "...")
 			elseif cl == 765 then
-				cw('n',"I felt like I kept writing about negative things, so I wanted to write something with a nice message for once.")
+		cw('n', "Me había fijado en que solo escribía sobre cosas negativas, así que, quería que este tuviese un mensaje bonito para variar.")
 			elseif cl == 766 then
 				updateNatsuki('2','z')
-				cw('n',"Besides...the beach is awesome!")
+		cw('n', "Además... ¡la playa es genial!")
 			elseif cl == 767 then
 				updateNatsuki('2','j')
-				cw('n',"Kinda hard to write anything negative about the beach.")
+		cw('n', "Resulta difícil escribir algo negativo sobre la playa.")
 			elseif cl == 768 then
 				if readpoem.y == 0 or appeal.y >= 3 then
-					cw('mc',"So you decided to write about the beach first, and then came up with the message later?")
+		cw('mc', "Entonces, primero te decidiste por la playa, ¿y luego se te ocurrió el mensaje?")
 				else
-					cw('mc',"Well, Yuri's take on it was a little more solemn.")
+		cw('mc', "Bueno, la interpretación de Yuri era un poco más solemne.")
 				end
 			elseif cl == 769 then
 				if readpoem.y == 0 or appeal.y >= 3 then	
 					updateNatsuki('2','c')
-					cw('n',"Yeah, well...")
+		cw('n', "Sí, bueno...")
 				else
 					updateNatsuki('5','h')
-					cw('n',"Well, that's--")
+		cw('n', "Bueno, eso...")
 				end
 			elseif cl == 770 then
 				if readpoem.y == 0 or appeal.y >= 3 then
-					cw('n',"It's only because of what happened yesterday.")
+		cw('n', "Es por lo que ocurrió ayer.")
 				else
 					updateNatsuki('4','2c')
-					cw('n',"Jeez...she better not have said anything bad about mine!")
+		cw('n', "Buf, ¡más le vale que no haya dicho nada malo sobre mí!")
 				end
 			elseif cl == 771 then
 				if readpoem.y == 0 or appeal.y >= 3 then
 					updateNatsuki('5','q')
-					cw('n',"I mean, after Yuri and I realized we kind of wrote about the same thing...")
+		cw('n', "Es decir, después de que Yuri y yo nos diésemos cuenta de que habíamos escrito sobre lo mismo...")
 				else
-					cw('n',"After all, she was the one who wanted us to write about the same topic.")
+		cw('n', "Después de todo, ella es la que quería escribir sobre el mismo tema.")
 				end
 			elseif cl == 772 then
 				if readpoem.y == 0 or appeal.y >= 3 then
-					cw('n',"She wanted to pick a topic and have us both write about it, or whatever.")
+		cw('n', "Ella quería que escogiéramos el mismo tema, o algo así.")
 				else
 					scriptJump(776)
 				end
 			elseif cl == 773 then
 				if readpoem.y == 1 then
-					cw('mc',"I see...")
+		cw('mc', "Ya veo...")
 				else
 					scriptJump(776)
 				end
 			elseif cl == 774 then
-				cw('bl',"Something tells me the poem Yuri showed me isn't the one she plans on sharing with everyone else...")
+		cw('bl', "Algo me dice que el poema que me ha enseñado Yuri no es el que pretende enseñar al resto...")
 			elseif cl == 775 then
-				cw('bl',"Of course, I choose not to mention that to Natsuki.")
+		cw('bl', "Por razones obvias, decido no mencionarle nada a Natsuki.")
 			elseif cl == 776 then
 				updateNatsuki('1','s')
-				cw('n',"Ugh...you can really see her doing that, too.")
+		cw('n', "Agh, no me extrañaría nada viniendo de ella.")
 			elseif cl == 777 then
-				cw('n',"Making us write about a simple topic, then trying to impress me by coming up with something all fancy.")
+		cw('n', "Hacer que las dos escribamos sobre el mismo tema, para después impresionarme con algo superelaborado.")
 			elseif cl == 778 then
 				updateNatsuki('1','w')
-				cw('n',"Well, it's not like I care.")
+		cw('n', "Bueno, me da bastante igual.")
 			elseif cl == 779 then
-				cw('n',"I just did it anyway.")
+		cw('n', "A lo hecho, pecho.")
 			elseif cl == 780 then
 				updateNatsuki('1','q')
-				cw('n',"I mean, I guess mine ended up being kind of metaphorical too...")
+		cw('n', "Además, el mío también ha acabado siendo algo metafórico...")
 			elseif cl == 781 then
-				cw('n',"...But there's nothing wrong with doing that once in a while!")
+		cw('n', "¡Ni que fuera malo de vez en cuando!")
 			elseif cl == 782 then
-				cw('n', "At the very least, it was good practice.")
+		cw('n', "Al menos me ha servido para practicar.")
 			elseif cl == 783 then
 				poemfinish('n')
 			end
@@ -2212,191 +2212,191 @@ function ch3_n_end_special()
 		updateNatsuki('1','q')
 		cw('n',"...")
 	elseif cl == 765 then
-		cw('n',"...Why are you looking at me like that?")
+		cw('n', "¿Por qué me miras así?")
 	elseif cl == 766 then
-		cw('n',"If you don't like it, then just say it.")
+		cw('n', "Si no te gusta, dímelo y ya está.")
 	elseif cl == 767 then
 		updateNatsuki('1','u')
-		cw('n',"I won't...get mad.")
+		cw('n', "No me... cabrearé.")
 	elseif cl == 768 then
-		cw('mc',"No, it's not that I don't like it...!")
+		cw('mc', "¡No, no es eso!")
 	elseif cl == 769 then
-		cw('mc',"It was just...a little surprising to read.")
+		cw('mc', "Es solo que... me he sorprendido al leerlo.")
 	elseif cl == 770 then
 		if readpoem.y == 1 then
-			cw('bl',"This clearly isn't the poem that Yuri told me she had written...")
+		cw('bl', "No hay duda de que este no es el poema del que me habló Yuri...")
 		else
 			scriptJump(772)
 		end
 	elseif cl == 771 then
-		cw('bl',"...Meaning I'm probably the only one she's showing this to.")
+		cw('bl', "Lo que significa, que seguramente sea el único al que se lo ha enseñado...")
 	elseif cl == 772 then
-		cw('mc', "Er...I guess I'm not used to hearing such nice things coming from you...")
+		cw('mc', "Em, supongo que no estoy acostumbrado a oír cosas tan bonitas viniendo de ti...")
 	elseif cl == 773 then
 		updateNatsuki('1','h')
-		cw('n',"D-Don't just say that!")
+		cw('n', "¡N-no digas eso!")
 	elseif cl == 774 then
 		updateNatsuki('1','n')
-		cw('n',"Dummy...")
+		cw('n', "Idiota...")
 	elseif cl == 775 then
-		cw('n',"What do you think...the point of writing is?")
+		cw('n', "¿De qué crees... que va?")
 	elseif cl == 776 then
 		updateNatsuki('1','u')
-		cw('n',"Expressing things that you can't just say...")
+		cw('n', "Va sobre las cosas que no puedes decir sin más...")
 	elseif cl == 777 then
-		cw('mc',"Yeah...I understand.")
+		cw('mc', "Sí, lo entiendo.")
 	elseif cl == 778 then
-		cw('mc',"I'm sorry for missing the point sometimes.")
+		cw('mc', "Perdona por no entender a veces de que va.")
 	elseif cl == 779 then
-		cw('mc',"I always mean well...")
+		cw('mc', "No lo hago a propósito...")
 	elseif cl == 780 then
-		cw('mc',"And...I'm happy that you showed this to me.")
+		cw('mc', "Y... me alegro de que me lo hayas enseñado.")
 	elseif cl == 781 then
-		cw('mc',"I liked it.")
+		cw('mc', "Me gusta.")
 	elseif cl == 782 then
 		updateNatsuki('1','h')
-		cw('n',"Well...yeah...")
+		cw('n', "Bueno, claro...")
 	elseif cl == 783 then
 		updateNatsuki('1','q')
-		cw('n',"I'm...I'm a pro, so...")
+		cw('n', "So-soy una profesional, así que...")
 	elseif cl == 784 then
-		cw('bl',"Natsuki mumbles, completely failing to sound confident like she usually does.")
+		cw('bl', "Natsuki tartamudea, haciendo que no suene tan segura como de costumbre.")
 	elseif cl == 785 then
-		cw('n',"Just...")
+		cw('n',"Tú solo...")
 	elseif cl == 786 then
 		updateNatsuki('1','2c')
-		cw('n',"Remember that...I can think these things sometimes, too!")
+		cw('n', "Recuerda que... ¡yo también puedo pensar estas cosas!")
 	elseif cl == 787 then
-		cw('n',"You know, when you're nice to me, it's...")
+		cw('n', "Que seas tan amable conmigo es...")
 	elseif cl == 788 then
 		updateNatsuki('1','2a')
 		cw('n',"...")
 	elseif cl == 789 then
-		cw('n', "...Meaningful.")
+		cw('n', "Muy importante para mí.")
 	elseif cl == 790 then
-		cw('mc',"Ah...I'm glad.")
+		cw('mc', "Ah, me alegro.")
 	elseif cl == 791 then
-		cw('bl',"Sensing Natsuki is satisfied, I start to hand the poem back to her.")
+		cw('bl', "Sintiendo que Natsuki está satisfecha, le intento devolver el poema.")
 	elseif cl == 792 then
-		cw('bl',"But as I do so, Natsuki takes my hands and pushes them back away.")
+		cw('bl', "Pero Natsuki coge mis manos y las empuja hacia mí.")
 	elseif cl == 793 then
-		cw('bl',"Her small, soft hands surprise me with their assertion.")
+		cw('bl', "Me sorprende la decisión que tiene a pesar de sus diminutas y suaves manos.")
 	elseif cl == 794 then
 		updateNatsuki('1','2b')
-		cw('n',"I don't want it.")
+		cw('n', "No lo quiero.")
 	elseif cl == 795 then
-		cw('mc',"Eh...?")
+		cw('mc', "¿Eh?")
 	elseif cl == 796 then
-		cw('mc',"Why not?")
+		cw('mc', "¿Por qué no?")
 	elseif cl == 797 then
 		updateNatsuki('1','2c')
-		cw('n',"I just don't!")
+		cw('n', "¡No lo quiero y ya!")
 	elseif cl == 798 then
-		cw('n',"Jeez...")
+		cw('n', "Ainss...")
 	elseif cl == 799 then
-		cw('bl',"I realize what Natsuki is doing.")
+		cw('bl', "Ya sé que es lo que intenta Natsuki.")
 	elseif cl == 800 then
-		cw('bl',"Unable to be honest, she's trying to give me the poem in a roundabout way.")
+		cw('bl', "Está intentado poner una excusa para dármelo ya que no puede ser sincera.")
 	elseif cl == 801 then
-		cw('mc',"Well...in that case, I'm going to keep it.")
+		cw('mc', "Bueno, en ese caso me lo quedo.")
 	elseif cl == 802 then
-		cw('bl',"Instead of teasing her, I choose to go along with it.")
+		cw('bl', "En vez de meterme con ella, le sigo el rollo.")
 	elseif cl == 803 then
 		updateNatsuki('1','t')
-		cw('n',"...Good.")
+		cw('n', "Bien.")
 	elseif cl == 804 then
-		cw('n',"If you didn't, I would...")
+		cw('n', "Si no te lo hubieses quedado, habría...")
 	elseif cl == 805 then
 		cw('n',"...")
 	elseif cl == 806 then
 		updateNatsuki('1','h')
-		cw('n',"Never mind...")
+		cw('n', "Da igual...")
 	elseif cl == 807 then
 		updateNatsuki('1','q')
-		cw('n',"Just...I'm glad that you want it.")
+		cw('n', "Es solo que... me alegro de que lo quieras.")
 	elseif cl == 808 then
-		cw('bl',"Natsuki backpedals on her words and leaves it at that.")
+		cw('bl', "Natsuki se corta y deja la frase a medias.")
 	elseif cl == 809 then
-		cw('bl',"Despite her best efforts to hide her expression, I can see her faintly smiling to herself.")
+		cw('bl', "A pesar de sus esfuerzos para ocultarlo, puedo ver cómo sonríe débilmente.")
 	elseif cl == 810 then
-		cw('n',"That's all for now, so...")
+		cw('n', "Eso es todo por ahora, así que...")
 	elseif cl == 811 then
 		updateNatsuki('1','s')
-		cw('n',"Go put it away before someone sees it, okay?")
+		cw('n', "Ve a guardarlo antes de que alguien lo vea, ¿vale?")
 	elseif cl == 812 then
-		cw('mc',"Ah...yeah.")
+		cw('mc', "Ah, sí.")
 	elseif cl == 813 then
-		cw('mc',"I'll go do that.")
+		cw('mc', "Eso haré.")
 	elseif cl == 814 then
-		cw('bl',"With that, I return to my seat so that I can put away Natsuki's poem.")
+		cw('bl', "Tras eso, vuelvo a mi sitio a guardar el poema de Natsuki.")
 	elseif cl == 815 then
 		poemfinish('n')
-    end
+	end
 end
 
 function ch3_n_bad12_shared()
 	if cl == 670 then
 		updateNatsuki('5','x')
-		cw('n',"Yeah, no thanks.")
+		cw('n', "Pensándolo mejor, no, gracias.")
 	elseif cl == 671 then
-		cw('mc',"Eh? You didn't even--")
+		cw('mc', "¿Eh? Si ni siquiera...")
 	elseif cl == 672 then
 		updateNatsuki('5','w')
-		cw('n',"Next!")
+		cw('n', "¡Siguiente!")
 	elseif cl == 673 then
 		poemfinish('n')
 	end
 end
 
 function ch3_n_bad()
-    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
-        ch3_n_bad12_shared()
-    elseif n_poemappeal[1] < 0 or n_poemappeal[2] < 0 then
+	if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+		ch3_n_bad12_shared()
+	elseif n_poemappeal[1] < 0 or n_poemappeal[2] < 0 then
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
 			updateNatsuki('2','c')
-			cw('n',"...Meh.")
+		cw('n', "Pfff...")
 		elseif cl == 672 then
-			cw('n',"I guess you really haven't learned anything after all.")
+		cw('n', "Por lo que veo, después de todo este tiempo no has aprendido nada.")
 		elseif cl == 673 then
-			cw('n',"Honestly, I don't know why I got my hopes up in the first place.")
+		cw('n', "Si te digo la verdad, no sé ni para qué me hice ilusiones contigo.")
 		elseif cl == 674 then
-			cw('mc',"What? I didn't think this one was that bad...")
+		cw('n', "¿Qué?")
 		elseif cl == 675 then
-			cw('mc',"What did I do wrong?")
+		cw('mc', "¿Qué he hecho mal?")
 		elseif cl >= 676 then
 			ch2_n_bad_sharedwithch3()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 672 then
 			updateNatsuki('2','r')
-			cw('n',"Oh, man.")
+		cw('n', "Jolines.")
 		elseif cl == 673 then
-			cw('n',"This is seriously a step backwards.")
+		cw('n', "Menudo retroceso has pegado.")
 		elseif cl == 674 then
-			cw('mc',"Eh?")
+			cw('mc',"¿Eh?")
 		elseif cl == 675 then
 			updateNatsuki('2','c')
-			cw('n',"I liked your last two way better than this one.")
+		cw('n', "Me gustaron mucho más los dos anteriores.")
 		elseif cl == 676 then
 			updateNatsuki('1','k')
-			cw('n',"I mean...")
+		cw('n', "Quiero decir que...")
 		elseif cl == 677 then
-			cw('n',"I guess I can't be mad at you for trying different things.")
+		cw('n', "Supongo que no puedo enfadarme contigo por experimentar.")
 		elseif cl == 678 then
 			updateNatsuki('1','c')
-			cw('n',"As long as you're not just trying to impress Yuri or something like that.")
+		cw('n', "Siempre y cuando no estés intentando impresionar a Yuri o algo por el estilo.")
 		elseif cl == 679 then
 			updateNatsuki('5','x')
-			cw('n',"Gross.")
+		cw('n', "Qué asco.")
 		elseif cl == 680 then
-			cw('mc',"Okay, okay.")
+		cw('mc', "Vale, vale.")
 		elseif cl == 681 then
-			cw('mc',"Like you said, I'm allowed to try new things.")
-        elseif cl >= 682 then
+		cw('mc', "Tal y como has dicho, puedo probar cosas nuevas.")
+		elseif cl >= 682 then
 			ch3_n_shared()
 		end
 	end
@@ -2407,118 +2407,118 @@ function ch3_n_shared()
 		scriptJump(685)
 	elseif cl == 685 then
 		updateNatsuki('5','g')
-		cw('mc',"Why are you so emotionally invested in my poems, anyway?")
+		cw('mc', "¿Por qué te involucras tanto emocionalmente en mis poemas?")
 	elseif cl == 686 then
-		cw('mc',"Isn't that more of a compliment to me?")
+		cw('mc', "¿Eso no contaría más como un cumplido?")
 	elseif cl == 687 then
 		updateNatsuki('1','o')
-		cw('n',"...Eh?")
+		cw('n', "¿Eh?")
 	elseif cl == 688 then
 		updateNatsuki('4','x')
-		cw('n',"N-No! Gross!")
+		cw('n', "¡N-no! ¡Qué asco!")
 	elseif cl == 689 then
 		updateNatsuki('4','w')
-		cw('n',"It's not like I care!")
+		cw('n', "¡No es que me importe!")
 	elseif cl == 690 then
-		cw('n',"It's just that one of us in this club has to make sure you're not slacking off.")
+		cw('n', "Es solo que alguien se tendrá que asegurar de que no vagueas.")
 	elseif cl == 691 then
-		cw('mc',"Really?")
+		cw('mc', "¿En serio?")
 	elseif cl == 692 then
-		cw('mc',"Well, what if you ended up just scaring me away?")
+		cw('mc', "Bueno, ¿y si terminas espantándome?")
 	elseif cl == 693 then
 		updateNatsuki('1','t')
-		cw('n',"That's--um...")
+		cw('n', "Pues, em...")
 	elseif cl == 694 then
-		cw('n',"...It's not like you would actually do that.")
+		cw('n', "No creo que te vayas.")
 	elseif cl == 695 then
-		cw('mc',"Yeah, you're right.")
+		cw('mc', "Sí, tienes razón.")
 	elseif cl == 696 then
-		cw('mc',"It's kind of fun to hang out here, even if I have to put up with you.")
+		cw('mc', "Estar aquí es divertido, incluso cuando tengo que aguantar tus tonterías.")
 	elseif cl == 697 then
 		updateNatsuki('1','x')
-		cw('mc',"Guh--!!")
+		cw('mc', "¡¡Agh!!")
 	elseif cl == 698 then
-		cw('bl',"Natsuki's elbow connects with my stomach.")
+		cw('bl', "Natsuki me da un codazo en el estómago.")
 	elseif cl == 699 then
 		updateNatsuki('2','y')
-		cw('n',"Oh?")
+		cw('n', "¿Oh?")
 	elseif cl == 700 then
-		cw('n',"Maybe I won't mind scaring you away after all.")
+		cw('n', "Después de todo, creo que ya no me importa espantarte.")
 	elseif cl == 701 then
-		cw('mc',"I was......just joking....")
+		cw('mc', "Estaba... de coña...")
 	elseif cl == 702 then
 		updateNatsuki('4','z')
-		cw('n',"Oh, I know!")
+		cw('n', "¡Ah, ya lo sé!")
 	elseif cl == 703 then
-		cw('n',"Don't worry, I was too.")
+		cw('n', "Y yo, no te preocupes.")
 	elseif cl == 704 then
-		cw('n',"Ahahaha!")
+		cw('n', "¡Ja, ja, ja, ja!")
 	elseif cl == 705 then
 		updateNatsuki('4','j')
 		cw('mc',"...")
 	elseif cl == 706 then
-		cw('bl',"How the hell do you call that a joke?")
+		cw('bl', "¿Cómo narices puedes llamar broma a eso?")
 	elseif cl == 707 then
-		cw('bl',"That seriously hurt.")
+		cw('bl', "Eso ha dolido de verdad.")
 	elseif cl == 708 then
-		cw('bl',"Well, maybe it was funny to her...")
+		cw('bl', "Bueno, quizá a ella le ha hecho gracia...")
 	elseif cl == 709 then
-		cw('bl',"...I guess that's kind of the point.")
+		cw('bl', "Supongo que esa era la intención.")
 	elseif cl == 710 then
-		cw('bl',"I should really just watch my mouth around Natsuki.")
+		cw('bl', "Debería vigilar lo que le digo a Natsuki.")
 	elseif cl == 711 then
 		updateNatsuki('2','c')
-		cw('n',"Anyway...")
+		cw('m', "Bueno...")
 	elseif cl == 712 then
-		cw('bl',"Natsuki holds her poem out to me like nothing even happened.")
+		cw('bl', "Natsuki me da su poema como si no hubiese pasado nada.")
 	elseif cl >= 713 then
 		ch3_n_end()
 	end
 end
 
 function ch3_n_med()
-    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
-        ch3_n_bad12_shared()
-    elseif n_poemappeal[2] ~= 0 then
+	if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+		ch3_n_bad12_shared()
+	elseif n_poemappeal[2] ~= 0 then
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
 			updateNatsuki('2','k')
-			cw('n',"...This one's alright.")
+		cw('n', "Este está bien.")
 		elseif cl == 672 then
-			cw('mc',"Alright?")
+		cw('mc', "¿Bien?")
 		elseif cl == 673 then
-			cw('n',"Well, yeah.")
+		cw('n', "Bueno, sí.")
 		elseif cl == 674 then
-			cw('n',"It doesn't blow me away.")
+		cw('n', "No es nada del otro mundo.")
 		elseif cl == 675 then
-			cw('n',"But there's nothing I really hate about it.")
+		cw('n', "Aunque no hay nada en concreto que odie.")
 		elseif cl == 676 then
-			cw('n',"It's just not really my style. I mean, that's fine.")
+		cw('n', "Es solo que no es de mi estilo. Quiero decir, que no está mal.")
 		elseif cl >= 677 then
 			ch2_n_med_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
 			updateNatsuki('2','k')
-			cw('n',"...This one's alright.")
+		cw('n', "Este está bien.")
 		elseif cl == 672 then
-			cw('mc',"Alright?")
+		cw('mc', "¿Bien?")
 		elseif cl == 673 then
-			cw('n',"Well, yeah.")
+		cw('n', "Bueno, sí.")
 		elseif cl == 674 then
-			cw('n',"About as good as yesterday's, anyway.")
+		cw('n', "Tan bien como el de ayer, supongo.")
 		elseif cl == 675 then
-			cw('n',"I see what you're going for, but it's just not really my style.")
+		cw('n', "Veo qué es lo que pretendes, pero simplemente no es mi estilo.")
 		elseif cl == 676 then
 			updateNatsuki('2','a')
-			cw('n',"I mean, that's fine.")
+		cw('n', "Quiero decir, no está mal.")
 		elseif cl == 677 then
-			cw('n',"I'm mostly just glad that you're trying a little bit.")
+		cw('n', "Me alegra más el hecho de que te esfuerces.")
 		elseif cl == 678 then
-			cw('mc',"Well, of course I'm at least trying.")
+		cw('mc', "Hombre, pues claro que me esfuerzo.")
 		elseif cl >= 679 then
 			ch3_n_shared()
 		end
@@ -2526,277 +2526,277 @@ function ch3_n_med()
 end
 
 function ch3_n_good()
-    if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
-        ch3_n_bad12_shared()
-    elseif n_poemappeal[1] > 0 and n_poemappeal[2] > 0 then
+	if n_poemappeal[1] < 0 and n_poemappeal[2] < 0 then
+		ch3_n_bad12_shared()
+	elseif n_poemappeal[1] > 0 and n_poemappeal[2] > 0 then
 		if cl == 670 then
 			updateNatsuki('1','l')
-			cw('n',"Let's see, let's see!")
+		cw('n', "¡Vamos a ver, vamos a ver!")
 		elseif cl == 671 then
-			cw('mc',"You're certainly enthusiastic today.")
+		cw('mc', "Hoy te veo entusiasmada.")
 		elseif cl == 672 then
 			updateNatsuki('2','j')
-			cw('n',"Of course.")
+		cw('mc', "Por supuesto.")
 		elseif cl == 673 then
-			cw('n',"You know I like your writing.")
+		cw('n', "Ya sabes que me gusta tu estilo.")
 		elseif cl == 674 then
-			cw('mc',"I'm just surprised.")
+		cw('mc', "Es solo que me sorprende.")
 		elseif cl == 675 then
-			cw('mc',"It seemed like you had a lot of trouble admitting that before.")
+		cw('mc', "Parecía que antes te costaba más admitirlo.")
 		elseif cl == 676 then
 			updateNatsuki('5','w')
-			cw('n',"Well... Well, of course!")
+		cw('n', "Bueno... ¡Pues claro!")
 		elseif cl == 677 then
 			updateNatsuki('5','q')
-			cw('n',"I just had to put you in your place a little bit!")
+		cw('n', "¡Tenía que dejarte claro cuál era tu lugar!")
 		elseif cl == 678 then
-			cw('n',"It's not like...")
+		cw('n', "No es que...")
 		elseif cl == 679 then
-			cw('n',"I mean, it's not like I was shy or anything stupid like that.")
+		cw('n', "Es decir, no es que sea tímida ni nada así de estúpido.")
 		elseif cl == 680 then
 			updateNatsuki('5','t')
-			cw('n',"Or jealous!")
+		cw('n', "¡O que estuviese celosa!")
 		elseif cl == 681 then
-			cw('n',"I really wasn't jealous.")
+		cw('n', "Te juro que no estaba celosa.")
 		elseif cl == 682 then
-			cw('n',"Just because you happen to be a good writer?")
+		cw('n', "¿Solo porque resulta que al final eres bueno componiendo?")
 		elseif cl == 683 then
 			updateNatsuki('4','y')
-			cw('n',"That's such a dumb thing to get jealous about.")
+		cw('n', "Es de idiotas estar celosa por eso.")
 		elseif cl == 684 then
-			cw('n',"Ahaha!")
+		cw('n', "¡Ja, ja, ja!")
 		elseif cl == 685 then
 			cw('mc',"Natsuki...")
 		elseif cl == 686 then
 			updateNatsuki('1','h')
-			cw('n',"What??")
+		cw('mc', "¿¿Qué??")
 		elseif cl == 687 then
-			cw('mc',"You're not very confident about your writing, are you?")
+		cw('mc', "Por lo que veo, no tienes mucha confianza en tus poemas, ¿no?")
 		elseif cl == 688 then
 			updateNatsuki('1','n')
-			cw('n',"...Eh?")
+		cw('n', "¿Eh?")
 		elseif cl == 689 then
-			cw('n',"W-What are you talking about?")
+		cw('n', "¿D-de qué hablas?")
 		elseif cl == 690 then
 			updateNatsuki('1','u')
-			cw('n',"My writing is obviously the best...")
+		cw('n', "Mis poemas son claramente los mejores...")
 		elseif cl == 691 then
-			cw('n',"...Right?")
+		cw('n', "¿A que sí?")
 		elseif cl == 692 then
 			cw('mc',"...")
 		elseif cl == 693 then
-			cw('bl',"It took me a while to figure out, but I think I finally did.")
+		cw('bl', "Me ha costado un poco, pero ya lo he pillado.")
 		elseif cl == 694 then
-			cw('bl',"Maybe Natsuki acts so arrogant because she's trying to make up for her own insecurities.")
+		cw('bl', "Quizá Natsuki es tan arrogante para ocultar sus inseguridades.")
 		elseif cl == 695 then
-			cw('bl',"If she acts like she's the best, then other people might think that way, too.")
+		cw('bl', "Si actúa como si fuese la mejor, el resto acabarán pensado que es verdad.")
 		elseif cl == 696 then
 			updateNatsuki('1','m')
-			cw('n',"Right...?")
+		cw('n', "¿Verdad?")
 		elseif cl == 697 then
 			cw('n',player.."...")
 		elseif cl == 698 then
-			cw('n',"Please just tell me you like my poems.")
+		cw('n', "Por favor, tú solo dime que te gustan mis poemas.")
 		elseif cl == 699 then
 			updateNatsuki('1','u')
-			cw('n',"I don't care if you hate them.")
+		cw('n', "Me da igual si los odias.")
 		elseif cl == 700 then
-			cw('n',"Just please tell me I'm the best.")
+		cw('n', "Tú solo dime que soy la mejor.")
 		elseif cl == 701 then
-			cw('n',"I just...")
+		cw('n', "Yo solo...")
 		elseif cl == 702 then
 			updateNatsuki('1','q')
-			cw('n',"I just really need to hear that from someone.")
+		cw('n', "Yo solo necesito que alguien me diga eso.")
 		elseif cl == 703 then
-			cw('n',"I know I sound stupid.")
+		cw('n', "Sé que suena estúpido.")
 		elseif cl == 704 then
-			cw('n',"But there's a reason I never shared my poems before this.")
+		cw('n', "Pero hay una razón por la que nunca he enseñado mis poemas.")
 		elseif cl == 705 then
 			cw('mc',"Natsuki...")
 		elseif cl == 706 then
-			cw('n',"Because...")
+		cw('n', "Es porque...")
 		elseif cl == 707 then
 			updateNatsuki('1','2c')
-			cw('n',"Because nobody ever takes me seriously!")
+		cw('n', "¡Porque nadie me toma en serio!")
 		elseif cl == 708 then
-			cw('n',"What's the point in sharing my poems if people just laugh and say \"That's so cute, just like you, Natsuki!\"")
+			cw('n',"Qué sentido tiene enseñar mis poemas si la gente solo se reirá y dirá «¡Es tan adorable como tú, Natsuki!»")
 		elseif cl == 709 then
-			cw('n',"Sometimes I don't want to be cute!")
+		cw('n', "¡Hay veces que no quiero ser adorable!")
 		elseif cl == 710 then
 			updateNatsuki('1','2d')
-			cw('n',"But nobody understands that!")
+		cw('n', "¡Pero nadie lo entiende!")
 		elseif cl == 711 then
-			cw('n',"I try really hard when I write.")
+		cw('n', "Me esfuerzo muchísimo cuando compongo.")
 		elseif cl == 712 then
 			updateNatsuki('1','2e')
-			cw('n',"The style doesn't matter.")
+		cw('n', "El estilo da igual.")
 		elseif cl == 713 then
-			cw('n',"The emotions are there.")
+		cw('n', "Mis sentimientos siguen ahí.")
 		elseif cl == 714 then
 			updateNatsuki('1','n')
-			cw('n',"Why can't anyone see that...?")
+		cw('n', "¿Por qué nadie lo entiende?")
 		elseif cl == 715 then
 			updateNatsuki('1','u')
-			cw('n',"I just want...")
+		cw('n', "Solo quiero...")
 		elseif cl == 716 then
-			cw('bl',"Natsuki trails off.")
+		cw('bl', "La voz de Natsuki suena apagada.")
 		elseif cl == 717 then
-			cw('bl',"Maybe it's because her lip started to quiver.")
+		cw('bl', "Quizá es porque su labio ha empezado a temblar.")
 		elseif cl == 718 then
-			cw('bl',"I look down.")
+		cw('bl', "Miro hacia abajo.")
 		elseif cl == 719 then
-			cw('bl',"Her fists are clenched really tightly.")
+		cw('bl', "Está apretando mucho los puños.")
 		elseif cl == 720 then
-			cw('mc',"Hey, Natsuki.")
+		cw('mc', "Oye, Natsuki.")
 		elseif cl == 721 then
-			cw('mc',"If you're not careful, you'll rip your own poem.")
+		cw('mc', "Si no tienes cuidado, romperás tu poema.")
 		elseif cl == 722 then
-			cw('bl',"I gently grab the poem with my own hand until she relaxes her grip on it.")
+		cw('bl', "Cojo su poema con cuidado hasta que se relaja un poco.")
 		elseif cl == 723 then
-			cw('bl',"I place it flat on the desk and smooth out the wrinkles that she put into it.")
+		cw('bl', "Lo pongo en la mesa e intento aplanar las arrugas que ha formado.")
 		elseif cl == 724 then
 			updateNatsuki('1','h')
-			cw('n',"D-Don't read it!")
+		cw('n', "¡N-no lo leas!")
 		elseif cl == 725 then
-			cw('bl',"Before I can pick it back up, Natsuki snatches the poem up from the desk.")
+		cw('bl', "Antes de que pueda cogerlo, Natsuki lo agarra del pupitre.")
 		elseif cl == 726 then
 			updateNatsuki('5','q')
-			cw('n',"It's not any good.")
+		cw('n', "No vale la pena.")
 		elseif cl == 727 then
-			cw('n',"And I know you hate my poems.")
+		cw('n', "Y sé que odias mis poemas.")
 		elseif cl == 728 then
-			cw('n',"So you don't have to read this one, okay?")
+		cw('n', "Así que no tienes por qué leer este, ¿vale?")
 		elseif cl == 729 then
-			cw('mc',"But I want to read it.")
+		cw('mc', "Pero quiero leerlo.")
 		elseif cl == 730 then
-			cw('n',"W-Why?")
+		cw('n', "¿P-por qué?")
 		elseif cl == 731 then
-			cw('mc',"Because.")
+		cw('mc', "Es obvio.")
 		elseif cl == 732 then
-			cw('mc',"I like your poems.")
+		cw('mc', "Me gustan tus poemas.")
 		elseif cl == 733 then
-			cw('mc',"I really do.")
+		cw('mc', "Lo digo de verdad.")
 		elseif cl == 734 then
 			updateNatsuki('5','h')
-			cw('mc',"Why would I judge you for your style?")
+		cw('mc', "¿Cómo podría juzgarte por tu estilo?")
 		elseif cl == 735 then
-			cw('mc',"It's not like my own style is anything crazy.")
+		cw('mc', "Ni que el mío sea el descubrimiento del siglo.")
 		elseif cl == 736 then
-			cw('mc',"I mean, it's true that the first time I read one of your poems, I didn't look much into it.")
+		cw('mc', "Aunque es verdad que la primera vez que leí un poema tuyo no le di mucha más importancia.")
 		elseif cl == 737 then
-			cw('mc',"But I know you better now.")
+		cw('mc', "Pero ahora te conozco mejor.")
 		elseif cl == 738 then
-			cw('mc',"And it's wrong for Yuri to think your style is more amateur than hers.")
+		cw('mc', "Y está mal que Yuri piense que tu estilo es más de novato que el suyo.")
 		elseif cl == 739 then
-			cw('mc',"And Sayori... She always means well...")
+		cw('mc', "Y Sayori... Ella solo quiere lo mejor para todos...")
 		elseif cl == 740 then
-			cw('mc',"But sometimes she's so focused on simple happiness that she doesn't understand what people really want.")
+		cw('mc', "Aunque a veces se centra tanto en la felicidad, que no entiende qué es lo que verdaderamente necesita la gente.")
 		elseif cl == 741 then
-			cw('mc',"Yeah... I guess I never really thought about how hard it is for you.")
+		cw('mc', "Sí, supongo que nunca he pensado en lo difícil es para ti.")
 		elseif cl == 742 then
-			cw('mc',"And I'm sorry if I was part of that problem.")
+		cw('mc', "Y lo siento si tengo parte de la culpa.")
 		elseif cl == 743 then
-			cw('mc',"I understand now.")
+		cw('mc', "Ahora lo entiendo.")
 		elseif cl == 744 then
-			cw('mc',"You're not just cute, you're a lot more than that.")
+		cw('mc', "No solo eres adorable, eres mucho más.")
 		elseif cl == 745 then
 			updateNatsuki('1','2d')
-			cw('mc',"Ah-- Natsuki, you're doing it again--")
+		cw('mc', "Ah... Natsuki, lo estás volviendo a hacer...")
 		elseif cl == 746 then
-			cw('bl',"Once again, Natsuki clutches her poem a little too hard.")
+		cw('bl', "Natsuki vuelve a agarrar muy fuerte su poema.")
 		elseif cl == 747 then
-			cw('bl',"She looks down, hiding her eyes from me.")
+		cw('bl', "Baja su mirada, evitando el contacto visual conmigo.")
 		elseif cl == 748 then
-			cw('bl',"I never realized how difficult this was for her.")
+		cw('bl', "Nunca me había dado cuenta de lo difícil que era para ella.")
 		elseif cl == 749 then
-			cw('bl',"But finally, she forces herself to extend her arms and set her poem on the table.")
+		cw('bl', "Pero al final, se fuerza a abrir los brazos y dejar el poema en la mesa.")
 		elseif cl == 750 then
 			updateNatsuki('1','2e')
-			cw('n',"You can...read it.")
+		cw('n', "Puedes... leerlo.")
 		elseif cl == 751 then
-			cw('n',"Just turn that way.")
+		cw('n', "Pero gírate.")
 		elseif cl == 752 then
-			cw('n',"I don't want you to...look at my face right now.")
+		cw('n', "No quiero... que me mires a la cara ahora mismo.")
 		elseif cl == 753 then
-			cw('mc',"Okay, I will.")
+		cw('mc', "Vale.")
 		elseif cl >= 754 then
 			ch3_n_end()
 		end
-    elseif n_poemappeal[1] > 0 or n_poemappeal[2] > 0 then
-        ch2_n_good_sharedwithch3()
-    else
+	elseif n_poemappeal[1] > 0 or n_poemappeal[2] > 0 then
+		ch2_n_good_sharedwithch3()
+	else
 		if cl == 670 then
 			cw('n',"...")
 		elseif cl == 671 then
 			updateNatsuki('2','k')
-			cw('n',"...Finally!")
+		cw('n', "¡Por fin!")
 		elseif cl == 672 then
-			cw('mc',"Eh?")
+			cw('mc',"¿Eh?")
 		elseif cl == 673 then
 			updateNatsuki('2','l')
-			cw('n',"This one. It's good!")
+		cw('n', "¡Este sí que es bueno!")
 		elseif cl == 674 then
-			cw('n',"I was wondering how long it would take you.")
+		cw('n', "Me preguntaba cuánto más ibas a tardar.")
 		elseif cl == 675 then
-			cw('mc',"All right!")
+		cw('mc', "¡Genial!")
 		elseif cl == 676 then
 			updateNatsuki('4','y')
-			cw('n',"Yeah, seriously.")
+		cw('n', "De verdad, lo digo en serio.")
 		elseif cl == 677 then
-			cw('n',"Don't listen to what anyone else says.")
+		cw('n', "No le hagas caso al resto.")
 		elseif cl == 678 then
-			cw('n',"Especially Yuri.")
+		cw('n', "Sobre todo a Yuri.")
 		elseif cl == 679 then
 			updateNatsuki('4','a')
-			cw('n', "Just keep writing poems like this. That's all you need!")
+		cw('n', "Tú sigue componiendo poemas así. ¡Es todo lo que necesitas!")
 		elseif cl == 680 then
-			cw('mc',"Er...")
+		cw('mc', "Em...")
 		elseif cl == 681 then
-			cw('mc',"Are you sure that's not just what you want?")
+		cw('mc', "¿Estás segura de que esto no es lo que tú quieres?")
 		elseif cl == 682 then
 			updateNatsuki('2','h')
-			cw('n',"Excuse me?")
+		cw('n', "¿Disculpa?")
 		elseif cl == 683 then
-			cw('n', "You're talking to a pro, you know.")
+		cw('n', "Estás hablando con una profesional, ¿sabes?")
 		elseif cl == 684 then
-			cw('n',"Don't you think you should trust my opinion the most?")
+		cw('n', "¿No crees que te deberías de fiar más de mi opinión?")
 		elseif cl == 685 then
-			cw('mc',"I guess that depends.")
+		cw('mc', "Supongo que depende.")
 		elseif cl == 686 then
-			cw('mc',"Aren't you biased towards poems that are more simple and cute?")
+		cw('mc', "¿No te gustan más los poemas simples y adorables?")
 		elseif cl == 687 then
 			updateNatsuki('2','w')
-			cw('n',"Biased?")
+		cw('n', "¿Que me gustan más?")
 		elseif cl == 688 then
-			cw('n',"Of course not.")
+		cw('n', "Claro que no.")
 		elseif cl == 689 then
 			updateNatsuki('4','y')
-			cw('n',"My opinion just happens to be the best.")
+		cw('n', "Es solo que mi opinión es la mejor.")
 		elseif cl == 690 then
 			cw('mc', "...")
 		elseif cl == 691 then
-			cw('bl', "There's one thing I still can't tell.")
+		cw('bl', "Hay algo que todavía no puedo decir.")
 		elseif cl == 692 then
-			cw('bl',"Is Natsuki actually self-aware of her spoiled behavior?")
+		cw('bl', "¿Se dará cuenta de que se comporta como una malcriada?")
 		elseif cl == 693 then
-			cw('bl',"At this rate, I don't know if I'll ever figure it out.")
+		cw('bl', "A este paso, dudo que lo descubra.")
 		elseif cl == 694 then
-			cw('mc',"...Fair enough.")
+		cw('mc', "Tiene sentido.")
 		elseif cl == 695 then
-			cw('mc',"I'm glad that you like my poem, after all.")
+		cw('mc', "Después de todo, me alegro de que te haya gustado mi poema.")
 		elseif cl == 696 then
 			updateNatsuki('4','z')
-			cw('n', "Ahaha!")
+		cw('n', "¡Ja, ja, ja!")
 		elseif cl == 697 then
 			updateNatsuki('4','j')
-			cw('n',"I knew you'd finally understand.")
+		cw('n', "Sabía que lo acabarías entendiendo.")
 		elseif cl == 698 then
-			cw('n',"Just keep showing me your poems and you'll be a pro before you know it.")
+		cw('n', "Tú limítate a enseñarme tus poemas y serás un profesional en lo que canta un gallo.")
 		elseif cl == 699 then
-			cw('n',"Anyway, here's the one I wrote.")
+		cw('n', "Bueno, aquí tienes el mío.")
 		elseif cl >= 700 then
 			ch3_n_end()
-        end
+		end
 	end
 end
 
@@ -2805,28 +2805,28 @@ function ch1_s_med()
 		cw('s',"...")
 	elseif cl == 671 then
 		updateSayori('2','x')
-		cw('s',"This is a good poem, "..player.."!")
+		cw('s', "¡Es un buen poema, " .. player .. "!")
 	elseif cl == 672 then
-		cw('s',"Are you sure it's your first time?")
+		cw('s', "¿Seguro que es tu primera vez?")
 	elseif cl == 673 then
-		cw('mc',"Of course...")
+		cw('mc', "Pues claro...")
 	elseif cl == 674 then
-		cw('mc',"It's not that good.")
+		cw('mc', "No es tan bueno.")
 	elseif cl == 675 then
-		cw('mc',"Am I the kind of guy who would be writing poems in his spare time?")
+		cw('mc', "¿Acaso soy el tipo de persona que se dedicaría a componer en su tiempo libre?")
 	elseif cl == 676 then
 		updateSayori('2','q')
-		cw('s',"Ehehe, I guess you're right~")
+		cw('s', "Je, je, je, supongo que tienes razón~")
 	elseif cl == 677 then
 		updateSayori('1','q')
-		cw('s',"But that's why it impressed me!")
+		cw('s', "¡Pero por eso me ha impresionado!")
 	elseif cl == 678 then
 		updateSayori('2','d')
-		cw('s',"Well, to be honest...")
+		cw('s', "Bueno, para serte sincera...")
 	elseif cl == 679 then
-		cw('s',"I was afraid that you wouldn't do it seriously...")
+		cw('s', "Me temía que no fueras a tomártelo en serio...")
 	elseif cl == 680 then
-		cw('s',"Or that you wouldn't write one at all.")
+		cw('s', "O que ni compondrías.")
 	elseif cl >= 681 then
 		ch1_s_shared()
 	end
@@ -2837,23 +2837,23 @@ function ch1_s_bad()
 		updateSayori('1','b')
 		cw('s',"...")
 	elseif cl == 671 then
-		cw('s',"...Wow!")
+		cw('s', "¡Guau!")
 	elseif cl == 672 then
 		cw('s',player.."...")
 	elseif cl == 673 then
 		updateSayori('4','r')
-		cw('s',"Your poem is really bad!")
+		cw('s', "¡Tu poema es espantoso!")
 	elseif cl == 674 then
-		cw('s',"Ahahaha!")
+		cw('s', "¡Ja, ja, ja, ja!")
 	elseif cl == 675 then
-		cw('mc',"Eh?!")
+		cw('mc',"¡¿Eh?!")
 	elseif cl == 676 then
 		updateSayori('4','a')
-		cw('s',"It's fine, it's fine~")
+		cw('s', "No pasa nada, no pasa nada~")
 	elseif cl == 677 then
-		cw('s',"It's your first time.")
+		cw('s', "Es tu primera vez.")
 	elseif cl == 678 then
-		cw('s',"Besides...")
+		cw('s', "Además...")
 	elseif cl >= 679 then
 		ch1_s_shared()
 	end
@@ -2864,58 +2864,58 @@ function ch1_s_shared()
 		scriptJump(700)
 	elseif cl == 700 then
 		updateSayori('1','a')
-		cw('s',"I'm really happy just that you wrote one.")
+		cw('s', "Me alegra el simple hecho de que lo hayas compuesto.")
 	elseif cl == 701 then
-		cw('s',"It just reminds me of how you're really a part of the club now~")
+		cw('s', "Me recuerda que de verdad eres un miembro del club~")
 	elseif cl == 702 then
-        cw('bl',"(Not to mention the fact that I'm standing in front of you in the clubroom...?)")
+		cw('bl', "(¿Es que no cuenta el hecho de que esté contigo en el aula del club?)")
 	elseif cl == 703 then
-		cw('mc',"Er...well, of course.")
+		cw('mc', "Eh... claro, por supuesto.")
 	elseif cl == 704 then
-		cw('mc',"I'm not really into it yet, but that doesn't mean I'll break my promise.")
+		cw('mc', "En realidad no me apasiona mucho, pero no pienso romper mi promesa.")
 	elseif cl == 705 then
 		updateSayori('1','d')
-		cw('s',"See?")
+		cw('s', "¿Ves?")
 	elseif cl == 706 then
-		cw('s',"It's like I said before, "..player.."...")
+		cw('s', "Es lo que decía antes, " .. player .. "...")
 	elseif cl == 707 then
-        cw('s',"Deep down, you're not selfish at all, you know?")
+		cw('s', "No eres para nada egoísta, ¿sabes?")
 	elseif cl == 708 then
-        cw('s',"Trying new things like this for other people...")
+		cw('s', "Darle una oportunidad a esto por el bien de las demás...")
 	elseif cl == 709 then
-        updateSayori('2','q')
-		cw('s',"That's something that only really good people do!")
+		updateSayori('2','q')
+		cw('s', "¡Eso solo lo haría una buena persona!")
 	elseif cl == 710 then
-        cw('mc',"Thanks...Sayori.")
+		cw('mc', "Gracias, Sayori.")
 	elseif cl == 711 then
-        cw('bl',"...I'm not sure if Sayori sees the full picture of my motive here.")
+		cw('bl', "... No creo que Sayori se haya dado cuenta de mis verdaderos planes.")
 	elseif cl == 712 then
-        cw('bl',"Then again...")
+		cw('bl', "Pero bueno...")
 	elseif cl == 713 then
-        cw('bl',"I can't deny that she's part of the reason I joined.")
+		cw('bl', "No puedo negar que en parte me he unido al club por ella.")
 	elseif cl == 714 then
-        cw('bl',"Knowing how much this means to her and all...")
+		cw('bl', "Después de saber lo mucho que le importa todo esto...")
 	elseif cl == 715 then
 		updateSayori('1','x')
-		cw('s',"Yeah.")
+		cw('s',"Sí.")
 	elseif cl == 716 then
-		cw('s',"And I'm gonna make sure you have lots of fun here, okay?")
+		cw('s', "Y yo me aseguraré de que te lo pases genial, ¿vale?")
 	elseif cl == 717 then
-		cw('s',"That will be my way of thanking you~")
+		cw('s', "Será mi forma de darte las gracias~")
 	elseif cl == 718 then
-		cw('mc',"Alright, I'm going to hold you to that, then.")
+		cw('mc', "Muy bien, lo tendré en cuenta.")
 	elseif cl == 719 then
 		updateSayori('4','r')
-		cw('s',"Yay~!")
+		cw('s', "¡Bien~!")
 	elseif cl == 720 then
-        cw('s',"Now, you'll read my poem too, right?")
+		cw('s', "Ahora te toca leer mi poema, ¿verdad?")
 	elseif cl == 721 then
-        updateSayori('1','y')
-		cw('s',"Don't worry, I'm really bad at this.")
+		updateSayori('1','y')
+		cw('s', "No te preocupes, en realidad soy bastante mala.")
 	elseif cl == 722 then
-        cw('s',"Ehehe...")
+		cw('s', "Je, je, je...")
 	elseif cl == 723 then
-        cw('mc',"We'll see about that.")
+		cw('mc', "Ya lo veremos.")
 	elseif cl == 724 then
 		poem('poem_s1')
 	elseif cl == 725 then
@@ -2924,72 +2924,72 @@ function ch1_s_shared()
 		poem_disable()
 		cw('mc',"Sayori...")
 	elseif cl == 727 then
-		cw('mc',"This is just a guess, but...")
+		cw('mc', "Es solo una suposición, pero...")
 	elseif cl == 728 then
-		cw('mc', "Did you wait until this morning to write this?")
+		cw('mc', "¿Lo has escrito esta mañana a prisas?")
 	elseif cl == 729 then
 		updateSayori('4','h')
-		cw('s',"No!")
+		cw('s',"¡No!")
 	elseif cl == 730 then
 		updateSayori('4','l')
-		cw('s',"J-Just a little bit!")
+		cw('s', "Bu-bueno, ¡puede que un poquito!")
 	elseif cl == 731 then
-		cw('mc',"You can't answer 'just a little bit' to a yes or no question...")
+		cw('mc', "No puedes responder eso en una pregunta de sí o no.")
 	elseif cl == 732 then
 		updateSayori('5b','')
-		cw('s',"I forgot to do it last night...")
+		cw('s', "Se me olvidó hacerlo anoche...")
 	elseif cl == 733 then
-		cw('mc',"Well, at least that makes me feel a little better about myself...")
+		cw('mc', "Bueno, al menos eso me hace sentir algo mejor conmigo mismo...")
 	elseif cl == 734 then
 		updateSayori('1','h')
-		cw('s',"Don't be mean!")
+		cw('s', "¡No seas malo!")
 	elseif cl == 735 then
-		cw('s',"I still tried my best...")
+		cw('s', "Aún así me he esforzado al máximo...")
 	elseif cl == 736 then
-		cw('mc',"Ah, yeah...")
+		cw('mc', "Ah, ya...")
 	elseif cl == 737 then
-		cw('mc',"I didn't mean to say that it was a bad poem.")
+		cw('mc', "No lo decía porque el poema sea malo.")
 	elseif cl == 738 then
-		cw('mc',"It came out nice...or, how should I put it...")
+		cw('mc', "Te ha salido bien, o cómo podría decirlo...")
 	elseif cl == 739 then
-		cw('mc',"It sounds just like you.")
+		cw('mc', "Te pega mucho.")
 	elseif cl == 740 then
 		updateSayori('1','d')
-		cw('s',"Really?")
+		cw('s',"¿De verdad?")
 	elseif cl == 741 then
-		cw('mc',"Yeah.")
+		cw('mc',"Sí.")
 	elseif cl == 742 then
-		cw('mc',"Especially that last line...")
+		cw('mc', "Especialmente este último verso...")
 	elseif cl == 743 then
 		updateSayori('4','r')
-		cw('s',"I made eggs and toast!")
+		cw('s', "¡He hecho tostadas con huevos!")
 	elseif cl == 744 then
-		cw('mc',"Even though you were late to school...?")
+		cw('mc', "¿Aun sabiendo que llegabas tarde al insti?")
 	elseif cl == 745 then
 		updateSayori('5d','')
-		cw('s',"It's bad to skip breakfast!")
+		cw('s', "¡No es bueno saltarse el desayuno!")
 	elseif cl == 746 then
-		cw('s',"I get all cranky...")
+		cw('s', "Si no desayuno me pongo de muy mal humor...")
 	elseif cl == 747 then
-		cw('mc',"Well, I guess there's no point in arguing...")
+		cw('mc', "Bueno, supongo que no tiene sentido seguir discutiendo...")
 	elseif cl == 748 then
-		cw('mc',"Anyway, thanks for showing me.")
+		cw('mc', "De todas formas, gracias por compartirlo conmigo.")
 	elseif cl == 749 then
 		updateSayori('1','q')
-		cw('s',"Ehehe~")
+		cw('s', "Je, je, je~")
 	elseif cl == 750 then
-		cw('s',"This was so much fun.")
+		cw('s', "Ha sido muy divertido.")
 	elseif cl == 751 then
-		cw('s',"Monika's the best!")
-    elseif cl == 752 then
-		cw('mc',"Ah...yeah.")
+		cw('s', "¡Monika es la mejor!")
+	elseif cl == 752 then
+		cw('mc', "Ah, sí.")
 	elseif cl == 753 then
-		cw('s',"But next time, I won't forget.")
+		cw('s', "No me olvidaré para la próxima.")
 	elseif cl == 754 then
 		updateSayori('4','x')
-		cw('s',"And I'm gonna write the best poem ever!")
+		cw('s', "¡Y escribiré el mejor poema de todos los tiempos!")
 	elseif cl == 755 then
-		cw('mc',"Well, I guess I look forward to it.")
+		cw('mc', "Bueno, supongo que tendré que esperar a que llegue.")
 	elseif cl == 756 then
 		poemfinish('s')
 	end
@@ -3000,76 +3000,76 @@ function ch1_s_good()
 		updateSayori('1','n')
 		cw('s',"...")
 	elseif cl == 671 then
-		cw('s',"...Oh my goodness!")
+		cw('s', "¡Santo cielo!")
 	elseif cl == 672 then
 		updateSayori('4','b')
-		cw('s',"This is sooooo good, "..player.."!")
+		cw('s', "¡" .. player .. ", está suuuperbién!")
 	elseif cl == 673 then
-		cw('mc',"Eh?")
+		cw('mc',"¿Eh?")
 	elseif cl == 674 then
 		updateSayori('4','r')
-		cw('s',"I love it~!")
+		cw('s', "¡Me encanta~!")
 	elseif cl == 675 then
-		cw('s',"I had no idea you were such a good writer!")
+		cw('s', "¡No sabía que fueras tan bueno!")
 	elseif cl == 676 then
 		cw('mc',"Sayori...")
 	elseif cl == 677 then
-		cw('mc',"You must be seriously overreacting.")
+		cw('mc', "Estás exagerando.")
 	elseif cl == 678 then
-		cw('mc',"I'm not a good writer at all.")
+		cw('mc', "Soy pésimo.")
 	elseif cl == 679 then
-		cw('mc',"I honestly have no idea what I'm doing.")
+		cw('mc', "Ni siquiera sé qué estoy haciendo.")
 	elseif cl == 680 then
 		updateSayori('4','x')
-		cw('s',"Well...")
+		cw('s', "Bueno...")
 	elseif cl == 681 then
-		cw('s',"Maybe that's why!")
+		cw('s', "¡Quizá sea por eso!")
 	elseif cl == 682 then
-		cw('s',"Because I have no idea what I like, either!")
+		cw('s', "¡Porque yo tampoco tengo ni idea de lo que me gusta!")
 	elseif cl == 683 then
 		updateSayori('4','r')
-		cw('s',"Ahahaha!")
+		cw('s', "¡Ja, ja, ja, ja!")
 	elseif cl == 684 then
-		cw('mc',"Jeez...")
+		cw('mc', "Ainss...")
 	elseif cl == 685 then
 		if readpoem.y==1 then
-			cw('bl',"Yuri's opinion was way more constructive than this...")
+		cw('bl', "La opinión de Yuri era mucho más útil que esta...")
 		else
-			cw('bl',"I'm sure Yuri's opinion has to be a little more constructive than this.")
+		cw('bl', "Estoy seguro de que la opinión de Yuri será mucho más útil que esta.")
 		end
 	elseif cl == 686 then
 		if readpoem.y==1 then
 			scriptJump(687)
 		else
-			cw('bl',"Maybe even Natsuki's.")
+		cw('bl', "Puede que incluso la de Natsuki sea mejor.")
 		end
 	elseif cl == 687 then
-		cw('mc',"Are you sure you don't like it just because I wrote it?")
+		cw('mc', "¿Estás segura de que no te gusta porque lo he escrito yo?")
 	elseif cl == 688 then
 		updateSayori('4','b')
-		cw('s',"Eh?")
+		cw('s',"¿Eh?")
 	elseif cl == 689 then
-		cw('s',"Well, I'm sure that's part of it.")
+		cw('s', "Bueno, seguramente tenga algo que ver.")
 	elseif cl == 690 then
 		updateSayori('4','x')
-		cw('s',"I think I understand you better than a lot of other people, you know?")
+		cw('s', "Creo que te entiendo mejor que el resto, ¿sabes?")
 	elseif cl == 691 then
-		cw('s',"So when I read your poem...")
+		cw('s', "Así que cuando he leído tu poema...")
 	elseif cl == 692 then
-		cw('s',"It's not just a poem...")
+		cw('s', "No se trata solo de un poema...")
 	elseif cl == 693 then
 		updateSayori('4','q')
-		cw('s',"It's a "..player.." poem!")
+		cw('s', "¡Es un poema de " .. player .. "!")
 	elseif cl == 694 then
-		cw('s',"And that makes it feel extra special!")
+		cw('s', "¡Y eso lo hace aún más especial!")
 	elseif cl == 695 then
-		cw('s',"Like I can feel your feelings in it~")
+		cw('s', "Creo que hasta puedo sentir tus emociones~")
 	elseif cl == 696 then
-		cw('s',"Sayori hugs the sheet against her chest.")
+		cw('bl', "Sayori abraza el folio de papel.")
 	elseif cl == 697 then
-		cw('mc',"You're so weird, Sayori...")
+		cw('mc', "Eres muy rara, Sayori...")
 	elseif cl == 698 then
-		cw('s',"Ehehe...")
+		cw('s', "Je, je, je...")
 	elseif cl >= 699 then
 		ch1_s_shared()
 	end
@@ -3080,28 +3080,28 @@ function ch2_s_bad()
 		cw('s',"...")
 	elseif cl == 671 then
 		updateSayori('1','q')
-		cw('s',"Ehehe, I love reading your poems~")
+		cw('s', "Je, je, me encanta leer tus poemas~")
 	elseif cl == 672 then
-		cw('s',"It's like I never know what I'm going to get!")
+		cw('s', "¡Nunca sé qué me voy a encontrar!")
 	elseif cl == 673 then
-		cw('mc',"So basically you're saying it sucks.")
+		cw('mc', "Básicamente me estás diciendo que es horrible.")
 	elseif cl == 674 then
 		updateSayori('4','c')
-		cw('s',"No! Not at all!")
+		cw('s', "¡No! ¡Para nada!")
 	elseif cl == 675 then
 		updateSayori('4','l')
-		cw('s',"...Maybe!")
-    elseif cl == 676 then
+		cw('s', "... ¡Puede!")
+	elseif cl == 676 then
 		updateSayori('5a')
-		cw('s',"Just a little?")
+		cw('s', "¿Solo un poquito?")
 	elseif cl == 677 then
-		cw('s',"Yuri must have spoiled me a little bit with her poems...")
+		cw('s', "Es posible que Yuri me haya mimado un poco con sus poemas...")
 	elseif cl == 678 then
-		cw('s',"Ehehe...")
+		cw('s', "Je, je, je...")
 	elseif cl == 679 then
-		cw('mc',"It's fine, it's fine.")
+		cw('mc', "Está bien, está bien...")
 	elseif cl == 680 then
-		cw('mc',"After all, I still have no idea what kinds of writing you even like.")
+		cw('mc', "Después de todo, sigo sin saber qué estilo te gusta más.")
 	elseif cl >= 681 then
 		ch2_s_shared()
 	end
@@ -3112,94 +3112,94 @@ function ch2_s_shared()
 		scriptJump(714)
 	elseif cl == 714 then
 		updateSayori('1','q')
-		cw('s',"Yeah!")
+		cw('s', "¡Sííí!")
 	elseif cl == 715 then
-		cw('s',"Me neither!")
+		cw('s', "¡Ni yo!")
 	elseif cl == 716 then
-		cw('mc',"Ugh...")
+		cw('mc', "Agh.")
 	elseif cl == 717 then
-		cw('mc',"Why don't you at least try giving it some thought?")
+		cw('mc', "¿Y por qué no intentas pensarlo?")
 	elseif cl == 718 then
 		updateSayori('2','d')
-		cw('s',"Aww, you want to write something for me?")
+		cw('s', "Oooh, ¿quieres componer un poema para mí?")
 	elseif cl == 719 then
-		cw('s',"That's so sweet~")
+		cw('s', "Qué bonito~")
 	elseif cl == 720 then
-		cw('mc',"Yeah, right.")
-	elseif cl == 721 then    
-		cw('mc',"But you're always thinking about other people.")
+		cw('mc', "Ya, claro.")
+	elseif cl == 721 then	
+		cw('mc', "Pero siempre estás pensando en los demás.")
 	elseif cl == 722 then
-		cw('mc',"You need to think about yourself once in a while.")
+		cw('mc', "Va siendo hora de que pienses un poquito en ti.")
 	elseif cl == 723 then
-		cw('mc',"If you don't, you might end up getting hurt at some point.")
+		cw('mc', "Si no lo haces, acabarás sufriendo.")
 	elseif cl == 724 then
 		updateSayori('1','n')
-		cw('s',"Ehh?")
+		cw('s', "¿Eh?")
 	elseif cl == 725 then
-		cw('s',"Well...")
+		cw('mc', "Bueno...")
 	elseif cl == 726 then
 		updateSayori('1','o')
-		cw('s',"I don't really know what you mean, but I'll try to keep it in mind!")
+		cw('s', "¡No sé muy bien a qué te refieres, pero lo tendré en cuenta!")
 	elseif cl == 727 then
-		cw('mc',"Well, whatever...")
+		cw('mc', "Bueno, da igual...")
 	elseif cl == 728 then
 		updateSayori('1','b')
-		cw('s',"Anyway, let's see...")
+		cw('s', "Bueno, vamos a ver...")
 	elseif cl == 729 then
-		cw('s',"Hmm...")
+		cw('s', "Mmm...")
 	elseif cl == 730 then
 		updateSayori('4','q')
-		cw('s',"I guess I like...happy poems~")
+		cw('s', "Supongo que me gustan... los poemas felices~")
 	elseif cl == 731 then
 		updateSayori('4','i')
-		cw('s',"Wait, sometimes I like sad poems too...")
+		cw('s', "Aunque espera, a veces también me gustan los tristes...")
 	elseif cl == 732 then
 		updateSayori('1','i')
-		cw('s',"Sometimes a little bit of both...")
+		cw('s', "Y a veces una mezcla de los dos...")
 	elseif cl == 733 then
-		cw('s',"There's a word for that, right...?")
+		cw('s', "Hay una palabra para eso, ¿verdad?")
 	elseif cl == 734 then
-		cw('s',"What's the word I'm looking for...")
+		cw('s', "¿Cuál será?")
 	elseif cl == 735 then
 		updateSayori('4','r')
-		cw('s',"...Bittersweet!")
+		cw('s', "¡Agridulce!")
 	elseif cl == 736 then
-		cw('s',"Yeah!")
+		cw('s', "¡Sííí!")
 	elseif cl == 737 then
 		updateSayori('1','x')
-		cw('s',"I like things that are happy and things that are sad.")
+		cw('s', "Me gustan tanto las cosas alegres como las tristes.")
 	elseif cl == 738 then
-		cw('mc',"Happy and sad?")
+		cw('mc', "¿Alegres y tristes?")
 	elseif cl == 739 then
-		cw('mc',"I can't see you liking something sad, Sayori...")
+		cw('mc', "No te imagino gustándote algo triste, Sayori...")
 	elseif cl == 740 then
 		updateSayori('1','c')
-		cw('s',"Well...")
+		cw('s', "Bueno...")
 	elseif cl == 741 then
-		cw('s',"I like happy the most!")
+		cw('s', "¡Me gusta más lo alegre!")
 	elseif cl == 742 then
 		updateSayori('1','d')
-		cw('s',"But sometimes when you have a little raincloud in your head...")
+		cw('s', "Pero a veces tengo como un nubarrón en mi cabeza...")
 	elseif cl == 743 then
-		cw('s',"A sad poem can help give the raincloud a little hug...")
+		cw('s', "Un poema triste puede servir para darle un abrazo a la nube...")
 	elseif cl == 744 then
 		updateSayori('4','q')
-		cw('s',"...And make a nice happy rainbow!")
+		cw('s', "¡Y así convertirla en un arcoíris!")
 	elseif cl == 745 then
-		cw('mc',"...Sayori, that's unexpectedly poetic.")
+		cw('mc', "Sayori, no esperaba que te quedase tan poético.")
 	elseif cl == 746 then
 		updateSayori('4','n')
-		cw('s',"Eh? It is?")
+		cw('s', "¿Eh? ¿Ah, sí?")
 	elseif cl == 747 then
-		cw('s',"Maybe I'm getting better at expressing my feelings after all!")
+		cw('s', "¡Parece que se me da mejor expresar mis sentimientos!")
 	elseif cl == 748 then
 		updateSayori('2','q')
-		cw('s',"Thanks, "..player.."!")
+		cw('s', "¡Gracias, " .. player .. "!")
 	elseif cl == 749 then
-		cw('s',"I should go write that down, then~")
+		cw('s', "Debería apuntármelo en algún sitio~")
 	elseif cl == 750 then
 		updateSayori('2','a')
-		cw('s',"You can read my poem now, okay?")
+		cw('s', "Ya puedes leer mi poema, ¿vale?")
 	elseif cl >= 751 then
 		ch2_s_end()
 	end
@@ -3214,71 +3214,71 @@ function ch2_s_end()
 		scriptJump(758)
 	elseif cl == 758 then
 		poem_disable()
-		cw('mc',"Holy crap...")
+		cw('mc', "La madre que...")
 	elseif cl == 759 then
-		cw('mc',"Sayori, did you really write this?")
+		cw('mc', "Sayori, ¿de verdad has escrito esto?")
 	elseif cl == 760 then
 		updateSayori('2','j')
-		cw('s',"Of course I did!")
+		cw('s', "¡Por supuesto!")
 	elseif cl == 761 then
-		cw('s',"Didn't I tell you yesterday I was gonna write the best poem ever?")
+		cw('s', "¿No te dije ayer que escribiría el mejor poema de todos los tiempos?")
 	elseif cl == 762 then
-		cw('mc',"Yeah, but...")
+		cw('mc', "Sí, pero...")
 	elseif cl == 763 then
-		cw('mc',"I mean, I didn't expect something like this, coming from you.")
+		cw('mc', "Es que no me esperaba algo así por tu parte.")
 	elseif cl == 764 then
 		updateSayori('4','x')
-		cw('s',"Monika taught me a whole lot!")
+		cw('s', "¡Monika me ha enseñado mucho!")
 	elseif cl == 765 then
-		cw('s',"And I've been really in touch with my feelings recently...")
+		cw('s', "Y últimamente he estado más sensible...")
 	elseif cl == 766 then
-		cw('mc',"I see that...")
+		cw('mc', "Se ve...")
 	elseif cl == 767 then
-		cw('mc',"It's almost kind of creepy.")
+		cw('mc', "Da un poco de repelús.")
 	elseif cl == 768 then
 		updateSayori('1','b')
-		cw('s',"Creepy...?")
+		cw('s', "¿Repelús?")
 	elseif cl == 769 then
-		cw('mc',"Well, not exactly...")
+		cw('mc', "Bueno, no exactamente...")
 	elseif cl == 770 then
-		cw('mc',"Maybe because I'm so used to you being cheerful...")
+		cw('mc', "Quizá es porque estoy acostumbrado a que seas alegre...")
 	elseif cl == 771 then
-		cw('mc',"...Well, never mind.")
+		cw('mc', "Bueno, da igual.")
 	elseif cl == 772 then
-		cw('mc',"I'm thinking too hard about it.")
+		cw('mc', "Creo que le estoy dando demasiadas vueltas.")
 	elseif cl == 773 then
-		cw('mc',"The point is, it came out good, so you should be proud of it.")
+		cw('mc', "La cuestión es que te ha salido genial, así que deberías estar orgullosa de ti misma.")
 	elseif cl == 774 then
 		updateSayori('1','y')
-		cw('s',"Aw, thanks~")
+		cw('s', "Oh, gracias~")
 	elseif cl == 775 then
-		cw('s',"I feel like...")
+		cw('s', "Siento...")
 	elseif cl == 776 then
-		cw('s',"I feel like I was meant to express myself this way.")
+		cw('s', "Siento que tenía que expresarme de esta manera.")
 	elseif cl == 777 then
-		cw('s',"It even helps me understand my own feelings a little bit better...")
+		cw('s', "Me ayuda a comprender mejor mis sentimientos...")
 	elseif cl == 778 then
 		updateSayori('1','a')
-		cw('s',"Writing is like magic!")
+		cw('s', "¡Escribir es mágico!")
 	elseif cl == 779 then
-		cw('mc',"You've gotten pretty passionate about this, huh?")
+		cw('mc', "Te estás volviendo una apasionada del tema, ¿eh?")
 	elseif cl == 780 then
-		cw('mc',"I hope you keep it up.")
+		cw('mc', "Espero que puedas mantener el ritmo.")
 	elseif cl == 781 then
 		updateSayori('4','r')
-		cw('s',"Yeah!")
+		cw('s',"¡Sííí!")
 	elseif cl == 782 then
-		cw('s',"Writing's the best!")
+		cw('s', "¡Escribir es lo mejor!")
 	elseif cl == 783 then
-		cw('s',"I'm gonna keep writing until I die!")
+		cw('s', "¡Escribiré hasta el día que me muera!")
 	elseif cl == 784 then
-		cw('mc',"Ahaha...don't get ahead of yourself.")
+		cw('mc', "Ja, ja, ja. No te precipites tanto.")
 	elseif cl == 785 then
-		cw('bl',"Sayori's always had a habit of getting obsessed with something, before dropping it no more than a week later.")
+		cw('bl', "Sayori es de las que siempre se obsesionan con algo, para luego dejarlo a la semana siguiente.")
 	elseif cl == 786 then
-		cw('bl',"I wonder if this is one of those times?")
+		cw('bl', "¿Será este uno de esos casos?")
 	elseif cl == 787 then
-		cw('bl',"But seeing the passion in her eyes makes it hard for me to be pessimistic.")
+		cw('bl', "Pero me resulta difícil ser pesimista con esa mirada tan apasionada que tiene.")
 	elseif cl == 788 then
 		poemfinish('s')
 	end
@@ -3290,96 +3290,96 @@ function ch2_s_med()
 			cw('s',"...")
 		elseif cl == 671 then
 			updateSayori('4','x')
-			cw('s',"Ooh!")
+		cw('s', "¡Ooh!")
 		elseif cl == 672 then
-			cw('s',"I like this one, "..player.."!")
+		cw('s', "¡Este me encanta, " .. player .. "!")
 		elseif cl == 673 then
-			cw('s',"It has some nice feelings in it~")
+		cw('s', "Trata de sentimientos agradables~")
 		elseif cl == 674 then
-			cw('mc',"Ah, I'm glad.")
+		cw('mc', "Ah, me alegro.")
 		elseif cl == 675 then
-			cw('mc',"So it's at least better than yesterday's.")
+		cw('mc', "Al menos está mejor que el de ayer.")
 		elseif cl == 676 then
 			updateSayori('1','q')
-			cw('s',"Uh-huh!")
+		cw('s', "¡Eeh!")
 		elseif cl == 677 then
-			cw('mc',"Maybe I'm getting better at this, then.")
-        elseif cl >= 678 then
+		cw('mc', "Quizá sí que estoy mejorando.")
+		elseif cl >= 678 then
 			ch2_s_med_shared()
 		end
 
-    elseif s_poemappeal[1] == 0 then
+	elseif s_poemappeal[1] == 0 then
 		if cl == 670 then
 			cw('s',"...")
 		elseif cl == 671 then
 			updateSayori('4','x')
-			cw('s',"Ooh!")
+			cw('s',"¡Ooh!")
 		elseif cl == 672 then
-			cw('s',"I like this one, "..player.."!")
+		cw('s', "¡Este me encanta, " .. player .. "!")
 		elseif cl == 673 then
-			cw('s',"It has some nice feelings in it~")
+		cw('s', "Trata de sentimientos agradables~")
 		elseif cl == 674 then
-			cw('mc',"Ah, I'm glad.")
+		cw('mc', "Ah, me alegro.")
 		elseif cl == 675 then
-			cw('mc',"Does that mean it's better than yesterday's?")
+		cw('mc', "¿Eso significa que es mucho mejor que el de ayer?")
 		elseif cl == 676 then
 			updateSayori('4','b')
-			cw('s',"Mmm, lemme think...")
+		cw('s', "Mmm, déjame pensar...")
 		elseif cl == 677 then
 			updateSayori('1','q')
-			cw('s',"I dunno!")
+		cw('s', "¡Ni idea!")
 		elseif cl == 678 then
-			cw('s',"I guess I like them both!")
+		cw('s', "¡Supongo que me gustan los dos!")
 		elseif cl == 679 then
-			cw('s',"Ehehe~")
+		cw('s', "Je, je, je~")
 		elseif cl == 680 then
-			cw('mc',"That's not very helpful, you know...")
+		cw('mc', "Eso no me ayuda mucho, ¿sabes?")
 		elseif cl >= 681 then
 			ch2_s_med_shared()
 		end
-    else
-        if cl == 670 then
+	else
+		if cl == 670 then
 			cw('s',"...")
 		elseif cl == 671 then
 			updateSayori('4','x')
-			cw('s',"Ooh!")
+			cw('s',"¡Ooh!")
 		elseif cl == 672 then
-			cw('s',"I like this one, "..player.."!")
+		cw('s', "¡Este me encanta, " .. player .. "!")
 		elseif cl == 673 then
-			cw('s',"It has some nice feelings in it~")
+		cw('s', "Trata de sentimientos agradables~")
 		elseif cl == 674 then
-			cw('mc',"Ah, I'm glad.")
+		cw('mc', "Ah, me alegro.")
 		elseif cl == 675 then
-			cw('mc',"Still, though...")
+		cw('mc', "Aún así...")
 		elseif cl == 676 then
-			cw('mc',"Your tone makes it sound like you liked yesterday's poem better.")
+		cw('mc', "Por tu tono parece que te gustó más el de ayer.")
 		elseif cl == 677 then
 			updateSayori('2','l')
-			cw('s',"Ehehe, I guess you caught me...")
+		cw('s', "Je, je, supongo que me has pillado...")
 		elseif cl == 678 then
-			cw('s',"Sometimes you know me a little too well for my own good!")
+		cw('s', "¡A veces me conoces más de lo que me gustaría!")
 		elseif cl == 679 then
-			cw('mc',"Well, don't just try to be nice about it.")
+		cw('mc', "Bueno, no hace falta que intentes ser amable.")
 		elseif cl == 680 then
-			cw('mc',"If I'm doing a bad job then I'd rather just hear it.")
+		cw('mc', "Si he hecho algo mal prefiero que me lo digas directamente.")
 		elseif cl == 681 then
 			updateSayori('1','c')
 		elseif cl == 682 then
-			cw('s',"No, no!")
+		cw('s', "¡No, no!")
 		elseif cl == 683 then
-			cw('s',"I still liked this one! I promise!")
+		cw('s', "¡Aun así este me ha gustado! ¡Te lo prometo!")
 		elseif cl == 684 then
 			updateSayori('1','h')
-			cw('s',"You know I wouldn't lie to you, "..player.."...!")
+		cw('s', "¡Ya sabes que no podría engañarte, " .. player .. "!")
 		elseif cl == 685 then
-			cw('s',"Never ever!")
+		cw('s', "¡Jamás!")
 		elseif cl == 686 then
-			cw('mc',"Yeah, I guess so...")
+		cw('mc', "Sí, supongo...")
 		elseif cl == 687 then
-			cw('mc',"What made yesterday's poem so great compared to this one, then?")
+		cw('mc', "¿Entonces qué tenía el de ayer de especial para que sea mejor que este?")
 		elseif cl == 688 then
 			updateSayori('1','b')
-			cw('s',"Umm.....")
+		cw('s', "Em...")
 		elseif cl >= 689 then
 			ch2_s_med_shared()
 		end
@@ -3391,19 +3391,19 @@ function ch2_s_med_shared()
 		scriptJump(705)
 	elseif cl == 705 then
 		updateSayori('1','a')
-		cw('s',"Well, I'm not very good at figuring out if poems are good or bad...")
+		cw('s', "Bueno, no se me da muy bien saber si un poema es bueno o malo...")
 	elseif cl == 706 then
-		cw('s',"But that's why I just go by my heart~")
+		cw('s', "Por eso hago lo que me dicta el corazón~")
 	elseif cl == 707 then
-		cw('s',"If it makes me feel things, then it must be a good poem!")
+		cw('s', "¡Si me hace sentir algo, significa que es un buen poema!")
 	elseif cl == 708 then
-		cw('mc',"I'm not sure that's exactly how it works...")
+		cw('bl', "No creo que esto funcione así...")
 	elseif cl == 709 then
-		cw('bl',"...Then again, I guess conveying feelings is a pretty important part of this whole thing.")
+		cw('bl', "Pero bueno, supongo que transmitir emociones es algo muy importante.")
 	elseif cl == 710 then
-		cw('mc',"Yeah, maybe...")
+		cw('mc', "Sí, quizá...")
 	elseif cl == 711 then
-		cw('mc',"Honestly, I don't even know what kind of writing you like in the first place.")
+		cw('mc', "La verdad es que ni siquiera sé qué tipo de poemas te gustan.")
 	elseif cl >= 712 then
 		ch2_s_shared()
 	end
@@ -3415,268 +3415,268 @@ function ch2_s_good()
 			updateSayori('1','n')
 			cw('s',"...")
 		elseif cl == 671 then
-			cw('s',"...Oh my goodness!")
+		cw('s', "¡Santo cielo!")
 		elseif cl == 672 then
 			updateSayori('4','r')
-			cw('s',"This is sooooo good, "..player.."!")
+		cw('s', "¡" .. player .. ", está suuuperbién!")
 		elseif cl == 673 then
-			cw('mc',"Eh?")
+			cw('mc',"¿Eh?")
 		elseif cl == 674 then
-			cw('s',"I love it~!")
+		cw('s', "¡Me encanta~!")
 		elseif cl == 675 then
-			cw('s',"Especially after yesterday's poem!")
+		cw('s', "¡Sobre todo después de el de ayer!")
 		elseif cl == 676 then
-			cw('mc',"Ugh...")
+		cw('mc', "Agh.")
 		elseif cl == 677 then
-			cw('mc',"You're too honest sometimes, Sayori.")
+		cw('mc', "A veces eres demasiado sincera, Sayori.")
 		elseif cl == 678 then
 			updateSayori('4','x')
-			cw('s',"No, but really!!")
+		cw('s', "¡¡No, lo digo en serio!!")
 		elseif cl == 679 then
 			updateSayori('1','x')
-			cw('s',"I wanna put this on my wall~")
+		cw('s', "Quiero colgarlo en mi cuarto~")
 		elseif cl == 680 then
-			cw('s',"Can I?")
+		cw('s', "¿Me dejas?")
 		elseif cl == 681 then
 			cw('mc',"Sayori...")
 		elseif cl == 682 then
-			cw('mc',"You must be seriously overreacting.")
+		cw('mc', "Eres una exagerada.")
 		elseif cl == 683 then
-			cw('mc',"I'm not a good writer at all.")
+		cw('mc', "No soy tan bueno componiendo.")
 		elseif cl == 684 then
-			cw('mc',"I honestly have no idea what I'm doing.")
+		cw('mc', "Ni siquiera sé qué estoy haciendo.")
 		elseif cl == 685 then
 			updateSayori('1','l')
-			cw('s',"Well...")
+		cw('s', "Bueno...")
 		elseif cl == 686 then
-			cw('s',"Maybe that's why!")
+		cw('s', "¡Quizá es por eso!")
 		elseif cl == 687 then
-			cw('s',"Because I have no idea what I like, either!")
+		cw('s', "¡Porque yo tampoco tengo ni idea de lo que me gusta!")
 		elseif cl == 688 then
 			updateSayori('4','r')
-			cw('s',"Ahahaha!")
+		cw('s', "¡Ja, ja, ja, ja!")
 		elseif cl == 689 then
-			cw('mc',"Jeez...")
+		cw('mc', "Ains...")
 		elseif cl == 690 then
-			cw('bl',"I'm sure Yuri's opinion has to be a little more constructive than this.")
+		cw('bl', "Estoy seguro de que la opinión de Yuri será mucho más útil que esta.")
 		elseif cl == 691 then
-			cw('bl',"Maybe even Natsuki's.")
+		cw('bl', "Puede que incluso la de Natsuki sea mejor.")
 		elseif cl == 692 then
-			cw('mc',"Are you sure you don't like it just because I wrote it?")
+		cw('mc', "¿Estás segura de que no te gusta por que lo he escrito yo?")
 		elseif cl == 693 then
 			updateSayori('4','b')
-			cw('s',"Eh?")
+			cw('s',"¿Eh?")
 		elseif cl == 694 then
 			updateSayori('1','b')
-			cw('s',"Well, I'm sure that's part of it.")
+		cw('s', "Bueno, seguramente tenga algo que ver.")
 		elseif cl == 695 then
-			cw('s',"I think I understand you better than a lot of other people, you know?")
+		cw('s', "Creo que te entiendo mejor que el resto, ¿sabes?")
 		elseif cl == 696 then
-			cw('s',"So when I read your poem...")
+		cw('s', "Así que cuando he leído tu poema...")
 		elseif cl == 697 then
-			cw('s',"It's not just a poem...")
+		cw('s', "No se trata solo de un poema...")
 		elseif cl == 698 then
 			updateSayori('4','q')
-			cw('s',"It's a "..player.." poem!")
+		cw('s', "¡Es un poema de " .. player .. "!")
 		elseif cl == 699 then
-			cw('s',"And that makes it feel extra special!")
+		cw('s', "¡Y eso lo hace aún más especial!")
 		elseif cl == 700 then
-			cw('s',"Like I can feel your feelings in it~")
+		cw('s', "Creo que hasta puedo sentir tus emociones~")
 		elseif cl == 701 then
-			cw('s',"Sayori hugs the sheet against her chest.")
+		cw('bl', "Sayori abraza el folio de papel.")
 		elseif cl == 702 then
-			cw('mc',"You're so weird, Sayori...")
+		cw('mc', "Eres muy rara, Sayori...")
 		elseif cl == 703 then
 			updateSayori('4','l')
-			cw('s',"Ehehe...")
-        elseif cl >= 704 then
+		cw('s', "Je, je, je...")
+		elseif cl >= 704 then
 			ch2_s_med_shared()
 		end
-    else
+	else
 		if cl == 670 then
 			cw('s',"...")
 		elseif cl == 671 then
 			updateSayori('1','d')
 			cw('s',player.."...")
 		elseif cl == 672 then
-			cw('s',"I really love your poems.")
+		cw('s', "Me encantan tus poemas.")
 		elseif cl == 673 then
-			cw('s',"I can't believe you've been hiding these from me!")
+		cw('s', "¡No me puedo creer que me los hayas ocultado!")
 		elseif cl == 674 then
-			cw('mc',"Eh? I'm not hiding anything!")
+		cw('mc', "¿Eh? ¡No te estoy ocultando nada!")
 		elseif cl == 675 then
 			updateSayori('1','b')
-			cw('s',"But...")
+		cw('s', "Pero...")
 		elseif cl == 676 then
-			cw('s',"Your poems are sooo good...")
+		cw('s', "Tus poemas son suuuperbuenos...")
 		elseif cl == 677 then
-			cw('s',"Yesterday's, and this one too!")
+		cw('s', "¡El de ayer y este también!")
 		elseif cl == 678 then
-			cw('s',"You can't tell me you haven't done this before!")
+		cw('s', "¡No puedes hacerme creer que nunca has hecho esto!")
 		elseif cl == 679 then
-			cw('mc',"I mean...")
+		cw('mc', "Pues...")
 		elseif cl == 680 then
-			cw('mc',"You're really the only one who feels that way, so...")
-        elseif cl == 681 then
+		cw('mc', "Eres la única que piensa eso, así que...")
+		elseif cl == 681 then
 			updateSayori('4','h')
-			cw('s',"Eh?!")
+			cw('s',"¡¿Eh?!")
 		elseif cl == 682 then
-			cw('s',"No way!!")
+		cw('s', "¡¡Imposible!!")
 		elseif cl == 683 then
-			cw('s',"Not even Natsuki...?")
+		cw('s', "¿Ni siquiera Natsuki?")
 		elseif cl == 684 then
-			cw('mc',"Well, I guess Natsuki is the least likely to admit how much she likes something...")
+		cw('mc', "Bueno, Natsuki es a la que más le cuesta reconocer que le gusta algo...")
 		elseif cl == 685 then
-			cw('mc',"But I don't think it's that.")
+		cw('mc', "Pero no creo que sea eso.")
 		elseif cl == 686 then
 			updateSayori('1','b')
-			cw('s',"What do you mean?")
+		cw('s', "¿Qué quieres decir?")
 		elseif cl == 687 then
-			cw('mc',"Well...")
+		cw('mc', "Bueno...")
 		elseif cl == 688 then
-			cw('mc',"I guess I'll be honest about it.")
+		cw('mc', "Supongo que voy a serte sincero.")
 		elseif cl == 689 then
-			cw('mc',"It's a lot easier to write poems when I'm thinking about you.")
+		cw('mc', "Me es más fácil componer poemas cuando pienso en ti.")
 		elseif cl == 690 then
 			updateSayori('4','m')
-			cw('s',"E-Eh?!")
+		cw('s', "¡¿E-eh?!")
 		elseif cl == 691 then
-			cw('s',"Wawawa--!")
+		cw('s', "¡¿Que qué?!")
 		elseif cl == 692 then
-			cw('mc',"Stop thinking weird things, idiot!")
+		cw('mc', "¡No seas malpensada, tonta!")
 		elseif cl == 693 then
-			cw('mc',"I just mean that you're a really...expressive person, I guess.")
+		cw('mc', "Me refiero a que eres una persona muy... expresiva, supongo.")
 		elseif cl == 694 then
-			cw('mc',"How am I supposed to write poems about my own stupid life?")
+		cw('mc', "¿Cómo quieres que componga algo sobre mi aburrida vida?")
 		elseif cl == 695 then
-			cw('mc',"But you somehow make everything in your life an adventure.")
+		cw('mc', "No sé cómo, pero siempre consigues hacer una aventura de cualquier cosa.")
 		elseif cl == 696 then
-			cw('mc',"Even the little things.")
+		cw('mc', "Hasta de las pequeñas cosas.")
 		elseif cl == 697 then
 			updateSayori('4','o')
-			cw('s',"Like cooking!!")
+		cw('s', "¡¡Como cocinar!!")
 		elseif cl == 698 then
-			cw('mc',"Let's not talk about that!")
+		cw('mc', "¡¡No hablemos de eso!!")
 		elseif cl == 699 then
 			updateSayori('5a')
-			cw('s',"Ehehe...")
+		cw('s', "Je, je, je...")
 		elseif cl == 700 then
-			cw('mc',"So, yeah...")
-        elseif cl == 701 then
-			cw('mc',"I guess what I'm saying is that I can feel more feelings through you than I can through myself.")
+		cw('mc', "Bueno...")
+		elseif cl == 701 then
+		cw('mc', "Lo que intento decir es que puedo sentir más cosas a través de ti que a través de mí.")
 		elseif cl == 702 then
-			cw('mc',"We have that kind of weird connection.")
+		cw('mc', "Tenemos una conexión muy rara.")
 		elseif cl == 703 then
-			cw('mc',"It's your fault for getting in my business all the time.")
+		cw('mc', "Es tu culpa por meterte siempre en mis asuntos.")
 		elseif cl == 704 then
 			updateSayori('1','e')
-			cw('s',"Ehh...?")
+		cw('s', "¿Eeh?")
 		elseif cl == 705 then
-			cw('s',"I don't know if I understand...")
+		cw('s', "No sé si te entiendo...")
 		elseif cl == 706 then
-			cw('mc',"Sigh...")
+		cw('mc', "Ay...")
 		elseif cl == 707 then
-			cw('mc',"You never understand when I try to explain things to you, do you, Sayori?")
+		cw('mc', "Nunca entiendes lo que te explico, ¿verdad, Sayori?")
 		elseif cl == 708 then
-			cw('bl',"I pat Sayori's head.")
+		cw('bl', "Le doy un par de palmaditas en la cabeza.")
 		elseif cl == 709 then
 			updateSayori('4','s')
-			cw('s',"Ahaha! Heyyy!")
+		cw('s', "¡Ja, ja, ja! ¡Oyeee!")
 		elseif cl == 710 then
-			cw('s',"I'm not a kid, you know!")
+		cw('s', "Ya no soy una cría, ¡¿sabes?!")
 		elseif cl == 711 then
-			cw('mc',"Are you sure about that?")
+		cw('mc', "¿Estás segura?")
 		elseif cl == 712 then
 			updateSayori('4','l')
-			cw('s',"Mmmm, maybe~")
+		cw('s', "Mmm, puede~")
 		elseif cl == 713 then
-			cw('bl',"Sayori starts fiddling with her pencil between her hands.")
+		cw('bl', "Sayori empieza a darle vueltas al lápiz.")
 		elseif cl == 714 then
-			cw('s',"Hey, "..player.."...")
+		cw('s', "Oye, " .. player .. ".")
 		elseif cl == 715 then
 			updateSayori('2','d')
-			cw('s',"Will you give me your poem?")
+		cw('s', "¿Me podrías dar tu poema?")
 		elseif cl == 716 then
-			cw('s',"I kinda want to keep it.")
+		cw('s', "Me gustaría quedármelo.")
 		elseif cl == 717 then
-			cw('mc',"Huh? Why?")
+		cw('mc', "¿Eh? ¿Por qué?")
 		elseif cl == 718 then
 			updateSayori('1','y')
-			cw('s',"Because...")
+		cw('s', "Pues porque...")
 		elseif cl == 719 then
-			cw('s',"Well...")
+		cw('s', "Bueno...")
 		elseif cl == 720 then
-			cw('s',"It's the first time you've written something for me...")
+		cw('s', "Es la primera vez que me escribes algo...")
 		elseif cl == 721 then
-			cw('s',"Ehehe...")
+		cw('s', "Je, je, je...")
 		elseif cl == 722 then
-			cw('mc',"!!")
+			cw('mc',"¡¡!!")
 		elseif cl == 723 then
-			cw('mc',"Sayori, you completely misunderstood!")
+		cw('mc', "¡Sayori, lo has malinterpretado!")
 		elseif cl == 724 then
-			cw('mc',"I didn't write this for you!")
+		cw('mc', "¡No lo he compuesto para ti!")
 		elseif cl == 725 then
 			updateSayori('5b')
-			cw('s',"Ehehehehe...")
+		cw('s', "Je, je, je...")
 		elseif cl == 726 then
-			cw('mc',"Sigh...")
+		cw('mc', "Ay...")
 		elseif cl == 727 then
-			cw('mc',"Are you even listening anymore?")
+		cw('mc', "¿Me estás escuchando?")
 		elseif cl == 728 then
-			cw('mc',"Well, whatever.")
+		cw('mc', "Bueno, da igual.")
 		elseif cl == 729 then
-			cw('mc',"I'll give it to you when we go home.")
+		cw('mc', "Te lo daré cuando nos vayamos a casa.")
 		elseif cl == 730 then
 			updateSayori('4','m')
-			cw('s',"Really?!")
+		cw('s', "¡¿En serio?!")
 		elseif cl == 731 then
-			cw('bl',"Snap!")
+		cw('bl', "¡Crac!")
 		elseif cl == 732 then
 			updateSayori('4','p')
-			cw('s',"A-Ah!!")
+		cw('s', "¡¡A-ah!!")
 		elseif cl == 733 then
-			cw('s',"I broke my pencil...")
+		cw('s', "He roto mi lápiz.")
 		elseif cl == 734 then
-			cw('bl',"Sayori hastily bends down to pick up the piece she dropped.")
+		cw('bl', "Sayori se apresura a coger los restos que habían caído al suelo.")
 		elseif cl == 735 then
-			cw('bl',"But being inattentive of her surroundings, she bumps right into me.")
+		cw('bl', "Pero por ir despistada, se choca conmigo.")
 		elseif cl == 736 then
 			updateSayori('4','l')
-			cw('s',"S-S-Sorry--!!")
+		cw('s', "¡¡Pe-pe-perdón!!")
 		elseif cl == 737 then
-			cw('mc',"It's fine, it's fine.")
+		cw('mc', "Está bien, está bien.")
 		elseif cl == 738 then
-			cw('mc',"I'll get it for you.")
+		cw('mc', "Ya lo cojo yo.")
 		elseif cl == 739 then
-			cw('bl',"I bend down and pick up the broken pencil.")
+		cw('bl', "Me agacho y recojo el lápiz roto.")
 		elseif cl == 740 then
-			cw('bl',"Sayori clutches the desk beside her to support herself, knees shaking.")
+		cw('bl', "Sayori se aguanta con el pupitre mientras le tiemblan las rodillas.")
 		elseif cl == 741 then
 			updateSayori('5b')
-			cw('s',"I-I'm a little clumsy today...")
+		cw('s', "H-hoy estoy un poco torpe...")
 		elseif cl == 742 then
-			cw('s',"Ahahaha...")
+		cw('s', "Ja, ja, ja, ja...")
 		elseif cl == 743 then
-			cw('mc',"Let's sit down, Sayori...")
+		cw('mc', "Vamos a sentarnos, Sayori...")
 		elseif cl == 744 then
 			updateSayori('4','y')
-			cw('s',"Y-Yeah...")
+		cw('s', "P-por supuesto...")
 		elseif cl == 745 then
-			cw('bl',"I grab Sayori's arm and help her sit at the desk.")
+		cw('bl', "Agarro el brazo de Sayori y la ayudo a sentarse en el pupitre.")
 		elseif cl == 746 then
-			cw('mc',"Anyway, I still haven't read your poem...")
+		cw('mc', "Bueno, aún no he leído tu poema...")
 		elseif cl == 747 then
 			updateSayori('4','b')
-			cw('s',"Oh!")
+			cw('s',"¡Oh!")
 		elseif cl == 748 then
-			cw('s',"Sorry, I forgot about that~")
+		cw('s', "Perdona, me había olvidado~")
 		elseif cl == 749 then
 			updateSayori('1','h')
-			cw('s',"But it's not as good as yours!!")
+		cw('s', "¡¡Pero no es tan bueno como el tuyo!!")
 		elseif cl == 750 then
-			cw('mc',"Jeez, don't worry.")
+		cw('mc', "Ay, no te preocupes.")
 		elseif cl == 751 then
-			cw('mc',"I'm sure I'll like it.")
+		cw('mc', "Seguro que me gustará.")
 		elseif cl >= 752 then
 			ch2_s_end()
 		end
@@ -3684,105 +3684,105 @@ function ch2_s_good()
 end
 
 function ch3_s_bad()
-    local currentname = "Yuri"
-    if n_poemappeal[3] > y_poemappeal[3] then
-        currentname = "Natsuki"
+	local currentname = "Yuri"
+	if n_poemappeal[3] > y_poemappeal[3] then
+		currentname = "Natsuki"
 	end
 	if cl == 670 then
 		cw('s',"...")
 	elseif cl == 671 then
 		updateSayori('1','k')
-		cw('s',"...Hm.")
+		cw('s', "Mmm...")
 	elseif cl == 672 then
-		cw('s',"It's nice, I guess~")
+		cw('s', "No está mal, supongo~")
 	elseif cl == 673 then
-		cw('mc',"Come on, I can already tell you don't like it.")
+		cw('mc', "Venga ya, está claro que no te ha gustado.")
 	elseif cl == 674 then
 		updateSayori('1','d')
-		cw('s',"Well...")
+		cw('mc', "Bueno...")
 	elseif cl == 675 then
-		cw('s',"You don't need to worry about what I think.")
+		cw('s', "No te tiene que preocupar lo que piense.")
 	elseif cl == 676 then
 		updateSayori('2','y')
-		cw('s',"After all, you wrote this for someone else, didn't you?")
+		cw('s', "Después de todo, lo has compuesto para alguien, ¿no?")
 	elseif cl == 677 then
-		cw('s',"Probably "..currentname.."...")
+		cw('s',"Seguramente en "..currentname.."...")
 	elseif cl == 678 then
-		cw('mc',"Eh??")
+		cw('mc', "¿¿Eh??")
 	elseif cl == 679 then
-		cw('mc',"I didn't write this for anyone specifically!")
+		cw('mc', "¡No lo he compuesto para nadie en concreto!")
 	elseif cl == 680 then
-		cw('s',"Maybe...")
+		cw('s', "Puede...")
 	elseif cl == 681 then
 		updateSayori('1','d')
-		cw('s',"That's not really what I meant, though.")
+		cw('s', "No es eso a lo que me refería.")
 	elseif cl == 682 then
-		cw('s',"But it's okay.")
+		cw('s', "Pero no pasa nada.")
 	elseif cl == 683 then
-		cw('s',"You're making new friends, just like I was hoping.")
+		cw('s', "Estás haciendo amigas nuevas, justo como quería.")
 	elseif cl == 684 then
 		updateSayori('1','q')
-		cw('s',"That makes me...really happy.")
+		cw('s', "Eso me hace... muy feliz.")
 	elseif cl == 685 then
-		cw('s', "And you're happy too, right?")
+		cw('s', "Tú también eres feliz, ¿no?")
 	elseif cl == 686 then
 		updateSayori('1','a')
-		cw('s',"In this club?")
+		cw('s', "¿En el club?")
 	elseif cl == 687 then
-		cw('mc',"Well...")
+		cw('mc', "Bueno...")
 	elseif cl == 688 then
-		cw('mc',"Of course I am.")
+		cw('mc', "Pues claro.")
 	elseif cl == 689 then
 		updateSayori('4','q')
-		cw('s',"Good~")
+		cw('s', "Bien~")
 	elseif cl == 690 then
-		cw('s',"That's all that matters to me.")
+		cw('s', "Eso es lo más importante para mí.")
 	elseif cl == 691 then
 		updateSayori('1','d')
-		cw('s',"Thank you, "..player..".")
+		cw('s', "Gracias, " .. player .. ".")
 	elseif cl == 692 then
 		cw('mc',"Sayori...")
 	elseif cl == 693 then
-		cw('mc',"Is there something wrong?")
+		cw('mc', "¿Te pasa algo?")
 	elseif cl == 694 then
 		updateSayori('1','b')
-		cw('s',"Huh?")
+		cw('s', "¿Eh?")
 	elseif cl == 695 then
 		updateSayori('1','k')
-		cw('s',"No, nothing.")
+		cw('s', "No, nada.")
 	elseif cl == 696 then
-		cw('s',"I'm just a little tired today.")
+		cw('s', "Es solo que hoy estoy un poco cansada.")
 	elseif cl == 697 then
 		updateSayori('1','l')
-		cw('s',"Ehehe.")
+		cw('s', "Je, je, je.")
 	elseif cl == 698 then
-		cw('mc',"Alright...")
+		cw('mc', "Vale...")
 	elseif cl == 699 then
-		cw('mc',"Just tell me if you need anything.")
+		cw('mc', "Tú solo dime si necesitas algo.")
 	elseif cl == 700 then
 		updateSayori('1','a')
-		cw('s',"I will.")
+		cw('s', "Lo haré.")
 	elseif cl == 701 then
-		cw('s',"Don't worry about me, okay?")
+		cw('s', "No te preocupes por mí, ¿vale?")
 	elseif cl == 702 then
-		cw('s',"You can go play with everyone else now.")
+		cw('s', "Ya puedes ir a jugar con el resto.")
 	elseif cl == 703 then
-		cw('mc',"If you insist...")
+		cw('mc', "Si insistes...")
 	elseif cl == 704 then
 		updateSayori('4','q')
-		cw('s',"Yaay~")
+		cw('s', "Wiii~")
 	elseif cl == 705 then
 		updateSayori('4','a')
-		cw('s',"I'm gonna go home a little bit early today.")
+		cw('s', "Creo que hoy me voy a ir antes a casa.")
 	elseif cl == 706 then
-		cw('mc',"Sayori...?")
+		cw('mc', "¿Sayori?")
 	elseif cl == 707 then
 		updateSayori('1','q')
-		cw('s',"Tell Monika I wasn't feeling well, okay?")
+		cw('s', "Dile a Monika que no me encontraba muy bien, ¿vale?")
 	elseif cl == 708 then
-		cw('s',"I'll see you tomorrow~")
+		cw('s', "Hasta mañana~")
 	elseif cl == 709 then
-		cw('bl',"Before I can say anything else, Sayori cheerfully walks out of the classroom, humming to herself.")
+		cw('bl', "Antes de que pueda decir algo más, Sayori sale alegremente del aula, tarareando para sí misma.")
 	elseif cl == 710 then
 		poemfinish('s')
 	end
@@ -3794,157 +3794,157 @@ end
 
 function ch3_s_good()
 	if poemwinner[1] ~= "Sayori" and poemwinner[2] ~= "Sayori" then
-        ch3_s_bad()
+		ch3_s_bad()
 	else
 		if cl == 670 then
 			updateSayori('1','d')
 			cw('s',"...")
 		elseif cl == 671 then
-			cw('s',"This is your best one so far.")
+		cw('s', "Este es el mejor que has hecho hasta ahora.")
 		elseif cl == 672 then
-			cw('s',"It's really really nice, "..player.."~")
+		cw('s', "Está muy, muy bien, " .. player .. "~")
 		elseif cl == 673 then
-			cw('mc',"Er-- Thanks.")
+		cw('mc', "Em, gracias.")
 		elseif cl == 674 then
 			updateSayori('1','q')
-			cw('s',"Mhm~")
+		cw('s', "Um~")
 		elseif cl == 675 then
 			cw('mc',"...")
 		elseif cl == 676 then
-			cw('mc',"Sayori, you've been a little quiet today.")
+		cw('mc', "Sayori, hoy has estado muy callada.")
 		elseif cl == 677 then
-			cw('mc',"Is everything alright?")
+		cw('mc', "¿Todo bien?")
 		elseif cl == 678 then
 			updateSayori('4','m')
-			cw('s',"E-Eh??")
+		cw('s', "¿E-eh?")
 		elseif cl == 679 then
-			cw('s',"Of course!")
+		cw('s', "¡Pues claro!")
 		elseif cl == 680 then
 			updateSayori('4','l')
-			cw('s',"Everything is fine~")
+		cw('s', "No pasa nada~")
 		elseif cl == 681 then
-			cw('s',"Maybe I'm just a little tired today.")
+		cw('s', "Quizá esté un poco cansada.")
 		elseif cl == 682 then
 			updateSayori('1','l')
-			cw('s',"Ehehe.")
+		cw('s', "Je, je, je.")
 		elseif cl == 683 then
-			cw('mc',"Do you want to nap or something?")
+		cw('mc', "¿Quieres echarte una siestecita o algo?")
 		elseif cl == 684 then
 			updateSayori('1','h')
-			cw('s',"No, that's silly!")
+		cw('s', "¡No, eso es absurdo!")
 		elseif cl == 685 then
-			cw('s',"Don't worry about me, okay?")
+		cw('s', "No te preocupes por mí, ¿vale?")
 		elseif cl == 686 then
 			updateSayori('1','q')
-			cw('s',"I only want to see smiles on your face~")
+		cw('s', "Solo quiero verte sonreír~")
 		elseif cl == 687 then
-			cw('mc',"Well, alright...")
+		cw('mc', "Bueno, vale...")
 		elseif cl == 688 then
 			updateSayori('1','b')
-			cw('s',"Hey, "..player.."...")
+		cw('s', "Oye, " .. player .. ".")
 		elseif cl == 689 then
-			cw('s',"I'm still a little surprised.")
+		cw('s', "Estoy un poco sorprendida.")
 		elseif cl == 690 then
-			cw('s',"I really thought that you would try writing your poems like the way Yuri does...")
+		cw('s', "Pensaba que intentabas tener un estilo similar a Yuri...")
 		elseif cl == 691 then
 			updateSayori('1','y')
-			cw('s',"Or even Natsuki...")
+		cw('s', "O incluso al de Natsuki...")
 		elseif cl == 692 then
-			cw('s',"But in the end...")
+		cw('s', "Pero en el fondo...")
 		elseif cl == 693 then
-			cw('mc',"...Yeah.")
+		cw('mc', "Sí.")
 		elseif cl == 694 then
-			cw('mc',"I guess you're the one who likes this one the most.")
+		cw('mc', "Supongo que eres a la que más le ha gustado este estilo.")
 		elseif cl == 695 then
 			audioUpdate('0')
 			updateSayori('1','k')
-			cw('s',"...Why?")
+		cw('s', "¿Por qué?")
 		elseif cl == 696 then
-			cw('s',"You don't want to get closer with everyone else?")
+		cw('s', "¿No quieres tener una relación más estrecha con las demás?")
 		elseif cl == 697 then
 			audioUpdate('9')
-			cw('mc',"Wait!")
+		cw('mc', "¡Espera!")
 		elseif cl == 698 then
-			cw('mc',"Of course I do!")
+		cw('mc', "¡Por supuesto que sí!")
 		elseif cl == 699 then
-			cw('mc',"But that doesn't mean I need to try so hard to impress them.")
+		cw('mc', "Pero eso no quiere decir que tenga que esforzarme tanto por impresionarlas.")
 		elseif cl == 700 then
-			cw('mc',"I still understand you the most, Sayori.")
+		cw('mc', "Tú eres a la que mejor entiendo, Sayori.")
 		elseif cl == 701 then
-			cw('mc',"I know you have to sometimes put up with me.")
+		cw('mc', "Ya sé que a veces tienes que aguantarme.")
 		elseif cl == 702 then
-			cw('mc',"And I have to sometimes put up with you.")
+		cw('mc', "Y a veces yo tengo que aguantarte a ti.")
 		elseif cl == 703 then
-			cw('mc',"But we have...a wavelength or something.")
+		cw('mc', "Pero estamos... sincronizados o algo.")
 		elseif cl == 704 then
-			cw('mc',"And this is how the poem came out.")
+		cw('mc', "Y este poema ha sido el resultado de eso.")
 		elseif cl == 705 then
-			cw('mc',"Sometimes it feels like you're the only exciting thing in my life.")
+		cw('mc', "A veces, parece que eres lo más interesante que hay en mi vida.")
 		elseif cl == 706 then
-			cw('mc',"So sometimes it's just easier to write when thinking about you.")
+		cw('mc', "Así que, a veces, es más fácil componer cuando pienso en ti.")
 		elseif cl == 707 then
-			cw('mc',"...Sayori?")
+		cw('mc', "... ¿Sayori?")
 		elseif cl == 708 then
 			updateSayori('4','v')
-			cw('s',"N-No...")
+		cw('s', "N-no...")
 		elseif cl == 709 then
 			cw('s',player.."...")
 		elseif cl == 710 then
-			cw('s',"I don't...deserve this...")
+		cw('s', "No... lo merezco...")
 		elseif cl == 711 then
-			cw('s',"You're too nice to me...")
+		cw('s', "Eres demasiado bueno conmigo...")
 		elseif cl == 712 then
-			cw('s',"Why are you doing this...?")
+		cw('s', "¿Por qué lo haces...?")
 		elseif cl == 713 then
-			cw('bl',"Sayori has trouble keeping her voice steady, all of a sudden.")
+		cw('bl', "De repente, a Sayori le cuesta hablar con firmeza.")
 		elseif cl == 714 then
-			cw('s',"If you had fun with everyone else instead...")
+		cw('s', "Si tan solo te divirtieses con las demás...")
 		elseif cl == 715 then
-			cw('s',"This would be...so much easier!")
+		cw('s', "¡Todo esto sería mucho más fácil!")
 		elseif cl == 716 then
-			cw('mc',"Sayori...!")
+		cw('mc', "¡Sayori!")
 		elseif cl == 717 then
-			cw('bl',"I glance around the room to make sure nobody has noticed this.")
+		cw('bl', "Echo un vistazo al aula para asegurarme de que nadie nos ha oído.")
 		elseif cl == 718 then
 			cw('mc',"Sayori.")
 		elseif cl == 719 then
-			cw('mc',"I've probably never said this before, but I don't understand what you're feeling right now.")
+		cw('mc', "Puede que no lo haya dicho nunca, pero no sé qué sientes ahora mismo.")
 		elseif cl == 720 then
-			cw('mc',"Tell me what will cheer you up.")
+		cw('mc', "Dime qué puedo hacer para animarte.")
 		elseif cl == 721 then
-			cw('bl',"Sayori shakes her head.")
+		cw('bl', "Sayori niega con la cabeza.")
 		elseif cl == 722 then
-			cw('bl',"She sniffles and keeps shaking her head.")
+		cw('bl', "Solloza y continúa negando.")
 		elseif cl == 723 then
-			cw('bl',"Finally, she gathers herself and puts on a smile.")
+		cw('bl', "Al final se calma y sonríe.")
 		elseif cl == 724 then
 			updateSayori('1','y')
-			cw('s',"It's nothing, "..player..".")
+		cw('s', "No pasa nada, " .. player .. ".")
 		elseif cl == 725 then
-			cw('s',"It's just a little raincloud.")
+		cw('s', "Solo se trata de un pequeño nubarrón.")
 		elseif cl == 726 then
 			updateSayori('4','r')
-			cw('s',"I'm sorry you had to see that. Ahahaha!")
+		cw('s', "Siento que hayas tenido que verlo. ¡Ja, ja, ja!")
 		elseif cl == 727 then
-			cw('s',"I promise it won't happen again.")
+		cw('s', "Te prometo que no volverá a pasar.")
 		elseif cl == 728 then
 			updateSayori('1','a')
-			cw('s',"Just smiles from everyone, okay?")
+		cw('s', "Quiero que todos sonriamos, ¿vale?")
 		elseif cl == 729 then
-			cw('s',"That's all that matters.")
+		cw('s', "Eso es lo que importa.")
 		elseif cl == 730 then
-			cw('s',"Go play with everyone else.")
+		cw('s', "Ve a jugar con el resto.")
 		elseif cl == 731 then
-			cw('s',"I'm gonna go home a little bit early today~")
+		cw('s', "Hoy me iré un poco antes a casa~")
 		elseif cl == 732 then
-			cw('mc',"Sayori--")
+		cw('mc', "Sayori...")
 		elseif cl == 733 then
 			updateSayori('2','q')
-			cw('s',"Tell Monika I wasn't feeling well, okay?")
+		cw('s', "Dile a Monika que no me encontraba muy bien, ¿vale?")
 		elseif cl == 734 then
-			cw('s',"I'll see you tomorrow~")
+		cw('s', "Hasta mañana~")
 		elseif cl == 735 then
-			cw('bl',"Before I can say anything else, Sayori cheerfully walks out of the classroom, humming to herself.")
+		cw('bl', "Antes de que pueda decir algo más, Sayori sale alegremente del aula, tarareando para sí misma.")
 		elseif cl == 736 then
 			poemfinish('s')
 		end
@@ -3954,53 +3954,53 @@ end
 function ch1_m_start()
 	if cl == 670 then
 		updateMonika('1','b')
-		cw('m',"Hi, "..player.."!")
+		cw('m', "¡Hola, " .. player .. "!")
 	elseif cl == 671 then
-		cw('m',"Having a good time so far?")
+		cw('m', "¿Te lo estás pasando bien?")
 	elseif cl == 672 then
-		cw('mc',"Ah...yeah.")
+		cw('mc', "Ah, sí.")
 	elseif cl == 673 then
 		updateMonika('1','k')
-		cw('m',"Good! Glad to hear it!")
+		cw('m', "¡Genial! ¡Me alegro!")
 	elseif cl == 674 then
 		updateMonika('4','b')
-		cw('m',"By the way, since you're new and everything...")
+		cw('m', "Por cierto, ya que eres nuevo y tal...")
 	elseif cl == 675 then
-		cw('m',"If you ever have any suggestions for the club, like new activities, or things we can do better...")
+		cw('m', "Si tienes alguna sugerencia para el club, como actividades nuevas o cosas que podamos mejorar...")
 	elseif cl == 676 then
-		cw('m',"I'm always listening!")
+		cw('m', "¡Soy toda oídos!")
 	elseif cl == 677 then
-		cw('m',"Don't be afraid to bring things up, okay?")
+		cw('m', "Que no te dé miedo decir nada, ¿vale?")
 	elseif cl == 678 then
 		updateMonika('4','a')
-		cw('mc',"Alright...I'll keep that in mind.")
+		cw('mc', "Muy bien, lo tendré en cuenta.")
 	elseif cl == 679 then
-		cw('bl',"Of course I'll be afraid to bring things up.")
+		cw('bl', "Por supuesto que me dará miedo decir algo.")
 	elseif cl == 680 then
-		cw('bl',"I'm much better off just going with the flow until I'm more settled in.")
+		cw('bl', "Lo mejor será que me deje llevar hasta que me asiente en el club.")
 	elseif cl == 681 then
 		updateMonika('1','a')
-		cw('m',"Anyway...")
+		cw('m', "Bueno...")
 	elseif cl == 682 then
-		cw('m',"Want to share your poem with me?")
+		cw('m', "¿Quieres enseñarme tu poema?")
 	elseif cl == 683 then
-		cw('mc',"It's kind of embarrassing, but I guess I have to.")
+		cw('mc', "Me da un poco de vergüenza, pero supongo que tengo que hacerlo.")
 	elseif cl == 684 then
 		updateMonika('5a','')
-		cw('m',"Ahahaha!")
+		cw('m', "¡Ja, ja, ja, ja!")
 	elseif cl == 685 then
-		cw('m',"Don't worry, "..player.."!")
+		cw('m', "¡No te preocupes, " .. player .. "!")
 	elseif cl == 686 then
-		cw('m',"We're all a little embarrassed today, you know?")
+		cw('m', "A todos nos da vergüenza, ¿sabes?")
 	elseif cl == 687 then
-		cw('m',"But it's that sort of barrier that we'll all learn to get past soon.")
+		cw('m', "Pero es ese tipo de vergüenza que terminas superando.")
 	elseif cl == 688 then
-		cw('mc',"Yeah, that's true.")
+		cw('mc', "Sí, tienes razón.")
 	elseif cl == 689 then
-		cw('bl',"I hand Monika my poem.")
+		cw('bl', "Le doy mi poema a Monika.")
 	elseif cl == 690 then
 		updateMonika('2','a')
-		cw('m',"...Mhm!")
+		cw('m', "¡Mmm!")
 	elseif cl >= 691 then
 		m_eval()
 	end
@@ -4009,37 +4009,37 @@ end
 function ch2_m_start()
 	if cl == 670 then
 		updateMonika('1','b')
-		cw('m',"Hi again, "..player.."!")
+		cw('m', "¡Hola de nuevo, " .. player .. "!")
 	elseif cl == 671 then
-		cw('m',"How's the writing going?")
+		cw('m', "¿Cómo se te está dando componer?")
 	elseif cl == 672 then
-		cw('mc',"Alright, I guess...")
+		cw('mc', "Bien, supongo...")
 	elseif cl == 673 then
 		updateMonika('2','k')
-		cw('m',"I'll take that.")
+		cw('m', "Me vale.")
 	elseif cl == 674 then
 		updateMonika('1','b')
-		cw('m',"As long as it's not going bad!")
+		cw('m', "¡Mientras no me digas que te va mal!")
 	elseif cl == 675 then
 		updateMonika('1','a')
-		cw('m',"I'm happy that you're applying yourself.")
+		cw('m', "Me alegra que te estés aplicando.")
 	elseif cl == 676 then
-		cw('m',"Maybe soon you'll come up with a masterpiece!")
+		cw('m', "¡Quizá compongas una obra maestra dentro de nada!")
 	elseif cl == 677 then
-		cw('mc',"Ahaha, I wouldn't count on that...")
+		cw('mc', "Ja, ja, ja. No contaría con ello...")
 	elseif cl == 678 then
 		updateMonika('1','a')
-		cw('m',"You never know!")
+		cw('m', "¡Nunca se sabe!")
 	elseif cl == 679 then
-		cw('m',"Want to share what you wrote for today?")
+		cw('m', "¿Quieres enseñarme tu poema?")
 	elseif cl == 680 then
-		cw('m',"Sure... Here you go.")
+		cw('mc', "Claro, aquí tienes.")
 	elseif cl == 681 then
-		cw('bl',"I give my poem to Monika.")
+		cw('bl', "Le doy mi poema a Monika.")
 	elseif cl == 682 then
 		cw('m',"...")
 	elseif cl == 683 then
-		cw('m',"...Alright!")
+		cw('m', "¡Muy bien!")
 	elseif cl >= 684 then
 		m_eval()
 	end
@@ -4048,32 +4048,32 @@ end
 function ch3_m_start()
 	if cl == 670 then
 		updateMonika('2','a')
-		cw('m',"Hi "..player.."~")
+		cw('m', "Hola " .. player .. "~")
 	elseif cl == 671 then
-		cw('m',"Have you thought about what you want to submit to perform at the festival?")
+		cw('m', "¿Ya has pensado qué leerás en el festival?")
 	elseif cl == 672 then
-		cw('mc',"Well...")
+		cw('mc', "Bueno...")
 	elseif cl == 673 then
-		cw('bl',"Being in this club is one thing, but performing in front of a bunch of people...")
+		cw('bl', "Estar en el club es una cosa, pero recitar enfrente de tanta gente...")
 	elseif cl == 674 then
-		cw('mc',"...I'll have to give it some more thought.")
+		cw('mc', "Tendré que pensármelo un poco más.")
 	elseif cl == 675 then
 		updateMonika('2','b')
-		cw('m',"Okay, no pressure!")
+		cw('m', "¡Vale, sin presión!")
 	elseif cl == 676 then
-		cw('m',"But whatever you do, I'm sure it'll turn out great.")
+		cw('m', "Pero hagas lo que hagas, seguro que quedará genial.")
 	elseif cl == 677 then
-		cw('m',"It would also make me happy to see.")
+		cw('m', "Y además me hará feliz.")
 	elseif cl == 678 then
 		updateMonika('2','k')
-		cw('m',"Ahaha!")
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 679 then
 		updateMonika('1','a')
-		cw('m',"Anyway, let's take a look at today's poem!")
+		cw('m', "¡Bueno, vamos a ver el poema de hoy!")
 	elseif cl == 680 then
-		cw('mc',"Sure...")
-    elseif cl == 681 then
-		cw('bl',"I let Monika take the poem I'm holding in my hands.")
+		cw('mc', "Claro...")
+	elseif cl == 681 then
+		cw('bl', "Le doy el poema que tengo en las manos a Monika.")
 	elseif cl == 682 then
 		cw('m',"...")
 	elseif cl >= 683 then
@@ -4083,51 +4083,51 @@ end
 
 function ch1_m_end()
 	if cl == 730 then
-		cw('mc',"I'm sure I'll end up trying different things a lot.")
+		cw('mc', "Seguro que primero probaré un montón de cosas diferentes.")
 	elseif cl == 731 then
-		cw('mc',"It could take a while before I feel comfortable doing this.")
+		cw('mc', "Me llevará un tiempo sentirme cómodo con esto.")
 	elseif cl == 732 then
 		updateMonika('1','k')
-		cw('m',"That's okay!")
+		cw('m', "¡No pasa nada!")
 	elseif cl == 733 then
 		updateMonika('1','b')
-		cw('m',"I'd love to see you try new things.")
+		cw('m', "Me encanta ver que pruebas cosas nuevas.")
 	elseif cl == 734 then
-		cw('m',"That's the best way to find the kind of style that suits you.")
+		cw('m', "Es la mejor forma de encontrar el estilo que más te pega.")
 	elseif cl == 735 then
 		updateMonika('3','e')
-		cw('m',"Everyone else might be a little bit biased toward their own kinds of styles...")
+		cw('m', "A todas les gustará más su propio estilo...")
 	elseif cl == 736 then
 		updateMonika('3','a')
-		cw('m',"But I'll always help you find what suits you the most!")
+		cw('m', "¡Pero yo siempre te ayudaré a encontrar el que más te guste!")
 	elseif cl == 737 then
-		cw('m',"So don't force yourself to write the way everyone else wants you to write.")
+		cw('m', "Así que no te sientas obligado a componer como lo hagan las demás.")
 	elseif cl == 738 then
-		cw('m',"It's not like you have to worry about impressing them or anything.")
+		cw('m', "Ni que te tuvieras que preocupar por impresionarlas o algo.")
 	elseif cl == 739 then	
 		updateMonika('5a','')
-		cw('m',"Ahaha!")
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 740 then
-		cw('mc',"Ahaha...")
+		cw('m', "Ja, ja, ja...")
 	elseif cl == 741 then
 		updateMonika('1','a')
-		cw('m',"Anyway, do you want to read my poem now?")
+		cw('m', "Bueno, ¿quieres leer mi poema?")
 	elseif cl == 742 then
 		updateMonika('1','e')
-		cw('m',"Don't worry, I'm not very good...")
+		cw('m', "No te preocupes, no se me da tan bien...")
 	elseif cl == 743 then
-		cw('mc',"You sound pretty confident for someone who claims to not be very good.")
-    elseif cl == 744 then
+		cw('mc', "Pareces muy segura para estar diciendo que no se te da tan bien.")
+	elseif cl == 744 then
 		updateMonika('1','j')
-		cw('m',"Well...that's 'cause I have to sound confident.")
+		cw('m', "Bueno, eso es porque tengo que parecer segura.")
 	elseif cl == 745 then
 		updateMonika('1','b')
-		cw('m',"That doesn't mean I always feel that way, you know?")
+		cw('m', "Pero no significa que lo sea siempre, ¿sabes?")
 	elseif cl == 746 then
 		updateMonika('1','a')
-		cw('mc',"I see...")
+		cw('mc', "Ya veo...")
 	elseif cl == 747 then
-		cw('mc',"Well, let's read it, then.")
+		cw('mc', "Bueno, vamos a leerlo.")
 	elseif cl == 748 then
 		poem('poem_m1')
 	elseif cl == 749 then
@@ -4140,85 +4140,85 @@ end
 function ch2_m_end()
 	if cl == 730 then
 		updateMonika('1','a')
-		cw('m',"But anyway...")
+		cw('m', "Pero aún así...")
 	elseif cl == 731 then
-		cw('m',"You want to read my poem now?")
+		cw('m', "¿Quieres leer mi poema ahora?")
 	elseif cl == 732 then
-		cw('m',"I like the way this one turned out, so I hope you do too~")
+		cw('m', "Me gusta cómo me ha quedado este, así que espero que a ti también.")
 	elseif cl == 733 then
-		cw('mc',"Alright, let's take a look.")
+		cw('mc', "Muy bien, veamos.")
 	elseif cl == 734 then
 		poem('poem_m2')
 	elseif cl == 735 then
 		scriptJump(738)
 	elseif cl == 738 then
 		poem_disable()
-		cw('mc',"Hm...")
+		cw('mc', "Mmm...")
 	elseif cl == 739 then
-		cw('mc',"It's even more abstract than your last one, huh?")
+		cw('mc', "Este es mucho más abstracto que el anterior, ¿eh?")
 	elseif cl == 740 then
 		updateMonika('5a')
-		cw('m',"Ahaha...")
+		cw('m', "Ja, ja, ja.")
 	elseif cl == 741 then
-		cw('m',"I guess it's just the way I write...")
+		cw('m', "Supongo que este es mi estilo...")
 	elseif cl == 742 then
-		cw('m',"I'm sorry if you don't like it.")
+		cw('m', "Lo siento si no te gusta.")
 	elseif cl == 743 then
-		cw('mc',"No, I never said that.")
+		cw('mc', "Que va, si no he dicho eso.")
 	elseif cl == 744 then
-		cw('mc',"It's just a kind of thing I've never really seen before, I guess.")
+		cw('mc', "Podría decirse que no es algo que haya visto.")
 	elseif cl == 745 then
 		updateMonika('2','a')
-		cw('m',"I kind of like playing with my space on the paper...")
+		cw('m', "La verdad es que me gusta jugar con el espacio que hay en el papel...")
 	elseif cl == 746 then
-		cw('m',"Choosing where and how to space your words can totally change the mood of the poem.")
+		cw('m', "Elegir dónde y cómo separar tus palabras puede cambiar totalmente el poema.")
 	elseif cl == 747 then
 		updateMonika('2','b')
-		cw('m',"It's almost like magic.")
+		cw('m', "Es como si fuera mágico.")
 	elseif cl == 748 then
-		cw('m',"The way I wrote the lines really short makes it feel like they're trying to speak over the noise.")
+		cw('m', "Tal y como lo he escrito, parece que los versos cortos están intentando hacerse oír a través del ruido.")
 	elseif cl == 749 then
-		cw('mc',"I see...")
+		cw('m', "Ya veo...")
 	elseif cl == 750 then
-		cw('mc',"It's still hard for me to tell what it's about, though.")
+		cw('mc', "Aunque sigo sin entender de qué va.")
 	elseif cl == 751 then
 		updateMonika('2','k')
-		cw('m',"Ahaha.")
+		cw('m', "Ja, ja, ja.")
 	elseif cl == 752 then
 		updateMonika('4','a')
-		cw('m',"Sometimes asking what a poem is about isn't the right question.")
+		cw('m', "En ocasiones, la pregunta correcta no es de qué va.")
 	elseif cl == 753 then
-		cw('m',"A poem can be as abstract as a physical expression of a feeling.")
+		cw('m', "Los poemas pueden ser tan abstractos como una expresión física de un sentimiento.")
 	elseif cl == 754 then
-		cw('m',"Or a conversation with the reader.")
+		cw('m', "O una conversación con el lector.")
 	elseif cl == 755 then
-		cw('m',"So putting it that way, not every poem is about something.")
+		cw('m', "Por lo que visto así, no todos los poemas tienen que ir sobre algo.")
 	elseif cl == 756 then
-		cw('m',"Anyway...")
+		cw('m', "Bueno...")
 	elseif cl == 757 then
 		updateMonika('3','b')
-		cw('m',"Here's Monika's Writing Tip of the Day!")
+		cw('m', "¡Aquí viene el superconsejito del día!")
 	elseif cl == 758 then
-		cw('m',"Sometimes you'll find yourself facing a difficult decision...")
+		cw('m', "A veces, puedes encontrarte situaciones la mar de duras...")
 	elseif cl == 759 then
-		cw('m',"When that happens, don't forget to save your game!")
+		cw('m', "Cuando eso ocurra, ¡no olvides guardar la partida!")
 	elseif cl == 760 then
-		cw('m',"You never know when you might change your mind...")
+		cw('m', "¡Nunca se sabe si cambiarás de opinión...")
 	elseif cl == 761 then
-		cw('m',"...or when something unexpected may happen!")
+		cw('m', "o si pasará algo inesperado!")
 	elseif cl == 762 then
 		updateMonika('3','d')
-		cw('m',"Wait...is this tip even about writing?")
+		cw('m', "Un momento... ¿esto cuenta como consejo para componer?")
 	elseif cl == 763 then
 		updateMonika('3','k')
-		cw('m',"What am I even talking about?")
+		cw('m', "¿De qué narices estoy hablando?")
 	elseif cl == 764 then
-		cw('m',"Ahaha!")
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 765 then
 		updateMonika('3','b')
-		cw('m',"...That's my advice for today!")
+		cw('m', "¡Y ese es el superconsejito del día!")
 	elseif cl == 766 then
-		cw('m',"Thanks for listening~")
+		cw('m', "Gracias por tu atención~")
 	elseif cl == 767 then
 		poemfinish('m')
 	end
@@ -4227,13 +4227,13 @@ end
 function ch3_m_end()
 	if cl == 730 then
 		updateMonika('1','a')
-		cw('m',"Anyway...!")
+		cw('mc', "Bueno...")
 	elseif cl == 731 then
-		cw('m',"I'll share my poem with you now, alright?")
+		cw('m', "Ahora te enseñaré mi poema, ¿vale?")
 	elseif cl == 732 then
-		cw('m',"Er...")
+		cw('mc', "Em...")
 	elseif cl == 733 then
-		cw('mc',"Alright...")
+		cw('mc', "Muy bien.")
 	elseif cl == 734 then
 		poem('poem_m3')
 	elseif cl == 735 then
@@ -4241,70 +4241,70 @@ function ch3_m_end()
 	elseif cl == 740 then
 		poem_disable()
 		updateMonika('1','a')
-		cw('m',"You know...")
+		cw('m', "Ya sabes...")
 	elseif cl == 741 then
-		cw('m',"I feel like learning and looking for answers are the sorts of things that give life meaning.")
+		cw('m', "Creo que aprender y buscar respuestas son las cosas que le dan sentido a la vida.")
 	elseif cl == 742 then
 		updateMonika('1','e')
-		cw('m',"Not to get too philosophical or anything...")
+		cw('m', "No me quiero poner muy filosófica ni nada...")
 	elseif cl == 743 then
 		updateMonika('1','a')
-		cw('m',"But it was kind of on my mind, so that's what I wrote about.")
+		cw('m', "Pero era lo que me rondaba por la cabeza, así que ese es el tema del poema.")
 	elseif cl == 744 then
-		cw('mc',"I see...")
+		cw('mc', "Ya veo...")
 	elseif cl == 745 then
-		cw('mc',"I never really put much thought into it.")
+		cw('mc', "La verdad es que nunca he pensado demasiado en eso.")
 	elseif cl == 746 then
 		updateMonika('1','d')
-		cw('m',"In a way, it's almost paradoxical.")
+		cw('m', "En cierto modo, es casi paradójico.")
 	elseif cl == 747 then
-		cw('m',"Because if we had all the answers, wouldn't the world start to lose its meaning?")
+		cw('m', "Porque si conociésemos todas las respuestas, ¿no perderíamos todo el interés en el mundo?")
 	elseif cl == 748 then
-		cw('mc',"You know, there's one thing I noticed...")
+		cw('mc', "¿Sabes qué? Me he dado cuenta de algo.")
 	elseif cl == 749 then
-		cw('mc',"It seems like everyone in the club prefers writing about things that are more sad than happy.")
+		cw('mc', "Parece que en el club preferís tratar temas tristes antes que los felices.")
 	elseif cl == 750 then
 		updateMonika('1','k')
-		cw('m',"Ahaha. Are you surprised?")
+		cw('m', "Ja, ja, ja. ¿Te sorprende?")
 	elseif cl == 751 then
 		updateMonika('1','a')
-		cw('m',"I mean, if everything was okay...")
+		cw('m', "Es decir, si todo fuera bien...")
 	elseif cl == 752 then
-		cw('m',"We wouldn't really have anything to write about, would we?")
+		cw('m', "Nos quedaríamos sin temas de los que escribir, ¿no?")
 	elseif cl == 753 then
-		cw('m',"Humans aren't two-dimensional creatures.")
+		cw('m', "Los humanos no somos criaturas bidimensionales.")
 	elseif cl == 754 then
-		cw('m',"I think you'd know that better than anyone.")
+		cw('m', "Y creo que tú lo sabes mejor que nadie.")
 	elseif cl == 755 then
-		cw('mc',"You mean one-dimensional...?")
+		cw('mc', "¿Quieres decir que somos unidimensionales?")
 	elseif cl == 756 then
 		updateMonika('1','l')
-		cw('m',"Ah...yeah, that!")
+		cw('m', "Eh, ¡sí! ¡eso!")
 	elseif cl == 757 then
 		updateMonika('1','a')
-		cw('m',"Anyway...")
+		cw('m', "Bueno...")
 	elseif cl == 758 then
 		updateMonika('3','b')
-		cw('m',"Here's Monika's Writing Tip of the Day!")
+		cw('m', "¡Aquí viene el superconsejito del día!")
 	elseif cl == 759 then
-		cw('m',"Are you ever too shy to share your writing because you're afraid it's not that good?")
+		cw('m', "¿Alguna vez te ha dado miedo enseñar tu poema porque pensabas que era malo?")
 	elseif cl == 760 then
-		cw('m',"It can be really disheartening to get a lukewarm response to something you put so much into.")
+		cw('m', "Que algo a lo que le has dedicado tanto esfuerzo resulte indiferente puede ser desalentador.")
 	elseif cl == 761 then
-		cw('m',"But if you find other people who enjoy writing, then sharing becomes a lot easier!")
+		cw('m', "Pero si encuentras gente a la que le guste componer, ¡entonces es mucho más fácil!")
 	elseif cl == 762 then
-		cw('m',"Because instead of just telling you that your writing is good, or okay, or bad...")
+		cw('m', "Por que en vez de limitarse a decir si tu poema es bueno, decente o malo...")
 	elseif cl == 763 then
-		cw('m',"They'll want to focus more on everything that went into it, and the things you can work on.")
+		cw('m', "se centrarán más en el esfuerzo dedicado y en las cosas que puedes mejorar.")
 	elseif cl == 764 then
-		cw('m',"It's much more encouraging that way, and it will make you want to continue improving.")
+		cw('m', "De esta forma es mucho más alentador y hará que quieras seguir mejorando.")
 	elseif cl == 765 then
-		cw('m',"It's almost like having your own little Literature Club, don't you think?")
+		cw('m', "Es casi como tener tu propio club de literatura, ¿no crees?")
 	elseif cl == 766 then
 		updateMonika('3','k')
-		cw('m',"...That's my advice for today!")
+		cw('m', "¡Y ese es el superconsejito del día!")
 	elseif cl == 767 then
-		cw('m',"Thanks for listening~")
+		cw('m', "Gracias por tu atención~")
 	elseif cl == 768 then
 		poemfinish('m')
 	end
@@ -4313,67 +4313,67 @@ end
 function m_natsuki_1()
 	if cl == 692 then
 		updateMonika('2','b')
-		cw('m',"I like it, "..player.."!")
+		cw('m', "¡Me encanta, " .. player .. "!")
 	elseif cl == 693 then
-		cw('mc',"Really...?")
+		cw('mc', "¿De verdad?...")
 	elseif cl == 694 then
 		updateMonika('2','e')
-		cw('m',"It's a lot cuter than I expected.")
+		cw('m', "Es mucho más adorable de lo que me esperaba.")
 	elseif cl == 695 then
 		updateMonika('2','k')
-		cw('m',"Ahahaha!")
+		cw('m', "¡Ja, ja, ja, ja!")
 	elseif cl == 696 then
-		cw('mc',"Oh jeez...")
+		cw('mc', "Oh, vaya...")
 	elseif cl == 697 then
 		updateMonika('1','b')
-		cw('m',"No, no!")
+		cw('m',"¡No, no!")
 	elseif cl == 698 then
-		cw('m',"It kind of makes me think of something Natsuki would write.")
+		cw('m', "Me recuerda un poco a algo que escribiría Natsuki.")
 	elseif cl == 699 then
-		cw('m',"And she's a good writer, too.")
+		cw('m', "Y es una buena escritora.")
 	elseif cl == 700 then
 		updateMonika('5a','')
-		cw('m',"So take that as a compliment!")
-    elseif cl == 701 then
-		cw('mc',"Ahaha...")
+		cw('m', "¡Así que tómate eso como un halago!")
+	elseif cl == 701 then
+		cw('mc', "Ja, ja, ja...")
 	elseif cl == 702 then
-		cw('mc',"If you say so.")
+		cw('mc', "Si tú lo dices.")
 	elseif cl == 703 then
-		cw('m',"Yep!")
+		cw('m', "¡Sip!")
 	elseif cl == 704 then
 		updateMonika('1','a')
-		cw('m',"By any chance have you read anything by Shel Silverstein?")
+		cw('m', "¿Por casualidad, no habrás leído algo de Shel Silverstein?")
 	elseif cl == 705 then
-		cw('mc',"Eh?")
+		cw('mc',"¿Eh?")
 	elseif cl == 706 then
-		cw('mc',"Maybe a long time ago...")
+		cw('mc', "Puede que hace mucho tiempo...")
 	elseif cl == 707 then
-		cw('m',"He's famous for telling all kinds of stories in just a few simple words.")
+		cw('m', "Es famoso por contar todo tipo de historias en pocas palabras.")
 	elseif cl == 708 then
-		cw('m',"His poems can be funny, endearing, or even sad...")
+		cw('m', "Sus poemas pueden ser divertidos, adorables o tristes...")
 	elseif cl == 709 then
 		updateMonika('3','d')
-		cw('m',"And sometimes they're only a few lines long.")
+		cw('m', "Y a veces solo duran un par de líneas.")
 	elseif cl == 710 then
-		cw('m',"They might even feel like they're written for kids, but if you think about them...")
+		cw('m', "A primera vista puede parecer que son para niños, pero si lo piensas...")
 	elseif cl == 711 then
-		cw('m',"They can express views of the world that would apply to anybody.")
+		cw('m', "Pueden expresar puntos de vista aplicables a todo el mundo.")
 	elseif cl == 712 then
-		cw('mc',"I see...")
-    elseif cl == 713 then
-		cw('mc',"So you're saying that Natsuki is kind of like that?")
+		cw('mc', "Ya veo...")
+	elseif cl == 713 then
+		cw('mc', "¿Entonces quieres decir que Natsuki es como él?")
 	elseif cl == 714 then
 		updateMonika('2','a')
-		cw('m',"Sort of.")
+		cw('m', "Más o menos.")
 	elseif cl == 715 then
-		cw('m',"Maybe she's not an expert...")
+		cw('m', "Puede que no sea una experta...")
 	elseif cl == 716 then
-		cw('m',"But you probably won't find much filler in her poems.")
+		cw('m', "Pero seguro que no encontrarás relleno en sus poemas.")
 	elseif cl == 717 then
-		cw('m',"They might be easy to write, but they're super challenging to get the meaning through.")
+		cw('m', "Serán fáciles de componer, pero es difícil transmitir un buen significado.")
 	elseif cl == 718 then
 		updateMonika('2','b')
-		cw('m',"So I can see why it would be your kind of poem to explore!")
+		cw('m', "¡Así que entiendo que quieras explorar ese terreno!")
 	elseif cl >= 719 then
 		m_end()
 	end
@@ -4382,60 +4382,60 @@ end
 function m_sayori_1()
 	if cl == 692 then
 		updateMonika('2','a')
-		cw('m',"I like this one!")
+		cw('m', "¡Este me gusta!")
 	elseif cl == 693 then
-		cw('m',"It makes me think of something Sayori would like.")
+		cw('m', "Me recuerda a algo que escribiría Sayori.")
 	elseif cl == 694 then
-		cw('mc',"Is that so?")
+		cw('mc', "¿Tú crees?")
 	elseif cl == 695 then
 		updateMonika('2','d')
-		cw('m',"You and Sayori are really good friends, right?")
+		cw('m', "Sayori y tú sois buenos amigos, ¿no?")
 	elseif cl == 696 then
-		cw('m',"I wouldn't be surprised if you had those sorts of things in common.")
+		cw('m', "No me extrañaría que tuvieseis eso en común.")
 	elseif cl == 697 then
-		cw('mc',"Ah, well...")
+		cw('mc', "Ah, bueno...")
 	elseif cl == 698 then
-		cw('mc',"We may be good friends, but Sayori and I are actually really different.")
+		cw('mc', "Puede que seamos buenos amigos, pero los dos somos muy diferentes.")
 	elseif cl == 699 then
-		cw('m',"Hmm...")
+		cw('m', "Mmm...")
 	elseif cl == 700 then
-		cw('m',"Well, that may be the case.")
+		cw('m', "Bueno, es posible.")
 	elseif cl == 701 then
 		updateMonika('3','a')
-		cw('m',"But maybe there are also some similarities that you wouldn't expect.")
-    elseif cl == 702 then
-		cw('m',"The way she talks about you...")
+		cw('m', "Pero a lo mejor tenéis similitudes inesperadas.")
+	elseif cl == 702 then
+		cw('m', "La forma en la que habla de ti...")
 	elseif cl == 703 then
-		cw('m',"It sounds like the two of you really care about each other's well-being.")
+		cw('m', "Parece que a los dos os preocupa el bienestar del otro.")
 	elseif cl == 704 then
-		cw('m',"Even if you show it in different ways, it ends up being more similar than you'd think.")
+		cw('m', "Incluso si lo demostráis de formas distintas, al final os parecéis más de lo que piensas.")
 	elseif cl == 705 then
 		updateMonika('1','a')
-		cw('m',"So I think that's the kind of vibe I get when reading your poem.")
+		cw('m', "Esa es la sensación que me da tras leer tu poema.")
 	elseif cl == 706 then
-		cw('mc',"Hmm...")
+		cw('mc', "Mmm...")
 	elseif cl == 707 then
-		cw('mc',"You sure you're not reading into it too much?")
+		cw('mc', "¿Estás segura de que no le estás dando demasiadas vueltas?")
 	elseif cl == 708 then
 		updateMonika('5a','')
-		cw('m',"Ahaha! I could be!")
+		cw('m', "¡Ja, ja, ja! ¡Puede ser!")
 	elseif cl == 709 then
-		cw('m',"Oh gosh, I sound like Yuri...")
+		cw('m', "Ay Dios, sueno como Yuri...")
 	elseif cl == 710 then
 		updateMonika('2','a')
-		cw('m',"...But in any case, Sayori's writing has kind of a gentle feel to it.")
+		cw('m', "Pero en cualquier caso, los poemas de Sayori tienen un toque agradable.")
 	elseif cl == 711 then
-		cw('m',"I can tell that she likes exploring with emotions, like happiness and sadness.")
+		cw('m', "Se nota que quiere explorar las emociones como la felicidad y la tristeza.")
 	elseif cl == 712 then
-		cw('m',"Who knew that someone so happy would enjoy sad things, too?")
+		cw('m', "¿Quién diría que a alguien tan feliz le gustasen las cosas tristes?")
 	elseif cl == 713 then
-		cw('mc',"Yeah... That's totally unexpected.")
+		cw('mc', "Ya, es bastante inesperado.")
 	elseif cl == 714 then
 		updateMonika('2','j')
-		cw('m',"Well, to each their own~")
+		cw('m', "Bueno, para gustos, colores~")
 	elseif cl == 715 then
 		updateMonika('2','a')
-		cw('m',"And you shouldn't be afraid to experiment a little bit, either.")
+		cw('m', "Y a ti tampoco te debería dar miedo experimentar un poco.")
 	elseif cl >= 716 then
 		m_end()
 	end
@@ -4444,58 +4444,58 @@ end
 function m_yuri_1()
 	if cl == 692 then
 		updateMonika('1','a')
-		cw('m',"Great job, "..player.."!")
+		cw('m', "¡Buen trabajo, " .. player .. "!")
 	elseif cl == 693 then
-		cw('m',"I was going 'Ooh' in my head while reading it.")
+		cw('m', "Mi cabeza decía «oooh» mientras lo leía.")
 	elseif cl == 694 then
 		updateMonika('1','j')
-		cw('m',"It's really metaphorical!")
+		cw('m', "¡Es muy metafórico!")
 	elseif cl == 695 then
 		updateMonika('1','a')
-		cw('m',"I'm not sure why, but I didn't expect you to go for something so deep.")
+		cw('m', "No sé por qué, pero no me imaginaba que se te fuera a ocurrir algo tan profundo.")
 	elseif cl == 696 then
 		updateMonika('3','b')
-		cw('m',"I guess I underestimated you!")
+		cw('m', "¡Supongo que te he subestimado!")
 	elseif cl == 697 then
-		cw('mc',"It's easiest for me to keep everyone's expectations low.")
+		cw('mc', "Me es más fácil mantener las expectativas bajas con todo el mundo.")
 	elseif cl == 698 then
-		cw('mc',"That way, it always counts when I put in some effort.")
+		cw('mc', "De esa forma, se nota cuando le echo ganas.")
 	elseif cl == 699 then
 		updateMonika('5a')
-		cw('m',"Ahaha! That's not very fair!")
+		cw('m', "¡Ja, ja, ja! ¡Eso no es justo!")
 	elseif cl == 700 then
-		cw('m',"Well, I guess it worked, anyway.")
+		cw('m', "Pero bueno, supongo que ha funcionado.")
 	elseif cl == 701 then
 		updateMonika('2','a')
-		cw('m',"You know that Yuri likes this kind of writing, right?")
+		cw('m', "Sabes que a Yuri le gustan este tipo de poemas, ¿no?")
 	elseif cl == 702 then
-		cw('m',"Writing that's full of imagery and symbolism.")
+		cw('m', "Poemas llenos de imágenes y simbolismo.")
 	elseif cl == 703 then
 		updateMonika('2','d')
-		cw('m',"Unlike Sayori, who likes using simple and direct words to describe happiness and sadness...")
+		cw('m', "Al contrario que Sayori, que usa palabras simples y directas para describir la felicidad y la tristeza...")
 	elseif cl == 704 then
-		cw('m',"Yuri likes it when readers are left to derive their own meaning out of it.")
+		cw('m', "A Yuri le gusta dejarlo a la interpretación del lector.")
 	elseif cl == 705 then
 		updateMonika('4','d')
-		cw('m',"It's very challenging to write like that effectively.")
+		cw('m', "Es muy difícil escribir de esa forma correctamente.")
 	elseif cl == 706 then
-		cw('m',"Both allowing people to get something out of it just by feel...")
+		cw('m', "Tanto dejar que la gente lo entienda fácilmente...")
 	elseif cl == 707 then
-		cw('m',"Or letting them deeply analyze all of the nuances.")
+		cw('m', "Como dejar que lo analicen detenidamente.")
 	elseif cl == 708 then
-		cw('m',"It can take years of practice, which I'm assuming Yuri has at this point.")
+		cw('m', "Se necesitan años de práctica para lograrlo, los cuales imagino Yuri ya los tiene.")
 	elseif cl == 709 then
 		updateMonika('1','e')
-		cw('m',"I never really asked, though...")
+		cw('m', "Aunque nunca le he preguntado...")
 	elseif cl == 710 then
-		cw('mc',"I'm sure I'm nowhere near her level yet.")
+		cw('mc', "Seguro que no le llego ni a la suela del zapato.")
 	elseif cl == 711 then
 		updateMonika('2','b')
-		cw('m',"Don't worry so much about that!")
+		cw('m', "¡No te preocupes por eso!")
 	elseif cl == 712 then
-		cw('m',"You do your own thing.")
+		cw('m', "Tú a lo tuyo.")
 	elseif cl == 713 then
-		cw('m',"Just keep exploring, and learn by trying new things!")
+		cw('m', "¡Sigue explorando y aprende probando cosas nuevas!")
 	elseif cl >= 714 then
 		m_end()
 	end
@@ -4504,45 +4504,45 @@ end
 function m_natsuki_2()
 	if cl == 692 then
 		updateMonika('1','j')
-		cw('m',"It's pretty good~")
+		cw('m', "Está muy bien~")
 	elseif cl == 693 then
 		updateMonika('1','a')
-		cw('m',"You've been spending some time with Natsuki, haven't you?")
+		cw('m', "Has pasado mucho tiempo con Natsuki, ¿no es así?")
 	elseif cl == 694 then
-		cw('m',"You must like her writing style.")
+		cw('m', "Te ha tenido que gustar su estilo.")
 	elseif cl == 695 then
-		cw('mc',"Ah, yeah...")
+		cw('mc', "Ah, ya...")
 	elseif cl == 696 then
-		cw('mc',"I think it's a neat way to tell a story.")
+		cw('mc', "Creo que es una buena forma de contar una historia.")
 	elseif cl == 697 then
 		updateMonika('2','a')
-		cw('m',"Mhm. I don't disagree.")
+		cw('m', "Mmm. Tienes razón.")
 	elseif cl == 698 then
-		cw('m',"Natsuki's poems may be cute, but they're also meaningful.")
+		cw('m', "Puede que los poemas de Natsuki sean adorables, pero también son muy expresivos.")
 	elseif cl == 699 then
-		cw('m',"I can see why you'd be into the style.")
+		cw('m', "Entiendo que te guste su estilo.")
 	elseif cl == 700 then
-		cw('m',"I guess that means you're not as much a fan of Yuri's poems, then?")
+		cw('m', "¿He de suponer, que no te gusta tanto el estilo de Yuri?")
 	elseif cl == 701 then
-		cw('mc',"Ah-- I wouldn't say that...")
+		cw('mc', "Ah, no es eso exactamente...")
 	elseif cl == 702 then
-		cw('mc',"I kind of like everyone's poems.")
+		cw('mc', "En realidad me gustan todos vuestros poemas.")
 	elseif cl == 703 then
 		updateMonika('2','d')
-		cw('m',"That's true, but I'm sure you like some more than others, right?")
+		cw('m', "Cierto, pero seguro que te gustan unos más que otros, ¿verdad?")
 	elseif cl == 704 then
-		cw('m',"Like Yuri's use of complex words and symbolism...")
+		cw('m', "Como el uso de palabras complejas y simbolismo de Yuri...")
 	elseif cl == 705 then
-		cw('m',"Or Sayori's way of expressing happiness or sadness in a more direct way.")
+		cw('m', "O la manera que tiene Sayori de expresar la felicidad y la tristeza más directamente.")
 	elseif cl == 706 then
 		updateMonika('2','a')
-		cw('m',"You must have some kind of preference, don't you?")
+		cw('m', "Tienes que tener alguna preferencia, ¿no?")
 	elseif cl == 707 then
 		updateMonika('4','l')
-		cw('m',"Ah, not that it's a contest or anything!")
+		cw('m', "¡Ah, ni que esto fuera un concurso!")
 	elseif cl == 708 then
 		updateMonika('4','a')
-		cw('m',"I was just curious, that's all.")
+		cw('m', "Solo me picaba curiosidad, nada más.")
 	elseif cl >= 709 then
 		m_end()
 	end
@@ -4551,57 +4551,57 @@ end
 function m_sayori_2()
 	if cl == 692 then
 		updateMonika('1','j')
-		cw('m',"It's pretty good~")
+		cw('m', "Está muy bien~")
 	elseif cl == 693 then
 		updateMonika('1','a')
-		cw('m',"It makes me think of Sayori, like the other one that you wrote.")
+		cw('m', "Me recuerda a Sayori, al igual que el anterior.")
 	elseif cl == 694 then
 		updateMonika('4','b')
-		cw('m',"You two are like the dynamic duo!")
+		cw('m', "¡Sois como el dúo dinámico!")
 	elseif cl == 695 then
-		cw('mc',"Ahaha... That's kind of exaggerating it.")
+		cw('mc', "Ja, ja, ja...")
 	elseif cl == 696 then
 		updateMonika('2','a')
-		cw('m',"Yeah, probably.")
+		cw('m', "Sí, puede ser.")
 	elseif cl == 697 then
-		cw('m',"But you do spend a lot of time with her even in this club, don't you?")
+		cw('m', "Pero pasas mucho tiempo con ella, incluso en el club, ¿no?")
 	elseif cl == 698 then
 		updateMonika('2','j')
-		cw('m',"Then again, I don't blame you for being a little shy~")
+		cw('m', "Aunque tampoco puedo culparte por ser algo tímido~")
 	elseif cl == 699 then
-		cw('mc',"I-I'm not shy, it's just...")
+		cw('mc', "N-no soy tímido, es solo que...")
 	elseif cl == 700 then
 		updateMonika('5a')
-		cw('m',"Ahaha! I'm just teasing.")
+		cw('m', "¡Ja, ja, ja! Era broma.")
 	elseif cl == 701 then
-		cw('m',"I know it takes a bit of time to make friends with everyone.")
+		cw('m', "Ya sé que puede costarte hacer amigos.")
 	elseif cl == 702 then
 		updateMonika('2','d')
-		cw('m',"But Yuri and Natsuki are super interesting people, so don't be afraid to give them their share of time!")
+		cw('m', "Pero Yuri y Natsuki son superinteresantes, ¡así que no dudes en pasar tiempo con ellas!")
 	elseif cl == 703 then
-		cw('m',"And you can talk to me every now and then too...")
+		cw('m', "Y también puedes hablar conmigo de vez en cuando...")
 	elseif cl == 704 then
 		updateMonika('1','e')
-		cw('m',"I'm not, like, unapproachable or anything, am I?")
+		cw('m', "No es que sea inaccesible ni nada así, ¿no?")
 	elseif cl == 705 then
-		cw('mc',"Ah, no, it's nothing like that...")
+		cw('mc', "Ah, no, no es eso...")
 	elseif cl == 706 then
-		cw('mc',"I'm just still getting used to being here, that's all.")
+		cw('mc', "Todavía me estoy acostumbrando a integrarme.")
 	elseif cl == 707 then
 		updateMonika('1','a')
-		cw('m',"Yeah...")
+		cw('m', "Exacto...")
 	elseif cl == 708 then
 		updateMonika('1','l')
-		cw('m',"I'm sorry if I was putting pressure on you or something!")
+		cw('m', "¡Perdona, no quería que te sintieras presionado ni nada!")
 	elseif cl == 709 then
-		cw('m',"I really didn't mean it like that.")
+		cw('m', "De verdad, que no lo pretendía.")
 	elseif cl == 710 then
-		cw('mc',"No, don't worry.")
+		cw('mc', "No, no te preocupes.")
 	elseif cl == 711 then
-		cw('mc',"I get what you're saying.")
+		cw('mc', "Entiendo lo que dices.")
 	elseif cl == 712 then
 		updateMonika('1','a')
-		cw('m',"Well, alright~")
+		cw('m', "Pues muy bien~")
 	elseif cl >= 713 then
 		m_end()
 	end
@@ -4610,87 +4610,87 @@ end
 function m_yuri_2()
 	if cl == 692 then
 		updateMonika('2','b')
-		cw('m',"This one's good!")
+		cw('m', "¡Este es muy bueno!")
 	elseif cl == 693 then
-		cw('m',"It feels like you're not only getting more comfortable with your style...")
+		cw('m', "No solo parece que te sientes más cómodo con tu estilo...")
 	elseif cl == 694 then
-		cw('m',"But the imagery is better than the last one I read!")
+		cw('m', "¡Sino que el simbolismo es incluso mejor que en el anterior!")
 	elseif cl == 695 then
 		updateMonika('2','a')
-		cw('m',"Just wondering, but have you been finding inspiration in Yuri's writing style?")
+		cw('m', "Así, por curiosidad, ¿te has inspirado en el estilo de Yuri?")
 	elseif cl == 696 then
-		cw('mc',"Hmm...")
+		cw('mc', "Mmm...")
 	elseif cl == 697 then
-		cw('mc',"I guess so.")
+		cw('mc', "Supongo.")
 	elseif cl == 698 then
-		cw('mc',"You can't deny that she's talented.")
+		cw('mc', "Está claro que tiene talento.")
 	elseif cl == 699 then
 		updateMonika('4','k')
-		cw('m',"Yeah, totally!")
+		cw('m', "¡Sí, exacto!")
 	elseif cl == 700 then
 		updateMonika('4','a')
-		cw('m',"I think her poems are the most...")
+		cw('m', "Creo que sus poemas son los más...")
 	elseif cl == 701 then
-		cw('m',"...Romantic.")
+		cw('m', "románticos.")
 	elseif cl == 702 then
 		updateMonika('1','a')
-		cw('m',"That's the best way to describe it.")
+		cw('m', "Es la mejor forma de describirlos.")
 	elseif cl == 703 then
 		updateMonika('1','d')
-		cw('m',"She's like a totally different person when she picks up a pen...")
+		cw('m', "Es una persona totalmente distinta cuando coge su bolígrafo...")
 	elseif cl == 704 then
-		cw('mc',"I noticed that, too.")
+		cw('mc', "Yo también me he dado cuenta.")
 	elseif cl == 705 then
-		cw('mc',"Or when she's talking about literature, it's like a light turns on inside her.")
+		cw('mc', "O cuando habla de literatura, es como si una luz se encendiese en su interior.")
 	elseif cl == 706 then
 		updateMonika('2','a')
-		cw('m',"Mhm!")
+		cw('m', "¡Ajá!")
 	elseif cl == 707 then
-		cw('m',"Sadly, it's hard to get much personal conversation out of her...")
+		cw('m', "Por desgracia, es difícil hablar con ella de algo personal...")
 	elseif cl == 708 then
 		updateMonika('2','m')
-		cw('m',"Trust me, I've tried...")
+		cw('m', "Créeme, lo he intentado...")
 	elseif cl == 709 then
-		cw('m',"Who knows what goes on in that head of hers?")
+		cw('m', "¿Quién sabe lo que puede haber en su cabeza?")
 	elseif cl == 710 then
-		cw('mc',"I hope you don't mean that in a bad way.")
+		cw('mc', "Espero que no lo digas como algo malo.")
 	elseif cl == 711 then
 		updateMonika('1','g')
-		cw('m',"No, of course not!")
+		cw('m', "¡No, por supuesto que no!")
 	elseif cl == 712 then
-		cw('m',"I just meant that I wish she didn't keep so much to herself...")
+		cw('m', "Me refiero a que me gustaría que no se lo guardase todo para ella...")
 	elseif cl == 713 then
 		updateMonika('1','e')
-		cw('m',"But still, defending her like that...")
+		cw('m', "Aunque verte defenderla de esa forma...")
 	elseif cl == 714 then
 		updateMonika('5a')
-		cw('m',"You must be pretty into her...")
+		cw('m', "Sí que te tiene que gustar...")
 	elseif cl == 715 then
-		cw('mc',"Eh?!")
+		cw('mc',"¡¿Eh?!")
 	elseif cl == 716 then
-		cw('mc',"You...completely misunderstood!")
-    elseif cl == 717 then
-		cw('m',"Ahaha! Calm down, I'm kidding!")
+		cw('mc', "¡Lo... lo has malinterpretado por completo!")
+	elseif cl == 717 then
+		cw('m', "¡Ja, ja, ja! ¡Calma, que era broma!")
 	elseif cl == 718 then
 		updateMonika('2','a')
-		cw('m',"Besides, I'm pretty sure she's already got a boyfriend...")
+		cw('m', "Además, estoy bastante segura de que ya tiene novio...")
 	elseif cl == 719 then
-		cw('mc',"Wait, really?")
+		cw('mc', "Espera, ¿en serio?")
 	elseif cl == 720 then
 		updateMonika('2','k')
-		cw('m',"Yeah. A fictional one, anyway.")
+		cw('m', "Sí, al menos uno ficticio.")
 	elseif cl == 721 then
-		cw('bl',"Monika kind of whispers that last part to me.")
+		cw('bl', "Monika me susurra eso último.")
 	elseif cl == 722 then
 		updateMonika('5a')
-		cw('m',"It's just a hunch, but...")
+		cw('m', "Solo es una corazonada, pero...")
 	elseif cl == 723 then
-		cw('mc',"...Well, there's not really anything wrong with that!")
+		cw('mc', "¡Bueno, no hay nada de malo en ello!")
 	elseif cl == 724 then
 		updateMonika('1','n')
-		cw('m',"Oh, well I know...!")
+		cw('m', "¡Ah, ya lo sé!")
 	elseif cl == 725 then
-		cw('m',"I was just saying~")
+		cw('m', "Yo solo lo dejaba caer~")
 	elseif cl >= 726 then
 		m_end()
 	end
@@ -4699,78 +4699,78 @@ end
 function m_natsuki_3()
 	if cl == 692 then
 		updateMonika('2','j')
-		cw('m',"Sticking with the Natsuki style once more, I see~")
+		cw('m', "Veo que sigues con el estilo de Natsuki, ¿eh?")
 	elseif cl == 693 then
 		updateMonika('2','d')
-		cw('m',"Hmm...")
+		cw('m', "Mmm...")
 	elseif cl == 694 then
-		cw('m',"You really like Natsuki, don't you?")
+		cw('m', "Sí que te gusta Natsuki, ¿eh?")
 	elseif cl == 695 then
-		cw('mc',"Eh? That's--")
+		cw('mc', "¿Eh? Eso no...")
 	elseif cl == 696 then
 		updateMonika('5a')
-		cw('m',"Oh, come on, "..player..".")
+		cw('m', "Oh, venga ya, " .. player .. ".")
 	elseif cl == 697 then
-		cw('m',"It's awfully suspicious, you know?")
+		cw('m', "Es increíblemente sospechoso, ¿sabes?")
 	elseif cl == 698 then
-		cw('m',"Spending time with her in the clubroom every day...")
+		cw('m', "Pasando tanto tiempo con ella en el club cada día...")
 	elseif cl == 699 then
-		cw('m',"Pretending to like the manga that she's into...")
+		cw('m', "Haz como que te gusta su manga favorito...")
 	elseif cl == 700 then
-		cw('mc',"Y-You know how Natsuki is...!")
+		cw('mc', "¡Y-ya sabes cómo es Natsuki!")
 	elseif cl == 701 then
-		cw('mc',"If I don't indulge her, she'll end up hating me.")
+		cw('mc', "Si no le sigo el rollo, me acabará odiando.")
 	elseif cl == 702 then
 		updateMonika('2','e')
-		cw('m',"Eh?")
+		cw('m',"¿Eh?")
 	elseif cl == 703 then
 		updateMonika('2','a')
-		cw('m',"No, I think you're misunderstanding, "..player..".")
+		cw('m', "No, creo que te estás confundiendo, " .. player .. ".")
 	elseif cl == 704 then
-		cw('m',"It's not like Natsuki just hates anyone who doesn't give her what she wants.")
+		cw('m', "Natsuki no odia a quien no le da lo que quiere.")
 	elseif cl == 705 then
 		updateMonika('2','d')
-		cw('m',"Yeah, she's assertive, but she's not that selfish...")
+		cw('m', "Sí, es autoritaria, pero no es tan egoísta...")
 	elseif cl == 706 then
-		cw('m',"In fact, I think you're the only one who's indulged her as much as you have.")
+		cw('m', "De hecho, creo que eres el único que la ha mimado tanto.")
 	elseif cl == 707 then
-		cw('mc',"Is that so...")
+		cw('mc', "¿De verdad?")
 	elseif cl == 708 then
-		cw('bl',"I kind of knew that, but I just didn't want to admit it.")
+		cw('bl', "En el fondo ya lo sabía, pero no quería admitirlo.")
 	elseif cl == 709 then
-		cw('m',"So, I just need to ask one thing of you...")
+		cw('m', "Entonces tengo que preguntarte una cosa...")
 	elseif cl == 710 then
 		updateMonika('1','e')
-		cw('m',"...Be careful. Please?")
+		cw('m', "Ten cuidado, ¿vale?")
 	elseif cl == 711 then
-		cw('m',"Natsuki is kind of unpredictable.")
+		cw('m', "Natsuki es bastante impredecible.")
 	elseif cl == 712 then
-		cw('m',"A lot of times, she doesn't even know what she wants.")
+		cw('m', "Muchas veces, ni ella misma sabe lo que quiere.")
 	elseif cl == 713 then
 		updateMonika('1','i')
-		cw('m',"After all, she's the youngest one here.")
+		cw('m', "Al fin y al cabo es la más joven.")
 	elseif cl == 714 then
-		cw('m',"She might not know how to handle her own feelings properly.")
+		cw('m', "Puede que no sepa controlar sus sentimientos adecuadamente.")
 	elseif cl == 715 then
-		cw('m',"What I'm saying is...")
+		cw('m', "Lo que te quiero decir es...")
 	elseif cl == 716 then
 		updateMonika('1','m')
-		cw('m',"If something bad happens, then it could end up damaging the club, too...")
+		cw('m', "Que si pasa algo malo, puede acabar repercutiendo en el club...")
 	elseif cl == 717 then
 		updateMonika('5a')
-		cw('m',"And you wouldn't do that to me...right?")
+		cw('m', "Y no me harías eso, ¿verdad?")
 	elseif cl == 718 then
-		cw('mc',"That's--")
+		cw('mc', "Eso es...")
 	elseif cl == 719 then
-		cw('bl',"I'm not sure how to respond to Monika.")
+		cw('bl', "No estoy seguro de cómo responder.")
 	elseif cl == 720 then
-		cw('bl',"While I care about her and the club, it's also kind of unfair to bring that up.")
+		cw('bl', "Aunque me importen ella y el club, es algo injusto decirme eso.")
 	elseif cl == 721 then
-		cw('m',"Well...you're smart.")
+		cw('mc', "Bueno...")
 	elseif cl == 722 then
-		cw('m',"I'm sure you'll do the right thing.")
+		cw('m', "Seguro que harás lo correcto.")
 	elseif cl == 723 then
-		cw('bl',"Monika smiles sweetly.")
+		cw('bl', "Monika sonríe con dulzura.")
 	elseif cl >= 724 then
 		m_end()
 	end
@@ -4779,71 +4779,71 @@ end
 function m_sayori_3()
 	if cl == 692 then
 		updateMonika('1','k')
-		cw('m',"Ahaha.")
+		cw('m',"¡Ja, ja, ja!")
 	elseif cl == 693 then
-		cw('m',"It's kind of funny...")
+		cw('m', "Es gracioso...")
 	elseif cl == 694 then
-		cw('mc',"How so?")
+		cw('mc', "¿Y eso?")
 	elseif cl == 695 then
 		updateMonika('1','a')
-		cw('m',"No, not the poem...")
+		cw('m', "No el poema...")
 	elseif cl == 696 then
 		updateMonika('2','a')
-		cw('m',"I mean, it's funny how your poems and Sayori's poems have been getting more and more similar to each other every day.")
+		cw('m', "Me refiero a que tus poemas y los de Sayori se parecen cada día más.")
 	elseif cl == 697 then
-		cw('m',"I'm surprised you're so in sync with her.")
+		cw('m', "Me sorprende que estéis tan sincronizados.")
 	elseif cl == 698 then
 		updateMonika('2','d')
-		cw('m', "Then again, you've been spending a lot of time together lately, haven't you?")
+		cw('m', "Aunque supongo que has estado pasando mucho tiempo con ella, ¿no?")
 	elseif cl == 699 then
-		cw('mc',"Ah, I guess you could say that...")
+		cw('mc', "Ah, supongo que es eso...")
 	elseif cl == 700 then
-		cw('mc',"Although we kind of grew up as best friends, I haven't been seeing as much of her this past year...")
+		cw('mc', "Aunque hayamos crecido juntos, no nos hemos visto tanto este año...")
 	elseif cl == 701 then
-		cw('mc',"But since I joined the club, we've been spending a lot of time together again.")
+		cw('mc', "Pero desde que me uní al club hemos vuelto a pasar más tiempo juntos otra vez.")
 	elseif cl == 702 then
 		updateMonika('1','a')
-		cw('m',"I see, I see~")
+		cw('m', "Ya veo, ya veo~")
 	elseif cl == 703 then
-		cw('m',"That reminds me...")
+		cw('m', "Eso me recuerda...")
 	elseif cl == 704 then
-		cw('m',"About how Sayori's been a little bit off today...")
+		cw('m', "Hoy Sayori estaba algo rara...")
 	elseif cl == 705 then
-		cw('mc',"Yeah? Did she tell you something?")
+		cw('mc', "¿Ah, sí? ¿Te ha dicho algo?")
 	elseif cl == 706 then
 		updateMonika('1','n')
 		cw('m',"Ah...")
 	elseif cl == 707 then
-		cw('m',"Well...")
+		cw('m', "Bueno...")
 	elseif cl == 708 then
 		updateMonika('2','l')
-		cw('m',player..", you haven't been flirting with her, have you?")
+		cw('m', "" .. player .. ", no habrás estado ligando con ella, ¿no?")
 	elseif cl == 709 then
-		cw('mc',"O-Of course not!")
+		cw('mc', "¡Cla-claro que no!")
 	elseif cl == 710 then
-		cw('mc',"I've been treating her like I always do.")
+		cw('mc', "La he tratado como siempre.")
 	elseif cl == 711 then
 		updateMonika('2','a')
-		cw('m',"Alright.")
+		cw('m', "Muy bien.")
 	elseif cl == 712 then
 		updateMonika('5a')
-		cw('m',"Just making sure~")
+		cw('m', "Quería estar segura~")
 	elseif cl == 713 then
-		cw('m',"I know how much you care about her...")
+		cw('m', "Sé lo mucho que te importa...")
 	elseif cl == 714 then
-		cw('m',"It would be terrible if something bad happened to her, so keep an eye on her.")
+		cw('m', "Sería terrible si algo malo le llegara a ocurrir, así que vigílala.")
 	elseif cl == 715 then
 		updateMonika('2','d')
-		cw('m',"Sayori's been acting so much happier ever since you joined the club.")
+		cw('m', "Sayori parece mucho más feliz desde que te uniste al club.")
 	elseif cl == 716 then
-		cw('m',"What could have happened all of a sudden...?")
+		cw('m', "¿Qué le habrá dado de repente?")
 	elseif cl == 717 then
 		cw('mc',"...")
 	elseif cl == 718 then
 		updateMonika('1','l')
-		cw('m',"...Well, never mind.")
+		cw('m', "Bueno, da igual.")
 	elseif cl == 719 then
-		cw('m',"This really isn't the time to be talking about this...")
+		cw('m', "No es el momento de hablar de algo así...")
 	elseif cl >= 720 then
 		m_end()
 	end
@@ -4852,79 +4852,79 @@ end
 function m_yuri_3()
 	if cl == 692 then
 		updateMonika('2','e')
-		cw('m',"Your style's gotten so refined, "..player..".")
+		cw('m', "Tu estilo es cada vez más refinado, " .. player .. ".")
 	elseif cl == 693 then
-		cw('m',"Yuri's been teaching you a lot of things, hasn't she?")
+		cw('m', "Yuri te ha enseñado mucho, ¿no?")
 	elseif cl == 694 then
-		cw('mc',"Well--")
+		cw('m', "Bueno...")
 	elseif cl == 695 then
-		cw('mc',"I guess so.")
+		cw('mc', "Supongo.")
 	elseif cl == 696 then
 		updateMonika('2','a')
-		cw('m',"Yeah... I've been noticing how much time you spend with her.")
+		cw('m', "Sí... Me he dado cuenta de que pasas mucho tiempo con ella.")
 	elseif cl == 697 then
 		updateMonika('2','d')
-		cw('m',"I think I've heard her say more words these past couple days than she's talked in the whole year.")
+		cw('m', "Creo que la he oído hablar más estos días que en todo el año.")
 	elseif cl == 698 then
-		cw('m',"Not sure how you did it, but that's pretty impressive...")
+		cw('m', "No sé cómo lo has hecho, pero es impresionante...")
 	elseif cl == 699 then
-		cw('mc',"Well, she just needs some patience and a way to talk about all the things in her head, I guess...")
+		cw('mc', "Bueno, solo necesita paciencia y algo que le haga hablar sobre lo que piensa, supongo...")
 	elseif cl == 700 then
-		cw('mc',"I'm still getting the hang of it, myself.")
+		cw('mc', "Aunque todavía estoy acostumbrándome.")
 	elseif cl == 701 then
 		updateMonika('2','a')
-		cw('m',"Hm...")
+		cw('m', "Mmm...")
 	elseif cl == 702 then
-		cw('m',"You're certainly putting in a lot of effort.")
+		cw('m', "La verdad es que te estás esforzando mucho.")
 	elseif cl == 703 then
 		updateMonika('2','e')
-		cw('m',"You must really like her.")
+		cw('m', "Sí que te gusta.")
 	elseif cl == 704 then
-		cw('mc',"Eh? That's--")
+		cw('mc', "¿Eh? Eso no...")
 	elseif cl == 705 then
 		updateMonika('5a')
-		cw('m',"Ahaha!")
+		cw('m',"¡Ja, ja, ja!")
 	elseif cl == 706 then
-		cw('m',"It's awfully suspicious, you know?")
+		cw('m', "Es increíblemente sospechoso, ¿sabes?")
 	elseif cl == 707 then
-		cw('m',"Spending time with her in the clubroom every day...")
+		cw('m', "Pasar tanto tiempo con ella en el club cada día...")
 	elseif cl == 708 then
-		cw('m',"Reading that edgy novel with her...")
+		cw('m', "Leer esa novela atrevida con ella...")
 	elseif cl == 709 then
-		cw('mc',"Well--!")
+		cw('mc', "Bueno...")
 	elseif cl == 710 then
-		cw('mc',"I just...feel bad that she has a hard time socializing.")
+		cw('mc', "Es que... me siento mal porque le cuesta socializar.")
 	elseif cl == 711 then
-		cw('mc',"It makes me want to make sure she doesn't spend all her time alone.")
-    elseif cl == 712 then
-		cw('mc',"Besides, the novel isn't too bad either, you know...")
+		cw('mc', "Quiero asegurarme de que no esté todo el rato sola.")
+	elseif cl == 712 then
+		cw('mc', "Además, la novela tampoco está tan mal...")
 	elseif cl == 713 then
 		updateMonika('1','k')
-		cw('m',"Alright, alright~")
+		cw('m', "Muy bien, muy bien~")
 	elseif cl == 714 then
-		cw('m',"I get you.")
+		cw('m', "Te entiendo.")
 	elseif cl == 715 then
 		updateMonika('1','a')
-		cw('m',"Just...be careful, alright?")
+		cw('m', "Pero ten cuidado, ¿vale?")
 	elseif cl == 716 then
-		cw('m',"I know that Yuri isn't used to opening herself up...")
+		cw('m', "Sé que Yuri no está acostumbrada a abrirse a los demás...")
 	elseif cl == 717 then
 		updateMonika('2','d')
-		cw('m',"So if something bad happens while she's vulnerable...")
+		cw('m', "Así que si le pasa algo mientras sea vulnerable...")
 	elseif cl == 718 then
-		cw('m',"Then it could be really hard for her.")
+		cw('m', "La pobre no podrá soportarlo.")
 	elseif cl == 719 then
 		updateMonika('2','i')
-		cw('m',"Her books aren't a total escape from reality.")
+		cw('m', "Sus libros no son exactamente una vía de escape para la realidad.")
 	elseif cl == 720 then
-		cw('m',"They're just a bandage.")
+		cw('m', "Son solo tiritas.")
 	elseif cl == 721 then
-		cw('mc',"You say that like I'm going to hurt her...")
+		cw('mc', "Lo dices como si fuera a hacerle daño...")
 	elseif cl == 722 then
 		updateMonika('1','l')
-		cw('m',"Sorry, I didn't really mean that~")
+		cw('m', "Lo siento, no me refería a eso~")
 	elseif cl == 723 then
-		cw('m',"If anything, she might accidentally hurt herself.")
+		cw('m', "Como mucho, se acabará haciendo daño así misma por accidente.")
 	elseif cl >= 724 then
 		m_end()
 	end

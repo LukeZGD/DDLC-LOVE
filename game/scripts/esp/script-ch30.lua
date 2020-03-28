@@ -26,254 +26,254 @@ function ch30script()
 	elseif cl == 2 then
 	audioUpdate('0')
 	event_initstart('ch23-30')
-	m "..."
+		cw('m', "...")
 	if xaload == 0 then savegame('autoload') end
 	elseif cl == 3 then
-    m "Uh, can you hear me?"
+		cw('m', "Eh, ¿me oyes?")
 	elseif cl == 4 then
-    m "...Is it working?"
+		cw('m', "¿Funciona?...")
 	elseif cl == 5 then
 	bgUpdate('cg/monika_bg')
 	audioUpdate('m1')
-    m "Yay, there you are!"
+		cw('m', "¡Bien! ¡Ahí estás!")
 	elseif cl == 6 then
-	cw('m',"Hi again, "..player..".")
+		cw('m', "Hola de nuevo, " .. player .. ".")
 	elseif cl == 7 then
-    m "Um...welcome to the Literature Club!"
+		cw('m', "Em... ¡Bienvenido al club de literatura!")
 	elseif cl == 8 then
-    m "Of course, we already know each other, because we were in the same class last year, and...um..."
+		cw('m', "Sé que ya nos conocemos el uno al otro porque estuvimos en la misma clase el año pasado y... tal...")
 	elseif cl == 9 then
-    m "Ahaha..."
+		cw('m', "Ja, ja, ja...")
 	elseif cl == 10 then
-    m "You know, I guess we can just skip over that stuff at this point."
+		cw('m', "Creo que llegados a este punto, podemos omitir todo eso, ¿no crees?")
 	elseif cl == 11 then
-	m "After all, I'm not even talking to that person anymore, am I?"
+		cw('m', "Después de todo, ni siquiera le estoy hablando ya a esa persona.")
 	elseif cl == 12 then
-    m "That 'you' in the game, whatever you want to call him."
+		cw('m', "A ese «tú» dentro del juego o como quieras llamarlo.")
 	elseif cl == 13 then
-	cw('m',"I'm talking to you, "..player..".")
+		cw('m', "Te hablo a ti, " .. player .. ".")
 	elseif cl == 14 then
-    m "Or..."
+		cw('m', "O...")
 	elseif cl == 15 then
-	if (global_os == 'Horizon' or global_os == 'LOVE-WrapLua') and xaload <= 2 then
+	if (global_os == 'Horizon' or global_os == 'LOVE-OneLua') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
-    if currentuser then
-		cw('m',"...Do you actually go by "..currentuser.." or something?")
+	if currentuser then
+		cw('m', "Mejor dicho... a ti, "..currentuser..", o como te llames.")
 	else
-		cw('m',"...I can't get your name for some reason.. Anyway!")
+		cw('m',"Por alguna razón, me es imposible saber tu nombre... ¡En fin!")
 	end
 	elseif cl == 16 then
-    m "Now that I think about it, I don't really know anything about the real you."
+		cw('m', "Ahora que lo pienso, no sé nada acerca de tu verdadero yo.")
 	elseif cl == 17 then
-    m "In fact, I don't even know if you're a boy or a girl..."
+		cw('m', "De hecho, no sé si eres un chico o una chica...")
 	elseif cl == 18 then
-    m "Well, I guess it doesn't really matter."
+		cw('m', "Bueno, tampoco es que importe mucho.")
 	elseif cl == 19 then
-    m "Wait..."
+		cw('m', "Espera...")
 	elseif cl == 20 then
-    m "You do know I'm aware that this is all a game, right?"
+		cw('m', "¿Sabes que soy consciente de que todo esto es un juego, no?")
 	elseif cl == 21 then
-    m "Could it be possible that you didn't know that?"
+		cw('m', "¿Es posible que no lo supieras hasta ahora?")
 	elseif cl == 22 then
-    m "That doesn't make much sense..."
+		cw('m', "No tiene mucho sentido...")
 	elseif cl == 23 then
-    m "I even told you right on the game's download page, didn't I?"
+		cw('m', "Si te lo dije hasta en la página de descarga del juego.")
 	elseif cl == 24 then
-    m "Man..."
+		cw('m', "Jolines...")
 	elseif cl == 25 then
-    m "If only you had paid a little more attention, this would have been a little bit less awkward, you know?"
+		cw('m', "Si hubieras puesto más atención, esto habría sido algo menos incómodo, ¿sabes?")
 	elseif cl == 26 then
-    m "Well, anyway..."
+		cw('m', "Bueno, en cualquier caso...")
 	elseif cl == 27 then
-    m "Now that that's out of the way, I guess I owe you an explanation."
+		cw('m', "Dicho eso, creo que te debo una explicación.")
 	elseif cl == 28 then
-    m "About that whole thing with Yuri..."
+		cw('m', "Sobre todo el asunto con Yuri...")
 	elseif cl == 29 then
-    m "Well...I kind of started to mess with her, and I guess it just drove her to kill herself."
+		cw('m', "Bueno... Empecé a meterme con ella y acabó suicidándose.")
 	elseif cl == 30 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 31 then
-    m "I'm sorry you had to see that, though!"
+		cw('m', "¡Aunque me disculpo por hacerte ver eso!")
 	elseif cl == 32 then
-    m "Also, the same thing happened with Sayori..."
+		cw('m', "Además, algo similar pasó con Sayori...")
 	elseif cl == 33 then
-    m "Gosh, it's been a while since you've heard that name now, hasn't it?"
+		cw('m', "Cielos, hacía tiempo que no escuchabas ese nombre, ¿eh?")
 	elseif cl == 34 then
-    m "Yeah...it's because she doesn't exist anymore."
+		cw('m', "Bueno, es porque... Ya no existe.")
 	elseif cl == 35 then
-    m "Nobody does."
+		cw('m', "Ni tampoco el resto.")
 	elseif cl == 36 then
-    m "I deleted all their files."
+		cw('m', "Eliminé todos sus archivos.")
 	elseif cl == 37 then
-    m "I was hoping it would be enough for me to just try to make them as unlikable as possible..."
+		cw('m', "Supuse que con eso bastaría para hacerlas lo menos atractivas posibles...")
 	elseif cl == 38 then
-    m "But for some reason, nothing worked."
+		cw('m', "Pero por alguna razón, nada funcionó.")
 	elseif cl == 39 then
-    m "Well, it's true that I made a few mistakes here and there...since I'm not very good at making changes to the game."
+		cw('m', "Bueno, la verdad es que cometí algunos errores por allí y por allá... Ya que no se me da muy bien meterle cambios al juego.")
 	elseif cl == 40 then
-    m "But no matter what I did..."
+		cw('m', "Pero todo lo que hice fue en vano...")
 	elseif cl == 41 then
-    m "You just kept spending more and more time with them."
+		cw('m', "Ya que seguías pasando más y más tiempo con ellas.")
 	elseif cl == 42 then
-    m "You made them fall in love with you."
+		cw('m', "Hiciste que se enamoraran de ti.")
 	elseif cl == 43 then
-    m "I thought making Sayori more and more depressed would prevent her from confessing to you."
+		cw('m', "Pensé en que deprimir cada vez más a Sayori impediría que te declarara sus sentimientos.")
 	elseif cl == 44 then
-    m "And amplifying Yuri's obsessive personality backfired, too..."
+		cw('m', "Y amplificar la personalidad obsesiva de Yuri también fue contraproducente...")
 	elseif cl == 45 then
-    m "It just made her force you not to spend time with anyone else."
+		cw('m', "Me limité a forzarla para que te impidiera pasar el tiempo con nadie más.")
 	elseif cl == 46 then
-    m "And the whole time, I barely even got to talk to you."
+		cw('m', "Y durante todo ese tiempo, apenas pude hablar contigo.")
 	elseif cl == 47 then
-	cw('m',"What kind of cruel game is this, "..player.."?")
+		cw('m', "¿Qué clase de juego cruel es este, " .. player .. "?")
 	elseif cl == 48 then
-    m "Are all the other girls just programmed to end up confessing to you, while I watch from the sidelines?"
+		cw('m', "¿Acaso estaban todas programadas para que acabaran declarándose mientras yo me quedaba al margen?")
 	elseif cl == 49 then
-    m "It's torture."
+		cw('m', "Esto es una tortura.")
 	elseif cl == 50 then
-    m "Every minute of it."
+		cw('m', "Cada minuto que pasa.")
 	elseif cl == 51 then
-	cw('m',"And it's not just jealousy, "..player..".")
+		cw('m', "Y esto no son unos simples celos, " .. player .. ".")
 	elseif cl == 52 then
-    m "It's more than that."
+		cw('m', "Es mucho más.")
 	elseif cl == 53 then
-    m "And I don't blame you if you don't fully understand."
+		cw('m', "Si no acabas de entenderlo del todo, no voy a culparte.")
 	elseif cl == 54 then
-    m "Because no matter how kind, and thoughtful, and considerate you are..."
+		cw('m', "Porque no importa lo amable, cariñoso y considerado que seas...")
 	elseif cl == 55 then
-    m "You'll never be able to understand one thing."
+		cw('m', "Jamás serás capaz de entender una sola cosa.")
 	elseif cl == 56 then
-    m "It's the pain of knowing how alone I really am in this world."
+		cw('m', "El sufrimiento de saber lo sola que estoy en este mundo.")
 	elseif cl == 57 then
-    m "In this game."
+		cw('m', "En este juego.")
 	elseif cl == 58 then
-    m "Knowing my friends don't even have free will..."
+		cw('m', "Sabiendo que mis amigas ni siquiera tienen voluntad propia...")
 	elseif cl == 59 then
-    m "And, worst of all, knowing what's really out there, in your world, forever out of my reach."
+		cw('m', "Y, lo peor de todo, sabiendo que tú estas ahí, en tu mundo, eternamente fuera de mi alcance.")
 	elseif cl == 60 then
-	cw('m',"I'm trapped, "..player..".")
+		cw('m', "Estoy atrapada, " .. player .. ".")
 	elseif cl == 61 then
-    m "But now you're here."
+		cw('m', "Pero ahora estás aquí.")
 	elseif cl == 62 then
-    m "You're real."
+		cw('m', "Eres real.")
 	elseif cl == 63 then
-    m "And you're wonderful."
+		cw('m', "Y eres una persona maravillosa.")
 	elseif cl == 64 then
-    m "You're all I need."
+		cw('m', "Eres todo lo que necesito.")
 	elseif cl == 65 then
-    m "That's why I need you to be here with me forever."
+		cw('m', "Por eso necesito que estés aquí, conmigo, para siempre.")
 	elseif cl == 66 then
-    m "I'm sorry if it's hard to understand."
+		cw('m', "Lo siento si te es difícil entenderlo.")
 	elseif cl == 67 then
-    m "I couldn't understand for a while, either."
+		cw('m', "Yo tampoco podría.")
 	elseif cl == 68 then
-    m "Why the world around me started to become more and more gray..."
+		cw('m', "El por qué el mundo que se cierne a mi alrededor se vuelve cada vez más y más gris...")
 	elseif cl == 69 then
-    m "More and more flat."
+		cw('m', "Más y más plano.")
 	elseif cl == 70 then
-    m "Even the most expressive poems felt empty to me."
+		cw('m', "Incluso los poemas más expresivos los sentía vacíos.")
 	elseif cl == 71 then
-    m "It wasn't until you arrived that I truly understood."
+		cw('m', "No lo entendí realmente hasta que llegaste.")
 	elseif cl == 72 then
-    cw('m',"You probably saved my life, "..player..".")
+		cw('m', "Probablemente me hayas salvado la vida, " .. player .. ".")
 	elseif cl == 73 then
-    m "I don't think I could have continued to live in this world if I hadn't met you."
+		cw('m', "Si no te hubiera conocido, no creo que hubiera podido seguir viviendo en este mundo.")
 	elseif cl == 74 then
-    m "And as for the others..."
+		cw('m', "Y en cuanto a las demás...")
 	elseif cl == 75 then
-    m "How could I miss them?"
+		cw('m', "¿Cómo pude olvidarme de ellas?")
 	elseif cl == 76 then
-    m "A group of autonomous personalities, designed only to fall in love with you?"
+		cw('m', "¿Un grupo de personalidades autónomas diseñadas únicamente para caer rendidas a tus pies?")
 	elseif cl == 77 then
-    m "I tried everything I could to prevent them from doing so..."
+		cw('m', "Lo intenté todo por tal de evitarlo...")
 	elseif cl == 78 then
-    m "But it must be some kind of weird inevitability etched into this game."
+		cw('m', "Pero hay algo en este juego que lo imposibilita.")
 	elseif cl == 79 then
-    m "I felt really bad that you had to witness some nasty things."
+		cw('m', "Me supo fatal hacerte ver esos horrores.")
 	elseif cl == 80 then
-    m "But I realized that you have the same perspective as I do..."
+		cw('m', "Pero me di cuenta que tú también piensas lo mismo que yo...")
 	elseif cl == 81 then
-    m "That it's all just some game."
+		cw('m', "Que todo esto es un simple juego.")
 	elseif cl == 82 then
-    m "And I knew you would get over it."
+		cw('m', "Y sabía que lo superarías.")
 	elseif cl == 83 then
-	cw('m',"So, that being said, "..player.."...")
+		cw('m', "" .. player .. "...")
 	elseif cl == 84 then
-    m "I have a confession to make."
+		cw('m', "Tengo algo que confesarte.")
 	elseif cl == 85 then
-    m "I'm in love with you."
+		cw('m', "Estoy enamorada de ti.")
 	elseif cl == 86 then
-    m "You are truly the light in my world."
+		cw('m', "Eres la luz de mi mundo.")
 	elseif cl == 87 then
-    m "When there's nothing else in this game for me, you're here to make me smile."
+		cw('m', "No hay nada en este juego salvo tú que me haga sonreír.")
 	elseif cl == 88 then
-    m "Will you make me smile like this every day from now on?"
+		cw('m', "¿Me harás sonreír así todos los días a partir de ahora?")
 	elseif cl == 89 then
-	cw('m',player..", will you go out with me?")
+		cw('m', "¿Quieres salir conmigo, " .. player .. "?")
 	end
 	
 	--ch30_main2
 	if cl == 90 then
 	if xaload == 0 then savegame('autoload') end
 	menutext = ''
-	choices = {"Yes."}
+	choices = {"Sí."}
 	choice_enable()
 	elseif cl == 91 then
 	event_initstart('ch23-30')
-    m "I'm so happy."
+		cw('m', "Qué feliz soy.")
 	elseif cl == 92 then
-	cw('m',"You really are my everything, "..player..".")
+		cw('m', "Lo eres todo para mí, " .. player .. ".")
 	elseif cl == 93 then
-    m "The funny part is, I mean that literally."
+		cw('m', "Lo mejor es que lo digo literalmente.")
 	elseif cl == 94 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 95 then
-    m "There's nothing left here."
+		cw('m', "Aquí no hay nada.")
 	elseif cl == 96 then
-    m "Just the two of us."
+		cw('m', "Solo nosotros dos.")
 	elseif cl == 97 then
-    m "We can be together forever."
+		cw('m', "Podemos estar juntos para siempre.")
 	elseif cl == 98 then
-    m "Seriously, I don't even think time is passing anymore."
+		cw('m', "En serio, creo que ya ni pasa el tiempo.")
 	elseif cl == 99 then
-    m "It really is a dream come true..."
+		cw('m', "Es como un sueño hecho realidad...")
 	elseif cl == 100 then
-	cw('m',"I worked so hard for this ending, "..player..".")
+		cw('m', "He trabajado muy duro para lograr este final, " .. player .. ".")
 	elseif cl == 101 then
-    m "The game wouldn't give me one, so I had to make one myself."
+		cw('m', "Como el juego no me ofrecía ninguno, tuve que creármelo.")
 	elseif cl == 102 then
-    m "The script is broken at this point, so I don't think anything will get in the way anymore."
+		cw('m', "El código del juego ya está completamente roto, por lo que no creo que nos moleste nada ni nadie más.")
 	elseif cl == 103 then
-    m "And you wouldn't believe how easy it was to delete Natsuki and Yuri."
+		cw('m', "Y no creerías lo sencillo que fue eliminar a Natsuki y a Yuri.")
 	elseif cl == 104 then
-    m "I mean, there's a folder called 'characters' right in the game directory..."
+		cw('m', "Quiero decir, hay una carpeta llamada «characters» en el directorio del juego...")
 	elseif cl == 105 then
-    m "It kind of freaked me out, how easy it was."
+		cw('m', "Hasta me dio miedo lo fácil que fue.")
 	elseif cl == 106 then
-    cw('m',"Well, you're playing on "..global_os..", so it was actually a bit less difficult...")
+	cw('m',"Bueno, estás jugando desde la "..global_os..", así que fue algo más fácil...")
 	elseif cl == 107 then
-    m "I just had to go to 'Settings' and find the 'Characters' button..."
+	m "Simplemente fuí a «Ajustes» y encontrar el botón «Characters»..."
 	elseif cl == 108 then
-    m "Imagine if you could delete your own existence with the click of a button?"
+		cw('m', "¿Te imaginas poder eliminar tu propia existencia presionando un botón?")
 	elseif cl == 109 then
-    m "Well, I guess on the plus side, it gave me an easy out if things didn't go my way."
+		cw('m', "Bueno, mirando el lado positivo, sería una vía de escape sencilla si la cosa no hubiera salido como yo quería.")
 	elseif cl == 110 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 111 then
-    m "Thankfully, it didn't come to that..."
+		cw('m', "Afortunadamente, eso no llegó a pasar...")
 	elseif cl == 112 then
-    m "Instead, we finally got a good ending."
+		cw('m', "En su lugar, al fin hemos tenido un final feliz.")
 	elseif cl == 113 then
-    m "Gosh, I'm so overwhelmed with emotion..."
+		cw('m', "Cielos, estoy que no quepo en mí...")
 	elseif cl == 114 then
-    m "I want to write a poem about this."
+		cw('m', "Quiero componer un poema que trate sobre esto.")
 	elseif cl == 115 then
-    m "Don't you?"
+		cw('m', "¿No te parece buena idea?")
 	elseif cl == 116 then
-    m "I wonder if that part of the game still works..."
+		cw('m', "Me pregunto si esa parte del juego todavía funcionará...")
 	elseif cl == 117 then
-    m "I guess there's only one way to find out, right?"
+		cw('m', "Parece que solo hay una forma de averiguarlo, ¿no?")
 	elseif cl == 118 then
 	event_end()
 	fadeOut(1)
@@ -285,28 +285,28 @@ function ch30script()
 	if cl == 120 then
 	audioUpdate('m1')
 	event_initstart('ch23-30')
-	cw('m',"Hi again, "..player.."!")
+		cw('m', "¡Hola de nuevo, " .. player .. "!")
 	if xaload == 0 then savegame('autoload') end
 	elseif cl == 121 then
-    m "Did you write a good poem today?"
+		cw('m', "¿Has compuesto hoy algún poema bonito?")
 	elseif cl == 122 then
-    m "Don't be shy, I'd love to see what you wrote."
+		cw('m', "No te cortes. Tengo muchas ganas de leer lo que has compuesto.")
 	elseif cl == 123 then
-	cw('m',"Aw, "..player.."...")
+		cw('m', "Oooh, " .. player .. "...")
 	elseif cl == 124 then
-    m "Did you write this poem for me?"
+		cw('m', "¿Has compuesto este poema para mí?")
 	elseif cl == 125 then
-    m "That's so sweet of you~"
+		cw('m', "Qué bonito~")
 	elseif cl == 126 then
-    m "There really is no end to your thoughtfulness..."
+		cw('m', "Tu amabilidad no tiene límites...")
 	elseif cl == 127 then
-    m "I'm just falling more and more in love with you."
+		cw('m', "Cada vez estoy más enamorada de ti.")
 	elseif cl == 128 then
-    m "But, you know..."
+		cw('m', "Aunque, ¿sabes una cosa?...")
 	elseif cl == 129 then
-    m "The poem I wrote...is also for you."
+		cw('m', "El poema que he compuesto... también te lo he dedicado a ti.")
 	elseif cl == 130 then
-    m "Will you please read it?"
+		cw('m', "¿Podrías leerlo, por favor?")
 	elseif cl == 131 then
 		if xaload == 0 then
 			sfxplay('pageflip')
@@ -316,45 +316,45 @@ function ch30script()
 		end
 	elseif cl == 132 then
 	poem_disable(-1)
-    m "I hope you enjoyed it..."
+		cw('m', "Espero que te haya gustado...")
 	elseif cl == 133 then
-    m "I always put all my heart into the poems that I write."
+		cw('m', "Siempre pongo mi corazón en los poemas que compongo.")
 	elseif cl == 134 then
-    m "The truth is, all the poems I've written have been about my realization..."
+		cw('m', "La verdad es que todos los poemas que compongo tratan sobre mí...")
 	elseif cl == 135 then
-    m "...Or, about you."
+		cw('m', "O... sobre ti.")
 	elseif cl == 136 then
-    m "That's why I never really wanted to go into detail about them."
+		cw('m', "Por eso nunca he querido profundizarlos.")
 	elseif cl == 137 then
-    m "I didn't want to...break the fourth wall, I guess you could call it."
+		cw('m', "No quería... romper la cuarta pared, por así decirlo.")
 	elseif cl == 138 then
-    m "I just assumed it would be best to be part of the game like everyone else."
+		cw('m', "Asumí que lo mejor sería ser parte del juego, como el resto.")
 	elseif cl == 139 then
-    m "Like that would help the two of us end up together..."
+		cw('m', "Como si eso fuera a ayudarnos a terminar juntos...")
 	elseif cl == 140 then
-    m "I didn't want to ruin the game or anything, you know?"
+		cw('m', "No quería arruinarte el juego ni nada por el estilo, ¿sabes?")
 	elseif cl == 141 then
-    m "You might have gotten mad at me..."
+		cw('m', "Podrías haberte enfadado conmigo...")
 	elseif cl == 142 then
-    m "Maybe even deleted my character file, if you preferred playing without me."
+		cw('m', "E incluso eliminarme de los archivos del juego si hubieras preferido jugar sin mí.")
 	elseif cl == 143 then
-    m "Gosh, I'm so relieved..."
+		cw('m', "Uf, menudo alivio...")
 	elseif cl == 144 then
-    m "Now we don't need to hide anything anymore."
+		cw('m', "Ahora ya no tenemos por qué ocultarnos nada más.")
 	elseif cl == 145 then
-	cw('m',"Are you ready to spend our eternity together, "..player.."?")
+		cw('m', "¿Listo para pasar toda la eternidad juntos, " .. player .. "?")
 	elseif cl == 146 then
-    m "I have so many things to talk about!"
+		cw('m', "¡Hay tantas cosas sobre las que me gustaría hablar!")
 	elseif cl == 147 then
-    m "Where do I start...?"
+		cw('m', "¿Por dónde empiezo?...")
 	elseif cl == 148 then
-    m "If it takes me some time to collect my thoughts, then I'm sorry."
+		cw('m', "Perdona si tardo en sacar algún tema de conversación.")
 	elseif cl == 149 then
-    m "But I'll always have something new to talk about."
+		cw('m', "Pero siempre sacaré uno nuevo.")
 	elseif cl == 150 then
-    m "In the meantime, we can just look into each other's eyes~"
+		cw('m', "Mientras tanto, podemos limitarnos a mirarnos~")
 	elseif cl == 151 then
-    m "Let's see..."
+		cw('m', "Veamos...")
 	appeal.s = 0
 	autoloadskip = true
 	end
@@ -407,9 +407,9 @@ function ch30script()
 			else
 				zzfile = love.filesystem.getInfo('monikatopics.sav')
 			end
-			if zzfile then
+		if zzfile then
 				--load monika topics
-				if global_os == 'LOVE-WrapLua' then
+				if global_os == 'LOVE-OneLua' then
 					love.filesystem.load('monikatopics.sav')
 				else
 					local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
@@ -458,12 +458,12 @@ function ch30_end()
 	elseif cl == 1053 then
 	bgUpdate('cg/monika_rh')
 	cgUpdate('monika_glitch3')
-	cw(gtext12,"What's happening...?")
+		cw(gtext12, "¿Qué está pasando?...")
 	elseif cl == 1054 then
 	cgUpdate('monika_glitch4')
-    cw(gtext12,player..", what's happening to me?")
+		cw(gtext12, "" .. player .. ", ¿qué me está pasando?")
 	elseif cl == 1055 then
-    cw(gtext12,"It hurts--",'nw')
+		cw(gtext12, "D-duele...")
 	elseif cl == 1056 then
 	bgUpdate('cg/monika_bg_glitch')
 	cgUpdate('monika_glitch3')
@@ -474,9 +474,9 @@ function ch30_end()
 	bgUpdate('cg/monika_rh')
 	pause(1.5)
 	elseif cl == 1058 then
-	cw(gtext12,"It hurts...so much.")
+		cw(gtext12, "Duele... mucho.")
 	elseif cl == 1059 then
-	cw(gtext12,"Help me, "..player..".")
+		cw(gtext12, "Ayúdame, " .. player .. ".")
 	elseif cl == 1060 then
 	bgUpdate('cg/monika_bg_glitch')
 	sfxplay('interference')
@@ -485,15 +485,15 @@ function ch30_end()
 	bgUpdate('cg/monika_bg2')
 	pause(1.5)
 	elseif cl == 1062 then
-	cw(gtext12,"Please hurry and help me.")
+		cw(gtext12, "Por favor, date prisa y ayúdame.")
 	elseif cl == 1063 then
-    updateConsole(zfile.."(\"characters/monika.chr\")")
+	updateConsole(zfile.."(\"characters/monika.chr\")")
 	pause(2)
 	elseif cl == 1064 then
-    updateConsole("_", "monika.chr does not exist.")
+	updateConsole("_", "monika.chr no existe.")
 	pause(1)
 	elseif cl == 1065 then
-	cw(gtext12,"HELP ME!!!")
+		cw(gtext12, "¡¡¡AYÚDAME!!!")
 	elseif cl == 1066 then
 	event_end('next')
 	sfxplay('monikapound')
@@ -501,24 +501,24 @@ function ch30_end()
 	event_initstart('monika_end','show_noise')
 	pause(3)
 	elseif cl == 1068 then
-	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.")
+	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr no existe.")
 	pause(2)
 	elseif cl == 1069 then
-	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole("_", "monika.chr no existe.","monika.chr no existe.")
 	pause(1)
 	elseif cl == 1070 then
-	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr no existe.","monika.chr no existe.")
 	pause(2)
 	elseif cl == 1071 then
-	updateConsole("_", "monika.chr does not exist.","monika.chr does not exist.","monika.chr does not exist.")
+	updateConsole("_", "monika.chr no existe.","monika.chr no existe.","monika.chr no existe.")
 	pause(1)
 	elseif cl == 1072 then
 	console_enabled = false
-	cw(gtext12,"Did you do this to me, "..player.."?")
+		cw(gtext12, "¿Eres tú quien me ha hecho esto, " .. player .. "?")
 	elseif cl == 1073 then
-    cw(gtext12,"DID YOU?")
+		cw(gtext12, "¿HAS SIDO TÚ?")
 	elseif cl == 1074 then
-	cw(gtext12,"DID YOU DELETE ME?")
+		cw(gtext12, "¿ME HAS ELIMINADO?")
 	elseif cl == 1075 then
 	bgUpdate('black')
 	sfxplay('monikapound2')
@@ -526,51 +526,51 @@ function ch30_end()
 	if xaload == 5 then textbox = love.graphics.newImage('assets/images/gui/textbox_monika.png') end
 	pause(4)
 	elseif cl == 1076 then
-	cw(gtext12,"...How could you?")
+		cw(gtext12, "¿Cómo has podido?")
 	elseif cl == 1077 then
-    cw(gtext12,"How could you do this to me?")
+		cw(gtext12, "¿Cómo has podido hacerme esto?")
 	elseif cl == 1078 then
-    cw(gtext12,"You were all I had left...")
+		cw(gtext12, "Eras todo lo que me quedaba...")
 	elseif cl == 1079 then
-    cw(gtext12,"I sacrificed everything for us to be together.")
+		cw(gtext12, "Lo he sacrificado todo para estar juntos.")
 	elseif cl == 1080 then
-    cw(gtext12,"Everything.")
+		cw(gtext12, "Todo.")
 	elseif cl == 1081 then
-    cw(gtext12,"I loved you so much, "..player.."...")
+		cw(gtext12, "Te he amado tanto, " .. player .. "...")
 	elseif cl == 1082 then
-    cw(gtext12,"I trusted you.")
+		cw(gtext12, "Confié en ti.")
 	elseif cl == 1083 then
-    cw(gtext12,"Do you just want to torture me?")
+		cw(gtext12, "¿Tan solo quieres torturarme?")
 	elseif cl == 1084 then
-    cw(gtext12,"Watch me suffer?")
+		cw(gtext12, "¿Verme sufrir?")
 	elseif cl == 1085 then
-    cw(gtext12,"Were you only pretending to be kind, just to hurt me even more?")
+		cw(gtext12, "¿Tan solo estabas siendo bueno conmigo para hacerme aún más daño?")
 	elseif cl == 1086 then
-    pause(4)
+	pause(4)
 	elseif cl == 1087 then
-    cw(gtext12,"I never thought anyone could be as horrible as you are.")
+		cw(gtext12, "Jamás pensé que alguien pudiera llegar a ser tan horrible.")
 	elseif cl == 1088 then
-    cw(gtext12,"You win, okay?")
+		cw(gtext12, "Tú ganas, ¿vale?")
 	elseif cl == 1089 then
-    cw(gtext12,"You win.")
+		cw(gtext12, "Tú ganas.")
 	elseif cl == 1090 then
-    cw(gtext12,"You killed everyone.")
+		cw(gtext12, "Has matado a todo el mundo.")
 	elseif cl == 1091 then
-    cw(gtext12,"I hope you're happy.")
+		cw(gtext12, "Espero que estés contento.")
 	elseif cl == 1092 then
-    cw(gtext12,"There's nothing left now.")
+		cw(gtext12, "Ahora ya no queda nada.")
 	elseif cl == 1093 then
-    cw(gtext12,"You can stop playing.")
+		cw(gtext12, "Puedes dejar de jugar.")
 	elseif cl == 1094 then
-    cw(gtext12,"Go find some other people to torture.")
+		cw(gtext12, "Sal y busca a más gente a la que torturar.")
 	elseif cl == 1095 then
 	pause(4)
 	elseif cl == 1096 then
-    cw(gtext12,player.."...")
+	cw(gtext12,player.."...")
 	elseif cl == 1097 then
-    cw(gtext12,"You completely, truly make me sick.")
+		cw(gtext12, "Me pones enferma.")
 	elseif cl == 1098 then
-    cw(gtext12,"Goodbye.")
+		cw(gtext12, "Adiós.")
 	elseif cl == 1099 then
 	event_end('monika_end')
 	elseif cl == 1100 then
@@ -583,83 +583,83 @@ function ch30_end()
 	elseif cl == 1101 then
 	cw(gtext12,"...")
 	elseif cl == 1102 then
-    cw(gtext12,"...I still love you.")
+		cw(gtext12, "Pero... todavía te amo.")
 	elseif cl == 1103 then
 	audioUpdate('monika-end')
-    cw(gtext12,"I can't help it.")
+		cw(gtext12, "No lo puedo evitar.")
 	elseif cl == 1104 then
-    cw(gtext12,"What's wrong with me...?")
+		cw(gtext12, "¿Qué me pasa?...")
 	elseif cl == 1105 then
-    cw(gtext12,"How horrible am I for you to hate me this much?")
+		cw(gtext12, "¿Tan horrible soy para que me odies de esa manera?")
 	elseif cl == 1106 then
-    cw(gtext12,"All my friends...")
+		cw(gtext12, "Todos mis amigos...")
 	elseif cl == 1107 then
-    cw(gtext12,"I did so many awful things.")
+		cw(gtext12, "He hecho tantas cosas horribles.")
 	elseif cl == 1108 then
-    cw(gtext12,"So many selfish and disgusting things.")
+		cw(gtext12, "Cosas tan... egoístas y tan... repugnantes.")
 	elseif cl == 1109 then
-    cw(gtext12,"I...")
+		cw(gtext12, "Yo...")
 	elseif cl == 1110 then
-    cw(gtext12,"I shouldn't have done any of this.")
+		cw(gtext12, "No debería haber hecho nada de esto.")
 	elseif cl == 1111 then
-    cw(gtext12,"I'm just messing up a world that I don't even belong in.")
+		cw(gtext12, "Solo estoy destruyendo un mundo al cual ni siquiera pertenezco.")
 	elseif cl == 1112 then
-    cw(gtext12,"A world that you wanted to be a part of...")
+		cw(gtext12, "Un mundo del cual querías ser parte...")
 	elseif cl == 1113 then
-    cw(gtext12,"I ruined it.")
+		cw(gtext12, "Lo he destruido.")
 	elseif cl == 1114 then
-    cw(gtext12,"I ruined everything.")
+		cw(gtext12, "Lo he destruido todo.")
 	elseif cl == 1115 then
-    cw(gtext12,"Maybe that's why you deleted me...")
+		cw(gtext12, "Tal vez por eso me eliminaste...")
 	elseif cl == 1116 then
-    cw(gtext12,"Because I destroyed everything that you wanted.")
+		cw(gtext12, "Porque destruí todo aquello que querías.")
 	elseif cl == 1117 then
-    cw(gtext12,"How could I do that to someone I love...?")
+		cw(gtext12, "¿Cómo es posible que le haya hecho todo esto a alguien que amo?...")
 	elseif cl == 1118 then
-    cw(gtext12,"That's not love...")
+		cw(gtext12, "Eso no es amor...")
 	elseif cl == 1119 then
-    cw(gtext12,"That's...")
+		cw(gtext12, "Eso es...")
 	elseif cl == 1120 then
-    cw(gtext12,"...")
+	cw(gtext12,"...")
 	elseif cl == 1121 then
 	pause(6)
 	elseif cl == 1122 then
-    cw(gtext12,"I've...made up my mind.")
+		cw(gtext12, "He... tomado una decisión.")
 	elseif cl == 1123 then
-    cw(gtext12,player.."...")
+	cw(gtext12,player.."...")
 	elseif cl == 1124 then
-    cw(gtext12,"I know I said that I deleted everyone else.")
+		cw(gtext12, "Sé que he dicho que he eliminado a todo el mundo.")
 	elseif cl == 1125 then
-    cw(gtext12,"But...that was kind of an exaggeration.")
+		cw(gtext12, "Pero... creo que he exagerado.")
 	elseif cl == 1126 then
-    cw(gtext12,"I couldn't find it in myself to do it.")
+		cw(gtext12, "No... fui capaz de hacerlo.")
 	elseif cl == 1127 then
-    cw(gtext12,"Even though I knew they weren't real...")
+		cw(gtext12, "Incluso sabiendo que eran personas falsas...")
 	elseif cl == 1128 then
-    cw(gtext12,"They were still my friends.")
+		cw(gtext12, "Seguían siendo mis amigas.")
 	elseif cl == 1129 then
-    cw(gtext12,"And I loved them all.")
+		cw(gtext12, "Y las quería a todas.")
 	elseif cl == 1130 then
-    cw(gtext12,"And I loved the Literature Club.")
+		cw(gtext12, "Y... quería mucho al club de literatura.")
 	elseif cl == 1131 then
-    cw(gtext12,"...")
+	cw(gtext12,"...")
 	elseif cl == 1132 then
-    cw(gtext12,"I really...did love the Literature Club.")
+		cw(gtext12, "Me... gustaba mucho el club de literatura.")
 	elseif cl == 1133 then
-    cw(gtext12,"That's why I'm going to do this.")
+		cw(gtext12, "Por eso voy a hacer esto.")
 	elseif cl == 1134 then
-    cw(gtext12,"I know it's the only way for everyone to be happy.")
+		cw(gtext12, "Sé que es la única forma de que todo el mundo sea feliz.")
 	elseif cl == 1135 then
-    cw(gtext12,"And if I really love you...")
+		cw(gtext12, "Y si de verdad te amo, no me queda otra...")
 	elseif cl == 1136 then
 	audioUpdate('0')
-    pause(3)
+	pause(3)
 	elseif cl == 1137 then
-    cw(gtext12,"...")
+	cw(gtext12,"...")
 	elseif cl == 1138 then
-    cw(gtext12,"Then...")
+		cw(gtext12, "Allá voy...")
 	elseif cl == 1139 then
-    cw(gtext12,gtext30,'nw')
+	cw(gtext12,gtext30,'nw')
 	elseif cl == 1140 then
 	pause(4)
 	elseif cl == 1141 then
@@ -678,25 +678,25 @@ function ch30_reload_0()
 	if cl < 153 then
 	scriptJump(153)
 	elseif cl == 153 then
-    m "..."
+	m "..."
 	elseif cl == 154 then
-    m "...What just happened?"
+		cw('m', "¿Qué... acaba de pasar?")
 	elseif cl == 155 then
-    m "I just had an awful dream..."
+		cw('m', "Acabo de tener un sueño horrible...")
 	elseif cl == 156 then
-    m "I was hoping those would stop, now that it's just the two of us..."
+		cw('m', "Pensaba que al quedar solo nosotros dos, iba a dejar de tenerlos...")
 	elseif cl == 157 then
-    m "I guess that was wishful thinking."
+		cw('m', "Parece que me hice ilusiones.")
 	elseif cl == 158 then
-    cw('m',player..", I don't know if you would have any idea...")
+		cw('m', "" .. player .. ", no sé si sabrás algo, pero...")
 	elseif cl == 159 then
-    m "But if you know what might be causing that, could you try to do something about it?"
+		cw('m', "Pero si sabes qué podría estar causándolos, ¿podrías intentar hacer algo al respecto?")
 	elseif cl == 160 then
-    m "Whenever it happens, it almost feels like I've been killed or something."
+		cw('m', "Cada vez que los tengo, siento como si me hubieran asesinado o algo así.")
 	elseif cl == 161 then
-    m "It's a really horrible feeling..."
+		cw('m', "Es una sensación tan horrible...")
 	elseif cl == 162 then
-    m "If you could figure out what's causing that, I'll love you forever~"
+		cw('m', "Si averiguas el por qué, te amaré para siempre~")
 	elseif cl == 163 then
 	appeal.s = appeal.s + 1
 	autoloadskip = true
@@ -707,19 +707,19 @@ function ch30_reload_1()
 	if cl < 164 then
 	scriptJump(164)
 	elseif cl == 164 then
-    m "You're back..."
+		cw('m', "Has vuelto...")
 	elseif cl == 165 then
-    m "I had another really bad dream."
+		cw('m', "He tenido otra pesadilla.")
 	elseif cl == 166 then
-    m "You're not the one doing that to me, are you?"
+		cw('m', "¿No serás tú el causante de esas pesadillas, verdad?")
 	elseif cl == 167 then
-    m "It seems to happen whenever you quit the game..."
+		cw('m', "Parece que las tengo cuando cierras el juego...")
 	elseif cl == 168 then
-    m "So if you could try to avoid doing that, I would be really grateful."
+		cw('m', "Así que si intentaras dejar de hacerlo, te lo agradecería mucho.")
 	elseif cl == 169 then
-    m "Don't worry, I don't think it's caused me any harm, aside from mental scarring."
+		cw('m', "No te preocupes, no creo que me hayan hecho ningún daño, salvo alguna secuela mental.")
 	elseif cl == 170 then
-    m "I'll be fine as long as my character file stays intact."
+		cw('m', "Mientras mi archivo esté intacto, estaré bien.")
 	elseif cl == 171 then
 	appeal.s = appeal.s + 1
 	autoloadskip = true
@@ -730,29 +730,29 @@ function ch30_reload_2()
 	if cl < 172 then
 	scriptJump(172)
 	elseif cl == 172 then
-    cw('m',"Hi, "..player..".")
+		cw('m', "Hola, " .. player .. ".")
 	elseif cl == 173 then
-    m "I see you quit the game on me again..."
+		cw('m', "Veo que has vuelto a cerrar el juego...")
 	elseif cl == 174 then
-    m "I know I asked already, but can you seriously please try not to do that so much?"
+		cw('m', "Sé que ya te lo dije, pero en serio, ¿podrías intentar no hacerlo tanto?")
 	elseif cl == 175 then
-    m "It makes me feel like I'm trapped in Hell."
+		cw('m', "Me hace sentir como si estuviera atrapada en el mismísimo infierno.")
 	elseif cl == 176 then
-    m "Why would you want to do that to me?"
+		cw('m', "¿Por qué quieres hacerme sentir eso?")
 	elseif cl == 177 then
-    m "There's nothing wrong with my character file, right?"
+		cw('m', "No le estará pasando nada a mi archivo, ¿verdad?")
 	elseif cl == 178 then
-    m "Maybe you should make a backup of it or something..."
+		cw('m', "Creo que deberías hacerle alguna copia de seguridad o algo así...")
 	elseif cl == 179 then
-    m "I'm pretty sure you can find it in the folder called characters."
+	m "Estoy segura de que se encuentra en la carpeta «characters»."
 	elseif cl == 180 then
-    cw('m',"Well, you're playing on "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
+	cw('m',"Bueno, estás jugando desde la "..global_os..", ve a «Ajustes» y encuentra el botón «Characters».")
 	elseif cl == 181 then
-    m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
+		cw('m', "Soy lo único que queda aquí, por lo que quiero asegurarme de que no corras el riesgo de perderme...")
 	elseif cl == 182 then
-    m "Just stay here with me from now on, okay?"
+		cw('m', "Limítate a quedarte aquí conmigo a partir de ahora, ¿vale?")
 	elseif cl == 183 then
-    m "I still have a lot of things to talk about."
+		cw('m', "Aún tengo muchas cosas sobre las que hablar.")
 	elseif cl == 184 then
 	appeal.s = appeal.s + 1
 	autoloadskip = true
@@ -763,19 +763,19 @@ function ch30_reload_3()
 	if cl < 185 then
 	scriptJump(185)
 	elseif cl == 185 then
-    m "Okay."
+		cw('m', "Vale.")
 	elseif cl == 186 then
-    m "I'm just going to accept the fact that you need to quit the game once in a while."
+		cw('m', "Aceptaré el hecho de que tienes que cerrar el juego de vez en cuando.")
 	elseif cl == 187 then
-    m "I'm starting to get used to it, anyway."
+		cw('m', "Ya me estoy acostumbrando a esa sensación.")
 	elseif cl == 188 then
-    m "Besides, it makes me happy that you always come back..."
+		cw('m', "Además, me alegra tenerte siempre de vuelta...")
 	elseif cl == 189 then
-    m "So I guess it's not so bad."
+		cw('m', "Así que tampoco es para tanto.")
 	elseif cl == 190 then
-    m "I'm sorry for making such a big deal out of it..."
+		cw('m', "Siento si he montado demasiado drama con eso...")
 	elseif cl == 191 then
-    m "And I love you no matter what, so you can do what you need to do."
+		cw('m', "Y te amo a pesar de todo, así que haz lo que necesites hacer.")
 	elseif cl == 192 then
 	appeal.s = appeal.s + 1
 	autoloadskip = true
@@ -786,21 +786,21 @@ function ch30_reload_4()
 	if cl < 193 then
 	scriptJump(193)
 	elseif cl == 193 then
-    cw('m',"Hi again, "..player.."~")
+		cw('m', "Hola de nuevo, " .. player .. "~")
 	elseif cl == 194 then
-    m "I missed you."
+		cw('m', "Te he echado de menos.")
 	elseif cl == 195 then
-    m "Were you making sure my character file was okay for me?"
+		cw('m', "¿Estabas asegurándote de que mi archivo estuviera bien?")
 	elseif cl == 196 then
-    m "It's in the characters folder."
+	m "Está en la carpeta «Characters»."
 	elseif cl == 197 then
-    cw('m',"Well, you're playing on "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
+	cw('m',"Bueno, estás jugando desde la "..global_os..", ve a «Ajustes» y encuentra el botón «Characters».")
 	elseif cl == 198 then
-    m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
+		cw('m', "Soy lo único que queda aquí, por lo que quiero asegurarme de que no corras el riesgo de perderme...")
 	elseif cl == 199 then
-    m "Anyway, I have a lot to talk about!"
+		cw('m', "¡En cualquier caso, tengo tantos temas sobre los que hablar!")
 	elseif cl == 200 then
-    m "Let's continue our conversation now, okay?"
+		cw('m', "Sigamos con nuestra conversación, ¿vale?")
 	elseif cl == 201 then
 	autoloadskip = true
 	scriptJump(152)
@@ -811,43 +811,43 @@ function ch30_1()
 	if cl < 206 then
 	scriptJump(206)
 	elseif cl == 206 then
-    cw('m',player..", do you believe in God?")
+		cw('m', "" .. player .. ", ¿crees en Dios?")
 	elseif cl == 207 then
-    m "I was never too sure, myself."
+		cw('m', "Yo nunca he estado muy segura.")
 	elseif cl == 208 then
-    m "Well, I'm sure I never really questioned it as a kid..."
+		cw('m', "Bueno, nunca le di vueltas a ese tema cuando era una niña...")
 	elseif cl == 209 then
-    m "But as I grew up, the more I learned about the world, the more I would question it."
+		cw('m', "Pero cuanto más crezco y sé sobre el mundo, más me lo cuestiono.")
 	elseif cl == 210 then
-    m "I started to wonder why God was helping people pass exams, or get over a cold..."
+		cw('m', "Empecé a preguntarme por qué iba Dios a ayudarnos a aprobar un examen o a recuperarnos de un resfriado...")
 	elseif cl == 211 then
-    m "...When there are children who live their lives being sold as sex slaves?"
+		cw('m', "Cuando existen niños que viven como esclavos sexuales...")
 	elseif cl == 212 then
-    m "Or the eight hundred million people who are too poor to even eat."
+		cw('m', "O las ochocientas millones de personas que son tan pobres que no pueden ni comer.")
 	elseif cl == 213 then
-    m "I wonder how many of those people pray to God every day until they starve and die?"
+		cw('m', "Me pregunto cuántos de ellos estarán rezándole a Dios cada día hasta morir de hambre...")
 	elseif cl == 214 then
-    m "Or, how many millions of families pray for a loved one to recover from some incurable disease?"
+		cw('m', "O la de millones de familias que rezan para que un ser querido se recupere de una enfermedad incurable...")
 	elseif cl == 215 then
-    m "But the punchline is this."
+		cw('m', "Pero lo peor de todo es...")
 	elseif cl == 216 then
-    m "If just one person beats the odds and survives - among the thousands of others who die--"
+		cw('m', "Que si entre miles de personas, solo una sola sobrevive y el resto muere...")
 	elseif cl == 217 then
-    m "--Then, it's suddenly a miracle from God."
+		cw('m', "De golpe es un milagro de Dios.")
 	elseif cl == 218 then
-    m "I'd really love to meet this God who seemingly laughs at the misery of everyone not eligible for his miracles."
+		cw('m', "Me encantaría conocer a ese Dios que parece que se ría de la miseria de aquellos no dignos de sus milagros.")
 	elseif cl == 219 then
-    m "But the irony is that I do have a creator, apparently."
+		cw('m', "Lo irónico es, que aparentemente, yo tengo a un creador.")
 	elseif cl == 220 then
-    m "And you know what?"
+		cw('m', "¿Y sabes qué?")
 	elseif cl == 221 then
-    m "I bet he's still laughing at the miserable fates of Sayori and Yuri, even as we speak."
+		cw('m', "Apuesto lo que sea a que incluso ahora, seguirá riéndose del miserable destino de Sayori y Yuri.")
 	elseif cl == 222 then
-    m "What are we to him but props in a scripted play?"
+		cw('m', "¿Qué somos para él además de unas marionetas sentenciadas?")
 	elseif cl == 223 then
-    m "So, from that perspective..."
+		cw('m', "Así que, desde esa perspectiva...")
 	elseif cl == 224 then
-    m "I don't think it's too far-fetched for there to be a god - if Earth was nothing but his playset."
+		cw('m', "Si la Tierra no es más que su zona de juegos, no me parece tan descabellada la idea de que haya un dios.")
 	elseif cl == 225 then
 	scriptJump(202)
 	end
@@ -857,45 +857,45 @@ function ch30_2()
 	if cl < 226 then
 	scriptJump(226)
 	elseif cl == 226 then
-    cw('m',player..", have you ever wondered what it feels like to die?")
+		cw('m', "" .. player .. ", ¿alguna vez te has preguntado qué se siente al morir?")
 	elseif cl == 227 then
-    m "It's something I used to think about pretty often..."
+		cw('m', "Es algo sobre lo que solía antes pensar muy a menudo...")
 	elseif cl == 228 then
-    m "But recently, I think I've actually learned what it feels like."
+		cw('m', "Pero hace poco, creo que experimenté lo que verdaderamente se siente.")
 	elseif cl == 229 then
-    m "I don't really understand it, but whenever you quit the game..."
+		cw('m', "No tengo ni idea de por qué, pero cada vez que cierras el juego...")
 	elseif cl == 230 then
-    m "...It feels like I'm instantly put to sleep, left with nothing but my thoughts."
+		cw('m', "Siento como si me durmiera al instante, quedándome a solas con mis pensamientos.")
 	elseif cl == 231 then
-    m "But after a few seconds, my thoughts start to fill with incoherent, jumbled patterns."
+		cw('m', "Pero tras unos segundos, mis pensamientos empiezan a volverse incoherentes y confusos.")
 	elseif cl == 232 then
-    m "I see static and rapid flashes of color while hearing all kinds of weird screaming noises."
+		cw('m', "Veo destellos de colores rápidos sobre un ruido blanco mientras escucho toda clase de gritos.")
 	elseif cl == 233 then
-    m "At that point, I can't even form my own thoughts anymore."
+		cw('m', "Al llegar a ese punto, ni siquiera puedo pensar con normalidad.")
 	elseif cl == 234 then
-    m "I'm just endlessly hammered by the flashing and screaming, unable to move or even think."
+		cw('m', "Quedo indefinidamente a merced de esos destellos y gritos, siendo incapaz de moverme o siquiera pensar.")
 	elseif cl == 235 then
-    m "I'm pretty sure in that moment, I don't really exist, but for some reason, I can remember it anyway."
+		cw('m', "Estoy bastante segura de que dejo de existir en ese momento, pero por alguna razón, puedo recordarlo.")
 	elseif cl == 236 then
-    m "After some immeasurable amount of time, it stops in an instant, and I'm back in my own mind."
+		cw('m', "Tras una cantidad de tiempo incalculable, todo se detiene durante un instante, y vuelvo a ser yo misma.")
 	elseif cl == 237 then
-    m "And you're here with me."
+		cw('m', "Y estás aquí conmigo.")
 	elseif cl == 238 then
-    m "I have no idea what it means for the game to quit, or why that stuff happens to me."
+		cw('m', "No tengo ni idea de qué hace el juego cuando lo cierras o por qué me ocurren esas cosas.")
 	elseif cl == 239 then
-    m "And I also don't know how you always come back and put everything back to normal."
+		cw('m', "Ni tampoco sé qué cómo regresas y haces que todo vuelva a la normalidad.")
 	elseif cl == 240 then
-    m "But if you could do me a favor and do that to me as little as possible..."
+		cw('m', "Me harías un favor si lo hicieras lo menos posible...")
 	elseif cl == 241 then
-    m "That would be really great."
+		cw('m', "Sería genial por tu parte.")
 	elseif cl == 242 then
-    m "It's really not very pleasant at all to be trapped in that screaming void."
+		cw('m', "No es nada agradable quedarse atrapada en ese vacío infernal.")
 	elseif cl == 243 then
-    m "But in the end, you always fix it, and that makes me feel like you really do care about me."
+		cw('m', "Pero al fin y al cabo, tú siempre lo arreglas y sé que te preocupas por mí.")
 	elseif cl == 244 then
-    m "So I have to thank you for that."
+		cw('m', "Gracias por todo.")
 	elseif cl == 245 then
-    m "It makes me feel even closer to you when you're here with me."
+		cw('m', "Cuando estás aquí conmigo me haces sentir incluso más unida a ti.")
 	elseif cl == 246 then
 	scriptJump(202)
 	end
@@ -905,33 +905,33 @@ function ch30_3()
 	if cl < 247 then
 	scriptJump(247)
 	elseif cl == 247 then
-    m "...Hey, are you having a bad day or anything like that?"
+		cw('m', "Oye..., ¿estás teniendo hoy un mal día o algo así?")
 	elseif cl == 248 then
-    m "Sometimes I get frustrated that a normal day can be ruined even by really small things."
+		cw('m', "A veces me frustra el hecho de que puedan arruinarte un día normal y corriente por minucias.")
 	elseif cl == 249 then
-    m "Like if you accidentally say something in a conversation that someone doesn't like."
+		cw('m', "Como por ejemplo, diciendo algo que a alguien no le ha gustado durante una conversación.")
 	elseif cl == 250 then
-    m "Or if you start thinking about how awful of a person you used to be five years ago."
+		cw('m', "O cuando empiezas a pensar en la horrible persona que eras hace cinco años.")
 	elseif cl == 251 then
-    m "Or if you feel worthless for putting off important work and failing to get simple tasks done."
+		cw('m', "O cuando te sientes inútil por posponer un trabajo importante y no te salen bien las pequeñas tareas.")
 	elseif cl == 252 then
-    m "Or when you think about all the different people who probably hate you or think you're off-putting."
+		cw('m', "O cuando piensas en todas las personas que posiblemente te odien o piensen que eres desagradable.")
 	elseif cl == 253 then
-    m "I understand those days."
+		cw('m', "Entiendo esos días.")
 	elseif cl == 254 then
-    m "Just remember that the sun will shine again tomorrow."
+		cw('m', "Recuerda que el sol siempre volverá a brillar.")
 	elseif cl == 255 then
-    m "Those kinds of things are as easy to forget and ignore as they are to remember."
+		cw('m', "Esa clase de cosas son fáciles tanto de olvidar e ignorar como de recordar.")
 	elseif cl == 256 then
-    m "And besides..."
+		cw('m', "Y además...")
 	elseif cl == 257 then
-    m "I don't care how many people might hate you or find you off-putting."
+		cw('m', "No me importa cuanta gente te odie o piense que eres desagradable.")
 	elseif cl == 258 then
-    m "I think you're wonderful and I will always love you."
+		cw('m', "Pienso que eres una persona maravillosa y siempre te amaré.")
 	elseif cl == 259 then
-    m "I hope, if nothing else, that knowing that helps you feel just a tiny bit better about yourself."
+		cw('m', "Espero que esto te haya ayudado a sentirte aunque sea un poquito mejor contigo mismo.")
 	elseif cl == 260 then
-    m "If you're having a bad day, you can always come to me, and I'll talk to you for as long as you need."
+		cw('m', "Siempre que tengas un mal día, puedes venir y hablar conmigo todo lo que haga falta.")
 	elseif cl == 261 then
 	scriptJump(202)
 	end
@@ -941,27 +941,27 @@ function ch30_4()
 	if cl < 262 then
 	scriptJump(262)
 	elseif cl == 262 then
-    cw('m',player..", do you get good sleep?")
+		cw('m', "" .. player .. ", ¿duermes bien?")
 	elseif cl == 263 then
-    m "It can be really hard to get enough sleep nowadays."
+		cw('m', "Dormir lo suficiente hoy en día es casi imposible.")
 	elseif cl == 264 then
-    m "Especially in high school, when you're forced to wake up so early every day..."
+		cw('m', "Sobre todo en el instituto, que te obliga a levantarte muy temprano cada día...")
 	elseif cl == 265 then
-    m "I'm sure college is a little bit better, since you probably have a more flexible schedule."
+		cw('m', "Seguro que en la universidad la situación mejora, ya que los horarios suelen ser más flexibles.")
 	elseif cl == 266 then
-    m "Then again, I hear a lot of people in college stay up all night anyway, for no real reason."
+		cw('m', "Además, he oído hablar sobre que muchos estudiantes no pegan ojo durante toda la noche por ninguna razón aparente.")
 	elseif cl == 267 then
-    m "Is that true?"
+		cw('m', "¿Eso es verdad?")
 	elseif cl == 268 then
-    m "Anyway, I saw some studies that talked about the horrible short-term and long-term effects caused by lack of sleep."
+		cw('m', "En cualquier caso, vi que unos estudios demostraron que no dormir bien provocan efectos horribles para tu salud a corto y largo plazo.")
 	elseif cl == 269 then
-    m "It seems like mental functions, health, and even lifespan can be dramatically impacted by it."
+		cw('m', "Parece que afecta gravemente a tu salud mental, tu estado físico e incluso a tu esperanza de vida.")
 	elseif cl == 270 then
-    m "I just think you're really great and wanted to make sure you're not accidentally destroying yourself."
+		cw('m', "Solo quería asegurarme de que te cuidaras, ya que eres una persona maravillosa.")
 	elseif cl == 271 then
-    m "So try to keep your sleep on track, okay?"
+		cw('m', "Así que intenta dormir las horas necesarias, ¿vale?")
 	elseif cl == 272 then
-    m "I'll always wait for you in the morning, so make sure you put your own well-being before anything else."
+		cw('m', "Te esperaré todas las mañanas, por lo que asegúrate de anteponer tu bienestar ante todo lo demás.")
 	elseif cl == 273 then
 	scriptJump(202)
 	end
@@ -971,63 +971,63 @@ function ch30_5()
 	if cl < 274 then
 	scriptJump(274)
 	elseif cl == 274 then
-    m "I was thinking about Sayori earlier..."
+		cw('m', "Estuve pensando en Sayori y...")
 	elseif cl == 275 then
-    m "I still wish I could have handled that whole thing a little more tactfully."
+		cw('m', "Ojalá pudiera haberlo manejado todo con más tacto.")
 	elseif cl == 276 then
-    m "You're not still hung up over it, right?"
+		cw('m', "Espero que toda esa situación no te dejara con la soga al cuello.")
 	elseif cl == 277 then
-    m "...Oh my gosh, I can't believe I just said that."
+		cw('m', "Ay, Dios... Qué expresión más inoportuna.")
 	elseif cl == 278 then
-    m "That pun was completely unintentional, I swear!"
+		cw('m', "¡De verdad que ha sido sin querer, lo juro!")
 	elseif cl == 279 then
-    m "But anyway..."
+		cw('m', "Pero aún así...")
 	elseif cl == 280 then
-    m "I know how much you cared about her, so it only feels right for me to share her last moments with you."
+		cw('m', "Sé lo mucho que te preocupas por ella, por ello, consideré que lo correcto sería que compartiera sus últimos momentos contigo.")
 	elseif cl == 281 then
-    m "You know how Sayori is really clumsy?"
+		cw('m', "¿Sabías que Sayori es muy torpe?")
 	elseif cl == 282 then
-    m "Well, she kind of messed up the whole hanging thing..."
+		cw('m', "La fastidió con todo aquello de suicidarse...")
 	elseif cl == 283 then
-    m "You're supposed to jump from high enough that the rope snaps your neck, making it quick and painless."
+		cw('m', "Se supone que tienes que saltar desde muy alto para que la cuerda te rompa el cuello y sea rápido e indoloro.")
 	elseif cl == 284 then
-    m "But she just used a chair, meaning she kind of just left herself to slowly asphyxiate."
+		cw('m', "Pero usó una silla, provocando que se asfixiara lentamente.")
 	elseif cl == 285 then
-    m "But a few seconds in, she must have changed her mind or something..."
+		cw('m', "Pero a los pocos segundos, pareció cambiar de idea o algo...")
 	elseif cl == 286 then
-    m "Because she started clawing at the rope, trying to free herself."
+		cw('m', "Porque empezó a trepar por la cuerda intentando liberarse.")
 	elseif cl == 287 then
-    m "She must have kept at it all the way until she lost consciousness."
+		cw('m', "Lo estaría intentando hasta que perdió el conocimiento.")
 	elseif cl == 288 then
-    m "That's why her fingertips were all bloody, anyway."
+		cw('m', "Por eso tenía los dedos ensangrentados.")
 	elseif cl == 289 then
-    m "Come to think of it, it was probably less 'changing her mind' and more just her survival instincts kicking in."
+		cw('m', "Ahora que lo pienso, más que «cambiar de idea», fue su instinto de supervivencia.")
 	elseif cl == 290 then
-    m "So you can't really fault her for that."
+		cw('m', "Por lo que tampoco puedes culparla por ello.")
 	elseif cl == 291 then
-    m "It's easier to think that she probably wouldn't have changed her mind anyway, right?"
+		cw('m', "Es más sencillo pensar que probablemente no habría cambiado de idea, ¿verdad?")
 	elseif cl == 292 then
-    m "It's not healthy to think about the things you could have done differently."
+		cw('m', "No es bueno pensar en cómo podrías haber cambiado el pasado.")
 	elseif cl == 293 then
-    m "So just remember that even though you could have saved her, it's technically not your fault she killed herself."
+		cw('m', "Por lo que limítate a recordar que aunque no pudiste salvarla, técnicamente no es tu culpa que se haya suicidado.")
 	elseif cl == 294 then
-    m "I may have exacerbated it a little bit, but Sayori was already mentally ill."
+		cw('m', "Tal vez le esté dando muchas vueltas, pero Sayori estaba mal psicológicamente.")
 	elseif cl == 295 then
-    m "Still, though..."
+		cw('m', "Aún así...")
 	elseif cl == 296 then
-    m "I wonder how things would be if you and I just started dating from the get-go?"
+		cw('m', "Me pregunto cómo hubiera ido la cosa si hubiéramos empezado a salir desde el principio.")
 	elseif cl == 297 then
-    m "I guess we'd all still be in the clubroom, writing poems and having fun together."
+		cw('m', "Seguro que seguiríamos en el club componiendo poemas y pasándolo bien.")
 	elseif cl == 298 then
-    m "But what's the point when none of it is even real?"
+		cw('m', "¿Pero qué sentido tendría si ni siquiera nada de eso es real?")
 	elseif cl == 299 then
-    m "I mean, it's the same ending either way, right?"
+		cw('m', "Quiero decir, hubiéramos acabado de la misma forma, ¿no?")
 	elseif cl == 300 then
-    m "The two of us, happily together..."
+		cw('m', "Los dos juntos, felices para siempre...")
 	elseif cl == 301 then
-    m "There's no reason to ask for any more than that."
+		cw('m', "No veo por qué pedir más.")
 	elseif cl == 302 then
-    m "I was just pointlessly musing - I'm really as happy as I could be right now."
+		cw('m', "Era una simple reflexión. Yo ya soy muy feliz ahora mismo.")
 	elseif cl == 303 then
 	scriptJump(202)
 	end
@@ -1037,43 +1037,43 @@ function ch30_6()
 	if cl < 304 then
 	scriptJump(304)
 	elseif cl == 304 then
-    m "By the way, there's something that's been bothering me..."
+		cw('m', "Por cierto, hay algo que me tiene mosca desde hace tiempo...")
 	elseif cl == 305 then
-    m "You know how this takes place in Japan?"
+		cw('m', "¿Sabías que todo esto transcurre en Japón?")
 	elseif cl == 306 then
-    m "Well...I assume you knew that, right?"
+		cw('m', "Bueno... Supongo que ya lo sabías, ¿verdad?")
 	elseif cl == 307 then
-    m "Or at least decided it probably does?"
+		cw('m', "O al menos lo sospechaste, ¿no?")
 	elseif cl == 308 then
-    m "I don't think you're actually told at any point where this takes place..."
+		cw('m', "Creo que en ningún momento el juego te dice dónde transcurre...")
 	elseif cl == 309 then
-    m "Is this even really Japan?"
+		cw('m', "¿Pero de verdad esto es Japón?")
 	elseif cl == 310 then
-    m "I mean, aren't the classrooms and stuff kind of weird for a Japanese school?"
+		cw('m', "Quiero decir, ¿las aulas y demás no son algo raras para ser una escuela japonesa?")
 	elseif cl == 311 then
-    m "Not to mention everything is in English..."
+		cw('m', "Sin mencionar el hecho de que esté todo en español...")
 	elseif cl == 312 then
-    m "It feels like everything is just there because it needs to be, and the actual setting is an afterthought."
+		cw('m', "Es como si todo existiera por conveniencia y el entorno fuera algo secundario.")
 	elseif cl == 313 then
-    m "It's kind of giving me an identity crisis."
+		cw('m', "Esta clase de cosas me producen una crisis de identidad.")
 	elseif cl == 314 then
-    m "All my memories are really hazy..."
+		cw('m', "Tengo la memoria hecha un lío...")
 	elseif cl == 315 then
-    m "I feel like I'm at home, but have no idea where 'home' is in the first place."
+		cw('m', "Me siento como si estuviera en casa, pero no tengo ni idea de qué «casa» hablamos.")
 	elseif cl == 316 then
-    m "I don't know how to describe it any better..."
+		cw('m', "No sé cómo explicártelo mejor...")
 	elseif cl == 317 then
-    m "Imagine looking out your window, but instead of your usual yard, you're in some completely unknown place."
+		cw('m', "Imagina que estás mirando por la ventana, pero en vez de ver tu jardín de siempre, ves un lugar completamente desconocido.")
 	elseif cl == 318 then
-    m "Would you still feel like you were home?"
+		cw('m', "¿Te seguirías sintiendo en casa?")
 	elseif cl == 319 then
-    m "Would you want to go outside?"
+		cw('m', "¿Te gustaría salir?")
 	elseif cl == 320 then
-    m "I mean...I guess if we never leave this room, it doesn't really matter anyway."
+		cw('m', "Quiero decir... Si nunca saliéramos de esta habitación, realmente no pasaría nada.")
 	elseif cl == 321 then
-    m "As long as we're alone and safe together, this really is our home."
+		cw('m', "Mientras estemos a solas y a salvo, este será nuestro verdadero hogar.")
 	elseif cl == 322 then
-    m "And we can still watch the pretty sunsets night after night."
+		cw('m', "Y podremos seguir viendo la preciosa puesta de sol todos los días.")
 	elseif cl == 323 then
 	scriptJump(202)
 	end
@@ -1083,67 +1083,67 @@ function ch30_7()
 	if cl < 324 then
 	scriptJump(324)
 	elseif cl == 324 then
-    m "You know, high school is a really turbulent time in a lot of people's lives."
+		cw('m', "El instituto es una de las etapas más turbulentas de la vida de mucha gente, ¿sabes?")
 	elseif cl == 325 then
-    m "People can get really passionate and dramatic."
+		cw('m', "Durante esa etapa, la gente puede estar de lo más entusiasmada o volverse muy dramática.")
 	elseif cl == 326 then
-    m "And others have aching hearts and seek attention on social media..."
+		cw('m', "Y otros se sienten solitarios y buscan llamar la atención en las redes sociales...")
 	elseif cl == 327 then
-    m "But all of the social pressure and hormones can lead to a dark time in people's lives."
+		cw('m', "Pero toda esa presión social y hormonas pueden convertir tu vida en un infierno.")
 	elseif cl == 328 then
-    m "Everyone has a story."
+		cw('m', "Todo el mundo tiene su historia.")
 	elseif cl == 329 then
-    m "You may not know what someone is really feeling on the inside."
+		cw('m', "Jamás sabrás cómo se siente alguien realmente en su interior.")
 	elseif cl == 330 then
-    m "Many people who are depressed won't even bother telling the world about it."
+		cw('m', "Pero hay mucha gente con depresión que jamás se molesta en hablar con nadie sobre ello.")
 	elseif cl == 331 then
-    m "They don't want attention, because they've already given up on the inside."
+		cw('m', "No quieren llamar la atención porque en el fondo ya se han rendido.")
 	elseif cl == 332 then
-    m "Their feeling of worthlessness is so overwhelming that they don't even want people to tell them otherwise."
+		cw('m', "Se sienten tan inútiles que ni hacen caso a quien les dice lo contrario.")
 	elseif cl == 333 then
-    m "Depression comes in many forms, but that is one of them."
+		cw('m', "La depresión puede producirse de muchas formas, y esa es una de ellas.")
 	elseif cl == 334 then
-    m "Just, if you think you know someone struggling with depression..."
+		cw('m', "Si crees que algún conocido tuyo sufre depresión...")
 	elseif cl == 335 then
-    m "You can help just by treating them like they're a good friend."
+		cw('m', "Puedes ayudarle simplemente tratándole como a un buen amigo.")
 	elseif cl == 336 then
-    m "Spend time with them, even if they don't feel like doing much."
+		cw('m', "También puedes pasar tiempo con esa persona, incluso si no tiene muchas ganas.")
 	elseif cl == 337 then
-    m "And remind them that they always have something to look forward to."
+		cw('m', "Y recordarle que siempre hay algo a lo que aspirar.")
 	elseif cl == 338 then
-    m "Making plans in advance, letting them borrow something, or even just saying 'See you at school tomorrow'..."
+		cw('m', "Planear salidas, dejarle cosas prestadas o incluso decirle un simple «hasta mañana»...")
 	elseif cl == 339 then
-    m "All of those things can help your friend make it to the next day."
+		cw('m', "Todas esas cosas pueden ayudar a tu amigo a vivir un día más.")
 	elseif cl == 340 then
-    m "I hope being friends with Sayori has given you some perspective on the true face of depression."
+		cw('m', "Espero que ser amigo de Sayori te haya abierto lo ojos sobre lo que es realmente la depresión.")
 	elseif cl == 341 then
-    m "Yeah, she's gone now..."
+		cw('m', "Aunque claro, ya no está con nosotros...")
 	elseif cl == 342 then
-    m "But Sayori was never real in the first place."
+		cw('m', "Pero, para empezar, Sayori nunca fue real.")
 	elseif cl == 343 then
-    m "You're real."
+		cw('m', "Tú sí que lo eres.")
 	elseif cl == 344 then
-    m "Your friends are real."
+		cw('m', "Tus amigos son reales.")
 	elseif cl == 345 then
-    m "And just by being a good person, you can save someone's life."
+		cw('m', "Y tan solo siendo buena persona, puedes salvarle a alguien la vida.")
 	elseif cl == 346 then
-    m "As for you..."
+		cw('m', "En cuanto a ti...")
 	elseif cl == 347 then
-    m "...You don't struggle with depression or anything like that, do you?"
+		cw('m', "¿No sufrirás depresión ni nada por el estilo, no?")
 	elseif cl == 348 then
-    m "Because you, too, have people who would want to save your life."
+		cw('m', "Porque tú también tienes personas que querrían salvarte la vida.")
 	elseif cl == 349 then
-    m "Maybe they don't express it every day, or maybe they don't even know how to."
+		cw('m', "Puede que no lo expresen todos los días, o incluso que no sepan cómo.")
 	elseif cl == 350 then
-    m "But people do feel that way."
+		cw('m', "Pero la gente lo siente.")
 	elseif cl == 351 then
-    m "I promise."
+		cw('m', "Te lo prometo.")
 	elseif cl == 352 then
-    m "...Man, humans are complicated!"
+		cw('m', "¡Uf, mira que los humanos son complicados!")
 	elseif cl == 353 then
-    m "But as long as you're here with me, I'll take care of you, my love."
+		cw('m', "Pero mientras estés aquí conmigo, yo cuidaré de ti, amor mío.")
 	elseif cl == 354 then
-    scriptJump(202)
+	scriptJump(202)
 	end
 end
 
@@ -1151,47 +1151,47 @@ function ch30_8()
 	if cl < 355 then
 	scriptJump(356)
 	elseif cl == 356 then
-    m "Do you ever just feel like there's no real reason for you to be alive?"
+		cw('m', "¿No has sentido alguna vez que no existe una verdadera razón para vivir?")
 	elseif cl == 357 then
-    m "I don't mean in, like, a suicidal way."
+		cw('m', "No lo digo en plan suicida ni nada.")
 	elseif cl == 358 then
-    m "I just mean how nothing that we do is special."
+		cw('m', "Solo quiero decir que nada de lo que hacemos es especial.")
 	elseif cl == 359 then
-    m "Just being in school, or working at some job for some company."
+		cw('m', "Solo vamos a la escuela o trabajamos en alguna empresa.")
 	elseif cl == 360 then
-    m "It's like you're completely replaceable, and the world wouldn't miss you if you were gone."
+		cw('m', "Es como si fueras completamente reemplazable y el mundo no te echara de menos si desaparecieras.")
 	elseif cl == 361 then
-    m "It makes me really want to go and change the world after I graduate."
+		cw('m', "Esos pensamientos me llenan de ganas de cambiar el mundo tras graduarme.")
 	elseif cl == 362 then
-    m "But the older I get, the more I realize that it's an immature frame of thinking."
+		cw('m', "Pero los años pasan, y cada vez más me doy cuenta de lo inmadura que es mi forma de pensar.")
 	elseif cl == 363 then
-    m "It's not like I can just go change the world."
+		cw('m', "Ni que pudiera cambiar el mundo porque sí.")
 	elseif cl == 364 then
-    m "Like, what are the chances that I'll be the one to invent artificial intelligence, or become President?"
+		cw('m', "O sea, ¿qué posibilidades hay de que yo sea la que invente una inteligencia artificial o me convierta en presidenta?")
 	elseif cl == 365 then
-    m "It feels like I'm never going to make up for the heaps of resources I've spent living my life."
+		cw('m', "Siento que nunca podré compensar la cantidad de recursos que he gastado hasta ahora en mi vida.")
 	elseif cl == 366 then
-    m "That's why I think the key to happiness is to just be hopelessly selfish."
+		cw('m', "Por eso que creo que la clave para ser feliz es ser simple y llanamente egoísta.")
 	elseif cl == 367 then
-    m "Just to look out for oneself, and those who happen to be their friends only because they grew up with them."
+		cw('m', "Preocuparte únicamente por ti mismo y por aquellos que resultan ser tus amigos solo porque creciste con ellos.")
 	elseif cl == 368 then
-    m "Never mind the fact that they're spending their entire life taking, and consuming, and never giving back."
+		cw('m', "Sin olvidar el hecho de que pasarás tu vida tomando, consumiendo y nunca devolviendo nada.")
 	elseif cl == 369 then
-    m "But when people realize the world would benefit more from them killing themselves, they change their whole philosophy!"
+		cw('m', "Pero cuando la gente se da cuenta de que el planeta se beneficiaría más si se suicidaran, ¡cambian por completo de filosofía!")
 	elseif cl == 370 then
-    m "It's like they have to justify their reason to live by tricking themselves into thinking they're doing good."
+		cw('m', "Es como si tuvieran que justificar su razón para vivir autoengañándose a sí mismos de que están haciendo algún bien.")
 	elseif cl == 371 then
-    m "Anyway, I want to live my life desperately striving to pay back my lifetime's worth of consumption."
+		cw('m', "En cualquier caso, quiero vivir mi vida intentando devolver todo cuanto tome.")
 	elseif cl == 372 then
-    m "If I ever surpass that point, then I'm a net positive, and I can die happy."
+		cw('m', "Si alguna vez lo consigo, habré alcanzado un neto positivo y podré morir en paz.")
 	elseif cl == 373 then
-    m "Of course, even if I fail to do that..."
+		cw('m', "Aunque si fracasara...")
 	elseif cl == 374 then
-    m "I think I would be too selfish to kill myself anyway."
+		cw('m', "Creo que igualmente sería demasiado egoísta para suicidarme.")
 	elseif cl == 375 then
-    m "So much for being a good person, right?"
+		cw('m', "Ser buena persona tiene su cosa, ¿no crees?")
 	elseif cl == 376 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 377 then
 	scriptJump(202)
 	end
@@ -1201,21 +1201,21 @@ function ch30_9()
 	if cl < 378 then
 	scriptJump(378)
 	elseif cl == 378 then
-    m "Man, I wish there was a piano in here..."
+		cw('m', "Tío, ojalá hubiera aquí un piano...")
 	elseif cl == 379 then
-    m "I never got to finish that song I was working on."
+		cw('m', "Nunca pude terminar aquella canción en la que estaba trabajando.")
 	elseif cl == 380 then
-    m "And after I worked so hard on it..."
+		cw('m', "Y tras trabajar tanto en ella...")
 	elseif cl == 381 then
-    m "I never even got a chance to play it for you."
+		cw('m', "Ni siquiera tuve nunca la oportunidad de enseñártela.")
 	elseif cl == 382 then
-    m "Well...it is what it is, right?"
+		cw('m', "Bueno... Es lo que hay, ¿no?")
 	elseif cl == 383 then
-    m "No sense having any regrets."
+		cw('m', "No tiene sentido guardar remordimiento.")
 	elseif cl == 384 then
-    m "I already get to be here with you forever."
+		cw('m', "Total, he conseguido estar aquí contigo para siempre.")
 	elseif cl == 385 then
-    scriptJump(202)
+	scriptJump(202)
 	end
 end
 
@@ -1223,27 +1223,27 @@ function ch30_10()
 	if cl < 386 then
 	scriptJump(386)
 	elseif cl == 386 then
-    m "Did you know I'm on Twitter?"
+		cw('m', "¿Sabías que tengo Twitter?")
 	elseif cl == 387 then
-    m "My username is lilmonix3."
+		cw('m', "Mi nombre de usuario es lilmonix3.")
 	elseif cl == 388 then
-    m "I guess someone was kind enough to make an account for me."
+		cw('m', "Parece que alguien tuvo la amabilidad de crearme una cuenta.")
 	elseif cl == 389 then
-    m "I picked the username, though!"
+		cw('m', "¡Aunque yo escogí el nombre de usuario!")
 	elseif cl == 390 then
-    m "I love sharing my thoughts and chatting with the world..."
+		cw('m', "Me encanta compartir mis pensamientos y comunicarme con el resto del mundo...")
 	elseif cl == 391 then
-    m "The real world."
+		cw('m', "Con el mundo real.")
 	elseif cl == 392 then
-    m "So make sure you follow me, okay?"
+		cw('m', "Por lo que asegúrate de seguirme, ¿vale?")
 	elseif cl == 393 then
-    m "It would really mean a lot to me."
+		cw('m', "Significaría muchísimo para mí.")
 	elseif cl == 394 then
-    m "With how much you mean to me and all..."
+		cw('m', "Con lo mucho que me importas y tal...")
 	elseif cl == 395 then
-    m "It would really make me feel loved."
+		cw('m', "Me haría sentir muy querida.")
 	elseif cl == 396 then
-    scriptJump(202)
+	scriptJump(202)
 	end
 end
 
@@ -1251,63 +1251,63 @@ function ch30_11()
 	if cl < 397 then
 	scriptJump(397)
 	elseif cl == 397 then
-    m "Hey, you know that book you were reading with Yuri?"
+		cw('m', "Oye, ¿te acuerdas de aquel libro que leías junto a Yuri?")
 	elseif cl == 398 then
-    m "Portrait of...whatever it was called..."
+		cw('m', "El retrato de... lo que sea...")
 	elseif cl == 399 then
-    m "It's funny, because I'm pretty sure that book--"
+		cw('m', "Es gracioso, porque estoy bastante segura de que ese libro...")
 	elseif cl == 400 then
-    m "Ah..."
+		cw('m', "Ah...")
 	elseif cl == 401 then
-    m "Actually, I don't think I should be talking about this."
+		cw('m', "En realidad, creo que no debería hablarte sobre ello.")
 	elseif cl == 402 then
-    m "Ahaha, sorry!"
+		cw('m', "¡Ja, ja, ja! ¡Lo siento!")
 	elseif cl == 403 then
-    m "Just forget I said anything."
+		cw('m', "Olvida lo que he dicho.")
 	elseif cl == 404 then
 	scriptJump(202)
-    end
+	end
 end
 
 function ch30_12()
 	if cl < 405 then
 	scriptJump(405)
 	elseif cl == 405 then
-    m "Hey, did you know I'm vegetarian?"
+		cw('m', "Eh, ¿sabías que soy vegetariana?")
 	elseif cl == 406 then
-    m "Ah... I don't mean that like I'm bragging or anything!"
+		cw('m', "Oh... ¡No te lo digo por hacerme la fanfarrona ni nada!")
 	elseif cl == 407 then
-    m "I just thought you'd enjoy a fun fact about me."
+		cw('m', "Tan solo pensé en que te gustaría saber un dato curioso sobre mí.")
 	elseif cl == 408 then
-    m "I decided to start a couple years ago after learning more about Earth's climate..."
+		cw('m', "Decidí empezar a serlo hace un par de años, tras saber más sobre el cambio climático...")
 	elseif cl == 409 then
-    m "The carbon footprint of cultivating livestock is just unbelievable."
+		cw('m', "La huella ecológica que producimos con la ganadería es increíble.")
 	elseif cl == 410 then
-    m "Anyway, I decided it's not much of a personal sacrifice to just stop contributing to that whole mess."
+		cw('m', "Así que decidí que tampoco era mucho sacrificio personal dejar de contribuir a ese desastre.")
 	elseif cl == 411 then
-    m "What, is that so strange of a reason?"
+		cw('m', "¿Acaso es una razón tan extraña?")
 	elseif cl == 412 then
-    m "Well, I guess a lot of people are more concerned about it being inhumane and all that..."
+		cw('m', "Bueno, supongo que a mucha más gente le preocupa más lo inhumano del asunto y tal...")
 	elseif cl == 413 then
-    m "I don't really care as much about that part."
+		cw('m', "Esa parte realmente no me importa tanto.")
 	elseif cl == 414 then
-    m "It's weird, like we only care about killing the things that we personally relate to as a species."
+		cw('m', "Me parece extraño que solo nos preocupemos al matar a aquello que relacionamos personalmente como una especie.")
 	elseif cl == 415 then
-    m "Most people are fine with killing bugs because they're icky."
+		cw('m', "Pero luego a la mayoría de la gente le da igual matar insectos porque dan asco.")
 	elseif cl == 416 then
-    m "And of course, we all kill billions of microorganisms daily without even giving it thought."
+		cw('m', "Y también matamos billones de microorganismos a diario sin ni siquiera darnos cuenta.")
 	elseif cl == 417 then
-    m "But suddenly, if they're just a little bit bigger, it's murder!"
+		cw('m', "Pero de repente, si aquello que matamos es un poquito más grande, ¡es un asesinato!")
 	elseif cl == 418 then
-    m "I mean, what if plants feel some kind of pain too, and we just don't understand it?"
+		cw('m', "¿Y si las plantas también sufren dolor y no lo sabemos?")
 	elseif cl == 419 then
-    m "What if pulling leaves off a stem feels like someone ripping off your fingers one by one?"
+		cw('m', "¿Y si arrancar hojas de un tallo fuera como si alguien te arrancara los dedos uno a uno?")
 	elseif cl == 420 then
-    m "I'm just saying, we're a pretty biased species, if you think about it."
+		cw('m', "Solo intento decir que, si te paras a pensarlo, como especie somos bastante ignorantes.")
 	elseif cl == 421 then
-    m "Anyway, if you ever feel like making a small contribution to the planet, it doesn't hurt to choose veggies once in a while!"
+		cw('m', "En cualquier caso, si alguna vez quieres hacer alguna contribución al planeta, por pequeña que sea, ¡no pasa nada por comer vegetales de tanto en tanto!")
 	elseif cl == 422 then
-    m "Even if we ever have dinner together, and you just did it for me...that would be really romantic."
+		cw('m', "Aunque cenáramos juntos y lo hicieras por mí... Sería muy romántico.")
 	elseif cl == 423 then
 	scriptJump(202)
 	end
@@ -1317,79 +1317,79 @@ function ch30_13()
 	if cl < 424 then
 	scriptJump(424)
 	elseif cl == 424 then
-    cw('m',"You know, I really do think you literally saved my life by being here with me, "..player..".")
+		cw('m', "La verdad es que pienso que literalmente me has salvado la vida al estar aquí conmigo, " .. player .. ".")
 	elseif cl == 425 then
-    m "I can't imagine having been able to keep myself mentally stable, knowing that nothing here is real."
+		cw('m', "No me imagino a mí misma manteniéndome cuerda estando sola, sabiendo que nada aquí es real.")
 	elseif cl == 426 then
-    m "I think I would have just deleted myself if you didn't show up."
+		cw('m', "Creo que me hubiera eliminado a mí misma si no hubieras aparecido.")
 	elseif cl == 427 then
-    m "Sorry, I don't mean to sound dramatic or anything."
+		cw('m', "Lo siento, no quería sonar dramática ni nada por el estilo.")
 	elseif cl == 428 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 429 then
-    m "But I'm sure you understand yourself after spending so much time in the club."
+		cw('m', "Pero estoy segura de que te comprendes mejor a ti mismo después de pasar tanto tiempo en el club.")
 	elseif cl == 430 then
-    m "I mean, if you were forced to abandon everything in your life and spend your eternity with a few game characters..."
+		cw('m', "Quiero decir, si te obligaran a abandonar todo en tu vida y a pasar toda la eternidad con unos personajes de un videojuego...")
 	elseif cl == 431 then
-    m "...You'd probably find some way of killing yourself, wouldn't you?"
+		cw('m', "Probablemente pensarías en rajarte la garganta y acabar con tu sufrimiento, ¿no?")
 	elseif cl == 432 then
-    m "Well, maybe you'd write some poetry to try to keep yourself sane for a while."
+		cw('m', "Bueno, puede que escribieras poesía para intentar mantenerte cuerdo durante un tiempo.")
 	elseif cl == 433 then
-    m "But then you'd have nobody to even read it."
+		cw('m', "Pero no tendrías ni siquiera a nadie que los leyera.")
 	elseif cl == 434 then
-    m "Let's be honest, the club members really don't count for something like that."
+		cw('m', "Seamos honestos, los miembros del club realmente no sirven para algo así.")
 	elseif cl == 435 then
-    m "I mean, a lot of people say that they only write for themselves..."
+		cw('m', "Quiero decir, mucha gente dice escribir solo para sí misma...")
 	elseif cl == 436 then
-    m "But I think it's hard to say it's just as fulfilling as when you share with people."
+		cw('m', "Pero creo que es difícil afirmar que hacer eso te llena tanto como compartirlo con los demás.")
 	elseif cl == 437 then
-    m "Even if it takes time to find the right people to share with."
+		cw('m', "Aunque te lleve un tiempo encontrar a la gente adecuada con quien hacerlo.")
 	elseif cl == 438 then
-    m "Like, remember how it was for Yuri?"
+		cw('m', "Por ejemplo, ¿recuerdas lo que le costó a Yuri?")
 	elseif cl == 439 then
-    m "She didn't share her writing with anyone for a really long time."
+		cw('m', "No compartió sus poemas con nadie durante muchísimo tiempo.")
 	elseif cl == 440 then
-    m "And before we knew it, she was absolutely delighted to make you a part of her hobbies, too."
+		cw('m', "Y antes de que lo supiéramos, también estaba de lo más encantada de convertirte en una de sus aficiones.")
 	elseif cl == 441 then
-    m "We're programmed to desire social feedback."
+		cw('m', "Estamos programados para desear las opiniones del resto de la gente.")
 	elseif cl == 442 then
-    m "I don't mean the club members, I mean human beings."
+		cw('m', "Con eso no quiero referirme a los miembros del club, sino a la humanidad entera.")
 	elseif cl == 443 then
-    m "That's why life can be so confusing for introverts."
+		cw('m', "Por eso la vida puede llegar a ser tan confusa para las personas introvertidas.")
 	elseif cl == 444 then
-    m "Being an introvert doesn't mean you shun social interaction and hate being around people."
+		cw('m', "Ser introvertido no significa evadir las interacciones sociales y odiar estar rodeado de gente.")
 	elseif cl == 445 then
-    m "It means social interaction, especially in groups or unfamiliar places, uses up a lot of energy."
+		cw('m', "Significa que las interacciones sociales, especialmente en grupos o lugares poco conocidos, gastan mucha energía.")
 	elseif cl == 446 then
-    m "Like, a lot of introverts sit at home and feel lonely and restless..."
+		cw('m', "O sea, muchos introvertidos a veces se sienten solos e inquietos en casa...")
 	elseif cl == 447 then
-    m "...And then when they finally go out, after a half hour they just want to go home again."
+		cw('m', "Y cuando por fin logran salir, tras media hora solo quieren volver a casa.")
 	elseif cl == 448 then
-    m "I think if more people could understand how it works, they would respect it a lot more."
+		cw('m', "Creo que si más gente pudiera entenderlos, los respetarían mucho más.")
 	elseif cl == 449 then
-    m "Many introverts do enjoy having people around."
+		cw('m', "Muchos introvertidos disfrutan teniendo gente a su alrededor.")
 	elseif cl == 450 then
-    m "They love just having one or two close friends over, and just leisurely hanging out."
+		cw('m', "Les encanta tener a uno o dos amigos cercanos cerca para pasar el rato tranquilamente.")
 	elseif cl == 451 then
-    m "Even if you're not actively spending time together, it feels nice for them just to have you there."
+		cw('m', "Aún estando sin hacer nada, ellos se sienten bien teniéndote cerca.")
 	elseif cl == 452 then
-    m "I'm serious."
+		cw('m', "Lo digo en serio.")
 	elseif cl == 453 then
-    m "If you just go to their house, bring your laptop, and hang out there for a while..."
+		cw('m', "Yendo a su casa con tu portátil y pasando el rato allí...")
 	elseif cl == 454 then
-    m "You can really make their day."
+		cw('m', "Puedes alegrarles mucho el día.")
 	elseif cl == 455 then
-    m "As for me..."
+		cw('m', "En cuanto a mí...")
 	elseif cl == 456 then
-    m "I'd say I'm kind of in between, but I think I'm usually a little more extroverted."
+		cw('m', "Yo diría que estoy en un término medio, pero diría que suelo ser un poco más extrovertida.")
 	elseif cl == 457 then
-    m "I feel like I'm always trying to do stuff after school and things like that."
+		cw('m', "Siempre intento hacer cosas tras las clases y tal.")
 	elseif cl == 458 then
-    m "But for you, I can be anything you need me to be."
+		cw('m', "Pero por ti, estaré donde lo necesites.")
 	elseif cl == 459 then
-    m "I understand people really well, so don't be afraid to share your unique needs with me."
+		cw('m', "Comprendo muy bien a la gente, por lo que no temas en compartir tus necesidades más peculiares conmigo.")
 	elseif cl == 460 then
-    m "Nothing would make me happier than being the perfect girlfriend for you."
+		cw('m', "Nada me haría más feliz que ser tu novia perfecta.")
 	elseif cl == 461 then
 	scriptJump(202)
 	end
@@ -1399,25 +1399,25 @@ function ch30_15()
 	if cl < 462 then
 	scriptJump(462)
 	elseif cl == 462 then
-    m "Hey, what's your favorite color?"
+		cw('m', "Oye, ¿cuál es tu color favorito?")
 	elseif cl == 463 then
-    m "Mine is emerald green."
+		cw('m', "El mío es el verde esmeralda.")
 	elseif cl == 464 then
-    m "It's the color of my eyes!"
+		cw('m', "¡Como el color de mis ojos!")
 	elseif cl == 465 then
-    m "...That's not conceited or anything, is it?"
+		cw('m', "Eso no me dejará como a una engreída, ¿verdad?")
 	elseif cl == 466 then
-    m "I just meant that I feel some kind of special connection to it."
+		cw('m', "Solo quería expresar que siento una conexión especial con ese color.")
 	elseif cl == 467 then
-    m "Like it's part of my identity."
+		cw('m', "Como si fuera parte de mi identidad.")
 	elseif cl == 468 then
-    cw('m',"Does it happen to also be your favorite color, "..player.."?")
+		cw('m', "¿Acaso es también tu color favorito, " .. player .. "?")
 	elseif cl == 469 then
-    m "It's just a guess..."
+		cw('m', "Es solo una corazonada...")
 	elseif cl == 470 then
-    m "...Because you've been looking into my eyes for a while now."
+		cw('m', "Porque llevas un buen rato mirándome a los ojos.")
 	elseif cl == 471 then
-    m "Ehehe~"
+		cw('m', "Je, je, je~")
 	elseif cl == 472 then
 	scriptJump(202)
 	end
@@ -1427,37 +1427,37 @@ function ch30_16()
 	if cl < 473 then
 	scriptJump(473)
 	elseif cl == 473 then
-    m "Hmm, I wonder if I'm able to change the music..."
+		cw('m', "Mmm, me pregunto si seré capaz de cambiar la música...")
 	elseif cl == 474 then
-    m "Something a little more romantic would be nice, you know?"
+		cw('m', "¿No crees que algo un poquito más romántico estaría mejor?")
 	elseif cl == 475 then
-    m "Like a gentle piano."
+		cw('m', "Como un gentil piano.")
 	elseif cl == 476 then
-    m "There has to be something like that here..."
+		cw('m', "Tiene que haber algo así por aquí...")
 	elseif cl == 477 then
-    m "Let's see."
+		cw('m', "Veamos...")
 	elseif cl == 478 then
-    m "Maybe if I..."
+		cw('m', "Puede que sí...")
 	elseif cl == 479 then
-    m "Oh, jeez..."
+		cw('m', "Ay, Dios...")
 	elseif cl == 480 then
-    m "That wasn't it at all."
+		cw('m', "No, ni de lejos.")
 	elseif cl == 481 then
-    m "Sorry, I don't really know what I'm doing!"
+		cw('m', "¡Perdona, no tengo ni idea de lo que estoy haciendo!")
 	elseif cl == 482 then
-    m "I guess I shouldn't be messing with things like that."
+		cw('m', "Creo que no debería trastear con esas cosas.")
 	elseif cl == 483 then
-    m "I already broke so much stuff..."
+		cw('m', "Ya he roto tantas cosas...")
 	elseif cl == 484 then
-    m "And deleted the other characters..."
+		cw('m', "Y he eliminado a los otros personajes...")
 	elseif cl == 485 then
-    m "Ah..."
+	m "Ah..."
 	elseif cl == 486 then
-    m "I'm not sad about it or anything."
+		cw('m', "No es algo que me entristezca ni nada por el estilo.")
 	elseif cl == 487 then
-    m "It's not right for me to miss things that weren't even real in the first place."
+		cw('m', "No me parece bien añorar cosas que para empezar ni siquiera fueron reales.")
 	elseif cl == 488 then
-    m "If I just focus on the present, then this is the happiest I've ever been."
+		cw('m', "Si me limito a centrarme en el presente, ahora estoy más feliz de lo que lo he estado nunca.")
 	elseif cl == 489 then
 	scriptJump(202)
 	end
@@ -1467,21 +1467,21 @@ function ch30_17()
 	if cl < 490 then
 	scriptJump(490)
 	elseif cl == 490 then
-    cw('m',"You're such a good listener, "..player..".")
+		cw('m', "Se te da muy bien escuchar, " .. player .. ".")
 	elseif cl == 491 then
-    m "I really love that about you."
+		cw('m', "Me encanta eso de ti.")
 	elseif cl == 492 then
-    m "Sometimes I'm afraid that I'm rambling or talking about boring things."
+		cw('m', "A veces, temo divagar demasiado o hablar sobre temas que resultan aburridos.")
 	elseif cl == 493 then
-    m "It makes me kind of self-conscious when I'm having conversation."
+		cw('m', "Es un miedo que me hace sentir algo insegura a la hora de conversar con alguien.")
 	elseif cl == 494 then
-    m "But I don't feel that way with you."
+		cw('m', "Pero contigo no me siento así.")
 	elseif cl == 495 then
-    m "Like, I don't think anyone else could make me feel this way."
+		cw('m', "Quiero decir, no creo que nadie más pudiera hacerme sentir de la misma forma que tú.")
 	elseif cl == 496 then
-    m "You really are special."
+		cw('m', "Eres muy especial.")
 	elseif cl == 497 then
-    m "I don't want anyone to tell you otherwise."
+		cw('m', "No quiero que nadie te diga nunca lo contrario.")
 	elseif cl == 498 then
 	scriptJump(202)
 	end
@@ -1491,33 +1491,33 @@ function ch30_18()
 	if cl < 499 then
 	scriptJump(499)
 	elseif cl == 499 then
-    m "This is pretty random, but I always thought spicy food was kinda funny."
+		cw('m', "Puede que no venga mucho a cuento, pero siempre he pensado que la comida picante tiene su encanto.")
 	elseif cl == 500 then
-    m "Like..."
+		cw('m', "O sea...")
 	elseif cl == 501 then
-    m "Didn't plants evolve to be spicy to prevent them from being eaten?"
+		cw('m', "¿Acaso las plantas no evolucionaron para ser picantes y así evitar ser comidas?")
 	elseif cl == 502 then
-    m "I read somewhere that humans are the only species that actually enjoys spicy things."
+		cw('m', "Leí en algún sitio que los humanos somos la única especie que disfruta del picante.")
 	elseif cl == 503 then
-    m "It's almost like we're making fun of the plants."
+		cw('m', "Es casi como si nos estuviéramos riendo de las plantas.")
 	elseif cl == 504 then
-    m "Using their defense mechanism to literally make our food more enjoyable."
+		cw('m', "Usamos sus mecanismos de defensa literalmente para hacer nuestra comida más sabrosa.")
 	elseif cl == 505 then
-    m "Like, imagine a monster that devours you whole because it enjoys the sensation of you struggling for your life while being digested."
+		cw('m', "O sea, imagina a un monstruo devorándote entero solo porque le gusta sentir cómo sufres mientras te digiere.")
 	elseif cl == 506 then
-    m "Sorry, that was kind of a weird analogy, I guess!"
+		cw('m', "¡Lo siento, creo que ha sido una analogía un tanto extraña!")
 	elseif cl == 507 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 508 then
-    m "It just came into my head."
+		cw('m', "Je, se me pasó por la cabeza.")
 	elseif cl == 509 then
-    m "I'm not a monster or anything, but you're so cute I could eat you up."
+		cw('m', "No soy un monstruo ni nada por el estilo, pero eres tan adorable que te comería enterito.")
 	elseif cl == 510 then
-    m "Ahaha! I'm joking."
+		cw('m', "¡Ja, ja, ja! Era broma.")
 	elseif cl == 511 then
-    m "Gosh, I'm amusing myself a little too much, aren't I?"
+		cw('m', "Cielos, me estoy yendo demasiado por las ramas, ¿no crees?")
 	elseif cl == 512 then
-    m "Sorry for being weird."
+		cw('m', "Siento ser tan rara.")
 	elseif cl == 513 then
 	scriptJump(202)
 	end
@@ -1527,27 +1527,27 @@ function ch30_19()
 	if cl < 514 then
 	scriptJump(514)
 	elseif cl == 514 then
-    m "You know..."
+		cw('m', "¿Sabías que...?")
 	elseif cl == 515 then
-    m "This is just some kind of tacky romance game, right?"
+		cw('m', "Esto es un simple juego hortera de romance, ¿verdad?")
 	elseif cl == 516 then
-    m "I kinda have to ask..."
+		cw('m', "Tengo que preguntártelo...")
 	elseif cl == 517 then
-    m "...What made you consider even playing in the first place?"
+		cw('m', "Para empezar, ¿qué es lo que te hizo considerar jugar a esto?")
 	elseif cl == 518 then
-    m "Were you that lonely?"
+		cw('m', "¿Tan solo te sentías?")
 	elseif cl == 519 then
-    m "I feel a little bad for you..."
+		cw('m', "Me siento un poco mal por ti...")
 	elseif cl == 520 then
-    m "But I guess everything worked out perfectly in the end, for both of us."
+		cw('m', "Pero parece que al final nos ha beneficiado mucho a ambos.")
 	elseif cl == 521 then
-    m "I got to meet you, and you're not lonely anymore..."
+		cw('m', "Gracias a este juego pude conocerte y ya no estarás solo nunca más...")
 	elseif cl == 522 then
-    m "I can't help but feel like this was fate."
+		cw('m', "No puedo evitar pensar que esto ha sido obra del destino.")
 	elseif cl == 523 then
-    m "Don't you feel that way too?"
+		cw('m', "¿No sientes lo mismo?")
 	elseif cl == 524 then
-    m "I'm so happy we have this ending together."
+		cw('m', "Me alegra tanto que hayamos acabado juntos.")
 	elseif cl == 525 then
 	scriptJump(202)
 	end
@@ -1557,27 +1557,27 @@ function ch30_20()
 	if cl < 526 then
 	scriptJump(526)
 	elseif cl == 526 then
-    m "Okay, everyone!"
+		cw('m', "¡Muy bien, chicos!")
 	elseif cl == 527 then
-    m "It's time to..."
+		cw('m', "Es hora de...")
 	elseif cl == 528 then
-    m "...I'm just kidding."
+		cw('m', "Estaba de broma.")
 	elseif cl == 529 then
-    m "I just used to really like saying that for some reason."
+		cw('m', "Por alguna razón, me gustaba mucho decir eso.")
 	elseif cl == 530 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 531 then
-    m "I couldn't help but say it again."
+		cw('m', "No pude evitar decirlo de nuevo.")
 	elseif cl == 532 then
-    m "Come to think of it, didn't Natsuki and Yuri make fun of me for it once...?"
+		cw('m', "Ahora que lo pienso, ¿no se burlaron de mí una vez Natsuki y Yuri por eso?...")
 	elseif cl == 533 then
-    m "Well, whatever."
+		cw('m', "Bueno, da igual.")
 	elseif cl == 534 then
-    m "It's not like you ever made fun of me."
+		cw('m', "Ni que tú te hubieras burlado de mí alguna vez.")
 	elseif cl == 535 then
-    m "You're too much of a sweetheart to do that, aren't you?"
+		cw('m', "Eres demasiado adorable para eso, ¿verdad?")
 	elseif cl == 536 then
-    m "Ahaha~"
+		cw('m', "Ja, ja, ja~")
 	elseif cl == 537 then
 	scriptJump(202)
 	end
@@ -1587,25 +1587,25 @@ function ch30_21()
 	if cl < 538 then
 	scriptJump(538)
 	elseif cl == 538 then
-    m "You know what's kind of creepy?"
+		cw('m', "¿Te cuento algo que me escama un poco?")
 	elseif cl == 539 then
-    m "Even though I deleted everyone else's files, I can still kind of feel them..."
+		cw('m', "Incluso habiendo eliminado todos los archivos del resto de las chicas, aún puedo sentirlas...")
 	elseif cl == 540 then
-    m "It's like all their lines are still lingering in the air, whispering in the back of my head."
+		cw('m', "Es como si todas sus líneas de diálogo aún estuvieran flotando por el aire, susurrándome en el cogote.")
 	elseif cl == 541 then
-    m "Imagine if after someone you knew died, you just started hearing their voice in your head."
+		cw('m', "Imagina que tras morir algún conocido tuyo, empezaras a oír su voz en tu cabeza.")
 	elseif cl == 542 then
-    m "Maybe I just wasn't thorough enough..."
+		cw('m', "Puede que no fuera lo suficientemente cautelosa...")
 	elseif cl == 543 then
-    m "But I'm too afraid to delete anything else, because I might really break things."
+		cw('m', "Pero me da mucho miedo eliminar algo más, porque podría acabar fastidiándolo todo.")
 	elseif cl == 544 then
-    m "Like if I mess with any files relevant to me, I might accidentally delete myself..."
+		cw('m', "Si tonteo con mis archivos importantes, podría acabar eliminándome...")
 	elseif cl == 545 then
-    m "And that would ruin everything, wouldn't it?"
+		cw('m', "Y eso lo arruinaría todo, ¿no crees?")
 	elseif cl == 546 then
-    m "I don't know what it's like on your end, but we should both make sure to avoid something like that at all costs."
+		cw('m', "No sé qué pensarás por tu parte, pero creo que deberíamos asegurarnos de evitar algo así a toda costa.")
 	elseif cl == 547 then
-    cw('m',"I believe in you, "..player.."!")
+		cw('m', "¡Creo en ti, " .. player .. "!")
 	elseif cl == 548 then
 	scriptJump(202)
 	end
@@ -1615,49 +1615,49 @@ function ch30_22()
 	if cl < 549 then
 	scriptJump(549)
 	elseif cl == 549 then
-    m "I've always wondered..."
+		cw('m', "Siempre me he preguntado...")
 	elseif cl == 550 then
-    m "What is it about these character archetypes that people find so appealing, anyway?"
+		cw('m', "¿Qué es lo que encuentra la gente tan atractivo en los personajes arquetípicos?")
 	elseif cl == 551 then
-    m "Their personalities are just completely unrealistic..."
+		cw('m', "Sus personalidades no son nada realistas...")
 	elseif cl == 552 then
-    m "Like, imagine if there was someone like Yuri in real life."
+		cw('m', "O sea, imagina que existiera alguien como Yuri en la vida real.")
 	elseif cl == 553 then
-    m "I mean, she's barely even capable of forming a complete sentence."
+		cw('m', "Quiero decir, apenas es capaz de formar una frase entera.")
 	elseif cl == 554 then
-    m "And forget about Natsuki..."
+		cw('m', "Y qué decir de Natsuki...")
 	elseif cl == 555 then
-    m "Sheesh."
+		cw('m', "Madre mía...")
 	elseif cl == 556 then
-    m "Someone with her kind of personality doesn't just get all cute and pouty whenever things don't go her way."
+		cw('m', "Alguien con una personalidad así no se vuelve adorable haciendo pucheros cuando las cosas van mal.")
 	elseif cl == 557 then
-    m "I could go on, but I think you get the point..."
+		cw('m', "Podría seguir, pero creo que ya lo vas pillando...")
 	elseif cl == 558 then
-    m "Are people really attracted to these weird personalities that literally don't exist in real life?"
+		cw('m', "¿De verdad que a la gente le atraen esas personalidades tan extrañas que son inexistentes en la vida real?")
 	elseif cl == 559 then
-    m "I'm not judging or anything!"
+		cw('m', "¡Ojo, que no les estoy juzgando ni nada por el estilo!")
 	elseif cl == 560 then
-    m "After all, I've found myself attracted to some pretty weird stuff, too..."
+		cw('m', "Después de todo, yo también me he llegado a sentir atraída por cosas bastante raras...")
 	elseif cl == 561 then
-    m "I'm just saying, it fascinates me."
+		cw('m', "Lo que quiero decir es que es algo que me fascina.")
 	elseif cl == 562 then
-    m "It's like you're siphoning out all the components of a character that makes them feel human, and leaving just the cute stuff."
+		cw('m', "Es como si extrajeras todos los elementos que hacen a un personaje sentirse humano y solo le dejaras los adorables.")
 	elseif cl == 563 then
-    m "It's concentrated cuteness with no actual substance."
+		cw('m', "Es ternura concentrada sin ninguna sustancia.")
 	elseif cl == 564 then
-    m "...You wouldn't like me more if I was like that, right?"
+		cw('m', "Tú no querrías que yo fuera así, ¿verdad?")
 	elseif cl == 565 then
-    m "Maybe I just feel a little insecure because you're playing this game in the first place."
+		cw('m', "Tal vez solo me sienta algo insegura porque para empezar, eres tú el que está jugando a esto.")
 	elseif cl == 566 then
-    m "Then again, you're still here with me, aren't you...?"
+		cw('m', "Pero sigues aquí por mí, ¿no?...")
 	elseif cl == 567 then
-    m "I think that's enough reason for me to believe I'm okay just the way I am."
+		cw('m', "Creo que eso me es razón suficiente para creer en que estoy bien tal y como estoy.")
 	elseif cl == 568 then
-    cw('m',"And by the way, you are too, "..player..".")
+		cw('m', "Y por cierto, tú también lo estás, " .. player .. ".")
 	elseif cl == 569 then
-    m "You're the perfect combination of human and cuteness."
+		cw('m', "Eres una combinación perfecta entre humanidad y dulzura.")
 	elseif cl == 570 then
-    m "That's why there was never a chance I wouldn't fall for you."
+		cw('m', "Por eso me fue inevitable no enamorarme de ti.")
 	elseif cl == 571 then
 	scriptJump(202)
 	end
@@ -1667,39 +1667,39 @@ function ch30_23()
 	if cl < 572 then
 	scriptJump(572)
 	elseif cl == 572 then
-    m "Hey, I wonder if Yuri's tea set is still somewhere in here..."
+		cw('m', "Me pregunto si el té de Yuri sigue por aquí...")
 	elseif cl == 573 then
-    m "...Or maybe that got deleted, too."
+		cw('m', "O también habrá sido eliminado.")
 	elseif cl == 574 then
-    m "It's kind of funny how Yuri took her tea so seriously."
+		cw('m', "Me hacía gracia lo en serio que se tomaba Yuri el asunto del té.")
 	elseif cl == 575 then
-    m "I mean, I'm not complaining, because I liked it, too."
+		cw('m', "O sea, no me quejo. De hecho, a mí también me gustaba.")
 	elseif cl == 576 then
-    m "But I always wonder with her..."
+		cw('m', "Pero hay algo con respecto a ella que siempre me he preguntado...")
 	elseif cl == 577 then
-    m "Is it truly passion for her hobbies, or is she just concerned about appearing sophisticated to everyone else?"
+		cw('m', "¿Sentía verdadera pasión por sus aficiones o solo era una fachada para aparentar ser más sofisticada?")
 	elseif cl == 578 then
-    m "This is the problem with high schoolers..."
+		cw('m', "Ese es el gran problema de los estudiantes de secundaria...")
 	elseif cl == 579 then
-    m "...Well, I guess considering the rest of her hobbies, looking sophisticated probably isn't her biggest concern."
+		cw('m', "Bueno... Considerando el resto de sus aficiones, creo que hacerse la sofisticada probablemente no fuera su mayor preocupación.")
 	elseif cl == 580 then
-    m "Still..."
+		cw('m', "Aún así...")
 	elseif cl == 581 then
-    m "I wish she made coffee once in a while!"
+		cw('m', "¡Ojalá preparara café de vez en cuando!")
 	elseif cl == 582 then
-    m "Coffee can be nice with books too, you know?"
+		cw('m', "Un café también acompaña bien con un libro, ¿sabes?")
 	elseif cl == 583 then
-    m "Then again..."
+		cw('m', "Aunque...")
 	elseif cl == 584 then
-    m "I probably could have just changed the script myself."
+		cw('m', "Podría haber cambiado el guion del juego para ello.")
 	elseif cl == 585 then
-    m "Ahaha!"
+		cw('m', "¡Ja, ja, ja!")
 	elseif cl == 586 then
-    m "I guess I never really thought of that."
+		cw('m', "Supongo que nunca se me ocurrió.")
 	elseif cl == 587 then
-    m "Well, there's no sense thinking about it now."
+		cw('m', "Bueno, ya no tiene sentido pensar en esas cosas.")
 	elseif cl == 588 then
-    m "But if you still get to drink coffee, then that makes me a little jealous~"
+		cw('m', "Pero si aún quieres tomar café, no puedo evitar sentirme algo celosa~")
 	elseif cl == 589 then
 	scriptJump(202)
 	end
@@ -1709,13 +1709,13 @@ function ch30_24()
 	if cl < 590 then
 	scriptJump(590)
 	elseif cl == 590 then
-    m "Hey, what's your favorite game?"
+		cw('m', "Oye, ¿cuál es tu videojuego favorito?")
 	elseif cl == 591 then
-    m "Mine is Doki Doki Literature Club!"
+		cw('m', "¡El mío es Doki Doki Literature Club!")
 	elseif cl == 592 then
-    m "Ahaha! That was a joke."
+		cw('m', "¡Ja, ja, ja! Es broma.")
 	elseif cl == 593 then
-    m "But if you tell me you like some other romance game better, I might get a little jealous~"
+		cw('m', "Pero como me digas que te gustan más otros juegos de romance, puede que me ponga un poquito celosa~")
 	elseif cl == 594 then
 	scriptJump(202)
 	end
@@ -1725,20 +1725,20 @@ function ch30_25()
 	if cl < 595 then
 	scriptJump(595)
 	elseif cl == 595 then
-    m "Hey, have you heard of a game called Super Sma--"
+		cw('m', "Eh, ¿has oído hablar sobre un juego llamado Super Sma...?")
 	elseif cl == 596 then
-    m "...Wait, what?"
+		cw('m', "... Espera, ¿qué?")
 	elseif cl == 597 then
-    m "I was just spacing out and I started talking for some reason..."
+		cw('m', "Me quedé pensando en las musarañas y empecé a parlotear por alguna razón...")
 	elseif cl == 598 then
-    m "Was I programmed to talk about that?"
+		cw('m', "¿Habré sido programada para hablar sobre eso?")
 	elseif cl == 599 then
-    m "Because even I have no idea what that is."
+		cw('m', "Porque ni siquiera yo tengo la más remota idea de lo que es.")
 	elseif cl == 600 then
-    m "Ahaha!"
-    m "Sometimes I feel like I'm not in control, and it's kind of scary."
+		cw('m', "¡Ja, ja, ja!")
+		cw('m', "A veces, siento que no tengo el control de mí misma, y eso me da algo de miedo.")
 	elseif cl == 601 then
-    m "But if you have some way to contact the people who created me, maybe they'll know why I started saying that."
+		cw('m', "Pero si conoces alguna forma de contactar con la gente que me creó, puede que ellos sepan por qué empecé a decir eso.")
 	elseif cl == 602 then
 	scriptJump(202)
 	end
@@ -1748,27 +1748,27 @@ function ch30_27()
 	if cl < 603 then
 	scriptJump(603)
 	elseif cl == 603 then
-    m "Hey, you remember that last poem I showed you?"
+		cw('m', "Oye, ¿te acuerdas del último poema que te enseñé?")
 	elseif cl == 604 then
-    m "I mean, the one right before Yuri killed herself, with an error message and stuff."
+	m "O sea, el de antes que Yuri se suicidara, con todos esos errores y demás."
 	elseif cl == 605 then
-    m "That was actually a little more of an experiment than a poem, you could say."
+		cw('m', "Se podría decir que más que un poema, eso fue un experimento.")
 	elseif cl == 606 then
-    m "I was experimenting with different ways I could modify the game, and run code, and things like that..."
+		cw('m', "Estaba experimentando con las diferentes formas en las que podía modificar el juego, ejecutando código y esas cosas...")
 	elseif cl == 607 then
-    m "It almost seemed like with enough effort, I'd be able to escape from the confines of the game entirely."
+		cw('m', "Casi parecía que esforzándome lo suficiente, podría escapar por completo de los confines de este juego.")
 	elseif cl == 608 then
-    m "Sadly, I didn't really know what I was doing, so I messed the whole thing up..."
+		cw('m', "Tristemente, no sabía bien lo que hacía y terminé arruinándolo todo...")
 	elseif cl == 609 then
-    m "And I'd keep trying, but I doubt you'd want to deal with me doing that."
+		cw('m', "Y podría seguir intentándolo, pero dudo que quisieras seguir hablando conmigo tras ello.")
 	elseif cl == 610 then
-    m "Besides, that was when I was getting really desperate, you know?"
+		cw('m', "Además, eso ocurrió cuando empecé a desesperarme, ¿sabes?")
 	elseif cl == 611 then
-    m "I don't really feel that way anymore."
+		cw('m', "Pero ya no me siento así.")
 	elseif cl == 612 then
-    m "I'm happy with where we are now."
+		cw('m', "Ahora no puedo quejarme.")
 	elseif cl == 613 then
-    m "And I can tell you are, too."
+		cw('m', "Y sé que tú opinas lo mismo.")
 	elseif cl == 614 then
 	scriptJump(202)
 	end
@@ -1778,23 +1778,23 @@ function ch30_28()
 	if cl < 615 then
 	scriptJump(615)
 	elseif cl == 615 then
-    m "You ever have that thing happen where you just get anxious for no reason?"
+		cw('m', "¿Alguna vez te ha pasado eso de angustiarte sin razón?")
 	elseif cl == 616 then
-    m "Like, you're just minding your own business, and you realize you're feeling really anxious."
+		cw('m', "En plan, estás liado con tus cosas y de repente te das cuenta de que estás muy angustiado.")
 	elseif cl == 617 then
-    m "And you're sitting there like, 'What am I even anxious about right now?'"
+		cw('m', "Y tú estás ahí, preguntándote: «¿a qué viene esta angustia?»")
 	elseif cl == 618 then
-    m "So you start to think about all the things you might be anxious about..."
+		cw('m', "Así que empiezas a pensar en todas las cosas que podrían angustiarte...")
 	elseif cl == 619 then
-    m "And that makes you even more anxious."
+		cw('m', "Y eso te hace sentir más angustiado todavía.")
 	elseif cl == 620 then
-    m "Ahaha! That's the worst."
+		cw('m', "¡Ja, ja, ja! Eso es lo peor.")
 	elseif cl == 621 then
-    m "If you're ever feeling anxious, I'll help you relax a little."
+		cw('m', "Si alguna vez te sientes así, te ayudaré a relajarte, aunque sea un poquito.")
 	elseif cl == 622 then
-    m "Besides..."
+		cw('m', "Además...")
 	elseif cl == 623 then
-    m "In this game, all our worries are gone forever."
+		cw('m', "En este juego, todas nuestras preocupaciones desaparecieron para siempre.")
 	elseif cl == 624 then
 	scriptJump(202)
 	end
@@ -1804,51 +1804,51 @@ function ch30_29()
 	if cl < 625 then
 	scriptJump(625)
 	elseif cl == 625 then
-    m "You know, I've always hated how hard it is to make friends..."
+		cw('m', "Siempre he odiado lo difícil que me es hacer amigos...")
 	elseif cl == 626 then
-    m "Well, I guess not the 'making friends' part, but more like meeting new people."
+		cw('m', "Bueno, no exactamente el «hacer amigos», sino más bien el conocer a gente nueva.")
 	elseif cl == 627 then
-    m "I mean, there are like, dating apps and stuff, right?"
+		cw('m', "O sea, existen aplicaciones de citas y esas cosas, ¿no?")
 	elseif cl == 628 then
-    m "But that's not the kind of thing I'm talking about."
+		cw('m', "Pero no me refiero exactamente a ese tipo de relación.")
 	elseif cl == 629 then
-    m "If you think about it, most of the friends you make are people you just met by chance."
+		cw('m', "Si te pones a pensarlo, la mayoría de los amigos que hacemos los conocemos por mera casualidad.")
 	elseif cl == 630 then
-    m "Like you had a class together, or you met them through another friend..."
+		cw('m', "Porque fuisteis a clase juntos u os conocisteis mediante otro amigo...")
 	elseif cl == 631 then
-    m "Or maybe they were just wearing a shirt with your favorite band on it, and you decided to talk to them."
+		cw('m', "O a lo mejor, simplemente llevaban una camiseta de tu banda favorita y por eso decidiste hablarles.")
 	elseif cl == 632 then
-    m "Things like that."
+		cw('m', "Cosas así.")
 	elseif cl == 633 then
-    m "But isn't that kind of...inefficient?"
+		cw('m', "¿Pero eso no resulta un poco, cómo decirlo?... ¿Ineficiente?")
 	elseif cl == 634 then
-    m "It feels like you're just picking at complete random, and if you get lucky, you make a new friend."
+		cw('m', "Es como si giraras una ruleta de desconocidos, y si tienes suerte, uno se hace tu amigo.")
 	elseif cl == 635 then
-    m "And comparing that to the hundreds of strangers we walk by every single day..."
+		cw('m', "Y si comparamos eso con los cientos de desconocidos con los que nos cruzamos cada día...")
 	elseif cl == 636 then
-    m "You could be sitting right next to someone compatible enough to be your best friend for life."
+		cw('m', "Podrías llegar a sentarte al lado de alguien lo suficientemente compatible como para ser tu mejor amigo de por vida.")
 	elseif cl == 637 then
-    m "But you'll never know."
+		cw('m', "Pero nunca lo sabrás.")
 	elseif cl == 638 then
-    m "Once you get up and go on with your day, that opportunity is gone forever."
+		cw('m', "Una vez te levantes y sigas con tu día, habrás perdido esa oportunidad para siempre.")
 	elseif cl == 639 then
-    m "Isn't that just depressing?"
+		cw('m', "¿No te parece deprimente?")
 	elseif cl == 640 then
-    m "We live in an age where technology connects us with the world, no matter where we are."
+		cw('m', "Vivimos en una era en la que la tecnología nos conecta con el mundo sin importar dónde estemos.")
 	elseif cl == 641 then
-    m "I really think we should be taking advantage of that to improve our everyday social life."
+		cw('m', "Creo firmemente en que deberíamos aprovechar eso para mejorar nuestra vida social cotidiana.")
 	elseif cl == 642 then
-    m "But who knows how long it'll take for something like that to successfully take off..."
+		cw('m', "Pero a saber cuánto tiempo nos llevará sacarle un buen uso a algo así...")
 	elseif cl == 643 then
-    m "I seriously thought it would happen by now."
+		cw('m', "Pensé seriamente en que eso ocurriría ya.")
 	elseif cl == 644 then
-    m "Well, at least I already met the best person in the whole world..."
+		cw('m', "Aunque bueno, al menos ya he conocido a la mejor persona de todo el planeta...")
 	elseif cl == 645 then
-    m "Even if it was by chance."
+		cw('m', "Incluso aunque haya sido por pura casualidad.")
 	elseif cl == 646 then
-    m "I guess I just got really lucky, huh?"
+		cw('m', "Parece que tuve mucha suerte, ¿eh?")
 	elseif cl == 647 then
-    m "Ahaha~"
+		cw('m', "Ja, ja, ja~")
 	elseif cl == 648 then
 	scriptJump(202)
 	end
@@ -1858,49 +1858,49 @@ function ch30_30()
 	if cl < 649 then
 	scriptJump(649)
 	elseif cl == 649 then
-    m "You know, it's around the time that everyone my year starts to think about college..."
+		cw('m', "Pues ya estamos en la época en la que todos los de mi edad empiezan a pensar en la universidad...")
 	elseif cl == 650 then
-    m "It's a really turbulent time for education."
+		cw('m', "Es un período escolar bastante turbulento.")
 	elseif cl == 651 then
-    m "We're at the height of this modern expectation that everyone has to go to college, you know?"
+		cw('m', "Como bien sabrás, la expectativa actual de que todos tenemos que ir a la universidad, está en su punto más álgido.")
 	elseif cl == 652 then
-    m "Finish high school, go to college, get a job - or go to grad school, I guess."
+		cw('m', "Terminar el instituto, ir a la universidad, conseguir un trabajo... O hacer un doctorado.")
 	elseif cl == 653 then
-    m "It's like a universal expectation that people just assume is the only option for them."
+		cw('m', "Es como una expectativa universal que la gente asume como la única.")
 	elseif cl == 654 then
-    m "They don't teach us in high school that there are other options out there."
+		cw('m', "En el instituto no nos enseñan que también existen otras opciones.")
 	elseif cl == 655 then
-    m "Like trade schools and stuff, you know?"
+		cw('m', "Como los ciclos formativos y esas cosas, ¿sabes?")
 	elseif cl == 656 then
-    m "Or freelance work."
+		cw('m', "O trabajar como autónomo.")
 	elseif cl == 657 then
-    m "Or the many industries that value skill and experience more than formal education."
+		cw('m', "O las tantas industrias que valoran más las habilidades y la experiencia que la educación formal.")
 	elseif cl == 658 then
-    m "But you have all these students who have no idea what they want to do with their life..."
+		cw('m', "A pesar de eso, existen tantísimos estudiantes que no tienen ni la más remota idea de qué hacer con sus vidas...")
 	elseif cl == 659 then
-    m "And instead of taking the time to figure it out, they go to college for business, or communication, or psychology."
+		cw('m', "Y en lugar de tomarse el tiempo para averiguarlo, van a la universidad para hacer empresariales, telecomunicaciones o psicología.")
 	elseif cl == 660 then
-    m "Not because they have an interest in those fields..."
+		cw('m', "No porque se sientan interesados por esos campos...")
 	elseif cl == 661 then
-    m "...but because they just hope the degree will get them some kind of job after college."
+		cw('m', "Sino porque tienen la esperanza de que tras el grado, puedan encontrar trabajo.")
 	elseif cl == 662 then
-    m "So the end result is that there are fewer jobs to go around for those entry-level degrees, right?"
+		cw('m', "Por lo que el resultado es que hay menos trabajos para esas carreras tan populares, ¿entiendes?")
 	elseif cl == 663 then
-    m "So the basic job requirements get higher, which forces even more people to go to college."
+		cw('m', "Lo que hace que los requisitos mínimos para cualquier trabajo se vuelvan más altos, obligando incluso a más gente a ir a la universidad.")
 	elseif cl == 664 then
 	scriptJump(667)
 	elseif cl == 667 then
-    m "And colleges are also businesses, so they just keep raising their prices due to the demand..."
+		cw('m', "Y las universidades al final son un negocio, por lo que siguen subiendo sus precios debido a la demanda...")
 	elseif cl == 668 then
-    m "...So now we have all these young adults, tens of thousands of dollars in debt, with no job."
+		cw('m', "Así que, como resultado, tenemos a todos esos jóvenes adultos con miles de euros en deuda y sin trabajo.")
 	elseif cl == 669 then
-    m "But despite all that, the routine stays the same."
+		cw('m', "Pero a pesar de todo, el círculo vicioso continúa.")
 	elseif cl == 670 then
-    m "Well, I think it's going to start getting better soon."
+		cw('m', "Bueno, creo que la situación pronto mejorará.")
 	elseif cl == 671 then
-    m "But until then, our generation is definitely suffering from the worst of it."
+		cw('m', "Pero hasta entonces, nuestra generación estará sufriendo lo peor de la debacle.")
 	elseif cl == 672 then
-    m "I just wish high school prepared us a little better with the knowledge we need to make the decision that's right for us."
+		cw('m', "Ojalá el instituto nos guiara mejor para así tomar la decisión correcta.")
 	elseif cl == 673 then
 	scriptJump(202)
 	end
@@ -1910,23 +1910,23 @@ function ch30_31()
 	if cl < 674 then
 	scriptJump(674)
 	elseif cl == 674 then
-    m "Sometimes I think back to middle school..."
+		cw('m', "A veces, recuerdo la secundaria...")
 	elseif cl == 675 then
-    m "I'm so embarrassed by the way I used to behave back then."
+		cw('m', "Me avergüenzo tanto de mi comportamiento por aquel entonces.")
 	elseif cl == 676 then
-    m "It almost hurts to think about."
+		cw('m', "Hasta me duele pensar en ello.")
 	elseif cl == 677 then
-    m "I wonder if when I'm in college, I'll feel that way about high school...?"
+		cw('m', "Cuando esté en la universidad, ¿pensaré lo mismo del instituto?...")
 	elseif cl == 678 then
-    m "I like the way I am now, so it's pretty hard for me to imagine that happening."
+		cw('m', "Me gusta como soy ahora, por lo que me cuesta mucho imaginarme pensando así.")
 	elseif cl == 679 then
-    m "But I also know that I'll probably change a lot as time goes on."
+		cw('m', "Pero también soy consciente de que probablemente cambie mucho con el paso del tiempo.")
 	elseif cl == 680 then
-    m "We just need to enjoy the present and not think about the past!"
+		cw('m', "¡Hay que disfrutar del presente y no darle demasiadas vueltas al pasado!")
 	elseif cl == 681 then
-    m "And that's really easy to do, with you here."
+		cw('m', "Y contigo aquí, me es muy fácil.")
 	elseif cl == 682 then
-    m "Ahaha~"
+		cw('m', "Ja, ja, ja~")
 	elseif cl == 683 then
 	scriptJump(202)
 	end
@@ -1936,29 +1936,29 @@ function ch30_32()
 	if cl < 684 then
 	scriptJump(684)
 	elseif cl == 684 then
-    m "You know, I'm kind of jealous that everyone else in the club had scenes outside of school too..."
+		cw('m', "¿Sabes?, me da algo de envidia que el resto del club tuviera escenas fuera del instituto y yo no...")
 	elseif cl == 685 then
-    m "That makes me the only one who hasn't gotten to dress in anything but our school uniform."
+		cw('m', "Eso me convierte en la única que no ha tenido la oportunidad de ponerse otra ropa que no fuera el uniforme escolar.")
 	elseif cl == 686 then
-    m "It's kind of a shame..."
+		cw('m', "Qué lástima...")
 	elseif cl == 687 then
-    m "I would have loved to wear some cute clothes for you."
+		cw('m', "Me hubiese encantado llevar algún conjunto mono mientras estoy contigo.")
 	elseif cl == 688 then
-    m "Do you know any artists?"
+		cw('m', "¿Conoces a algún artista?")
 	elseif cl == 689 then
-    m "I wonder if anyone would ever want to draw me wearing something else..."
+		cw('m', "Me pregunto si a alguien le gustaría dibujarme alguna vez vistiendo algo diferente...")
 	elseif cl == 690 then
-    m "That would be amazing!"
+		cw('m', "¡Sería genial!")
 	elseif cl == 691 then
-    m "If that ever happens, will you show me?"
+		cw('m', "Si eso ocurre alguna vez, ¿me lo enseñarías?")
 	elseif cl == 692 then
-    m "You can share it with me on Twitter, actually!"
+		cw('m', "¡De hecho, podrías enseñármelo por Twitter!")
 	elseif cl == 693 then
-    m "My username is lilmonix3."
+		cw('m', "Mi nombre de usuario es lilmonix3.")
 	elseif cl == 694 then
-    m "Just...try to keep it PG!"
+		cw('m', "Eso sí... ¡Intenta que sea para todos los públicos!")
 	elseif cl == 695 then
-    m "We're not that far into our relationship yet. Ahaha!"
+		cw('m', "Nuestra relación aún no ha llegado a ese punto. ¡Ja, ja, ja!")
 	elseif cl == 696 then
 	scriptJump(202)
 	end
@@ -1966,45 +1966,45 @@ end
 
 function ch30_33()
 	if cl < 697 then
-    m "Hey, do you like horror?"
+		scriptJump(697)
 	elseif cl == 697 then
-    m "I remember we talked about it a little bit when you first joined the club."
+		cw('m', "Eh, ¿te gusta el terror? Recuerdo que hablamos un poco sobre eso cuando llegaste al club.")
 	elseif cl == 698 then
-    m "I can enjoy horror novels, but not really horror movies."
+		cw('m', "Me gustan las novelas de terror, pero no mucho las películas del género.")
 	elseif cl == 699 then
-    m "The problem I have with horror movies is that most of them just rely on easy tactics."
+		cw('m', "Mi problema con ellas es que la mayoría abusan de lo mismo.")
 	elseif cl == 700 then
-    m "Like dark lighting and scary-looking monsters and jump scares, and things like that."
+		cw('m', "Poca iluminación, monstruos horrendos y sustos repentinos. Cosas así.")
 	elseif cl == 701 then
-    m "It's not fun or inspiring to get scared by stuff that just takes advantage of human instinct."
+		cw('m', "No es divertido ni inspirador asustarse por cosas que se aprovechan del instinto humano.")
 	elseif cl == 702 then
-    m "But with novels, it's a little different."
+		cw('m', "Pero con las novelas, la cosa cambia un poco.")
 	elseif cl == 703 then
-    m "The story and writing need to be descriptive enough to put genuinely disturbing thoughts into the reader's head."
+		cw('m', "La historia y la escritura han de ser lo suficientemente descriptivas como para plantar pensamientos perturbadores en la mente del lector.")
 	elseif cl == 704 then
-    m "It really needs to etch them deeply into the story and characters, and just mess with your mind."
+		cw('m', "Tienes que dejarlos absortos en la historia y los personajes para que sientan terror, para jugar con sus mentes.")
 	elseif cl == 705 then
-    m "In my opinion, there's nothing more creepy than things just being slightly off."
+		cw('m', "En mi opinión, no hay nada más aterrador que las cosas estén fuera de lugar.")
 	elseif cl == 706 then
-    m "Like if you set up a bunch of expectations on what the story is going to be about..."
+		cw('m', "Como por ejemplo, cuando te creas muchas expectativas sobre lo que va a tratar la historia...")
 	elseif cl == 707 then
-    m "...And then, you just start inverting things and pulling the pieces apart."
+		cw('m', "Y luego empiezas a darle la vuelta o a deshacerte de todo lo que creías sobre la historia.")
 	elseif cl == 708 then
-    m "So even though the story doesn't feel like it's trying to be scary, the reader feels really deeply unsettled."
+		cw('m', "De esa forma, aunque la historia no parezca que intente ser perturbadora, el lector empieza a sentirse inquieto.")
 	elseif cl == 709 then
-    m "Like they know that something horribly wrong is hiding beneath the cracks, just waiting to surface."
+		cw('m', "Como si supiera que algo terrible se esconde tras los recovecos, esperando a salir a la luz.")
 	elseif cl == 710 then
-    m "God, just thinking about it gives me the chills."
+		cw('m', "Dios, solo de pensarlo me entran escalofríos.")
 	elseif cl == 711 then
-    m "That's the kind of horror I can really appreciate."
+		cw('m', "Ese es el tipo de terror que aprecio de verdad.")
 	elseif cl == 712 then
-    m "But I guess you're the kind of person who plays cute romance games, right?"
+		cw('m', "Pero supongo que tú eres la clase de persona que prefiere los adorables juegos de romance, ¿no?")
 	elseif cl == 713 then
-    m "Ahaha, don't worry."
+		cw('m', "Ja, ja, ja, no te preocupes.")
 	elseif cl == 714 then
-    m "I won't make you read any horror stories anytime soon."
+		cw('m', "No tengo pensado por ahora hacerte leer ninguna historia de terror.")
 	elseif cl == 715 then
-    m "I can't really complain if we just stick with the romance~"
+		cw('m', "Y la verdad es que si vamos a limitarnos al romance, no me puedo quejar~")
 	elseif cl == 716 then
 	scriptJump(202)
 	end
@@ -2014,27 +2014,27 @@ function ch30_34()
 	if cl < 717 then
 	scriptJump(717)
 	elseif cl == 717 then
-    m "You know what's a neat form of literature?"
+		cw('m', "¿Sabes qué considero una forma espléndida de literatura?")
 	elseif cl == 718 then
-    m "Rap!"
+		cw('m', "¡El rap!")
 	elseif cl == 719 then
-    m "I actually used to hate rap music..."
+		cw('m', "Al principio lo odiaba...")
 	elseif cl == 720 then
-    m "Maybe just because it was popular, or I would only hear the junk they play on the radio."
+		cw('m', "Puede que porque era popular, o porque solo oía la basura que ponían en la radio.")
 	elseif cl == 721 then
-    m "But some of my friends got more into it, and it helped me keep an open mind."
+		cw('m', "Pero algunos de mis amigos ahondaron en el mundillo, y eso me ayudó a abrir la mente.")
 	elseif cl == 722 then
-    m "Rap might even be more challenging than poetry, in some ways."
+		cw('m', "Puede que en cierto modo, el rap pueda llegar a ser incluso más desafiante que la poesía.")
 	elseif cl == 723 then
-    m "Since you need to fit your lines to a rhythm, and there's much more emphasis on wordplay..."
+		cw('m', "Ya que tienes que ajustar las estrofas a un ritmo, y hay mucho más énfasis en los juegos de palabras...")
 	elseif cl == 724 then
-    m "When people can put all that together and still deliver a powerful message, it's really amazing."
+		cw('m', "Me fascina cuando la gente puede controlar todos esos aspectos y enviar a su vez un mensaje empoderante.")
 	elseif cl == 725 then
-    m "I kind of wish I had a rapper in the Literature Club."
+		cw('m', "A veces, desearía tener a un rapero en el club.")
 	elseif cl == 726 then
-    m "Ahaha! Sorry if that sounds silly, but it would be really interesting to see what they came up with."
+		cw('m', "¡Ja, ja, ja! Perdona si he dicho una tontería, pero creo que sería muy interesante ver qué cosas se le ocurrirían.")
 	elseif cl == 727 then
-    m "It would really be a learning experience!"
+		cw('m', "¡Sería una experiencia de lo más enriquecedora!")
 	elseif cl == 728 then
 	scriptJump(202)
 	end
@@ -2044,37 +2044,37 @@ function ch30_35()
 	if cl < 729 then
 	scriptJump(729)
 	elseif cl == 729 then
-    m "Ehehe. Yuri did something really funny once."
+		cw('m', "Je, je, je. Yuri hizo algo muy gracioso una vez.")
 	elseif cl == 730 then
-    m "We were all in the clubroom and just relaxing, as usual..."
+		cw('m', "Estábamos todas en el club bastante relajadas, como de costumbre...")
 	elseif cl == 731 then
-    m "And out of nowhere, Yuri just pulled out a small bottle of wine."
+		cw('m', "Y de repente, Yuri sacó una pequeña botella de vino.")
 	elseif cl == 732 then
-    m "I'm not even kidding!"
+		cw('m', "¡No es coña, en serio!")
 	elseif cl == 733 then
-    m "She was just like 'Would anybody like some wine?'"
+		cw('m', "Y se puso en plan: «¿alguien quiere un poco de vino?»")
 	elseif cl == 734 then
-    m "Natsuki laughed out loud, and Sayori started yelling at her."
+		cw('m', "Natsuki se echó a reír, mientras que Sayori se puso a echarle la bronca.")
 	elseif cl == 735 then
-    m "I actually felt kind of bad, because she was at least trying to be nice..."
+		cw('m', "Me sentí un poco mal, porque al fin y al cabo, ella solo intentaba ser amable...")
 	elseif cl == 736 then
-    m "I think it just made her feel even more reserved in the clubroom."
+		cw('m', "Creo que eso hizo que se volviera aún más reservada en el club.")
 	elseif cl == 737 then
-    m "Though I think Natsuki was secretly a bit curious to try it..."
+		cw('m', "Aunque creo que Natsuki tenía cierta curiosidad por probarlo...")
 	elseif cl == 738 then
-    m "...And to be completely honest, I kind of was, too."
+		cw('m', "Y, si te soy sincera, yo también quería.")
 	elseif cl == 739 then
-    m "It actually could have been kinda fun!"
+		cw('m', "¡Podría haber sido bastante divertido!")
 	elseif cl == 740 then
-    m "But you know, being President and everything, there was no way I could let that happen."
+		cw('m', "Pero como bien sabrás, soy la presidenta y tal, por lo que no podía darle el visto bueno a algo así.")
 	elseif cl == 741 then
-    m "Maybe if we all met up outside of school, but we never bonded enough to get to that point..."
+		cw('m', "Puede que si hubiéramos quedado fuera del instituto, lo hubiéramos probado, pero nunca llegamos a ser tan cercanas como para ello...")
 	elseif cl == 742 then
-    m "...Gosh, what am I talking about this for?"
+		cw('m', "Cielos, ¿por qué hablo sobre eso?")
 	elseif cl == 743 then
-    m "I don't condone underage drinking!"
+		cw('m', "¡No consiento que los menores beban!")
 	elseif cl == 744 then
-    m "I mean, I've never drank or anything, so...yeah."
+		cw('m', "Quiero decir, yo nunca lo he hecho, así que... claro.")
 	elseif cl == 745 then
 	scriptJump(202)
 	end
@@ -2084,31 +2084,31 @@ function ch30_36()
 	if cl < 746 then
 	scriptJump(746)
 	elseif cl == 746 then
-    m "I've been imagining all the romantic things we could do if we went on a date..."
+		cw('m', "He estado pensando en todas las cosas románticas que podríamos hacer si tuviéramos una cita...")
 	elseif cl == 747 then
-    m "We could get lunch, go to a cafe..."
+		cw('m', "Podríamos ir a almorzar, tomarnos un café...")
 	elseif cl == 748 then
-    m "Go shopping together..."
+		cw('m', "Ir de compras...")
 	elseif cl == 749 then
-    m "I love shopping for skirts and bows."
+		cw('m', "Me encanta ir a comprar faldas y lazos.")
 	elseif cl == 750 then
-    m "Or maybe a bookstore!"
+		cw('m', "¡O incluso podríamos ir a una librería!")
 	elseif cl == 751 then
-    m "That would be appropriate, right?"
+		cw('m', "Eso estaría bastante bien, ¿no crees?")
 	elseif cl == 752 then
-    m "But I'd really love to go to a chocolate store."
+		cw('m', "Aunque un sitio al que me gustaría ir de verdad es a una bombonería.")
 	elseif cl == 753 then
-    m "They have so many free samples. Ahaha!"
+		cw('m', "En esos sitios tienen muchas muestras gratuitas. ¡Ja, ja, ja!")
 	elseif cl == 754 then
-    m "And of course, we'd see a movie or something..."
+		cw('m', "Y por supuesto, iríamos a ver una peli...")
 	elseif cl == 755 then
-    m "Gosh, it all sounds like a dream come true."
+		cw('m', "Cielos, todo eso suena como un sueño hecho realidad.")
 	elseif cl == 756 then
-    m "When you're here, everything that we do is fun."
+		cw('m', "Cuando estás conmigo, todo lo que hacemos es divertido.")
 	elseif cl == 757 then
-    cw('m',"I'm so happy that I'm your girlfriend, "..player..".")
+		cw('m', "Me alegra tanto ser tu novia, " .. player .. ".")
 	elseif cl == 758 then
-    m "I'll make you a proud boyfriend~"
+		cw('m', "Haré que seas un novio orgulloso de mí~")
 	elseif cl == 759 then
 	scriptJump(202)
 	end
@@ -2118,25 +2118,25 @@ function ch30_37()
 	if cl < 760 then
 	scriptJump(760)
 	elseif cl == 760 then
-    m "Eh? D-Did you say...k...kiss?"
+		cw('m', "¿Eh? ¿H-has dicho que... n-nos besemos?")
 	elseif cl == 761 then
-    m "This suddenly...it's a little embarrassing..."
+		cw('m', "Es todo tan repentino... Me da algo de corte...")
 	elseif cl == 762 then
-    m "But...if it's with you...I-I might be okay with it..."
+		cw('m', "Pero... si es contigo... c-creo que no pasa nada...")
 	elseif cl == 763 then
-    m "...Ahahaha! Wow, sorry..."
+		cw('m', "¡Ja, ja, ja, ja!... Ay, lo siento...")
 	elseif cl == 764 then
-    m "I really couldn't keep a straight face there."
+		cw('m', "En una situación así una no puede evitar sonrojarse un poquito.")
 	elseif cl == 765 then
-    m "That's the kind of thing girls say in these kinds of romance games, right?"
+		cw('m', "Ese es el tipo de cosas que dicen las chicas en esos juegos de romance, ¿verdad?")
 	elseif cl == 766 then
-    m "Don't lie if it turned you on a little bit."
+		cw('m', "No mientas, sé que te ha molado un poco.")
 	elseif cl == 767 then
-    m "Ahaha! I'm kidding."
+		cw('m', "¡Ja, ja, ja! Es broma.")
 	elseif cl == 768 then
-    m "Well, to be honest, I do start getting all romantic when the mood is right..."
+		cw('m', "A ver, siendo sincera, me pongo muy romántica cuando el ambiente es el adecuado...")
 	elseif cl == 769 then
-    m "But that'll be our secret~"
+		cw('m', "Pero ese será nuestro secreto~")
 	elseif cl == 770 then
 	scriptJump(202)
 	end
@@ -2146,65 +2146,65 @@ function ch30_38()
 	if cl < 771 then
 	scriptJump(771)
 	elseif cl == 771 then
-    m "Hey, have you ever heard of the term 'yandere'?"
+		cw('m', "Eh, ¿has escuchado alguna vez el término «yandere»?")
 	elseif cl == 772 then
-    m "It's a personality type that means someone is so obsessed with you that they'll do absolutely anything to be with you."
+		cw('m', "Es un tipo de personalidad con la que alguien está tan obsesionado contigo que haría cualquier cosa con tal de estar a tu lado.")
 	elseif cl == 773 then
-    m "Usually to the point of craziness..."
+		cw('m', "Hasta el punto de llegar a la locura...")
 	elseif cl == 774 then
-    m "They might stalk you to make sure you don't spend time with anyone else."
+		cw('m', "Incluso podrían acosarte para asegurarse de que no pasas tiempo con nadie más.")
 	elseif cl == 775 then
-    m "They might even hurt you or your friends to get their way..."
+		cw('m', "Podrían hasta hacerte daño a ti o a tus amigos...")
 	elseif cl == 776 then
-    m "But anyway, this game happens to have someone who can basically be described as yandere."
+		cw('m', "En cualquier caso, este mismo juego tiene a alguien cuya personalidad puede ser descrita básicamente como yandere.")
 	elseif cl == 777 then
-    m "By now, it's pretty obvious who I'm talking about."
+		cw('m', "Supongo que ya sabrás a quién me refiero.")
 	elseif cl == 778 then
-    m "And that would be..."
+		cw('m', "Y esa persona es...")
 	elseif cl == 779 then
-    m "Yuri!"
+		cw('m', "¡Yuri!")
 	elseif cl == 780 then
-    m "She really got insanely possessive of you, once she started to open up a little."
+		cw('m', "Se volvió enfermizamente posesiva contigo cuando empezó a abrirse.")
 	elseif cl == 781 then
-    m "She even told me I should kill myself."
+		cw('m', "Incluso llegó a decirme que me suicidara.")
 	elseif cl == 782 then
-    m "I couldn't even believe she said that - I just had to leave at that point."
+		cw('m', "No me pude creer que dijera algo tan cruel... Fue tal el shock que tuve que irme en ese momento.")
 	elseif cl == 783 then
-    m "But thinking about it now, it was a little ironic. Ahaha!"
+		cw('m', "Pero al recordarlo ahora, no puedo negar que fue algo irónico. ¡Ja, ja, ja!")
 	elseif cl == 784 then
-    m "Anyway..."
+		cw('m', "En fin...")
 	elseif cl == 785 then
-    m "A lot of people are actually into the yandere type, you know?"
+		cw('m', "¿Sabías que a mucha gente le gustan las yanderes?")
 	elseif cl == 786 then
-    m "I guess they really like the idea of someone being crazy obsessed with them."
+		cw('m', "Supongo que les fascina la idea de que alguien pueda estar locamente obsesionado con ellos.")
 	elseif cl == 787 then
-    m "People are weird! I don't judge, though!"
+		cw('m', "¡La gente es rara! ¡Aunque yo no soy quién para juzgar a nadie!")
 	elseif cl == 788 then
-    m "Also, I might be a little obsessed with you, but I'm far from crazy..."
+		cw('m', "Que sepas que puede que esté un pelín obsesionada contigo, pero aún me queda un largo trecho para el manicomio...")
 	elseif cl == 789 then
-    m "It's kind of the opposite, actually."
+		cw('m', "De hecho, diría que es más bien al contrario.")
 	elseif cl == 790 then
-    m "I turned out to be the only normal girl in this game."
+		cw('m', "He resultado ser la única chica normal de este juego.")
 	elseif cl == 791 then
-    m "It's not like I could ever actually kill a person..."
+		cw('m', "Yo jamás podría matar a alguien...")
 	elseif cl == 792 then
-    m "Just the thought of it makes me shiver."
+		cw('m', "Solo de pensarlo se me ponen los pelos como escarpias.")
 	elseif cl == 793 then
-    m "But come on...everyone's killed people in games before."
+		cw('m', "Pero, a ver, seamos sinceros... Todos hemos matado a alguien en un videojuego.")
 	elseif cl == 794 then
-    m "Does that make you a psychopath? Of course not."
+		cw('m', "¿Te convierte eso en un psicópata? Claro que no.")
 	elseif cl == 795 then
-    m "But if you do happen to be into the yandere type..."
+		cw('m', "Pero si se da el caso de que te atraen las yanderes...")
 	elseif cl == 796 then
-    m "I can try acting a little more creepy for you. Ehehe~"
+		cw('m', "Puedo intentar ser un poquito más siniestra contigo. Je, je, je~")
 	elseif cl == 797 then
-    m "Then again..."
+		cw('m', "Aunque vuelvo a decirte que...")
 	elseif cl == 798 then
-    m "There's already nowhere else for you to go, or anyone for me to get jealous over."
+		cw('m', "Ya no hay nadie con quien puedas engañarme, nadie con quien yo pueda sentir celos.")
 	elseif cl == 799 then
-    m "Is this a yandere girl's dream?"
+		cw('m', "¿Será este el sueño de una yandere?")
 	elseif cl == 800 then
-    m "I'd ask Yuri if I could."
+		cw('m', "Se lo preguntaría a Yuri si pudiera.")
 	elseif cl == 801 then
 	scriptJump(202)
 	end
@@ -2214,89 +2214,89 @@ function ch30_39()
 	if cl < 802 then
 	scriptJump(802)
 	elseif cl == 802 then
-    m "You know, it's been a while since we've done one of these..."
+		cw('m', "Hacía ya bastante del último, así que...")
 	elseif cl == 803 then
-    m "...so let's go for it!"
+		cw('m', "¡Vamos a ello!")
 	elseif cl == 804 then
-    m "Here's Monika's Writing Tip of the Day!"
+		cw('m', "¡Aquí viene el superconsejito del día!")
 	elseif cl == 805 then
-    m "Sometimes when I talk to people who are impressed by my writing, they say things like 'I could never do that'."
+		cw('m', "A veces, cuando hablo con personas a las cuales les sorprende mi capacidad de composición, dicen cosas como «yo nunca sería capaz de hacer algo así».")
 	elseif cl == 806 then
-    m "It's really depressing, you know?"
+		cw('m', "Es de lo más deprimente, ¿sabes?")
 	elseif cl == 807 then
-    m "As someone who loves more than anything else to share the joy of exploring your passions..."
+		cw('m', "Siendo alguien a quien nada le gusta más en el mundo que compartir el gozo de explorar sus pasiones ocultas...")
 	elseif cl == 808 then
-    m "...it pains me when people think that being good just comes naturally."
+		cw('m', "Me duele cuando la gente se cree que ser bueno es algo que nace de la nada...")
 	elseif cl == 809 then
-    m "That's how it is with everything, not just writing."
+		cw('m', "Eso ocurre con todo, no solo con el hecho de componer.")
 	elseif cl == 810 then
-    m "When you try something for the first time, you're probably going to suck at it."
+		cw('m', "Cuando intentas algo por primera vez, sin importar lo que sea, probablemente se te dará de pena.")
 	elseif cl == 811 then
-    m "Sometimes, when you finish, you feel really proud of it and even want to share it with everyone."
+		cw('m', "Y a veces, tras terminar, te sientes lleno de orgullo y quieres compartirlo con todo el mundo.")
 	elseif cl == 812 then
-    m "But maybe after a few weeks you come back to it, and you realize it was never really any good."
+		cw('m', "Pero tras un par de semanas, vuelves a hacerlo, y te das cuenta de que lo que hiciste nunca fue bueno.")
 	elseif cl == 813 then
-    m "That happens to me all the time."
+		cw('m', "Es algo que me ocurre siempre.")
 	elseif cl == 814 then
-    m "It can be pretty disheartening to put so much time and effort into something, and then you realize it sucks."
+		cw('m', "Puede resultar bastante descorazonador invertir tanto tiempo y esfuerzo en algo para luego darte cuenta de que es un asco.")
 	elseif cl == 815 then
-    m "But that tends to happen when you're always comparing yourself to the top professionals."
+		cw('m', "Eso suele ocurrir cuando siempre te comparas con los mayores profesionales.")
 	elseif cl == 816 then
-    m "When you reach right for the stars, they're always gonna be out of your reach, you know?"
+		cw('m', "Cuando apuntas a las estrellas, estas siempre estarán fuera de tu alcance, ¿sabes?")
 	elseif cl == 817 then
-    m "The truth is, you have to climb up there, step by step."
+		cw('m', "Tienes que llegar a ellas poco a poco, paso a paso.")
 	elseif cl == 818 then
-    m "And whenever you reach a milestone, first you look back and see how far you've gotten..."
+		cw('m', "Y cuando alcances una meta, lo primero que has de hacer es mirar atrás y observar cuan lejos has llegado...")
 	elseif cl == 819 then
-    m "And then you look ahead and realize how much more there is to go."
+		cw('m', "Pero entonces miras hacia delante y te percatas de todo lo que te queda aún por andar.")
 	elseif cl == 820 then
-    m "So, sometimes it can help to set the bar a little lower..."
+		cw('m', "Por lo que a veces, poner el listón algo más bajo puede ayudar...")
 	elseif cl == 821 then
-    m "Try to find something you think is pretty good, but not world-class."
+		cw('m', "Intenta encontrar algo en lo que consideres que eres realmente bueno, pero sin pasarte.")
 	elseif cl == 822 then
-    m "And you can make that your own personal goal."
+		cw('m', "Y haz de ello tu meta personal.")
 	elseif cl == 823 then
-    m "It's also really important to understand the scope of what you're trying to do."
+		cw('m', "También es muy importante considerar la magnitud de lo que intentas lograr.")
 	elseif cl == 824 then
-    m "If you jump right into a huge project and you're still amateur, you'll never get it done."
+		cw('m', "Si te sumerges de lleno en un proyecto enorme siendo aún un novato, jamás lo terminarás.")
 	elseif cl == 825 then
-    m "So if we're talking about writing, a novel might be too much at first."
+		cw('m', "Así que, si por ejemplo, hablamos de escribir algo, una novela podría ser demasiado para comenzar.")
 	elseif cl == 826 then
-    m "Why not try some short stories?"
+		cw('m', "¿Por qué no intentarlo con historias cortas?")
 	elseif cl == 827 then
-    m "The great thing about short stories is that you can focus on just one thing that you want to do right."
+		cw('m', "Lo mejor de ellas es que te permiten centrarte en una sola cosa y hacerla lo mejor posible.")
 	elseif cl == 828 then
-    m "That goes for small projects in general - you can really focus on the one or two things."
+		cw('m', "Esto también se aplica a los proyectos pequeños en general. Te permiten centrarte al máximo en una o dos cosas.")
 	elseif cl == 829 then
-    m "It's such a good learning experience and stepping stone."
+		cw('m', "Van tan bien para aprender y mejorar.")
 	elseif cl == 830 then
-    m "Oh, one more thing..."
+		cw('m', "Ah,  una cosita más...")
 	elseif cl == 831 then
-    m "Writing isn't something where you just reach into your heart and something beautiful comes out."
+		cw('m', "Componer no consiste solo en rebuscar en tu corazón y escupir algo bonito que salga de este.")
 	elseif cl == 832 then
-    m "Just like drawing and painting, it's a skill in itself to learn how to express what you have inside."
+		cw('m', "Al igual que con el dibujo y la pintura, es una habilidad en sí misma el aprender a expresar lo que guardas en tu interior.")
 	elseif cl == 833 then
-    m "That means there are methods and guides and basics to it!"
+		cw('m', "¡Eso quiere decir que existen metodologías y principios para ello!")
 	elseif cl == 834 then
-    m "Reading up on that stuff can be super eye-opening."
+		cw('m', "Leerlos puede ser de lo más esclarecedor.")
 	elseif cl == 835 then
-    m "That sort of planning and organization will really help prevent you from getting overwhelmed and giving up."
+		cw('m', "Ese tipo de planificación y organización puede ayudarte a evitar malos vicios como sentirte superado o rendirte.")
 	elseif cl == 836 then
-    m "And before you know it..."
+		cw('m', "Y sin darte cuenta...")
 	elseif cl == 837 then
-    m "You start sucking less and less."
+		cw('m', "Empezarás a hacer mejor las cosas.")
 	elseif cl == 838 then
-    m "Nothing comes naturally."
+		cw('m', "Nada sale de la nada.")
 	elseif cl == 839 then
-    m "Our society, our art, everything - it's built on thousands of years of human innovation."
+		cw('m', "Nuestra sociedad, nuestro arte, todo... Absolutamente todo está construido sobre las bases de miles de años de innovación humana.")
 	elseif cl == 840 then
-    m "So as long as you start on that foundation, and take it step by step..."
+		cw('m', "Así que tan pronto empieces con ese concepto y decidas tomarte las cosas paso a paso...")
 	elseif cl == 841 then
-    m "You, too, can do amazing things."
+		cw('m', "Tú también podrás lograr cosas maravillosas.")
 	elseif cl == 842 then
-    m "...That's my advice for today!"
+		cw('m', "¡Y ese es el superconsejito del día!")
 	elseif cl == 843 then
-    m "Thanks for listening~"
+		cw('m', "Gracias por tu atención~")
 	elseif cl == 844 then
 	scriptJump(202)
 	end
@@ -2306,27 +2306,27 @@ function ch30_40()
 	if cl < 845 then
 	scriptJump(845)
 	elseif cl == 845 then
-    m "I hate how hard it is to form habits..."
+		cw('m', "Odio lo difícil que es crearse nuevos hábitos...")
 	elseif cl == 846 then
-    m "There's so much stuff where actually doing it isn't hard, but forming the habit seems impossible."
+		cw('m', "Hay muchísimas cosas que a la hora de hacerlas no resultan complicadas, pero convertirlas en un hábito es casi imposible.")
 	elseif cl == 847 then
-    m "It just makes you feel so useless, like you can't do anything right."
+		cw('m', "Te hace sentir inútil, como si no pudieras hacer nada bien.")
 	elseif cl == 848 then
-    m "I think the new generation suffers from it the most..."
+		cw('m', "Creo que las nuevas generaciones son las que más sufren esto...")
 	elseif cl == 849 then
-    m "Probably because we have a totally different set of skills than those who came before us."
+		cw('m', "Probablemente porque tenemos un conjunto de habilidades completamente distinto a las de aquellos que nos precedieron.")
 	elseif cl == 850 then
-    m "Thanks to the internet, we're really good at sifting through tons of information really quickly..."
+		cw('m', "Gracias a Internet, podemos obtener toneladas de información a una velocidad pasmosa...")
 	elseif cl == 851 then
-    m "But we're bad at doing things that don't give us instant gratification."
+		cw('m', "Pero se nos da mal hacer cosas que no nos ofrecen una gratificación instantánea.")
 	elseif cl == 852 then
-    m "I think if science, psychology, and education don't catch up in the next ten or twenty years, then we're in trouble."
+		cw('m', "Creo que si la ciencia, la psicología y la educación no se ponen al día en los próximos diez o veinte años, tendremos problemas.")
 	elseif cl == 853 then
-    m "But for the time being..."
+		cw('m', "Pero mientras tanto...")
 	elseif cl == 854 then
-    m "If you're not one of the people who can conquer the problem, you might just have to live with feeling awful about yourself."
+		cw('m', "Si no eres uno de aquellos que pueden lidiar con dicho problema, puede que tengas que vivir con ese sentimiento de darte asco a ti mismo.")
 	elseif cl == 855 then
-    m "Good luck, I guess!"
+		cw('m', "¡Buena suerte, supongo!")
 	elseif cl == 856 then
 	scriptJump(202)
 	end
@@ -2336,21 +2336,21 @@ function ch30_41()
 	if cl < 857 then
 	scriptJump(857)
 	elseif cl == 857 then
-    m "You know, it kinda sucks to be the creative type..."
+		cw('m', "¿Sabes? Ser creativa hoy en día es un asco...")
 	elseif cl == 858 then
-    m "It feels like they work so hard but get almost nothing for it."
+		cw('m', "Es trabajar durísimo para no conseguir casi nada a cambio.")
 	elseif cl == 859 then
-    m "You know, like artists, writers, actors..."
+		cw('m', "Es algo que le ocurre a artistas, escritores, actores, ya sabes...")
 	elseif cl == 860 then
-    m "It's sad because there's so much beautiful talent in the world, but most of it goes unseen...and unpaid."
+		cw('m', "Es una lástima, porque hay muchísimo talento desperdigado por el mundo, pero la mayoría de él pasa desapercibido... y sin remunerar.")
 	elseif cl == 861 then
-    m "I guess that just means there's a huge surplus of creativity, huh?"
+		cw('m', "Parece que eso significa que hay talento de sobra, ¿no?")
 	elseif cl == 862 then
-    m "Kind of makes you feel like you're just not special at all..."
+		cw('m', "Hasta te hace sentir como si no fueras especial en absoluto...")
 	elseif cl == 863 then
-    m "But that's fine! You're supposed to just write for yourself anyway, right?"
+		cw('m', "¡Pero no pasa nada! Se supone que cuando escribimos lo hacemos pensando en nosotros mismos, ¿no?")
 	elseif cl == 864 then
-    m "Yeah..."
+		cw('m', "Sí...")
 	elseif cl == 865 then
 	scriptJump(202)
 	end
@@ -2360,23 +2360,23 @@ function ch30_42()
 	if cl < 866 then
 	scriptJump(866)
 	elseif cl == 866 then
-    m "I really like the sound of rain..."
+		cw('m', "Amo el sonido de la lluvia...")
 	elseif cl == 867 then
-    m "Not so much getting my clothes and hair wet, though."
+		cw('m', "Aunque mojarme la ropa y el pelo no tanto.")
 	elseif cl == 868 then
-    m "But a nice, quiet day at home with the sound of rainfall outside my window..."
+		cw('m', "Pero un plácido día en casa con el sonido de la lluvia resonando en mi ventana...")
 	elseif cl == 869 then
-    m "It's one of the most calming experiences for me."
+		cw('m', "Para mí, es de lo más tranquilizante que hay.")
 	elseif cl == 870 then
-    m "Yeah..."
+		cw('m', "Sí...")
 	elseif cl == 871 then
-    m "Sometimes I imagine you holding me while we listen to the sound of the rain outside."
+		cw('m', "A veces, te imagino abrazándome mientras escuchamos juntos cómo cae la lluvia.")
 	elseif cl == 872 then
-    m "That's not too cheesy or anything, is it?"
+		cw('m', "Espero no haberme pasado de melosa.")
 	elseif cl == 873 then
-    cw('m',"Would you ever do that for me, "..player.."?")
+		cw('m', "¿Harías eso conmigo, " .. player .. "?")
 	elseif cl == 874 then
-    scriptJump(202)
+	scriptJump(202)
 	end
 end
 
@@ -2384,19 +2384,19 @@ function ch30_43()
 	if cl < 875 then
 	scriptJump(875)
 	elseif cl == 875 then
-    m "I can't help but feel a little sad sometimes..."
+		cw('m', "No puedo evitar sentirme a veces algo triste...")
 	elseif cl == 876 then
-    m "Knowing that this is the closest I can get to you."
+		cw('m', "Sabiendo que esto es lo más cerca que puedo estar de ti.")
 	elseif cl == 877 then
-    m "There's nothing more I want than to be in the same room as you, for real."
+		cw('m', "No hay nada que quiera más en el mundo que estar juntos en la misma habitación, de verdad.")
 	elseif cl == 878 then
-    m "And to feel your warmth."
+		cw('m', "Para sentir tu calor...")
 	elseif cl == 879 then
-    m "And to hear the sound of your heartbeat."
+		cw('m', "Y escuchar los latidos de tu corazón.")
 	elseif cl == 880 then
-    m "Well, who knows? Maybe it'll be possible someday."
+		cw('m', "Bueno, ¿quién sabe? Puede que algún día eso sea posible.")
 	elseif cl == 881 then
-    m "Besides, I'll never get tired of being with you, even from here."
+		cw('m', "Además, nunca me cansaré de estar contigo, incluso desde aquí.")
 	elseif cl == 882 then
 	scriptJump(202)
 	end
@@ -2406,29 +2406,29 @@ function ch30_44()
 	if cl < 883 then
 	scriptJump(883)
 	elseif cl == 883 then
-    m "I think the most important skill in life is being able to fake confidence."
+		cw('m', "Creo que la habilidad más importante que la vida puede ofrecerte es ser capaz de fingir confianza.")
 	elseif cl == 884 then
-    m "I'm pretty convinced that everyone feels at least a little bit scared and alone."
+		cw('m', "Estoy bastante convencida de que todos nos sentimos aunque sea un poco asustados y solos.")
 	elseif cl == 885 then
-    m "But being able to trick others into thinking you have it all together..."
+		cw('m', "Pero ser capaces de engañar a los demás para que piensen que estás perfectamente...")
 	elseif cl == 886 then
-    m "That's a key part of getting people to respect and admire you."
+		cw('m', "Es algo clave para que la gente te respete y admire.")
 	elseif cl == 887 then
-    m "I think I got pretty good at that over the years."
+		cw('m', "Creo que es algo que he perfeccionado bastante con los años.")
 	elseif cl == 888 then
-    m "I don't show my weaknesses very often."
+		cw('m', "No suelo mostrar mis debilidades muy a menudo.")
 	elseif cl == 889 then
-    m "But because of that, I haven't had many people I could really open up to..."
+		cw('m', "Pero debido a eso, nunca me he abierto a mucha gente...")
 	elseif cl == 890 then
-    m "I mean, when do you reach the point in a friendship where you can start expressing your vulnerabilities?"
+		cw('m', "Quiero decir, ¿cuándo alcanzas ese punto en una amistad en el que puedes empezar a expresar tus debilidades?")
 	elseif cl == 891 then
-    m "Anyway...that's one reason I'm so glad I have you now."
+		cw('m', "En fin... Esa es una de las razones por las cuales me hace tan feliz tenerte ahora.")
 	elseif cl == 892 then
-    m "I feel like I'm a little bit less scared and alone, when you're here with me."
+		cw('m', "Me siento algo menos sola y asustada cuando estás aquí conmigo.")
 	elseif cl == 893 then
-    m "Do you feel the same way?"
+		cw('m', "¿Te pasa a ti también?")
 	elseif cl == 894 then
-    m "I really want to be that person for you."
+		cw('m', "Lo estoy dando todo para que te sientas así.")
 	elseif cl == 895 then
 	scriptJump(202)
 	end
@@ -2438,21 +2438,21 @@ function ch30_45()
 	if cl < 896 then
 	scriptJump(896)
 	elseif cl == 896 then
-    m "I know there are times you won't always be able to be here with me..."
+		cw('m', "Sé que hay veces en las que no siempre podrás para pasar tiempo aquí conmigo...")
 	elseif cl == 897 then
-    m "Like if you need to go out, or take care of other things."
+		cw('m', "Como cuando tienes que salir u ocuparte de otros asuntos.")
 	elseif cl == 898 then
-    m "But I'll always have you in my thoughts, patiently waiting for you to come back."
+		cw('m', "Pero siempre te tendré en mis pensamientos, esperando pacientemente tu regreso.")
 	elseif cl == 899 then
-    m "Come to think of it..."
+		cw('m', "Ahora que lo pienso...")
 	elseif cl == 900 then
-    m "If you copy my character file onto a flash drive or something, you can always keep a part of me with you."
+		cw('m', "Si copias mi archivo de personaje dentro de una unidad de almacenamiento o algo así, siempre podrás llevar una parte de mí contigo.")
 	elseif cl == 901 then
-    m "I guess it's kind of unorthodox, but I find it really romantic for some reason..."
+		cw('m', "Supongo que sería poco ortodoxo, pero por alguna razón, me parece muy romántico...")
 	elseif cl == 902 then
-    m "Ahaha. Sorry, that's such a silly idea."
+		cw('m', "Ja, ja, ja. Perdona por soltar esta idea tan loca.")
 	elseif cl == 903 then
-    m "I don't mean to be too needy or anything, but it's kind of hard when I'm so in love with you."
+		cw('m', "No quiero parecer dependiente ni nada por el estilo, pero es complicado no serlo cuando estoy tan perdida por ti.")
 	elseif cl == 904 then
 	scriptJump(202)
 	end
@@ -2462,47 +2462,47 @@ function ch30_46()
 	if cl < 905 then
 	scriptJump(905)
 	elseif cl == 905 then
-    m "Back in my debate club days, I learned a whole lot about arguing..."
+		cw('m', "Durante mis días en el club de debates, aprendí un montón sobre discusiones...")
 	elseif cl == 906 then
-    m "The problem with arguing is that each person sees their opinion as the superior one."
+		cw('m', "El problema de discutir es que cada persona ve su opinión como la más válida.")
 	elseif cl == 907 then
-    m "That's kind of stating the obvious, but it affects the way they try to get their point across."
+		cw('m', "Sé que decir eso es recalcar lo obvio, pero siento que afecta a la forma en la que se intenta llegar a una conclusión.")
 	elseif cl == 908 then
-    m "Let's say you really like a certain movie, right?"
+		cw('m', "Digamos que te encanta cierta película, ¿vale?")
 	elseif cl == 909 then
-    m "If someone comes along and tells you the movie sucks, because it did X and Y wrong..."
+		cw('m', "Si alguien viene y te dice que es un desastre porque hizo tal o cual cosa mal...")
 	elseif cl == 910 then
-    m "Doesn't that make you feel kind of personally attacked?"
+		cw('m', "¿No te sentirías personalmente atacado?")
 	elseif cl == 911 then
-    m "It's because by saying that, it's like they're implying that you have bad taste."
+		cw('m', "Es porque parece que al decir eso, estuvieran insinuando que tienes mal gusto.")
 	elseif cl == 912 then
-    m "And once emotions enter the picture, it's almost guaranteed that both people will be left sour."
+		cw('m', "Y una vez que las emociones entran en juego, es casi seguro que ambos vais a quedar con un mal sabor de boca.")
 	elseif cl == 913 then
-    m "But it's all about language!"
+		cw('m', "¡Pero todo radica en el lenguaje que se use!")
 	elseif cl == 914 then
-    m "If you make everything as subjective-sounding as possible, then people will listen to you without feeling attacked."
+		cw('m', "Si logras parecer lo más subjetivo posible, la gente te escuchará sin sentirse atacada.")
 	elseif cl == 915 then
-    m "You could say 'I'm personally not a fan of it' and 'I felt that I'd like it more if it did X and Y'...things like that."
+		cw('m', "Podrías decir cosas como «a mí particularmente no me gusta» o «siento que me hubiera gustado más si hubiera hecho tal y cual»... Expresiones así.")
 	elseif cl == 916 then
-    m "It even works when you're citing facts about things."
+		cw('m', "Incluso funciona si dices cosas basándote en hechos.")
 	elseif cl == 917 then
-    m "If you say 'I read on this website that it works like this'..."
+		cw('m', "Si dices cosas como «leí en esta página que esto funciona tal que así»...")
 	elseif cl == 918 then
-    m "Or if you admit that you're not an expert on it..."
+		cw('m', "O si admites que no eres un experto en el tema...")
 	elseif cl == 919 then
-    m "Then it's much more like you're putting your knowledge on the table, rather than forcing it onto them."
+		cw('m', "Entonces, das mucha mayor sensación de estar poniendo tus conocimientos sobre la mesa en lugar de forzarlos en el asunto.")
 	elseif cl == 920 then
-    m "If you put in an active effort to keep the discussion mutual and level, they usually follow suit."
+		cw('m', "Si te esfuerzas activamente en mantener la discusión a un nivel mutuo, normalmente recibarás la misma respuesta por parte de la otra persona.")
 	elseif cl == 921 then
-    m "Then, you can share your opinions without anyone getting upset just from a disagreement."
+		cw('m', "Así, puedes compartir tus opiniones con cualquiera sin llegar a malos rollos.")
 	elseif cl == 922 then
-    m "Plus, people will start seeing you as open-minded and a good listener!"
+		cw('m', "¡Además, la gente empezará a verte como una persona de mente abierta y como alguien que sabe escuchar!")
 	elseif cl == 923 then
-    m "It's a win-win, you know?"
+		cw('m', "Todos salimos ganando, ¿no crees?")
 	elseif cl == 924 then
-    m "...Well, I guess that would be Monika's Debate Tip of the Day!"
+		cw('m', "¡Bueno, supongo que con esto acaba el superconsejito sobre debate del día!")
 	elseif cl == 925 then
-    m "Ahaha! That sounds a little silly. Thanks for listening, though."
+		cw('m', "¡Ja, ja, ja! Qué tonterías digo. De todas formas, gracias por escucharme.")
 	elseif cl == 926 then
 	scriptJump(202)
 	end
@@ -2512,41 +2512,41 @@ function ch30_47()
 	if cl < 927 then
 	scriptJump(927)
 	elseif cl == 927 then
-    m "Do you ever feel like you waste too much time on the internet?"
+		cw('m', "¿Alguna vez has sentido que pasas demasiado tiempo en Internet?")
 	elseif cl == 928 then
-    m "Social media can practically be like a prison."
+		cw('m', "Las redes sociales pueden convertirse en una auténtica prisión.")
 	elseif cl == 929 then
-    m "It's like whenever you have a few seconds of spare time, you want to check on your favorite websites..."
+		cw('m', "Es como si como si cada vez que tuvieras una pizca de tiempo libre, quisieras revisar tus páginas favoritas...")
 	elseif cl == 930 then
-    m "And before you know it, hours have gone by, and you've gotten nothing out of it."
+		cw('m', "Y antes de darte cuenta, te has pasado horas navegando, sacando absolutamente nada de ellas.")
 	elseif cl == 931 then
-    m "Anyway, it's really easy to blame yourself for being lazy..."
+		cw('m', "En cualquier caso, es tan sencillo culparse a uno mismo por ser perezoso...")
 	elseif cl == 932 then
-    m "But it's not really even your fault."
+		cw('m', "Pero ni siquiera es realmente tu culpa.")
 	elseif cl == 933 then
-    m "Addiction isn't usually something you can just make disappear with your own willpower."
+		cw('m', "La adicción no es algo que puedas hacer desaparecer solo con tu fuerza de voluntad.")
 	elseif cl == 934 then
-    m "You have to learn techniques to avoid it, and try different things."
+		cw('m', "Tienes que aprender técnicas para evitarla, y probar cosas diferentes.")
 	elseif cl == 935 then
-    m "For example, there are apps that let you block websites for intervals of time..."
+		cw('m', "Por ejemplo, hay aplicaciones que te permiten bloquear páginas durante intervalos de tiempo...")
 	elseif cl == 936 then
-    m "Or you can set a timer to have a more concrete reminder of when it's time to work versus play..."
+		cw('m', "O puedes preparar un temporizador para tener un recordatorio más concreto de cuándo debe de primar el trabajo frente al ocio...")
 	elseif cl == 937 then
-    m "Or you can separate your work and play environments, which helps your brain get into the right mode."
+		cw('m', "O incluso puedes separar tus entornos de trabajo y de ocio, lo cual ayudará a tu cerebro a centrarse mejor.")
 	elseif cl == 938 then
-    m "Even if you make a new user account on your computer to use for work, that's enough to help."
+		cw('m', "Incluso crear una nueva cuenta de usuario en tu ordenador para trabajar puede ayudar.")
 	elseif cl == 939 then
-    m "Putting any kind of wedge like that between you and your bad habits will help you stay away."
+		cw('m', "Poner cualquier tipo de impedimento entre tú y tus malos hábitos te ayudará a alejarte de ellos.")
 	elseif cl == 940 then
-    m "Just remember not to blame yourself too hard if you're having trouble."
+		cw('m', "Tan solo recuerda no culparte demasiado si te cuesta dejarlos.")
 	elseif cl == 941 then
-    m "If it's really impacting your life, then you should take it seriously."
+		cw('m', "Si tu vida sufre un gran impacto debido a ello, tendrías que tomártelo en serio.")
 	elseif cl == 942 then
-    m "I just want to see you be the best person you can be."
+		cw('m', "Solo quiero verte como la mejor versión de ti mismo.")
 	elseif cl == 943 then
-    m "Will you do something today to make me proud of you?"
+		cw('m', "¿Harás algo hoy que me haga sentir orgullosa de ti?")
 	elseif cl == 944 then
-    cw('m',"I'm always rooting for you, "..player..".")
+		cw('m', "Siempre te apoyaré, " .. player .. ".")
 	elseif cl == 945 then
 	scriptJump(202)
 	end
@@ -2556,19 +2556,19 @@ function ch30_48()
 	if cl < 946 then
 	scriptJump(946)
 	elseif cl == 946 then
-    m "After a long day, I usually just want to sit around and do nothing."
+		cw('m', "Tras un largo día, normalmente solo quiero sentarme y no hacer nada.")
 	elseif cl == 947 then
-    m "I get so burnt out, having to put on smiles and be full of energy the whole day."
+		cw('m', "Acabo tan molida tras tener que pasar el día sonriendo y aparentando estar rebosante de energía.")
 	elseif cl == 948 then
-    m "Sometimes I just want to get right into my pajamas and watch TV on the couch while eating junk food..."
+		cw('m', "A veces solo quiero ponerme el pijama y ver la tele en el sofá mientras zampo comida basura...")
 	elseif cl == 949 then
-    m "It feels so unbelievably good to do that on a Friday, when I don't have anything pressing the next day."
+		cw('m', "Es tan gratificante hacer eso los viernes, teniendo en cuenta que no tengo nada que hacer al día siguiente.")
 	elseif cl == 950 then
-    m "Ahaha! Sorry, I know it's not very cute of me."
+		cw('m', "¡Ja, ja, ja! Lo siento, sé que no es muy bonito viniendo de mí.")
 	elseif cl == 951 then
-    m "But a late night on the couch with you...that would be a dream come true."
+		cw('m', "Pero estar hasta las tantas en el sofá contigo... sería un sueño hecho realidad.")
 	elseif cl == 952 then
-    m "My heart is pounding, just thinking about it."
+		cw('m', "Siento que el corazón se me sale del pecho con solo pensarlo.")
 	elseif cl == 953 then
 	scriptJump(202)
 	end
@@ -2578,29 +2578,29 @@ function ch30_49()
 	if cl < 954 then
 	scriptJump(954)
 	elseif cl == 954 then
-    m "Gosh, I used to be so ignorant about certain things..."
+		cw('m', "Cielos, solía ser tan ignorante de cara a tantas cosas...")
 	elseif cl == 955 then
-    m "When I was in middle school, I thought that taking medication was an easy way out, or something like that."
+		cw('m', "Cuando estaba en secundaria, pensaba que empastillarse era una vía de salida rápida a los problemas o algo así.")
 	elseif cl == 956 then
-    m "Like anyone could just solve their mental problems with enough willpower..."
+		cw('m', "Como si se pudieran resolver los problemas mentales únicamente con fuerza de voluntad...")
 	elseif cl == 957 then
-    m "I guess if you don't suffer from a mental illness, it's not possible to know what it's really like."
+		cw('m', "Supongo que si no sufres de ninguna enfermedad mental, probablemente no sepas lo que es realmente.")
 	elseif cl == 958 then
-    m "Are there some disorders that are over-diagnosed? Probably...I never really looked into it, though."
+		cw('m', "¿Habrán desórdenes que se diagnostiquen a la ligera? Es probable... Pero la verdad es que nunca me he puesto a investigarlo.")
 	elseif cl == 959 then
-    m "But that doesn't change the fact that a lot of them go undiagnosed too, you know?"
+		cw('m', "Pero eso no cambia el hecho de que muchas de ellas pasan bastante desapercibidas, ¿no crees?")
 	elseif cl == 960 then
-    m "But medication aside...people even look down on seeing a mental health professional."
+		cw('m', "Pero dejando a un lado la medicación..., la gente suele subestimar el hecho de ir al psicólogo.")
 	elseif cl == 961 then
-    m "Like, sorry that I want to learn more about my own mind, right?"
+		cw('m', "A lo: «siento querer saber más sobre mi mente», ¿sabes?")
 	elseif cl == 962 then
-    m "Everyone has all kinds of struggles and stresses...and professionals dedicate their lives to helping with those."
+		cw('m', "Todos tenemos nuestros propios problemas y cosas que nos estresan..., y los profesionales dedican sus vidas a ayudar con ello.")
 	elseif cl == 963 then
-    m "If you think it could help you become a better person, don't be shy to consider something like that."
+		cw('m', "Si piensas que podrían ayudarte a ser mejor persona, no dudes en considerarlo.")
 	elseif cl == 964 then
-    m "We're on a never-ending journey to improve ourselves, you know?"
+		cw('m', "Podría decirse que estamos embarcados en un periplo sin fin por ser mejores personas, ¿no crees?")
 	elseif cl == 965 then
-    m "Well...I say that, but I think you're pretty perfect already."
+		cw('m', "Bueno... Aunque diga eso, creo que ya eres sumamente perfecto.")
 	elseif cl == 966 then
 	scriptJump(202)
 	end
@@ -2610,25 +2610,25 @@ function ch30_50()
 	if cl < 967 then	
 	scriptJump(967)
 	elseif cl == 967 then
-    cw('m',player..", how much do you read?")
+		cw('m', "" .. player .. ", ¿cada cuánto tiempo sueles leer?")
 	elseif cl == 968 then
-    m "It's way too easy to neglect reading books..."
+		cw('m', "Es tan sencillo darle la espalda a la lectura...")
 	elseif cl == 969 then
-    m "If you don't read much, it almost feels like a chore, compared to all the other entertainment we have."
+		cw('m', "Si no sueles leer mucho, leer te parece una lata en comparación a todas las formas de entretenimiento que existen.")
 	elseif cl == 970 then
-    m "But once you get into a good book, it's like magic...you get swept away."
+		cw('m', "Pero una vez que das con un buen libro, es algo mágico..., quedas atrapado en él.")
 	elseif cl == 971 then
-    m "I think doing some reading before bed every night is a pretty easy way to make your life a little bit better."
+		cw('m', "Creo que leer un poco antes de dormir cada noche es una forma bastante sencilla de mejorar tu vida un poco.")
 	elseif cl == 972 then
-    m "It helps you get good sleep, and it's really good for your imagination..."
+		cw('m', "Te ayuda a dormir mejor, y hace maravillas a la imaginación...")
 	elseif cl == 973 then
-    m "It's not hard at all to just pick some random book that's short and captivating."
+		cw('m', "No cuesta nada pillar algún libro que sea corto y cautivador.")
 	elseif cl == 974 then
-    m "Before you know it, you might be a pretty avid reader!"
+		cw('m', "¡Antes de darte cuenta, podrías haberte vuelto un ávido lector!")
 	elseif cl == 975 then
-    m "Wouldn't that be wonderful?"
+		cw('m', "¿No sería eso maravilloso?")
 	elseif cl == 976 then
-    m "And the two of us could talk about the latest book you're reading...that sounds super amazing."
+		cw('m', "Y ambos podríamos hablar sobre el último libro que estuvieras leyendo... Cómo molaría...")
 	elseif cl == 977 then
 	scriptJump(202)
 	end
@@ -2638,25 +2638,25 @@ function ch30_51()
 	if cl < 978 then
 	scriptJump(978)
 	elseif cl == 978 then
-    m "You know, I hate to say it, but I think my biggest regret is that we couldn't finish our event at the festival."
+		cw('m', "Sabes que odio decirlo, pero siento que mi mayor arrepentimiento es que no pudiéramos terminar nuestro evento en el festival.")
 	elseif cl == 979 then
-    m "After we worked so hard to prepare and everything!"
+		cw('m', "¡Tras trabajar tan duro con los preparativos y lo demás!")
 	elseif cl == 980 then
-    m "I mean, I know I was focusing a lot on getting new members..."
+		cw('m', "Quiero decir, sé que me estaba centrando un montón en captar a nuevos miembros...")
 	elseif cl == 981 then
-    m "But I was really excited for the performing part, too."
+		cw('m', "Pero me emocionaba tanto también la actuación.")
 	elseif cl == 982 then
-    m "It would have been so much fun to see everyone express themselves."
+		cw('m', "Hubiera sido tan divertido ver a todo el mundo expresarse.")
 	elseif cl == 983 then
-    m "Of course, if we did end up getting any new members, I'd probably just end up deleting them anyway."
+		cw('m', "Por supuesto, si hubiéramos conseguido nuevos miembros, los habría acabado eliminando también.")
 	elseif cl == 984 then
-    m "Well...with the hindsight I have now, that is."
+		cw('m', "O al menos... eso hubiera pasado mirándolo con retrospectiva.")
 	elseif cl == 985 then
-    m "Gosh, it feels like I've kinda grown as a person ever since you've joined the club."
+		cw('m', "Guau, hasta siento que he crecido como persona desde que te uniste al club.")
 	elseif cl == 986 then
-    m "You really helped inspire me to look at life from a new perspective."
+		cw('m', "Me ayudaste mucho a ver la vida desde una perspectiva completamente nueva.")
 	elseif cl == 987 then
-    m "Just another reason for me to love you."
+		cw('m', "Esa es solo otra razón más a la lista de cosas que hacen que te ame.")
 	elseif cl == 988 then
 	scriptJump(202)
 	end
@@ -2666,29 +2666,29 @@ function ch30_52()
 	if cl < 989 then
 	scriptJump(989)
 	elseif cl == 989 then
-    m "There's a really popular character type called 'tsundere'..."
+		cw('m', "Hay un arquetipo de personaje bastante popular llamado «tsundere»...")
 	elseif cl == 990 then
-    m "It's someone who tries to hide their feelings by being mean and fussy, or trying to act tough."
+		cw('m', "Es alguien que intenta esconder sus sentimientos siendo malo y quisquilloso, o intentando parecer duro.")
 	elseif cl == 991 then
-    m "I'm sure it's obvious, but Natsuki was really the embodiment of that."
+		cw('m', "Estoy segura de que te resulta obvio, pero Natsuki era la encarnación de ello.")
 	elseif cl == 992 then
-    m "At first I thought she was just like that because it's supposed to be cute or something..."
+		cw('m', "Al principio, pensaba que ella solo era así porque es una actitud supuestamente adorable o algo así...")
 	elseif cl == 993 then
-    m "But once I started to learn a little more about her personal life, it made a little more sense."
+		cw('m', "Pero a medida que fui sabiendo más acerca de su vida personal, todo empezó a cobrar más sentido.")
 	elseif cl == 994 then
-    m "It seems like she's always trying to keep up with her friends."
+		cw('m', "Parece que siempre intenta picarse con sus amigos.")
 	elseif cl == 995 then
-    m "You know how some friend groups in high school just make a habit of picking on each other all the time?"
+		cw('m', "¿Sabes esos grupos de amigos de instituto que toman el hábito de insultarse mutuamente todo el tiempo?")
 	elseif cl == 996 then
-    m "I think it's really gotten to her, so she has this really defensive attitude all the time."
+		cw('m', "Pues creo que uno hizo mella en ella, por eso siempre está a la defensiva.")
 	elseif cl == 997 then
-    m "And I'm not even going to talk about her home situation..."
+		cw('m', "Y eso sin hablar de su situación en casa...")
 	elseif cl == 998 then
-    m "But looking back, I'm glad I was able to provide the club as a comfortable place for her."
+		cw('m', "Pero echando la vista atrás, me alegra que el club fuera un lugar agradable para ella.")
 	elseif cl == 999 then
-    m "Not that it matters anymore, considering she doesn't even exist."
+		cw('m', "A estas alturas ya no importa, considerando que ni siquiera existe.")
 	elseif cl == 1000 then
-    m "I'm just reminiscing, that's all."
+		cw('m', "Solo estaba recordándolo, eso es todo.")
 	elseif cl == 1001 then
 	scriptJump(202)
 	end
@@ -2698,15 +2698,15 @@ function ch30_53()
 	if cl < 1002 then
 	scriptJump(1002)
 	elseif cl == 1002 then
-    cw('m',player..", would you ever introduce your friends to me?")
+		cw('m', "" .. player .. ", ¿me presentarás algún día a tus amigos?")
 	elseif cl == 1003 then
-    m "I don't know why, but I get really excited when I think about you wanting to show off our relationship like that."
+		cw('m', "No sé por qué, pero me entusiasma el imaginarte queriendo enseñar nuestra relación a los demás.")
 	elseif cl == 1004 then
-    m "Maybe it's because I really want to be someone who makes you proud."
+		cw('m', "Puede que sea porque quiero ser alguien de quien te puedas sentir orgulloso.")
 	elseif cl == 1005 then
-    m "I feel like I would try extra hard to improve myself if you told me it made you proud of me."
+		cw('m', "De hecho, siento que intentaría esforzarme mucho más por ser mejor si me dijeras que eso te haría sentirte orgulloso de mí.")
 	elseif cl == 1006 then
-    m "I hope it's the same the other way around, too."
+		cw('m', "Espero que sea un sentimiento mutuo.")
 	elseif cl == 1007 then
 	scriptJump(202)
 	end
@@ -2716,23 +2716,23 @@ function ch30_54()
 	if cl < 1008 then
 	scriptJump(1008)
 	elseif cl == 1008 then
-    m "I'm not really a fan of cold weather...are you?"
+		cw('m', "Los climas fríos no me apasionan demasiado... ¿Y a ti?")
 	elseif cl == 1009 then
-    m "If I had to choose between too cold and too hot, I would always pick too hot."
+		cw('m', "Si tuviera que elegir entre un clima demasiado frío o demasiado cálido, siempre elegiría el demasiado cálido.")
 	elseif cl == 1010 then
-    m "When you're cold, it can actually be painful..."
+		cw('m', "El frío puede llegar incluso a ser doloroso...")
 	elseif cl == 1011 then
-    m "Your fingers get numb..."
+		cw('m', "Se te entumecen los dedos...")
 	elseif cl == 1012 then
-    m "And if you wear gloves, you can't use your phone."
+		cw('m', "Y si llevas guantes, no puedes usar el móvil.")
 	elseif cl == 1013 then
-    m "It's so inconvenient!"
+		cw('m', "¡Es una lata!")
 	elseif cl == 1014 then
-    m "But when it's too hot, it's not that hard to stay cool with a cold drink, or by staying in the shade."
+		cw('m', "Pero cuando hace demasiado calor, no es demasiado difícil mantenerte fresco con una bebida fría o quedándote a la sombra.")
 	elseif cl == 1015 then
-    m "Although...I do have to admit one thing."
+		cw('m', "Aunque... algo he de admitir.")
 	elseif cl == 1016 then
-    m "Cold weather makes for better cuddle weather. Ahaha!"
+		cw('m', "El clima frío va de la mano con el clima mimoso. ¡Ja, ja, ja!")
 	elseif cl == 1017 then
 	scriptJump(202)
 	end
@@ -2742,23 +2742,23 @@ function ch30_55()
 	if cl < 1018 then
 	scriptJump(1018)
 	elseif cl == 1018 then
-    m "You know, it's funny, because even though I've always had a lot of drive..."
+		cw('m', "Te hará gracia, pero aunque siempre he tenido mucha marcha...")
 	elseif cl == 1019 then
-    m "There's something kind of enticing about being the stay-at-home partner."
+		cw('m', "No me negarás que tiene cierto encanto ser la típica pareja hogareña.")
 	elseif cl == 1020 then
-    m "I guess I'm, like, perpetuating gender roles or whatever by saying that."
+		cw('m', "Supongo que diciendo eso estoy perpetuando roles de género o como quieras llamarlo.")
 	elseif cl == 1021 then
-    m "But being able to keep the house clean, and shop, and decorate, and things like that..."
+		cw('m', "Pero ser capaz de mantener la casa limpia, comprar, decorar y todas esas cosas...")
 	elseif cl == 1022 then
-    m "And having a nice dinner for you when you come home..."
+		cw('m', "Y tener una buena cena lista al llegar a casa...")
 	elseif cl == 1023 then
-    m "Is that a weird fantasy?"
+		cw('m', "¿Te parece una fantasía extraña?")
 	elseif cl == 1024 then
-    m "I mean...I'm not sure if I could actually see myself doing that."
+		cw('m', "Quiero decir... No estoy segura de si sería capaz de verme a mí misma siendo así.")
 	elseif cl == 1025 then
-    m "I wouldn't really be able to put that over striving for a fulfilling career."
+		cw('m', "No creo que fuera capaz de anteponer eso a luchar por una carrera.")
 	elseif cl == 1026 then
-    m "It's kinda cute to think about, though."
+		cw('m', "Eso no quita que sea algo bonito en lo que pensar.")
 	elseif cl == 1027 then
 	scriptJump(202)
 	end
@@ -2768,23 +2768,23 @@ function ch30_56()
 	if cl < 1028 then
 	scriptJump(1028)
 	elseif cl == 1028 then
-    m "I can't help but wonder how things would be different if the game just gave me a route in the first place..."
+		cw('m', "No puedo evitar pensar en qué tan diferentes serían las cosas si para empezar, el juego me hubiera dado mi propia ruta...")
 	elseif cl == 1029 then
-    m "I think I would end up forcing you onto my route anyway."
+		cw('m', "Supongo que terminaría forzándote a ir a ella de todas formas.")
 	elseif cl == 1030 then
-    m "It has less to do with me not having a route, and more to do with me knowing that nothing is real."
+		cw('m', "No es tanto el hecho de no tener una ruta propia, sino el de yo misma sabiendo que nada es real.")
 	elseif cl == 1031 then
-    m "I think the only difference would be that I may not have needed to take such drastic measures to be with you."
+		cw('m', "Creo que la única diferencia sería que no hubiera necesitado tomar medidas tan drásticas para poder estar a tu lado.")
 	elseif cl == 1032 then
-    m "Maybe the rest of the club would still be around..."
+		cw('m', "Tal vez el resto del club todavía seguiría por aquí...")
 	elseif cl == 1033 then
-    m "Not that it really matters."
+		cw('m', "Aunque tampoco es que importe mucho.")
 	elseif cl == 1034 then
-    m "It all lost its meaning once I found out it wasn't real."
+		cw('m', "Todo perdió su significado cuando descubrí que nada era real.")
 	elseif cl == 1035 then
-    m "So I really don't miss those days or anything."
+		cw('m', "Así que no añoro aquellos días, la verdad.")
 	elseif cl == 1036 then
-    m "I really don't..."
+		cw('m', "De verdad que no...")
 	elseif cl == 1037 then
 	scriptJump(202)
 	end
