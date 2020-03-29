@@ -4,6 +4,8 @@ local poemword = 1
 local progress = '1'
 local word = {}
 local wordr
+local wordpos = {x={455,455,455,455,455,675,675,675,675,675},
+                 y={160,250,345,435,525,160,250,345,435,525}}
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0
@@ -186,24 +188,18 @@ function drawPoemGame()
 		end
 	end
 	
-	lg.setColor(0,0,0)
-	lg.draw(gui.check,cursorX,cursorY)
 	lg.setFont(halogenfont)
+	outlineText(word[menuselected][1],wordpos.x[menuselected],wordpos.y[menuselected],'poemgame')
+	lg.setColor(0,0,0)
+	for i = 1, 10 do
+		lg.print(word[i][1],wordpos.x[i],wordpos.y[i])
+	end
+	lg.draw(gui.check,cursorX,cursorY)
 	if poemword <= 20 then
 		lg.print(progress .. '/20',800,70)
 	else
 		lg.print('20/20',800,70)
 	end
-	lg.print(word[1][1],455,160)
-	lg.print(word[2][1],455,250)
-	lg.print(word[3][1],455,345)
-	lg.print(word[4][1],455,435)
-	lg.print(word[5][1],455,525)
-	lg.print(word[6][1],675,160)
-	lg.print(word[7][1],675,250)
-	lg.print(word[8][1],675,345)
-	lg.print(word[9][1],675,435)
-	lg.print(word[10][1],675,525)
 	if spAdd and npAdd and ypAdd and dvertype == 'Test' then
 		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd..'\n'..glitch2g,0,50)
 	end

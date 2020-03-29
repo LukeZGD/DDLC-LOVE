@@ -4,6 +4,8 @@ local poemword = 1
 local progress = '1'
 local word = {}
 local wordr
+local wordpos = {x={117,117,117,117,117,200,200,200,200,200},
+                 y={45,81,117,152,187,45,81,117,152,187}}
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0
@@ -182,16 +184,9 @@ function drawPoemGame()
 	else
 		lg.print('20/20',245,25)
 	end
-	lg.print(word[1][1],117,45)
-	lg.print(word[2][1],117,81)
-	lg.print(word[3][1],117,117)
-	lg.print(word[4][1],117,152)
-	lg.print(word[5][1],117,187)
-	lg.print(word[6][1],200,45)
-	lg.print(word[7][1],200,81)
-	lg.print(word[8][1],200,117)
-	lg.print(word[9][1],200,152)
-	lg.print(word[10][1],200,187)
+	for i = 1, 10 do
+		lg.print(word[i][1],wordpos.x[i],wordpos.y[i])
+	end
 	
 	if poemstate == 0 then
 		lg.setColor(255,255,255,alpha)

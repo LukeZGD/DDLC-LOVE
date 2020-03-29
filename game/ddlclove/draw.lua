@@ -43,6 +43,8 @@ function outlineText(text,x,y,type,arg1)
 			addm = 2.35
 		elseif style_edited and (type == 'c_disp' or type == 'printf') then
 			lg.setColor(255,255,255,alpha)
+		elseif type == 'poemgame' then
+			lg.setColor(255,175,255,alpha)
 		else
 			lg.setColor(0,0,0,alpha)
 		end
