@@ -292,6 +292,7 @@ function event_update_2()
 	if event_type == 'yuri_ch23' and textbox_enabled == false then
 		if event_timer >= 5.5 then 
 			textbox_enabled = true
+			print_full_text = true
 			newgame_keypressed('a')
 		end
 	end
@@ -311,6 +312,7 @@ function event_update_2()
 	if event_type == 'm_ch23ex' and textbox_enabled == false then
 		if event_timer >= 4 then 
 			textbox_enabled = true
+			print_full_text = true
 			newgame_keypressed('a')
 		end
 	end

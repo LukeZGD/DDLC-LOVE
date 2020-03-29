@@ -60,8 +60,10 @@ function event_update_1()
 			eventvar1 = 0
 		elseif eventvar1 > 400 then
 			eventvar2 = eventvar2 - 0.027
-		else
+		elseif eventvar2 then
 			eventvar2 = eventvar2 + 0.027
+		else
+			eventvar2 = 400
 		end
 		
 		posX = posX - 0.625*eventvar4

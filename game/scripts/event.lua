@@ -143,6 +143,7 @@ function drawanimframe(x,y)
 end
 
 function event_next()
+	print_full_text = true
 	newgame_keypressed('a')
 	event_timer = 0
 end

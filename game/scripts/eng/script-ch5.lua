@@ -280,6 +280,7 @@ function ch5script()
 		cw('bl','.......Sayo--','slow')
 	elseif cl == 111 then
 		event_start('s_kill')
+		audioUpdate('d')
 	elseif cl == 112 then
 		event_start('s_kill2')
 	elseif cl == 113 then
