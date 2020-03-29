@@ -16,6 +16,7 @@
 - New 3DS/2DS users may have to disable L2 Cache before playing (see [#7](https://github.com/LukeZGD/DDLC-LOVE/issues/7))
 - **PSP 1000** systems are not supported.
 - The PS3 version is not fully supported, the game may and will glitch out after only a few minutes of playing
+- Multi-language (translations) is supported on all systems **except the 3DS version**
 
 ## Usage:
 - **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. Other methods can be found [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
