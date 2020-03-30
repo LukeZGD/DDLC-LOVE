@@ -12,7 +12,6 @@ function loadCredits(x)
 	if x ~= 1 then
 		logo = lg.newImage('assets/images/gui/logo.png')
 		credits = lg.newImage('assets/images/gui/credits.png')
-		rfnt = lg.newFont('assets/fonts/RifficFree-Bold',12)
 		
 		audioUpdate('credits')
 		c_timer = 0
@@ -68,8 +67,7 @@ function drawCredits()
 		lg.print("Monika",279,2555 - c_timer2)
 		lg.print(player,281,2570 - c_timer2)
 		lg.setColor(255,185,230)
-		lg.setFont(rfnt)
-		lg.print("Concept and Game Design",5,285 - c_timer2)
+		lg.print("Concept and Game Design",15,285 - c_timer2)
 		lg.print("Character Art",260,515 - c_timer2)
 		lg.print("Background Art",58,745 - c_timer2)
 		lg.print("Writing",280,975 - c_timer2)
@@ -82,7 +80,7 @@ function drawCredits()
 	elseif c_timer < 200 then
 		lg.draw(splashw)
 		lg.setFont(font)
-		lg.print('DDLC-LOVE'..dversion..' '..dvertype,5,220)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,5,220)
 		lg.print('Unofficial port by LukeeGD',245,5)
 	end
 	
