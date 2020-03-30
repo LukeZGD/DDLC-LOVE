@@ -33,6 +33,22 @@ function lg.draw(drawable, ...)
 	end
 end
 
+local lgnewImage = lg.newImage
+function lg.newImage(new)
+	if love.filesystem.getInfo(new) then
+        return lgnewImage(new)
+    end
+end
+
+local lgsetFont = lg.setFont
+function lg.setFont(setfont)
+	if setfont then
+		lgsetFont(setfont)
+	else
+		lgsetFont(allerfont)
+	end
+end
+
 function outlineText(text,x,y,type,arg1)
 	if g_system == 'PSP' or g_system == 'PS3' or settings.o == 1 then
 		lg.setColor(0,0,0,alpha)

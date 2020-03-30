@@ -56,6 +56,7 @@ function updateLoad()
 	if l_timer == 99 then		
 		
 		if dvertype == 'Test' then
+			loaderAssets(101)
 			l_timer = 100
 		elseif (not f1 and not f2) or (f1 and not f2) then
 			changeState('language')

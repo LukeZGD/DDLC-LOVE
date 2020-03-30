@@ -411,7 +411,6 @@ function ch30script()
 				--load monika topics
 				local topicsfile = love.filesystem.load('monikatopics.sav')
 				pcall(topicsfile)
-				end
 			else
 				--new monika topics
 				monikatopics = {}

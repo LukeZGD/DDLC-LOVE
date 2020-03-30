@@ -26,12 +26,19 @@ function lg.draw(drawable, ...)
 	end
 end
 
-local lgsetfont = lg.setFont
+local lgnewImage = lg.newImage
+function lg.newImage(new)
+	if love.filesystem.isFile(new) then
+        return lgnewImage(new)
+    end
+end
+
+local lgsetFont = lg.setFont
 function lg.setFont(setfont)
 	if setfont then
-		lgsetfont(setfont)
+		lgsetFont(setfont)
 	else
-		lgsetfont(font)
+		lgsetFont(font)
 	end
 end
 

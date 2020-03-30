@@ -153,6 +153,13 @@ function event_keypressed(key)
 		newgame_keypressed('a')
 	elseif key == 'y' and event_type == 'ch23-30' then
 		menu_mchance = 50
-		menu_enable('pause')
+		if branch == '3ds' then
+			menu_enable('pause2')
+		else
+			menu_enable('pause')
+		end
+	elseif (key == 'minus' or key == '-' or key == 'select') and event_type == 'ch23-30' then
+		if settings.o ~= 1 then settings.o = 1
+		else settings.o = 0 end
 	end
 end

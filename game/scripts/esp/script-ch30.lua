@@ -408,13 +408,8 @@ function ch30script()
 				zzfile = love.filesystem.getInfo('monikatopics.sav')
 			end
 		if zzfile then
-				--load monika topics
-				if global_os == 'LOVE-OneLua' then
-					love.filesystem.load('monikatopics.sav')
-				else
-					local topicsfile = loadstring(love.filesystem.read('monikatopics.sav'))
-					topicsfile()
-				end
+				local topicsfile = love.filesystem.load('monikatopics.sav')
+				pcall(topicsfile)
 			else
 				--new monika topics
 				monikatopics = {}
