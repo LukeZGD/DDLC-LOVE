@@ -435,6 +435,8 @@ function menu_confirm()
 		savenumber = savenum[m_selected-1]
 		if love.filesystem.getInfo('save'..savenumber..'-'..persistent.ptr..'.sav') then
 			changeState('game',2)
+		else
+			menu_enable(menu_previous)
 		end
 	elseif menu_type == 'savegame' and persistent.chr.m == 2 and chapter == 30 then
 		menutext = tr.menuhelp[8]
