@@ -83,7 +83,7 @@ function event_init(etype,arg1,arg2)
 			eyes1 = lg.newImage('assets/images/yuri/eyes1.png')
 			loadYuriGlitch()
 		elseif etype == 'm_ch23ex' then
-			ex3top = lg.newImage('assets/images/gui/'..settings.lang..'/ex3top.png')
+			ex3top = lg.newImage('assets/images/gui/ex3top.png')
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('assets/images/bg/splash-glitch2.png')

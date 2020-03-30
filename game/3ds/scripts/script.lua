@@ -5,7 +5,6 @@ local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
-is3DS = true
 history  = {}
 
 function wrap(str, limit)

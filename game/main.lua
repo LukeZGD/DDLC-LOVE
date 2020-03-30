@@ -1,4 +1,4 @@
-dversion = 'v1.1.1'
+dversion = 'v1.1.2'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 if g_system == 'Switch' then

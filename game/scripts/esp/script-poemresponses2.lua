@@ -968,7 +968,7 @@ function ch23_y_good()
 	hideYuri()
 	pause(1)
 	elseif cl == 710 then
-	yuri_3 = nil
+	yuri_3 = false
 	poemfinish('y')
 	end
 end

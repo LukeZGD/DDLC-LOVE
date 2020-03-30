@@ -10,7 +10,7 @@ local gtext70 = glitchtext(70)
 
 local zfile = 'getInfo'
 local zzfile
-if is3DS then
+if branch == '3ds' then
 	zfile = 'isFile'
 end
 
@@ -402,7 +402,7 @@ function ch30script()
 			
 			scriptJump(205)
 		else
-			if is3DS then
+			if branch == '3ds' then
 				zzfile = love.filesystem.isFile('monikatopics.sav')
 			else
 				zzfile = love.filesystem.getInfo('monikatopics.sav')

@@ -1,6 +1,6 @@
 local gtext120 = glitchtext(120)
 local endx = 100
-if is3DS then
+if branch == '3ds' then
 	endx = 25
 end
 

@@ -197,7 +197,7 @@ function ch20script()
 		updateMonika('3','b',-40,0)
 	elseif m_chance == 0 then
 		updateMonika('g1')
-		if is3DS then
+		if branch == '3ds' then
 			m_Set.x = math.random(-40, -20)
 			m_Set.y = math.random(0, 20)
 		else

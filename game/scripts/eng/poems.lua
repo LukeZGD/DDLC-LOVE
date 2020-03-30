@@ -551,7 +551,7 @@ b3AgbXlzZWxmLg==]]};
 				poembg = lg.newImage('assets/images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				if is3DS then 
+				if branch == '3ds' then 
 					poembg = lg.newImage('assets/images/bg/poemxp.png')
 				else
 					poembg = lg.newImage('assets/images/bg/poem1.png')
