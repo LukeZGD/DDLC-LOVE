@@ -111,7 +111,7 @@ function event_draw_2()
 		end
 		lg.setColor(255,255,255,alpha)
 		drawMonika()
-        if poem_enabled then drawPoem() end
+		if poem_enabled then drawPoem() end
 	end
 	
 	if event_type == 'yuri_ch23' then

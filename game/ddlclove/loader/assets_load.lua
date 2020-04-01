@@ -64,7 +64,7 @@ function loaderAssets(l_timer)
 		gui.save = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/save.png")
 		gui.settings = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/settings.png")
 		gui.setbuttons = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/setbuttons.png")
-        
+		
 	elseif l_timer == 102 then
 		gui.mainbuttons = lg.newImage("assets/images/gui/overlay/mainbuttons.png")
 		gui.gamebuttons = lg.newImage("assets/images/gui/overlay/gamebuttons.png")

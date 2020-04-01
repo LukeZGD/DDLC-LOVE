@@ -36,8 +36,8 @@ end
 local lgnewImage = lg.newImage
 function lg.newImage(new)
 	if love.filesystem.getInfo(new) then
-        return lgnewImage(new)
-    end
+		return lgnewImage(new)
+	end
 end
 
 local lgsetFont = lg.setFont

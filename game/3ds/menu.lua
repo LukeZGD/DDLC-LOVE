@@ -244,7 +244,7 @@ function menu_confirm()
 			changeState('game',2)
 		else
 			menu_enable(menu_previous)
-			menutext = 'Save File '..savenumber..' does not exist.'
+			menutext = "Save file "..savenumber.." is empty."
 		end
 		
 	elseif menu_type == 'savegame' then  --save game confirm 
@@ -254,10 +254,10 @@ function menu_confirm()
 	
 	elseif menu_type == 'pause' or menu_type == 'pause2' then --pause menu options
 		menu_previous = menu_type
-		if m_selected <= 6 and menu_type == 'pause' then
-			if m_selected == 2 then
-				menu_enable('history')
-			elseif m_selected == 3 then
+		if m_selected == 2 then
+			menu_enable('history')
+		elseif m_selected <= 6 and menu_type == 'pause' then
+			if m_selected == 3 then
 				pagenum = 1
 				menu_enable('savegame')
 			elseif m_selected == 4 then

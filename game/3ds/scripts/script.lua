@@ -5,7 +5,7 @@ local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
-history  = {}
+history = {}
 
 function wrap(str, limit)
 	local here = 1
@@ -69,7 +69,9 @@ function cw(p1, stext, tag)
 	
 	local temptext = wrap(stext,45)
 	local temptext2 = ct..': '..temptext
-	if history[1] ~= temptext and history[1] ~= temptext2 then
+	if cl >= 2001 then
+		history[1] = ''
+	elseif history[1] ~= temptext and history[1] ~= temptext2 then
 		for i = 12, 1, -1 do
 			history[i] = history[i-1]
 		end
