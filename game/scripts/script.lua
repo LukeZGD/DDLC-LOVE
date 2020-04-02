@@ -1,10 +1,12 @@
 require('loader/events')
 local stext
+local c_a1
 local tspd
 local tagtimer = 0
 local pchapter
 local aa
 local script_poemresponsesx = false
+c_disp = {}
 history = {}
 
 function wrap(str, limit)
@@ -20,15 +22,15 @@ end
 
 function cw(p1, stext, tag)
 	if p1 == 's' then
-		ct = 'Sayori'
+		ct = tr.names[1]
 	elseif p1 == 'n' then
-		ct = 'Natsuki'
+		ct = tr.names[2]
 	elseif p1 == 'y' then
-		ct = 'Yuri'
+		ct = tr.names[3]
 	elseif p1 == 'm' then
-		ct = 'Monika'
+		ct = tr.names[4]
 	elseif p1 == 'ny' then
-		ct = 'Nat & Yuri'
+		ct = tr.names[5]
 	elseif p1 == 'mc' then
 		ct = player
 	elseif p1 == 'bl' then
@@ -62,28 +64,44 @@ function cw(p1, stext, tag)
 	end
 	textx = dripText(stext,tspd,startTime)
 	
-	if style_edited then
-		c_a1 = 35
+	if textx == stext then
+		gui_ctc_t = true
 	else
-		c_a1 = 45
+		gui_ctc_t = false
 	end
-    
-	c_disp = wrap(textx,c_a1)
 	
-	local temptext = wrap(stext,45)
-	local temptext2 = ct..': '..temptext
-	if cl >= 2001 then
-		history[1] = ''
-	elseif history[1] ~= temptext and history[1] ~= temptext2 then
-		for i = 12, 1, -1 do
+	if branch == '3ds' then
+		if style_edited then
+			c_a1 = {35}
+		else
+			c_a1 = {45}
+		end
+		stext = wrap(stext,45)
+	else
+		if style_edited then
+			c_a1 = {40,104,156}
+		else
+			c_a1 = {65,140,210}
+		end
+	end
+	
+	if g_system == 'PS3' then
+		c_disp = wrap_old(textx,c_a1)
+	else
+		c_disp[1] = wrap(textx,c_a1[1])
+	end
+	
+	local temptext = ct..': '..stext
+	if history[1] ~= stext and history[1] ~= temptext then
+		for i = 30, 1, -1 do
 			history[i] = history[i-1]
 		end
 		if style_edited then
 			history[1] = ''
 		elseif ct == '' then
-			history[1] = temptext
+			history[1] = stext
 		else
-			history[1] = temptext2
+			history[1] = temptext
 		end
 	end
 	
@@ -103,17 +121,17 @@ function cw(p1, stext, tag)
 end
 
 function scriptCheck()
-	c_disp = ''
+	c_disp = {'','','',''}
 	
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
-		require('scripts/eng/script-poemresponses')
-		require('scripts/eng/poems')
+		require('scripts/'..settings.lang..'/script-poemresponses')
+		require('scripts/'..settings.lang..'/poems')
 		if persistent.ptr == 0 then
-			require('scripts/eng/script-poemresponses1')
+			require('scripts/'..settings.lang..'/script-poemresponses1')
 		else
-			require('scripts/eng/script-poemresponses2')
+			require('scripts/'..settings.lang..'/script-poemresponses2')
 		end
 		script_poemresponsesx = true
 	else
@@ -151,8 +169,8 @@ function y (say) return cw('y',say) end
 function m (say) return cw('m',say) end
 
 function pause(t)
-	autotimer = 0
 	if event_enabled then textbox_enabled = false end
+	autotimer = 0
 	tagtimer = tagtimer + dt
 	if tagtimer >= t then
 		scriptJump(cl+1)
@@ -189,11 +207,11 @@ function poeminitialize(y)
 	poemsread = 0
 	readpoem = {s=0,n=0,y=0,m=0}
 	if persistent.ptr == 0 then
-		choices = {'Sayori','Natsuki','Yuri','Monika'}
+		choices = {tr.names[1],tr.names[2],tr.names[3],tr.names[4]}
 	elseif y == 'y_ranaway' then
-		choices = {'Natsuki','Monika'}
+		choices = {tr.names[2],tr.names[4]}
 	else
-		choices = {'Natsuki','Yuri','Monika'}
+		choices = {tr.names[2],tr.names[3],tr.names[4]}
 	end
 	scriptJump(666,'',0)
 end
@@ -222,10 +240,10 @@ function space(range)
 	return spaces
 end
 
-
-function updateConsole(text,text2,text3)
-	if console_enabled ~= true then console_enabled = true end
-	console_text1 = dripText(text,30,startTime)
+function updateConsole(text,text2,text3,text4)
+	if not console_enabled then console_enabled = true end
+	console_text1 = text
 	if text2 then console_text2 = text2 else console_text2 = '' end
 	if text3 then console_text3 = text3 else console_text3 = '' end
+	if text4 then console_text4 = text4 else console_text4 = '' end
 end

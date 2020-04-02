@@ -35,8 +35,8 @@ function drawTextBox()
 		lg.draw(textbox, xps.textbox, yps.textbox)
 		lg.setColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
-		if c_disp then
-			lg.print(c_disp,xps.c,yps.c)
+		if c_disp[1] then
+			lg.print(c_disp[1],xps.c,yps.c)
 		end
 	end
 	if settings.textloc == 'Top' then drawBottomScreen() end
