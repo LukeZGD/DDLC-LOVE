@@ -5,7 +5,7 @@ local progress = '1'
 local word = {}
 local wordr
 local wordpos = {x={117,117,117,117,117,200,200,200,200,200},
-                 y={45,81,117,152,187,45,81,117,152,187}}
+				 y={45,81,117,152,187,45,81,117,152,187}}
 local sPoint = 0
 local nPoint = 0
 local yPoint = 0

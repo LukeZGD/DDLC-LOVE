@@ -47,9 +47,9 @@ function dripText(text,cps,sTime)
 	end
 
 	local cTime = getTime
-    local sTime2
-    local length
-    
+	local sTime2
+	local length
+	
 	if (cTime <= sTime) or sTime == 0 then return '' end
 	if cTime > sTime then sTime2 = getTime end
 	if not cps then cps = 100 end

@@ -28,7 +28,7 @@ if branch == 'ddlclove' then
 	cg1 = 'blank'
 else
 	settings.textloc = 'Bottom'
-    cg1 = ''
+	cg1 = ''
 end
 --default save values
 cl = 1
@@ -60,7 +60,7 @@ end
 
 function savegame(x)
 	local choiceset = ''
-    
+	
 	
 	for i = 1, 4 do
 		if choices[i] and choices[i+1] then

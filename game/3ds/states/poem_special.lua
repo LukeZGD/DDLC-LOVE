@@ -81,7 +81,7 @@ function updatepoem_special()
 	else
 		p_alpha = math.min(p_alpha + 5, 255)
 	end
-    if xaload == 500 then audioUpdate('0') end
+	if xaload == 500 then audioUpdate('0') end
 end
 
 function poem_special_keypressed(key)

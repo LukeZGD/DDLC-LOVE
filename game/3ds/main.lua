@@ -33,6 +33,6 @@ function main_update()
 end
 
 function love.errhand(msg)
-    msg = debug.traceback("Error: " .. tostring(msg))
-    love.filesystem.write("error.txt",msg)
+	msg = debug.traceback("Error: " .. tostring(msg))
+	love.filesystem.write("error.txt",msg)
 end
