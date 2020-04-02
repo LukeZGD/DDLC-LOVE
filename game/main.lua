@@ -5,7 +5,7 @@ if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
 end
-if love.getVersion() < 11 then
+if love.getVersion() < 11 and global_os ~= 'LOVE-WrapLua' then
 	branch = '3ds'
 else
 	branch = 'ddlclove'
