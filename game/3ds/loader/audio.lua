@@ -6,11 +6,7 @@ function audioUpdate(audiox, forceload) --audio changes
 		collectgarbage()
 		if audiox ~= '' and audiox ~= '0' then
 			audio_bgm = love.audio.newSource('assets/audio/bgm/'..audiox..'.ogg', 'stream')
-			if audiox == 'd' or audiox == 'credits' or audiox == 'end-voice' then
-				audio_bgm:setLooping(false)
-			else
-				audio_bgm:setLooping(true)
-			end
+            audio_bgm:setLooping(true)
 			audio_bgm:play()
 		end
 	end
