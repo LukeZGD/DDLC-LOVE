@@ -26,7 +26,7 @@ function event_draw_1()
 			lg.draw(exception)
 		elseif event_timer >= 5.75 then
 			lg.setColor(255,255,255,128)
-			lg.draw(background_Image, posX, posY)
+			lg.draw(menu_bg, posX, posY)
 		elseif event_timer >= 3.75 then
 			lg.setColor(255,255,255,eventvar3)
 			lg.draw(splash_glitch)
@@ -58,9 +58,9 @@ function event_update_1()
 		eventvar1 = eventvar1 + 3.2
 		if eventvar1 >= 800 then
 			eventvar1 = 0
-		elseif eventvar1 > 400 then
+		elseif eventvar1 > 400 and tonumber(eventvar2) then
 			eventvar2 = eventvar2 - 0.027
-		elseif eventvar2 then
+		elseif tonumber(eventvar2) then
 			eventvar2 = eventvar2 + 0.027
 		else
 			eventvar2 = 400

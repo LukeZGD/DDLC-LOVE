@@ -4,7 +4,7 @@ local bgalpha = 255
 
 function timerCheck()
 	if xaload == 0 then
-		myTextStartTime = love.timer.getTime()
+		startTime = getTime
 	end
 	xaload = xaload + 1
 end
@@ -42,7 +42,7 @@ function drawGame()
 	
 	drawBottomScreen()
 	lg.setColor(255,255,255,alpha)
-	if bgimg_disabled ~= true then lg.draw(background_Image, posX, posY) end
+	if bgimg_disabled ~= true then lg.draw(menu_bg, posX, posY) end
 	lg.setFont(font)
 	if textbox_enabled then
 		drawNumbers()

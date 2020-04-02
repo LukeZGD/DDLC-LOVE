@@ -10,8 +10,8 @@ function loaderAssets(l_timer)
 		lg.setFont(allerfont)
 
 	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('assets/audio/sfx/select'..audio_ext,'static')
-		sfx2 = love.audio.newSource('assets/audio/sfx/hover'..audio_ext,'static')
+		sfx1 = love.audio.newSource('assets/audio/sfx/select.mp3','static')
+		sfx2 = love.audio.newSource('assets/audio/sfx/hover.mp3','static')
 		menu_bg_m = lg.newImage("assets/images/gui/menu_bg_m.png")
 
 		gui.keysbox = lg.newImage("assets/images/gui/button/box.png")
@@ -22,7 +22,7 @@ function loaderAssets(l_timer)
 		--splash, title screen, gui elements, sfx
 		namebox = lg.newImage('assets/images/gui/namebox.png')
 		textbox = lg.newImage('assets/images/gui/textbox.png')
-		background_Image = lg.newImage('assets/images/gui/menu_bg.png')
+		menu_bg = lg.newImage('assets/images/gui/menu_bg.png')
 		gui.check = lg.newImage('assets/images/gui/button/check_selected_foreground.png')
 		gui.ctc = lg.newImage('assets/images/gui/ctc.png')
 		gui.skip = lg.newImage('assets/images/gui/skip.png')
@@ -37,22 +37,23 @@ function loaderAssets(l_timer)
 		y1 = lg.newFont('assets/fonts/y1.ttf',30) --yuri poem font
 		s1 = lg.newFont('assets/fonts/s1.ttf',32) --sayori poem font
 		n1 = lg.newFont('assets/fonts/n1.ttf',26) --natsuki poem font
-		deffont = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
+		dfnt = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
 		halogenfont = lg.newFont('assets/fonts/Halogen.ttf',28) --poem game font
 		rifficfont = lg.newFont('assets/fonts/RifficFree-Bold.ttf',24) --charactername font
 		
 		--set your custom fonts for translations here!
-		--[[if settings.lang == 'eng' then
+		--[[
+		if settings.lang == 'languagecode' then
+			m1 = lg.newFont('assets/fonts/nameoffont.ttf',fontsize)
+		else
 			m1 = lg.newFont('assets/fonts/m1.ttf',28) --monika poem font
 			y1 = lg.newFont('assets/fonts/y1.ttf',30) --yuri poem font
 			s1 = lg.newFont('assets/fonts/s1.ttf',32) --sayori poem font
 			n1 = lg.newFont('assets/fonts/n1.ttf',26) --natsuki poem font
-			deffont = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
+			dfnt = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
 			halogenfont = lg.newFont('assets/fonts/Halogen.ttf',28) --poem game font
 			rifficfont = lg.newFont('assets/fonts/RifficFree-Bold.ttf',24) --charactername font
-			
-			elseif settings.lang == 'languagecode' then
-			m1 = lg.newFont('assets/fonts/nameoffont.ttf',fontsize)
+		end
 		]]
 
 	elseif l_timer == 101 then

@@ -1,23 +1,44 @@
+--random special poems, no repeating
+local spr = {}
+sp = {}
+for i = 1, 11 do
+	spr[i] = i
+end
+for i = 1, 3 do
+	local random = math.random(1,#spr)
+	sp[i] = spr[random]
+	table.remove(spr,random)
+end
+
+local yvalue = 4
 --default persistent values
 player = ''
 persistent = {
 	ptr=0;
 	clear={0,0,0,0,0,0,0,0,0};
 	chr={m=1,s=1};
-	act2={0,0,0,0};
 }
-sp = {math.random(1, 11),math.random(1, 11),math.random(1, 11)}
-settings = {textspd=100,autospd=4,masvol=70,bgmvol=70,sfxvol=70,lang='eng',o=0}
+settings = {textspd=75,autospd=4,lang='eng'}
+if branch == 'ddlclove' then
+	persistent.act2 = {0,0,0,0}
+	settings.masvol = 70
+	settings.bgmvol = 70
+	settings.sfxvol = 70
+	settings.o = 0
+	cg1 = 'blank'
+else
+	settings.textloc = 'Bottom'
+    cg1 = ''
+end
 --default save values
 cl = 1
 bg1 = 'black'
 audio1 = '0'
-cg1 = 'blank'
 ct = ''
-s_Set = {a='',b='',x=-200,y=4}
-y_Set = {a='',b='',x=-200,y=4}
-n_Set = {a='',b='',x=-200,y=4}
-m_Set = {a='',b='',x=-200,y=4}
+s_Set = {a='',b='',x=-200,y=yvalue}
+y_Set = {a='',b='',x=-200,y=yvalue}
+n_Set = {a='',b='',x=-200,y=yvalue}
+m_Set = {a='',b='',x=-200,y=yvalue}
 chapter = 0
 readpoem = {s=0,n=0,y=0,m=0}
 choices = {'','','',''}
@@ -31,8 +52,15 @@ appeal = {s=0,n=0,y=0}
 savevalue = ''
 savenumber = 1
 
+if global_os ~= 'LOVE-WrapLua' then
+	function love.filesystem.load(file)
+		return loadstring(love.filesystem.read(file))
+	end
+end
+
 function savegame(x)
 	local choiceset = ''
+    
 	
 	for i = 1, 4 do
 		if choices[i] and choices[i+1] then
@@ -70,20 +98,14 @@ savevalue='"..savevalue.."'"
 	end
 end
 
-if global_os ~= 'LOVE-WrapLua' then
-	function love.filesystem.load(file)
-		return loadstring(love.filesystem.read(file))
-	end
-end
-
 function loadgame(x)
-	local savfile
+	local file
 	if x == 'autoload' then
-		savfile = love.filesystem.load("save-autoload.sav")
+		file = love.filesystem.load("save-autoload.sav")
 	else
-		savfile = love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
+		file = love.filesystem.load("save"..savenumber.."-"..persistent.ptr..".sav")
 	end
-	pcall(savfile)
+	pcall(file)
 end
 
 function savedatainfo(save)
@@ -97,49 +119,64 @@ function loaddatainfo(save)
 end
 
 function savesettings()
-	local setfile = "settings={"
-	setfile = setfile.."textspd="..settings.textspd..","
-	setfile = setfile.."autospd="..settings.autospd..","
-	setfile = setfile.."masvol="..settings.masvol..","
-	setfile = setfile.."bgmvol="..settings.bgmvol..","
-	setfile = setfile.."sfxvol="..settings.sfxvol..","
-	setfile = setfile.."lang='"..settings.lang.."',"
-	setfile = setfile.."o="..settings.o.."}"
-	love.filesystem.write("settings.sav", setfile)
+	local file
+	if branch == 'ddlclove' then
+		file = "settings={"
+		file = file.."textspd="..settings.textspd..","
+		file = file.."autospd="..settings.autospd..","
+		file = file.."masvol="..settings.masvol..","
+		file = file.."bgmvol="..settings.bgmvol..","
+		file = file.."sfxvol="..settings.sfxvol..","
+		file = file.."lang='"..settings.lang.."',"
+		file = file.."o="..settings.o.."}"
+	else
+		file = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',autospd="..settings.autospd..",lang='eng'}"
+	end
+	love.filesystem.write("settings.sav", file)
 end
 
 function loadsettings()
-	local settingsfile = love.filesystem.load('settings.sav')
-	pcall(settingsfile)
+	local file = love.filesystem.load('settings.sav')
+	pcall(file)
 end
 
 function savepersistent()
-	local pset = ''
-	local act2 = ''
+	local clear = ''
+	
 	for i = 1, #persistent.clear do
 		if persistent.clear[i] and persistent.clear[i+1] then
-			pset = pset..persistent.clear[i]..","
+			clear = clear..persistent.clear[i]..","
 		elseif persistent.clear[i] then
-			pset = pset..persistent.clear[i]
+			clear = clear..persistent.clear[i]
 		end
 	end
-	for i = 1, #persistent.act2 do
-		if persistent.act2[i] and persistent.act2[i+1] then
-			act2 = act2..persistent.act2[i]..","
-		elseif persistent.clear[i] then
-			act2 = act2..persistent.act2[i]
-		end
-	end
-	local spfile = "player='"..player.."'\
-persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
-act2={"..act2.."},\
-clear={"..pset.."}};\
-sp={"..sp[1]..','..sp[2]..','..sp[3]..'}'
 	
-	love.filesystem.write('persistent', spfile)
+	local file = "player='"..player.."'\
+sp={"..sp[1]..','..sp[2]..','..sp[3].."}\
+persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
+clear={"..clear..'}'
+	
+	if branch == 'ddlclove' then
+		local act2 = ''
+		for i = 1, #persistent.act2 do
+			if persistent.act2[i] and persistent.act2[i+1] then
+				act2 = act2..persistent.act2[i]..","
+			elseif persistent.clear[i] then
+				act2 = act2..persistent.act2[i]
+			end
+		end
+		file = file..",\
+act2={"..act2.."}"
+	end
+	
+	file = file..'}'	
+	love.filesystem.write("persistent", file)
 end
 
 function loadpersistent()
-	local pfile = love.filesystem.load('persistent')
-	pcall(pfile)
+	local file = love.filesystem.load("persistent")
+	pcall(file)
+	if branch == '3ds' then
+		loadsettings()
+	end
 end

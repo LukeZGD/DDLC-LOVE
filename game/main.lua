@@ -1,14 +1,25 @@
-dversion = 'v1.1.3'
+dversion = 'v1.1.4'
 dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
 end
-if global_os == 'Horizon' and g_system ~= 'Switch' and global_os ~= 'LOVE-OneLua' then
+if love.getVersion() < 11 then
 	branch = '3ds'
 else
 	branch = 'ddlclove'
+end
+
+os_timecheck = os.time()
+if os_timecheck then
+	if branch == 'ddlclove' then
+		love.math.setRandomSeed(os.time())
+	end
+	math.randomseed(os.time())
+	math.random()
+	math.random()
+	math.random()
 end
 
 require('loader/characters')
@@ -16,14 +27,16 @@ require(branch..'/loader/audio')
 require(branch..'/loader/images')
 require(branch..'/loader/states')
 require(branch..'/main')
-require(branch..'/draw')
-require(branch..'/saveload')
+require('draw')
+require('saveload')
 require(branch..'/menu')
 require(branch..'/scripts/script')
 
 function love.load() 
 	lg.setBackgroundColor(0,0,0)
 	
+	getTime = 0
+	startTime = getTime
 	last_text = ''
 	print_full_text = false
 	autotimer = 0
@@ -37,7 +50,17 @@ function love.load()
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	main_load()
+	if pcall (love.graphics.set3D, true) == true then
+		love.graphics.set3D(true)
+	end
+	
+	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' then
+		love.window.setFullscreen(true)
+		love.window.setTitle('DDLC-LOVE')
+		love.keyboard.setTextInput(false)
+		dwidth, dheight = love.window.getDesktopDimensions()
+	end
+	
 	changeState('load')
 end
 
@@ -113,8 +136,8 @@ function love.keypressed(key)
 		elseif (state == 's_kill_early' or state == 'ghostmenu') and key == 'y' then
 			love.event.quit()
 		end
-	elseif ingamekeys then
-		ingamekeys_keypressed(key)
+	elseif keyboard then
+		keyboard_keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end

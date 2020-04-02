@@ -1,4 +1,3 @@
-lg = love.graphics
 local drawbottom
 local xps = {}
 local yps = {}
@@ -16,96 +15,6 @@ end
 
 function drawBottomScreen()
 	lg.setScreen('bottom')
-end
-
-local lgdraw = lg.draw
-function lg.draw(drawable, ...)
-	local args = {...}
-	if drawable then
-		lgdraw(drawable,args[1],args[2],args[3],args[4],args[5])
-	end
-end
-
-local lgnewImage = lg.newImage
-function lg.newImage(new)
-	if love.filesystem.isFile(new) then
-		return lgnewImage(new)
-	end
-end
-
-local lgsetFont = lg.setFont
-function lg.setFont(setfont)
-	if setfont then
-		lgsetFont(setfont)
-	else
-		lgsetFont(font)
-	end
-end
-
-function dripText(text,charactersPerSecond,startTime)
-	if text ~= last_text then
-		startTime = love.timer.getTime()
-		myTextStartTime = startTime
-		last_text = text
-		print_full_text = false
-	end
-
-	currentTime = love.timer.getTime()
-	if (currentTime <= startTime) or startTime == 0 then return '' end
-	if currentTime > startTime then myTextStartTime2 = love.timer.getTime() end
-	if charactersPerSecond == nil then charactersPerSecond = 100 end
-	length = math.floor((currentTime-startTime)*charactersPerSecond)
-	length = math.max(length,1)
-	length = math.min(length,text:len())
-
-	if print_full_text then
-		return text
-	end
-
-	if length == text:len() then
-		print_full_text = true
-	else
-		print_full_text = false
-	end
-
-	return text:sub(1,length)
-end
-
-function easeQuadOut(t,b,c,d)
-	t = t / d
-	return -(c) * t*(t-2) + b
-end
-
-function fadeOut(x)
-	alpha = math.max(alpha - 2.5, 0)
-	--fade out to poemgame
-	if x == 1 then
-		if alpha == 0 then
-			changeState('poemgame')
-		end
-	--fade out from poemgame to game
-	elseif x == 2 then
-		if alpha == 0 then
-			changeState('game',3)
-		end
-	--fade out from game to game (add 1 to chapter)
-	elseif x == 3 then
-		if alpha == 0 then
-			chapter = chapter + 1
-			changeState('game',3)
-		end
-	--fade out then go to next 2 lines
-	elseif x == 4 then
-		if alpha == 0 then
-			scriptJump(cl + 2)
-			alpha = 255
-		end
-	end
-end
-
-function cgHide()
-	cg1 = ''
-	cgch = nil
 end
 
 function drawTextBox()

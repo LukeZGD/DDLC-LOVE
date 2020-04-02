@@ -52,7 +52,7 @@ function sfxplay(sfx) --sfx stuff
 		sfxp = nil
 		
 		if sfx ~= '' then
-			sfxp = love.audio.newSource('assets/audio/sfx/'..sfx..audio_ext, 'static')
+			sfxp = love.audio.newSource('assets/audio/sfx/'..sfx..'.mp3', 'static')
 		end
 		if sfxp then
 			sfxp:setVolume((settings.sfxvol/100)*(settings.masvol/100))

@@ -16,7 +16,7 @@ function loaderAssets(l_timer)
 		--splash, title screen, gui elements, sfx
 		namebox = lg.newImage('assets/images/gui/namebox.png')
 		textbox = lg.newImage('assets/images/gui/textbox.png')
-		background_Image = lg.newImage('assets/images/bg/menu_bg.png')
+		menu_bg = lg.newImage('assets/images/bg/menu_bg.png')
 		guicheck = lg.newImage('assets/images/gui/check.png')
 	end
 end

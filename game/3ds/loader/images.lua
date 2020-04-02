@@ -26,3 +26,8 @@ function cgUpdate(cgx, forceload) --cg changes
 	end	
 	cg1 = cgx
 end
+
+function cgHide()
+	cg1 = ''
+	cgch = nil
+end

@@ -211,7 +211,7 @@ function drawPoemGame()
 	
 	drawBottomScreen()
 	lg.setColor(255,255,255,alpha)
-	lg.draw(background_Image, posX, posY)
+	lg.draw(menu_bg, posX, posY)
 	
 	if persistent.ptr == 0 then
 		lg.draw(s_sticker,50,s_y)

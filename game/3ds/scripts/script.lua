@@ -42,8 +42,10 @@ function cw(p1, stext, tag)
 	if stext == nil then stext = '' end
 	
 	--auto add quotation marks
-	if p1 ~= 'bl' then
-		stext = '"'..stext..'"'
+	if settings.lang == 'eng' then
+		if p1 ~= 'bl' then
+			stext = '"'..stext..'"'
+		end
 	end
 	
 	--text drip for scripts
@@ -58,13 +60,14 @@ function cw(p1, stext, tag)
 	else
 		tspd = settings.textspd
 	end
-	textx = dripText(stext,tspd,myTextStartTime)
+	textx = dripText(stext,tspd,startTime)
 	
 	if style_edited then
 		c_a1 = 35
 	else
 		c_a1 = 45
 	end
+    
 	c_disp = wrap(textx,c_a1)
 	
 	local temptext = wrap(stext,45)
@@ -222,7 +225,7 @@ end
 
 function updateConsole(text,text2,text3)
 	if console_enabled ~= true then console_enabled = true end
-	console_text1 = dripText(text,30,myTextStartTime)
+	console_text1 = dripText(text,30,startTime)
 	if text2 then console_text2 = text2 else console_text2 = '' end
 	if text3 then console_text3 = text3 else console_text3 = '' end
 end

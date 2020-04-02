@@ -38,7 +38,7 @@ function updateLoad()
 	loaderAssets(l_timer)
 		
 	if l_timer == 99 then
-		local file = love.filesystem.isFile('persistent')
+		local file = love.filesystem.getInfo('persistent')
 		require('scripts/eng/text')
 		if file then
 			checkLoad()
@@ -55,7 +55,7 @@ function updateLoad()
 end
 
 function checkLoad()
-	if love.filesystem.isFile('persistent') and love.filesystem.isFile('settings.sav') then
+	if love.filesystem.getInfo('persistent') and love.filesystem.getInfo('settings.sav') then
 		loadpersistent()
 	end
 	

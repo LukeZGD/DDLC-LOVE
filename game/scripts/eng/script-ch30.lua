@@ -10,9 +10,6 @@ local gtext70 = glitchtext(70)
 
 local zfile = 'getInfo'
 local zzfile
-if branch == '3ds' then
-	zfile = 'isFile'
-end
 
 poemwinner = {'','',''}
 savevalue = ''
@@ -402,11 +399,7 @@ function ch30script()
 			
 			scriptJump(205)
 		else
-			if branch == '3ds' then
-				zzfile = love.filesystem.isFile('monikatopics.sav')
-			else
-				zzfile = love.filesystem.getInfo('monikatopics.sav')
-			end
+			zzfile = love.filesystem.getInfo('monikatopics.sav')
 			if zzfile then
 				--load monika topics
 				local topicsfile = love.filesystem.load('monikatopics.sav')

@@ -10,9 +10,9 @@ local keyboardrow2 = {'q','w','e','r','t','y','u','i','o','p'}
 local keyboardrow3 = {'a','s','d','f','g','h','j','k','l','X  Space'}
 local keyboardrow4 = {'z','x','c','v','b','n','m','','','X  Enter'}
 
-function ingamekeys_draw()
+function keyboard_draw()
 	if g_system == 'PS3' then
-		lg.draw(background_Image,posX,posY)
+		lg.draw(menu_bg,posX,posY)
 	end
 	lg.setColor(255,255,255,menu_alpha/2)
 	lg.rectangle('fill',0,0,1280,725)
@@ -50,7 +50,7 @@ function ingamekeys_draw()
 	lg.print("Triangle - Toggle Caps Lock",290,500)
 end
 
-function ingamekeys_keypressed(key)
+function keyboard_keypressed(key)
 	if key == 'left' and keycursorX > 1 then
 		keycursorX = keycursorX - 1
 	elseif key == 'right' and keycursorX < 10 then
@@ -63,8 +63,7 @@ function ingamekeys_keypressed(key)
 		if keycursorY == 3 and keycursorX == 10 then
 			textinput = textinput..' '
 		elseif keycursorY == 4 and keycursorX == 10 then
-			ingamekeys = false
-			ingamekeyset = true
+			keyboard = false
 			love.textinput(textinput)
 		elseif keycursorY == 1 then
 			textinput = textinput..keyboardrow1[keycursorX]

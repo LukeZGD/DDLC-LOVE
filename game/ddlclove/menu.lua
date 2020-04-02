@@ -123,7 +123,7 @@ function menu_drawstuff(a)
 		lg.setColor(255,189,225,255)
 	elseif a == 'overlay' then
 		lg.setColor(255,255,255,menu_alpha)
-		lg.draw(background_Image,posX,posY)
+		lg.draw(menu_bg,posX,posY)
 		lg.draw(gui.mmenu)
 		if menu_previous == 'pause' then
 			lg.draw(gui.gamebuttons)
@@ -142,7 +142,7 @@ function menu_draw()
 		
 	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' or menu_type == 'language' then
 		if g_system == 'PS3' then
-			lg.draw(background_Image,posX,posY)
+			lg.draw(menu_bg,posX,posY)
 		end
 		if menu_type == 'choice' then
 			lg.setColor(255,255,255,255)
@@ -196,7 +196,7 @@ function menu_draw()
 		
 	elseif menu_type == 'help' then
 		lg.setColor(255,255,255,menu_alpha)
-		lg.draw(background_Image,posX,posY)
+		lg.draw(menu_bg,posX,posY)
 		lg.setColor(255,189,225,menu_alpha)
 		lg.rectangle('fill',100,50,1080,620)
 		lg.setColor(255,230,244,menu_alpha)
@@ -410,8 +410,8 @@ function menu_confirm()
 					input["isPassword"] = false
 					love.keyboard.showTextInput(input)
 				else
-					require('ddlclove/ingamekeys')
-					ingamekeys = true
+					require('ddlclove/keyboard')
+					keyboard = true
 				end
 			end
 			menu_previous = nil

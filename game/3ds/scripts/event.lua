@@ -80,7 +80,7 @@ function event_draw()
 	end
 	
 	if bgimg_disabled ~= true then
-		lg.draw(background_Image, posX, posY)
+		lg.draw(menu_bg, posX, posY)
 		lg.setColor(0,0,0)
 	end
 	

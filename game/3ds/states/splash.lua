@@ -26,7 +26,7 @@ function drawSplash()
 		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
-		lg.draw(background_Image,posX,posY)
+		lg.draw(menu_bg,posX,posY)
 		lg.draw(titlebg)
 		
 		lg.setColor(64,64,64,alpha)

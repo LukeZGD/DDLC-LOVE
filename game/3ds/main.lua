@@ -1,17 +1,7 @@
-function main_load() 
-	if pcall (love.graphics.set3D, true) == true then
-		love.graphics.set3D(true)
-	end
-	myTextStartTime = love.timer.getTime()
-	posX = -40
-	
-	math.randomseed(os.time())
-	math.random()
-	math.random()
-	math.random()
-end
+love.filesystem.getInfo = love.filesystem.isFile
 
 function main_update()
+	getTime = getTime + dt
 	--moving background
 	posX = posX - 0.25
 	posY = posY - 0.25
@@ -40,4 +30,9 @@ function main_update()
 	elseif mouseDown == false then
 		mousereleased = nil
 	end
+end
+
+function love.errhand(msg)
+    msg = debug.traceback("Error: " .. tostring(msg))
+    love.filesystem.write("error.txt",msg)
 end

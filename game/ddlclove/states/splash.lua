@@ -29,7 +29,7 @@ function drawSplash()
 	elseif state == 'title' then --title (Title Screen)
 		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
-		lg.draw(background_Image, posX, posY)
+		lg.draw(menu_bg, posX, posY)
 		lg.draw(gui.sidebar,-720+titlebg_ypos,0)
 		drawSplashChar()
 		lg.draw(gui.mainbuttons)
@@ -41,7 +41,7 @@ function drawSplash()
 		lg.setColor(64,64,64,alpha)
 		lg.print(tr.splash[16],splashx,10)
 		menu_draw()
-		if ingamekeys then ingamekeys_draw() end
+		if keyboard then keyboard_draw() end
 	end
 	lg.setColor(0,0,0,255)
 end

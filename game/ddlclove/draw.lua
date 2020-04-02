@@ -1,4 +1,3 @@
-lg = love.graphics
 local xps = {c=260,ct=285,textbox=230,namebox=260}
 local yps = {c={593,623,653,683},ct=532,textbox=565,namebox=526}
 local gui_ctc_x = 1015
@@ -10,44 +9,6 @@ local with_yr = {'1','1b','2','2b','3','3b'}
 changeX = {s={x=0,y=0,z=0},y={x=0,y=0,z=0},n={x=0,y=0,z=0},m={x=0,y=0,z=0}}
 unitimer = 0
 uniduration = 0.25
-
---compatiblity for LOVE 11 and above
-local lgsetColor = lg.setColor
-function lg.setColor(...)
-	local args = {...}
-	if global_os ~= 'LOVE-WrapLua' then
-		for i = 1, #args do
-			if args[i] > 0 then
-				args[i] = args[i] / 255
-			end
-		end
-	end
-	lgsetColor(args[1],args[2],args[3],args[4])
-end
-
-local lgdraw = lg.draw
-function lg.draw(drawable, ...)
-	local args = {...}
-	if drawable then
-		lgdraw(drawable,args[1],args[2],args[3],args[4],args[5])
-	end
-end
-
-local lgnewImage = lg.newImage
-function lg.newImage(new)
-	if love.filesystem.getInfo(new) then
-		return lgnewImage(new)
-	end
-end
-
-local lgsetFont = lg.setFont
-function lg.setFont(setfont)
-	if setfont then
-		lgsetFont(setfont)
-	else
-		lgsetFont(allerfont)
-	end
-end
 
 function outlineText(text,x,y,type,arg1)
 	if g_system == 'PSP' or g_system == 'PS3' or settings.o == 1 then
@@ -91,7 +52,7 @@ end
 
 function dripText(text,cps,sTime)
 	if text ~= last_text then
-		sTime = love.timer.getTime()
+		sTime = getTime
 		startTime = sTime
 		last_text = text
 		print_full_text = false
@@ -121,11 +82,6 @@ function dripText(text,cps,sTime)
 	return text:sub(1,length)
 end
 
-function easeQuadOut(t,b,c,d)
-	t = t / d
-	return -(c) * t*(t-2) + b
-end
-
 function easeQuadInOut(t,b,c,d)
 	t = t/(d/2)
 	if (t < 1) then
@@ -142,33 +98,6 @@ function easeCubicInOut(t,b,c,d)
 	else
 		t = t - 2
 		return c/2*(t*t*t + 2) + b
-	end
-end
-
-function fadeOut(x)
-	alpha = math.max(alpha - 2.5, 0)
-	--fade out to poemgame
-	if x == 1 then
-		if alpha == 0 then
-			changeState('poemgame')
-		end
-	--fade out from poemgame to game
-	elseif x == 2 then
-		if alpha == 0 then
-			changeState('game',3)
-		end
-	--fade out from game to game (add 1 to chapter)
-	elseif x == 3 then
-		if alpha == 0 then
-			chapter = chapter + 1
-			changeState('game',3)
-		end
-	--fade out then go to next 2 lines
-	elseif x == 4 then
-		if alpha == 0 then
-			scriptJump(cl + 2)
-			alpha = 255
-		end
 	end
 end
 
@@ -190,7 +119,7 @@ function drawTextBox()
 		outlineText(ct,xps.ct,yps.ct,'ct')
 		
 		if style_edited then
-			lg.setFont(deffont)
+			lg.setFont(dfnt)
 		else
 			lg.setFont(allerfont)
 		end

@@ -27,7 +27,7 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
-			if love.filesystem.isFile('save'..chch..'-'..persistent.ptr..'.sav') then
+			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
 				saveindicator[i] = 1
 			else
 				saveindicator[i] = 0
@@ -89,7 +89,7 @@ end
 
 function menu_draw()
 	lg.setColor(255,255,255,menu_alpha)
-	lg.draw(background_Image, posX, posY)
+	lg.draw(menu_bg, posX, posY)
 	if menu_type == 'choice' then
 		for i = 1, #choices do
 			getcompare[i] = font:getWidth(choices[i])
@@ -174,7 +174,7 @@ function menu_draw()
 		local ypsc = {15,30,45,60}
 	
 		lg.setColor(255,255,255)
-		lg.draw(background_Image, posX, posY)
+		lg.draw(menu_bg, posX, posY)
 		lg.setColor(0,0,0)
 		
 		for i = 1, #history do
@@ -240,7 +240,7 @@ function menu_confirm()
 		
 	elseif menu_type == 'loadgame' then --load game confirm
 		savenumber = savenum[m_selected-1]
-		if love.filesystem.isFile('save'..savenumber..'-'..persistent.ptr..'.sav') then
+		if love.filesystem.getInfo('save'..savenumber..'-'..persistent.ptr..'.sav') then
 			changeState('game',2)
 		else
 			menu_enable(menu_previous)

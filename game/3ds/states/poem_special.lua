@@ -55,7 +55,7 @@ function drawpoem_special()
 	lg.draw(poemsp.bottomimg, poemsp.bottomX)
 	if p_confirm == 1 and p_number >= 12 then
 		lg.setColor(255,255,255,255)
-		lg.draw(background_Image, posX, posY)
+		lg.draw(menu_bg, posX, posY)
 		lg.setColor(255,189,225,255)
 		lg.rectangle('fill', 16, 45, 30, 16)
 		lg.setColor(0,0,0,255)

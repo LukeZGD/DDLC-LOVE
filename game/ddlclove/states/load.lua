@@ -76,7 +76,6 @@ function checkLoad()
 	loadsettings()
 	game_setvolume()
 	
-	os_timecheck = os.time()
 	if g_system == 'PSP' then
 		model = hw.getmodel()
 	end
@@ -98,8 +97,6 @@ function checkLoad()
 	elseif model == '1000' then
 		err = tr.error[3]..'\n\n'..tr.error[1]
 	elseif os_timecheck then
-		love.math.setRandomSeed(os.time())
-		math.randomseed(os.time())
 		l_timer = 100
 	else
 		err = tr.error[4]..'\n'..tr.error[1]
