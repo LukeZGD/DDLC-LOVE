@@ -25,7 +25,7 @@ end
 require('loader/characters')
 require(branch..'/loader/audio')
 require(branch..'/loader/images')
-require(branch..'/loader/states')
+require('loader/states')
 require(branch..'/main')
 require(branch..'/menu')
 require('draw')
@@ -50,8 +50,8 @@ function love.load()
 	textbox_enabled = true
 	bgimg_disabled = false
 	
-	if pcall (love.graphics.set3D, true) == true then
-		love.graphics.set3D(true)
+	if pcall (lg.set3D, true) == true then
+		lg.set3D(true)
 	end
 	
 	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' then
@@ -67,7 +67,7 @@ end
 function love.draw()
 	--for pc stuff
 	if dwidth and dheight then
-		love.graphics.scale(dwidth/1280,dheight/720)
+		lg.scale(dwidth/1280,dheight/720)
 	end
 	
 	if event_enabled then

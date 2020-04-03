@@ -1,11 +1,10 @@
 function changeState(cstate,x)
-	print(cstate)
 	menu_alpha = 0
 	menu_previous = nil
 	history = {}
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
-		require('ddlclove/states/'..cstate)
+		require(branch..'/states/'..cstate)
 	end
 	
 	if cstate == 'game' then
@@ -13,20 +12,17 @@ function changeState(cstate,x)
 	end
 	
 	if cstate == 'splash' then
-		splash = nil
 		splash = lg.newImage('assets/images/bg/splash.png')
 		alpha = 0
 		audioUpdate('1')
-	elseif cstate == 'title' then
-		alpha = 0
-		
+	elseif cstate == 'title' and branch == 'ddlclove' then
+		alpha = 0		
 		--sayori
 		if (persistent.ptr == 1 or persistent.ptr == 2) and not menu_art_s_break then
 			menu_art_s_break = lg.newImage("assets/images/gui/menu_art_s_break.png")
 		elseif not menu_art_s then
 			menu_art_s = lg.newImage("assets/images/gui/menu_art_s.png")
-		end
-		
+		end		
 		--new game gui image
 		if g_system == 'PSP' then
 			if persistent.ptr == 1 and not gui.newgame1 then
@@ -40,19 +36,17 @@ function changeState(cstate,x)
 			elseif not gui.newgame1 then
 				gui.newgame = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
 			end
-		end
-		
+		end		
 		--monika
 		if persistent.ptr == 4 and not menu_art_m then
 			menu_art_m = lg.newImage("assets/images/cg/blank.png")
 		elseif not menu_art_m then
 			menu_art_m = lg.newImage("assets/images/gui/menu_art_m.png")
-		end
-		
+		end		
 		--natsuki and yuri image
 		if not menu_art_n then menu_art_n = lg.newImage("assets/images/gui/menu_art_n.png") end
 		if not menu_art_y then menu_art_y = lg.newImage("assets/images/gui/menu_art_y.png") end
-		
+		--other stuff
 		poem_enabled = false
 		audioUpdate('1')
 		menu_enable('title')
@@ -60,23 +54,36 @@ function changeState(cstate,x)
 		titlebg_ypos = -240
 		tlp = {yx=525,nx=670,sx=470,mx=680,yy=850,ny=850,sy=850,my=850,scale=0.75}
 		z_timer = {0,0}
-		
-	elseif cstate == 'game' and x == 1 then --new game
+	elseif cstate == 'title' and branch == '3ds' then
+		alpha = 0
+		if persistent.ptr == 0 then
+			titlebg = lg.newImage('assets/images/gui/bg.png')
+		elseif persistent.ptr <= 2 then
+			titlebg = lg.newImage('assets/images/gui/bg2.png')
+		elseif persistent.ptr == 4 then
+			titlebg = lg.newImage('assets/images/gui/bg3.png')
+		end
+		poem_enabled = false
+		audioUpdate('1')
+		menu_enable('title')
+		y_timer = 0
+		titlebg_ypos = -240
+	elseif cstate == 'game' and x == 1 then -- new game
 		cl = 1
 		chapter = persistent.ptr * 10
 		if persistent.ptr == 0 and persistent.chr.m == 0 then
 			cl = 10001
 		end
-	elseif cstate == 'game' and x == 2 then --load game
+	elseif cstate == 'game' and x == 2 then -- load game
 		loadgame()
-	elseif cstate == 'game' and x == 3 then --change state to game from poemgame
+	elseif cstate == 'game' and x == 3 then -- poemgame to game
 		cl = cl + 2
 	elseif cstate == 'game' and x == 'autoload' then
 		loadgame('autoload')
-	elseif cstate == 'newgame' then --first time newgame
-		require('ddlclove/states/game')
+	elseif cstate == 'newgame' then -- first run
+		require(branch..'/states/game')
 		cl = 10016
-	elseif cstate == 'poemgame' then --load poemgame assets and state
+	elseif cstate == 'poemgame' and branch == 'ddlclove' then --load poemgame assets and state
 		
 		if persistent.ptr <= 2 then --acts 1 and 2
 			audioUpdate('4',true)
@@ -121,7 +128,24 @@ function changeState(cstate,x)
 		end
 		poemgame()
 		alpha = 255
-	elseif cstate == 's_kill_early' then --set up very early act 1 end
+	elseif cstate == 'poemgame' and branch == '3ds' then
+		if persistent.ptr <= 2 then
+			if persistent.ptr == 0 then
+				s_sticker_1 = lg.newImage('assets/images/gui/poemgame/s_sticker_1.png')
+				s_sticker_2 = lg.newImage('assets/images/gui/poemgame/s_sticker_2.png')
+			else
+				eyes = lg.newImage('assets/images/bg/eyes.png')
+			end
+			y_sticker_1 = lg.newImage('assets/images/gui/poemgame/y_sticker_1.png')
+			y_sticker_2 = lg.newImage('assets/images/gui/poemgame/y_sticker_2.png')
+			n_sticker_1 = lg.newImage('assets/images/gui/poemgame/n_sticker_1.png')
+			n_sticker_2 = lg.newImage('assets/images/gui/poemgame/n_sticker_2.png')
+		else
+			m_sticker_1 = lg.newImage('assets/images/gui/poemgame/m_sticker_1.png')
+		end
+		poemgame()
+		alpha = 255
+	elseif cstate == 's_kill_early' and branch == 'ddlclove' then
 		require('ddlclove/states/splash')
 		require('scripts/event')
 		loadNoise()
@@ -131,7 +155,13 @@ function changeState(cstate,x)
 		audioUpdate('s_kill_early')
 		y_timer = 0
 		alpha = 0
-	elseif cstate == 'ghostmenu' then
+	elseif cstate == 's_kill_early' and branch == '3ds' then
+		require('3ds/states/splash')
+		endbg = lg.newImage('assets/images/gui/end.png')
+		s_killearly = lg.newImage('assets/images/cg/s_kill/s_kill_early.png')
+		audioUpdate('s_kill_early')
+		alpha = 0
+	elseif cstate == 'ghostmenu' and branch == 'ddlclove' then
 		require('ddlclove/states/splash')
 		endbg = lg.newImage('assets/images/gui/end.png')
 		menu_art_m = lg.newImage("assets/images/gui/menu_art_m_ghost.png")
@@ -141,6 +171,12 @@ function changeState(cstate,x)
 		y_timer = 0.7
 		tlp = {yx=525,nx=670,sx=470,mx=680,yy=850,ny=850,sy=850,my=850,scale=0.75}
 		z_timer = {0,0}
+		audioUpdate('ghostmenu')
+		alpha = 0
+	elseif cstate == 'ghostmenu' and branch == '3ds' then
+		require('3ds/states/splash')
+		endbg = lg.newImage('assets/images/gui/end.png')
+		titlebg = lg.newImage('assets/images/gui/bg_ghost.png')
 		audioUpdate('ghostmenu')
 		alpha = 0
 	elseif cstate == 'poem_special' then
@@ -153,18 +189,19 @@ function changeState(cstate,x)
 	
 	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then
-		if audio1 == '4' and x == 2 then
+		if (audio1 == '4' and x == 2) or x == 0 then
 			alpha = 20
 		else
 			alpha = 255
-			loadSayori()
-			loadNatsuki()
-			loadYuri()
-			loadMonika()
-			changeX.s.y = s_Set.x
-			changeX.y.y = y_Set.x
-			changeX.n.y = n_Set.x
-			changeX.m.y = m_Set.x
+			loadAll()
+			if branch == 'ddlclove' then
+				changeX.s.y = s_Set.x
+				changeX.y.y = y_Set.x
+				changeX.n.y = n_Set.x
+				changeX.m.y = m_Set.x
+			else
+				unloadAll('poemgame')
+			end
 			bgUpdate(bg1, true)
 			audioUpdate(audio1, true)
 			cgUpdate(cg1, true)

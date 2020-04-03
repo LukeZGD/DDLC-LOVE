@@ -8,8 +8,8 @@ local with_yr = {'1','1b','2','2b','3','3b'}
 
 function drawTopScreen()
 	lg.setScreen('top')
-	if pcall(love.graphics.set3D, true) == true then
-		love.graphics.setDepth(2)
+	if pcall(lg.set3D, true) == true then
+		lg.setDepth(2)
 	end
 end
 
@@ -156,8 +156,8 @@ function drawCharacter(l,r,a,set)
 			yh = set.y
 		end
 		if a then
-			if pcall(love.graphics.set3D, true) == true then
-				love.graphics.setDepth(1)
+			if pcall(lg.set3D, true) == true then
+				lg.setDepth(1)
 			end
 			lg.draw(a,xh,yh)
 		end

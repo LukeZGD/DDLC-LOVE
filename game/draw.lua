@@ -77,25 +77,15 @@ end
 
 function fadeOut(x)
 	alpha = math.max(alpha - 2.5, 0)
-	--fade out to poemgame
-	if x == 1 then
-		if alpha == 0 then
+	if alpha == 0 then
+		if x == 1 then -- game to poemgame
 			changeState('poemgame')
-		end
-	--fade out from poemgame to game
-	elseif x == 2 then
-		if alpha == 0 then
+		elseif x == 2 then -- poemgame to game
 			changeState('game',3)
-		end
-	--fade out from game to game (add 1 to chapter)
-	elseif x == 3 then
-		if alpha == 0 then
+		elseif x == 3 then -- game to game, add 1 to chapter
 			chapter = chapter + 1
 			changeState('game',3)
-		end
-	--fade out then go to next 2 lines
-	elseif x == 4 then
-		if alpha == 0 then
+		elseif x == 4 then  -- go to next 2 lines
 			scriptJump(cl + 2)
 			alpha = 255
 		end
