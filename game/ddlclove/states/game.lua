@@ -48,6 +48,10 @@ function drawGame()
 		outlineText(skiptext,5,35)
 	end
 	if menu_enabled then menu_draw() end
+	
+	if errortext then
+		outlineText(errortext,50,50)
+	end
 end
 
 function updateGame()
@@ -56,6 +60,7 @@ function updateGame()
 	--timercheck
 	if xaload == 0 then
 		startTime = getTime
+		print(cl)
 	end
 	xaload = xaload + 1
 	if unitimer < uniduration then

@@ -67,6 +67,10 @@ function drawNumbers()
 		lg.setColor(0,0,0,255)
 	end
 	lg.print(cl,2,2)
+	
+	if errortext then
+		lg.print(errortext,2,150)
+	end
 end
 
 function drawConsole()

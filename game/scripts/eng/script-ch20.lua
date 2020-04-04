@@ -141,7 +141,6 @@ function ch20script()
 	elseif cl == 58 then
 	bl "...Did Monika say \"she\"?"
 	elseif cl == 59 then
-	bl "Hmm..."
 	updateMonika('1','a')
 	cw('m',"Hey, "..player.."...")
 	elseif cl == 60 then
@@ -264,7 +263,7 @@ function ch20script()
 	updateYuri('4','a2')
 	y "I-It's nice to meet you..."
 	elseif cl == 101 then
-	bl "Yuri, who appears comparably more mature and timid, seems to have a hard time keeping up with  someone like Natsuki."
+	bl "Yuri, who appears comparably more mature and timid, seems to have a hard time keeping up with someone like Natsuki."
 	elseif cl == 102 then
 	mc "Yeah... It's nice to meet both of you."
 	elseif cl == 103 then

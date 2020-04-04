@@ -21,17 +21,17 @@ function wrap(str, limit)
 	return str:gsub("(%s+)()(%S+)()", check)
 end
 
-function wrap_old(string,limit)
+function wrap_old(str, limit)
 	local ca = {}
 	local tableout = {}
 	for j = 1, 3 do
-		ca[j] = string.find(string, '%s', limit[j])
+		ca[j] = string.find(str, '%s', limit[j])
 		if ca[j] == nil then ca[j] = limit[j] + 3 end
 	end
 
-	tableout[1] = string.sub(string, 1, ca[1])
+	tableout[1] = string.sub(str, 1, ca[1])
 	for j = 2, 4 do
-		tableout[j] = string.sub(string, ca[j-1]+1, ca[j])
+		tableout[j] = string.sub(str, ca[j-1]+1, ca[j])
 	end
 
 	return tableout
@@ -58,12 +58,34 @@ function cw(p1, stext, tag)
 		ct = 'Error'
 	end
 	
-	if stext == nil then stext = '' end
+	if not stext then stext = '' end
 	
-	--auto add quotation marks
+	--auto-add quotation marks
 	if settings.lang == 'eng' then
 		if p1 ~= 'bl' then
 			stext = '"'..stext..'"'
+		end
+	end
+	
+	if textx == stext then
+		gui_ctc_t = true
+	else
+		gui_ctc_t = false
+	end
+	
+	local temptext = ct..': '..stext
+	if cl >= 2001 and branch == '3ds' then
+		history[1] = ''
+	elseif history[1] ~= stext and history[1] ~= temptext then
+		for i = h_items, 1, -1 do
+			history[i] = history[i-1]
+		end
+		if style_edited then
+			history[1] = ''
+		elseif ct == '' then
+			history[1] = stext
+		else
+			history[1] = temptext
 		end
 	end
 	
@@ -81,10 +103,10 @@ function cw(p1, stext, tag)
 	end
 	textx = dripText(stext,tspd,startTime)
 	
-	if textx == stext then
-		gui_ctc_t = true
-	else
-		gui_ctc_t = false
+	if history[3] == stext or history[3] == temptext then
+		scriptJump(cl+0.5) --lol
+		errortext = "Script issue detected at: "..cl.."\n"..history[3].."\nPlease report this issue at GitHub"
+		print(errortext)
 	end
 	
 	if branch == '3ds' then
@@ -93,7 +115,6 @@ function cw(p1, stext, tag)
 		else
 			c_a1 = {45}
 		end
-		stext = wrap(stext,45)
 		h_items = 12
 	else
 		if style_edited then
@@ -107,22 +128,6 @@ function cw(p1, stext, tag)
 		c_disp = wrap_old(textx,c_a1)
 	else
 		c_disp[1] = wrap(textx,c_a1[1])
-	end
-	
-	local temptext = ct..': '..stext
-	if cl >= 2001 and branch == '3ds' then
-		history[1] = ''
-	elseif history[1] ~= stext and history[1] ~= temptext then
-		for i = h_items, 1, -1 do
-			history[i] = history[i-1]
-		end
-		if style_edited then
-			history[1] = ''
-		elseif ct == '' then
-			history[1] = stext
-		else
-			history[1] = temptext
-		end
 	end
 	
 	local slen = string.len(stext)

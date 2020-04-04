@@ -47,7 +47,7 @@ function checkLoad()
 	if f1 then
 		loadpersistent()
 	end
-    if f2 then
+	if f2 then
 		loadsettings()
 		game_setvolume()
 	end

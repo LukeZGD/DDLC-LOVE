@@ -178,7 +178,8 @@ function menu_draw()
 		lg.setColor(0,0,0)
 		
 		for i = 1, #history do
-			lg.print(history[i],8,920+(history_scr*25)-(i*70))
+			local temptext = wrap(history[i],45)
+			lg.print(temptext,8,920+(history_scr*25)-(i*70))
 		end
 		lg.setColor(255,189,225)
 		lg.rectangle('fill',0,0,320,32)
