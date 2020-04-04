@@ -2,6 +2,7 @@ require('ddlclove/loader/assets_load')
 l_timer = 95
 local err = ''
 local errtime = 0
+local ghostmenu_chance = love.math.random(0,63)
 if g_system == 'Switch' then
 	savedir = 'sdmc:/switch/DDLC-LOVE/'
 elseif g_system == 'Vita' then
@@ -24,47 +25,15 @@ function drawLoad()
 	end
 end
 
-function updateLoad()
-	local f1 = love.filesystem.getInfo('persistent')
-	local f2 = love.filesystem.getInfo('settings.sav')
-
-
+function updateLoad()	
 	if l_timer < 99 then
 		l_timer = l_timer + 1
 	end
-
-
-
-	if l_timer == 97 then
-		if f2 then
-			loadsettings()
-			require('scripts/'..settings.lang..'/text')
-			if g_system == 'PSP' then
-				loaderAssets(102)
-			else
-				loaderAssets(101)
-			end
-		end
-		if not f2 then
-			require('scripts/eng/text')
-		end
-	end
-
+	
 	loaderAssets(l_timer)
 	
-	--save check
-	if l_timer == 99 then		
-		
-		if dvertype == 'Test' then
-			loaderAssets(101)
-			l_timer = 100
-		elseif (not f1 and not f2) or (f1 and not f2) then
-			changeState('language')
-		elseif f2 and not f1 then
-			changeState('newgame')
-		elseif f1 and f2 then
-			checkLoad()
-		end
+	if l_timer == 99 then
+		checkLoad()
 	elseif l_timer == 100 then
 		lg.setBackgroundColor(255,255,255)
 		changeState('splash')
@@ -72,18 +41,41 @@ function updateLoad()
 end
 
 function checkLoad()
-	loadpersistent()
-	loadsettings()
-	game_setvolume()
+	local f1 = love.filesystem.getInfo('persistent')
+	local f2 = love.filesystem.getInfo('settings.sav')
+
+	if f1 then
+		loadpersistent()
+	end
+    if f2 then
+		loadsettings()
+		game_setvolume()
+	end
+	
+	if settings.lang and f2 then
+		require('scripts/'..settings.lang..'/text')
+		if g_system == 'PSP' then
+			loaderAssets(102)
+		else
+			loaderAssets(101)
+		end
+	else
+		settings.lang = 'eng'
+		require('scripts/eng/text')
+		changeState('language')
+	end
+	
+	if dvertype == 'Test' then
+		loaderAssets(101)
+		l_timer = 100
+	elseif f2 and not f1 then
+		changeState('newgame')
+	end
 	
 	if g_system == 'PSP' then
 		model = hw.getmodel()
 	end
 	
-	local ghostmenu_chance = love.math.random(0, 63)
-	if not settings.lang then
-		changeState('language')
-	end
 	if not persistent.act2 then
 		err = tr.error[2]..savedir..'\n\n'..tr.error[1]
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then

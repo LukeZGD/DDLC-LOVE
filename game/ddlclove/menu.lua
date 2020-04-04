@@ -531,9 +531,7 @@ function menu_confirm()
 		if splashx then
 			love.event.quit()
 		else
-			require('scripts/'..settings.lang..'/text')
-			loaderAssets(101)
-			l_timer = 97
+			l_timer = 99
 			changeState('load')
 		end
 	end

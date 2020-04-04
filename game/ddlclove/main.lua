@@ -43,9 +43,7 @@ function game_setvolume()
 	end
 end
 
-local loveerr = love.errorhandler
 function love.errorhandler(msg)
 	msg = debug.traceback("Error: " .. tostring(msg))
 	love.filesystem.write("error.txt",msg)
-	loveerr(msg)
 end
