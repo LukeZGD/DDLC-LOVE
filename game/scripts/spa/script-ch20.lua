@@ -754,7 +754,6 @@ function ch20script()
 	else
 		scriptJump(297)
 	end
-	alpha = 20
 	elseif cl >= 297 then
 	cl = 297
 	fadeOut(1)

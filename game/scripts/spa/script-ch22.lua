@@ -471,6 +471,7 @@ function ch22_end()
 	end
 	
 	elseif cl == 1450 then
+	alpha = 255
 	if faint_effect == 0 then
 		event_initstart('faint_effect')
 		audioUpdate('3g3')

@@ -379,6 +379,7 @@ function ch23_end()
 		scriptJump(1810)
 	end
 	elseif cl == 1810 then
+	alpha = 255
 	bgUpdate('club_day2')
 	audioUpdate('3')
 	updateMonika('4','b',80)
