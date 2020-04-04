@@ -106,7 +106,6 @@ function cw(p1, stext, tag)
 	if history[3] == stext or history[3] == temptext then
 		scriptJump(cl+0.5) --lol
 		errortext = "Script issue detected at: "..cl.."\n"..history[3].."\nPlease report this issue at GitHub"
-		print(errortext)
 	end
 	
 	if branch == '3ds' then
@@ -139,6 +138,13 @@ function cw(p1, stext, tag)
 			end
 			tagtimer = 0
 			if autotimer > 0 then autotimer = 0.01 end
+		end
+	elseif autotimer > 0 then
+		tagtimer = tagtimer + (settings.textspd / 100)
+		if tagtimer >= ((settings.textspd + slen) / 4 + (settings.autospd * 25)) then
+			scriptJump(cl+1)
+			tagtimer = 0
+			autotimer = 0.01
 		end
 	else
 		tagtimer = 0

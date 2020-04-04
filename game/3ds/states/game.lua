@@ -97,11 +97,8 @@ function updateGame()
 	--auto next script
 	if autotimer == 0 then
 		autotimer = 0
-	elseif autotimer <= settings.autospd then
+	elseif autotimer > 0 then
 		autotimer = autotimer + dt
-	elseif autotimer >= settings.autospd then
-		game_keypressed('a')
-		autotimer = 0.01
 	end
 	
 	if menu_enabled == false and cl ~= 666 then
