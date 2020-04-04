@@ -28,6 +28,12 @@ function love.gamepadpressed(joy, button)
 end
 
 function game_setvolume()
+	if not settings.masvol or not settings.bgmvol or not settings.sfxvol then
+		settings.masvol = 70
+		settings.bgmvol = 70
+		settings.sfxvol = 70
+	end
+	
 	local masvol = settings.masvol/100
 	local bgmvol = (settings.bgmvol/100)*masvol
 	local sfxvol = (settings.sfxvol/100)*masvol
