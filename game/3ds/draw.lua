@@ -67,10 +67,6 @@ function drawNumbers()
 		lg.setColor(0,0,0,255)
 	end
 	lg.print(cl,2,2)
-	
-	if errortext then
-		lg.print(errortext,2,150)
-	end
 end
 
 function drawConsole()
@@ -152,7 +148,7 @@ end
 
 function drawCharacter(l,r,a,set)
 	if set.b~='' then
-		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
+		if set == n_Set and (n_Set.a=='5' or n_Set.a=='5b') then --set natsuki's head x and y pos
 			xh = set.x + 4
 			yh = set.y + 6
 		else

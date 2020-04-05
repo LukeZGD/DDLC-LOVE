@@ -124,7 +124,7 @@ function menu_draw()
 			lg.print(settings.textspd,157,70)
 			lg.print('(<)',140,70)
 			lg.print('(>)',184,70)
-			lg.print(settings.autospd,160,95)
+			lg.print(settings.autospd,157,95)
 			lg.print('(<)',140,95)
 			lg.print('(>)',184,95)
 			

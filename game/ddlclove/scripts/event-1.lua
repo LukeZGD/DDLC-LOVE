@@ -63,7 +63,7 @@ function event_update_1()
 		elseif tonumber(eventvar2) then
 			eventvar2 = eventvar2 + 0.027
 		else
-			eventvar2 = 400
+			eventvar2 = 0
 		end
 		
 		posX = posX - 0.625*eventvar4

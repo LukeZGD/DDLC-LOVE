@@ -1,3 +1,8 @@
+local savename = tr.names[3]
+if savevalue == 'n' then
+	savename = tr.names[2]
+end
+
 function ch5script()
 	if cl > 800 then
 		scriptJump(1)
@@ -14,13 +19,13 @@ function ch5script()
 	elseif cl == 5 then
 	bl "Meanwhile, the preparations for the event should be nearly complete."
 	elseif cl == 6 then
-		if savevalue == "Natsuki" then
+		if savevalue == "n" then
 			bl "I managed to carry all the cupcakes myself by carefully stacking two trays."
 		else
 			bl "The banner Yuri and I painted is dry, and I gently rolled it up to take with me."
 		end
 	elseif cl == 7 then
-		if savevalue == 'Natsuki' then
+		if savevalue == "n" then
 			bl "Natsuki is already texting up a storm, but I can't respond, thanks to my hands being full."
 		else
 			bl "She sent me a pleasant text reminding me not to forget anything, and I reassured her."
@@ -28,7 +33,7 @@ function ch5script()
 	elseif cl == 8 then
 	bl "Funnily enough, I probably feel the same way as Natsuki about the event."
 	elseif cl == 9 then
-	cw('bl',"I'm more excited for it to be over so I can spend time with Sayori and "..savevalue.." at the festival.")
+	cw('bl',"I'm more excited for it to be over so I can spend time with Sayori and "..savename.." at the festival.")
 	elseif cl == 10 then
 	bl "But knowing Monika, I'm sure the event will be great, too."
 	

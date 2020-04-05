@@ -4231,7 +4231,7 @@ function ch3_m_end()
 	elseif cl == 731 then
 		cw('m',"I'll share my poem with you now, alright?")
 	elseif cl == 732 then
-		cw('m',"Er...")
+		cw('mc',"Er...")
 	elseif cl == 733 then
 		cw('mc',"Alright...")
 	elseif cl == 734 then

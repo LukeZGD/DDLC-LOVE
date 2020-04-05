@@ -1039,7 +1039,7 @@ function Natsuki_exclusive_2_ch3()
 		cw('mc',"...Is there anything you want to talk about?")
 	elseif cl == 1575 then
 		updateNatsuki('1','2f')
-		cw('n',"Natsuki shakes her head.")
+		cw('bl',"Natsuki shakes her head.")
 	elseif cl == 1576 then
 		cw('n',"Just...")
 	elseif cl == 1577 then
@@ -1074,7 +1074,7 @@ function Natsuki_exclusive_2_ch3()
 		cw('mc',"We can get started on it once I'm done here.")
 	elseif cl == 1592 then
 		updateNatsuki('1','2h')
-		cw('n',"Natsuki looks up with her glossy eyes.")
+		cw('bl',"Natsuki looks up with her glossy eyes.")
 	elseif cl == 1593 then
 		cw('bl',"Her lip quivers.")
 	elseif cl == 1594 then
@@ -1125,7 +1125,7 @@ function Natsuki_exclusive_2_ch3()
 	elseif cl == 1615 then
 		cw('mc',"It's nothing.")
 	elseif cl == 1616 then
-		cw('mc',"Natsuki is holding the volume I set aside in her hands.")
+		cw('bl',"Natsuki is holding the volume I set aside in her hands.")
 	elseif cl == 1617 then
 		cw('mc',"Alright, I'm ready.")
 	elseif cl == 1618 then

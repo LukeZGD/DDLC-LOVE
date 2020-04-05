@@ -884,7 +884,7 @@ function ch3_end()
 		updateMonika('1','g')
 		cw('m',"N-No!")
 	elseif cl == 2177 then
-		cw('n',"That's not it at all!")
+		cw('m',"That's not it at all!")
 	elseif cl == 2178 then
 		cw('m',"You're the most talented person here, you know!")
 	elseif cl == 2179 then
@@ -924,7 +924,7 @@ function ch3_end()
 		cw('y',"I love atmosphere!")
 	elseif cl == 2193 then
 		updateYuri('2','l')
-		cw('y',"Yuri's expression suddenly changes as she stares at her desk in focus and starts nodding to herself.")
+		cw('bl',"Yuri's expression suddenly changes as she stares at her desk in focus and starts nodding to herself.")
 	elseif cl == 2194 then
 		cw('mc',"Your mind is already racing, I see...")
 	elseif cl == 2195 then

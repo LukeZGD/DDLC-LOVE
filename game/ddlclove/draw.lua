@@ -230,13 +230,8 @@ end
 function hideCharacter(set,chset)
 	if xaload == 0 then
 		chset.x = set.x
-		if chset.x >= 300 then
-			chset.y = 1955
-			chset.z = chset.y - chset.x
-		else
-			chset.y = -675
-			chset.z = chset.x - chset.y
-		end
+		chset.y = -675
+		chset.z = chset.x - chset.y
 	end
 end
 
@@ -266,8 +261,8 @@ end
 
 function drawCharacter(l,r,a,set,chset)
 	if set.b~='' then
-		if set == n_Set and n_Set.a=='5' or n_Set.a=='5b' then --set natsuki's head x and y pos
-			xh = set.x + 7
+		if set == n_Set and (n_Set.a=='5' or n_Set.a=='5b') then --set natsuki's head x and y pos
+			xh = set.x + 14
 			yh = set.y + 18
 		else
 			xh = set.x

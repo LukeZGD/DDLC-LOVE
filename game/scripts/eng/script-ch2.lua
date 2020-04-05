@@ -1347,7 +1347,7 @@ function ch2_end_sayori()
 	if cl == 1948 then
 		cw('mc',"Sayori...")
 	elseif cl == 1949 then
-		cw('s',"You really think I would ditch you for "..ch2_winner.."?")
+		cw('mc',"You really think I would ditch you for "..ch2_winner.."?")
 	elseif cl == 1950 then
 		updateSayori('1','e')
 		cw('s',"Eh?!")

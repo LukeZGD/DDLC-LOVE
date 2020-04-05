@@ -10,6 +10,7 @@ function event_draw()
 	end
 	
 	if event_type == 'wipe' then
+		lg.setColor(255,255,255,alpha)
 		lg.draw(bgch)
 		lg.setColor(0,0,0,eventvar1)
 		lg.rectangle('fill',0,0,1280,725)
@@ -99,8 +100,7 @@ function event_update()
 		eventvar1 = math.max(eventvar1 - 15, 0)
 	elseif event_type == 'wipe' and event_timer > 0.5 then
 		if eventvar2 and bg1 ~= eventvar2 then
-			xaload = 0
-			bgUpdate(eventvar2)
+			bgUpdate(eventvar2,true)
 		end
 	elseif event_type == 'wipe' and event_timer < 0.5 then
 		eventvar1 = math.min(eventvar1 + 15, 255)

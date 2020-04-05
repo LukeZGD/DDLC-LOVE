@@ -412,8 +412,9 @@ b3AgbXlzZWxmLg==]]};
 			'I was looking out.',
 			'And he, on the other side, was looking in.'};
 
-				elseif poemname == 'poem_m21' then
-					poemtext = {
+	elseif poemname == 'poem_m21' then
+		poem_author = 'monika'
+		poemtext = {
 			'Hole in Wall','',
 
 			'But he wasn\'t looking at me.',
@@ -570,6 +571,7 @@ b3AgbXlzZWxmLg==]]};
 		elseif poem_author == 'monika' and persistent.ptr <= 2 then
 			audioUpdate('5_monika')
 		end
+		poem_scroll = {x=1,y=1}
 	
 	elseif xaload > 0 then
 		if not poem_scroll then

@@ -670,8 +670,7 @@ function ch40script()
 	savepersistent()
 	scriptJump(1)
 	elseif cl == 502 then
-	event_initstart('beforecredits')
-	
+	event_initstart('beforecredits')	
 	pause(41)
 	elseif cl == 503 then
 	--event_end('beforecredits')
@@ -802,7 +801,7 @@ function ch40_clearnormal()
 	pause(3)
 	elseif cl == 294 then
 	event_end('next')
-	elseif cl == 295 then
+	elseif cl >= 295 then
 	scriptJump(502)
 	end
 end
@@ -873,7 +872,7 @@ function ch40_clearall()
 	audioUpdate('0')
 	--event_initstart('ch23-30')
 	pause(3)
-	elseif cl == 280 then
+	elseif cl >= 280 then
 	--event_end()
 	scriptJump(502)
 	end

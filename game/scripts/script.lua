@@ -103,9 +103,10 @@ function cw(p1, stext, tag)
 	end
 	textx = dripText(stext,tspd,startTime)
 	
-	if history[3] == stext or history[3] == temptext then
-		scriptJump(cl+0.5) --lol
-		errortext = "Script issue detected at: "..cl.."\n"..history[3].."\nPlease report this issue at GitHub"
+	if history[5] == stext or history[5] == temptext then
+		scriptJump(math.ceil(cl+0.5)) --lol
+		errortext = "Script issue detected at: "..cl.."\n"..history[3]
+		print(errortext)
 	end
 	
 	if branch == '3ds' then

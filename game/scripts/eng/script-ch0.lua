@@ -939,20 +939,16 @@ function ch0script()
 		cw('bl','By playing Doki Doki Literature Club, you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.')
 	elseif cl == 10020 then
 		menutext = ''
-		choices = {'I agree.','I do not agree.'}
+		choices = {'I agree.'}
 		choice_enable()
 	elseif cl >= 10021 then
-		if choicepick == 'I do not agree.' then
-			love.event.quit()
-		else
-			cl = 10021
-			bgUpdate('warning2')
-			if xaload > 120 then
-				--make persistent and settings files then go to splash screen
-				savepersistent()
-				savesettings()
-				changeState('splash')
-			end
+		cl = 10021
+		bgUpdate('warning2')
+		if xaload > 120 then
+			--make persistent and settings files then go to splash screen
+			savepersistent()
+			savesettings()
+			changeState('splash')
 		end
 	end
 end

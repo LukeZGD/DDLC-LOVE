@@ -163,16 +163,21 @@ function menu_draw()
 				lg.rectangle('fill',440, 200+(50*i),400,32)
 			end
 		end
-		lg.setColor(0,0,0,menu_alpha)
+		lg.setColor(255,255,255,menu_alpha/2.5)
+		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
+        lg.setColor(0,0,0,menu_alpha)
 		for i = 1, 8 do
-			if menu_items >= i+1 and menu_type == 'choice' and choices[i] then
+			if menu_items >= i+1 and menu_type == 'choice' and choices[i] and m_selected ~= i+1 then
 				lg.print(choices[i],440,200+(50*i))
-			elseif menu_items >= i+1 and itemnames[i] then
+			elseif menu_items >= i+1 and itemnames[i] and m_selected ~= i+1 then
 				lg.print(itemnames[i],440,200+(50*i))
 			end
+		end		
+		if menu_items >= m_selected and menu_type == 'choice' and choices[m_selected-1] then
+			outlineText(choices[m_selected-1],440,150+(50*m_selected))
+		elseif menu_items >= m_selected and itemnames[m_selected-1] then
+			outlineText(itemnames[m_selected-1],440,150+(50*m_selected))
 		end
-		lg.setColor(255,255,255,menu_alpha/1.3)
-		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
 		lg.draw(gui.check,408,200+(50*(m_selected-1)))
 		
 	elseif menu_type == 'dialog' then
@@ -289,8 +294,8 @@ function menu_draw()
 		lg.draw(gui.scrhover,(settings.sfxvol*3.4)+818,514)
 		lg.draw(gui.check,hv.x,hv.y)
 		lg.setColor(0,0,0)
-		--lg.print(settings.textspd,525,340)
-		--lg.print(settings.autospd,625,410)
+		lg.print(settings.textspd,525,340)
+		lg.print(settings.autospd,625,410)
 		lg.print(settings.masvol..'%',1020,340)
 		lg.print(settings.bgmvol..'%',1005,410)
 		lg.print(settings.sfxvol..'%',1010,480)

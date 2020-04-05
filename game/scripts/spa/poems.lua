@@ -427,8 +427,9 @@ YSBtaXMgbMOtbWl0ZXMuCk5vIHB1ZWRv
 			'Miraba hacia fuera.',
 			'Y él, en cambio, miraba hacia dentro.'};
 
-				elseif poemname == 'poem_m21' then
-					poemtext = {
+	elseif poemname == 'poem_m21' then
+		poem_author = 'monika'
+        poemtext = {
 			'Agujero en la pared','',
 
 			'Pero él no me miraba a mí.',
@@ -589,6 +590,7 @@ YSBtaXMgbMOtbWl0ZXMuCk5vIHB1ZWRv
 		elseif poem_author == 'monika' and persistent.ptr <= 2 then
 			audioUpdate('5_monika')
 		end
+		poem_scroll = {x=1,y=1}
 	
 	elseif xaload > 0 then
 		if not poem_scroll then
