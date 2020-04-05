@@ -228,8 +228,12 @@ function menu_confirm()
 			menu_previous = nil
 		
 		elseif m_selected == 3 then --load game
-			pagenum = 1
-			menu_enable('loadgame')
+			if player == '' then
+				love.keyboard.setTextInput(true)
+			else
+				pagenum = 1
+				menu_enable('loadgame')
+			end
 			
 		elseif m_selected == 4 then --settings
 			pagenum = 1

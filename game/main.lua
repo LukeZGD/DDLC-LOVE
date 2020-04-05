@@ -144,11 +144,14 @@ function love.keypressed(key)
 end
 
 function love.textinput(text)
-	if text ~= '' then 
+	if text ~= '' and m_selected ~= 3 then 
 		player = text
 		savepersistent()
 		cl = 1
 		changeState('game',1)
+    elseif m_selected == 3 then
+		player = text
+		savepersistent()
 	else
 		changeState('title')
 	end
