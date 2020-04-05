@@ -27,11 +27,13 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
+            --[[
 			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
 				saveindicator[i] = 1
 			else
 				saveindicator[i] = 0
 			end
+            ]]
 		end
 	end
 	
@@ -118,23 +120,24 @@ function menu_draw()
 	
 	if menu_type == 'settings' or menu_type == 'settings2' then
 		if menu_type == 'settings' then
-			lg.print(settings.textloc..' Screen',140, 45)
-			lg.print(settings.textspd, 157, 70)
+			lg.print(settings.textloc..' Screen',140,45)
+			lg.print(settings.textspd,157,70)
 			lg.print('(<)',140,70)
 			lg.print('(>)',184,70)
-			lg.print(settings.autospd..' sec.',157, 95)
+			lg.print(settings.autospd,160,95)
 			lg.print('(<)',140,95)
-			lg.print('(>)',198,95)
+			lg.print('(>)',184,95)
 			
 		elseif menu_type == 'settings2' then
-			lg.print(settings.textloc..' Screen',140, 45)
+			lg.print(settings.textloc..' Screen',140,45)
 		end
 		lg.print('Press (<) and (>) to change settings.',16,188)
-		lg.print('DDLC-LOVE '..dversion..' '..dvertype,16, 203)
+		lg.print('DDLC-LOVE '..dversion..' '..dvertype,16,203)
 		
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		lg.print('Page '..pagenum..' of 10',220,12)
 		lg.print('(<) X | Y (>)',230,27)
+		--[[
 		lg.setColor(0,255,0)
 		lg.rectangle('fill',230,46,6,6)
 		lg.setColor(255,0,0)
@@ -150,7 +153,7 @@ function menu_draw()
 			end
 			lg.rectangle('fill',95,25+(25*i),6,6)
 		end
-		
+		]]
 	elseif menu_type == 'help' then
 		lg.setColor(255,189,225)
 		lg.rectangle('fill',14,30,260,110)
@@ -245,7 +248,7 @@ function menu_confirm()
 			changeState('game',2)
 		else
 			menu_enable(menu_previous)
-			menutext = "Save file "..savenumber.." is empty."
+			menutext = "Save File "..savenumber.." is empty."
 		end
 		
 	elseif menu_type == 'savegame' then  --save game confirm 

@@ -20,11 +20,11 @@ end
 function drawTextBox()
 	if settings.textloc == 'Top' then
 		xps = {c=48,ct=63,textbox=40,namebox=52}
-		yps = {c=169,ct=142,textbox=162,namebox=142}
+		yps = {c=171,ct=144,textbox=162,namebox=142}
 		drawTopScreen()
 	else
 		xps = {c=8,ct=23,textbox=0,namebox=12}
-		yps = {c=69,ct=42,textbox=62,namebox=42}
+		yps = {c=71,ct=44,textbox=62,namebox=42}
 	end
 	
 	if style_edited then lg.setFont(dfnt) end
