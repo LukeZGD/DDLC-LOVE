@@ -572,7 +572,7 @@ function ch2script()
 		cw('n',"But that doesn't tell us what we're actually going to be doing for the event.")
 	elseif cl == 1654 then
 		updateMonika('1','d')
-		cw('n',"Ah, sorry! I thought you heard about it already.")
+		cw('m',"Ah, sorry! I thought you heard about it already.")
 	elseif cl == 1655 then
 		updateMonika('1','b')
 		cw('m',"We're going to be performing!")
