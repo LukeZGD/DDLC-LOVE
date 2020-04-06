@@ -5,6 +5,8 @@ function changeState(cstate,x)
 	
 	if cstate ~= 's_kill_early' and cstate ~= 'ghostmenu' and cstate ~= 'newgame' and cstate ~= 'title' then
 		require(branch..'/states/'..cstate)
+	elseif cstate == 'title' and not drawSplash then
+		require(branch..'/states/splash')
 	end
 	
 	if cstate == 'game' then
@@ -74,12 +76,32 @@ function changeState(cstate,x)
 		if persistent.ptr == 0 and persistent.chr.m == 0 then
 			cl = 10001
 		end
-	elseif cstate == 'game' and x == 2 then -- load game
-		loadgame()
-	elseif cstate == 'game' and x == 3 then -- poemgame to game
-		cl = cl + 2
+	elseif cstate == 'game' and (x == 2 or x == 3) then 
+		if x == 2 then -- load game
+			loadgame()
+		elseif x == 3 then -- poemgame to game
+			cl = cl + 2
+		end
+		if global_os == 'LOVE-WrapLua' and g_system ~= 'PS3' then
+			if chapter <= 5 then
+				persistent.chr.m = 2
+			elseif chapter < 23 then
+				savevalue = persistent.chr.m
+				persistent.chr.m = 2
+			end
+			savegame('autoload')
+			savepersistent()
+			love.event.quit('restart')
+		end
 	elseif cstate == 'game' and x == 'autoload' then
 		loadgame('autoload')
+		if chapter <= 5 then
+			persistent.chr.m = 1
+			savepersistent()
+		elseif chapter < 23 then
+			persistent.chr.m = savevalue
+			savepersistent()
+		end
 	elseif cstate == 'newgame' then -- first run
 		require(branch..'/states/game')
 		cl = 10016
