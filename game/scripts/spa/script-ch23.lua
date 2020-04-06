@@ -1,6 +1,6 @@
 local gtextg = glitchtext(math.random(8,80))
 local gtext10 = glitchtext(10)
-local sgschance = 16
+local sgschance = math.random(1,16)
 
 function ch23script()
 	if cl == 1951 then
@@ -13,8 +13,8 @@ function ch23script()
 		scriptJump(1631)
 	end
 	if cl == 1631 then
-	if (g_system == 'Switch' or global_os == 'LOVE-WrapLua') and sgschance == 16 and persistent.act2[1] < 1 then
-		scriptJump(1951)
+	if (g_system == 'Switch' or global_os == 'LOVE-WrapLua') and sgschance == 16 then
+		if  persistent.act2[1] < 1 then scriptJump(1951) end
 	end
 	audioUpdate('6')
 	bgUpdate('club_day2')
