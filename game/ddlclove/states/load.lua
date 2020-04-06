@@ -16,10 +16,8 @@ else
 end
 
 function drawLoad()
-	lg.setBackgroundColor(255,255,255)
+	lg.setBackgroundColor(0,0,0)
 	if err ~= '' then
-		lg.setColor(0,0,0,alpha)
-		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(255,255,255)
 		lg.print(err,10,10)
 	end

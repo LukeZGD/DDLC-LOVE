@@ -1101,7 +1101,7 @@ function ch3_end()
 		cw('bl',"I can't believe this!")
 	elseif cl == 2387 then
 		local pname
-		if choicepick == 'n' then
+		if choicepick == "Natsuki." then
 			pname = tr.names[2]
 		else
 			pname = tr.names[3]
