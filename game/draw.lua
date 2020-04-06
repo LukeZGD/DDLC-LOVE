@@ -81,6 +81,7 @@ function fadeOut(x)
 		if x == 1 then -- game to poemgame
 			changeState('poemgame')
 		elseif x == 2 then -- poemgame to game
+			bg1 = 'black'
 			changeState('game',3)
 		elseif x == 3 then -- game to game, add 1 to chapter
 			chapter = chapter + 1

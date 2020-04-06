@@ -211,7 +211,7 @@ function changeState(cstate,x)
 	
 	--load game state and scripts
 	if cstate == 'game' or cstate == 'newgame' then
-		if (audio1 == '4' and x == 2) or x == 0 then
+		if (bg1 == 'notebook' and (x == 2 or x == 'autoload')) or x == 0 then
 			alpha = 20
 		else
 			alpha = 255

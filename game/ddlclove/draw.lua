@@ -45,8 +45,8 @@ function outlineText(text,x,y,type,arg1)
 	if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 		lg.printf(text,x,y,arg1)
 	else
-		local print = lg.print(text,x,y)
-		pcall(print)
+		local printtext = lg.print(text,x,y)
+		pcall(printtext)
 	end
 end
 

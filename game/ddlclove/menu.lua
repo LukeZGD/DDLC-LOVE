@@ -327,6 +327,8 @@ function menu_draw()
 							lg.print(cdisp[j],xpsc,ypos+ypsc[j])
 						end
 					end
+				elseif global_os == 'LOVE-WrapLua' then
+					lg.print(temptext,xpsc,ypos)
 				else
 					outlineText(temptext,xpsc,ypos,'c_disp')
 				end
@@ -406,6 +408,7 @@ function menu_confirm()
 			if player ~= '' or dvertype == 'Test' then --go straight to new game
 				changeState('game',1)
 			elseif player == '' then --keyboard input for player name
+				bg1 = 'black'
 				if (global_os == 'LOVE-WrapLua' and g_system ~= 'PS3') or g_system == 'Switch' then
 					local input = {}
 					input["type"] = "standard"
@@ -449,6 +452,11 @@ function menu_confirm()
 		
 	elseif menu_type == 'savegame' and persistent.chr.m ~= 2 then  --save game confirm 
 		savenumber = savenum[m_selected-1]
+		if menu_previous2 == 'choice' then
+			scriptJump(cl-1)
+			choices = {''}
+			menu_previous2 = nil
+		end
 		savegame()
 		savedatainfo(savenumber)
 		menu_enable('savegame')
@@ -667,6 +675,10 @@ function menu_keypressed(key)
 		if ((menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10) or (menu_type == 'settings' and pagenum < 2) then
 			pagenum = pagenum + 1
 			menu_enable(menu_type)
+		elseif menu_type == 'choice' and chapter < 5 then
+			menu_previous2 = 'choice'
+			menu_alpha = 0
+			menu_enable('pause')
 		end
 	end
 end
