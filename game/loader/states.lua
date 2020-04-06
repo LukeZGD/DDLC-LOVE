@@ -82,7 +82,7 @@ function changeState(cstate,x)
 		elseif x == 3 then -- poemgame to game
 			cl = cl + 2
 		end
-		if global_os == 'LOVE-WrapLua' and g_system ~= 'PS3' then
+		if global_os == 'LOVE-WrapLua' and g_system ~= 'PS3' and persistent.ptr <= 2 then
 			if chapter <= 5 then
 				persistent.chr.m = 2
 			elseif chapter < 23 then
