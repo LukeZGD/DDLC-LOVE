@@ -74,7 +74,7 @@ function cw(p1, stext, tag)
 	end
 	
 	local temptext = ct..': '..stext
-	if cl >= 2001 and branch == '3ds' then
+	if cl >= 2001 and chapter == 23 and branch == '3ds' then
 		history[1] = ''
 	elseif history[1] ~= stext and history[1] ~= temptext then
 		for i = h_items, 1, -1 do
