@@ -165,7 +165,7 @@ function menu_draw()
 		end
 		lg.setColor(255,255,255,menu_alpha/2.5)
 		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
-        lg.setColor(0,0,0,menu_alpha)
+		lg.setColor(0,0,0,menu_alpha)
 		for i = 1, 8 do
 			if menu_items >= i+1 and menu_type == 'choice' and choices[i] and m_selected ~= i+1 then
 				lg.print(choices[i],440,200+(50*i))

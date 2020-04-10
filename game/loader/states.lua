@@ -106,7 +106,6 @@ function changeState(cstate,x)
 		require(branch..'/states/game')
 		cl = 10016
 	elseif cstate == 'poemgame' and branch == 'ddlclove' then --load poemgame assets and state
-		
 		if persistent.ptr <= 2 then --acts 1 and 2
 			audioUpdate('4',true)
 			bg1 = 'notebook'

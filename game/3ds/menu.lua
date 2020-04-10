@@ -27,13 +27,13 @@ function menu_enable(m)
 			end
 			savenum[i] = chch
 			itemnames[i] = 'Save File '..chch
-            --[[
+			--[[
 			if love.filesystem.getInfo('save'..chch..'-'..persistent.ptr..'.sav') then
 				saveindicator[i] = 1
 			else
 				saveindicator[i] = 0
 			end
-            ]]
+			]]
 		end
 	end
 	

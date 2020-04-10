@@ -5,7 +5,7 @@ if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
 end
-if love.getVersion() < 11 and global_os ~= 'LOVE-WrapLua' then
+if global_os == 'Horizon' and g_system ~= 'Switch' and global_os ~= 'LOVE-WrapLua' then
 	branch = '3ds'
 else
 	branch = 'ddlclove'
@@ -149,7 +149,7 @@ function love.textinput(text)
 		savepersistent()
 		cl = 1
 		changeState('game',1)
-    elseif m_selected == 3 then
+	elseif m_selected == 3 then
 		player = text
 		savepersistent()
 	else
