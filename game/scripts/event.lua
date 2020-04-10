@@ -19,8 +19,7 @@ function event_start(etype, arg1)
 	elseif string.sub(event_type,1,6) == 's_kill' then
 		bgimg_disabled = true
 		textbox_enabled = false
-		if event_type == 'd' then
-			audioUpdate('d')
+		if event_type == 's_kill' then
 			eventvar1 = 0
 			eventvar2 = 0
 		end
