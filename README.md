@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/LukeZGD/DDLC-LOVE/raw/ddlclove/data/icon.jpg"/>
+  <img src="https://github.com/LukeZGD/DDLC-LOVE-Assets/raw/master/icon.png"/>
   <h1>DDLC-LOVE</h1>
   <h3>Will you write the way into her heart?</h3>
 </div>
