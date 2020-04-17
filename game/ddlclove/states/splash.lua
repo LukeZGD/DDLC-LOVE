@@ -8,16 +8,15 @@ if g_system == 'PSP' or g_system == 'PS3' then
 end
 
 function drawSplash()
+	lg.setColor(255,255,255,255)
+	lg.rectangle('fill',0,0,1280,725)
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
-		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(splash,0,0,0)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
-		lg.setColor(255,255,255,255)
-		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
 			lg.print(tr.splash[random_msg], 440, 300)
@@ -27,7 +26,6 @@ function drawSplash()
 		end
 		
 	elseif state == 'title' then --title (Title Screen)
-		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(menu_bg, posX, posY)
 		lg.draw(gui.sidebar,-720+titlebg_ypos,0)
