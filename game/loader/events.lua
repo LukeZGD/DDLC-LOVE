@@ -87,7 +87,7 @@ function event_init(etype,arg1,arg2)
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
 				splash = lg.newImage('assets/images/bg/splash-glitch2.png')
-			elseif g_system == '3DS' then
+			else
 				splash = lg.newImage('assets/images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap

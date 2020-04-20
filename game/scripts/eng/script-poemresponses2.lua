@@ -584,6 +584,7 @@ function ch23_n_end()
 	poem_disable(0)
 	pause(3)
 	elseif cl == 703 then
+	style_edited = true
 	updateNatsuki('ghost1')
 	n "I changed my mind."
 	elseif cl == 704 then
@@ -603,15 +604,17 @@ function ch23_n_end()
 	elseif cl == 711 then
 	n "Just Monika."
 	elseif cl == 712 then
-	n "Just Monika."
-	elseif cl == 713 then
+	event_init('just_monika')
 	hideAll()
+	bl "Just Monika."
+	elseif cl == 713 then
 	menutext = 'Just Monika.'
 	choice_enable('dialog')
 	elseif cl == 714 then
-	if xaload < 3 then event_initstart('just_monika') end
+	if xaload < 3 then event_start('just_monika') end
 	audioUpdate('1')
 	elseif cl == 715 then
+	style_edited = false
 	poemfinish('n')
 	end
 end

@@ -220,6 +220,7 @@ function menu_confirm()
 		menu_previous = 'title'
 
 		if m_selected == 2 then --new game
+			bg1 = 'black'
 			if player == '' then --keyboard input for player name
 				love.keyboard.setTextInput(true)
 			elseif player ~= '' then --go straight to new game

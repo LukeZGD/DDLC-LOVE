@@ -8,7 +8,7 @@ function drawSplash()
 		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
 		lg.setColor(255,255,255,alpha)
-		lg.draw(splash,0,0,0)
+		lg.draw(splash)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,5,220)
 		

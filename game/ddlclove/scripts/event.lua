@@ -44,6 +44,8 @@ function event_draw()
 		if event_timer < 3.75 then
 			lg.setColor(255,255,255,alpha)
 			lg.draw(splash)
+			lg.setColor(0,0,0,alpha)
+			lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
 		else
 			lg.setColor(0,0,0,alpha)
 			lg.print('Just Monika.', 544, 300)

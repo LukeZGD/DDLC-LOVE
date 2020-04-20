@@ -16,7 +16,9 @@ local save_hoverpos = {}
 local sxp = 0
 local history_scr = -39
 local dversionx = 1200
+local ca1 = {70,140,210}
 local xpsc = 400
+local ypsc = {35,65,95,125}
 if g_system == 'PS3' then
 	dversionx = 950
 end
@@ -306,35 +308,27 @@ function menu_draw()
 		lg.draw(gui.history)
 		lg.setColor(0,0,0)
 		
-		local ca1 = {70,140,210}
-		local ypsc = {35,65,95,125}
-		
-		if chapter == 23 and cl >= 2001 then
-			outlineText(tr.menuhelp[11],375,120+(history_scr*75))
-		else
-			for i = 1, #history do
-				local temptext = wrap(history[i],70)
-				local ypos = 3600+(history_scr*75)-(i*120)
-				
-				if g_system == 'PSP' then
-					xpsc = 360
-				end
-				
-				if global_os == 'LOVE-WrapLua' and g_system == 'PS3' then
-					local cdisp = wrap_old(history[i],ca1)
-					for j = 1, #cdisp do
-						if cdisp[j] then
-							lg.print(cdisp[j],xpsc,ypos+ypsc[j])
-						end
+		for i = 1, #history do
+			local temptext = wrap(history[i],70)
+			local ypos = 3600+(history_scr*75)-(i*120)
+			
+			if g_system == 'PSP' then
+				xpsc = 360
+			end
+			
+			if global_os == 'LOVE-WrapLua' and g_system == 'PS3' then
+				local cdisp = wrap_old(history[i],ca1)
+				for j = 1, #cdisp do
+					if cdisp[j] then
+						lg.print(cdisp[j],xpsc,ypos+ypsc[j])
 					end
-				elseif global_os == 'LOVE-WrapLua' then
-					lg.print(temptext,xpsc,ypos)
-				else
-					outlineText(temptext,xpsc,ypos,'c_disp')
 				end
+			elseif global_os == 'LOVE-WrapLua' then
+				lg.print(temptext,xpsc,ypos)
+			else
+				outlineText(temptext,xpsc,ypos,'c_disp')
 			end
 		end
-		
 	else
 		menu_drawstuff('overlay')
 		lg.setColor(255,189,225,menu_alpha)
@@ -405,10 +399,10 @@ function menu_confirm()
 		menu_previous = 'title'
 		
 		if m_selected == 2 then --new game
+			bg1 = 'black'
 			if player ~= '' or dvertype == 'Test' then --go straight to new game
 				changeState('game',1)
 			elseif player == '' then --keyboard input for player name
-				bg1 = 'black'
 				if (global_os == 'LOVE-WrapLua' and g_system ~= 'PS3') or g_system == 'Switch' then
 					local input = {}
 					input["type"] = "standard"

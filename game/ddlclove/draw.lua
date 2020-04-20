@@ -108,7 +108,7 @@ function drawTextBox()
 		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1020)
 	end
 	
-	if (not menu_enabled or (event_enabled and textbox_enabled)) and not poem_enabled then
+	if not poem_enabled then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
@@ -179,7 +179,8 @@ function drawConsole()
 end
 
 function nearest(a,b)
-	if (a == b + 1) or  (a == b - 1) or (a == b + 2) or (a == b - 2) or (a == b + 3) or (a == b - 3) then
+	local n = 3
+	if (a >= b - n) and (a <= b + n) then
 		return true
 	else
 		return false
@@ -283,12 +284,12 @@ function drawCharacter(l,r,a,set,chset)
 		end
 	end
 	
-	if set.x < chset.y and not nearest(set.x,chset.y) and autoskip < 1 then
-		set.x = math.ceil(chset.x + easeQuadInOut(unitimer,0,chset.z,uniduration))
-	elseif set.x > chset.y and not nearest(set.x,chset.y) and autoskip < 1 then
-		set.x = math.floor(chset.x - easeQuadInOut(unitimer,0,chset.z,uniduration))
-	elseif set.x ~= chset.y then
+    if set.x ~= chset.y and autoskip >= 1 then
 		set.x = chset.y
+	elseif set.x < chset.y and not nearest(set.x,chset.y) then
+		set.x = math.ceil(chset.x + easeQuadInOut(unitimer,0,chset.z,uniduration))
+	elseif set.x > chset.y and not nearest(set.x,chset.y) then
+		set.x = math.floor(chset.x - easeQuadInOut(unitimer,0,chset.z,uniduration))
 	end
 end
 

@@ -12,7 +12,7 @@ function drawSplash()
 	lg.rectangle('fill',0,0,1280,725)
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
 		lg.setColor(255,255,255,alpha)
-		lg.draw(splash,0,0,0)
+		lg.draw(splash)
 		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
 		

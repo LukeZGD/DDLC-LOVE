@@ -21,9 +21,9 @@ persistent = {
 settings = {textspd=75,autospd=4,lang='eng'}
 if branch == 'ddlclove' then
 	persistent.act2 = {0,0,0,0}
-	settings.masvol = 70
-	settings.bgmvol = 70
-	settings.sfxvol = 70
+	settings.masvol = 80
+	settings.bgmvol = 80
+	settings.sfxvol = 80
 	settings.o = 0
 	cg1 = 'blank'
 else

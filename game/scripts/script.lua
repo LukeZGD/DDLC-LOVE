@@ -74,8 +74,12 @@ function cw(p1, stext, tag)
 	end
 	
 	local temptext = ct..': '..stext
-	if cl >= 2001 and chapter == 23 and branch == '3ds' then
-		history[1] = ''
+	if cl >= 2001 and chapter == 23 then
+		if branch == 'ddlclove' then
+			history[1] = tr.menuhelp[11]
+		else
+			history[1] = ''
+		end
 	elseif history[1] ~= stext and history[1] ~= temptext then
 		for i = h_items, 1, -1 do
 			history[i] = history[i-1]
@@ -213,6 +217,7 @@ end
 
 function scriptJump(nu, fu, au)
 	xaload = -1
+	unitimer = 0
 	if nu then cl = nu end
 	if au then
 		autotimer = au
