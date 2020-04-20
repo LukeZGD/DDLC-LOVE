@@ -52,7 +52,7 @@ function ch30script()
 	elseif cl == 14 then
 		cw('m', "O...")
 	elseif cl == 15 then
-	if (global_os == 'Horizon' or global_os == 'LOVE-OneLua') and xaload <= 2 then
+	if (global_os == 'Horizon' or global_os == 'LOVE-WrapLua') and xaload <= 2 then
 		currentuser = love.system.getUsername()
 	end
 	if currentuser then

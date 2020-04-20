@@ -370,7 +370,6 @@ function ch40script()
 	elseif cl == 146 then
 	mc "...Manga..."
 	elseif cl == 147 then
-	bl "I mutter quietly to myself, half-joking."
 	updateNatsuki('1','c',-50)
 	bl "Natsuki's head suddenly perks up."
 	elseif cl == 148 then

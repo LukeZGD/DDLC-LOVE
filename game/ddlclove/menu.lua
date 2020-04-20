@@ -155,7 +155,7 @@ function menu_draw()
 			lg.rectangle('fill',0,0,1280,725)
 			menu_drawstuff('dialog')
 			lg.setColor(0,0,0)
-			lg.print(menutext,440,195)
+			lg.print(menutext,435,195)
 		end
 		for i = 1, 8 do
 			if menu_items >= i+1 then

@@ -35,7 +35,7 @@
 | Switch   | sdmc:/switch/DDLC-LOVE/             |
 | 3DS      | sdmc:/3ds/data/DDLC-LOVE/           |
 | PS Vita  | ux0:/data/DDLC-LOVE/savedata/       |
-| PSP      | ms0:/data/DDLC-LOVE/savedata/       |
+| PSP      | ms0:/PSP/GAME/DDLC-LOVE/savedata/   |
 | PS3      | dev_usb000:/DDLC-LOVE/savedata/     |
 | Other    | see [love.filesystem](https://love2d.org/wiki/love.filesystem)|
 

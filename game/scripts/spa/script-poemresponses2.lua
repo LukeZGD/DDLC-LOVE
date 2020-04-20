@@ -1116,12 +1116,8 @@ function ch22_m_end()
 	scriptJump(737)
 	elseif cl == 737 then
 	poem_disable()
-	if global_os == 'LOVE-OneLua' then
-		scriptJump(738)
-	else
-		audioUpdate('0')
-		pause(2.5)
-	end
+	audioUpdate('0')
+	pause(2.5)
 	elseif cl == 738 then
 	audioUpdate('5')
 	updateMonika('5a')

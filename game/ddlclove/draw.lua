@@ -108,7 +108,7 @@ function drawTextBox()
 		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1020)
 	end
 	
-	if not poem_enabled then
+	if menu_type ~= 'choice' and not poem_enabled then
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
@@ -168,7 +168,7 @@ end
 function drawConsole()
 	if console_enabled then
 		lg.setColor(51,51,51,191)
-		lg.rectangle('fill',0,0,480,180)
+		lg.rectangle('fill',0,0,500,180)
 		lg.setColor(255,255,255)
 		lg.setFont(consolefont)
 		lg.print('> '..console_text1,0,0)
@@ -284,7 +284,7 @@ function drawCharacter(l,r,a,set,chset)
 		end
 	end
 	
-    if set.x ~= chset.y and autoskip >= 1 then
+	if set.x ~= chset.y and autoskip >= 1 then
 		set.x = chset.y
 	elseif set.x < chset.y and not nearest(set.x,chset.y) then
 		set.x = math.ceil(chset.x + easeQuadInOut(unitimer,0,chset.z,uniduration))
