@@ -670,7 +670,7 @@ function ch40script()
 	scriptJump(1)
 	elseif cl == 502 then
 	event_initstart('beforecredits')
-	pause(41)
+	pause(41,'disable')
 	elseif cl == 503 then
 	event_end('next')
 	elseif cl == 504 then
@@ -796,7 +796,7 @@ function ch40_clearnormal()
 	pause(0.35)
 	elseif cl == 293 then
 	bgUpdate('black')
-	pause(3)
+	pause(3,'disable')
 	elseif cl == 294 then
 	event_end('next')
 	elseif cl >= 295 then
@@ -868,7 +868,7 @@ function ch40_clearall()
 		cw('s', "Te queremos.")
 	elseif cl == 279 then
 	audioUpdate('0')
-	pause(3)
+	pause(3,'disable')
 	elseif cl >= 280 then
 	scriptJump(502)
 	end

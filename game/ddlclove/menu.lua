@@ -155,7 +155,7 @@ function menu_draw()
 			lg.rectangle('fill',0,0,1280,725)
 			menu_drawstuff('dialog')
 			lg.setColor(0,0,0)
-			lg.print(menutext,435,195)
+			lg.print(menutext,430,190)
 		end
 		for i = 1, 8 do
 			if menu_items >= i+1 then
@@ -190,9 +190,12 @@ function menu_draw()
 		lg.rectangle('fill',435,245,410,42)
 		lg.setColor(255,230,244,255)
 		lg.rectangle('fill',440,250,400,32)
+		lg.setColor(255,255,255,menu_alpha/2.5)
+		lg.rectangle('fill',435,245,410,42)
 		lg.setColor(0,0,0,255)
-		lg.print(menutext,440,195)
-		lg.print('OK',440,250)
+		lg.print(menutext,430,190)
+		outlineText(tr.missing[2],440,250)
+		lg.draw(gui.check,408,250)
 		
 		
 	elseif menu_type == 'pause' then
@@ -360,6 +363,7 @@ function menu_update()
 		menu_alpha = math.max(menu_alpha - 15, 0)
 		if menu_alpha == 0 then
 			menu_enabled = false
+			menu_type = nil
 			menu_previous = nil
 			menu_fadeout = false
 		end

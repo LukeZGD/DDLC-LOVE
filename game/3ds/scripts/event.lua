@@ -104,6 +104,10 @@ function event_draw()
 		lg.setColor(255,255,255,255)
 		drawSayori()
 		drawBottomScreen()
+	elseif event_type == 'ch23-30' then
+		if autotimer > 0 then
+			lg.print('Auto-Forward On', 2, 20)
+		end
 	end
 	
 	if menu_enabled then menu_draw() end

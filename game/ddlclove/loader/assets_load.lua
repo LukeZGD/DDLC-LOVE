@@ -33,26 +33,19 @@ function loaderAssets(l_timer)
 		gui.scrhover = lg.newImage('assets/images/gui/slider/horizontal_hover_thumb.png')		
 		
 	elseif l_timer == 99 then
-		m1 = lg.newFont('assets/fonts/m1.ttf',28) --monika poem font
-		y1 = lg.newFont('assets/fonts/y1.ttf',30) --yuri poem font
-		s1 = lg.newFont('assets/fonts/s1.ttf',32) --sayori poem font
+		m1 = lg.newFont('assets/fonts/m1.ttf',30) --monika poem font
+		y1 = lg.newFont('assets/fonts/y1.ttf',31) --yuri poem font
+		s1 = lg.newFont('assets/fonts/s1.ttf',35) --sayori poem font
 		n1 = lg.newFont('assets/fonts/n1.ttf',24) --natsuki poem font
 		dfnt = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
 		halogenfont = lg.newFont('assets/fonts/Halogen.ttf',28) --poem game font
 		rifficfont = lg.newFont('assets/fonts/RifficFree-Bold.ttf',24) --charactername font
 		
-		--set your custom fonts for translations here!
+		
 		--[[
 		if settings.lang == 'languagecode' then
 			m1 = lg.newFont('assets/fonts/nameoffont.ttf',fontsize)
-		else
-			m1 = lg.newFont('assets/fonts/m1.ttf',28) --monika poem font
-			y1 = lg.newFont('assets/fonts/y1.ttf',30) --yuri poem font
-			s1 = lg.newFont('assets/fonts/s1.ttf',32) --sayori poem font
-			n1 = lg.newFont('assets/fonts/n1.ttf',26) --natsuki poem font
-			dfnt = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font
-			halogenfont = lg.newFont('assets/fonts/Halogen.ttf',28) --poem game font
-			rifficfont = lg.newFont('assets/fonts/RifficFree-Bold.ttf',24) --charactername font
+			--set custom fonts for translations here!
 		end
 		]]
 

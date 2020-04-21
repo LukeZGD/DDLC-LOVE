@@ -367,7 +367,7 @@ function ch22script()
 						hideAll()
 						audioUpdate('0')
 						bgUpdate('black')
-						pause(2)
+						pause(2,'disable')
 					elseif cl == 1219 then
 						audioUpdate('6')
 						scriptJump(1234)

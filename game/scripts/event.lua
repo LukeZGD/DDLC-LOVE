@@ -157,6 +157,9 @@ function event_keypressed(key)
 		else
 			menu_enable('pause')
 		end
+	elseif key == 'b' and event_type == 'ch23-30' and chapter == 30 then --auto
+		sfx1:play()
+		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif (key == 'minus' or key == '-' or key == 'select') and event_type == 'ch23-30' then
 		if settings.o ~= 1 then settings.o = 1
 		else settings.o = 0 end

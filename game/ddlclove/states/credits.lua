@@ -4,8 +4,8 @@ local c_timer2
 local ra1 = 440
 local ra2 = 415
 local ra3 = 482
-local ra4 = 430
-local ra5 = 488
+local ra4 = 420
+local ra5 = 496
 local ra6 = 460
 
 function loadCredits(x)
@@ -29,7 +29,7 @@ function drawCredits()
 		lg.print(tr.credits[2],415,250)
 		lg.print(tr.credits[3],485,300)
 		lg.print(tr.credits[4],435,350)
-		lg.print(tr.credits[5],488,400)
+		lg.print(tr.credits[5],498,400)
 		lg.print(tr.credits[6],460,450)
 		lg.setColor(0,0,0)
 		lg.rectangle('fill',ra1,200,960,60)
@@ -57,7 +57,7 @@ function drawCredits()
 		lg.draw(moni1, 80, 7500 - c_timer2)
 		lg.setFont(halogenfont)
 		lg.print("Dan Salvato",225,930 - c_timer2)
-		lg.print("Satchely",920,1620 - c_timer2)
+		lg.print("Satchely",920,1700 - c_timer2)
 		lg.print("Velinquent",243,2310 - c_timer2)
 		lg.print("Dan Salvato",870,3000 - c_timer2)
 		lg.print("Dan Salvato",210,3690 - c_timer2)
@@ -73,7 +73,7 @@ function drawCredits()
 		lg.setColor(255,185,230)
 		lg.setFont(rifficfont)
 		lg.print(tr.credits[7],144,855 - c_timer2)
-		lg.print(tr.credits[8],880,1545 - c_timer2)
+		lg.print(tr.credits[8],880,1625 - c_timer2)
 		lg.print(tr.credits[9],210,2235 - c_timer2)
 		lg.print(tr.credits[10],890,2925 - c_timer2)
 		lg.print(tr.credits[11],246,3615 - c_timer2)
@@ -98,32 +98,32 @@ function updateCredits()
 	c_timer = c_timer + dt
 	c_timer2 = (c_timer - 60) * 75
 	--lyrics part stuff
-	if c_timer >= 10.3 and c_timer <= 11.4 then
-		ra1 = math.min(ra1 + 3, 505)
-	elseif c_timer >= 11.7 and c_timer <= 13.55 then
-		ra1 = math.min(ra1 + 3, 683)
+	if c_timer >= 10.3 and c_timer <= 11.6 then
+		ra1 = math.min(ra1 + 3, 520)
+	elseif c_timer >= 11.7 and c_timer <= 13.7 then
+		ra1 = math.min(ra1 + 3, 715)
 	elseif c_timer >= 13.7 and c_timer <= 16 then
 		ra1 = math.min(ra1 + 3, 1000)
 	elseif c_timer >= 19.4 and c_timer <= 20.65 then
-		ra2 = math.min(ra2 + 3, 495)
+		ra2 = math.min(ra2 + 3, 505)
 	elseif c_timer >= 20.8 and c_timer <= 23 then
-		ra2 = math.min(ra2 + 3, 730)
+		ra2 = math.min(ra2 + 3, 750)
 	elseif c_timer >= 23.2 and c_timer <= 26 then
 		ra2 = math.min(ra2 + 3, 1000)
 	elseif c_timer >= 28.3 and c_timer <= 30 then
-		ra3 = math.min(ra3 + 3, 615)
+		ra3 = math.min(ra3 + 3, 640)
 	elseif c_timer >= 30.1 and c_timer <= 32.4 then
 		ra3 = math.min(ra3 + 3, 1000)
 	elseif c_timer >= 32.8 and c_timer <= 34.2 then
-		ra4 = math.min(ra4 + 3, 580)
+		ra4 = math.min(ra4 + 3, 615)
 	elseif c_timer >= 34.3 and c_timer <= 37 then
 		ra4 = math.min(ra4 + 3, 1000)
 	elseif c_timer >= 37.5 and c_timer <= 39.1 then
-		ra5 = math.min(ra5 + 3, 615)
+		ra5 = math.min(ra5 + 3, 635)
 	elseif c_timer >= 39.2 and c_timer <= 41.7 then
 		ra5 = math.min(ra5 + 3, 1000)
 	elseif c_timer >= 42 and c_timer < 43.3 then
-		ra6 = math.min(ra6 + 3, 580)
+		ra6 = math.min(ra6 + 3, 595)
 	elseif c_timer >= 43.4 and c_timer < 50 then
 		ra6 = math.min(ra6 + 3, 1000)
 	end

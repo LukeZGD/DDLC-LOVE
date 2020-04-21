@@ -669,8 +669,8 @@ function ch40script()
 	savepersistent()
 	scriptJump(1)
 	elseif cl == 502 then
-	event_initstart('beforecredits')	
-	pause(41)
+	event_initstart('beforecredits')
+	pause(41,'disable')
 	elseif cl == 503 then
 	--event_end('beforecredits')
 	event_end('next')
@@ -690,6 +690,7 @@ function ch40_clearnormal()
 	if cl == 254 then
 	updateSayori('1','a')
 	s "I wanted to thank you for getting rid of Monika."
+    changeState('credits')
 	elseif cl == 255 then
 	event_initstart('show_dark')
 	updateSayori('1','b')
@@ -797,7 +798,7 @@ function ch40_clearnormal()
 	pause(0.35)
 	elseif cl == 293 then
 	bgUpdate('black')
-	pause(3)
+	pause(3,'disable')
 	elseif cl == 294 then
 	event_end('next')
 	elseif cl >= 295 then
@@ -870,7 +871,7 @@ function ch40_clearall()
 	elseif cl == 279 then
 	audioUpdate('0')
 	--event_initstart('ch23-30')
-	pause(3)
+	pause(3,'disable')
 	elseif cl >= 280 then
 	--event_end()
 	scriptJump(502)

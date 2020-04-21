@@ -112,7 +112,7 @@ function drawTextBox()
 		lg.setColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
-		if gui_ctc_t then lg.draw(gui.ctc, gui_ctc_x, 685) end
+		if print_full_text then lg.draw(gui.ctc, gui_ctc_x, 685) end
 		
 		lg.setColor(0,0,0,alpha)
 		lg.setFont(rifficfont)
@@ -159,7 +159,7 @@ function drawPoem()
 	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
 			if poemtext[i] then
-				lg.print(poemtext[i],250+(poem_scroll.x*30)-30,((poem_scroll.y*24)+(i*30))-25)
+				lg.print(poemtext[i],250+(poem_scroll.x*30)-30,((poem_scroll.y*24)+(i*35))-25)
 			end
 		end
 	end

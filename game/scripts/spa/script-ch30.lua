@@ -282,6 +282,7 @@ function ch30script()
 	if cl == 120 then
 	audioUpdate('m1')
 	event_initstart('ch23-30')
+	bgUpdate('cg/monika_bg')
 		cw('m', "¡Hola de nuevo, " .. player .. "!")
 	if xaload == 0 then savegame('autoload') end
 	elseif cl == 121 then
@@ -379,7 +380,7 @@ function ch30script()
 	
 	--ch30_waitloop
 	elseif cl == 203 then
-		pause(waittime)
+		pause(waittime,'disable')
 	elseif cl == 204 then
 		if monikatopics then
 			local randomt = math.random(1,#monikatopics)
@@ -430,7 +431,7 @@ function ch30_end()
 	if cl == 1050 then
 	persistent.chr.m = 2
 	if xaload == 0 then savepersistent() end
-	pause(2)
+	pause(2,'disable')
 	elseif cl == 1051 then
 	bgUpdate('cg/monika_rh')
 	cgUpdate('monika_glitch1')
@@ -460,7 +461,7 @@ function ch30_end()
 	elseif cl == 1057 then
 	cgHide()
 	bgUpdate('cg/monika_rh')
-	pause(1.5)
+	pause(1.5,'disable')
 	elseif cl == 1058 then
 		cw(gtext12, "Duele... mucho.")
 	elseif cl == 1059 then
@@ -567,7 +568,7 @@ function ch30_end()
 		savegame('autoload')
 		textbox = lg.newImage('assets/images/gui/textbox_monika.png')
 	end
-	pause(10)
+	pause(10,'disable')
 	elseif cl == 1101 then
 	cw(gtext12,"...")
 	elseif cl == 1102 then

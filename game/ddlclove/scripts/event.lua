@@ -33,7 +33,7 @@ function event_draw()
 		lg.setColor(255,255,255,255)
 		if bg1 == 'cg/monika_bg_glitch' then lg.draw(bgch) end
 		if cl < 271 then drawSayori() end
-		if menu_enabled then
+		if not menu_enabled and cl >= 286 and cl <= 290 then
 			lg.setColor(255,255,255,128)
 			lg.rectangle('fill',0,0,1280,725)
 		end
@@ -61,6 +61,11 @@ function event_draw()
 		drawMonika()
 		drawConsole()
 		if poem_enabled then drawPoem()	end
+		if autotimer > 0 then
+			lg.draw(gui.skip,0,27)
+			lg.setColor(0,0,0)
+			outlineText(tr.auto,5,35)
+		end
 	end
 	
 	lg.setColor(255,255,255,255)

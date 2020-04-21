@@ -42,9 +42,12 @@ function drawpoem_special()
 		lg.rectangle('fill',435,245,410,42)
 		lg.setColor(255,230,244,255)
 		lg.rectangle('fill',440,250,400,32)
+		lg.setColor(255,255,255,102)
+		lg.rectangle('fill',435,245,410,42)
 		lg.setColor(0,0,0,255)
-		lg.print(tr.missing[1],440,195)
-		lg.print(tr.missing[2],440,250)
+		lg.print(tr.missing[1],430,190)
+		outlineText(tr.missing[2],440,250)
+		lg.draw(gui.check,408,250)
 	end
 end
 

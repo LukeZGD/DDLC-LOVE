@@ -67,18 +67,15 @@ function cw(p1, stext, tag)
 		end
 	end
 	
-	if textx == stext then
-		gui_ctc_t = true
-	else
-		gui_ctc_t = false
-	end
-	
 	local temptext = ct..': '..stext
 	if cl >= 2001 and chapter == 23 then
+		for i = 1, h_items do
+			history[i] = ''
+		end
 		if branch == 'ddlclove' then
-			history[1] = tr.menuhelp[11]
+			history[18] = tr.menuhelp[11]
 		else
-			history[1] = ''
+			history[12] = tr.menuhelp[11]
 		end
 	elseif history[1] ~= stext and history[1] ~= temptext then
 		for i = h_items, 1, -1 do
@@ -204,10 +201,12 @@ function n (say) return cw('n',say) end
 function y (say) return cw('y',say) end
 function m (say) return cw('m',say) end
 
-function pause(t)
-	if event_enabled then textbox_enabled = false end
+function pause(t,f)
+	if f == 'disable' then textbox_enabled = false end
 	autotimer = 0
 	tagtimer = tagtimer + dt
+	print_full_text = false
+	ct = ''
 	if tagtimer >= t then
 		scriptJump(cl+1)
 		tagtimer = 0
@@ -258,7 +257,7 @@ function glitchtext(range)
 	local gtextstring = ''
 	local chars = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
 				   'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-				   '0','1','2','3','4','5','6','7','8','9'}
+				   '0','1','2','3','4','5','6','7','8','9',space(math.random(0,9))}
 	
 	for i = 1, range do
 		aaa = math.random(1, #chars)
