@@ -97,14 +97,15 @@ end
 
 function unloadAll(x)
 	if x == 'poemgame' then
-		poemfont = nil
-		sayoristicker1 = nil
-		sayoristicker2 = nil
-		yuristicker1 = nil
-		yuristicker2 = nil
-		natsukisticker1 = nil
-		natsukisticker2 = nil
+		s_sticker_1 = nil
+		s_sticker_2 = nil
+		y_sticker_1 = nil
+		y_sticker_2 = nil
+		n_sticker_1 = nil
+		n_sticker_2 = nil
 		eyes = nil
+		collectgarbage()
+		collectgarbage()
 	else
 		unloadSayori()
 		unloadYuri()

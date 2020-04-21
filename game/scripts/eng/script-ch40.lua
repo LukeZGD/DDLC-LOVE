@@ -690,7 +690,6 @@ function ch40_clearnormal()
 	if cl == 254 then
 	updateSayori('1','a')
 	s "I wanted to thank you for getting rid of Monika."
-    changeState('credits')
 	elseif cl == 255 then
 	event_initstart('show_dark')
 	updateSayori('1','b')

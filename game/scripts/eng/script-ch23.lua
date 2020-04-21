@@ -78,7 +78,7 @@ function ch23script()
 		n "Another new member wouldn't hurt, as long as they're cool..."
 		elseif cl == 1652 then
 		updateNatsuki('5','w')
-		n"And I guess another girl would be nice this time..."
+		n "And I guess another girl would be nice this time..."
 		elseif cl == 1653 then
 		updateNatsuki('5','u')
 		n "So..."
