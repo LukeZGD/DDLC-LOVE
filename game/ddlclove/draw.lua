@@ -253,10 +253,10 @@ function hideMonika()
 end
 
 function hideAll()
-	s_Set = {a='',b='',x=-675,y=s_Set.y}
-	y_Set = {a='',b='',x=-675,y=y_Set.y}
-	n_Set = {a='',b='',x=-675,y=n_Set.y}
-	m_Set = {a='',b='',x=-675,y=m_Set.y}
+	s_Set = {a='',b='',x=-675,y=4}
+	y_Set = {a='',b='',x=-675,y=4}
+	n_Set = {a='',b='',x=-675,y=4}
+	m_Set = {a='',b='',x=-675,y=4}
 	unloadAll()
 end
 

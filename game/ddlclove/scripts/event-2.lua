@@ -93,9 +93,9 @@ function event_draw_2()
 	
 	if event_type == 'yuri_glitch_head' then
 		if eventvar1 == 2 then
-			drawanimframe(850,140)
+			drawanimframe(800,0,1.5)
 		else
-			drawanimframe(750,100)
+			drawanimframe(800,100)
 		end
 	end
 	

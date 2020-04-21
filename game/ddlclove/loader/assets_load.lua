@@ -34,7 +34,7 @@ function loaderAssets(l_timer)
 		
 	elseif l_timer == 99 then
 		m1 = lg.newFont('assets/fonts/m1.ttf',30) --monika poem font
-		y1 = lg.newFont('assets/fonts/y1.ttf',31) --yuri poem font
+		y1 = lg.newFont('assets/fonts/y1.ttf',33) --yuri poem font
 		s1 = lg.newFont('assets/fonts/s1.ttf',35) --sayori poem font
 		n1 = lg.newFont('assets/fonts/n1.ttf',24) --natsuki poem font
 		dfnt = lg.newFont('assets/fonts/VerilySerifMono.ttf',23) --act 2 "edited" text font

@@ -124,11 +124,12 @@ function event_start(etype, arg1)
 	end
 end
 
-function drawanimframe(x,y)
-	if x == nil then x = 0 end
-	if y == nil then y = 0 end
+function drawanimframe(x,y,s)
+	if not x then x = 0 end
+	if not y then y = 0 end
+	if branch ~= 'ddlclove' or not s then s = 1 end
 	if animframe[currentframe] then
-		lg.draw(animframe[currentframe],x,y)
+		lg.draw(animframe[currentframe],x,y,0,s,s)
 	end
 	if sectimer > 0.75 and animframe[4] then
 		currentframe = 4
