@@ -173,10 +173,10 @@ end
 function drawPoemGame()
 	drawTopScreen()
 	lg.setBackgroundColor(0,0,0)
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	lg.draw(bgch2, 0, 0)
 	
-	lg.setColor(0,0,0)
+	lgsetColor(0,0,0)
 	lg.draw(guicheck,cursorX,cursorY)
 	lg.setFont(m1)
 	if poemword <= 20 then
@@ -189,20 +189,20 @@ function drawPoemGame()
 	end
 	
 	if poemstate == 0 then
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		lg.draw(poemtime,0,0)
 	end
 	
 	if menu_enabled then
-		lg.setColor(255,255,255,menu_alpha/2)
+		lgsetColor(255,255,255,menu_alpha/2)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	if eyes_in then
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.rectangle('fill',0,0,400,240)
 		if eyes_timer <= 2.2 then
-			lg.setColor(255,255,255)
+			lgsetColor(255,255,255)
 			lg.draw(eyes,110,eyes_y)
 			lg.draw(eyes,110,eyes_y+240)
 			lg.draw(eyes,110,eyes_y+480)
@@ -210,7 +210,7 @@ function drawPoemGame()
 	end
 	
 	drawBottomScreen()
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	lg.draw(menu_bg, posX, posY)
 	
 	if persistent.ptr == 0 then
@@ -224,9 +224,9 @@ function drawPoemGame()
 		lg.draw(m_sticker_1,120,100)
 	end
 	
-	lg.setColor(255,189,225,alpha)
+	lgsetColor(255,189,225,alpha)
 	lg.rectangle('fill', 135,2,40,16) 
-	lg.setColor(0,0,0)
+	lgsetColor(0,0,0)
 	lg.setFont(font)
 	lg.print('Menu',139,2)
 	

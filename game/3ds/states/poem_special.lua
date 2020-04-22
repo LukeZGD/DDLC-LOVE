@@ -45,20 +45,20 @@ end
 function drawpoem_special()
 	drawTopScreen()
 	lg.setBackgroundColor(0,0,0)
-	lg.setColor(255,255,255,p_alpha)
+	lgsetColor(255,255,255,p_alpha)
 	lg.draw(poemsp.topimg, poemsp.topX)
 	if p_confirm == 1 and p_number >= 12 then
-		lg.setColor(255,255,255,128)
+		lgsetColor(255,255,255,128)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	drawBottomScreen()
 	lg.draw(poemsp.bottomimg, poemsp.bottomX)
 	if p_confirm == 1 and p_number >= 12 then
-		lg.setColor(255,255,255,255)
+		lgsetColor(255,255,255,255)
 		lg.draw(menu_bg, posX, posY)
-		lg.setColor(255,189,225,255)
+		lgsetColor(255,189,225,255)
 		lg.rectangle('fill', 16, 45, 30, 16)
-		lg.setColor(0,0,0,255)
+		lgsetColor(0,0,0,255)
 		lg.print("Error: Script file is missing or corrupt. \nPlease reinstall the game.",16, 12)
 		lg.print('OK',17,45)
 	end

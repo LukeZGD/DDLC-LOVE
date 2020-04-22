@@ -18,13 +18,13 @@ function drawLoad()
 	lg.setBackgroundColor(255,255,255)
 	if err ~= '' then
 		drawTopScreen()
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 		lg.rectangle('fill',0,0,400,240)
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		lg.print(err,5,5)
 		lg.print(errmsg,5,35)
 		drawBottomScreen()
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 		lg.rectangle('fill',-40,0,400,240)
 	end
 end

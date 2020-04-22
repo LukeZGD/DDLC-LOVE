@@ -1,8 +1,8 @@
 lg = love.graphics
 require(branch..'/draw')
---compatiblity for LOVE 11 and above
-local lgsetColor = lg.setColor
-function lg.setColor(...)
+
+--local lgsetColor = lgsetColor
+function lgsetColor(...)
 	local args = {...}
 	if love.getVersion() >= 11 then
 		for i = 1, #args do
@@ -11,7 +11,7 @@ function lg.setColor(...)
 			end
 		end
 	end
-	lgsetColor(args[1],args[2],args[3],args[4])
+	lg.setColor(args[1],args[2],args[3],args[4])
 end
 
 local lgdraw = lg.draw

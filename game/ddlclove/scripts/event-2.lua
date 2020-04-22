@@ -19,7 +19,7 @@ function event_draw_2()
 	
 	if event_type == 'n_rects_ghost' then
 		lg.draw(bgch)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.rectangle('fill',math.random(838,870),math.random(300,330),math.random(58,90),math.random(58,84))
 		lg.rectangle('fill',math.random(838,870),math.random(300,330),math.random(58,90),math.random(58,84))
 		lg.rectangle('fill',math.random(704,736),math.random(381,411),math.random(48,80),math.random(48,75))
@@ -48,9 +48,9 @@ function event_draw_2()
 				lg.draw(vignette)
 			end
 		end
-		lg.setColor(255,255,255,eventvar1)
+		lgsetColor(255,255,255,eventvar1)
 		lg.draw(vignette)
-		lg.setColor(255,255,255,eventvar2)
+		lgsetColor(255,255,255,eventvar2)
 		drawanimframe()
 	end
 	
@@ -72,22 +72,22 @@ function event_draw_2()
 		lg.draw(eyes1,-38)
 		lg.draw(eyes2,eventvar2,eventvar3)
 		if cl <= 701 then
-			lg.setColor(32,0,0,192)
+			lgsetColor(32,0,0,192)
 		else
-			lg.setColor(0,0,0,192)
+			lgsetColor(0,0,0,192)
 		end
 		lg.rectangle('fill',0,0,1280,725)
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		if poem_enabled then drawPoem() end
 	end
 	
 	if event_type == 'faint_effect' then
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		lg.draw(bgch)
 		drawNatsuki()
 		drawYuri()
 		drawMonika()
-		lg.setColor(128,0,0,eventvar1)
+		lgsetColor(128,0,0,eventvar1)
 		lg.rectangle('fill',0,0,1280,725)
 	end
 	
@@ -100,16 +100,16 @@ function event_draw_2()
 	end
 	
 	if event_type == 'show_darkred' then
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		lg.draw(bgch)
 		drawYuri()
-		lg.setColor(32,0,0,eventvar2)
+		lgsetColor(32,0,0,eventvar2)
 		lg.rectangle('fill',0,0,1280,725)
 		if eventvar4 == 'show_noise' then
-			lg.setColor(255,255,255,eventvar2/8)
+			lgsetColor(255,255,255,eventvar2/8)
 			drawanimframe()
 		end
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		drawMonika()
 		if poem_enabled then drawPoem() end
 	end
@@ -127,12 +127,12 @@ function event_draw_2()
 	if event_type == 'yuri_ch23_2' then
 		lg.draw(bgch,eventvar1)
 		drawYuri()
-		lg.setColor(0,0,0,128+(eventvar1*4))
+		lgsetColor(0,0,0,128+(eventvar1*4))
 		lg.rectangle('fill',0,0,1280,725)
 	end
 	
 	if event_type == 'm_ch23ex' then
-		lg.setColor(255,255,255,255)
+		lgsetColor(255,255,255,255)
 		if event_timer > 1 then
 			lg.draw(ex3top)
 		end
@@ -146,9 +146,9 @@ function event_draw_2()
 		if cl < 726 then
 			drawNatsuki()
 			if cl < 725 then
-				lg.setColor(255,255,255,eventvar3)
+				lgsetColor(255,255,255,eventvar3)
 				lg.draw(ghost_blood,256)
-				lg.setColor(0,0,0,eventvar2)
+				lgsetColor(0,0,0,eventvar2)
 				lg.rectangle('fill',math.random(535,555),math.random(245,257),math.random(19,32),math.random(18,30))
 				lg.rectangle('fill',math.random(535,555),math.random(245,257),math.random(19,32),math.random(18,30))
 				lg.rectangle('fill',math.random(600,620),math.random(245,257),math.random(19,32),math.random(18,30))
@@ -157,9 +157,9 @@ function event_draw_2()
 				lg.rectangle('fill',math.random(578,592),math.random(300,313),math.random(16,29),math.random(15,27))
 			end
 		end
-		lg.setColor(32,0,0,eventvar1)
+		lgsetColor(32,0,0,eventvar1)
 		lg.rectangle('fill',0,0,1280,725)
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		if cl == 726 then
 			if event_timer < 1 then
 				lg.draw(nl,256)

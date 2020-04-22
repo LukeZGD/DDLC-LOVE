@@ -21,7 +21,7 @@ end
 
 function drawCredits()
 	lg.setBackgroundColor(0,0,0)
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	
 	if c_timer < 51 then
 		lg.setFont(m1)
@@ -31,7 +31,7 @@ function drawCredits()
 		lg.print(tr.credits[4],435,350)
 		lg.print(tr.credits[5],498,400)
 		lg.print(tr.credits[6],460,450)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.rectangle('fill',ra1,200,960,60)
 		lg.rectangle('fill',ra2,250,960,60)
 		lg.rectangle('fill',ra3,300,960,60)
@@ -70,7 +70,7 @@ function drawCredits()
 		lg.print("Matt Naples",220,7020 - c_timer2)
 		lg.print("Monika",903,7665 - c_timer2)
 		lg.print(player,910,7710 - c_timer2)
-		lg.setColor(255,185,230)
+		lgsetColor(255,185,230)
 		lg.setFont(rifficfont)
 		lg.print(tr.credits[7],144,855 - c_timer2)
 		lg.print(tr.credits[8],880,1625 - c_timer2)
@@ -89,7 +89,7 @@ function drawCredits()
 		lg.print(tr.splash[16],splashx,10)
 	end
 	
-	lg.setColor(255,255,255)
+	lgsetColor(255,255,255)
 	lg.setFont(allerfont)
 	drawConsole()
 end

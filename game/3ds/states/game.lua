@@ -17,14 +17,14 @@ function drawGame()
 	lg.setBackgroundColor(0,0,0)
 	
 	drawTopScreen()
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	lg.draw(bgch)
 	if bgch2 and menu_enabled ~= true then
-		lg.setColor(255,255,255,bgalpha)
+		lgsetColor(255,255,255,bgalpha)
 		lg.draw(bgch2)
 	end
 	
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	if cg1 ~= '' then lg.draw(cgch) end
 	drawSayori()
 	drawYuri()
@@ -34,12 +34,12 @@ function drawGame()
 	if poem_enabled then drawPoem()	end
 	
 	if menu_enabled and menu_type ~= 'choice' then
-		lg.setColor(255,255,255,menu_alpha/2)
+		lgsetColor(255,255,255,menu_alpha/2)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	
 	drawBottomScreen()
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	if bgimg_disabled ~= true then lg.draw(menu_bg, posX, posY) end
 	lg.setFont(font)
 	if textbox_enabled then
@@ -47,7 +47,7 @@ function drawGame()
 		drawTextBox()
 	end
 	
-	lg.setColor(0,0,0)
+	lgsetColor(0,0,0)
 	lg.setFont(font)
 	if autotimer > 0 then
 		lg.print('Auto-Forward On', 2, 20)
@@ -66,11 +66,11 @@ function drawGame()
 	end
 	
 	if state ~= 'newgame' and poem_enabled ~= true and event_enabled ~= true then
-		lg.setColor(255,189,225,alpha)
+		lgsetColor(255,189,225,alpha)
 		lg.rectangle('fill',47,2,40,16) 
 		lg.rectangle('fill',139,2,32,16) 
 		lg.rectangle('fill',237,2,32,16) 
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 		lg.print('Menu',51,2,0,1,1)
 		lg.print('Auto',142,2,0,1,1)
 		lg.print('Skip',241,2,0,1,1) 

@@ -236,6 +236,7 @@ function choice_enable(x)
 		end
 		autotimer = 0
 		autoskip = 0
+		ct = ''
 	end
 end
 

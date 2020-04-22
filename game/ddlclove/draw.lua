@@ -12,18 +12,18 @@ uniduration = 0.25
 
 function outlineText(text,x,y,type,arg1)
 	if g_system == 'PSP' or g_system == 'PS3' or settings.o == 1 then
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 	else
 		local addm = 1.5
 		if type == 'ct' then
-			lg.setColor(187,85,153,alpha)
+			lgsetColor(187,85,153,alpha)
 			addm = 2.35
 		elseif style_edited and (type == 'c_disp' or type == 'printf') then
-			lg.setColor(255,255,255,alpha)
+			lgsetColor(255,255,255,alpha)
 		elseif type == 'poemgame' then
-			lg.setColor(255,175,255,alpha)
+			lgsetColor(255,175,255,alpha)
 		else
-			lg.setColor(0,0,0,alpha)
+			lgsetColor(0,0,0,alpha)
 		end
 		if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 			lg.printf(text,x-addm,y,arg1)
@@ -37,9 +37,9 @@ function outlineText(text,x,y,type,arg1)
 			lg.print(text,x,y+addm)
 		end
 		if style_edited and (type == 'c_disp' or type == 'printf') then
-			lg.setColor(0,0,0,alpha)
+			lgsetColor(0,0,0,alpha)
 		else
-			lg.setColor(255,255,255,alpha)
+			lgsetColor(255,255,255,alpha)
 		end
 	end
 	if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
@@ -109,12 +109,12 @@ function drawTextBox()
 	end
 	
 	if menu_type ~= 'choice' and not poem_enabled then
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
 		if print_full_text then lg.draw(gui.ctc, gui_ctc_x, 685) end
 		
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 		lg.setFont(rifficfont)
 		outlineText(ct,xps.ct,yps.ct,'ct')
 		
@@ -140,10 +140,10 @@ function drawPoem()
 	if poembg then
 		lg.draw(poembg, 240, 0)
 	elseif yuri_3 then
-		lg.setColor(255,0,0,192)
+		lgsetColor(255,0,0,192)
 		lg.rectangle('fill',240,0,800,725)
 	else
-		lg.setColor(243,243,243)
+		lgsetColor(243,243,243)
 		lg.rectangle('fill',240,0,800,725)
 	end
 	if poem_author == 'monika' then
@@ -155,7 +155,7 @@ function drawPoem()
 	elseif poem_author == 'natsuki' then
 		lg.setFont(n1)
 	end
-	lg.setColor(0,0,0)
+	lgsetColor(0,0,0)
 	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
 			if poemtext[i] then
@@ -167,9 +167,9 @@ end
 
 function drawConsole()
 	if console_enabled then
-		lg.setColor(51,51,51,191)
+		lgsetColor(51,51,51,191)
 		lg.rectangle('fill',0,0,500,180)
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		lg.setFont(consolefont)
 		lg.print('> '..console_text1,0,0)
 		lg.print(console_text2,15,30)

@@ -118,13 +118,13 @@ end
 
 function menu_drawstuff(a)
 	if a == 'dialog' then
-		lg.setColor(255,189,225,255)
+		lgsetColor(255,189,225,255)
 		lg.rectangle('fill',400,180,480,360)
-		lg.setColor(255,230,244,255)
+		lgsetColor(255,230,244,255)
 		lg.rectangle('fill',410,190,460,340)
-		lg.setColor(255,189,225,255)
+		lgsetColor(255,189,225,255)
 	elseif a == 'overlay' then
-		lg.setColor(255,255,255,menu_alpha)
+		lgsetColor(255,255,255,menu_alpha)
 		lg.draw(menu_bg,posX,posY)
 		lg.draw(gui.mmenu)
 		if menu_previous == 'pause' then
@@ -137,7 +137,7 @@ function menu_drawstuff(a)
 end
 
 function menu_draw()
-	lg.setColor(255,255,255,menu_alpha)
+	lgsetColor(255,255,255,menu_alpha)
 	
 	if menu_type == 'title' then
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
@@ -147,27 +147,27 @@ function menu_draw()
 			lg.draw(menu_bg,posX,posY)
 		end
 		if menu_type == 'choice' then
-			lg.setColor(255,255,255,255)
+			lgsetColor(255,255,255,255)
 			lg.draw(textbox,230,565)
 			outlineText(menutext,250,590)
 		else
-			lg.setColor(255,255,255,128)
+			lgsetColor(255,255,255,128)
 			lg.rectangle('fill',0,0,1280,725)
 			menu_drawstuff('dialog')
-			lg.setColor(0,0,0)
+			lgsetColor(0,0,0)
 			lg.print(menutext,430,190)
 		end
 		for i = 1, 8 do
 			if menu_items >= i+1 then
-				lg.setColor(255,189,255,menu_alpha)
+				lgsetColor(255,189,255,menu_alpha)
 				lg.rectangle('fill',435, 195+(50*i),410,42)
-				lg.setColor(255,230,244,menu_alpha)
+				lgsetColor(255,230,244,menu_alpha)
 				lg.rectangle('fill',440, 200+(50*i),400,32)
 			end
 		end
-		lg.setColor(255,255,255,menu_alpha/2.5)
+		lgsetColor(255,255,255,menu_alpha/2.5)
 		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
-		lg.setColor(0,0,0,menu_alpha)
+		lgsetColor(0,0,0,menu_alpha)
 		for i = 1, 8 do
 			if menu_items >= i+1 and menu_type == 'choice' and choices[i] and m_selected ~= i+1 then
 				lg.print(choices[i],440,200+(50*i))
@@ -183,16 +183,16 @@ function menu_draw()
 		lg.draw(gui.check,408,200+(50*(m_selected-1)))
 		
 	elseif menu_type == 'dialog' then
-		lg.setColor(255,255,255,128)
+		lgsetColor(255,255,255,128)
 		lg.rectangle('fill',0,0,1280,725)
 		menu_drawstuff('dialog')
-		lg.setColor(255,189,255,255)
+		lgsetColor(255,189,255,255)
 		lg.rectangle('fill',435,245,410,42)
-		lg.setColor(255,230,244,255)
+		lgsetColor(255,230,244,255)
 		lg.rectangle('fill',440,250,400,32)
-		lg.setColor(255,255,255,menu_alpha/2.5)
+		lgsetColor(255,255,255,menu_alpha/2.5)
 		lg.rectangle('fill',435,245,410,42)
-		lg.setColor(0,0,0,255)
+		lgsetColor(0,0,0,255)
 		lg.print(menutext,430,190)
 		outlineText(tr.missing[2],440,250)
 		lg.draw(gui.check,408,250)
@@ -205,13 +205,13 @@ function menu_draw()
 		lg.draw(gui.check,50,(cY/1.2)+240)
 		
 	elseif menu_type == 'help' then
-		lg.setColor(255,255,255,menu_alpha)
+		lgsetColor(255,255,255,menu_alpha)
 		lg.draw(menu_bg,posX,posY)
-		lg.setColor(255,189,225,menu_alpha)
+		lgsetColor(255,189,225,menu_alpha)
 		lg.rectangle('fill',100,50,1080,620)
-		lg.setColor(255,230,244,menu_alpha)
+		lgsetColor(255,230,244,menu_alpha)
 		lg.rectangle('fill',120,70,1040,580)
-		lg.setColor(0,0,0,menu_alpha)
+		lgsetColor(0,0,0,menu_alpha)
 		lg.print(menutext,140,90)
 		local keys = {}
 		if global_os == 'LOVE-WrapLua' then
@@ -219,7 +219,7 @@ function menu_draw()
 		else
 			keys = {'A','B','X','Y','Plus','Minus'}
 		end
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.print('Key Bindings:',160,120)
 		lg.print(keys[1]..tr.menuhelp[1],160,160)
 		lg.print(keys[2]..tr.menuhelp[2],160,190)
@@ -255,10 +255,10 @@ function menu_draw()
 				apx.x = save_oset.x[i-3]
 				apx.y = save_oset.y[2]
 			end
-			lg.setColor(255,255,255,menu_alpha)
+			lgsetColor(255,255,255,menu_alpha)
 			lg.draw(gui.slotidle,apx.x,apx.y-50)
 			lg.draw(save_bpic[i],apx.x+10,apx.y-40)
-			lg.setColor(0,0,0,menu_alpha)
+			lgsetColor(0,0,0,menu_alpha)
 			lg.print(savenum[i]..': '..save_date[i],(apx.x+10),(apx.y+110))
 		end
 		if savenumber == 61 then
@@ -269,7 +269,7 @@ function menu_draw()
 		
 	elseif menu_type == 'settings' then
 		menu_drawstuff('overlay')
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		lg.draw(gui.settings)
 		lg.draw(gui.setbuttons)
 		local hv = {x=0,y=0}
@@ -298,7 +298,7 @@ function menu_draw()
 		lg.draw(gui.scrhover,(settings.bgmvol*3.4)+818,446)
 		lg.draw(gui.scrhover,(settings.sfxvol*3.4)+818,514)
 		lg.draw(gui.check,hv.x,hv.y)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.print(settings.textspd,525,340)
 		lg.print(settings.autospd,625,410)
 		lg.print(settings.masvol..'%',1020,340)
@@ -309,7 +309,7 @@ function menu_draw()
 	elseif menu_type == 'history' then
 		menu_drawstuff('overlay')
 		lg.draw(gui.history)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		
 		for i = 1, #history do
 			local temptext = wrap(history[i],70)
@@ -334,16 +334,16 @@ function menu_draw()
 		end
 	else
 		menu_drawstuff('overlay')
-		lg.setColor(255,189,225,menu_alpha)
+		lgsetColor(255,189,225,menu_alpha)
 		for i = 1, 8 do
 			if menu_items >= i+1 then lg.rectangle('fill',360, 110+(50*i),200,32) end
 		end
-		lg.setColor(0,0,0,menu_alpha)
+		lgsetColor(0,0,0,menu_alpha)
 		lg.draw(gui.check,cX+200,cY)
 		lg.print(menutext,340,90)
 	end
 	
-	lg.setColor(0,0,0,menu_alpha)
+	lgsetColor(0,0,0,menu_alpha)
 	if menu_type == 'characters' then
 		for i = 1, 8 do
 			if menu_items >= i+1 and itemnames[i] then
@@ -353,7 +353,7 @@ function menu_draw()
 	end
 	
 	if persistent.act2[2] < 1 and menu_mchance == 50 and persistent.ptr == 2 then
-		lg.setColor(255,255,255,255)
+		lgsetColor(255,255,255,255)
 		lg.draw(menu_bg_m)
 	end
 end

@@ -7,14 +7,14 @@ function drawSplash()
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
 		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		lg.draw(splash)
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,5,220)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
 		drawTopScreen()
-		lg.setColor(0,0,0, alpha)
+		lgsetColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
 			lg.print(tr.splash[random_msg], 95, 100)
 		else
@@ -25,11 +25,11 @@ function drawSplash()
 	elseif state == 'title' then --title (Title Screen)
 		drawTopScreen()
 		lg.setBackgroundColor(255,255,255)
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		lg.draw(menu_bg,posX,posY)
 		lg.draw(titlebg)
 		
-		lg.setColor(64,64,64,alpha)
+		lgsetColor(64,64,64,alpha)
 		lg.print('Unofficial port by LukeeGD',245,5)
 		drawBottomScreen()
 		menu_draw()
@@ -74,12 +74,12 @@ end
 
 function drawSplashspec(spec)
 	drawTopScreen()
-	lg.setColor(255,255,255,alpha)
+	lgsetColor(255,255,255,alpha)
 	if s_timer > 3.1 then
 		if state == 's_kill_early' then
 			lg.setBackgroundColor(245,245,245)
 			lg.draw(s_killearly,72,0)
-			lg.setColor(200,200,200)
+			lgsetColor(200,200,200)
 			lg.setFont(m1)
 			if s_timer > 600 then lg.print('Now everyone can be happy.',200,100) end
 		elseif state == 'ghostmenu' then
@@ -89,7 +89,7 @@ function drawSplashspec(spec)
 		lg.draw(endbg)
 	end
 	drawBottomScreen()
-	lg.setColor(0,0,0)
+	lgsetColor(0,0,0)
 	lg.rectangle('fill',-40,0,400,240)
 end
 

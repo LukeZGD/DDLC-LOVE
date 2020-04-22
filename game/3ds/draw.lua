@@ -30,10 +30,10 @@ function drawTextBox()
 	if style_edited then lg.setFont(dfnt) end
 	
 	if (not menu_enabled or (event_enabled and textbox_enabled)) and not poem_enabled then
-		lg.setColor(255,255,255,alpha)
+		lgsetColor(255,255,255,alpha)
 		if ct ~= '' then lg.draw(namebox, xps.namebox, yps.namebox) end
 		lg.draw(textbox, xps.textbox, yps.textbox)
-		lg.setColor(0,0,0,alpha)
+		lgsetColor(0,0,0,alpha)
 		lg.print(ct,xps.ct,yps.ct)
 		if c_disp[1] then
 			lg.print(c_disp[1],xps.c,yps.c)
@@ -46,11 +46,11 @@ function drawPoem()
 	if poembg then
 		lg.draw(poembg,40)
 	else
-		lg.setColor(243,243,243)
+		lgsetColor(243,243,243)
 		lg.rectangle('fill',0,0,400,240)
 	end
 	lg.setFont(m1)
-	lg.setColor(0,0,0)
+	lgsetColor(0,0,0)
 	if poemtext and poem_scroll then
 		for i = 1, #poemtext do
 			if poemtext[i] then
@@ -62,18 +62,18 @@ end
 
 function drawNumbers()
 	if bgimg_disabled then 
-		lg.setColor(255,255,255,255)
+		lgsetColor(255,255,255,255)
 	else
-		lg.setColor(0,0,0,255)
+		lgsetColor(0,0,0,255)
 	end
 	lg.print(cl,2,2)
 end
 
 function drawConsole()
 	if console_enabled then
-		lg.setColor(51,51,51,191)
+		lgsetColor(51,51,51,191)
 		lg.rectangle('fill',0,0,320,60)
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		lg.setFont(dfnt)
 		lg.print('> '..console_text1,0,0)
 		lg.print(console_text2,5,15)

@@ -1,7 +1,7 @@
 function event_draw_3()
 	if event_type == 'monika_end' then
 		lg.draw(bgch)
-		lg.setColor(255,255,255,255)
+		lgsetColor(255,255,255,255)
 		if eventvar4 ~= 'end2' then
 			lg.rectangle('fill',eventvar2,eventvar2/2,64,64)
 			lg.rectangle('fill',eventvar3,eventvar3/2,64,64)
@@ -13,12 +13,12 @@ function event_draw_3()
 		
 		drawConsole()
 		
-		lg.setColor(255,255,255,eventvar1)
+		lgsetColor(255,255,255,eventvar1)
 		drawanimframe()
 	end
 	
 	if event_type == 'beforecredits' then
-		lg.setColor(255,255,255,eventvar1)
+		lgsetColor(255,255,255,eventvar1)
 		lg.draw(vignette)
 		drawanimframe()
 		if eventvar2 then lg.draw(eventvar2,0,eventvar3) end

@@ -10,13 +10,13 @@ function event_draw_1()
 		lg.draw(s_kill_bgzoom)
 		lg.draw(s_killzoom, eventvar2)
 		if event_timer >= 10 then
-			lg.setColor(255,255,255,64)
+			lgsetColor(255,255,255,64)
 			lg.draw(exception)
 		elseif event_timer >= 5.75 then
-			lg.setColor(255,255,255,128)
+			lgsetColor(255,255,255,128)
 			lg.draw(menu_bg, posX, posY)
 		elseif event_timer >= 3.75 then
-			lg.setColor(255,255,255,eventvar3)
+			lgsetColor(255,255,255,eventvar3)
 			lg.draw(splash_glitch)
 		end
 	end

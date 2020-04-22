@@ -90,7 +90,7 @@ function menu_enable(m)
 end
 
 function menu_draw()
-	lg.setColor(255,255,255,menu_alpha)
+	lgsetColor(255,255,255,menu_alpha)
 	lg.draw(menu_bg, posX, posY)
 	if menu_type == 'choice' then
 		for i = 1, #choices do
@@ -103,13 +103,13 @@ function menu_draw()
 	end
 	rectwidth = math.max(unpack(getcompare)) + 5
 	
-	lg.setColor(255,189,225,menu_alpha)
+	lgsetColor(255,189,225,menu_alpha)
 	for i = 1, 8 do
 		if menu_items >= i+1 then lg.rectangle('fill',16, 20+(25*i),rectwidth,16) end
 	end
 	if menu_previous then lg.rectangle('fill', 16, 220, 30, 16) end
 	
-	lg.setColor(0,0,0,menu_alpha)
+	lgsetColor(0,0,0,menu_alpha)
 	lg.draw(guicheck,cX,cY)
 	lg.print(menutext,16, 12)
 	for i = 1, 8 do
@@ -138,28 +138,28 @@ function menu_draw()
 		lg.print('Page '..pagenum..' of 10',220,12)
 		lg.print('(<) X | Y (>)',230,27)
 		--[[
-		lg.setColor(0,255,0)
+		lgsetColor(0,255,0)
 		lg.rectangle('fill',230,46,6,6)
-		lg.setColor(255,0,0)
+		lgsetColor(255,0,0)
 		lg.rectangle('fill',230,61,6,6)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.print('Empty',245,42)
 		lg.print('Taken',245,57)
 		for i = 1, 6 do
 			if saveindicator[i] == 1 then
-				lg.setColor(255,0,0)
+				lgsetColor(255,0,0)
 			else
-				lg.setColor(0,255,0)
+				lgsetColor(0,255,0)
 			end
 			lg.rectangle('fill',95,25+(25*i),6,6)
 		end
 		]]
 	elseif menu_type == 'help' then
-		lg.setColor(255,189,225)
+		lgsetColor(255,189,225)
 		lg.rectangle('fill',14,30,260,110)
 		lg.rectangle('fill',14,150,260,16)
 		lg.rectangle('fill',14,180,260,30)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.print('Key Bindings:',16,30)
 		lg.print('A, L Trigger - Advances through the game,',16,45)
 		lg.print('activates menu choices',90,60)
@@ -176,17 +176,17 @@ function menu_draw()
 		local cdisp = {}
 		local ypsc = {15,30,45,60}
 	
-		lg.setColor(255,255,255)
+		lgsetColor(255,255,255)
 		lg.draw(menu_bg, posX, posY)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		
 		for i = 1, #history do
 			local temptext = wrap(history[i],45)
 			lg.print(temptext,8,920+(history_scr*25)-(i*70))
 		end
-		lg.setColor(255,189,225)
+		lgsetColor(255,189,225)
 		lg.rectangle('fill',0,0,320,32)
-		lg.setColor(0,0,0)
+		lgsetColor(0,0,0)
 		lg.print("History",16, 12)
 		
 	end

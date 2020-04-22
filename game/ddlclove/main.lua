@@ -48,10 +48,3 @@ function game_setvolume()
 		sfx2:setVolume(sfxvol)
 	end
 end
-
---[[
-function love.errorhandler(msg)
-	msg = debug.traceback("Error: " .. tostring(msg))
-	love.filesystem.write("error.txt",msg)
-end
-]]
