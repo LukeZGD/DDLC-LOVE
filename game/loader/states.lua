@@ -14,40 +14,40 @@ function changeState(cstate,x)
 	end
 	
 	if cstate == 'splash' then
-		splash = lg.newImage('assets/images/bg/splash.png')
+		splash = lgnewImage('assets/images/bg/splash.png')
 		alpha = 0
 		audioUpdate('1')
 	elseif cstate == 'title' and branch == 'ddlclove' then
 		alpha = 0		
 		--sayori
 		if (persistent.ptr == 1 or persistent.ptr == 2) and not menu_art_s_break then
-			menu_art_s_break = lg.newImage("assets/images/gui/menu_art_s_break.png")
+			menu_art_s_break = lgnewImage("assets/images/gui/menu_art_s_break.png")
 		elseif not menu_art_s then
-			menu_art_s = lg.newImage("assets/images/gui/menu_art_s.png")
+			menu_art_s = lgnewImage("assets/images/gui/menu_art_s.png")
 		end		
 		--new game gui image
 		if g_system == 'PSP' then
 			if persistent.ptr == 1 and not gui.newgame1 then
-				gui.newgame1 = lg.newImage("assets/images/gui/overlay/newgame1.png")
+				gui.newgame1 = lgnewImage("assets/images/gui/overlay/newgame1.png")
 			elseif not gui.newgame1 then
-				gui.newgame = lg.newImage("assets/images/gui/overlay/newgame.png")
+				gui.newgame = lgnewImage("assets/images/gui/overlay/newgame.png")
 			end
 		else
 			if persistent.ptr == 1 and not gui.newgame1 then
-				gui.newgame1 = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame1.png")
+				gui.newgame1 = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/newgame1.png")
 			elseif not gui.newgame1 then
-				gui.newgame = lg.newImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
+				gui.newgame = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
 			end
 		end		
 		--monika
 		if persistent.ptr == 4 and not menu_art_m then
-			menu_art_m = lg.newImage("assets/images/cg/blank.png")
+			menu_art_m = lgnewImage("assets/images/cg/blank.png")
 		elseif not menu_art_m then
-			menu_art_m = lg.newImage("assets/images/gui/menu_art_m.png")
+			menu_art_m = lgnewImage("assets/images/gui/menu_art_m.png")
 		end		
 		--natsuki and yuri image
-		if not menu_art_n then menu_art_n = lg.newImage("assets/images/gui/menu_art_n.png") end
-		if not menu_art_y then menu_art_y = lg.newImage("assets/images/gui/menu_art_y.png") end
+		if not menu_art_n then menu_art_n = lgnewImage("assets/images/gui/menu_art_n.png") end
+		if not menu_art_y then menu_art_y = lgnewImage("assets/images/gui/menu_art_y.png") end
 		--other stuff
 		poem_enabled = false
 		audioUpdate('1')
@@ -59,11 +59,11 @@ function changeState(cstate,x)
 	elseif cstate == 'title' and branch == '3ds' then
 		alpha = 0
 		if persistent.ptr == 0 then
-			titlebg = lg.newImage('assets/images/gui/bg.png')
+			titlebg = lgnewImage('assets/images/gui/bg.png')
 		elseif persistent.ptr <= 2 then
-			titlebg = lg.newImage('assets/images/gui/bg2.png')
+			titlebg = lgnewImage('assets/images/gui/bg2.png')
 		elseif persistent.ptr == 4 then
-			titlebg = lg.newImage('assets/images/gui/bg3.png')
+			titlebg = lgnewImage('assets/images/gui/bg3.png')
 		end
 		poem_enabled = false
 		audioUpdate('1')
@@ -109,60 +109,60 @@ function changeState(cstate,x)
 		if persistent.ptr <= 2 then --acts 1 and 2
 			audioUpdate('4',true)
 			bg1 = 'notebook'
-			if not notebook then notebook = lg.newImage('assets/images/bg/notebook.png') end
+			if not notebook then notebook = lgnewImage('assets/images/bg/notebook.png') end
 		elseif persistent.ptr == 3 then --act 3
 			audioUpdate('ghostmenu')
-			notebook_glitch = lg.newImage('assets/images/bg/notebook-glitch.png')
+			notebook_glitch = lgnewImage('assets/images/bg/notebook-glitch.png')
 		end
 		
 		if poemstate == 0 and not poemtime then --first time poemgame
-			poemtime = lg.newImage('assets/images/gui/poemgame/poemtime.png')
-			poemtime2 = lg.newImage('assets/images/gui/poemgame/poemtime2.png')
+			poemtime = lgnewImage('assets/images/gui/poemgame/poemtime.png')
+			poemtime2 = lgnewImage('assets/images/gui/poemgame/poemtime2.png')
 		end
 		
 		if persistent.ptr <= 2 then
 			if persistent.ptr == 0 and not s_sticker_1 then --sayori stickers
-				s_sticker_1 = lg.newImage('assets/images/gui/poemgame/s_sticker_1.png')
-				s_sticker_2 = lg.newImage('assets/images/gui/poemgame/s_sticker_2.png')
+				s_sticker_1 = lgnewImage('assets/images/gui/poemgame/s_sticker_1.png')
+				s_sticker_2 = lgnewImage('assets/images/gui/poemgame/s_sticker_2.png')
 			elseif not eyes then --act 2 only stickers
-				eyes = lg.newImage('assets/images/bg/eyes.png')
-				m_sticker_2 = lg.newImage('assets/images/gui/poemgame/m_sticker_2.png')
-				y_sticker_1_broken = lg.newImage('assets/images/gui/poemgame/y_sticker_1_broken.png')
-				y_sticker_2g = lg.newImage('assets/images/gui/poemgame/y_sticker_2g.png')
+				eyes = lgnewImage('assets/images/bg/eyes.png')
+				m_sticker_2 = lgnewImage('assets/images/gui/poemgame/m_sticker_2.png')
+				y_sticker_1_broken = lgnewImage('assets/images/gui/poemgame/y_sticker_1_broken.png')
+				y_sticker_2g = lgnewImage('assets/images/gui/poemgame/y_sticker_2g.png')
 			end
 			
 			if chapter == 22 then --yuri stickers with cuts
-				y_sticker_1 = lg.newImage('assets/images/gui/poemgame/y_sticker_cut_1.png')
-				y_sticker_2 = lg.newImage('assets/images/gui/poemgame/y_sticker_cut_2.png')
+				y_sticker_1 = lgnewImage('assets/images/gui/poemgame/y_sticker_cut_1.png')
+				y_sticker_2 = lgnewImage('assets/images/gui/poemgame/y_sticker_cut_2.png')
 			elseif not y_sticker_1 then --yuri stickers normal
-				y_sticker_1 = lg.newImage('assets/images/gui/poemgame/y_sticker_1.png')
-				y_sticker_2 = lg.newImage('assets/images/gui/poemgame/y_sticker_2.png')
+				y_sticker_1 = lgnewImage('assets/images/gui/poemgame/y_sticker_1.png')
+				y_sticker_2 = lgnewImage('assets/images/gui/poemgame/y_sticker_2.png')
 			end
 			
 			if not n_sticker_1 then --natsuki stickers
-				n_sticker_1 = lg.newImage('assets/images/gui/poemgame/n_sticker_1.png')
-				n_sticker_2 = lg.newImage('assets/images/gui/poemgame/n_sticker_2.png')
+				n_sticker_1 = lgnewImage('assets/images/gui/poemgame/n_sticker_1.png')
+				n_sticker_2 = lgnewImage('assets/images/gui/poemgame/n_sticker_2.png')
 			end
 			
 		elseif not m_sticker_1 then --monika sticker
-			m_sticker_1 = lg.newImage('assets/images/gui/poemgame/m_sticker_1.png')
+			m_sticker_1 = lgnewImage('assets/images/gui/poemgame/m_sticker_1.png')
 		end
 		poemgame()
 		alpha = 255
 	elseif cstate == 'poemgame' and branch == '3ds' then
 		if persistent.ptr <= 2 then
 			if persistent.ptr == 0 then
-				s_sticker_1 = lg.newImage('assets/images/gui/poemgame/s_sticker_1.png')
-				s_sticker_2 = lg.newImage('assets/images/gui/poemgame/s_sticker_2.png')
+				s_sticker_1 = lgnewImage('assets/images/gui/poemgame/s_sticker_1.png')
+				s_sticker_2 = lgnewImage('assets/images/gui/poemgame/s_sticker_2.png')
 			else
-				eyes = lg.newImage('assets/images/bg/eyes.png')
+				eyes = lgnewImage('assets/images/bg/eyes.png')
 			end
-			y_sticker_1 = lg.newImage('assets/images/gui/poemgame/y_sticker_1.png')
-			y_sticker_2 = lg.newImage('assets/images/gui/poemgame/y_sticker_2.png')
-			n_sticker_1 = lg.newImage('assets/images/gui/poemgame/n_sticker_1.png')
-			n_sticker_2 = lg.newImage('assets/images/gui/poemgame/n_sticker_2.png')
+			y_sticker_1 = lgnewImage('assets/images/gui/poemgame/y_sticker_1.png')
+			y_sticker_2 = lgnewImage('assets/images/gui/poemgame/y_sticker_2.png')
+			n_sticker_1 = lgnewImage('assets/images/gui/poemgame/n_sticker_1.png')
+			n_sticker_2 = lgnewImage('assets/images/gui/poemgame/n_sticker_2.png')
 		else
-			m_sticker_1 = lg.newImage('assets/images/gui/poemgame/m_sticker_1.png')
+			m_sticker_1 = lgnewImage('assets/images/gui/poemgame/m_sticker_1.png')
 		end
 		poemgame()
 		alpha = 255
@@ -171,24 +171,24 @@ function changeState(cstate,x)
 		require('scripts/event')
 		loadNoise()
 		lg.setBackgroundColor(0,0,0)
-		endbg = lg.newImage('assets/images/gui/'..settings.lang..'/end.png')
-		s_killearly = lg.newImage('assets/images/cg/s_kill/s_kill_early.png')
+		endbg = lgnewImage('assets/images/gui/'..settings.lang..'/end.png')
+		s_killearly = lgnewImage('assets/images/cg/s_kill/s_kill_early.png')
 		audioUpdate('s_kill_early')
 		y_timer = 0
 		alpha = 0
 	elseif cstate == 's_kill_early' and branch == '3ds' then
 		require('3ds/states/splash')
-		endbg = lg.newImage('assets/images/gui/end.png')
-		s_killearly = lg.newImage('assets/images/cg/s_kill/s_kill_early.png')
+		endbg = lgnewImage('assets/images/gui/end.png')
+		s_killearly = lgnewImage('assets/images/cg/s_kill/s_kill_early.png')
 		audioUpdate('s_kill_early')
 		alpha = 0
 	elseif cstate == 'ghostmenu' and branch == 'ddlclove' then
 		require('ddlclove/states/splash')
-		endbg = lg.newImage('assets/images/gui/end.png')
-		menu_art_m = lg.newImage("assets/images/gui/menu_art_m_ghost.png")
-		menu_art_s = lg.newImage("assets/images/gui/menu_art_s_ghost.png")
-		menu_art_n = lg.newImage("assets/images/gui/menu_art_n_ghost.png")
-		menu_art_y = lg.newImage("assets/images/gui/menu_art_y_ghost.png")
+		endbg = lgnewImage('assets/images/gui/end.png')
+		menu_art_m = lgnewImage("assets/images/gui/menu_art_m_ghost.png")
+		menu_art_s = lgnewImage("assets/images/gui/menu_art_s_ghost.png")
+		menu_art_n = lgnewImage("assets/images/gui/menu_art_n_ghost.png")
+		menu_art_y = lgnewImage("assets/images/gui/menu_art_y_ghost.png")
 		y_timer = 0.7
 		tlp = {yx=525,nx=670,sx=470,mx=680,yy=850,ny=850,sy=850,my=850,scale=0.75}
 		z_timer = {0,0}
@@ -196,8 +196,8 @@ function changeState(cstate,x)
 		alpha = 0
 	elseif cstate == 'ghostmenu' and branch == '3ds' then
 		require('3ds/states/splash')
-		endbg = lg.newImage('assets/images/gui/end.png')
-		titlebg = lg.newImage('assets/images/gui/bg_ghost.png')
+		endbg = lgnewImage('assets/images/gui/end.png')
+		titlebg = lgnewImage('assets/images/gui/bg_ghost.png')
 		audioUpdate('ghostmenu')
 		alpha = 0
 	elseif cstate == 'poem_special' then

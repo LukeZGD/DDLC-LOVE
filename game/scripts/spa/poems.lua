@@ -568,13 +568,13 @@ YSBtaXMgbMOtbWl0ZXMuCk5vIHB1ZWRv
 		sfxplay('pageflip')
 		if poem_author == 'yuri' then
 			if yuri_2 then
-				poembg = lg.newImage('assets/images/bg/poem_y1.png')
+				poembg = lgnewImage('assets/images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
 				if branch == '3ds' then 
-					poembg = lg.newImage('assets/images/bg/poemxp.png')
+					poembg = lgnewImage('assets/images/bg/poemxp.png')
 				else
-					poembg = lg.newImage('assets/images/bg/poem1.png')
+					poembg = lgnewImage('assets/images/bg/poem1.png')
 				end
 				
 				audioUpdate('5_yuri2')

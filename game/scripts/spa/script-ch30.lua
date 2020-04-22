@@ -512,7 +512,7 @@ function ch30_end()
 	bgUpdate('black')
 	sfxplay('monikapound2')
 	event_initstart('monika_end',2)
-	if xaload == 5 then textbox = lg.newImage('assets/images/gui/textbox_monika.png') end
+	if xaload == 5 then textbox = lgnewImage('assets/images/gui/textbox_monika.png') end
 	pause(4)
 	elseif cl == 1076 then
 		cw(gtext12, "¿Cómo has podido?")
@@ -566,7 +566,7 @@ function ch30_end()
 	event_initstart('ch23-30')
 	if xaload == 5 then 
 		savegame('autoload')
-		textbox = lg.newImage('assets/images/gui/textbox_monika.png')
+		textbox = lgnewImage('assets/images/gui/textbox_monika.png')
 	end
 	pause(10,'disable')
 	elseif cl == 1101 then
@@ -654,7 +654,7 @@ function ch30_end()
 	elseif cl == 1141 then
 	event_end()
 	monikatopics = {}
-	textbox = lg.newImage('assets/images/gui/textbox.png')
+	textbox = lgnewImage('assets/images/gui/textbox.png')
 	persistent.chr.m = 0
 	persistent.chr.s = 1
 	persistent.ptr = 4

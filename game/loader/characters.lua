@@ -45,12 +45,12 @@ function loadCharacter(set)
 		lr = {set.a,''}
 	end
 	
-	asset1 = lg.newImage('assets/images/'..chr..'/'..lr[1]..'.png')
+	asset1 = lgnewImage('assets/images/'..chr..'/'..lr[1]..'.png')
 	if lr[2] ~= '' then
-		asset2 = lg.newImage('assets/images/'..chr..'/'..lr[2]..'.png')
+		asset2 = lgnewImage('assets/images/'..chr..'/'..lr[2]..'.png')
 	end
 	if set.b ~= '' then
-		asset3 = lg.newImage('assets/images/'..chr..'/'..set.b..'.png')
+		asset3 = lgnewImage('assets/images/'..chr..'/'..set.b..'.png')
 	end
 	
 	return asset1, asset2, asset3

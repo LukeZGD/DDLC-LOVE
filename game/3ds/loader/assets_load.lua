@@ -14,9 +14,9 @@ function loaderAssets(l_timer)
 		
 	elseif l_timer == 98 then
 		--splash, title screen, gui elements, sfx
-		namebox = lg.newImage('assets/images/gui/namebox.png')
-		textbox = lg.newImage('assets/images/gui/textbox.png')
-		menu_bg = lg.newImage('assets/images/bg/menu_bg.png')
-		guicheck = lg.newImage('assets/images/gui/check.png')
+		namebox = lgnewImage('assets/images/gui/namebox.png')
+		textbox = lgnewImage('assets/images/gui/textbox.png')
+		menu_bg = lgnewImage('assets/images/bg/menu_bg.png')
+		guicheck = lgnewImage('assets/images/gui/check.png')
 	end
 end

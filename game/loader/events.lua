@@ -2,17 +2,17 @@ animframe = {}
 
 function loadNoise()
 	for i = 1, 4 do
-		animframe[i] = lg.newImage("assets/images/bg/noise"..i..".png")
+		animframe[i] = lgnewImage("assets/images/bg/noise"..i..".png")
 	end
 end
 
 function loadVignette()
-	vignette = lg.newImage('assets/images/bg/vignette.png')
+	vignette = lgnewImage('assets/images/bg/vignette.png')
 end
 
 function loadYuriGlitch()
 	for i = 1, 4 do
-		animframe[i] = lg.newImage("assets/images/yuri/glitch"..i..".png")
+		animframe[i] = lgnewImage("assets/images/yuri/glitch"..i..".png")
 	end
 end
 
@@ -35,84 +35,84 @@ function event_init(etype,arg1,arg2)
 			require(branch..'/scripts/event-3')
 		end
 		if etype == 's_kill' then --Sayo-nara.... load sprites
-			s_kill = lg.newImage('assets/images/cg/s_kill/s_kill.png')
-			s_kill2 = lg.newImage('assets/images/cg/s_kill/s_kill2.png')
-			s_killzoom = lg.newImage('assets/images/cg/s_kill/s_killzoom.png')
-			s_kill_bg = lg.newImage('assets/images/cg/s_kill/s_kill_bg.png')
-			s_kill_bg2 = lg.newImage('assets/images/cg/s_kill/s_kill_bg2.png')
-			s_kill_bgzoom = lg.newImage('assets/images/cg/s_kill/s_kill_bgzoom.png')
-			splash_glitch = lg.newImage('assets/images/bg/splash-glitch.png')
-			exception = lg.newImage('assets/images/cg/s_kill/ex2.png')
+			s_kill = lgnewImage('assets/images/cg/s_kill/s_kill.png')
+			s_kill2 = lgnewImage('assets/images/cg/s_kill/s_kill2.png')
+			s_killzoom = lgnewImage('assets/images/cg/s_kill/s_killzoom.png')
+			s_kill_bg = lgnewImage('assets/images/cg/s_kill/s_kill_bg.png')
+			s_kill_bg2 = lgnewImage('assets/images/cg/s_kill/s_kill_bg2.png')
+			s_kill_bgzoom = lgnewImage('assets/images/cg/s_kill/s_kill_bgzoom.png')
+			splash_glitch = lgnewImage('assets/images/bg/splash-glitch.png')
+			exception = lgnewImage('assets/images/cg/s_kill/ex2.png')
 			loadNoise()
 		elseif etype == 'endscreen' then
 			if arg1 == 'flipped' then
-				bgch = lg.newImage('assets/images/gui/'..settings.lang..'/endflipped.png')
+				bgch = lgnewImage('assets/images/gui/'..settings.lang..'/endflipped.png')
 			else
-				bgch = lg.newImage('assets/images/gui/'..settings.lang..'/end.png')
+				bgch = lgnewImage('assets/images/gui/'..settings.lang..'/end.png')
 			end
 		elseif etype == 's_glitch' then
-			s_glitch1 = lg.newImage('assets/images/sayori/glitch1.png')
-			s_glitch2 = lg.newImage('assets/images/sayori/glitch2.png')
+			s_glitch1 = lgnewImage('assets/images/sayori/glitch1.png')
+			s_glitch2 = lgnewImage('assets/images/sayori/glitch2.png')
 		elseif etype == 'm_glitch1' then
-			ml = lg.newImage('assets/images/monika/g2.png')
+			ml = lgnewImage('assets/images/monika/g2.png')
 		elseif etype == 'n_glitch1' then
-			nl = lg.newImage('assets/images/natsuki/glitch1.png')
+			nl = lgnewImage('assets/images/natsuki/glitch1.png')
 		elseif etype == 'n_blackeyes' then
-			n_blackeyes = lg.newImage('assets/images/natsuki/blackeyes.png')
-			n_eye = lg.newImage('assets/images/natsuki/eye.png')
+			n_blackeyes = lgnewImage('assets/images/natsuki/blackeyes.png')
+			n_eye = lgnewImage('assets/images/natsuki/eye.png')
 		elseif etype == 'ny_argument' then
 			loadVignette()
 			loadNoise()
 		elseif etype == 'ny_argument2' then
-			ml = lg.newImage('assets/images/monika/ac.png')
+			ml = lgnewImage('assets/images/monika/ac.png')
 		elseif etype == 'yuri_glitch' then
 			loadYuriGlitch()
 		elseif etype == 'show_vignette' then
 			loadVignette()
 		elseif etype == 'yuri_eyes' then
-			eyes1 = lg.newImage('assets/images/yuri/eyes1.png')
-			eyes2 = lg.newImage('assets/images/yuri/eyes2.png')
+			eyes1 = lgnewImage('assets/images/yuri/eyes1.png')
+			eyes2 = lgnewImage('assets/images/yuri/eyes2.png')
 		elseif etype == 'yuri_glitch_head' then
 			animframe = {}
-			animframe[1] = lg.newImage('assets/images/yuri/za.png')
-			animframe[2] = lg.newImage('assets/images/yuri/zb.png')
-			animframe[3] = lg.newImage('assets/images/yuri/zc.png')
-			animframe[4] = lg.newImage('assets/images/yuri/zd.png')
+			animframe[1] = lgnewImage('assets/images/yuri/za.png')
+			animframe[2] = lgnewImage('assets/images/yuri/zb.png')
+			animframe[3] = lgnewImage('assets/images/yuri/zc.png')
+			animframe[4] = lgnewImage('assets/images/yuri/zd.png')
 		elseif etype == 'yuri_ch23' then
-			bg_glitch = lg.newImage('assets/images/bg/glitch.png')
-			eyes1 = lg.newImage('assets/images/yuri/eyes1.png')
+			bg_glitch = lgnewImage('assets/images/bg/glitch.png')
+			eyes1 = lgnewImage('assets/images/yuri/eyes1.png')
 			loadYuriGlitch()
 		elseif etype == 'm_ch23ex' then
-			ex3top = lg.newImage('assets/images/gui/ex3top.png')
+			ex3top = lgnewImage('assets/images/gui/ex3top.png')
 		elseif etype == 'just_monika' then
 			if arg1 == 'ch30' then
-				splash = lg.newImage('assets/images/bg/splash-glitch2.png')
+				splash = lgnewImage('assets/images/bg/splash-glitch2.png')
 			else
-				splash = lg.newImage('assets/images/bg/splash.png')
+				splash = lgnewImage('assets/images/bg/splash.png')
 			end
 		elseif etype == 'natsuki_ch22' then --oh snap
-			ghost_blood = lg.newImage('assets/images/natsuki/ghost_blood.png')
-			ghost3 = lg.newImage('assets/images/natsuki/ghost3.png')
-			ghost3_1 = lg.newImage('assets/images/natsuki/ghost3-1.png')
-			ghost3_2 = lg.newImage('assets/images/natsuki/ghost3-2.png')
-			ghost3_3 = lg.newImage('assets/images/natsuki/ghost3-3.png')
+			ghost_blood = lgnewImage('assets/images/natsuki/ghost_blood.png')
+			ghost3 = lgnewImage('assets/images/natsuki/ghost3.png')
+			ghost3_1 = lgnewImage('assets/images/natsuki/ghost3-1.png')
+			ghost3_2 = lgnewImage('assets/images/natsuki/ghost3-2.png')
+			ghost3_3 = lgnewImage('assets/images/natsuki/ghost3-3.png')
 		elseif etype == 'yuri_kill' then --that looks painful
-			stab1 = lg.newImage('assets/images/yuri/stab/1.png')
-			stab2 = lg.newImage('assets/images/yuri/stab/2.png')
-			stab3 = lg.newImage('assets/images/yuri/stab/3.png')
-			stab4 = lg.newImage('assets/images/yuri/stab/4.png')
-			stab5 = lg.newImage('assets/images/yuri/stab/5.png')
-			stab6 = lg.newImage('assets/images/yuri/stab/6.png')
-			stab6f = lg.newImage('assets/images/yuri/stab/6-full.png')
+			stab1 = lgnewImage('assets/images/yuri/stab/1.png')
+			stab2 = lgnewImage('assets/images/yuri/stab/2.png')
+			stab3 = lgnewImage('assets/images/yuri/stab/3.png')
+			stab4 = lgnewImage('assets/images/yuri/stab/4.png')
+			stab5 = lgnewImage('assets/images/yuri/stab/5.png')
+			stab6 = lgnewImage('assets/images/yuri/stab/6.png')
+			stab6f = lgnewImage('assets/images/yuri/stab/6-full.png')
 		elseif etype == 'beforecredits' then
-			end_glitch1 = lg.newImage('assets/images/bg/end-glitch1.png')
-			end_glitch2 = lg.newImage('assets/images/bg/end-glitch2.png')
-			end_glitch3 = lg.newImage('assets/images/bg/end-glitch3.png')
+			end_glitch1 = lgnewImage('assets/images/bg/end-glitch1.png')
+			end_glitch2 = lgnewImage('assets/images/bg/end-glitch2.png')
+			end_glitch3 = lgnewImage('assets/images/bg/end-glitch3.png')
 			loadNoise()
 			loadVignette()
 		elseif etype == 'sayori_gs' then
-			sayori_gs1 = lg.newImage('assets/images/bg/GlitchSayoriScreen1.png')
-			sayori_gs2 = lg.newImage('assets/images/bg/GlitchSayoriScreen2.png')
+			sayori_gs1 = lgnewImage('assets/images/bg/GlitchSayoriScreen1.png')
+			sayori_gs2 = lgnewImage('assets/images/bg/GlitchSayoriScreen2.png')
 		end
 		if arg1 == 'show_noise' then
 			loadNoise()

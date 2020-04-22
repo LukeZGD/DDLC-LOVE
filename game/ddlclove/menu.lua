@@ -25,7 +25,7 @@ end
 menu_alpha = 0
 
 function savepicLoad(i)
-	save_bpic[i] = lg.newImage('assets/images/bg/save/'..loadstring('return save'..chch..'.bg1')()..'.png')
+	save_bpic[i] = lgnewImage('assets/images/bg/save/'..loadstring('return save'..chch..'.bg1')()..'.png')
 end
 
 function savepicFree()

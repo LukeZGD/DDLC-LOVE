@@ -10,7 +10,7 @@ local ra6 = 460
 
 function loadCredits(x)
 	if x ~= 1 then
-		logo = lg.newImage('assets/images/cg/credits/ddlc.png')
+		logo = lgnewImage('assets/images/cg/credits/ddlc.png')
 		
 		audioUpdate('credits')
 		c_timer = 0
