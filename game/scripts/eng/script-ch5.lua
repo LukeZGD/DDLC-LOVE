@@ -310,7 +310,7 @@ function ch5script()
 	elseif cl == 122 then
 	event_end('s_kill')
 	event_start('black')
-	bl "I suppress the urge to vomit." --line 307, known for the original exception error
+	bl "I suppress the urge to vomit."
 	elseif cl == 123 then
 	bl "Just yesterday..."
 	elseif cl == 124 then

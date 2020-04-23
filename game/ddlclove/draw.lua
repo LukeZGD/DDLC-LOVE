@@ -284,7 +284,7 @@ function drawCharacter(l,r,a,set,chset)
 		end
 	end
 	
-	if set.x ~= chset.y and autoskip >= 1 then
+	if set.x ~= chset.y and (autoskip >= 1 or unitimer >= uniduration) then
 		set.x = chset.y
 	elseif set.x < chset.y and not nearest(set.x,chset.y) then
 		set.x = math.ceil(chset.x + easeQuadInOut(unitimer,0,chset.z,uniduration))

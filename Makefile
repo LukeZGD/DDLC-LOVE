@@ -1,5 +1,5 @@
-3DS    := make -f Makefile_3ds
-SWITCH := make -f Makefile_switch
+3DS    := make -f Makefile_3ds.mk
+SWITCH := make -f Makefile_switch.mk
 TARGET := $(notdir $(CURDIR))
 
 all:

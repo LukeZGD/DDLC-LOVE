@@ -7,9 +7,8 @@ function ch22script()
 	if xaload == 1 then audioUpdate('6',true) end
 	bl "Another day passes, and it's time for the club meeting already."
 	elseif cl == 1078 then
-	bl "I've gotten a little more comfortable here over the past couple days."
+	bl "I've gotten a little more comfortable here over the past couple days. Entering the clubroom, the usual scene greets me."
 	elseif cl == 1079 then
-	bl "Entering the clubroom, the usual scene greets me."
 	if y_chance == 0 then
 		updateYuri('1r','',80)
 	else
