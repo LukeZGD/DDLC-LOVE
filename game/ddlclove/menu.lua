@@ -414,7 +414,7 @@ function menu_confirm()
 					input["subheader"] = ""
 					input["hint"] = "Enter Player Name"
 					input["isPassword"] = false
-					love.keyboard.showTextInput(input)
+					love.keyboard.setTextInput(input)
 				else
 					require('ddlclove/keyboard')
 					keyboard = true

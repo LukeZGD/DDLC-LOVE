@@ -1,7 +1,7 @@
 dversion = 'v1.1.8'
-dvertype = '' --put 'Test' for test mode
+dvertype = 'Test' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
-if g_system == 'Switch' then
+if global_os == 'Horizon' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
 end
@@ -64,7 +64,7 @@ function love.load()
 	changeState('load')
 end
 
-function love.draw()
+function love.draw(drawscreen)
 	--for pc stuff
 	if dwidth and dheight then
 		lg.scale(dwidth/1280,dheight/720)
@@ -141,6 +141,19 @@ function love.keypressed(key)
 	elseif menu_enabled then
 		menu_keypressed(key)
 	end
+end
+
+function love.gamepadpressed(joy, button)
+	if button == 'dpup' then
+		button = 'up'
+	elseif button == 'dpdown' then
+		button = 'down'
+	elseif button == 'dpleft' then
+		button = 'left'
+	elseif button == 'dpright' then
+		button = 'right'
+	end
+	love.keypressed(button)
 end
 
 function love.textinput(text)

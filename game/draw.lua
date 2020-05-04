@@ -1,7 +1,6 @@
 lg = love.graphics
 require(branch..'/draw')
 
---local lgsetColor = lg.setColor
 function lgsetColor(...)
 	local args = {...}
 	if love.getVersion() >= 11 then
@@ -14,7 +13,6 @@ function lgsetColor(...)
 	lg.setColor(args[1],args[2],args[3],args[4])
 end
 
---local lgnewImage = lg.newImage
 function lgnewImage(new)
 	if love.filesystem.getInfo(new) then
 		return lg.newImage(new)

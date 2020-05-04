@@ -14,19 +14,6 @@ function main_update()
 	end
 end
 
-function love.gamepadpressed(joy, button)
-	if button == 'dpup' then
-		button = 'up'
-	elseif button == 'dpdown' then
-		button = 'down'
-	elseif button == 'dpleft' then
-		button = 'left'
-	elseif button == 'dpright' then
-		button = 'right'
-	end
-	love.keypressed(button)
-end
-
 function game_setvolume()
 	if not settings.masvol or not settings.bgmvol or not settings.sfxvol then
 		settings.masvol = 80
@@ -48,3 +35,4 @@ function game_setvolume()
 		sfx2:setVolume(sfxvol)
 	end
 end
+

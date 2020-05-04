@@ -1,12 +1,12 @@
 function loaderAssets(l_timer)
 	--loading assets
 	if l_timer == 95 then
-		font = lg.newFont('assets/fonts/Aller_Rg',12)
+		font = lg.newFont('assets/fonts/Aller_Rg.ttf',12)
 		lg.setFont(font)
 	
 	elseif l_timer == 96 then
-		dfnt = lg.newFont()
-		m1 = lg.newFont('assets/fonts/Halogen',12)
+		dfnt = lg.newFont('assets/fonts/Vera.ttf',14)
+		m1 = lg.newFont('assets/fonts/Halogen.ttf',12)
 		
 	elseif l_timer == 97 then
 		sfx1 = love.audio.newSource('assets/audio/sfx/select.ogg', 'static')

@@ -1,4 +1,5 @@
-love.filesystem.getInfo = love.filesystem.isFile
+--love.filesystem.getInfo = love.filesystem.isFile
+drawscreen = 'top'
 
 function main_update()
 	getTime = getTime + dt
@@ -7,7 +8,8 @@ function main_update()
 	posY = posY - 0.25
 	if posX <= -80 then posX = 0 end
 	if posY <= -80 then posY = 0 end
-
+	
+	--[[
 	--touch checks
 	mouseDown = love.mouse.isDown(1)
 	mouseX = love.mouse.getX()
@@ -30,9 +32,5 @@ function main_update()
 	elseif mouseDown == false then
 		mousereleased = nil
 	end
-end
-
-function love.errhand(msg)
-	msg = debug.traceback("Error: " .. tostring(msg))
-	love.filesystem.write("error.txt",msg)
+	]]
 end
