@@ -1,5 +1,14 @@
 dversion = 'v1.1.8'
 dvertype = '' --put 'Test' for test mode
+print("DDLC-LOVE "..dversion..' '..dvertype)
+
+if lutro then
+	love = lutro
+	function love.conf(t)
+		t.width = 480
+		t.height = 272
+	end
+end
 global_os, g_system = love.system.getOS()
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
@@ -22,19 +31,27 @@ if os_timecheck then
 	math.random()
 end
 
+local require_old = require
+function require(req)
+	print('require: '..req)
+	return require_old(req)
+end
+
 require('loader/characters')
 require(branch..'/loader/audio')
 require(branch..'/loader/images')
 require('loader/states')
 require(branch..'/main')
 require(branch..'/menu')
-require('draw')
 require('saveload')
+require('draw')
 require('scripts/script')
 
 function love.load() 
 	lg.setBackgroundColor(0,0,0)
-	
+	if lutro then
+		dfnt = love.graphics.newImageFont('FontMedium.png', " 0123456789abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVXYZ!-.,$")
+	end
 	getTime = 0
 	startTime = getTime
 	last_text = ''
@@ -54,7 +71,7 @@ function love.load()
 		lg.set3D(true)
 	end
 	
-	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' then
+	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' and not lutro then
 		love.window.setFullscreen(true)
 		love.window.setTitle('DDLC-LOVE')
 		love.keyboard.setTextInput(false)

@@ -17,7 +17,7 @@ function audioUpdate(audiox, forceload) --audio changes
 			end
 
 			--custom audio looping load
-			if g_system ~= 'PS3' then
+			if g_system ~= 'PS3' and not lutro then
 				if audiox == '2g' then
 					audio_bgmloop = love.audio.newSource('assets/audio/bgm/2re.mp3', 'stream')
 				elseif audiox == '3g' or audiox == '3g2' then

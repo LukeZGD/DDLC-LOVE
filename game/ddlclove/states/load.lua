@@ -23,7 +23,8 @@ function drawLoad()
 	end
 end
 
-function updateLoad()	
+function updateLoad()
+	print('l_timer: '..l_timer)
 	if l_timer < 99 then
 		l_timer = l_timer + 1
 	end

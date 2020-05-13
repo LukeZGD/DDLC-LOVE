@@ -319,7 +319,7 @@ function menu_draw()
 				xpsc = 360
 			end
 			
-			if global_os == 'LOVE-WrapLua' and g_system == 'PS3' then
+			if (global_os == 'LOVE-WrapLua' and g_system == 'PS3') or lutro then
 				local cdisp = wrap_old(history[i],ca1)
 				for j = 1, #cdisp do
 					if cdisp[j] then

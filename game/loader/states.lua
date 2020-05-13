@@ -1,4 +1,5 @@
 function changeState(cstate,x)
+	print("loading state: "..cstate)
 	menu_alpha = 0
 	menu_previous = nil
 	history = {}
@@ -249,4 +250,5 @@ function changeState(cstate,x)
 	end
 	
 	state = cstate
+	print("loaded state: "..cstate)
 end

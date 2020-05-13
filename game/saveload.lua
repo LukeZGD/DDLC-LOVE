@@ -52,9 +52,15 @@ appeal = {s=0,n=0,y=0}
 savevalue = ''
 savenumber = 1
 
-if global_os ~= 'LOVE-WrapLua' then
+if not love.filesystem.load then
 	function love.filesystem.load(file)
 		return loadstring(love.filesystem.read(file))
+	end
+end
+
+if not love.filesystem.getInfo then
+	function love.filesystem.getInfo(file)
+		return love.filesystem.isFile(file)
 	end
 end
 
