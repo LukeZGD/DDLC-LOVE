@@ -14,6 +14,9 @@ function lgsetColor(...)
 end
 
 function lgnewImage(new)
+	if branch == '3ds' then
+		new = new:gsub('.png','.t3x')
+	end
 	if love.filesystem.getInfo(new) then
 		return lg.newImage(new)
 	end
