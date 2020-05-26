@@ -50,38 +50,6 @@ function outlineText(text,x,y,type,arg1)
 	end
 end
 
-function dripText(text,cps,sTime)
-	if text ~= last_text then
-		sTime = getTime
-		startTime = sTime
-		last_text = text
-		print_full_text = false
-	end
-	
-	local cTime = getTime
-	local sTime2
-	local length
-	
-	if (cTime <= sTime) or sTime == 0 then return '' end
-	if cTime > sTime then sTime2 = getTime end
-	if not cps then cps = 100 end
-	length = math.floor((cTime-sTime)*cps)
-	length = math.max(length,1)
-	length = math.min(length,text:len())
-
-	if print_full_text then
-		return text
-	end
-
-	if length == text:len() then
-		print_full_text = true
-	else
-		print_full_text = false
-	end
-	
-	return text:sub(1,length)
-end
-
 function easeQuadInOut(t,b,c,d)
 	t = t/(d/2)
 	if (t < 1) then
