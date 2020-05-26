@@ -28,7 +28,7 @@ function audioUpdate(audiox, forceload) --audio changes
 					else
 						audio_bgmloop = love.audio.newSource('assets/audio/bgm/7re.mp3', 'stream')
 					end
-				else
+				elseif audiox ~= 'credits' or audiox ~= 'end-voice' then
 					audio_bgmloop = audio_bgm
 				end
 				for i = 1, #audio_wloop do

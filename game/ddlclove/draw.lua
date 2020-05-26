@@ -269,6 +269,9 @@ function drawCharacter(l,r,a,set,chset)
 			xh = set.x
 			yh = set.y
 		end
+		if global_os == 'LOVE-WrapLua' then
+			yh = yh + 2
+		end
 		if a then lg.draw(a,xh,yh) end
 	end
 	
@@ -279,8 +282,10 @@ function drawCharacter(l,r,a,set,chset)
 		with_set = with_yr
 	end
 	for i = 1, #with_set do
-		if set.a == with_set[i] then
-			lg.draw(r, set.x, set.y)
+		if set.a == with_set[i] and global_os == 'LOVE-WrapLua' then
+			lg.draw(r,set.x-1,set.y)
+		elseif set.a == with_set[i] then
+			lg.draw(r,set.x,set.y)
 		end
 	end
 	
