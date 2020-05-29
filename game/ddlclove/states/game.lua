@@ -52,11 +52,10 @@ end
 
 function updateGame()
 	scriptCheck()
-	
 	--timercheck
 	if xaload == 0 then
 		startTime = getTime
-		print(cl)
+		print('cl: '..cl)
 	end
 	xaload = xaload + 1
 	if unitimer < uniduration then

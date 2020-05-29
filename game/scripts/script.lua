@@ -125,7 +125,7 @@ function cw(p1, stext, tag)
 		end
 	end
 	
-	if g_system == 'PS3' then
+	if g_system == 'PS3' or lutro then
 		c_disp = wrap_old(textx,c_a1)
 	else
 		c_disp[1] = wrap(textx,c_a1[1])

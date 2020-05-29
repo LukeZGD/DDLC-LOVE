@@ -1,4 +1,5 @@
 lg = love.graphics
+scale = 0.375
 require(branch..'/draw')
 
 --local lgsetColor = lg.setColor
@@ -16,6 +17,7 @@ end
 
 --local lgnewImage = lg.newImage
 function lgnewImage(new)
+	--print('lgnewImage: '..new)
 	if love.filesystem.getInfo(new) then
 		return lg.newImage(new)
 	end
@@ -23,8 +25,45 @@ end
 
 local lgdraw = lg.draw
 function lg.draw(drawable, ...)
-	if drawable then
+	if drawable and not lutro then
 		lgdraw(drawable, ...)
+	elseif drawable and lutro then
+		args = {...}
+		if not args[1] then args[1] = 0 end
+		if not args[2] then args[2] = 0 end
+		x = args[1] * scale; y = args[2] * scale
+		lgdraw(drawable,x,y,args[3],args[4],args[5])
+	end
+end
+
+local lgprint = lg.print
+function lg.print(text, ...)
+	if text and not lutro then
+		lgprint(text, ...)
+	elseif text and lutro then
+		args = {...}
+		if not args[1] then args[1] = 0 end
+		if not args[2] then args[2] = 0 end
+		x = args[1] * scale; y = args[2] * scale
+		lgprint(text,x,y)
+	end
+end
+
+local lgrectangle = lg.rectangle
+function lg.rectangle(mode,x,y,w,h)
+	if lutro then
+		x = x * scale; y = y * scale; w = w * scale; h = h * scale
+	end
+	lgrectangle(mode,x,y,w,h)
+end
+
+local lgnewFont = lg.newFont
+function lg.newFont(font,size)
+	--print('lgnewFont: '..font)
+	if lutro then
+		return dfnt
+	else
+		return lgnewFont(font,size)
 	end
 end
 
