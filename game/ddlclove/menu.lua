@@ -15,12 +15,12 @@ local save_bpic = {}
 local save_hoverpos = {}
 local sxp = 0
 local history_scr = -39
-local dversionx = 1200
+local dversionx = 1180
 local ca1 = {70,140,210}
 local xpsc = 400
 local ypsc = {35,65,95,125}
 if g_system == 'PS3' then
-	dversionx = 950
+	dversionx = 930
 end
 menu_alpha = 0
 
@@ -416,7 +416,7 @@ function menu_confirm()
 					input["subheader"] = ""
 					input["hint"] = "Enter Player Name"
 					input["isPassword"] = false
-					love.keyboard.showTextInput(input)
+					love.keyboard.setTextInput(input)
 				else
 					require('ddlclove/keyboard')
 					keyboard = true
