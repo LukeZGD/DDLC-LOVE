@@ -9,7 +9,8 @@ if lutro then
 		t.height = 272
 	end
 end
-global_os, g_system = love.system.getOS()
+global_os = love.system.getOS()
+g_system = love._console_name
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
