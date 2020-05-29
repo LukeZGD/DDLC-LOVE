@@ -20,6 +20,8 @@ function drawLoad()
 	if err ~= '' then
 		lgsetColor(255,255,255)
 		lg.print(err,10,10)
+	else
+		lg.rectangle('fill',0,710,256*(l_timer-95),10)
 	end
 end
 

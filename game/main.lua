@@ -1,5 +1,5 @@
-dversion = 'v1.1.8'
-dvertype = 'Test' --put 'Test' for test mode
+dversion = 'v1.1.8-2'
+dvertype = '' --put 'Test' for test mode
 global_os, g_system = love.system.getOS()
 if global_os == 'Horizon' then
 	joysticks = love.joystick.getJoysticks()

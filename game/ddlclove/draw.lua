@@ -50,38 +50,6 @@ function outlineText(text,x,y,type,arg1)
 	end
 end
 
-function dripText(text,cps,sTime)
-	if text ~= last_text then
-		sTime = getTime
-		startTime = sTime
-		last_text = text
-		print_full_text = false
-	end
-	
-	local cTime = getTime
-	local sTime2
-	local length
-	
-	if (cTime <= sTime) or sTime == 0 then return '' end
-	if cTime > sTime then sTime2 = getTime end
-	if not cps then cps = 100 end
-	length = math.floor((cTime-sTime)*cps)
-	length = math.max(length,1)
-	length = math.min(length,text:len())
-
-	if print_full_text then
-		return text
-	end
-
-	if length == text:len() then
-		print_full_text = true
-	else
-		print_full_text = false
-	end
-	
-	return text:sub(1,length)
-end
-
 function easeQuadInOut(t,b,c,d)
 	t = t/(d/2)
 	if (t < 1) then
@@ -269,6 +237,9 @@ function drawCharacter(l,r,a,set,chset)
 			xh = set.x
 			yh = set.y
 		end
+		if global_os == 'LOVE-WrapLua' then
+			yh = yh + 2
+		end
 		if a then lg.draw(a,xh,yh) end
 	end
 	
@@ -279,8 +250,10 @@ function drawCharacter(l,r,a,set,chset)
 		with_set = with_yr
 	end
 	for i = 1, #with_set do
-		if set.a == with_set[i] then
-			lg.draw(r, set.x, set.y)
+		if set.a == with_set[i] and global_os == 'LOVE-WrapLua' then
+			lg.draw(r,set.x-1,set.y)
+		elseif set.a == with_set[i] then
+			lg.draw(r,set.x,set.y)
 		end
 	end
 	

@@ -113,10 +113,10 @@ function game_keypressed(key)
 		autotimer = 0
 		menu_enable('pause')
 	elseif key == 'b' then --auto on/off
-		sfx1:play()
+		if global_os ~= 'LOVE-WrapLua' then sfx1:play() end
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif key == 'x' then
-		sfx1:play()
+		if global_os ~= 'LOVE-WrapLua' then sfx1:play() end
 		if not event_enabled then
 			if autoskip < 1 then autoskip = 1
 			elseif autoskip > 0 then autoskip = 0 end

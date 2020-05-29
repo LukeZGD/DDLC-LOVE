@@ -582,6 +582,7 @@ end
 
 function poem_disable(x)
 	poem_enabled = false
+	poem_scroll = nil
 	poembg = nil
 	if not x or x == 1 then
 		audioUpdate('5')

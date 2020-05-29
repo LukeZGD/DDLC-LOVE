@@ -397,7 +397,9 @@ function menu_update()
 end
 
 function menu_confirm()
-	sfx1:play()
+	if menu_type == 'title' or menu_type == 'pause' or menu_type == 'choice' or menu_type == 'dialog' then
+		sfx1:play()
+	end
 	
 	if menu_type == 'title' then --title screen options
 		menu_previous = 'title'
@@ -444,9 +446,8 @@ function menu_confirm()
 		else
 			menu_enable(menu_previous)
 		end
-	elseif menu_type == 'savegame' and persistent.chr.m == 2 and chapter == 30 then
-		menutext = tr.menuhelp[8]
-		savenumber = 61
+	elseif menu_type == 'loadgame' and persistent.chr.m == 2 then
+		menu_enable(menu_previous)
 		
 	elseif menu_type == 'savegame' and persistent.chr.m ~= 2 then  --save game confirm 
 		savenumber = savenum[m_selected-1]
@@ -458,6 +459,13 @@ function menu_confirm()
 		savegame()
 		savedatainfo(savenumber)
 		menu_enable('savegame')
+	elseif menu_type == 'savegame' and persistent.chr.m == 2 then
+		if chapter == 30 then 
+			menutext = tr.menuhelp[8]
+			savenumber = 61
+		else
+			menu_enable(menu_previous)
+		end
 	
 	elseif menu_type == 'pause' then --pause menu options
 		menu_previous = menu_type
@@ -469,8 +477,12 @@ function menu_confirm()
 		elseif m_selected == 4 then
 			pagenum = 1
 			menu_enable('loadgame')
-		elseif m_selected == 5 and persistent.chr.m ~= 2 then
-			menu_enable('mainyesno')
+		elseif m_selected == 5 then
+			if persistent.chr.m == 2 then
+				menu_fadeout = true
+			else
+				menu_enable('mainyesno')
+			end
 		elseif m_selected == 6 then
 			pagenum = 1
 			menu_enable('settings')
