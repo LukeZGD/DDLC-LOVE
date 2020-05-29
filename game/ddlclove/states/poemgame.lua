@@ -392,7 +392,7 @@ function poemgamekeypressed(key)
 		menuselect()
 	end
 	
-	if key == 'a' or key == 'lbutton' then
+	if key == 'a' or key == 'leftshoulder' then
 		if xaload >= 35 then
 			if poemstate == 0 then
 				poemstate = nil

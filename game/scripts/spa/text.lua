@@ -55,11 +55,11 @@ tr.splash = {
 }
 tr.menuitem = {'Sí','No','Borrar ','Restaurar todo'}
 tr.menuhelp = {
-	' - Avanzas en el juego, seleccionas alguna opción en las elecciones',
-	' - Te sales del menú, activas o desactivas el modo automático',
-	' - (Menú) Página anterior, activas o desactivas el modo saltar',
-	' - (Menú) Página siguiente, entras en el menú del juego',
-	' - Muestra o oculta la ventana de diálogos',
+	' : Avanzas en el juego, seleccionas alguna opción en las elecciones',
+	' : Te sales del menú, activas o desactivas el modo automático',
+	' : (Menú) Página anterior, activas o desactivas el modo saltar',
+	' : (Menú) Página siguiente, entras en el menú del juego',
+	' : Muestra o oculta la ventana de diálogos',
 	'Configurar archivos: Vete a ajustes > Characters',
 	[[
 	Borrar los datos guardados: Para borrar los datos guardados tienes que ir a la siguiente ruta:
@@ -158,7 +158,7 @@ tr.menuhelp = {
 	club sea un lugar más íntimo para todos. Como veo que eres un amorcito, ¿me prometes
 	que pasarás la mayor parte del tiempo conmigo? 
 	]],
-	' - Mostrar sombreado del texto'
+	' : Mostrar sombreado del texto'
 }
 tr.error = {
 'Pulsa Y/Triangulo para salir',

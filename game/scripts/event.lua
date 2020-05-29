@@ -149,7 +149,7 @@ function event_next()
 end
 
 function event_keypressed(key)
-	if ((textbox_enabled and event_type ~= 'show_vignette') or (event_type == 'yuri_eyes' and cl < 700)) and (key == 'a' or key == 'lbutton') then
+	if ((textbox_enabled and event_type ~= 'show_vignette') or (event_type == 'yuri_eyes' and cl < 700)) and (key == 'a' or key == 'leftshoulder') then
 		newgame_keypressed('a')
 	elseif key == 'y' and event_type == 'ch23-30' then
 		menu_mchance = math.random(1,50)
@@ -161,7 +161,7 @@ function event_keypressed(key)
 	elseif key == 'b' and event_type == 'ch23-30' and chapter == 30 then --auto
 		sfx1:play()
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
-	elseif (key == 'minus' or key == '-' or key == 'select') and event_type == 'ch23-30' then
+	elseif (key == '-' or key == 'back') and event_type == 'ch23-30' then
 		if settings.o ~= 1 then settings.o = 1
 		else settings.o = 0 end
 	end

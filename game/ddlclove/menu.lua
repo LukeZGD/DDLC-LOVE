@@ -215,9 +215,13 @@ function menu_draw()
 		lg.print(menutext,140,90)
 		local keys = {}
 		if global_os == 'LOVE-WrapLua' then
-			keys = {'Cross, L','Circle','Square','Triangle','R','Select'}
+			if not lv1lua.confirm then
+				keys = {'Cross, (L)','Circle','Square','Triangle','Start','Select'}
+			else
+				keys = {'Circle, (L)','Cross','Triangle','Square','Start','Select'}
+			end
 		else
-			keys = {'A','B','X','Y','Plus','Minus'}
+			keys = {'(A), (L)','(B)','(X)','(Y)','(+)','(-)'}
 		end
 		lgsetColor(0,0,0)
 		lg.print('Key Bindings:',160,120)

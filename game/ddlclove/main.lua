@@ -23,6 +23,14 @@ function love.gamepadpressed(joy, button)
 		button = 'left'
 	elseif button == 'dpright' then
 		button = 'right'
+	elseif button == 'a' then
+		button = 'b'
+	elseif button == 'b' then
+		button = 'a'
+	elseif button == 'x' then
+		button = 'y'
+	elseif button == 'y' then
+		button = 'x'
 	end
 	love.keypressed(button)
 end

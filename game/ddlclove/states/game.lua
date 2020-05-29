@@ -126,7 +126,7 @@ function game_keypressed(key)
 end
 
 function newgame_keypressed(key)
-	if (key == 'a' or key == 'lbutton') and unitimer >= uniduration then 
+	if (key == 'a' or key == 'leftshoulder') and unitimer >= uniduration then 
 		textboxd = true
 		if print_full_text then
 			autotimer = 0
@@ -138,9 +138,9 @@ function newgame_keypressed(key)
 		end
 		collectgarbage()
 		collectgarbage()
-	elseif key == 'r' or key == 'rbutton' or key == 'plus' then
+	elseif key == '=' or key == 'start' then
 		textboxd = not textboxd
-	elseif key == 'minus' or key == '-' or key == 'select' then
+	elseif key == '-' or key == 'back' then
 		if settings.o ~= 1 then settings.o = 1
 		else settings.o = 0 end
 	end
