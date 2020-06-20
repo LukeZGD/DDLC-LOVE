@@ -405,7 +405,7 @@ function menu_confirm()
 					input["isPassword"] = false
 					love.keyboard.setTextInput(input)
 				else
-					require('ddlclove/keyboard')
+					require('keyboard')
 					keyboard = true
 				end
 			end

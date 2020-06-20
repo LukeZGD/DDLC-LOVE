@@ -552,11 +552,7 @@ b3AgbXlzZWxmLg==]]};
 				poembg = lgnewImage('assets/images/bg/poem_y1.png')
 				audioUpdate('0')
 			elseif yuri_3 then
-				if branch == '3ds' then 
-					poembg = lgnewImage('assets/images/bg/poemxp.png')
-				else
-					poembg = lgnewImage('assets/images/bg/poem1.png')
-				end
+				poembg = lgnewImage('assets/images/bg/poem1.png')
 				
 				audioUpdate('5_yuri2')
 			else

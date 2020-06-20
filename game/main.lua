@@ -8,15 +8,7 @@ if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
 end
-if global_os == 'Horizon' and g_system ~= 'Switch' and global_os ~= 'LOVE-WrapLua' then
-	branch = '3ds'
-else
-	branch = 'ddlclove'
-end
-
-if branch == 'ddlclove' then
-	love.math.setRandomSeed(os.time())
-end
+love.math.setRandomSeed(os.time())
 math.randomseed(os.time())
 math.random()
 math.random()
@@ -29,11 +21,10 @@ function require(req)
 end
 
 require('loader/characters')
-require(branch..'/loader/audio')
-require(branch..'/loader/images')
+require('loader/audio')
+require('loader/images')
 require('loader/states')
-require(branch..'/main')
-require(branch..'/menu')
+require('menu')
 require('saveload')
 require('draw')
 require('scripts/script')
@@ -101,7 +92,19 @@ function love.update()
 	sectimer = sectimer + dt
 	if sectimer >= 1 then sectimer = 0 end
 	
-	main_update()
+	getTime = getTime + dt
+	--moving background
+	posX = posX - 0.625
+	posY = posY - 0.625
+	if posX <= -200 then posX = 0 end
+	if posY <= -200 then posY = 0 end
+	
+	--custom audio looping
+	if audio_bgm and audio_bgmloop then
+		if not audio_bgm:isPlaying() and not audio_bgmloop:isPlaying() then
+			audio_bgmloop:play()
+		end
+	end
 	
 	--update depending on gamestate
 	if state == 'load' then
@@ -148,6 +151,27 @@ function love.keypressed(key)
 	end
 end
 
+function love.gamepadpressed(joy, button)
+	if button == 'dpup' then
+		button = 'up'
+	elseif button == 'dpdown' then
+		button = 'down'
+	elseif button == 'dpleft' then
+		button = 'left'
+	elseif button == 'dpright' then
+		button = 'right'
+	elseif button == 'a' then
+		button = 'b'
+	elseif button == 'b' then
+		button = 'a'
+	elseif button == 'x' then
+		button = 'y'
+	elseif button == 'y' then
+		button = 'x'
+	end
+	love.keypressed(button)
+end
+
 function love.textinput(text)
 	if text ~= '' and m_selected ~= 3 then 
 		player = text
@@ -159,5 +183,27 @@ function love.textinput(text)
 		savepersistent()
 	else
 		changeState('title')
+	end
+end
+
+function game_setvolume()
+	if not settings.masvol or not settings.bgmvol or not settings.sfxvol then
+		settings.masvol = 80
+		settings.bgmvol = 80
+		settings.sfxvol = 80
+	end
+	
+	local masvol = settings.masvol/100
+	local bgmvol = (settings.bgmvol/100)*masvol
+	local sfxvol = (settings.sfxvol/100)*masvol
+	if dvertype == '' then
+		if audio_bgm then
+			audio_bgm:setVolume(bgmvol)
+		end
+		if audio_bgmloop then
+			audio_bgmloop:setVolume(bgmvol)
+		end
+		sfx1:setVolume(sfxvol)
+		sfx2:setVolume(sfxvol)
 	end
 end

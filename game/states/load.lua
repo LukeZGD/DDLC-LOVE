@@ -1,4 +1,4 @@
-require('ddlclove/loader/assets_load')
+require('loader/assets_load')
 l_timer = 95
 local err = ''
 local errtime = 0

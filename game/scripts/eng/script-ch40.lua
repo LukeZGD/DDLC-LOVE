@@ -1,8 +1,5 @@
 local gtext120 = glitchtext(120)
 local endx = 100
-if branch == '3ds' then
-	endx = 25
-end
 
 clearall = 0
 for i = 1, 9 do

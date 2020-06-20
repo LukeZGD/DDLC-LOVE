@@ -19,17 +19,12 @@ persistent = {
 	chr={m=1,s=1};
 }
 settings = {textspd=75,autospd=4,lang='eng'}
-if branch == 'ddlclove' then
-	persistent.act2 = {0,0,0,0}
-	settings.masvol = 80
-	settings.bgmvol = 80
-	settings.sfxvol = 80
-	settings.o = 0
-	cg1 = 'blank'
-else
-	settings.textloc = 'Bottom'
-	cg1 = ''
-end
+persistent.act2 = {0,0,0,0}
+settings.masvol = 80
+settings.bgmvol = 80
+settings.sfxvol = 80
+settings.o = 0
+cg1 = 'blank'
 --default save values
 cl = 1
 bg1 = 'black'
@@ -55,12 +50,6 @@ savenumber = 1
 if not love.filesystem.load then
 	function love.filesystem.load(file)
 		return loadstring(love.filesystem.read(file))
-	end
-end
-
-if not love.filesystem.getInfo then
-	function love.filesystem.getInfo(file)
-		return love.filesystem.isFile(file)
 	end
 end
 
@@ -126,18 +115,14 @@ end
 
 function savesettings()
 	local file
-	if branch == 'ddlclove' then
-		file = "settings={"
-		file = file.."textspd="..settings.textspd..","
-		file = file.."autospd="..settings.autospd..","
-		file = file.."masvol="..settings.masvol..","
-		file = file.."bgmvol="..settings.bgmvol..","
-		file = file.."sfxvol="..settings.sfxvol..","
-		file = file.."lang='"..settings.lang.."',"
-		file = file.."o="..settings.o.."}"
-	else
-		file = "settings={textspd="..settings.textspd..",textloc='"..settings.textloc.."',autospd="..settings.autospd..",lang='eng'}"
-	end
+	file = "settings={"
+	file = file.."textspd="..settings.textspd..","
+	file = file.."autospd="..settings.autospd..","
+	file = file.."masvol="..settings.masvol..","
+	file = file.."bgmvol="..settings.bgmvol..","
+	file = file.."sfxvol="..settings.sfxvol..","
+	file = file.."lang='"..settings.lang.."',"
+	file = file.."o="..settings.o.."}"
 	love.filesystem.write("settings.sav", file)
 end
 
@@ -162,7 +147,6 @@ sp={"..sp[1]..','..sp[2]..','..sp[3].."}\
 persistent={ptr="..persistent.ptr..",chr={m="..persistent.chr.m..",s="..persistent.chr.s.."},\
 clear={"..clear..'}'
 	
-	if branch == 'ddlclove' then
 		local act2 = ''
 		for i = 1, #persistent.act2 do
 			if persistent.act2[i] and persistent.act2[i+1] then
@@ -173,16 +157,12 @@ clear={"..clear..'}'
 		end
 		file = file..",\
 act2={"..act2.."}"
-	end
 	
-	file = file..'}'	
+	file = file..'}'
 	love.filesystem.write("persistent", file)
 end
 
 function loadpersistent()
 	local file = love.filesystem.load("persistent")
 	pcall(file)
-	if branch == '3ds' then
-		loadsettings()
-	end
 end

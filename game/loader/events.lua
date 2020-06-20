@@ -28,11 +28,11 @@ function event_init(etype,arg1,arg2)
 	if xaload == 1 then
 		require('scripts/event')
 		if persistent.ptr <= 1 then
-			require(branch..'/scripts/event-1')
+			require('scripts/event-1')
 		elseif persistent.ptr == 2 then
-			require(branch..'/scripts/event-2')
+			require('scripts/event-2')
 		else
-			require(branch..'/scripts/event-3')
+			require('scripts/event-3')
 		end
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = lgnewImage('assets/images/cg/s_kill/s_kill.png')

@@ -56,11 +56,7 @@ function cw(p1, stext, tag)
 		for i = 1, h_items do
 			history[i] = ''
 		end
-		if branch == 'ddlclove' then
-			history[18] = tr.menuhelp[11]
-		else
-			history[12] = tr.menuhelp[11]
-		end
+		history[18] = tr.menuhelp[11]
 	elseif history[1] ~= stext and history[1] ~= temptext then
 		for i = h_items, 1, -1 do
 			history[i] = history[i-1]
@@ -94,19 +90,10 @@ function cw(p1, stext, tag)
 		print(errortext)
 	end
 	
-	if branch == '3ds' then
-		if style_edited then
-			c_a1 = {35}
-		else
-			c_a1 = {45}
-		end
-		h_items = 12
+	if style_edited then
+		c_a1 = {40,104,156}
 	else
-		if style_edited then
-			c_a1 = {40,104,156}
-		else
-			c_a1 = {65,140,210}
-		end
+		c_a1 = {65,140,210}
 	end
 	
 	c_disp[1] = wrap(textx,c_a1[1])

@@ -197,13 +197,8 @@ function ch20script()
 		updateMonika('3','b',-40,0)
 	elseif m_chance == 0 then
 		updateMonika('g1')
-		if branch == '3ds' then
-			m_Set.x = math.random(-40, -20)
-			m_Set.y = math.random(0, 20)
-		else
-			m_Set.x = love.math.random(-128, -64)
-			m_Set.y = love.math.random(0, 64)
-		end
+		m_Set.x = love.math.random(-128, -64)
+		m_Set.y = love.math.random(0, 64)
 	end
 	bgUpdate('club_day2')	
 	audioUpdate('3')

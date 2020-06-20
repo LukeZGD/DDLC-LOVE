@@ -54,11 +54,7 @@ function ch21script()
 	elseif cl == 308 then
 	event_initstart('n_glitch1')
 	elseif cl == 309 then
-	if branch == '3ds' then
-		updateNatsuki('4','e',200,0)
-	else
 		updateNatsuki('4','e',200,4)
-	end
 		cw('n', "¡Venga ya! Ni que hubiera que aplaudirle por ello.")
 	elseif cl == 310 then
 		cw('n', "Monika tuvo que suplicarte para que vinieras.")
@@ -451,11 +447,7 @@ function ch21script()
 	m "..."
 	m_Set.x = 0
 	elseif cl == 1009 then
-	if branch == '3ds' then
-		updateMonika('1','m',30)
-	else
 		updateMonika('1','m',80)
-	end
 		cw('m', "Mmm...")
 	elseif cl == 1010 then
 		cw('m', "Oye, " .. player .. "...")
