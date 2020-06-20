@@ -19,9 +19,6 @@ local dversionx = 1180
 local ca1 = {70,140,210}
 local xpsc = 400
 local ypsc = {35,65,95,125}
-if g_system == 'PS3' then
-	dversionx = 930
-end
 menu_alpha = 0
 
 function savepicLoad(i)
@@ -143,9 +140,6 @@ function menu_draw()
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
 	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' or menu_type == 'language' then
-		if g_system == 'PS3' then
-			lg.draw(menu_bg,posX,posY)
-		end
 		if menu_type == 'choice' then
 			lgsetColor(255,255,255,255)
 			lg.draw(textbox,230,565)
@@ -319,18 +313,7 @@ function menu_draw()
 			local temptext = wrap(history[i],70)
 			local ypos = 3600+(history_scr*75)-(i*120)
 			
-			if g_system == 'PSP' then
-				xpsc = 360
-			end
-			
-			if (global_os == 'LOVE-WrapLua' and g_system == 'PS3') or lutro then
-				local cdisp = wrap_old(history[i],ca1)
-				for j = 1, #cdisp do
-					if cdisp[j] then
-						lg.print(cdisp[j],xpsc,ypos+ypsc[j])
-					end
-				end
-			elseif global_os == 'LOVE-WrapLua' then
+			if global_os == 'LOVE-WrapLua' then
 				lg.print(temptext,xpsc,ypos)
 			else
 				outlineText(temptext,xpsc,ypos,'c_disp')
@@ -413,7 +396,7 @@ function menu_confirm()
 			if player ~= '' or dvertype == 'Test' then --go straight to new game
 				changeState('game',1)
 			elseif player == '' then --keyboard input for player name
-				if (global_os == 'LOVE-WrapLua' and g_system ~= 'PS3') or g_system == 'Switch' then
+				if global_os == 'LOVE-WrapLua' or g_system == 'Switch' then
 					local input = {}
 					input["type"] = "standard"
 					input["header"] = "Enter Player Name"

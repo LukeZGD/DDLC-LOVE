@@ -3,9 +3,6 @@ local random_msg = love.math.random(1,12)
 local s_timer = 0
 local s_kille = {x=280,y=-5}
 splashx = 975
-if g_system == 'PSP' or g_system == 'PS3' then
-	splashx = 915
-end
 
 function drawSplash()
 	lgsetColor(255,255,255,255)
@@ -130,14 +127,17 @@ function updateSplashspec()
 end
 
 function drawSplashChar()
-	lg.draw(menu_art_y,tlp.yx,tlp.yy,0,tlp.scale,tlp.scale)
-	lg.draw(menu_art_n,tlp.nx,tlp.ny,0,tlp.scale,tlp.scale)
-	lg.draw(menu_art_m,tlp.mx,tlp.my,0,tlp.scale,tlp.scale)
+	lg.push()
+	lg.scale(tlp.scale)
+	lg.draw(menu_art_y,tlp.yx/tlp.scale,tlp.yy/tlp.scale)
+	lg.draw(menu_art_n,tlp.nx/tlp.scale,tlp.ny/tlp.scale)
+	lg.draw(menu_art_m,tlp.mx/tlp.scale,tlp.my/tlp.scale)
 	if menu_art_s_break then
-		lg.draw(menu_art_s_break,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
+		lg.draw(menu_art_s_break,tlp.sx/tlp.scale,tlp.sy/tlp.scale)
 	elseif menu_art_s then
-		lg.draw(menu_art_s,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
+		lg.draw(menu_art_s,tlp.sx/tlp.scale,tlp.sy/tlp.scale)
 	end
+	lg.pop()
 end
 
 function updateSplashChar()

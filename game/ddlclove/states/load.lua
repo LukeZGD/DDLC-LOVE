@@ -7,10 +7,6 @@ if g_system == 'Switch' then
 	savedir = 'sdmc:/switch/DDLC-LOVE/'
 elseif g_system == 'Vita' then
 	savedir = 'ux0:/data/DDLC-LOVE/savedata/'
-elseif g_system == 'PSP' then
-	savedir = 'ms0:/data/DDLC-LOVE/savedata/'
-elseif g_system == 'PS3' then
-	savedir = 'dev_usb000:/DDLC-LOVE/savedata/'
 else
 	savedir = 'savedir'
 end
@@ -55,11 +51,7 @@ function checkLoad()
 	
 	if settings.lang and f2 then
 		require('scripts/'..settings.lang..'/text')
-		if g_system == 'PSP' then
-			loaderAssets(102)
-		else
-			loaderAssets(101)
-		end
+		loaderAssets(101)
 	else
 		settings.lang = 'eng'
 		require('scripts/eng/text')
@@ -73,10 +65,6 @@ function checkLoad()
 		changeState('newgame')
 	end
 	
-	if g_system == 'PSP' then
-		model = hw.getmodel()
-	end
-	
 	if not persistent.act2 then
 		err = tr.error[2]..savedir..'\n\n'..tr.error[1]
 	elseif persistent.chr.s == 0 and persistent.ptr == 0 then
@@ -87,13 +75,8 @@ function checkLoad()
 		savepersistent()
 	elseif persistent.chr.m == 2 then
 		changeState('game','autoload')
-	elseif model == '1000' then
-		err = tr.error[3]..'\n\n'..tr.error[1]
-	elseif os_timecheck then
-		l_timer = 100
 	else
-		err = tr.error[4]..'\n'..tr.error[1]
-		errtime = 1
+		l_timer = 100
 	end
 end
 

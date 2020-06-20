@@ -58,15 +58,5 @@ function loaderAssets(l_timer)
 		gui.save = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/save.png")
 		gui.settings = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/settings.png")
 		gui.setbuttons = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/setbuttons.png")
-		
-	elseif l_timer == 102 then
-		gui.mainbuttons = lgnewImage("assets/images/gui/overlay/mainbuttons.png")
-		gui.gamebuttons = lgnewImage("assets/images/gui/overlay/gamebuttons.png")
-		gui.history = lgnewImage("assets/images/gui/overlay/history.png")
-		gui.gamemenu = lgnewImage("assets/images/gui/overlay/gamemenu.png")
-		gui.load = lgnewImage("assets/images/gui/overlay/load.png")
-		gui.save = lgnewImage("assets/images/gui/overlay/save.png")
-		gui.settings = lgnewImage("assets/images/gui/overlay/settings.png")
-		gui.setbuttons = lgnewImage("assets/images/gui/overlay/setbuttons.png")
 	end
 end

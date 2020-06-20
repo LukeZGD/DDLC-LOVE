@@ -21,22 +21,6 @@ function wrap(str, limit)
 	return str:gsub("(%s+)()(%S+)()", check)
 end
 
-function wrap_old(str, limit)
-	local ca = {}
-	local tableout = {}
-	for j = 1, 3 do
-		ca[j] = string.find(str, '%s', limit[j])
-		if ca[j] == nil then ca[j] = limit[j] + 3 end
-	end
-
-	tableout[1] = string.sub(str, 1, ca[1])
-	for j = 2, 4 do
-		tableout[j] = string.sub(str, ca[j-1]+1, ca[j])
-	end
-
-	return tableout
-end
-
 function cw(p1, stext, tag)
 	if p1 == 's' then
 		ct = tr.names[1]
@@ -125,11 +109,7 @@ function cw(p1, stext, tag)
 		end
 	end
 	
-	if g_system == 'PS3' or lutro then
-		c_disp = wrap_old(textx,c_a1)
-	else
-		c_disp[1] = wrap(textx,c_a1[1])
-	end
+	c_disp[1] = wrap(textx,c_a1[1])
 	
 	local slen = string.len(stext)
 	if tag then

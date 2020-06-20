@@ -11,9 +11,6 @@ local keyboardrow3 = {'a','s','d','f','g','h','j','k','l','X  Space'}
 local keyboardrow4 = {'z','x','c','v','b','n','m','','','X  Enter'}
 
 function keyboard_draw()
-	if g_system == 'PS3' then
-		lg.draw(menu_bg,posX,posY)
-	end
 	lgsetColor(255,255,255,menu_alpha/2)
 	lg.rectangle('fill',0,0,1280,725)
 	lgsetColor(255,189,225,menu_alpha)

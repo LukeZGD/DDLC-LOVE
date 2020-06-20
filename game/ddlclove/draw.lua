@@ -11,7 +11,7 @@ unitimer = 0
 uniduration = 0.25
 
 function outlineText(text,x,y,type,arg1)
-	if g_system == 'PSP' or g_system == 'PS3' or settings.o == 1 or lutro then
+	if settings.o == 1 then
 		lgsetColor(0,0,0,alpha)
 	else
 		local addm = 1.5
@@ -25,7 +25,7 @@ function outlineText(text,x,y,type,arg1)
 		else
 			lgsetColor(0,0,0,alpha)
 		end
-		if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
+		if type == 'printf' then
 			lg.printf(text,x-addm,y,arg1)
 			lg.printf(text,x,y-addm,arg1)
 			lg.printf(text,x+addm,y,arg1)
@@ -42,7 +42,7 @@ function outlineText(text,x,y,type,arg1)
 			lgsetColor(255,255,255,alpha)
 		end
 	end
-	if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
+	if type == 'printf' then
 		lg.printf(text,x,y,arg1)
 	else
 		local printtext = lg.print(text,x,y)
@@ -91,14 +91,7 @@ function drawTextBox()
 		else
 			lg.setFont(allerfont)
 		end
-		if g_system == 'PSP' then
-			xps.c = 240
-		end
-		if c_disp[1] and g_system == 'PS3' then
-			for i = 1, #c_disp do
-				outlineText(c_disp[i],xps.c,yps.c[i],'c_disp')
-			end
-		elseif c_disp[1] then
+		if c_disp[1] then
 			outlineText(c_disp[1],xps.c,yps.c[1],'c_disp')
 		end
 	end

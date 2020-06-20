@@ -25,21 +25,13 @@ function changeState(cstate,x)
 			menu_art_s_break = lgnewImage("assets/images/gui/menu_art_s_break.png")
 		elseif not menu_art_s then
 			menu_art_s = lgnewImage("assets/images/gui/menu_art_s.png")
-		end		
+		end
 		--new game gui image
-		if g_system == 'PSP' then
-			if persistent.ptr == 1 and not gui.newgame1 then
-				gui.newgame1 = lgnewImage("assets/images/gui/overlay/newgame1.png")
-			elseif not gui.newgame1 then
-				gui.newgame = lgnewImage("assets/images/gui/overlay/newgame.png")
-			end
-		else
-			if persistent.ptr == 1 and not gui.newgame1 then
-				gui.newgame1 = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/newgame1.png")
-			elseif not gui.newgame1 then
-				gui.newgame = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
-			end
-		end		
+		if persistent.ptr == 1 and not gui.newgame1 then
+			gui.newgame1 = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/newgame1.png")
+		elseif not gui.newgame1 then
+			gui.newgame = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/newgame.png")
+		end
 		--monika
 		if persistent.ptr == 4 and not menu_art_m then
 			menu_art_m = lgnewImage("assets/images/cg/blank.png")
@@ -83,7 +75,7 @@ function changeState(cstate,x)
 		elseif x == 3 then -- poemgame to game
 			cl = cl + 2
 		end
-		if global_os == 'LOVE-WrapLua' and g_system ~= 'PS3' and persistent.ptr <= 2 and chapter < 23 then
+		if global_os == 'LOVE-WrapLua' and persistent.ptr <= 2 and chapter < 23 then
 			if chapter <= 5 then
 				persistent.chr.m = 2
 			else

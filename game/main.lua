@@ -1,14 +1,7 @@
-dversion = 'v1.1.8-2'
+dversion = 'v1.1.8-3'
 dvertype = '' --put 'Test' for test mode
 print("DDLC-LOVE "..dversion..' '..dvertype)
 
-if lutro then
-	love = lutro
-	function love.conf(t)
-		t.width = 480
-		t.height = 272
-	end
-end
 global_os = love.system.getOS()
 g_system = love._console_name
 if g_system == 'Switch' then
@@ -21,16 +14,13 @@ else
 	branch = 'ddlclove'
 end
 
-os_timecheck = os.time()
-if os_timecheck then
-	if branch == 'ddlclove' then
-		love.math.setRandomSeed(os.time())
-	end
-	math.randomseed(os.time())
-	math.random()
-	math.random()
-	math.random()
+if branch == 'ddlclove' then
+	love.math.setRandomSeed(os.time())
 end
+math.randomseed(os.time())
+math.random()
+math.random()
+math.random()
 
 local require_old = require
 function require(req)
@@ -50,9 +40,6 @@ require('scripts/script')
 
 function love.load() 
 	lg.setBackgroundColor(0,0,0)
-	if lutro then
-		dfnt = love.graphics.newImageFont('FontMedium.png', " 0123456789abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVXYZ!-.,$")
-	end
 	getTime = 0
 	startTime = getTime
 	last_text = ''
@@ -72,7 +59,7 @@ function love.load()
 		lg.set3D(true)
 	end
 	
-	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' and not lutro then
+	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' then
 		love.window.setFullscreen(true)
 		love.window.setTitle('DDLC-LOVE')
 		love.keyboard.setTextInput(false)

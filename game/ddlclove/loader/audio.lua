@@ -17,25 +17,23 @@ function audioUpdate(audiox, forceload) --audio changes
 			end
 
 			--custom audio looping load
-			if g_system ~= 'PS3' and not lutro then
-				if audiox == '2g' then
-					audio_bgmloop = love.audio.newSource('assets/audio/bgm/2re.mp3', 'stream')
-				elseif audiox == '3g' or audiox == '3g2' then
-					audio_bgmloop = love.audio.newSource('assets/audio/bgm/3re.mp3', 'stream')
-				elseif audiox == '7' then
-					if persistent.ptr == 2 then
-						audio_bgmloop = love.audio.newSource('assets/audio/bgm/7a.mp3', 'stream')
-					else
-						audio_bgmloop = love.audio.newSource('assets/audio/bgm/7re.mp3', 'stream')
-					end
-				elseif audiox ~= 'credits' or audiox ~= 'end-voice' then
-					audio_bgmloop = audio_bgm
+			if audiox == '2g' then
+				audio_bgmloop = love.audio.newSource('assets/audio/bgm/2re.mp3', 'stream')
+			elseif audiox == '3g' or audiox == '3g2' then
+				audio_bgmloop = love.audio.newSource('assets/audio/bgm/3re.mp3', 'stream')
+			elseif audiox == '7' then
+				if persistent.ptr == 2 then
+					audio_bgmloop = love.audio.newSource('assets/audio/bgm/7a.mp3', 'stream')
+				else
+					audio_bgmloop = love.audio.newSource('assets/audio/bgm/7re.mp3', 'stream')
 				end
-				for i = 1, #audio_wloop do
-					if audiox == audio_wloop[i] then
-						audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'re.mp3', 'stream')
-						audio_bgmloop:setLooping(true)
-					end
+			elseif audiox ~= 'credits' or audiox ~= 'end-voice' then
+				audio_bgmloop = audio_bgm
+			end
+			for i = 1, #audio_wloop do
+				if audiox == audio_wloop[i] then
+					audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'re.mp3', 'stream')
+					audio_bgmloop:setLooping(true)
 				end
 			end
 			
