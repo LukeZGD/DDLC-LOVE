@@ -128,7 +128,7 @@ end
 
 function drawSplashChar()
 	lg.push()
-	lg.scale(tlp.scale)
+	lg.scale(tlp.scale,tlp.scale)
 	lg.draw(menu_art_y,tlp.yx/tlp.scale,tlp.yy/tlp.scale)
 	lg.draw(menu_art_n,tlp.nx/tlp.scale,tlp.ny/tlp.scale)
 	lg.draw(menu_art_m,tlp.mx/tlp.scale,tlp.my/tlp.scale)
