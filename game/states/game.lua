@@ -111,10 +111,10 @@ function game_keypressed(key)
 		menu_mchance = math.random(1,50)
 		autotimer = 0
 		menu_enable('pause')
-	elseif key == 'b' then --auto on/off
+	elseif key == 'start' or key == 'return' then --auto on/off
 		if global_os ~= 'LOVE-WrapLua' then sfx1:play() end
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
-	elseif key == 'x' then
+	elseif key == 'rightshoulder' or key == 'r' then
 		if global_os ~= 'LOVE-WrapLua' then sfx1:play() end
 		if not event_enabled then
 			if autoskip < 1 then autoskip = 1
@@ -138,9 +138,9 @@ function newgame_keypressed(key)
 		end
 		collectgarbage()
 		collectgarbage()
-	elseif key == '=' or key == 'start' then
+	elseif key == 'b' then
 		textboxd = not textboxd
-	elseif key == '-' or key == 'back' then
+	elseif key == 'back' or key == '-' then
 		if settings.o ~= 1 then settings.o = 1
 		else settings.o = 0 end
 	end

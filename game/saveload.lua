@@ -53,6 +53,10 @@ if not love.filesystem.load then
 	end
 end
 
+function love.filesystem.getInfo(file)
+	return love.filesystem.read(file)
+end
+
 function savegame(x)
 	local choiceset = ''
 	
@@ -110,7 +114,8 @@ end
 
 function loaddatainfo(save)
 	local datainfo = love.filesystem.load("save"..save.."-"..persistent.ptr.."_data.sav")
-	pcall(datainfo)
+	local status = pcall(datainfo)
+	return status
 end
 
 function savesettings()

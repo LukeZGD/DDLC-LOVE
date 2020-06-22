@@ -57,8 +57,8 @@ tr.menuitem = {'Sí','No','Borrar ','Restaurar todo'}
 tr.menuhelp = {
 	' : Avanzas en el juego, seleccionas alguna opción en las elecciones',
 	' : Te sales del menú, activas o desactivas el modo automático',
-	' : (Menú) Página anterior, activas o desactivas el modo saltar',
-	' : (Menú) Página siguiente, entras en el menú del juego',
+	' : Activas o desactivas el modo saltar',
+	' : Entras en el menú del juego',
 	' : Muestra o oculta la ventana de diálogos',
 	'Configurar archivos: Vete a ajustes > Characters',
 	[[
