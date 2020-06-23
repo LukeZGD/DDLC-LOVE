@@ -3,7 +3,7 @@ dvertype = '' --put 'Test' for test mode
 print("DDLC-LOVE "..dversion..' '..dvertype)
 
 global_os = love.system.getOS()
-g_system = love._console_name
+g_system = 'Switch'
 if g_system == 'Switch' then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
@@ -160,14 +160,6 @@ function love.gamepadpressed(joy, button)
 		button = 'left'
 	elseif button == 'dpright' then
 		button = 'right'
-	elseif button == 'a' then
-		button = 'b'
-	elseif button == 'b' then
-		button = 'a'
-	elseif button == 'x' then
-		button = 'y'
-	elseif button == 'y' then
-		button = 'x'
 	end
 	love.keypressed(button)
 end
