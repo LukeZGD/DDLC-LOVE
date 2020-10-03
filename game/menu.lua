@@ -504,8 +504,7 @@ function menu_confirm()
 			menu_keypressed('left')
 		elseif m_selected == 4 then
 			menu_enable('characters')
-		elseif m_selected == 5 then
-			menu_previous =
+		elseif m_selected == 5 and g_system ~= 'Switch' then
 			changeState('language')
 		end
 		

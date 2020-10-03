@@ -127,17 +127,28 @@ function updateSplashspec()
 end
 
 function drawSplashChar()
-	lg.push()
-	lg.scale(tlp.scale,tlp.scale)
-	lg.draw(menu_art_y,tlp.yx/tlp.scale,tlp.yy/tlp.scale)
-	lg.draw(menu_art_n,tlp.nx/tlp.scale,tlp.ny/tlp.scale)
-	lg.draw(menu_art_m,tlp.mx/tlp.scale,tlp.my/tlp.scale)
-	if menu_art_s_break then
-		lg.draw(menu_art_s_break,tlp.sx/tlp.scale,tlp.sy/tlp.scale)
-	elseif menu_art_s then
-		lg.draw(menu_art_s,tlp.sx/tlp.scale,tlp.sy/tlp.scale)
-	end
-	lg.pop()
+    if g_system == 'Switch' then
+        lg.push()
+        lg.scale(tlp.scale,tlp.scale)
+        lg.draw(menu_art_y,tlp.yx/tlp.scale,tlp.yy/tlp.scale)
+        lg.draw(menu_art_n,tlp.nx/tlp.scale,tlp.ny/tlp.scale)
+        lg.draw(menu_art_m,tlp.mx/tlp.scale,tlp.my/tlp.scale)
+        if menu_art_s_break then
+            lg.draw(menu_art_s_break,tlp.sx/tlp.scale,tlp.sy/tlp.scale)
+        elseif menu_art_s then
+            lg.draw(menu_art_s,tlp.sx/tlp.scale,tlp.sy/tlp.scale)
+        end
+        lg.pop()
+    else
+        lg.draw(menu_art_y,tlp.yx,tlp.yy,0,tlp.scale,tlp.scale)
+        lg.draw(menu_art_n,tlp.nx,tlp.ny,0,tlp.scale,tlp.scale)
+        lg.draw(menu_art_m,tlp.mx,tlp.my,0,tlp.scale,tlp.scale)
+        if menu_art_s_break then
+            lg.draw(menu_art_s_break,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
+        elseif menu_art_s then
+            lg.draw(menu_art_s,tlp.sx,tlp.sy,0,tlp.scale,tlp.scale)
+        end
+    end
 end
 
 function updateSplashChar()

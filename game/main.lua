@@ -1,4 +1,4 @@
-dversion = 'v1.1.8-4'
+dversion = 'v1.1.9'
 dvertype = '' --put 'Test' for test mode
 print("DDLC-LOVE "..dversion..' '..dvertype)
 

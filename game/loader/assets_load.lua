@@ -10,8 +10,8 @@ function loaderAssets(l_timer)
 		lg.setFont(allerfont)
 
 	elseif l_timer == 97 then
-		sfx1 = love.audio.newSource('assets/audio/sfx/select.mp3','static')
-		sfx2 = love.audio.newSource('assets/audio/sfx/hover.mp3','static')
+		sfx1 = love.audio.newSource('assets/audio/sfx/select'..audio_ext,'static')
+		sfx2 = love.audio.newSource('assets/audio/sfx/hover'..audio_ext,'static')
 		menu_bg_m = lgnewImage("assets/images/gui/menu_bg_m.png")
 
 		gui.keysbox = lgnewImage("assets/images/gui/button/box.png")

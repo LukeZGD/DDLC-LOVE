@@ -49,19 +49,21 @@ function checkLoad()
 		game_setvolume()
 	end
 	
-	if settings.lang and f2 then
+    if settings.lang and f2 then
 		require('scripts/'..settings.lang..'/text')
 		loaderAssets(101)
+    elseif g_system == 'Switch' then
+        settings.lang = 'eng'
+        savesettings()
+        require('scripts/'..settings.lang..'/text')
+        loaderAssets(101)
 	else
 		settings.lang = 'eng'
 		require('scripts/eng/text')
 		changeState('language')
 	end
 	
-	if dvertype == 'Test' then
-		loaderAssets(101)
-		l_timer = 100
-	elseif f2 and not f1 then
+	if (f2 and not f1) or (g_system == 'Switch' and not f1) then
 		changeState('newgame')
 	end
 	

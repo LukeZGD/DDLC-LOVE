@@ -137,7 +137,7 @@ function outlineText(text,x,y,type,arg1)
 		else
 			lgsetColor(0,0,0,alpha)
 		end
-		if type == 'printf' then
+		if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 			lg.printf(text,x-addm,y,arg1)
 			lg.printf(text,x,y-addm,arg1)
 			lg.printf(text,x+addm,y,arg1)
@@ -154,7 +154,7 @@ function outlineText(text,x,y,type,arg1)
 			lgsetColor(255,255,255,alpha)
 		end
 	end
-	if type == 'printf' then
+	if type == 'printf' and global_os ~= 'LOVE-WrapLua' then
 		lg.printf(text,x,y,arg1)
 	else
 		local printtext = lg.print(text,x,y)
