@@ -165,6 +165,10 @@ function menu_draw()
 		lgsetColor(255,255,255,menu_alpha/2.5)
 		lg.rectangle('fill',435,195+(50*(m_selected-1)),410,42)
 		lgsetColor(0,0,0,menu_alpha)
+        lg.print("For Switch systems Atmosphère 0.10.2 and up:",10,10)
+        lg.print("Add \"enable_deprecated_hid_mitm = u8!0x1\"",10,40)
+        lg.print("in sdmc:/atmosphere/config/system_settings.ini",10,70)
+        lg.print("under \"[Atmosphere]\" (see issue #111 in GitHub)",10,100)
 		for i = 1, 8 do
 			if menu_items >= i+1 and menu_type == 'choice' and choices[i] and m_selected ~= i+1 then
 				lg.print(choices[i],440,200+(50*i))
