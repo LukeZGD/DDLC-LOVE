@@ -138,9 +138,9 @@ function newgame_keypressed(key)
 		end
 		collectgarbage()
 		collectgarbage()
-	elseif key == '=' or key == 'start' then
+	elseif key == 'b' then
 		textboxd = not textboxd
-	elseif key == '-' or key == 'back' then
+	elseif key == 'back' or key == '-' then
 		if settings.o ~= 1 then settings.o = 1
 		else settings.o = 0 end
 	end

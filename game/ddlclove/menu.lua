@@ -143,7 +143,7 @@ function menu_draw()
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
 	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' or menu_type == 'language' then
-		if g_system == 'PS3' then
+        if g_system == 'PS3' then
 			lg.draw(menu_bg,posX,posY)
 		end
 		if menu_type == 'choice' then
@@ -216,12 +216,12 @@ function menu_draw()
 		local keys = {}
 		if global_os == 'LOVE-WrapLua' then
 			if not lv1lua.confirm then
-				keys = {'Cross, (L)','Circle','Square','Triangle','Start','Select'}
+				keys = {'Cross, (L)','Start','(R)','Triangle','Circle','Select'}
 			else
-				keys = {'Circle, (L)','Cross','Triangle','Square','Start','Select'}
+				keys = {'Circle, (L)','Start','(R)','Square','Cross','Select'}
 			end
 		else
-			keys = {'(A), (L)','(B)','(X)','(Y)','(+)','(-)'}
+			keys = {'(A), (L)','(+)','(R)','(Y)','(B)','(-)'}
 		end
 		lgsetColor(0,0,0)
 		lg.print('Key Bindings:',160,120)
@@ -269,6 +269,7 @@ function menu_draw()
 			lg.print(menutext,366,138)
 		else
 			lg.print('Page '..pagenum,751,138)
+            lg.print('(< L | R >)',1110,138)
 		end
 		
 	elseif menu_type == 'settings' then
@@ -679,17 +680,18 @@ function menu_keypressed(key)
 		end
 		game_setvolume()
 	
-	elseif key == 'x' then
+	elseif key == 'leftshoulder' or key == 'l' then
 		if (menu_type == 'savegame' or menu_type == 'loadgame' or menu_type == 'settings') and pagenum > 1 then
 			pagenum = pagenum - 1
 			menu_enable(menu_type)
 		end
 		
-	elseif key == 'y' then
+	elseif key == 'rightshoulder' or key == 'r' then
 		if ((menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10) or (menu_type == 'settings' and pagenum < 2) then
 			pagenum = pagenum + 1
 			menu_enable(menu_type)
-		elseif menu_type == 'choice' and chapter < 5 and cl ~= 666 then
+	elseif key == 'y' then
+        if menu_type == 'choice' and chapter < 5 and cl ~= 666 then
 			menu_previous2 = 'choice'
 			menu_alpha = 0
 			menu_enable('pause')

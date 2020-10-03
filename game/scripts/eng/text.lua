@@ -57,8 +57,8 @@ tr.menuitem = {'Yes','No','Delete ','Restore All'}
 tr.menuhelp = {
 	' : Advances through the game, activates menu choices',
 	' : Exit Menu, Auto-Forward On/Off',
-	' : (Menu) Previous Page, Skipping On/Off',
-	' : (Menu) Next Page, Enter Game Menu',
+	' : Previous Page, Skipping On/Off',
+	' : Next Page, Enter Game Menu',
 	' : Show/hide text window',
 	'Managing files: Go to Settings > Characters',
 	[[
