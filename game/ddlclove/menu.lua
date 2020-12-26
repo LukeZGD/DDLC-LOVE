@@ -690,6 +690,7 @@ function menu_keypressed(key)
 		if ((menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10) or (menu_type == 'settings' and pagenum < 2) then
 			pagenum = pagenum + 1
 			menu_enable(menu_type)
+        end
 	elseif key == 'y' then
         if menu_type == 'choice' and chapter < 5 and cl ~= 666 then
 			menu_previous2 = 'choice'
