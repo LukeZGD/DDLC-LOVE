@@ -44,7 +44,7 @@
 - Game assets and other stuff are needed to be prepared first from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo.
 - For all Sony devices, [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) and `lv1lua.lua` from DDLC-LOVE-Assets are also required beside the game folder (`script.lua`, `lv1lua.lua`, and the `LOVE-WrapLua` folder)
 <br><br>
-- **Switch** - Run `make nro` for a .nro build; More details in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
+- **Switch** - Run `lovebrew` for a .nro build; More details in [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
 - **3DS:**
   1. Set `LOVEPOTION_3DS` to path to [LovePotion 1.0.9](https://github.com/TurtleP/LovePotion/releases/tag/1.0.9) first! eg. `export LOVEPOTION_3DS=<path to>/LovePotion.elf`
   2. Run `make 3dsx` for a .3dsx build or `make cia` for a .cia build.
