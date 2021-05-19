@@ -82,7 +82,8 @@ end
 function drawSplashspec(spec)
 	lgsetColor(255,255,255,alpha)
 	if s_timer > 3.1 then
-		lg.setBackgroundColor(230,230,230)
+		lgsetColor(230,230,230,255)
+		lg.rectangle('fill',0,0,1280,725)
 		if state == 's_kill_early' then
 			lg.draw(s_killearly,s_kille.x,s_kille.y)
 			lgsetColor(255,255,255,32)

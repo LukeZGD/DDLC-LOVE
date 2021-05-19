@@ -56,35 +56,57 @@ function loadCharacter(set)
 	return asset1, asset2, asset3
 end
 
+--freeimage_old = Graphics.freeImage
+--function freeimage(img)
+	--love.filesystem.append("logfile", "freeimage: "..img)
+	--freeimage_old(img)
+--end
+
 function loadSayori()
+	unloadSayori()
 	sl, sr, s_a = loadCharacter(s_Set)
 end
 
 function unloadSayori()
+	if sl then Graphics.freeImage(sl) end
+	if sr then Graphics.freeImage(sr) end
+	if s_a then Graphics.freeImage(s_a) end
 	sl, sr, s_a = nil
 end
 
 function loadYuri()	
+	unloadYuri()
 	yl, yr, y_a = loadCharacter(y_Set)
 end
 
 function unloadYuri()
-	yl, y_r, y_a = nil
+	if yl then Graphics.freeImage(yl) end
+	if yr then Graphics.freeImage(yr) end
+	if y_a then Graphics.freeImage(y_a) end
+	yl, yr, y_a = nil
 end
 
 function loadNatsuki()
+	unloadNatsuki()
 	nl, nr, n_a = loadCharacter(n_Set)
 end
 
 function unloadNatsuki()
+	if nl then Graphics.freeImage(nl) end
+	if nr then Graphics.freeImage(nr) end
+	if n_a then Graphics.freeImage(n_a) end
 	nl, nr, n_a = nil
 end
 
 function loadMonika()
+	unloadMonika()
 	ml, mr, m_a = loadCharacter(m_Set)
 end
 
 function unloadMonika()
+	if ml then Graphics.freeImage(ml) end
+	if mr then Graphics.freeImage(mr) end
+	if m_a then Graphics.freeImage(m_a) end
 	ml, mr, m_a = nil
 end
 
@@ -97,6 +119,13 @@ end
 
 function unloadAll(x)
 	if x == 'poemgame' then
+		if type(s_sticker_1) == "number" then Graphics.freeImage(s_sticker_1) end
+		if type(s_sticker_2) == "number" then Graphics.freeImage(s_sticker_2) end
+		if type(y_sticker_1) == "number" then Graphics.freeImage(y_sticker_1) end
+		if type(y_sticker_2) == "number" then Graphics.freeImage(y_sticker_2) end
+		if type(n_sticker_1) == "number" then Graphics.freeImage(n_sticker_1) end
+		if type(n_sticker_2) == "number" then Graphics.freeImage(n_sticker_2) end
+		if type(eyes) == "number" then Graphics.freeImage(eyes) end
 		s_sticker_1 = nil
 		s_sticker_2 = nil
 		y_sticker_1 = nil

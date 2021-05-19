@@ -17,7 +17,9 @@ end
 function lgnewImage(new)
 	--print('lgnewImage: '..new)
 	if love.filesystem.getInfo(new) then
-		return lg.newImage(new)
+		local img = lg.newImage(new)
+        --love.filesystem.append("logfile",'lgnewImage: '..img..' '..new)
+        return img
 	end
 end
 
@@ -53,6 +55,13 @@ function lg.setFont(setfont)
 	else
 		lgsetFont(dfnt)
 	end
+end
+
+if g_system ~= "Vita" then
+    Graphics = {}
+    function Graphics.freeImage()
+        return
+    end
 end
 
 function dripText(text,cps,sTime)
@@ -183,9 +192,9 @@ end
 
 function drawTextBox()
 	if sectimer >= 0.5 then
-		gui_ctc_x = math.max(gui_ctc_x - 0.1, 1015)
+		gui_ctc_x = math.max(gui_ctc_x - dt*5, 1015)
 	else
-		gui_ctc_x = math.min(gui_ctc_x + 0.1, 1020)
+		gui_ctc_x = math.min(gui_ctc_x + dt*5, 1020)
 	end
 	
 	if menu_type ~= 'choice' and not poem_enabled then

@@ -10,9 +10,9 @@ function drawGame()
 	lg.draw(bgch)
 	lg.draw(cgch)
 	lgsetColor(255,255,255,bgalpha)
-	lg.draw(bgch2)
+	--lg.draw(bgch2)
 	lgsetColor(255,255,255,cgalpha)
-	lg.draw(cgch2)
+	--lg.draw(cgch2)
 	
 	lgsetColor(255,255,255,alpha)
 	drawSayori()
@@ -88,15 +88,15 @@ function updateGame()
 	if poem_enabled and poem_scroll and not menu_enabled then
 		if g_system == 'Switch' then
 			if joystick:isGamepadDown('dpup') then
-				poem_scroll.y = poem_scroll.y + 0.3
+				poem_scroll.y = poem_scroll.y + dt*25
 			elseif joystick:isGamepadDown('dpdown') then
-				poem_scroll.y = poem_scroll.y - 0.3
+				poem_scroll.y = poem_scroll.y - dt*25
 			end
 		else
 			if love.keyboard.isDown('up') and poem_scroll.y < 1 then
-				poem_scroll.y = poem_scroll.y + 0.3
+				poem_scroll.y = poem_scroll.y + dt*25
 			elseif love.keyboard.isDown('down') then
-				poem_scroll.y = poem_scroll.y - 0.3
+				poem_scroll.y = poem_scroll.y - dt*25
 			end
 		end
 	end

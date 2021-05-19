@@ -1,5 +1,5 @@
-dversion = 'v1.1.9'
-dvertype = '' --put 'Test' for test mode
+dversion = "v1.2.0"
+dvertype = "" --put 'Test' for test mode
 print("DDLC-LOVE "..dversion..' '..dvertype)
 
 global_os = love.system.getOS()
@@ -16,6 +16,7 @@ math.random()
 
 local require_old = require
 function require(req)
+	--love.filesystem.append("logfile",'require: '..req)
 	print('require: '..req)
 	return require_old(req)
 end
@@ -29,7 +30,7 @@ require('saveload')
 require('draw')
 require('scripts/script')
 
-function love.load() 
+function love.load()
 	lg.setBackgroundColor(0,0,0)
 	getTime = 0
 	startTime = getTime

@@ -57,7 +57,7 @@ function loaderCredits(c_timer)
 		s_sticker_1 = nil
 		y_sticker_1 = nil
 		if not moni1 then moni1 = lgnewImage('assets/images/cg/credits/10.png') end
-	elseif c_timer >= 164 then
+	elseif c_timer >= 164 and c_timer < 200 then
 		sayo3 = nil
 		moni1 = nil
 		if not splashw then splashw = lgnewImage('assets/images/cg/credits/splashw.png') end

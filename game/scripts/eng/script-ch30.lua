@@ -248,7 +248,7 @@ function ch30script()
 	elseif cl == 105 then
 	m "It kind of freaked me out, how easy it was."
 	elseif cl == 106 then
-	cw('m',"Well, you're playing on a "..global_os..", so it was actually a bit less difficult...")
+	cw('m',"Well, you're playing on a "..g_system..", so it was actually a bit less difficult...")
 	elseif cl == 107 then
 	m "I just had to go to 'Settings' and find the 'Characters' button..."
 	elseif cl == 108 then

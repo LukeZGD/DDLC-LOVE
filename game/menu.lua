@@ -27,7 +27,10 @@ end
 
 function savepicFree()
 	for i = 1, #save_bpic do
-		if save_bpic[i] then save_bpic[i] = nil end
+		if type(save_bpic[i]) == "number" then
+			Graphics.freeImage(save_bpic[i])
+			save_bpic[i] = nil
+		end
 	end
 end
 
@@ -351,7 +354,7 @@ end
 
 function menu_update()
 	if menu_fadeout then
-		menu_alpha = math.max(menu_alpha - 15, 0)
+		menu_alpha = math.max(menu_alpha - dt*1000, 0)
 		if menu_alpha == 0 then
 			menu_enabled = false
 			menu_type = nil
@@ -359,7 +362,7 @@ function menu_update()
 			menu_fadeout = false
 		end
 	else
-		menu_alpha = math.min(menu_alpha + 15, 255)
+		menu_alpha = math.min(menu_alpha + dt*1000, 255)
 	end
 	
 	if persistent.act2[2] < 1 and menu_mchance == 50 and persistent.ptr == 2 then
@@ -373,15 +376,15 @@ function menu_update()
 	if menu_type == 'history' then
 		if g_system == 'Switch' then
 			if joystick:isGamepadDown('dpdown') and history_scr > -39 then
-				history_scr = history_scr - 0.2
+				history_scr = history_scr - dt*15
 			elseif joystick:isGamepadDown('dpup') and history_scr < 0 then
-				history_scr = history_scr + 0.2
+				history_scr = history_scr + dt*15
 			end
 		else
 			if love.keyboard.isDown('down') and history_scr > -39 then
-				history_scr = history_scr - 0.2
+				history_scr = history_scr - dt*15
 			elseif love.keyboard.isDown('up') and history_scr < 0 then
-				history_scr = history_scr + 0.2
+				history_scr = history_scr + dt*15
 			end
 		end
 	end

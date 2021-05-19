@@ -61,7 +61,7 @@ function changeState(cstate,x)
 		elseif x == 3 then -- poemgame to game
 			cl = cl + 2
 		end
-		if global_os == 'LOVE-WrapLua' and persistent.ptr <= 2 and chapter < 23 then
+		if global_os == 'LOVE-WrapLua' and persistent.ptr <= 2 and (chapter < 23 or (chapter == 23 and cl < 1939)) then
 			if chapter <= 5 then
 				persistent.chr.m = 2
 			else
@@ -77,7 +77,7 @@ function changeState(cstate,x)
 		if chapter <= 5 then
 			persistent.chr.m = 1
 			savepersistent()
-		elseif chapter < 23 then
+		elseif chapter < 23 or (chapter == 23 and cl < 1939) then
 			persistent.chr.m = savevalue
 			savepersistent()
 		end

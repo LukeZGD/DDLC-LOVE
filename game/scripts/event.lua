@@ -202,7 +202,8 @@ function event_draw()
 	end
 	
 	if event_type == 'just_monika' then
-		lg.setBackgroundColor(255,255,255)
+		lgsetColor(255,255,255,255)
+        lg.rectangle('fill',0,0,1280,725)
 		if event_timer < 3.75 then
 			lgsetColor(255,255,255,alpha)
 			lg.draw(splash)

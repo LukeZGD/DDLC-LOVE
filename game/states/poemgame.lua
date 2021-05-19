@@ -177,7 +177,8 @@ end
 
 function drawPoemGame()
 	if glitchpoem_in then
-		lg.setBackgroundColor(255,255,255)
+		lgsetColor(255,255,255,255)
+		lg.rectangle('fill',0,0,1280,725)
 	else
 		lg.setBackgroundColor(0,0,0)
 		lgsetColor(255,255,255,alpha)

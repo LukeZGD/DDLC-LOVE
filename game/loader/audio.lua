@@ -1,9 +1,5 @@
 local audio_wloop = {'1','2','3','4','4g','5','5_monika','5_natsuki','5_sayori','5_yuri','6','7g','8','10','d','monika-end'}
-if g_system == "Switch" then
-	audio_ext = '.ogg'
-else
-	audio_ext = '.mp3'
-end
+audio_ext = '.ogg'
 
 function audioUpdate(audiox, forceload) --audio changes
 	if audio1 ~= audiox or forceload then
@@ -32,17 +28,16 @@ function audioUpdate(audiox, forceload) --audio changes
 				else
 					audio_bgmloop = love.audio.newSource('assets/audio/bgm/7re'..audio_ext, 'stream')
 				end
-			elseif audiox ~= 'credits' or audiox ~= 'end-voice' then
-				audio_bgmloop = audio_bgm
+			elseif audiox ~= 'credits' or audiox ~= 'end-voice' or audiox ~= '6r' then
+				audio_bgm:setLooping(true)
 			end
 			for i = 1, #audio_wloop do
 				if audiox == audio_wloop[i] then
 					audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'re'..audio_ext, 'stream')
 					audio_bgmloop:setLooping(true)
+					audio_bgm:setLooping(false)
 				end
 			end
-			
-			audio_bgm:setLooping(false)
 			game_setvolume()
 			audio_bgm:play()
 		end
