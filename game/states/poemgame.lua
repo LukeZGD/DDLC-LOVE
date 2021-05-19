@@ -252,7 +252,7 @@ function drawPoemGame()
 end
 
 function updatePoemGame()
-	xaload = xaload + 1
+	xaload = xaload + dt*60.3
 	if not spAdd then spAdd = 0 end
 	if not npAdd then npAdd = 0 end
 	if not ypAdd then ypAdd = 0 end

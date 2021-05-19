@@ -562,15 +562,9 @@ function m_select(arg)
 	cY = 110+(50*(m_selected-1))
 end
 
-function sfx2play()
-	if global_os ~= 'LOVE-WrapLua' then
-		sfx2:play()
-	end
-end
-
 function menu_keypressed(key)
 	if key == 'down' then
-		sfx2play()
+		sfx2:play()
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			if m_selected <= 4 then
 				m_selected = m_selected + 3
@@ -585,7 +579,7 @@ function menu_keypressed(key)
 		m_select()
 		
 	elseif key == 'up' then
-		sfx2play()
+		sfx2:play()
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			if m_selected >= 5 and m_selected <= 7 then
 				m_selected = m_selected - 3
@@ -618,7 +612,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'left' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
-			sfx2play()
+			sfx2:play()
 			if m_selected == 2 or m_selected == 5 then
 				m_selected = m_selected + 2
 			elseif m_selected > 2 then
@@ -646,7 +640,7 @@ function menu_keypressed(key)
 		
 	elseif key == 'right' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
-			sfx2play()
+			sfx2:play()
 			if m_selected == 4 or m_selected == 7 then
 				m_selected = m_selected - 2
 			elseif m_selected < 7 then
