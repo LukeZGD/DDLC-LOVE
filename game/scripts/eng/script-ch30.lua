@@ -736,7 +736,7 @@ function ch30_reload_2()
 	elseif cl == 179 then
 	m "I'm pretty sure you can find it in the folder called characters."
 	elseif cl == 180 then
-	cw('m',"Well, you're playing on a "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
+	cw('m',"Well, you're playing on a "..g_system..", so you can just go to 'Settings' and find the 'Characters' button.")
 	elseif cl == 181 then
 	m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
 	elseif cl == 182 then
@@ -784,7 +784,7 @@ function ch30_reload_4()
 	elseif cl == 196 then
 	m "It's in the characters folder."
 	elseif cl == 197 then
-	cw('m',"Well, you're playing on a "..global_os..", so you can just go to 'Settings' and find the 'Characters' button.")
+	cw('m',"Well, you're playing on a "..g_system..", so you can just go to 'Settings' and find the 'Characters' button.")
 	elseif cl == 198 then
 	m "I'm all that's left here, so I just want to make sure you don't run the risk of losing me..."
 	elseif cl == 199 then

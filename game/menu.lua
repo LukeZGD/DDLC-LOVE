@@ -377,13 +377,13 @@ function menu_update()
 		if g_system == 'Switch' then
 			if joystick:isGamepadDown('dpdown') and history_scr > -39 then
 				history_scr = history_scr - dt*15
-			elseif joystick:isGamepadDown('dpup') and history_scr < 0 then
+			elseif joystick:isGamepadDown('dpup') and history_scr < 2 then
 				history_scr = history_scr + dt*15
 			end
 		else
 			if love.keyboard.isDown('down') and history_scr > -39 then
 				history_scr = history_scr - dt*15
-			elseif love.keyboard.isDown('up') and history_scr < 0 then
+			elseif love.keyboard.isDown('up') and history_scr < 2 then
 				history_scr = history_scr + dt*15
 			end
 		end

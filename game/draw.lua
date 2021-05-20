@@ -37,11 +37,6 @@ function lg.print(text, ...)
 	end
 end
 
-local lgrectangle = lg.rectangle
-function lg.rectangle(mode,x,y,w,h)
-	lgrectangle(mode,x,y,w,h)
-end
-
 local lgnewFont = lg.newFont
 function lg.newFont(font,size)
 	--print('lgnewFont: '..font)
@@ -132,7 +127,7 @@ unitimer = 0
 uniduration = 0.25
 
 function outlineText(text,x,y,type,arg1)
-	if settings.o == 1 then
+	if settings.o == 1 and type ~= 'poemgame' then
 		lgsetColor(0,0,0,alpha)
 	else
 		local addm = 1.5
@@ -343,6 +338,7 @@ function hideAll()
 end
 
 function drawCharacter(l,r,a,set,chset)
+	set.y = 0
 	if set.b~='' then
 		if set == n_Set and (n_Set.a=='5' or n_Set.a=='5b') then --set natsuki's head x and y pos
 			xh = set.x + 14
@@ -352,7 +348,7 @@ function drawCharacter(l,r,a,set,chset)
 			yh = set.y
 		end
 		if global_os == 'LOVE-WrapLua' then
-			yh = yh + 2
+			yh = yh + 3
 		end
 		if a then lg.draw(a,xh,yh) end
 	end

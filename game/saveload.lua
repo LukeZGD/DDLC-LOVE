@@ -10,7 +10,7 @@ for i = 1, 3 do
 	table.remove(spr,random)
 end
 
-local yvalue = 4
+local yvalue = 0
 --default persistent values
 player = ''
 persistent = {

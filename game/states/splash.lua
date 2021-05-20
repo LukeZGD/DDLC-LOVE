@@ -5,8 +5,7 @@ local s_kille = {x=280,y=-5}
 splashx = 975
 
 function drawSplash()
-	lgsetColor(255,255,255,255)
-	lg.rectangle('fill',0,0,1280,725)
+	lg.setBackgroundColor(255,255,255)
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
 		lgsetColor(255,255,255,alpha)
 		lg.draw(splash)
@@ -82,8 +81,7 @@ end
 function drawSplashspec(spec)
 	lgsetColor(255,255,255,alpha)
 	if s_timer > 3.1 then
-		lgsetColor(230,230,230,255)
-		lg.rectangle('fill',0,0,1280,725)
+		lg.setBackgroundColor(230,230,230)
 		if state == 's_kill_early' then
 			lg.draw(s_killearly,s_kille.x,s_kille.y)
 			lgsetColor(255,255,255,32)
