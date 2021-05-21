@@ -21,7 +21,7 @@
 ## Usage:
 - **LÖVE** - Run the `.love` using LÖVE version 0.10.2 or 11.3
 - **PS Vita** - Install the `.vpk` using [VitaShell](https://github.com/TheOfficialFloW/VitaShell). You can now run DDLC-LOVE from the home screen
-- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LOVE file (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
+- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LÖVE file (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
 - **PSP** - Download the `.zip` for the PSP version, and extract the folder with `EBOOT.PBP` to your memory stick at `ms0:/PSP/GAME/`. You can now run DDLC-LOVE from the XMB
 - **3DS .3dsx** - Put the `.3dsx` to the `3ds` folder on the root of your SD card. You can now run DDLC-LOVE from [The Homebrew Launcher](https://github.com/fincs/new-hbmenu)
 - **3DS .cia** - Install the `.cia`  using [FBI](https://github.com/Steveice10/FBI). You can now run DDLC-LOVE from the home menu

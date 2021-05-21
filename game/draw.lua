@@ -118,7 +118,7 @@ function fadeOut(x)
 end
 
 local xps = {c=260,ct=285,textbox=230,namebox=260}
-local yps = {c={593,623,653,683},ct=532,textbox=565,namebox=526}
+local yps = {c={593,623,653,683},ct=532,textbox=565,namebox=527}
 local gui_ctc_x = 1015
 local xh
 local yh
