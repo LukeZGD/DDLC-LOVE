@@ -56,12 +56,6 @@ function loadCharacter(set)
 	return asset1, asset2, asset3
 end
 
---freeimage_old = Graphics.freeImage
---function freeimage(img)
-	--love.filesystem.append("logfile", "freeimage: "..img)
-	--freeimage_old(img)
---end
-
 function loadSayori()
 	unloadSayori()
 	sl, sr, s_a = loadCharacter(s_Set)

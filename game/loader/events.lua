@@ -40,7 +40,7 @@ function event_init(etype,arg1,arg2)
 		if etype == 's_kill' then --Sayo-nara.... load sprites
 			s_kill = lgnewImage('assets/images/cg/s_kill/s_kill.png')
 			s_kill2 = lgnewImage('assets/images/cg/s_kill/s_kill2.png')
-			s_killzoom = lgnewImage('assets/images/bg/s_kill/s_killzoom.png')
+			s_killzoom = lgnewImage('assets/images/cg/s_kill/s_killzoom.png')
 			s_kill_bg = lgnewImage('assets/images/bg/s_kill/s_kill_bg.jpg')
 			s_kill_bg2 = lgnewImage('assets/images/bg/s_kill/s_kill_bg2.jpg')
 			s_kill_bgzoom = lgnewImage('assets/images/bg/s_kill/s_kill_bgzoom.jpg')

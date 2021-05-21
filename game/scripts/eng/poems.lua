@@ -33,7 +33,8 @@ function poem(poemname)
 			'The bread, my hungry curiosity.',
 			'The raccoon, an urge.','',
 			
-			'The moon increments its phase and reflects that much more light off of my cutting knife.',
+			'The moon increments its phase and reflects that much more light off of my cutting',
+			'knife.',
 			'The very same light that glistens in the eyes of my raccoon friend.',
 			'I slice the bread, fresh and soft. The raccoon becomes excited.',
 			'Or perhaps I\'m merely projecting my emotions onto the newly-satisfied animal.','',
@@ -113,12 +114,13 @@ function poem(poemname)
 			'Exponential gearbox. A sky of exploding stars. God disproving the existence of God.',
 			'A wheel rotating in six dimensions. Forty gears and a ticking clock. A clock that',
 			'ticks one second for every rotation of the planet. A clock that ticks forty times',
-			'every time it ticks every second time. A bolthead of holy stakes tied to the existence',
-			'of a docked ship to another world. A kaleidoscope of blood written in clocks.',
-			'A time-devouring prayer connecting a sky of forty gears and open human eyes in all',
-			'directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing portal.',
-			'Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes. Breathing',
-			'human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing wheel.'}
+			'every time it ticks every second time. A bolthead of holy stakes tied to the',
+			'existence of a docked ship to another world. A kaleidoscope of blood written in',
+			'clocks. A time-devouring prayer connecting a sky of forty gears and open human eyes',
+			'in all directions. Breathing gearbox. Breathing bolthead. Breathing ship. Breathing',
+			'portal. Breathing snakes. Breathing God. Breathing blood. Breathing holy stakes.',
+			'Breathing human eyes. Breathing time. Breathing prayer. Breathing sky. Breathing',
+			'wheel.'}
 			
 	elseif poemname == 'poem_y23' then
 		poem_author = 'yuri'
@@ -387,7 +389,7 @@ b3AgbXlzZWxmLg==]]};
 			'Get out of my head before I listen to everything she said to me.',
 			'Get out of my head before I show you how much I love you.',
 			'Get out of my head before I finish writing this poem.',
-			'','','','','','','',
+			'','','','','','','','',
 			
 			'But a poem is never actually finished.',
 			'It just stops moving.'};

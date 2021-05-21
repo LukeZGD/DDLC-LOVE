@@ -660,6 +660,9 @@ function ch30_end()
 	persistent.chr.s = 1
 	persistent.ptr = 4
 	savepersistent()
+	if global_os == "LOVE-WrapLua" then
+		love.event.quit('restart')
+	end
 	changeState('splash')
 	end
 end

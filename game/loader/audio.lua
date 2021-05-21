@@ -10,7 +10,6 @@ function audioUpdate(audiox, forceload) --audio changes
 		audio_bgmloop = nil
 		
 		if audiox ~= '' and audiox ~= '0' then
-
 			if audiox == 'credits' or audiox == 'end-voice' then
 				audio_bgm = love.audio.newSource('assets/audio/bgm/'..settings.lang..'/'..audiox..audio_ext, 'stream')
 			else
@@ -19,24 +18,26 @@ function audioUpdate(audiox, forceload) --audio changes
 
 			--custom audio looping load
 			if audiox == '2g' then
-				audio_bgmloop = love.audio.newSource('assets/audio/bgm/2re'..audio_ext, 'stream')
+				audio_bgmloop = love.audio.newSource('assets/audio/bgm/2-loop'..audio_ext, 'stream')
 			elseif audiox == '3g' or audiox == '3g2' then
-				audio_bgmloop = love.audio.newSource('assets/audio/bgm/3re'..audio_ext, 'stream')
+				audio_bgmloop = love.audio.newSource('assets/audio/bgm/3-loop'..audio_ext, 'stream')
 			elseif audiox == '7' then
 				if persistent.ptr == 2 then
 					audio_bgmloop = love.audio.newSource('assets/audio/bgm/7a'..audio_ext, 'stream')
 				else
-					audio_bgmloop = love.audio.newSource('assets/audio/bgm/7re'..audio_ext, 'stream')
+					audio_bgmloop = love.audio.newSource('assets/audio/bgm/7-loop'..audio_ext, 'stream')
 				end
-			elseif audiox ~= 'credits' or audiox ~= 'end-voice' or audiox ~= '6r' then
+			elseif audiox ~= 'credits' and audiox ~= 'end-voice' and audiox ~= '6r' then
 				audio_bgm:setLooping(true)
 			end
 			for i = 1, #audio_wloop do
 				if audiox == audio_wloop[i] then
 					audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'-loop'..audio_ext, 'stream')
-					audio_bgmloop:setLooping(true)
-					audio_bgm:setLooping(false)
 				end
+			end
+			if audio_bgmloop then
+				audio_bgm:setLooping(false)
+				audio_bgmloop:setLooping(true)
 			end
 			game_setvolume()
 			audio_bgm:play()

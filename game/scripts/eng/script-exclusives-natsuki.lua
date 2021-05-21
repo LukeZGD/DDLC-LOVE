@@ -688,7 +688,7 @@ function Natsuki_exclusive_2_ch3()
 	elseif cl == 1421 then
 		cw('bl',"The box suddenly tips.")
 	elseif cl == 1422 then
-		cw('bl',"Natuki barely catches it before it falls to the floor.")
+		cw('bl',"Natsuki barely catches it before it falls to the floor.")
 	elseif cl == 1423 then
 		cw('bl',"The stool wobbles.")
 	elseif cl == 1424 then

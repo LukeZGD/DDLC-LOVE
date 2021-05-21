@@ -40,7 +40,7 @@ function poem_disable(x)
 	poem_enabled = false
 	poem_scroll = nil
 	
-	if type(poembg) == "number" then Graphics.freeImage(poembg) end
+	--[[
     if s1 then
 		Font.unload(s1)
 		s1 = nil
@@ -57,7 +57,8 @@ function poem_disable(x)
 		Font.unload(m1)
 		m1 = nil
 	end
-	
+	]]
+	if type(poembg) == "number" then Graphics.freeImage(poembg) end
 	poembg = nil
 	if not x or x == 1 then
 		audioUpdate('5')

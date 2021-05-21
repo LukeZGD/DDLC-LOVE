@@ -29,6 +29,7 @@ end
 
 local lgnewFont = lg.newFont
 function lg.newFont(font,size)
+	--love.filesystem.append("logfile",'lgnewFont: '..font)
 	--print('lgnewFont: '..font)
 	return lgnewFont(font,size)
 end
@@ -50,6 +51,14 @@ if g_system ~= "Vita" then
 	end
 	function Graphics.freeImage()
 		return
+	end
+else
+	freeimage_old = Graphics.freeImage
+	function Graphics.freeImage(img)
+		--love.filesystem.append("logfile", "freeimage: "..img)
+		if type(img) == "number" then
+			freeimage_old(img)
+		end
 	end
 end
 
@@ -121,7 +130,7 @@ unitimer = 0
 uniduration = 0.25
 
 function outlineText(text,x,y,type,arg1)
-	if settings.o == 1 and type ~= 'poemgame' then
+	if settings.o == 1 and type ~= 'poemgame' and type ~= 'm_selected' then
 		lg.setColor(0,0,0,alpha)
 	else
 		local addm = 1.5
@@ -258,8 +267,6 @@ function nearest(a,b)
 	end
 end
 
---Character draw functions in 1.0.2
-
 function updateCharacter(set,a,b,px,py,chset)
 	if not b then b = '' end
 	set.a = a
@@ -351,7 +358,9 @@ function drawCharacter(l,r,a,set,chset)
 		with_set = with_yr
 	end
 	for i = 1, #with_set do
-		lg.draw(r,set.x,set.y)
+		if with_set[i] == set.a then
+			lg.draw(r,set.x,set.y)
+		end
 	end
 	
 	if set.x ~= chset.y and (autoskip >= 1 or unitimer >= uniduration) then

@@ -148,7 +148,11 @@ function newgame_keypressed(key)
 	elseif key == 'b' then
 		textboxd = not textboxd
 	elseif key == 'back' or key == '-' then
-		if settings.o ~= 1 then settings.o = 1
-		else settings.o = 0 end
+		if settings.o ~= 1 then
+			settings.o = 1
+		else
+			settings.o = 0
+		end
+		savesettings()
 	end
 end

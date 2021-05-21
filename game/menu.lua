@@ -179,9 +179,9 @@ function menu_draw()
 			end
 		end		
 		if menu_items >= m_selected and menu_type == 'choice' and choices[m_selected-1] then
-			outlineText(choices[m_selected-1],440,150+(50*m_selected))
+			outlineText(choices[m_selected-1],440,150+(50*m_selected),'m_selected')
 		elseif menu_items >= m_selected and itemnames[m_selected-1] then
-			outlineText(itemnames[m_selected-1],440,150+(50*m_selected))
+			outlineText(itemnames[m_selected-1],440,150+(50*m_selected),'m_selected')
 		end
 		lg.draw(gui.check,408,200+(50*(m_selected-1)))
 		
@@ -197,7 +197,7 @@ function menu_draw()
 		lg.rectangle('fill',435,245,410,42)
 		lg.setColor(0,0,0,255)
 		lg.print(menutext,430,190)
-		outlineText(tr.missing[2],440,250)
+		outlineText(tr.missing[2],440,250,'m_selected')
 		lg.draw(gui.check,408,250)
 		
 		
