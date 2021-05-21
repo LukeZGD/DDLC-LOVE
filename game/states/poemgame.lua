@@ -180,7 +180,7 @@ function drawPoemGame()
 		lg.setBackgroundColor(255,255,255)
 	else
 		lg.setBackgroundColor(0,0,0)
-		lgsetColor(255,255,255,alpha)
+		lg.setColor(255,255,255,alpha)
 		if notebook and not notebook_glitch then
 			lg.draw(notebook)
 		elseif notebook_glitch then
@@ -190,7 +190,7 @@ function drawPoemGame()
 	
 	lg.setFont(halogenfont)
 	outlineText(word[menuselected][1],wordpos.x[menuselected],wordpos.y[menuselected],'poemgame')
-	lgsetColor(0,0,0)
+	lg.setColor(0,0,0)
 	for i = 1, 10 do
 		lg.print(word[i][1],wordpos.x[i],wordpos.y[i])
 	end
@@ -204,7 +204,7 @@ function drawPoemGame()
 		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd..'\n'..glitch2g,0,50)
 	end
 	
-	lgsetColor(255,255,255,alpha)
+	lg.setColor(255,255,255,alpha)
 	if persistent.ptr == 0 then
 		lg.draw(s_sticker,30,s_y)
 		lg.draw(n_sticker,130,n_y)
@@ -225,20 +225,20 @@ function drawPoemGame()
 	end
 	
 	if poemstate == 0 and settings.lang == 'eng' then
-		lgsetColor(255,255,255,alpha)
+		lg.setColor(255,255,255,alpha)
 		lg.draw(poemtime)
 		lg.draw(poemtime2)
 	elseif poemstate == 0 and settings.lang ~= 'eng' then
-		lgsetColor(255,255,255,alpha)
+		lg.setColor(255,255,255,alpha)
 		lg.draw(poemtime,0,0)
-		lgsetColor(0,0,0,alpha)
+		lg.setColor(0,0,0,alpha)
 		lg.setFont(allerfont)
 		lg.print(tr.poemtime,360,255)
 	elseif eyes_in then
-		lgsetColor(0,0,0)
+		lg.setColor(0,0,0)
 		lg.rectangle('fill',0,0,1280,725)
 		if eyes_timer <= 2.2 then
-			lgsetColor(255,255,255)
+			lg.setColor(255,255,255)
 			lg.draw(eyes,352,eyes_y)
 			lg.draw(eyes,352,eyes_y+720)
 			lg.draw(eyes,352,eyes_y+1280)
@@ -246,7 +246,7 @@ function drawPoemGame()
 	end
 	
 	lg.setFont(allerfont)
-	lgsetColor(0,0,0)
+	lg.setColor(0,0,0)
 	if menu_enabled then menu_draw() end
 end
 

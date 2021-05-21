@@ -1,4 +1,4 @@
-dversion = "v1.2.0"
+dversion = "v1.2.1"
 dvertype = "" --put 'Test' for test mode
 print("DDLC-LOVE "..dversion..' '..dvertype)
 
@@ -52,10 +52,11 @@ function love.load()
 	end
 	
 	if global_os ~= 'Horizon' and global_os ~= 'LOVE-WrapLua' then
-		love.window.setFullscreen(true)
+		--love.window.setFullscreen(true)
 		love.window.setTitle('DDLC-LOVE')
+		love.window.setMode(1280, 720)
 		love.keyboard.setTextInput(false)
-		dwidth, dheight = love.window.getDesktopDimensions()
+		--dwidth, dheight = love.window.getDesktopDimensions()
 	end
 	
 	changeState('load')
@@ -95,8 +96,8 @@ function love.update()
 	
 	getTime = getTime + dt
 	--moving background
-	posX = posX - 0.625
-	posY = posY - 0.625
+	posX = posX - dt*37.5
+	posY = posY - dt*37.5
 	if posX <= -200 then posX = 0 end
 	if posY <= -200 then posY = 0 end
 	

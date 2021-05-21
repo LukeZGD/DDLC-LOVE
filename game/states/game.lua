@@ -6,15 +6,15 @@ cgalpha = 255
 function drawGame()
 	lg.setBackgroundColor(0,0,0)
 	
-	lgsetColor(255,255,255,alpha)
+	lg.setColor(255,255,255,alpha)
 	lg.draw(bgch)
 	lg.draw(cgch)
-	lgsetColor(255,255,255,bgalpha)
+	lg.setColor(255,255,255,bgalpha)
 	lg.draw(bgch2)
-	lgsetColor(255,255,255,cgalpha)
+	lg.setColor(255,255,255,cgalpha)
 	lg.draw(cgch2)
 	
-	lgsetColor(255,255,255,alpha)
+	lg.setColor(255,255,255,alpha)
 	drawSayori()
 	drawYuri()
 	drawNatsuki()
@@ -26,11 +26,11 @@ function drawGame()
 	end
 	
 	lg.setFont(allerfont)
-	lgsetColor(255,255,255,alpha)
+	lg.setColor(255,255,255,alpha)
 	if dvertype == 'Test' then lg.print(cl,5,690) end
 	if autotimer > 0 then
 		lg.draw(gui.skip,0,27)
-		lgsetColor(0,0,0)
+		lg.setColor(0,0,0)
 		outlineText(tr.auto,5,35)
 	elseif autoskip > 0 then
 		local skiptext
@@ -44,7 +44,7 @@ function drawGame()
 			skiptext = tr.skip
 		end
 		lg.draw(gui.skip,0,27)
-		lgsetColor(0,0,0)
+		lg.setColor(0,0,0)
 		outlineText(skiptext,5,35)
 	end
 	if menu_enabled then menu_draw() end

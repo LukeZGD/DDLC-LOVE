@@ -11,13 +11,13 @@ local keyboardrow3 = {'a','s','d','f','g','h','j','k','l','X  Space'}
 local keyboardrow4 = {'z','x','c','v','b','n','m','','','X  Enter'}
 
 function keyboard_draw()
-	lgsetColor(255,255,255,menu_alpha/2)
+	lg.setColor(255,255,255,menu_alpha/2)
 	lg.rectangle('fill',0,0,1280,725)
-	lgsetColor(255,189,225,menu_alpha)
+	lg.setColor(255,189,225,menu_alpha)
 	lg.rectangle('fill',270,180,630,360)
-	lgsetColor(255,230,244,menu_alpha)
+	lg.setColor(255,230,244,menu_alpha)
 	lg.rectangle('fill',280,190,610,340)
-	lgsetColor(0,0,0,255)
+	lg.setColor(0,0,0,255)
 	lg.print("Player Name: "..textinput,290,220)
 	for i = 1, #keyboardrow1 do
 		lg.print(keyboardrow1[i],(50*i)+290,300)

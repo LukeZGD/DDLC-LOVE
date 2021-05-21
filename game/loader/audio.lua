@@ -33,7 +33,7 @@ function audioUpdate(audiox, forceload) --audio changes
 			end
 			for i = 1, #audio_wloop do
 				if audiox == audio_wloop[i] then
-					audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'re'..audio_ext, 'stream')
+					audio_bgmloop = love.audio.newSource('assets/audio/bgm/'..audiox..'-loop'..audio_ext, 'stream')
 					audio_bgmloop:setLooping(true)
 					audio_bgm:setLooping(false)
 				end

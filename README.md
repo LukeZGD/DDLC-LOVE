@@ -9,7 +9,8 @@
 **This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: https://ddlc.moe**
 
 ## Downloads:
-- [PS Vita v1.2.0 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.0/DDLC-LOVE.vpk)
+- [PS Vita v1.2.1 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.1/DDLC-LOVE.vpk)
+- [LÖVE v1.2.1 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.1/DDLC-LOVE.love)
 - [Switch v1.1.9 (.nro)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.1.9/DDLC-LOVE-Switch-fix2.nro)
 - [Switch v1.1.9 (.nro) (LP1.1.0)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.1.9/DDLC-LOVE-Switch-LP1.1.0.nro)
 - [PSP v1.1.9 (.zip)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.1.9/DDLC-LOVE-PSP-fix1.zip)
@@ -18,8 +19,9 @@
 - [PS3 v1.1.9 (.zip)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.1.9/DDLC-LOVE-PS3-fix1.zip)
 
 ## Usage:
+- **LÖVE** - Run the `.love` using LÖVE version 0.10.2 or 11.3
 - **PS Vita** - Install the `.vpk` using [VitaShell](https://github.com/TheOfficialFloW/VitaShell). You can now run DDLC-LOVE from the home screen
-- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. Other methods can be found [here](https://turtlep.github.io/LovePotion/wiki/#/packaging)
+- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LOVE file (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
 - **PSP** - Download the `.zip` for the PSP version, and extract the folder with `EBOOT.PBP` to your memory stick at `ms0:/PSP/GAME/`. You can now run DDLC-LOVE from the XMB
 - **3DS .3dsx** - Put the `.3dsx` to the `3ds` folder on the root of your SD card. You can now run DDLC-LOVE from [The Homebrew Launcher](https://github.com/fincs/new-hbmenu)
 - **3DS .cia** - Install the `.cia`  using [FBI](https://github.com/Steveice10/FBI). You can now run DDLC-LOVE from the home menu

@@ -7,13 +7,13 @@ splashx = 975
 function drawSplash()
 	lg.setBackgroundColor(255,255,255)
 	if state == 'splash' then --splash1 (Team Salvato Splash Screen)
-		lgsetColor(255,255,255,alpha)
+		lg.setColor(255,255,255,alpha)
 		lg.draw(splash)
-		lgsetColor(0,0,0,alpha)
+		lg.setColor(0,0,0,alpha)
 		lg.print('DDLC-LOVE '..dversion..' '..dvertype,15,675)
 		
 	elseif state == 'splash2' then --splash2 (Disclaimer)
-		lgsetColor(0,0,0, alpha)
+		lg.setColor(0,0,0, alpha)
 		if persistent.ptr == 2 and random_msgchance == 0 then
 			lg.print(tr.splash[random_msg], 440, 300)
 		else
@@ -22,7 +22,7 @@ function drawSplash()
 		end
 		
 	elseif state == 'title' then --title (Title Screen)
-		lgsetColor(255,255,255,alpha)
+		lg.setColor(255,255,255,alpha)
 		lg.draw(menu_bg, posX, posY)
 		lg.draw(gui.sidebar,-720+titlebg_ypos,0)
 		drawSplashChar()
@@ -32,12 +32,12 @@ function drawSplash()
 		elseif gui.newgame then
 			lg.draw(gui.newgame)
 		end
-		lgsetColor(64,64,64,alpha)
+		lg.setColor(64,64,64,alpha)
 		lg.print(tr.splash[16],splashx,10)
 		menu_draw()
 		if keyboard then keyboard_draw() end
 	end
-	lgsetColor(0,0,0,255)
+	lg.setColor(0,0,0,255)
 end
 
 function updateSplash()
@@ -79,14 +79,14 @@ function splash_keypressed(key)
 end
 
 function drawSplashspec(spec)
-	lgsetColor(255,255,255,alpha)
+	lg.setColor(255,255,255,alpha)
 	if s_timer > 3.1 then
 		lg.setBackgroundColor(230,230,230)
 		if state == 's_kill_early' then
 			lg.draw(s_killearly,s_kille.x,s_kille.y)
-			lgsetColor(255,255,255,32)
+			lg.setColor(255,255,255,32)
 			drawanimframe()
-			lgsetColor(160,160,160)
+			lg.setColor(160,160,160)
 			lg.setFont(s1)
 			if s_timer > 600 then lg.print(tr.splash[15],640,300) end
 		elseif state == 'ghostmenu' then
