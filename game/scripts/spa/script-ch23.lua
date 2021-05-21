@@ -794,33 +794,32 @@ function yuri_kill()
 	end
 	if cl == 2001 then
 		hideAll()
-		bgUpdate('black')
-		cgUpdate('y_kill/1a')
+		bgUpdate('y_kill/1a')
 		audioUpdate('6s')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2200 then
-		cgUpdate('y_kill/1b')
+		bgUpdate('y_kill/1b')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2260 then
-		cgUpdate('y_kill/1c')
+		bgUpdate('y_kill/1c')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2460 then
-		cgUpdate('y_kill/2a')
+		bgUpdate('y_kill/2a')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2660 then
-		cgUpdate('y_kill/2b')
+		bgUpdate('y_kill/2b')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2720 then
-		cgUpdate('y_kill/2c')
+		bgUpdate('y_kill/2c')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 2920 or cl == 3380 then
-		cgUpdate('y_kill/3a')
+		bgUpdate('y_kill/3a')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 3120 then
-		cgUpdate('y_kill/3b')
+		bgUpdate('y_kill/3b')
 		if xaload == 0 then savegame('autoload') end
 	elseif cl == 3180 then
-		cgUpdate('y_kill/3c')
+		bgUpdate('y_kill/3c')
 		if xaload == 0 then savegame('autoload') end
 	end
 	

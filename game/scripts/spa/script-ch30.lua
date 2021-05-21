@@ -308,6 +308,7 @@ function ch30script()
 	elseif cl == 131 then
 		if xaload == 0 then
 			sfxplay('pageflip')
+			require('loader/assets_poems')
 			require('scripts/'..settings.lang..'/poems')
 		else
 			poem('poem_m4')

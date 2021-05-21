@@ -6,6 +6,11 @@ cgalpha = 255
 function drawGame()
 	lg.setBackgroundColor(0,0,0)
 	
+	if menu_enabled and menu_type ~= 'pause' and menu_type ~= 'choice' and menu_type ~= 'dialog' then
+		menu_draw()
+		return
+	end
+	
 	lg.setColor(255,255,255,alpha)
 	lg.draw(bgch)
 	lg.draw(cgch)
@@ -47,7 +52,9 @@ function drawGame()
 		lg.setColor(0,0,0)
 		outlineText(skiptext,5,35)
 	end
-	if menu_enabled then menu_draw() end
+	if menu_enabled then
+		menu_draw()
+	end
 end
 
 function updateGame()

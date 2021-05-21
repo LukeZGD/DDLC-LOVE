@@ -188,6 +188,11 @@ function drawPoemGame()
 		end
 	end
 	
+	if menu_enabled and menu_type ~= 'pause' then
+		menu_draw()
+		return
+	end
+	
 	lg.setFont(halogenfont)
 	outlineText(word[menuselected][1],wordpos.x[menuselected],wordpos.y[menuselected],'poemgame')
 	lg.setColor(0,0,0)
@@ -247,7 +252,9 @@ function drawPoemGame()
 	
 	lg.setFont(allerfont)
 	lg.setColor(0,0,0)
-	if menu_enabled then menu_draw() end
+	if menu_enabled then
+		menu_draw()
+	end
 end
 
 function updatePoemGame()

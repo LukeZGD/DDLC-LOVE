@@ -22,7 +22,7 @@ local ypsc = {35,65,95,125}
 menu_alpha = 0
 
 function savepicLoad(i)
-	save_bpic[i] = lgnewImage('assets/images/bg/save/'..loadstring('return save'..chch..'.bg1')()..'.png')
+	save_bpic[i] = lgnewImage('assets/images/bg/save/'..loadstring('return save'..chch..'.bg1')()..'.jpg')
 end
 
 function savepicFree()
@@ -146,10 +146,13 @@ function menu_draw()
 		lg.draw(gui.check,-670+titlebg_ypos,(cY/1.2)+280)
 		
 	elseif menu_type == 'choice' or menu_type == 'mainyesno' or menu_type == 'quityesno' or menu_type == 'language' then
+		if menu_type == 'mainyesno' or menu_type == 'quityesno' then
+			lg.draw(menu_bg,posX,posY)
+		end
 		if menu_type == 'choice' then
 			lg.setColor(255,255,255,255)
 			lg.draw(textbox,230,565)
-			outlineText(menutext,250,590)
+			outlineText(menutext,250,590,'c_disp')
 		else
 			lg.setColor(255,255,255,128)
 			lg.rectangle('fill',0,0,1280,725)
@@ -259,8 +262,9 @@ function menu_draw()
 				apx.x = save_oset.x[i-3]
 				apx.y = save_oset.y[2]
 			end
+			lg.setColor(236,182,229,menu_alpha)
+			lg.rectangle("fill",apx.x+10,apx.y-40,256,144)
 			lg.setColor(255,255,255,menu_alpha)
-			lg.draw(gui.slotidle,apx.x,apx.y-50)
 			lg.draw(save_bpic[i],apx.x+10,apx.y-40)
 			lg.setColor(0,0,0,menu_alpha)
 			lg.print(savenum[i]..': '..save_date[i],(apx.x+10),(apx.y+110))

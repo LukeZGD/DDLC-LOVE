@@ -126,6 +126,7 @@ function scriptCheck()
 	if poemsread ~= -1 and poemresponses and script_poemresponsesx then
 		poemresponses()
 	elseif poemsread ~= -1 then
+		require('loader/assets_poems')
 		require('scripts/'..settings.lang..'/script-poemresponses')
 		require('scripts/'..settings.lang..'/poems')
 		if persistent.ptr == 0 then

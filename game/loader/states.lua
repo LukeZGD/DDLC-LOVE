@@ -15,7 +15,7 @@ function changeState(cstate,x)
 	end
 	
 	if cstate == 'splash' then
-		splash = lgnewImage('assets/images/bg/splash.png')
+		splash = lgnewImage('assets/images/bg/splash.jpg')
 		alpha = 0
 		audioUpdate('1')
 	elseif cstate == 'title' then
@@ -85,13 +85,14 @@ function changeState(cstate,x)
 		require('states/game')
 		cl = 10016
 	elseif cstate == 'poemgame' then --load poemgame assets and state
+		halogenfont = lg.newFont('assets/fonts/Halogen.ttf',28) --poem game font
 		if persistent.ptr <= 2 then --acts 1 and 2
 			audioUpdate('4',true)
 			bg1 = 'notebook'
-			if not notebook then notebook = lgnewImage('assets/images/bg/notebook.png') end
+			if not notebook then notebook = lgnewImage('assets/images/bg/notebook.jpg') end
 		elseif persistent.ptr == 3 then --act 3
 			audioUpdate('ghostmenu')
-			notebook_glitch = lgnewImage('assets/images/bg/notebook-glitch.png')
+			notebook_glitch = lgnewImage('assets/images/bg/notebook-glitch.jpg')
 		end
 		
 		if poemstate == 0 and not poemtime then --first time poemgame
@@ -104,7 +105,7 @@ function changeState(cstate,x)
 				s_sticker_1 = lgnewImage('assets/images/gui/poemgame/s_sticker_1.png')
 				s_sticker_2 = lgnewImage('assets/images/gui/poemgame/s_sticker_2.png')
 			elseif not eyes then --act 2 only stickers
-				eyes = lgnewImage('assets/images/bg/eyes.png')
+				eyes = lgnewImage('assets/images/bg/eyes.jpg')
 				m_sticker_2 = lgnewImage('assets/images/gui/poemgame/m_sticker_2.png')
 				y_sticker_1_broken = lgnewImage('assets/images/gui/poemgame/y_sticker_1_broken.png')
 				y_sticker_2g = lgnewImage('assets/images/gui/poemgame/y_sticker_2g.png')

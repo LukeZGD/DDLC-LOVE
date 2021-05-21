@@ -564,45 +564,5 @@ YSBtaXMgbMOtbWl0ZXMuCk5vIHB1ZWRv
 	else poemtext = {''}
 	end
 	
-	if xaload == 0 then
-		sfxplay('pageflip')
-		if poem_author == 'yuri' then
-			if yuri_2 then
-				poembg = lgnewImage('assets/images/bg/poem_y1.png')
-				audioUpdate('0')
-			elseif yuri_3 then
-				poembg = lgnewImage('assets/images/bg/poem1.png')
-				
-				audioUpdate('5_yuri2')
-			else
-				audioUpdate('5_yuri')
-			end
-		elseif poem_author == 'sayori' then
-			if chapter ~= 5 then
-				audioUpdate('5_sayori')
-			end
-		elseif poem_author == 'natsuki' then
-			audioUpdate('5_natsuki')
-		elseif poem_author == 'monika' and persistent.ptr <= 2 then
-			audioUpdate('5_monika')
-		end
-		poem_scroll = {x=1,y=1}
-	
-	elseif xaload > 0 then
-		if not poem_scroll then
-			poem_scroll = {x=1,y=1}
-		end
-	end
-end
-
-function poem_disable(x)
-	poem_enabled = false
-	poem_scroll = nil
-	if type(poembg) == "number" then Graphics.freeImage(poembg) end
-	poembg = nil
-	if not x or x == 1 then
-		audioUpdate('5')
-	elseif x == 0 then
-		audioUpdate('0')
-	end
+	loaderPoems()
 end

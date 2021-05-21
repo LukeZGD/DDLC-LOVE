@@ -20,7 +20,10 @@ function drawSplash()
 			lg.print(tr.splash[13], 440, 300)
 			lg.print(tr.splash[14], 447, 330)
 		end
-		
+	
+	elseif state == 'title' and menu_type ~= 'title' then
+		menu_draw()
+	
 	elseif state == 'title' then --title (Title Screen)
 		lg.setColor(255,255,255,alpha)
 		lg.draw(menu_bg, posX, posY)

@@ -43,10 +43,14 @@ function lg.setFont(setfont)
 end
 
 if g_system ~= "Vita" then
-    Graphics = {}
-    function Graphics.freeImage()
-        return
-    end
+	Font = {}
+	Graphics = {}
+	function Font.unload()
+		return
+	end
+	function Graphics.freeImage()
+		return
+	end
 end
 
 function dripText(text,cps,sTime)

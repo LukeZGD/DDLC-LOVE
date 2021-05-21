@@ -16,7 +16,7 @@ function bgUpdate(bgx, forceload) --background changes
 			bgch = nil
 		end
 		
-		bgch = lgnewImage('assets/images/bg/'..bgx..'.png')
+		bgch = lgnewImage('assets/images/bg/'..bgx..'.jpg')
 	end	
 	bg1 = bgx
 end
