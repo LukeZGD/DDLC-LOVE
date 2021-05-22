@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/LukeZGD/DDLC-LOVE-Assets/raw/master/icon.png"/>
+  <img src="https://github.com/LukeZGD/DDLC-LOVE/raw/ddlclove/logo.png"/>
   <h1>DDLC-LOVE</h1>
   <h3>Will you write the way into her heart?</h3>
 </div>
@@ -32,7 +32,7 @@
 
 
 ## Some notes:
-- DDLC-LOVE versions for all systems except the PS Vita will no longer be updated.
+- DDLC-LOVE versions for all systems except the PS Vita and LÖVE versions will no longer be updated.
 - Limited support for Switch, PSP, 3DS, and PS3 (see [#123](https://github.com/LukeZGD/DDLC-LOVE/issues/123))
 - (Switch) Only **[Atmosphère](https://github.com/Atmosphere-NX/Atmosphere)** is supported.
 - (Switch) (LP1.1.0) For Atmosphère 0.10.2 and up, add `enable_deprecated_hid_mitm = u8!0x1` in `sdmc:/atmosphere/config/system_settings.ini` under `[Atmosphere]` (see [#111](https://github.com/LukeZGD/DDLC-LOVE/issues/111))
@@ -54,7 +54,8 @@
 | Other    | see [love.filesystem](https://love2d.org/wiki/love.filesystem)|
 
 ## Building:
-- Game assets and other stuff are needed to be prepared first from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo.
+- For v1.2.1, game assets are to be extracted from the v1.2.1 release
+- Game assets from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo are only to be used for v1.2.0 and older
 - For all Sony devices, [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) is also required beside the game folder (`index.lua`, `script.lua`, and the `LOVE-WrapLua` folder)
 
 ### Credits:
@@ -63,4 +64,3 @@
 - [OneLua](http://onelua.x10.mx/) by OneLua Team is used for the PSP version
 - [Lua Player PS3](https://store.brewology.com/ahomebrew.php?brewid=212) by 3141card is used for the PS3 version
 - [Spanish translation](https://tradusquare.es/ficha.php?ddlc) by GlowTranslations
-
