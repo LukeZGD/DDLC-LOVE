@@ -934,7 +934,7 @@ function ch0script()
 	elseif cl == 10017 then
 		cw('bl','This port, or the original game is not suitable for children or those who are easily disturbed.')
 	elseif cl == 10018 then
-		cw('bl','Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: http://ddlc.moe/warning.html')
+		cw('bl','Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: https://ddlc.moe/warning.html')
 	elseif cl == 10019 then
 		cw('bl','By playing Doki Doki Literature Club, you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.')
 	elseif cl == 10020 then

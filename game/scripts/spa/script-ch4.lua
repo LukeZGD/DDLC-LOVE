@@ -1369,7 +1369,7 @@ function ch4_exclusive_natsuki()
 	elseif cl == 574 then
 		cw('mc', "Natsuki, espera...")
 	elseif cl == 575 then
-		cw('bl', "Estando a centímetros de mí, Natuki me mira.")
+		cw('bl', "Estando a centímetros de mí, Natsuki me mira.")
 	elseif cl == 576 then
 		cw('bl', "Noto cómo sus dedos cogen con cuidado el lateral de mi camiseta, como si me se estuviese agarrando a mí.")
 	elseif cl == 577 then

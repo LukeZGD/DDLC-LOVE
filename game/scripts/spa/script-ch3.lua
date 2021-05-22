@@ -1586,7 +1586,7 @@ function ch3_end_natsuki()
 		cw('mc', "Vale, me parece bien.")
 	elseif cl == 2365 then
 		cw('n', "Vale.")
-	elseif cl == 2566 then
+	elseif cl == 2366 then
 		updateNatsuki('4','a')
 		cw('n', "Voy a dejarte bien clarito por qué me gusta tanto la repostería.")
 	elseif cl == 2367 then

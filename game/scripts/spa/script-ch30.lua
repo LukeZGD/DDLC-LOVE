@@ -248,7 +248,7 @@ function ch30script()
 	elseif cl == 105 then
 		cw('m', "Hasta me dio miedo lo fácil que fue.")
 	elseif cl == 106 then
-	cw('m',"Bueno, estás jugando desde la "..global_os..", así que fue algo más fácil...")
+	cw('m',"Bueno, estás jugando desde la "..g_system..", así que fue algo más fácil...")
 	elseif cl == 107 then
 	m "Simplemente fuí a «Ajustes» y encontrar el botón «Characters»..."
 	elseif cl == 108 then
@@ -659,6 +659,9 @@ function ch30_end()
 	persistent.chr.s = 1
 	persistent.ptr = 4
 	savepersistent()
+	if global_os == "LOVE-WrapLua" then
+		love.event.quit('restart')
+	end
 	changeState('splash')
 	end
 end
@@ -735,7 +738,7 @@ function ch30_reload_2()
 	elseif cl == 179 then
 	m "Estoy segura de que se encuentra en la carpeta «characters»."
 	elseif cl == 180 then
-	cw('m',"Bueno, estás jugando desde la "..global_os..", ve a «Ajustes» y encuentra el botón «Characters».")
+	cw('m',"Bueno, estás jugando desde la "..g_system..", ve a «Ajustes» y encuentra el botón «Characters».")
 	elseif cl == 181 then
 		cw('m', "Soy lo único que queda aquí, por lo que quiero asegurarme de que no corras el riesgo de perderme...")
 	elseif cl == 182 then
@@ -783,7 +786,7 @@ function ch30_reload_4()
 	elseif cl == 196 then
 	m "Está en la carpeta «Characters»."
 	elseif cl == 197 then
-	cw('m',"Bueno, estás jugando desde la "..global_os..", ve a «Ajustes» y encuentra el botón «Characters».")
+	cw('m',"Bueno, estás jugando desde la "..g_system..", ve a «Ajustes» y encuentra el botón «Characters».")
 	elseif cl == 198 then
 		cw('m', "Soy lo único que queda aquí, por lo que quiero asegurarme de que no corras el riesgo de perderme...")
 	elseif cl == 199 then
