@@ -4,9 +4,11 @@ print("DDLC-LOVE "..dversion..' '..dvertype)
 
 global_os = love.system.getOS()
 g_system = love._console_name
-if g_system == 'Switch' then
+if g_system == "Switch" then
 	joysticks = love.joystick.getJoysticks()
 	joystick = joysticks[1]
+elseif not g_system then
+	g_system = global_os
 end
 love.math.setRandomSeed(os.time())
 math.randomseed(os.time())
