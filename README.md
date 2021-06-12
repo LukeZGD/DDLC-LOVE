@@ -8,6 +8,8 @@
 
 **This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: https://ddlc.moe**
 
+**Get the official console versions at: https://ddlc.plus**
+
 ## Downloads:
 - [PS Vita v1.2.1 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.1/DDLC-LOVE.vpk)
 - [LÖVE v1.2.1 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.1/DDLC-LOVE.love)
@@ -19,9 +21,9 @@
 - [PS3 v1.1.9 (.zip)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.1.9/DDLC-LOVE-PS3-fix1.zip)
 
 ## Usage:
-- **LÖVE** - Run the `.love` using LÖVE version 0.10.2 or 11.3
+- **LÖVE** - Run the LÖVE executable (`.love`) using LÖVE version 0.10.2 or 11.3
 - **PS Vita** - Install the `.vpk` using [VitaShell](https://github.com/TheOfficialFloW/VitaShell). You can now run DDLC-LOVE from the home screen
-- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LÖVE file (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
+- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LÖVE executable (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
 - **PSP** - Download the `.zip` for the PSP version, and extract the folder with `EBOOT.PBP` to your memory stick at `ms0:/PSP/GAME/`. You can now run DDLC-LOVE from the XMB
 - **3DS .3dsx** - Put the `.3dsx` to the `3ds` folder on the root of your SD card. You can now run DDLC-LOVE from [The Homebrew Launcher](https://github.com/fincs/new-hbmenu)
 - **3DS .cia** - Install the `.cia`  using [FBI](https://github.com/Steveice10/FBI). You can now run DDLC-LOVE from the home menu
@@ -29,7 +31,6 @@
   1. Download the `.zip` for the PS3 version.
   2. Extract all files of the `.zip` to the root of a compatible USB drive to be used for the PS3, and install `Lua Player PS3.pkg` (you need CFW/[HEN](https://www.psx-place.com/threads/update-ps3hen-v3-0-0-view-latest-changes-to-the-ps3-exploit-for-superslims-noncfw-models.23955/) to get Package Manager). This only needs to be done once for setting up
   3. To run the game, insert the USB drive to the [rightmost USB slot](https://postimg.cc/jnryRhtb) and launch Lua Player PS3 from the XMB 
-
 
 ## Some notes:
 - DDLC-LOVE versions for all systems except the PS Vita and LÖVE versions will no longer be updated.
@@ -41,7 +42,6 @@
 - (3DS) Make sure that `dspfirm.cdc` is dumped for audio to work (use [DSP1](https://github.com/zoogie/DSP1/releases))
 
 ## Locations of save files:
-
 - You can reset the save data and start over by deleting the save file folder. This is also mentioned in the help menu ingame.
 
 | Platform | Location                            |
