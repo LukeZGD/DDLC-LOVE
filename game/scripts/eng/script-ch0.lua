@@ -389,7 +389,7 @@ function ch0script()
 	elseif cl == 158 then 
 		cw('n',"But not for, y-you know, you! Dummy...")
 	elseif cl == 159 then
-		cw('n',"Alright, alright...")
+		cw('mc',"Alright, alright...")
 	elseif cl == 160 then
 		hideNatsuki()
 		cw('bl','I give up on Natsuki\'s weird logic and dismiss the conversation.')
