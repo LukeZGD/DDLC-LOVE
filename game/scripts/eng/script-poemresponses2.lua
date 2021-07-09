@@ -998,36 +998,37 @@ function ch21_m_start()
 	m "I'm always listening!"
 	elseif cl == 677 then
 	m "Don't be afraid to bring things up, okay?"
+	elseif cl == 678 then
 	updateMonika('4','a')
 	mc "Alright...I'll keep that in mind."
-	elseif cl == 678 then
-	bl "Of course I'll be afraid to bring things up."
 	elseif cl == 679 then
-	bl "I'm much better off just going with the flow until I'm more settled in."
+	bl "Of course I'll be afraid to bring things up."
 	elseif cl == 680 then
+	bl "I'm much better off just going with the flow until I'm more settled in."
+	elseif cl == 681 then
 	updateMonika('1','a')
 	m "Anyway..."
-	elseif cl == 681 then
-	m "Want to share your poem with me?"
 	elseif cl == 682 then
-	mc "It's kind of embarrassing, but I guess I have to."
+	m "Want to share your poem with me?"
 	elseif cl == 683 then
+	mc "It's kind of embarrassing, but I guess I have to."
+	elseif cl == 684 then
 	updateMonika('5a')
 	m "Ahahaha!"
-	elseif cl == 684 then
-	cw('m',"Don't worry, "..player.."!")
 	elseif cl == 685 then
-	m "We're all a little embarrassed today, you know?"
+	cw('m',"Don't worry, "..player.."!")
 	elseif cl == 686 then
-	m "But it's that sort of barrier that we'll all learn to get past soon."
+	m "We're all a little embarrassed today, you know?"
 	elseif cl == 687 then
-	mc "Yeah, that's true."
+	m "But it's that sort of barrier that we'll all learn to get past soon."
 	elseif cl == 688 then
-	bl "I hand Monika my poem."
+	mc "Yeah, that's true."
 	elseif cl == 689 then
+	bl "I hand Monika my poem."
+	elseif cl == 690 then
 	updateMonika('2','a')
 	m "...Mhm!"
-	elseif cl >= 690 then
+	elseif cl >= 691 then
 	m_eval()
 	end
 end

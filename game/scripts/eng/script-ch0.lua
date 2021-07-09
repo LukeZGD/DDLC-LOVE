@@ -936,9 +936,10 @@ function ch0script()
 	elseif cl == 10018 then
 		cw('bl','Individuals suffering from anxiety or depression may not have a safe experience playing this game. For content warnings, please visit: https://ddlc.moe/warning.html')
 	elseif cl == 10019 then
-		cw('bl','By playing Doki Doki Literature Club, you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content.')
+		warning_msg = "By playing Doki Doki Literature Club, you agree that you are at least 13 years of age, and you consent to your exposure of highly disturbing content."
+		cw('bl',warning_msg)
 	elseif cl == 10020 then
-		menutext = ''
+		menutext = wrap(warning_msg,65)
 		choices = {'I agree.'}
 		choice_enable()
 	elseif cl >= 10021 then

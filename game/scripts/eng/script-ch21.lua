@@ -619,7 +619,7 @@ function ch21script()
 	elseif cl == 1074 then
 	alpha = 10
 	scriptJump(1075)
-	elseif cl >= 1075 then
+	elseif cl >= 1075 and cl < 1100 then
 	fadeOut(1)
 	end
 end

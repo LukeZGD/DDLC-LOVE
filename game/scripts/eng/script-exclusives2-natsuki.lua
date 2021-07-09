@@ -58,9 +58,14 @@ function Natsuki_exclusive2_1()
 	elseif cl == 380 then
 	bl "Natsuki snatches it out of my hand."
 	elseif cl == 381 then
+	scriptJump(520)
+	elseif cl == 520 then
 	bl "She then turns to a box of manga and slips the volume right into the middle of the rest."
+	elseif cl == 521 then
 	updateNatsuki('4','d')
 	n "Aah, much better!"
+	elseif cl == 522 then
+	scriptJump(382)
 	elseif cl == 382 then
 	n "Seeing a box set with one book missing is probably the most irritating sight in the world."
 	elseif cl == 383 then
@@ -74,9 +79,14 @@ function Natsuki_exclusive2_1()
 	elseif cl == 387 then
 	bl "That probably means it's either way out of my demographic, or it's simply terrible."
 	elseif cl == 388 then
+	scriptJump(523)
+	elseif cl == 523 then
 	updateNatsuki('5','g')
 	n "If you're gonna judge, you can go do it through the glass on that door."
+	elseif cl == 524 then
 	bl "She points to the classroom door."
+	elseif cl == 525 then
+	scriptJump(389)
 	elseif cl == 389 then
 	mc "H-Hey, I wasn't judging anything...!"
 	elseif cl == 390 then

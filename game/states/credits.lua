@@ -177,7 +177,7 @@ function updateCredits()
 	elseif c_timer >= 162 and c_timer < 163 then
 		updateConsole("_","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 163 and c_timer < 164 then
-		updateConsole("os.remove(\"scripts/script.lua\")","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
+		updateConsole("os.remove(\"script.lua\")","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".","draw.lua "..tr.credits[14]..".")
 	elseif c_timer >= 164 and c_timer < 165 then
 		updateConsole("_","script.lua "..tr.credits[14]..".","menu.lua "..tr.credits[14]..".","resources.lua "..tr.credits[14]..".")
 	elseif c_timer >= 165 then

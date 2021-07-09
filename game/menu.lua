@@ -152,7 +152,7 @@ function menu_draw()
 		if menu_type == 'choice' then
 			lg.setColor(255,255,255,255)
 			lg.draw(textbox,230,565)
-			outlineText(menutext,250,590,'c_disp')
+			outlineText(menutext,260,593,'c_disp')
 		else
 			lg.setColor(255,255,255,128)
 			lg.rectangle('fill',0,0,1280,725)
@@ -204,7 +204,9 @@ function menu_draw()
 	elseif menu_type == 'pause' then
 		lg.draw(gui.gmenu)
 		lg.draw(gui.gamebuttons)
-		lg.draw(gui.gamemenu)
+		if gui.gamemenu then
+			lg.draw(gui.gamemenu)
+		end
 		lg.draw(gui.check,50,(cY/1.2)+240)
 		
 	elseif menu_type == 'help' then
@@ -240,8 +242,10 @@ function menu_draw()
 	elseif menu_type == 'savegame' or menu_type == 'loadgame' then
 		menu_drawstuff('overlay')
 		if menu_type == 'loadgame' then
+			gui.gamemenu = gui.load
 			lg.draw(gui.load)
 		elseif menu_type == 'savegame' then
+			gui.gamemenu = gui.save
 			lg.draw(gui.save)
 		end
 		if m_selected >= 2 and m_selected <= 4 then
@@ -282,6 +286,7 @@ function menu_draw()
 	elseif menu_type == 'settings' then
 		menu_drawstuff('overlay')
 		lg.setColor(255,255,255)
+		gui.gamemenu = gui.settings
 		lg.draw(gui.settings)
 		lg.draw(gui.setbuttons)
 		local hv = {x=0,y=0}
@@ -320,6 +325,7 @@ function menu_draw()
 		
 	elseif menu_type == 'history' then
 		menu_drawstuff('overlay')
+		gui.gamemenu = gui.history
 		lg.draw(gui.history)
 		lg.setColor(0,0,0)
 		
@@ -344,8 +350,11 @@ function menu_draw()
 		lg.print(menutext,340,90)
 	end
 	
-	lg.setColor(0,0,0,menu_alpha)
+	
 	if menu_type == 'characters' then
+		lg.setColor(255,255,255,menu_alpha)
+		lg.draw(gui.gamemenu)
+		lg.setColor(0,0,0,menu_alpha)
 		for i = 1, 8 do
 			if menu_items >= i+1 and itemnames[i] then
 				lg.print(itemnames[i],360,110+(50*i))
@@ -620,8 +629,15 @@ function menu_keypressed(key)
 	elseif key == 'left' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			sfx2:play()
-			if m_selected == 2 or m_selected == 5 then
-				m_selected = m_selected + 2
+			if (m_selected == 2 or m_selected == 5) and pagenum > 1 then
+				pagenum = pagenum - 1
+				m_selected2 = m_selected
+				menu_enable(menu_type)
+				if m_selected2 == 2 then
+					m_selected = 4
+				elseif m_selected2 == 5 then
+					m_selected = 7
+				end
 			elseif m_selected > 2 then
 				m_selected = m_selected - 1
 			end
@@ -648,8 +664,15 @@ function menu_keypressed(key)
 	elseif key == 'right' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			sfx2:play()
-			if m_selected == 4 or m_selected == 7 then
-				m_selected = m_selected - 2
+			if (m_selected == 4 or m_selected == 7) and pagenum < 10 then
+				pagenum = pagenum + 1
+				m_selected2 = m_selected
+				menu_enable(menu_type)
+				if m_selected2 == 4 then
+					m_selected = 2
+				elseif m_selected2 == 7 then
+					m_selected = 5
+				end
 			elseif m_selected < 7 then
 				m_selected = m_selected + 1
 			end
@@ -672,13 +695,17 @@ function menu_keypressed(key)
 	elseif key == 'leftshoulder' or key == 'l' then
 		if (menu_type == 'savegame' or menu_type == 'loadgame' or menu_type == 'settings') and pagenum > 1 then
 			pagenum = pagenum - 1
+			m_selected2 = m_selected
 			menu_enable(menu_type)
+			m_selected = m_selected2
 		end
 	
 	elseif key == 'rightshoulder' or key == 'r' then
 		if ((menu_type == 'savegame' or menu_type == 'loadgame') and pagenum < 10) or (menu_type == 'settings' and pagenum < 2) then
 			pagenum = pagenum + 1
+			m_selected2 = m_selected
 			menu_enable(menu_type)
+			m_selected = m_selected2
 		end
 		
 	elseif key == 'y' then

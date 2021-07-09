@@ -586,11 +586,16 @@ function ch20script()
 	elseif cl == 233 then
 	mc "Monika may have convinced me to stop by, but I never made any decision."
 	elseif cl == 234 then
+	scriptJump(300)
+	elseif cl == 300 then
 	mc "I still have other clubs to look at, and...um..."
+	elseif cl == 301 then
 	updateMonika('1','g')
 	updateNatsuki('4','g')
 	updateYuri('2','e')
 	bl "I lose my train of thought."
+	elseif cl == 302 then
+	scriptJump(235)
 	elseif cl == 235 then
 	bl "All three girls stare back at me with dejected eyes."
 	elseif cl == 236 then
@@ -750,13 +755,8 @@ function ch20script()
 	else
 		scriptJump(297)
 	end
-	elseif cl >= 297 then
+	elseif cl >= 297 and cl<300 then
 	cl = 297
 	fadeOut(1)
-	
-	--1: x=80
-	--2: x=20 x=140 ..or.. x=10 x=150
-	--3: x=0-40 x=80 x=200
-	--4: x=0-60 x=30 x=120 x=220
 	end
 end

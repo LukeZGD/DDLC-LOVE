@@ -206,7 +206,7 @@ function drawPoemGame()
 		lg.print('20/20',800,70)
 	end
 	if spAdd and npAdd and ypAdd and dvertype == 'Test' then
-		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd..'\n'..glitch2g,0,50)
+		lg.print(spAdd..'\n'..npAdd..'\n'..ypAdd..'\n'..glitch2g,430,40)
 	end
 	
 	lg.setColor(255,255,255,alpha)

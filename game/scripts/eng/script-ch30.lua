@@ -484,12 +484,15 @@ function ch30_end()
 	updateConsole("_", "monika.chr does not exist.")
 	pause(1)
 	elseif cl == 1065 then
-	cw(gtext12,"HELP ME!!!")
-	elseif cl == 1066 then
 	event_end('next')
-	sfxplay('monikapound')
+	elseif cl == 1066 then
+	cw(gtext12,"HELP ME!!!")
+	event_init('monika_end','show_noise')
 	elseif cl == 1067 then
-	event_initstart('monika_end','show_noise')
+	sfxplay('monikapound')
+	if xaload == 1 then
+		event_start('monika_end','show_noise')
+	end
 	pause(3)
 	elseif cl == 1068 then
 	updateConsole(zfile.."(\"characters/monika.chr\")","monika.chr does not exist.")

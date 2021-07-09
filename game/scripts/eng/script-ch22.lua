@@ -411,9 +411,14 @@ function ch22script()
 	updateYuri('3','n')
 	y "A-Ah--"
 	elseif cl == 1224 then
+	scriptJump(1000)
+	elseif cl == 1000 then
 	y "I'm being a little forceful, aren't I...?"
+	elseif cl == 1001 then
 	updateYuri('4','c2')
 	y "I'm sorry!"
+	elseif cl == 1002 then
+	scriptJump(1225)
 	elseif cl == 1225 then
 	y "My heart...just won't stop pounding, for some reason..."
 	elseif cl == 1226 then
@@ -601,10 +606,15 @@ function ch22_end()
 	updateMonika('2','m')
 	cw('m',"I'm sure Yuri and "..player.." want to get more members too...")
 	elseif cl == 1497 then
+	scriptJump(1700)
+	elseif cl == 1700 then
 	updateMonika('2','p')
 	m "...Right?"
+	elseif cl == 1701 then
 	updateYuri('4','b2')
 	y "..."
+	elseif cl == 1702 then
+	scriptJump(1498)
 	elseif cl == 1498 then
 	mc "..."
 	elseif cl == 1499 then
@@ -946,7 +956,7 @@ function ch22_end()
 	elseif cl == 1628 then
 	alpha = 20
 	event_end('next')
-	elseif cl >= 1629 then
+	elseif cl >= 1629 and cl < 1700 then
 	fadeOut(1)
 	end
 end

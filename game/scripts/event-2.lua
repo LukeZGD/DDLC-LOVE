@@ -156,21 +156,28 @@ function event_draw_2()
 				lg.rectangle('fill',math.random(578,592),math.random(300,313),math.random(16,29),math.random(15,27))
 				lg.rectangle('fill',math.random(578,592),math.random(300,313),math.random(16,29),math.random(15,27))
 			end
+		elseif cl == 726 then
+			lg.print(event_timer)
+			if event_timer < 1 then
+				lg.draw(nl,256)
+			elseif event_timer < 1.55 then
+				lg.draw(ghost3,256)
+			end
 		end
 		lg.setColor(32,0,0,eventvar1)
 		lg.rectangle('fill',0,0,1280,725)
 		lg.setColor(255,255,255)
 		if cl == 726 then
-			if event_timer < 1 then
-				lg.draw(nl,256)
-			elseif event_timer < 1.5 then
+			if event_timer < 1.55 then
+				lg.draw(cgch)
+			elseif event_timer < 1.6 then
 				lg.draw(ghost3,256)
-			elseif event_timer < 1.5625 then
-				lg.draw(ghost3_1,256)
-			elseif event_timer < 1.625 then
-				lg.draw(ghost3_2,256)
-			elseif event_timer < 1.6875 then
-				lg.draw(ghost3_3,256)
+			elseif event_timer < 1.65 then
+				lg.draw(ghost3_1)
+			elseif event_timer < 1.7 then
+				lg.draw(ghost3_2)
+			elseif event_timer < 1.75 then
+				lg.draw(ghost3_3)
 			end
 		end
 	end
@@ -326,7 +333,7 @@ function event_update_2()
 	end
 	
 	if event_type == 'natsuki_ch22' then
-		eventvar1 = math.min(eventvar1 + 0.1, 128)
+		eventvar1 = math.min(eventvar1 + 0.5, 192)
 		eventvar2 = math.min(eventvar2 + 0.03, 192)
 		if cl == 726 and textbox_enabled then
 			event_timer = 0
