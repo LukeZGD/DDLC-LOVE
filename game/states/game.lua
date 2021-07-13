@@ -119,10 +119,10 @@ function game_keypressed(key)
 		autotimer = 0
 		menu_enable('pause')
 	elseif key == 'start' or key == 'return' then --auto on/off
-		if global_os ~= 'LOVE-WrapLua' then sfx1:play() end
+		if global_os ~= 'LOVE-WrapLua' then sfxplay2(sfx1) end
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif key == 'rightshoulder' or key == 'r' then
-		if global_os ~= 'LOVE-WrapLua' then sfx1:play() end
+		if global_os ~= 'LOVE-WrapLua' then sfxplay2(sfx1) end
 		if not event_enabled then
 			if autoskip < 1 then autoskip = 1
 			elseif autoskip > 0 then autoskip = 0 end

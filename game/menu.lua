@@ -19,6 +19,10 @@ local dversionx = 1180
 local ca1 = {70,140,210}
 local xpsc = 400
 local ypsc = {35,65,95,125}
+local hold = 0
+local scanbuttons = {'up','down','left','right'}
+local cond = {}
+local hold = {0,0,0,0}
 menu_alpha = 0
 
 function savepicLoad(i)
@@ -225,8 +229,10 @@ function menu_draw()
 			else
 				keys = {'Circle, (L)','Start','(R)','Square','Cross','Select'}
 			end
-		else
+		elseif g_system == "Switch" then
 			keys = {'(A), (L)','(+)','(R)','(Y)','(B)','(-)'}
+		else
+			keys = {'Space, Return', '3', '2', '1', 'Esc', '4'}
 		end
 		lg.setColor(0,0,0)
 		lg.print('Key Bindings:',160,120)
@@ -277,7 +283,8 @@ function menu_draw()
 			lg.print(menutext,366,138)
 		else
 			lg.print('Page '..pagenum,751,138)
-			lg.print('(< L | R >)',1110,138)
+			lg.setColor(170,170,170,255)
+			lg.print("1\t2\t3\t4\t5\t6\t7\t8\t9\t10",627,660)
 		end
 		
 		lg.setColor(255,255,255,128)
@@ -357,7 +364,7 @@ function menu_draw()
 		lg.setColor(0,0,0,menu_alpha)
 		for i = 1, 8 do
 			if menu_items >= i+1 and itemnames[i] then
-				lg.print(itemnames[i],360,110+(50*i))
+				lg.print(itemnames[i],362,110+(50*i))
 			end
 		end
 	end
@@ -404,15 +411,35 @@ function menu_update()
 			end
 		end
 	end
+	
+	for i = 1, #scanbuttons do
+		if g_system == 'Switch' then
+			cond[i] = joystick:isGamepadDown('dp'..scanbuttons[i])
+		else
+			cond[i] = love.keyboard.isDown(scanbuttons[i])
+		end
+		if cond[i] then
+			hold[i] = hold[i] + dt
+			if hold[i] >= 0.35 then
+				if hold[i] > 0.45 then
+					love.keypressed(scanbuttons[i])
+					hold[i] = 0.35
+				end
+			end
+		else
+			hold[i] = 0
+		end
+	end
 end
 
 function menu_confirm()
 	if menu_type == 'title' or menu_type == 'pause' or menu_type == 'choice' or menu_type == 'dialog' then
-		sfx1:play()
+		sfxplay2(sfx1)
 	end
 	
 	if menu_type == 'title' then --title screen options
 		menu_previous = 'title'
+		m_selected2 = m_selected
 		
 		if m_selected == 2 then --new game
 			bg1 = 'black'
@@ -446,7 +473,7 @@ function menu_confirm()
 			menu_enable('help')
 			
 		elseif m_selected == 6 then --quit
-			love.event.quit()
+			menu_enable('quityesno')
 		end
 		
 	elseif menu_type == 'loadgame' and persistent.chr.m ~= 2 then --load game confirm
@@ -479,6 +506,8 @@ function menu_confirm()
 	
 	elseif menu_type == 'pause' then --pause menu options
 		menu_previous = menu_type
+		m_selected2 = m_selected
+		
 		if m_selected == 2 then
 			menu_enable('history')
 		elseif m_selected == 3 then
@@ -580,7 +609,9 @@ end
 
 function menu_keypressed(key)
 	if key == 'down' then
-		sfx2:play()
+		if menu_type ~= 'history' and menu_type ~= 'savegame' and menu_type ~= 'loadgame' then
+			sfxplay2(sfx2)
+		end
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			if m_selected <= 4 then
 				m_selected = m_selected + 3
@@ -595,7 +626,9 @@ function menu_keypressed(key)
 		m_select()
 		
 	elseif key == 'up' then
-		sfx2:play()
+		if menu_type ~= 'history' and menu_type ~= 'savegame' and menu_type ~= 'loadgame'  then
+			sfxplay2(sfx2)
+		end
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
 			if m_selected >= 5 and m_selected <= 7 then
 				m_selected = m_selected - 3
@@ -624,11 +657,15 @@ function menu_keypressed(key)
 			menu_enable(menu_previous)
 		end
 		savepicFree()
+		if m_selected2 then
+			m_selected = m_selected2
+			m_select()
+			m_selected2 = nil
+		end
 		menu_previous = nil
 		
 	elseif key == 'left' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
-			sfx2:play()
 			if (m_selected == 2 or m_selected == 5) and pagenum > 1 then
 				pagenum = pagenum - 1
 				m_selected2 = m_selected
@@ -638,7 +675,7 @@ function menu_keypressed(key)
 				elseif m_selected2 == 5 then
 					m_selected = 7
 				end
-			elseif m_selected > 2 then
+			elseif m_selected > 2 and m_selected ~= 5 then
 				m_selected = m_selected - 1
 			end
 			m_select()
@@ -663,7 +700,6 @@ function menu_keypressed(key)
 		
 	elseif key == 'right' then
 		if menu_type == 'savegame' or menu_type == 'loadgame' then
-			sfx2:play()
 			if (m_selected == 4 or m_selected == 7) and pagenum < 10 then
 				pagenum = pagenum + 1
 				m_selected2 = m_selected
@@ -673,7 +709,7 @@ function menu_keypressed(key)
 				elseif m_selected2 == 7 then
 					m_selected = 5
 				end
-			elseif m_selected < 7 then
+			elseif m_selected < 7 and m_selected ~= 4 then
 				m_selected = m_selected + 1
 			end
 			m_select()

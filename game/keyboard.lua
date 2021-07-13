@@ -9,6 +9,10 @@ local keyboardrow4c = {'Z','X','C','V','B','N','M','','','X  Enter'}
 local keyboardrow2 = {'q','w','e','r','t','y','u','i','o','p'}
 local keyboardrow3 = {'a','s','d','f','g','h','j','k','l','X  Space'}
 local keyboardrow4 = {'z','x','c','v','b','n','m','','','X  Enter'}
+local caps_text = "Triangle"
+if global_os ~= "LOVE-WrapLua" then
+	caps_text = "Shift"
+end
 
 function keyboard_draw()
 	lg.setColor(255,255,255,menu_alpha/2)
@@ -44,7 +48,7 @@ function keyboard_draw()
 		end
 	end
 	lg.draw(gui.keysbox,(keycursorX*50)+282,(keycursorY*50)+250)
-	lg.print("Triangle - Toggle Caps Lock",290,500)
+	lg.print(caps_text.." - Toggle Caps Lock",290,500)
 end
 
 function keyboard_keypressed(key)

@@ -55,11 +55,11 @@ tr.splash = {
 }
 tr.menuitem = {'Yes','No','Delete ','Restore All'}
 tr.menuhelp = {
-	' : Advances through the game, activates menu choices',
-	' : Exit Menu, Auto-Forward On/Off',
-	' : Skipping On/Off',
-	' : Enter Game Menu',
-	' : Show/hide text window',
+	' - Advances through the game, activates menu choices',
+	' - Auto-Forward On/Off',
+	' - Skipping On/Off',
+	' - Enter Game Menu',
+	' - Exit Menu, Show/hide text window',
 	'Managing files: Go to Settings > Characters',
 	[[
 	Deleting save data: Delete the save folder:
@@ -108,7 +108,7 @@ tr.menuhelp = {
 	me?will you promise to spend the most time with me?will you promise to spend the most
 	time with
 	]],
-	' : Toggle text outline - toggle this for better readability'
+	' - Toggle text outline - toggle this for better readability'
 }
 tr.error = {
 'Press Y/Triangle to quit',

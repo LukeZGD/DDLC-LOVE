@@ -152,7 +152,7 @@ function event_keypressed(key)
 		menu_mchance = math.random(1,50)
 		menu_enable('pause')
 	elseif (key == 'start' or key == 'return') and event_type == 'ch23-30' and chapter == 30 then --auto
-		sfx1:play()
+		sfxplay2(sfx1)
 		if autotimer == 0 then autotimer = 0.01 else autotimer = 0 end		
 	elseif (key == 'back' or key == '-') and event_type == 'ch23-30' then
 		if settings.o ~= 1 then settings.o = 1

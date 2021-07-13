@@ -52,7 +52,7 @@ function addpoints()
 	elseif glitchpoem_in and love.math.random(1,11) == 1 then
 		sfxplay('baa')
 	else
-		sfx1:play()
+		sfxplay2(sfx1)
 	end
 	if poemword ~= 21 then poemword = poemword + 1 end
 	if chapter == 22 then
@@ -403,7 +403,7 @@ function poemgamekeypressed(key)
 		if xaload >= 35 then
 			if poemstate == 0 then
 				poemstate = nil
-				sfx1:play()
+				sfxplay2(sfx1)
 			elseif poemword <= 19 then
 				addpoints()
 				updatewordlist()

@@ -1,4 +1,4 @@
-dversion = "v1.2.1"
+dversion = "v1.2.2"
 dvertype = "" --put 'Test' for test mode
 print("DDLC-LOVE "..dversion..' '..dvertype)
 
@@ -132,6 +132,24 @@ function love.update()
 end
 
 function love.keypressed(key)
+	if global_os ~= "LOVE-WrapLua" and g_system ~= "Switch" then
+		if key == "space" or key == "return" then
+			key = "a"
+		elseif key == "escape" or key == "backspace" then
+			key = "b"
+		elseif key == "1" or key == "lshift" or key == "rshift" then
+			key = "y"
+		elseif key == "2" then
+			key = "r"
+		elseif key == "3" then
+			key = "start"
+		elseif key == "4" then
+			key = "back"
+		elseif key ~= "up" and key ~= "down" and key ~= "left" and key ~= "right" then
+			key = ""
+		end
+	end
+	
 	if menu_enabled ~= true then
 		if state == 'splash' or state == 'splash2' then
 			splash_keypressed(key)

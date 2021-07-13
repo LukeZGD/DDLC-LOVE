@@ -59,3 +59,13 @@ function sfxplay(sfx) --sfx stuff
 		sfxp:play()
 	end
 end
+
+function sfxplay2(sfx)
+	local clone
+	if g_system == "LOVE-WrapLua" then
+		clone = sfx
+	else
+		clone = sfx:clone()
+	end
+	clone:play()
+end
