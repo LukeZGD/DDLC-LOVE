@@ -9,8 +9,8 @@
 - **For the full experience of the game on the PC, Switch, and other consoles, please support Team Salvato and buy DDLC Plus! Get the official console versions at: https://ddlc.plus**
 
 ## Downloads:
-- [PS Vita v1.2.1 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.1/DDLC-LOVE.vpk)
-- [LÖVE v1.2.1 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.1/DDLC-LOVE.love)
+- [PS Vita v1.2.2 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.2/DDLC-LOVE.vpk)
+- [LÖVE v1.2.2 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.2/DDLC-LOVE.love)
 - [PSP v1.1.9 (.zip)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.1.9/DDLC-LOVE-PSP-fix3.zip)
 - [Other versions](https://github.com/LukeZGD/DDLC-LOVE/releases/v1.1.9) (not recommended)
 - **Note:** Limited support for PSP, Switch, 3DS, and PS3. Playing the DDLC-LOVE versions for these systems is not recommended. For more details, see [#123](https://github.com/LukeZGD/DDLC-LOVE/issues/123)

@@ -62,7 +62,7 @@ end
 
 function sfxplay2(sfx)
 	local clone
-	if g_system == "LOVE-WrapLua" then
+	if global_os == "LOVE-WrapLua" or g_system == "Switch" then
 		clone = sfx
 	else
 		clone = sfx:clone()
