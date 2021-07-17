@@ -808,9 +808,9 @@ function ch2script()
 		updateMonika('2','d')
 		cw('m',"Now, let's see...")
 	elseif cl == 1745 then
-		cw('m',"Monika flips through her notebook to the specific poem she has in mind for herself.")
+		cw('bl',"Monika flips through her notebook to the specific poem she has in mind for herself.")
 	elseif cl == 1746 then
-		cw('m',"She then stands behind the podium.")
+		cw('bl',"She then stands behind the podium.")
 	elseif cl == 1747 then
 		hideSayori()
 		hideNatsuki()
