@@ -6,19 +6,22 @@
 
 - **DDLC-LOVE** is a Doki Doki Literature Club port programmed in Lua for the **Nintendo Switch, 3DS, Sony PS Vita, PSP, and PS3!**
 - **This port is unofficial and is not affiliated with Team Salvato. Please support the official game. You can download Doki Doki Literature Club at: https://ddlc.moe**
-- **For the full experience of the game on the PC, Switch, and other consoles, please support Team Salvato and buy DDLC Plus! Get the official console versions at: https://ddlc.plus**
+- **For the full experience of the game on the PC, Switch, and other consoles, please support Team Salvato and buy Doki Doki Literature Club Plus! Get the official console versions at: https://ddlc.plus**
 
 ## Downloads:
 - [PS Vita v1.2.2 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.2/DDLC-LOVE.vpk)
 - [LÖVE v1.2.2 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.2/DDLC-LOVE.love)
 - [Other versions](https://github.com/LukeZGD/DDLC-LOVE/releases/v1.1.9) (not recommended)
-- **Note:** Limited support for PSP, Switch, 3DS, and PS3. Playing the DDLC-LOVE versions for these systems is not recommended. For more details, see [#123](https://github.com/LukeZGD/DDLC-LOVE/issues/123)
+
+## Notes:
+- Limited support for PSP, Switch, 3DS, and PS3. Playing the DDLC-LOVE versions for these systems is not recommended. For more details, see [#123](https://github.com/LukeZGD/DDLC-LOVE/issues/123)
+- DDLC-LOVE is not compatible with any existing mods and translations, they have to be ported manually. Also, DDLC-LOVE is a port of the free base game only. Content from DDLC Plus will not be ported over to DDLC-LOVE. If you want DDLC Plus content, please support Team Salvato and buy the game from the official platforms
 
 ## Usage:
 - **PS Vita** - Install the `.vpk` using [VitaShell](https://github.com/TheOfficialFloW/VitaShell). You can now run DDLC-LOVE from the home screen
 - **LÖVE** - Run the LÖVE executable (`.love`) using LÖVE versions 0.10.2 and newer
-- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LÖVE executable (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
 - **PSP** - Download the `.zip` for the PSP version, and extract the folder with `EBOOT.PBP` to your memory stick at `ms0:/PSP/GAME/`. You can now run DDLC-LOVE from the XMB
+- **Switch** - Run the `.nro` with [Atmosphère](https://github.com/Atmosphere-NX/Atmosphere) title takeover functionality. The LÖVE executable (`.love`) may also be used. More details can be found in [lovebrew](https://lovebrew.org/#/packaging)
 - **3DS .3dsx** - Put the `.3dsx` to the `3ds` folder on the root of your SD card. You can now run DDLC-LOVE from [The Homebrew Launcher](https://github.com/fincs/new-hbmenu)
 - **3DS .cia** - Install the `.cia`  using [FBI](https://github.com/Steveice10/FBI). You can now run DDLC-LOVE from the home menu
 - **PS3:**
@@ -40,7 +43,7 @@
 | Other    | see [love.filesystem](https://love2d.org/wiki/love.filesystem)|
 
 ## Building:
-- For v1.2.1, game assets are to be extracted from the v1.2.1 release
+- For v1.2.1 and newer, game assets are to be extracted from the latest release
 - Game assets from the [DDLC-LOVE-Assets](https://github.com/LukeZGD/DDLC-LOVE-Assets) repo are only to be used for v1.2.0 and older
 - For all Sony devices, [LOVE-WrapLua](https://github.com/LukeZGD/LOVE-WrapLua) is also required beside the game folder (`index.lua`, `script.lua`, and the `LOVE-WrapLua` folder). See the contents of the Vita, PSP, and PS3 versions for the directory tree (`.vpk` and `.zip` releases)
 
