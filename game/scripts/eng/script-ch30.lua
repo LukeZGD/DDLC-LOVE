@@ -1962,7 +1962,9 @@ function ch30_32()
 end
 
 function ch30_33()
-	if cl < 697 then
+	if cl < 696 then
+	scriptJump(696)
+	elseif cl == 696 then
 	m "Hey, do you like horror?"
 	elseif cl == 697 then
 	m "I remember we talked about it a little bit when you first joined the club."
