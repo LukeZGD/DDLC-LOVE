@@ -340,6 +340,9 @@ function menu_draw()
 			local temptext = wrap(history[i],70)
 			local ypos = 3600+(history_scr*75)-(i*120)
 			
+			if g_system == 'PSP' then
+				xpsc = 360
+			end
 			if global_os == 'LOVE-WrapLua' then
 				lg.print(temptext,xpsc,ypos)
 			else

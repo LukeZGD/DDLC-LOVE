@@ -7,6 +7,8 @@ if g_system == 'Switch' then
 	savedir = 'sdmc:/switch/DDLC-LOVE/'
 elseif g_system == 'Vita' then
 	savedir = 'ux0:/data/DDLC-LOVE/savedata/'
+elseif g_system == 'PSP' then
+	savedir = 'ms0:/PSP/GAME/DDLC-LOVE/savedata/'
 elseif global_os == 'Linux' then
     savedir = '$HOME/.local/share/love/DDLC-LOVE/'
 elseif global_os == 'Windows' then

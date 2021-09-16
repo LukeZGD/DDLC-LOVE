@@ -130,7 +130,7 @@ unitimer = 0
 uniduration = 0.25
 
 function outlineText(text,x,y,type,arg1)
-	if settings.o == 1 and type ~= 'poemgame' and type ~= 'm_selected' then
+	if g_system == 'PSP' or (settings.o == 1 and type ~= 'poemgame' and type ~= 'm_selected') then
 		lg.setColor(0,0,0,alpha)
 	else
 		local addm = 1.5
@@ -209,6 +209,9 @@ function drawTextBox()
 			lg.setFont(dfnt)
 		else
 			lg.setFont(allerfont)
+		end
+		if g_system == 'PSP' then
+			xps.c = 240
 		end
 		if c_disp[1] then
 			outlineText(c_disp[1],xps.c,yps.c[1],'c_disp')

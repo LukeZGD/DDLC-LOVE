@@ -9,13 +9,17 @@
 - **For the full experience of the game on the PC, Switch, and other consoles, please support Team Salvato and buy Doki Doki Literature Club Plus! Get the official console versions at: https://ddlc.plus**
 
 ## Downloads:
-- [PS Vita v1.2.2 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.2/DDLC-LOVE.vpk)
-- [LÖVE v1.2.2 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.2/DDLC-LOVE.love)
-- [Other versions](https://github.com/LukeZGD/DDLC-LOVE/releases/v1.1.9) (not recommended)
+- [PS Vita v1.2.3 (.vpk)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.3/DDLC-LOVE.vpk)
+- [LÖVE v1.2.3 (.love)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.3/DDLC-LOVE.love)
+- [PSP v1.2.3 (.zip)](https://github.com/LukeZGD/DDLC-LOVE/releases/download/v1.2.3/DDLC-LOVE-PSP.zip)
+- [Other systems](https://github.com/LukeZGD/DDLC-LOVE/releases/v1.1.9) (not recommended)
 
 ## Notes:
+- With better ways to play DDLC on Switch and Vita platforms, DDLC-LOVE is no longer needed, and it will not be updated anymore.
+- For the PS Vita, I recommend using [Doki-Doki-Literature-Club-Vita](https://github.com/SonicMastr/Doki-Doki-Literature-Club-Vita) instead of DDLC-LOVE for the full desktop version (in Ren'Py) with support for mods.
+- For the Switch, support Team Salvato and buy DDLC Plus! The original DDLC (in Ren'Py) can also be run with Switchroot Ubuntu or Android with support for mods.
 - Limited support for PSP, Switch, 3DS, and PS3. Playing the DDLC-LOVE versions for these systems is not recommended. For more details, see [#123](https://github.com/LukeZGD/DDLC-LOVE/issues/123)
-- DDLC-LOVE is not compatible with any existing mods and translations, they have to be ported manually. Also, DDLC-LOVE is a port of the free base game only. Content from DDLC Plus will not be ported over to DDLC-LOVE. If you want DDLC Plus content, please support Team Salvato and buy the game from the official platforms
+- DDLC-LOVE is not compatible with any existing mods and translations. Also, DDLC-LOVE is a port of the free base game only. Content from DDLC Plus will not be ported over to DDLC-LOVE. If you want DDLC Plus content, please support Team Salvato and buy the game from the official platforms.
 
 ## Usage:
 - **PS Vita** - Install the `.vpk` using [VitaShell](https://github.com/TheOfficialFloW/VitaShell). You can now run DDLC-LOVE from the home screen

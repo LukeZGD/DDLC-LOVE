@@ -21,7 +21,11 @@ function loaderAssets(l_timer)
 		--splash, title screen, gui elements, sfx
 		namebox = lgnewImage('assets/images/gui/namebox.png')
 		textbox = lgnewImage('assets/images/gui/textbox.png')
-		menu_bg = lgnewImage('assets/images/gui/menu_bg.jpg')
+		if g_system == 'PSP' then
+			menu_bg = lgnewImage('assets/images/gui/menu_bg.png')
+		else
+			menu_bg = lgnewImage('assets/images/gui/menu_bg.jpg')
+		end
 		gui.check = lgnewImage('assets/images/gui/button/check_selected_foreground.png')
 		gui.ctc = lgnewImage('assets/images/gui/ctc.png')
 		gui.skip = lgnewImage('assets/images/gui/skip.png')
@@ -39,12 +43,12 @@ function loaderAssets(l_timer)
 		n1 = lg.newFont('assets/fonts/n1.ttf',24) --natsuki poem font
 		
 	elseif l_timer == 101 then
-		gui.mainbuttons = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/mainbuttons.png")
-		gui.gamebuttons = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/gamebuttons.png")
-		gui.history = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/history.png")
-		gui.load = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/load.png")
-		gui.save = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/save.png")
-		gui.settings = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/settings.png")
-		gui.setbuttons = lgnewImage("assets/images/gui/overlay/"..settings.lang.."/setbuttons.png")
+		gui.mainbuttons = lgnewImage("assets/images/gui/"..settings.lang.."/mainbuttons.png")
+		gui.gamebuttons = lgnewImage("assets/images/gui/"..settings.lang.."/gamebuttons.png")
+		gui.history = lgnewImage("assets/images/gui/"..settings.lang.."/history.png")
+		gui.load = lgnewImage("assets/images/gui/"..settings.lang.."/load.png")
+		gui.save = lgnewImage("assets/images/gui/"..settings.lang.."/save.png")
+		gui.settings = lgnewImage("assets/images/gui/"..settings.lang.."/settings.png")
+		gui.setbuttons = lgnewImage("assets/images/gui/"..settings.lang.."/setbuttons.png")
 	end
 end
